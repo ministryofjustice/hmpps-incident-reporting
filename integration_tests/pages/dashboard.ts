@@ -9,6 +9,10 @@ export class DashboardPage extends Page {
     return cy.get('a').contains('Create a report')
   }
 
+  get createPecsReportLink(): PageElement<HTMLAnchorElement> {
+    return cy.get('a').contains('Create a PECS report')
+  }
+
   private get searchForm(): PageElement<HTMLFormElement> {
     return cy.get('form#app-dashboard__search-form')
   }
@@ -27,6 +31,21 @@ export class DashboardPage extends Page {
 
   get location(): PageElement<HTMLInputElement> {
     return this.searchForm.find('#location')
+  }
+
+  get locationSelect(): PageElement<HTMLSelectElement> {
+    return this.searchForm.find('#location-select')
+  }
+
+  get locationOptions() {
+    return this.locationSelect.find<HTMLOptionElement>('option').then($options =>
+      $options
+        .map((_, option) => ({
+          label: option.textContent.trim(),
+          value: option.value,
+        }))
+        .toArray(),
+    )
   }
 
   get type(): PageElement<HTMLInputElement> {

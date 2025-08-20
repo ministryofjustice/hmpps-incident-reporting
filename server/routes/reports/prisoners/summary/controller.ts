@@ -34,7 +34,7 @@ export default class PrisonerSummary extends InvolvementSummary {
   }
 
   getNextStep(req: FormWizard.Request<Values>, res: express.Response): string {
-    if (res.locals.creationJourney && req.body?.userAction !== 'exit') {
+    if (res.locals.creationJourney && req.body?.formAction !== 'exit') {
       // proceed to adding staff when following create journey
       return `${res.locals.reportSubUrlPrefix}/staff`
     }

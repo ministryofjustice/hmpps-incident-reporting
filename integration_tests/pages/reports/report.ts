@@ -1,6 +1,7 @@
+import type { UserAction } from '../../../server/middleware/permissions'
 import Page, { type PageElement } from '../page'
 
-export default class ReportPage extends Page {
+export class ReportPage extends Page {
   constructor(reference: string, unsubmitted = false) {
     super(unsubmitted ? `Check your answers – incident report ${reference}` : `Incident report ${reference}`)
   }
@@ -143,7 +144,19 @@ export default class ReportPage extends Page {
     return this.userActionsForm.find('#userAction').find<HTMLLabelElement>('label').contains(label).click()
   }
 
+  enterOriginalReportReference(reference: string): PageElement<HTMLInputElement> {
+    return this.userActionsForm.find<HTMLInputElement>('[name="originalReportReference"]').type(reference)
+  }
+
+  enterComment(userAction: UserAction, comment: string): PageElement<HTMLTextAreaElement> {
+    return this.userActionsForm.find<HTMLTextAreaElement>(`[name="${userAction}_COMMENT"]`).type(comment)
+  }
+
+  get submitButtons(): PageElement<HTMLButtonElement> {
+    return this.userActionsForm.find<HTMLButtonElement>('.govuk-button')
+  }
+
   get continueButton(): PageElement<HTMLButtonElement> {
-    return this.userActionsForm.find<HTMLButtonElement>('.govuk-button').contains('Continue')
+    return this.submitButtons.contains('Continue')
   }
 }

@@ -1,11 +1,11 @@
 import { mockReport } from '../../server/data/testData/incidentReporting'
 import { moorland } from '../../server/data/testData/prisonApi'
+import { now } from '../../server/testutils/fakeClock'
 import Page from '../pages/page'
 import { IncidentDateTimePage } from '../pages/reports/incidentDateTime'
-import ReportPage from '../pages/reports/report'
+import { ReportPage } from '../pages/reports/report'
 
 context('Update an existing report’s date after it’s been reviewed', () => {
-  const now = new Date()
   const reportWithDetails = mockReport({
     type: 'DISORDER_2',
     status: 'NEEDS_UPDATING',
@@ -22,6 +22,7 @@ context('Update an existing report’s date after it’s been reviewed', () => {
   reportWithDetails.correctionRequests = []
 
   beforeEach(() => {
+    cy.clock(now)
     cy.resetBasicStubs()
 
     cy.signIn()
@@ -35,9 +36,8 @@ context('Update an existing report’s date after it’s been reviewed', () => {
     incidentDateTimePage.checkBackLink(`/reports/${reportWithDetails.id}`)
     incidentDateTimePage.checkCancelLink(`/reports/${reportWithDetails.id}`)
 
-    incidentDateTimePage.enterDate(new Date(reportWithDetails.incidentDateAndTime))
-    const time = /(?<hours>\d\d):(?<minutes>\d\d)/.exec(reportWithDetails.incidentDateAndTime)
-    incidentDateTimePage.enterTime(time.groups.hours, time.groups.minutes)
+    incidentDateTimePage.enterDate('5/12/2023')
+    incidentDateTimePage.enterTime('11', '34')
 
     // stub report details update
     cy.task('stubIncidentReportingApiUpdateReport', {
@@ -60,8 +60,8 @@ context('Update an existing report’s date after it’s been reviewed', () => {
     const incidentDateTimePage = Page.verifyOnPage(IncidentDateTimePage)
     incidentDateTimePage.enterTime('10', ' ')
     incidentDateTimePage.submit()
-    incidentDateTimePage.errorSummary.contains('There is a problem')
-    incidentDateTimePage.errorSummary.contains('Enter the time of the incident using the 24 hour clock')
+    incidentDateTimePage.errorSummary.should('contain.text', 'There is a problem')
+    incidentDateTimePage.errorSummary.should('contain.text', 'Enter the time of the incident using the 24 hour clock')
     Page.verifyOnPage(IncidentDateTimePage)
   })
 })

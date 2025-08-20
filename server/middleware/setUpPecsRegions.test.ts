@@ -1,7 +1,7 @@
 import type { Request, Response } from 'express'
 import { AuthenticationClient } from '@ministryofjustice/hmpps-auth-clients'
 
-import { PrisonApi } from '../data/prisonApi'
+import { AgencyType, PrisonApi } from '../data/prisonApi'
 import { type PecsRegion, pecsRegions } from '../data/pecsRegions'
 import { mockErrorResponse } from '../data/testData/incidentReporting'
 import { pecsNorthRegion, pecsSouthRegion } from '../data/testData/pecsRegions'
@@ -67,6 +67,51 @@ describe('Loading PECS regions', () => {
       expect(hmppsAuthClient.getToken).not.toHaveBeenCalled()
       expect(prisonApi.getPecsRegions).not.toHaveBeenCalled()
       expect(pecsRegions).toEqual([pecsNorthRegion, pecsSouthRegion])
+
+      done()
+    })
+  })
+
+  it('should sort loaded regions with active ones coming first', done => {
+    // clear all cached regions
+    pecsRegions.splice(0, pecsRegions.length)
+
+    // return an unordered region set
+    prisonApi.getPecsRegions.mockReset()
+    prisonApi.getPecsRegions.mockResolvedValueOnce({
+      P4: {
+        agencyId: 'P4',
+        description: 'PECS 4',
+        agencyType: AgencyType.PECS,
+        active: true,
+      },
+      P3: {
+        agencyId: 'P3',
+        description: 'PECS 3',
+        agencyType: AgencyType.PECS,
+        active: false,
+      },
+      P2: {
+        agencyId: 'P2',
+        description: 'PECS 2',
+        agencyType: AgencyType.PECS,
+        active: true,
+      },
+      P1: {
+        agencyId: 'P1',
+        description: 'PECS 1',
+        agencyType: AgencyType.PECS,
+        active: false,
+      },
+    })
+
+    const middleware = setUpPecsRegions({ hmppsAuthClient } as unknown as Services)
+    const req = {} as Request
+    const res = {} as Response
+    middleware(req, res, (...nextArgs) => {
+      expect(nextArgs).toHaveLength(0) // next function called with no args
+      expect(prisonApi.getPecsRegions).toHaveBeenCalledWith(false)
+      expect(pecsRegions.map(pecsRegion => pecsRegion.code)).toEqual(['P2', 'P4', 'P1', 'P3'])
 
       done()
     })

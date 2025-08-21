@@ -41,7 +41,7 @@
 
                   {% if inset %}
                     <div class="app-response--inset">
-                      {{ response.response }}
+                      {{ response.label }}
                       {% if response.responseDate %}
                         <br />
                         {{ response.responseDate | longDate }}
@@ -52,14 +52,14 @@
                       {% endif %}
                     </div>
                   {% else %}
-                    {{ response.response }}
+                    {{ response.label }}
                   {% endif %}
 
                 {% endfor %}
               {% endset %}
               {% set _ = rows.push({
                 key: {
-                  text: loop.index + ". " + question.question
+                  text: loop.index + ". " + question.label
                 },
                 value: {
                   html: responsesHtml

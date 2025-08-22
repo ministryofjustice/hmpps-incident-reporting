@@ -22,7 +22,7 @@ import { pecsRegions } from '../../data/pecsRegions'
 import { isLocationActiveInService } from '../../middleware/permissions'
 import type { HeaderCell } from '../../utils/sortableTable'
 import format from '../../utils/format'
-import type { GovukCheckboxesItem, GovukErrorSummaryItem, GovukSelectItem } from '../../utils/govukFrontend'
+import type { GovukErrorSummaryItem, GovukSelectItem } from '../../utils/govukFrontend'
 import { parseDateInput } from '../../utils/parseDateTime'
 import { hasInvalidValues } from '../../utils/utils'
 import { sortableTableHead } from '../../utils/sortableTable'
@@ -126,15 +126,8 @@ export default function dashboard(): Router {
       const useWorklists = permissions.isReportingOfficer
       searchStatuses = statusesFromParam(incidentStatuses as IncidentStatuses[], useWorklists)
     } catch (err) {
-      let errorMessage
-      if (err.message === 'Invalid status') {
-        errorMessage = 'Status filter submitted contains invalid values'
-      } else {
-        errorMessage = 'Work list filter submitted contains invalid values'
-      }
-
       incidentStatuses = undefined
-      errors.push({ href: '#incidentStatuses', text: errorMessage })
+      errors.push({ href: '#incidentStatuses', text: err.message })
     }
 
     let prisonerId: string
@@ -250,27 +243,16 @@ export default function dashboard(): Router {
     const urlPrefix = `/reports?${queryString}&`
 
     const reports = reportsResponse?.content ?? []
+
     const usernames = reports.map(report => report.reportedBy)
     const usersLookup = await userService.getUsers(res.locals.systemToken, usernames)
+
     const typeFamilyItems: GovukSelectItem[] = typeFamilies.map(family => ({
       value: family.code,
       text: family.description,
     }))
-    let statusItems: GovukCheckboxesItem[]
-    let statusCheckboxLabel: string
-    if (permissions.isReportingOfficer) {
-      statusItems = workLists.map(workListValue => ({
-        value: workListValue.code,
-        text: workListValue.description,
-      }))
-      statusCheckboxLabel = 'Work list'
-    } else {
-      statusItems = statuses.map(status => ({
-        value: status.code,
-        text: status.description,
-      }))
-      statusCheckboxLabel = 'Status'
-    }
+
+    const showWorkListFilters = permissions.isReportingOfficer
 
     /** location choices for auto-complete */
     const allLocations: GovukSelectItem[] = userCaseloads.map(caseload => ({
@@ -329,7 +311,7 @@ export default function dashboard(): Router {
     // Gather notification banner entries if they exist
     const banners = req.flash()
 
-    res.render('pages/dashboard', {
+    res.render('pages/dashboard/index', {
       activeCaseLoad,
       banners,
       reports,
@@ -338,8 +320,9 @@ export default function dashboard(): Router {
       locationLookup,
       usersLookup,
       typeFamilyItems,
-      statusItems,
-      statusCheckboxLabel,
+      workLists,
+      workListMapping,
+      showWorkListFilters,
       statusesDescriptions,
       typesDescriptions,
       formValues,
@@ -370,11 +353,13 @@ function statusesFromParam(statusesParam: IncidentStatuses[] | undefined, useWor
     return undefined
   }
 
+  // TODO: consider converting between work lists and statuses so that links with filters can be shared between user types
+
   // Reporting Officer
   if (useWorklists) {
     const hasInvalidWorklist = hasInvalidValues(statusesParam, workListCodes)
     if (hasInvalidWorklist) {
-      throw new Error('Invalid worklist')
+      throw new Error('Select a valid work list')
     }
 
     const worklists = statusesParam as WorkList[]
@@ -386,7 +371,8 @@ function statusesFromParam(statusesParam: IncidentStatuses[] | undefined, useWor
   const statusCodes = statuses.map(status => status.code)
   const hasInvalidStatus = hasInvalidValues(statusesParam, statusCodes)
   if (hasInvalidStatus) {
-    throw new Error('Invalid status')
+    throw new Error('Select a valid status')
   }
+
   return statusesParam as Status[]
 }

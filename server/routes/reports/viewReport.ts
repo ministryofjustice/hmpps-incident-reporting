@@ -93,7 +93,7 @@ export function viewReportRouter(): Router {
           if (
             userAction === 'RECALL' &&
             userType === 'REPORTING_OFFICER' &&
-            workListMapping.done.includes(report.status)
+            workListMapping.completed.includes(report.status)
           ) {
             res.redirect(`${reportUrl}/reopen`)
             return

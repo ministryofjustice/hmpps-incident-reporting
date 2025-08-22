@@ -2,7 +2,6 @@
 
 {% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
 {% from "govuk/components/button/macro.njk" import govukButton %}
-{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
 {% from "govuk/components/error-summary/macro.njk" import govukErrorSummary %}
 {% from "govuk/components/input/macro.njk" import govukInput %}
 {% from "govuk/components/select/macro.njk" import govukSelect %}
@@ -142,23 +141,11 @@
 
       </div>
 
-      <div class="govuk-grid-row">
-        <div class="govuk-grid-column-full">
-          {{ govukCheckboxes({
-            classes: "govuk-checkboxes--small govuk-checkboxes--inline",
-            name: "incidentStatuses",
-            attributes: {
-              id: "incidentStatuses"
-            },
-            fieldset: {
-              legend: {text: statusCheckboxLabel}
-            },
-            idPrefix: "incidentStatuses-item",
-            items: statusItems | govukMultipleCheckedItems(formValues.incidentStatuses),
-            errorMessage: errors | findFieldInGovukErrorSummary("incidentStatuses")
-          }) }}
-        </div>
-      </div>
+      {% if showWorkListFilters %}
+        {% include "./workListFilters.njk" %}
+      {% else %}
+        {% include "./statusFilters.njk" %}
+      {% endif %}
 
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-full">

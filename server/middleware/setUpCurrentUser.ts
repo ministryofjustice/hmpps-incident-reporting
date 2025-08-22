@@ -6,7 +6,7 @@ import type { Services } from '../services'
 export default function setUpCurrentUser({ userService }: Services): Router {
   const router = Router()
 
-  router.use(async (req, res, next) => {
+  router.use(async (_req, res, next) => {
     try {
       if (res.locals.user) {
         const user = await userService.getUser(res.locals.user.token)

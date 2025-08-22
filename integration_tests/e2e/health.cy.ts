@@ -22,7 +22,7 @@ context('Healthcheck', () => {
     })
 
     it('Info is visible and active agencies', () => {
-      cy.request('/info').its('body.activeAgencies').should('deep.equal', ['MDI', 'LEI'])
+      cy.request('/info').its('body.activeAgencies').should('deep.equal', ['MDI', 'LEI', 'NORTH', 'SOUTH'])
     })
   })
 

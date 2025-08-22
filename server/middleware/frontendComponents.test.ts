@@ -5,6 +5,7 @@ import config from '../config'
 import type { Services } from '../services'
 import FrontendComponentsClient from '../data/frontendComponentsClient'
 import { mockCaseload, mockFrontendComponentResponse } from '../data/testData/frontendComponents'
+import { mockReportingOfficer } from '../data/testData/users'
 import frontendComponents from './frontendComponents'
 
 describe('Frontend components middleware', () => {
@@ -25,7 +26,7 @@ describe('Frontend components middleware', () => {
       .matchHeader('authorization', `Bearer ${userToken}`)
       .reply(
         200,
-        mockFrontendComponentResponse({
+        mockFrontendComponentResponse(mockReportingOfficer, {
           header: {
             html: 'header html',
             css: ['/header.css'],

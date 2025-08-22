@@ -6,7 +6,7 @@ export class DashboardPage extends Page {
   }
 
   get createReportLink(): PageElement<HTMLAnchorElement> {
-    return cy.get('a').contains('Create a report')
+    return cy.get('a').contains('Create a report for')
   }
 
   get createPecsReportLink(): PageElement<HTMLAnchorElement> {

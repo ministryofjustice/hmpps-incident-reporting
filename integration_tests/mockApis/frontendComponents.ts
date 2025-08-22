@@ -1,10 +1,15 @@
+import type { Express } from 'express'
 import type { Response } from 'superagent'
 
 import { stubFor } from './wiremock'
 import type { AvailableComponent, Component } from '../../server/data/frontendComponentsClient'
 import { mockFrontendComponentResponse } from '../../server/data/testData/frontendComponents'
+import { mockReportingOfficer } from '../../server/data/testData/users'
 
-const stubComponents = (components: Partial<Record<AvailableComponent, Component>> = {}): Promise<Response> =>
+const stubComponents = (
+  user: Express.User,
+  components: Partial<Record<AvailableComponent, Component>> = {},
+): Promise<Response> =>
   stubFor({
     request: {
       method: 'GET',
@@ -15,7 +20,7 @@ const stubComponents = (components: Partial<Record<AvailableComponent, Component
     },
     response: {
       headers: { 'Content-Type': 'application/json' },
-      jsonBody: mockFrontendComponentResponse(components),
+      jsonBody: mockFrontendComponentResponse(user, components),
     },
   })
 
@@ -51,16 +56,18 @@ const stubJavascript = (name: AvailableComponent, js: string): Promise<Response>
   })
 
 export default {
-  stubFallbackHeaderAndFooter(): Promise<Response> {
-    return stubComponents()
+  stubFallbackHeaderAndFooter({ user = mockReportingOfficer }: { user?: Express.User } = {}): Promise<Response> {
+    return stubComponents(user)
   },
-  stubFrontendComponentsHeaderAndFooter(): Promise<Response[]> {
+  stubFrontendComponentsHeaderAndFooter({ user = mockReportingOfficer }: { user?: Express.User } = {}): Promise<
+    Response[]
+  > {
     return Promise.all([
       stubCSS('header', 'header { background: red }'),
       stubCSS('footer', 'footer { background: yellow }'),
       stubJavascript('header', 'window.FrontendComponentsHeaderDidLoad = true;'),
       stubJavascript('footer', 'window.FrontendComponentsFooterDidLoad = true;'),
-      stubComponents({
+      stubComponents(user, {
         header: {
           html: '<header>HEADER</header>',
           css: ['http://localhost:9091/frontendComponents/header.css'],

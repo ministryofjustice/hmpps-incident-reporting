@@ -1,0 +1,65 @@
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+{% macro statusFilters(params) %}
+  {% set statuses = params.workListMapping[params.id] %}
+  {% set id = "incidentStatuses-" + params.id %}
+  {% set error = errors | findFieldInGovukErrorSummary("incidentStatuses") %}
+
+  {% set items = [] %}
+  {% for status in statuses %}
+    {% set _ = items.push({
+      value: status,
+      text: params.statusesDescriptions[status]
+    }) %}
+  {% endfor %}
+
+  {{ govukCheckboxes({
+    classes: "govuk-checkboxes--small",
+    name: "incidentStatuses",
+    attributes: {
+      id: id
+    },
+    formGroup: {
+      classes: "govuk-form-group--error" if not params.showErrors and error else ""
+    },
+    fieldset: {
+      legend: {
+        text: params.legendText,
+        classes: "govuk-fieldset__legend--s"
+      }
+    },
+    idPrefix: id + "-item",
+    items: items | govukMultipleCheckedItems(formValues.incidentStatuses),
+    errorMessage: params.showErrors and error
+  }) }}
+{% endmacro %}
+
+<div id="incidentStatuses" class="govuk-grid-row">
+  <div class="govuk-grid-column-one-third">
+    {{ statusFilters({
+      id: "toDo",
+      legendText: "Reporting status",
+      workListMapping: workListMapping,
+      statusesDescriptions: statusesDescriptions,
+      showErrors: true
+    }) }}
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+    {{ statusFilters({
+      id: "submitted",
+      legendText: "Reviewing status",
+      workListMapping: workListMapping,
+      statusesDescriptions: statusesDescriptions
+    }) }}
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+    {{ statusFilters({
+      id: "completed",
+      legendText: "Completed status",
+      workListMapping: workListMapping,
+      statusesDescriptions: statusesDescriptions
+    }) }}
+  </div>
+</div>

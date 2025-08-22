@@ -23,8 +23,8 @@ export class ReopenController extends BaseController<Values> {
   ) {
     const { report } = res.locals
 
-    if (workListMapping.done.includes(report.status)) {
-      // only “Done” reports can be reopened via special page
+    if (workListMapping.completed.includes(report.status)) {
+      // only “completed” reports can be reopened via special page
       next()
     } else {
       // otherwise, the action can be taken from report page (user does have permission to recall)

@@ -1,0 +1,26 @@
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+{% set incidentStatusItems = [] %}
+{% for workList in workLists %}
+  {% set _ = incidentStatusItems.push({
+    value: workList.code,
+    text: workList.description
+  }) %}
+{% endfor %}
+
+{{ govukCheckboxes({
+  classes: "govuk-checkboxes--small govuk-checkboxes--inline",
+  name: "incidentStatuses",
+  attributes: {
+    id: "incidentStatuses"
+  },
+  fieldset: {
+    legend: {
+      text: "Incident report status",
+      classes: "govuk-fieldset__legend--s"
+    }
+  },
+  idPrefix: "incidentStatuses-item",
+  items: incidentStatusItems | govukMultipleCheckedItems(formValues.incidentStatuses),
+  errorMessage: errors | findFieldInGovukErrorSummary("incidentStatuses")
+}) }}

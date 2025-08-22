@@ -1,8 +1,9 @@
+import { roleReadWrite } from '../../server/data/constants'
+import { mockUser } from '../../server/data/testData/manageUsers'
 import Page from '../pages/page'
 import { HomePage } from '../pages/home'
 import { AuthSignInPage } from '../pages/authSignIn'
 import { AuthManageDetailsPage } from '../pages/authManageDetails'
-import { roleReadWrite } from '../../server/data/constants'
 
 context('Sign in', () => {
   beforeEach(() => {
@@ -87,7 +88,7 @@ context('Sign in', () => {
     Page.verifyOnPage(AuthSignInPage)
 
     cy.task('stubVerifyToken', true)
-    cy.task('stubManageUserMe', 'bobby brown')
+    cy.task('stubManageUserMe', { user: mockUser('user1', 'bobby brown') })
     cy.signIn()
 
     homePage.headerUserName.should('contain.text', 'B. Brown')

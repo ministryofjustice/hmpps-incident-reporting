@@ -10,8 +10,8 @@ Cypress.Commands.add('signIn', (options = { failOnStatusCode: true }) => {
 Cypress.Commands.add('resetBasicStubs', ({ user = mockReportingOfficer }: { user?: Express.User } = {}) => {
   cy.task('resetStubs')
   cy.task('stubSignIn', user.roles)
-  cy.task('stubManageUserMe')
-  cy.task('stubFallbackHeaderAndFooter')
+  cy.task('stubManageUserMe', { user })
+  cy.task('stubFallbackHeaderAndFooter', { user })
   cy.task('stubPrisonApiMockPecsRegions')
   cy.task('stubPrisonApiMockAgencySwitches')
   return cy.end()

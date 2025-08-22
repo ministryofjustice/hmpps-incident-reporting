@@ -1,7 +1,7 @@
 {% from "govuk/components/button/macro.njk" import govukButton %}
 
 {% if permissions.userType == "REPORTING_OFFICER" %}
-  {% if report.status in workListMapping.done %}
+  {% if report.status in workListMapping.completed %}
     {% set buttonText = "Reopen and change report" %}
   {% else %}
     {% set buttonText = "Change report" %}

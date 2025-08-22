@@ -5,6 +5,7 @@ import type { Staff } from '../../server/data/prisonApi'
 import { mockUser, mockSharedUser, mockPrisonUserSearchResult } from '../../server/data/testData/manageUsers'
 import { staffBarry, staffMary } from '../../server/data/testData/prisonApi'
 import ManageUsersApiClient, {
+  type User,
   type UsersSearchResponse,
   type UsersSearchResult,
 } from '../../server/data/manageUsersApiClient'
@@ -12,7 +13,7 @@ import { nameOfPerson } from '../../server/utils/utils'
 
 export default {
   /** Current user */
-  stubManageUserMe: (name: string = 'John Smith'): SuperAgentRequest =>
+  stubManageUserMe: ({ user = mockUser('user1', 'John Smith') }: { user?: User } = {}): SuperAgentRequest =>
     stubFor({
       request: {
         method: 'GET',
@@ -23,7 +24,7 @@ export default {
         headers: {
           'Content-Type': 'application/json;charset=UTF-8',
         },
-        jsonBody: mockUser('user1', name),
+        jsonBody: user,
       },
     }),
 

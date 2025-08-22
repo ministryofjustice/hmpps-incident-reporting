@@ -56,7 +56,7 @@ export default {
   /**
    * Stub endpoint to determine where service is active
    */
-  stubPrisonApiMockAgencySwitches: (): SuperAgentRequest =>
+  stubPrisonApiMockAgencySwitches: ({ agencies = [moorland, leeds, pecsNorth, pecsSouth] } = {}): SuperAgentRequest =>
     stubFor({
       request: {
         method: 'GET',
@@ -65,16 +65,10 @@ export default {
       response: {
         status: 200,
         headers: { 'Content-Type': 'application/json;charset=UTF-8' },
-        jsonBody: [
-          {
-            agencyId: moorland.agencyId,
-            name: moorland.description,
-          },
-          {
-            agencyId: leeds.agencyId,
-            name: leeds.description,
-          },
-        ],
+        jsonBody: agencies.map(agency => ({
+          agencyId: agency.agencyId,
+          name: agency.description,
+        })),
       },
     }),
 

@@ -9,7 +9,7 @@ export const workLists = [
     description: 'Submitted',
     statuses: ['AWAITING_REVIEW', 'UPDATED', 'ON_HOLD', 'WAS_CLOSED'],
   },
-  { code: 'done', description: 'Done', statuses: ['CLOSED', 'DUPLICATE', 'NOT_REPORTABLE'] },
+  { code: 'completed', description: 'Completed', statuses: ['CLOSED', 'DUPLICATE', 'NOT_REPORTABLE'] },
 ] as const
 
 /** Codes for work list */

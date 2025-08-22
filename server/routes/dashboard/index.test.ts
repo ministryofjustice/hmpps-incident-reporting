@@ -397,7 +397,10 @@ describe('Dashboard', () => {
         expect(res.text).not.toContain('location')
         expect(res.text).toContain('typeFamily')
         expect(res.text).toContain('Incident type')
-        expect(res.text).toContain('Work list')
+        expect(res.text).toContain('Incident report status')
+        expect(res.text).not.toContain('Reporting status')
+        expect(res.text).not.toContain('Reviewing status')
+        expect(res.text).not.toContain('Completed status')
         expect(res.text).toContain('To do')
         expect(res.text).toContain('toDo')
         expect(res.text).not.toContain('DRAFT')
@@ -435,7 +438,10 @@ describe('Dashboard', () => {
         expect(res.text).not.toContain('location')
         expect(res.text).toContain('typeFamily')
         expect(res.text).toContain('Incident type')
-        expect(res.text).toContain('Work list')
+        expect(res.text).toContain('Incident report status')
+        expect(res.text).not.toContain('Reporting status')
+        expect(res.text).not.toContain('Reviewing status')
+        expect(res.text).not.toContain('Completed status')
         expect(res.text).toContain('To do')
         expect(res.text).toContain('toDo')
         expect(res.text).not.toContain('DRAFT')
@@ -528,9 +534,12 @@ describe('Dashboard', () => {
         expect(res.text).toContain('location')
         expect(res.text).toContain('typeFamily')
         expect(res.text).toContain('Incident type')
-        expect(res.text).not.toContain('Work list')
+        expect(res.text).toContain('Reporting status')
+        expect(res.text).toContain('Reviewing status')
+        expect(res.text).toContain('Completed status')
+        expect(res.text).not.toContain('Incident report status')
         expect(res.text).not.toContain('To do')
-        expect(res.text).not.toContain('toDo')
+        expect(res.text).not.toContain('"toDo"')
         expect(res.text).toContain('Draft')
         expect(res.text).toContain('DRAFT')
         expect(res.text).toContain('Apply filters')
@@ -754,8 +763,8 @@ describe('Work list filter validation in reporting officer view', () => {
       expectedArgs: ['AWAITING_REVIEW', 'UPDATED', 'ON_HOLD', 'WAS_CLOSED'],
     },
     {
-      scenario: 'multiple selected - "to do" and "done"',
-      statusQuery: ['toDo', 'done'],
+      scenario: 'multiple selected - "to do" and "completed"',
+      statusQuery: ['toDo', 'completed'],
       expectedArgs: ['DRAFT', 'NEEDS_UPDATING', 'REOPENED', 'CLOSED', 'DUPLICATE', 'NOT_REPORTABLE'],
     },
   ])('should submit correct status args when $scenario', ({ statusQuery, expectedArgs }) => {
@@ -907,7 +916,7 @@ describe('Status/work list filter validation', () => {
       user: mockReportingOfficer,
       queryStatus: 'DRAFT',
       expectedStatus: undefined,
-      expectedError: 'Work list filter submitted contains invalid values',
+      expectedError: 'Select a valid work list',
     },
     {
       scenario: 'multiple invalid entries',
@@ -916,16 +925,16 @@ describe('Status/work list filter validation', () => {
       user: mockReportingOfficer,
       queryStatus: ['DRAFT', 'AWAITING_REVIEW'],
       expectedStatus: undefined,
-      expectedError: 'Work list filter submitted contains invalid values',
+      expectedError: 'Select a valid work list',
     },
     {
       scenario: 'invalid entries alongside valid entries',
       userType: 'reporting officer',
       expectedLocations: ['MDI'],
       user: mockReportingOfficer,
-      queryStatus: ['submitted', 'done', 'DRAFT', 'AWAITING_REVIEW'],
+      queryStatus: ['submitted', 'completed', 'DRAFT', 'AWAITING_REVIEW'],
       expectedStatus: undefined,
-      expectedError: 'Work list filter submitted contains invalid values',
+      expectedError: 'Select a valid work list',
     },
     {
       scenario: 'entry entirely invalid for any user',
@@ -934,7 +943,7 @@ describe('Status/work list filter validation', () => {
       user: mockReportingOfficer,
       queryStatus: 'random_status',
       expectedStatus: undefined,
-      expectedError: 'Work list filter submitted contains invalid values',
+      expectedError: 'Select a valid work list',
     },
     {
       scenario: 'entries entirely invalid for any user',
@@ -943,7 +952,7 @@ describe('Status/work list filter validation', () => {
       user: mockReportingOfficer,
       queryStatus: ['random_status', 'another_option'],
       expectedStatus: undefined,
-      expectedError: 'Work list filter submitted contains invalid values',
+      expectedError: 'Select a valid work list',
     },
     {
       scenario: 'single invalid entry',
@@ -952,25 +961,25 @@ describe('Status/work list filter validation', () => {
       user: mockDataWarden,
       queryStatus: 'toDo',
       expectedStatus: undefined,
-      expectedError: 'Status filter submitted contains invalid values',
+      expectedError: 'Select a valid status',
     },
     {
       scenario: 'multiple invalid entries',
       userType: 'data warden',
       expectedLocations: ['MDI', 'LEI', 'NORTH', 'SOUTH'],
       user: mockDataWarden,
-      queryStatus: ['toDo', 'done'],
+      queryStatus: ['toDo', 'completed'],
       expectedStatus: undefined,
-      expectedError: 'Status filter submitted contains invalid values',
+      expectedError: 'Select a valid status',
     },
     {
       scenario: 'invalid entries alongside valid entries',
       userType: 'data warden',
       expectedLocations: ['MDI', 'LEI', 'NORTH', 'SOUTH'],
       user: mockDataWarden,
-      queryStatus: ['submitted', 'done', 'DRAFT', 'AWAITING_REVIEW'],
+      queryStatus: ['submitted', 'completed', 'DRAFT', 'AWAITING_REVIEW'],
       expectedStatus: undefined,
-      expectedError: 'Status filter submitted contains invalid values',
+      expectedError: 'Select a valid status',
     },
     {
       scenario: 'entry entirely invalid for any user',
@@ -979,7 +988,7 @@ describe('Status/work list filter validation', () => {
       user: mockDataWarden,
       queryStatus: 'random_status',
       expectedStatus: undefined,
-      expectedError: 'Status filter submitted contains invalid values',
+      expectedError: 'Select a valid status',
     },
     {
       scenario: 'entries entirely invalid for any user',
@@ -988,7 +997,7 @@ describe('Status/work list filter validation', () => {
       user: mockDataWarden,
       queryStatus: ['random_status', 'another_option'],
       expectedStatus: undefined,
-      expectedError: 'Status filter submitted contains invalid values',
+      expectedError: 'Select a valid status',
     },
   ])(
     'should default to undefined and show error if query is set to option invalid for $userType with $scenario',

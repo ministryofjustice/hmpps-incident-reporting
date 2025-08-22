@@ -59,8 +59,8 @@ context('Add to a report’s description after it’s been reviewed', () => {
       urlSlug: RelatedObjectUrlSlug.descriptionAddendums,
       reportId: reportWithDetails.id,
       request: {
-        firstName: 'John',
-        lastName: 'Smith',
+        firstName: 'JOHN',
+        lastName: 'SMITH',
         text: 'Prisoner was released from healthcare',
       },
       response: reportWithDetails.descriptionAddendums, // technically, missing new addendum

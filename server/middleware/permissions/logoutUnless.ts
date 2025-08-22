@@ -46,10 +46,3 @@ export function hasPermissionTo(userAction: UserAction): AccessCondition {
     return allowedActions.has(userAction)
   }
 }
-
-/**
- * Used in `logoutUnless()` middleware to check that current user can create a report in their active caseload.
- */
-export const canCreateReportInActiveCaseload: AccessCondition = permissions => {
-  return permissions.canCreateReportInActiveCaseload
-}

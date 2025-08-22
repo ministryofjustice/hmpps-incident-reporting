@@ -1,7 +1,7 @@
 import express from 'express'
 
 import { populateReport } from '../../middleware/populateReport'
-import { logoutUnless, canCreateReportInActiveCaseload, hasPermissionTo } from '../../middleware/permissions'
+import { logoutUnless, hasPermissionTo } from '../../middleware/permissions'
 import { prisonerInvolvementRouter } from './prisoners'
 import { staffInvolvementRouter } from './staff'
 import { questionsRouter } from './questions'
@@ -12,7 +12,7 @@ export const createReportRouter = express.Router({ mergeParams: true })
 // form wizard to save minimal report details
 // and mark all routes as being part of report creation journey
 createReportRouter.use(
-  logoutUnless(canCreateReportInActiveCaseload),
+  logoutUnless(permissions => permissions.canCreateReportInActiveCaseload || permissions.canCreatePecsReport),
   (_req, res, next) => {
     res.locals.creationJourney = true
     next()

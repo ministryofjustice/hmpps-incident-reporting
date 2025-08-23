@@ -475,6 +475,7 @@ describe('Dashboard', () => {
         expect(res.text).toContain('John Smith')
         // cannot check for Moorland because it appears in create button or column name
         expect(res.text).toContain('Draft')
+        expect(res.text).toContain('A report that has been created but not yet submitted')
         expect(incidentReportingApi.getReports).toHaveBeenCalledWith(expectedParams)
       })
   })
@@ -503,6 +504,7 @@ describe('Dashboard', () => {
         expect(res.text).not.toContain('John Smith')
         // cannot check for Moorland because it appears in create button or column name
         expect(res.text).toContain('Draft')
+        expect(res.text).toContain('A report that has been created but not yet submitted')
         expect(incidentReportingApi.getReports).toHaveBeenCalledWith(expectedParams)
       })
   })

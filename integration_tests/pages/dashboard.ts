@@ -100,7 +100,7 @@ export class DashboardPage extends Page {
           const incidentDate = $cells.eq(2).text().trim()
           const description = $cells.eq(3).text().trim()
           const locationOrReporter = $cells.eq(4).text().trim()
-          const status = $cells.eq(5).text().trim()
+          const status = $cells.eq(5).find('.govuk-details__summary-text').text().trim()
 
           return { selectLink, type, incidentDate, description, locationOrReporter, status }
         })

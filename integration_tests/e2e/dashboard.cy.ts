@@ -121,17 +121,6 @@ userScenarios.forEach(({ userType, user, createReport }) => {
             dashboardPage.toDate.should('have.value', '15/1/2025')
           },
         },
-        // user has only 1 caseload
-        // {
-        //   scenario: 'by location',
-        //   userInteraction: dashboardPage => {
-        //     dashboardPage.location.type('Moorland')
-        //   },
-        //   expectedRequest: { location: 'MDI' },
-        //   testPage: dashboardPage => {
-        //     dashboardPage.location.should('have.value', 'Moorland')
-        //   },
-        // },
         {
           scenario: 'by type',
           userInteraction: dashboardPage => {
@@ -171,6 +160,16 @@ userScenarios.forEach(({ userType, user, createReport }) => {
               },
             ]
           : <SearchScenario[]>[
+              {
+                scenario: 'by location',
+                userInteraction: dashboardPage => {
+                  dashboardPage.location.type('Moorland')
+                },
+                expectedRequest: { location: 'MDI' },
+                testPage: dashboardPage => {
+                  dashboardPage.location.should('have.value', 'Moorland (HMP & YOI)')
+                },
+              },
               {
                 scenario: 'by one status',
                 userInteraction: dashboardPage => {

@@ -2,6 +2,7 @@
 
 {% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
 {% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/details/macro.njk" import govukDetails %}
 {% from "govuk/components/error-summary/macro.njk" import govukErrorSummary %}
 {% from "govuk/components/input/macro.njk" import govukInput %}
 {% from "govuk/components/select/macro.njk" import govukSelect %}
@@ -172,7 +173,7 @@
 
     {% set rows = [] %}
     {% for report in reports %}
-      {% set link %}
+      {% set linkHtml %}
         <a href="/reports/{{ report.id }}">
           <span class="govuk-visually-hidden">
             Incident report
@@ -181,32 +182,43 @@
         </a>
       {% endset %}
 
-      {% set description %}
+      {% set descriptionHtml %}
         <div class="app-dashboard__description-cell">
           {{ report.description | escape | nl2br }}
         </div>
       {% endset %}
 
+      {% set statusHtml %}
+        {% if report.status in statusHints %}
+          {{ govukDetails({
+            summaryText: statusesDescriptions[report.status] or report.status,
+            text: statusHints[report.status]
+          }) }}
+        {% else %}
+          statusesDescriptions[report.status] or report.status
+        {% endif %}
+      {% endset %}
+
       {% if showLocationFilter %}
         {% set rows = (rows.push(
           [
-            { html: link },
+            { html: linkHtml },
             { text: typesDescriptions[report.type] or report.type },
             { text: report.incidentDateAndTime | shortDateAndTime },
-            { html: description },
+            { html: descriptionHtml },
             { text: locationLookup[report.location] or report.location },
-            { text: statusesDescriptions[report.status] or report.status }
+            { html: statusHtml }
           ]
         ), rows) %}
       {% else %}
         {% set rows = (rows.push(
           [
-            { html: link },
+            { html: linkHtml },
             { text: typesDescriptions[report.type] or report.type },
             { text: report.incidentDateAndTime | shortDateAndTime },
-            { html: description },
+            { html: descriptionHtml },
             { text: usersLookup[report.reportedBy].name or report.reportedBy },
-            { text: statusesDescriptions[report.status] or report.status }
+            { html: statusHtml }
           ]
         ), rows) %}
       {% endif %}

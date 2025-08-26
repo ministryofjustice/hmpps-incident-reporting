@@ -1,4 +1,4 @@
-import { getTypeDetails, Type } from './types'
+import { getTypeDetails, type Type } from './types'
 import type { TypeFamily } from './typeFamilies'
 
 /**
@@ -21,7 +21,7 @@ export const typeHints: Partial<Record<Type, string>> = {
  * Short titles displayed when generating titles in the form “About the incident”, eg. “About the assault”.
  * A *family* of types shares one title.
  */
-export const shortTypeTitles: Partial<Record<TypeFamily, string>> = {
+const shortTypeTitles: Partial<Record<TypeFamily, string>> = {
   ABSCOND: 'abscond',
   ASSAULT: 'assault',
   ATTEMPTED_ESCAPE_FROM_ESCORT: 'attempted escape from escort',

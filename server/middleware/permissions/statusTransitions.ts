@@ -314,8 +314,6 @@ export const prisonReportTransitions: Transitions = {
  * NB:
  * - `VIEW` action is not included as it never changes a report nor transitions status
  * - presence of a user action does not guarantee permission: report location and validity also matter
- *
- * TODO: not confirmed
  */
 export const pecsReportTransitions: Transitions = {
   DATA_WARDEN: {
@@ -327,23 +325,8 @@ export const pecsReportTransitions: Transitions = {
         mustBeValid: true,
         successBanner: 'Incident report $reportReference has been marked as closed',
       },
-      MARK_DUPLICATE: {
-        newStatus: 'DUPLICATE',
-        label: 'Mark as a duplicate',
-        comment: 'optional',
-        commentLabel: 'Describe why it is a duplicate report (optional)',
-        originalReportReferenceRequired: true,
-        postCorrectionRequest: true,
-        successBanner: 'Report $reportReference has been marked as duplicate',
-      },
-      MARK_NOT_REPORTABLE: {
-        newStatus: 'NOT_REPORTABLE',
-        label: 'Mark as not reportable',
-        comment: 'optional',
-        commentLabel: 'Describe why it is not reportable (optional)',
-        postCorrectionRequest: true,
-        successBanner: 'Report $reportReference has been marked as not reportable',
-      },
+      // it would be logical to also allow MARK_DUPLICATE & MARK_NOT_REPORTABLE,
+      // but it’s been decided that those should only be possible after reopening
     },
     CLOSED: {
       RECALL: { newStatus: 'REOPENED' },

@@ -614,7 +614,7 @@ describe('Permissions class', () => {
           const permissions = new Permissions(user)
           expectActionsOnPecsReports({
             permissions,
-            userActions: ['CLOSE', 'MARK_DUPLICATE', 'MARK_NOT_REPORTABLE'],
+            userActions: ['CLOSE'],
             all: action,
           })
         })
@@ -639,12 +639,12 @@ describe('Permissions class', () => {
             const permissions = new Permissions(user)
             expectActionsOnPecsReports({
               permissions,
-              userActions: ['CLOSE', 'MARK_DUPLICATE', 'MARK_NOT_REPORTABLE'],
+              userActions: ['CLOSE'],
               all: denied,
             })
             expectActionsOnPecsReports({
               permissions,
-              userActions: ['CLOSE', 'MARK_DUPLICATE', 'MARK_NOT_REPORTABLE'],
+              userActions: ['CLOSE'],
               all: action,
               onlyInNomis: true,
             })

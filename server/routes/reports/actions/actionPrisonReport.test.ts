@@ -86,7 +86,7 @@ function makeReportInvalid() {
   })
 }
 
-describe('Actioning reports', () => {
+describe('Actioning prison reports', () => {
   let mockedReport: ReportWithDetails
   let viewReportUrl: string
 
@@ -301,7 +301,7 @@ describe('Actioning reports', () => {
     )
 
     it.each(['AWAITING_REVIEW', 'UPDATED', 'ON_HOLD', 'WAS_CLOSED'] as const)(
-      'should show CLOSE option from data wardens if a NOMIS report with status %s is invalid',
+      'should show CLOSE option to data wardens if a NOMIS report with status %s is invalid',
       status => {
         setupAppForUser(mockDataWarden)
         makeReportInvalid()

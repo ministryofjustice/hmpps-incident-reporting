@@ -8,6 +8,9 @@
         {% if allowedActionsNeedingForm.size == 1 and allowedActionsNeedingForm.keys().next().value == "RECALL" %}
           {# `recall` is only allowed action #}
           {% include "./_actions--recall.njk" %}
+        {% elif allowedActionsNeedingForm.size == 1 and allowedActionsNeedingForm.keys().next().value == "CLOSE" %}
+          {# `close` is only allowed action #}
+          {% include "./_actions--close.njk" %}
         {% else %}
           {# show radio buttons when there is more than one allowed action #}
           {% include "./_actions--choices.njk" %}

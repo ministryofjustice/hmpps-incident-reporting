@@ -7,12 +7,14 @@ import { now } from '../../testutils/fakeClock'
 import UserService from '../../services/userService'
 import { type Status, statuses } from '../../reportConfiguration/constants'
 import { setActiveAgencies } from '../../data/activeAgencies'
+import { rolePecs } from '../../data/constants'
 import { IncidentReportingApi, type ReportWithDetails } from '../../data/incidentReportingApi'
 import { convertReportDates } from '../../data/incidentReportingApiUtils'
 import * as reportValidity from '../../data/reportValidity'
 import { mockErrorResponse, mockReport } from '../../data/testData/incidentReporting'
 import { makeSimpleQuestion } from '../../data/testData/incidentReportingJest'
 import { mockSharedUser } from '../../data/testData/manageUsers'
+import { mockPecsRegions } from '../../data/testData/pecsRegions'
 import { leeds, moorland } from '../../data/testData/prisonApi'
 import { mockThrownError } from '../../data/testData/thrownErrors'
 import { mockDataWarden, mockReportingOfficer, mockHqViewer, mockUnauthorisedUser } from '../../data/testData/users'
@@ -27,6 +29,10 @@ const prisonApi = PrisonApi.prototype as jest.Mocked<PrisonApi>
 const userService = UserService.prototype as jest.Mocked<UserService>
 
 const { validateReport } = reportValidity as jest.Mocked<typeof import('../../data/reportValidity')>
+
+beforeAll(() => {
+  mockPecsRegions()
+})
 
 let app: Express
 
@@ -535,22 +541,23 @@ describe('View report page', () => {
   describe.each([
     {
       userType: 'reporting officers',
-      user: mockReportingOfficer,
-      checkAnswersStatuses: ['DRAFT', 'NEEDS_UPDATING', 'REOPENED'],
+      user: { ...mockReportingOfficer, roles: [...mockReportingOfficer.roles, rolePecs] },
+      prisonStatuses: ['DRAFT', 'NEEDS_UPDATING', 'REOPENED'],
+      pecsStatuses: [],
     },
     {
       userType: 'data wardens',
       user: mockDataWarden,
-      checkAnswersStatuses: [
-        /* TODO: PECS */
-      ],
+      prisonStatuses: [],
+      pecsStatuses: ['DRAFT', 'REOPENED'],
     },
     {
       userType: 'HQ viewers',
-      user: mockHqViewer,
-      checkAnswersStatuses: [],
+      user: { ...mockHqViewer, roles: [...mockHqViewer.roles, rolePecs] },
+      prisonStatuses: [],
+      pecsStatuses: [],
     },
-  ])('“Check your answers” title', ({ userType, user, checkAnswersStatuses }) => {
+  ])('“Check your answers” title', ({ userType, user, prisonStatuses, pecsStatuses }) => {
     beforeEach(() => {
       app = appWithAllRoutes({ services: { userService }, userSupplier: () => user })
       makeReportValid()
@@ -560,10 +567,35 @@ describe('View report page', () => {
       statuses.map(({ code: status }) => {
         return {
           status,
-          visibility: checkAnswersStatuses.includes(status) ? ('show' as const) : ('not show' as const),
+          visibility: prisonStatuses.includes(status) ? ('show' as const) : ('not show' as const),
         }
       }),
-    )(`should $visibility on a report with status $status for ${userType}`, ({ status, visibility }) => {
+    )(`should $visibility on a prison report with status $status for ${userType}`, ({ status, visibility }) => {
+      mockedReport.status = status
+
+      return request(app)
+        .get(viewReportUrl)
+        .expect(200)
+        .expect(res => {
+          if (visibility === 'show') {
+            expect(res.text).not.toContain('Incident report 6543')
+            expect(res.text).toContain('Check your answers – incident report 6543')
+          } else {
+            expect(res.text).toContain('Incident report 6543')
+            expect(res.text).not.toContain('Check your answers – incident report 6543')
+          }
+        })
+    })
+
+    it.each(
+      statuses.map(({ code: status }) => {
+        return {
+          status,
+          visibility: pecsStatuses.includes(status) ? ('show' as const) : ('not show' as const),
+        }
+      }),
+    )(`should $visibility on a PECS report with status $status for ${userType}`, ({ status, visibility }) => {
+      mockedReport.location = 'NORTH'
       mockedReport.status = status
 
       return request(app)
@@ -887,7 +919,7 @@ describe('View report page', () => {
       { userType: 'HQ view-only user', user: mockHqViewer, canView: true, canEdit: false },
       { userType: 'unauthorised user', user: mockUnauthorisedUser, canView: false, canEdit: false },
     ])('for $userType', ({ user, canView, canEdit }) => {
-      it(`should ${canView ? 'grant' : 'deny'} viewing a report`, () => {
+      it(`should ${canView ? 'grant' : 'deny'} viewing a prison report`, () => {
         const testRequest = request(appWithAllRoutes({ services: { userService }, userSupplier: () => user }))
           .get(viewReportUrl)
           .redirects(1)
@@ -914,7 +946,7 @@ describe('View report page', () => {
         })
       })
 
-      it(`should ${canEdit ? 'warn' : 'not warn'} that report is only editable in NOMIS`, () => {
+      it(`should ${canEdit ? 'warn' : 'not warn'} that prison report is only editable in NOMIS`, () => {
         const testApp = appWithAllRoutes({ services: { userService }, userSupplier: () => user })
         setActiveAgencies(['LEI'])
 

@@ -1,0 +1,15 @@
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+<div class="govuk-button-group">
+  {{ govukButton({
+    text: "Close report",
+    name: "userAction",
+    value: "CLOSE",
+    preventDoubleClick: true,
+    type: "submit"
+  }) }}
+
+  <a href="/reports" class="govuk-link govuk-link--no-visited-state">
+    Back to incidents
+  </a>
+</div>

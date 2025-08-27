@@ -25,6 +25,7 @@ import {
 import { populateReport } from '../../middleware/populateReport'
 import { populateReportConfiguration } from '../../middleware/populateReportConfiguration'
 import type { AddCorrectionRequestRequest, ReportBasic, ReportWithDetails } from '../../data/incidentReportingApi'
+import { isPecsRegionCode } from '../../data/pecsRegions'
 import { validateReport } from '../../data/reportValidity'
 import type { GovukErrorSummaryItem } from '../../utils/govukFrontend'
 import { correctionRequestActionLabels } from './actions/correctionRequestLabels'
@@ -50,6 +51,7 @@ export function viewReportRouter(): Router {
       const { incidentReportingApi, prisonApi, userService } = res.locals.apis
 
       const report = res.locals.report as ReportWithDetails
+      const isPecsReport = isPecsRegionCode(report.location)
       const { permissions, allowedActions, reportConfig, reportUrl, questionProgress } = res.locals
       const { userType } = permissions
 
@@ -246,11 +248,12 @@ export function viewReportRouter(): Router {
         }
       } else if (
         !report.createdInNomis &&
-        reportTransitions.CLOSE?.mustBeValid &&
-        allowedActionsNeedingForm.has('CLOSE')
+        !isPecsReport &&
+        allowedActionsNeedingForm.has('CLOSE') &&
+        reportTransitions.CLOSE?.mustBeValid
       ) {
-        // check DPS report is valid and hide “Close” option otherwise; reports made in NOMIS do not get validated
-        // TODO: conflicts with PECS journey
+        // check DPS prison report is valid and hide “Close” option otherwise (reports made in NOMIS do not get validated)
+        // unfortunately, data wardens are provided no feedback as to why they cannot close the report; the option simply is absent
         const errorGenerator = validateReport(report, reportConfig, questionProgressSteps, reportUrl)
         if (errorGenerator.next().value) {
           allowedActionsNeedingForm.delete('CLOSE')

@@ -9,7 +9,7 @@ import { type GetReportsParams, IncidentReportingApi } from '../../data/incident
 import { convertReportDates } from '../../data/incidentReportingApiUtils'
 import { mockErrorResponse, mockReport } from '../../data/testData/incidentReporting'
 import { unsortedPageOf } from '../../data/testData/paginatedResponses'
-import { mockPecsRegions, resetPecsRegions } from '../../data/testData/pecsRegions'
+import { mockPecsRegions } from '../../data/testData/pecsRegions'
 import { mockSharedUser } from '../../data/testData/manageUsers'
 import { mockDataWarden, mockReportingOfficer, mockHqViewer, mockUnauthorisedUser } from '../../data/testData/users'
 import { mockThrownError } from '../../data/testData/thrownErrors'
@@ -24,14 +24,16 @@ const userService = UserService.prototype as jest.Mocked<UserService>
 
 let app: Express
 
-beforeEach(() => {
+beforeAll(() => {
   mockPecsRegions()
+})
+
+beforeEach(() => {
   app = appWithAllRoutes({ services: { userService } })
 })
 
 afterEach(() => {
   jest.resetAllMocks()
-  resetPecsRegions()
 })
 
 describe('Dashboard permissions', () => {

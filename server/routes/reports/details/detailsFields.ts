@@ -1,4 +1,5 @@
 import type FormWizard from 'hmpo-form-wizard'
+
 import { incidentDateAndTimeFieldNames, incidentDateAndTimeFields } from './incidentDateAndTimeFields'
 
 export const detailsFields = {

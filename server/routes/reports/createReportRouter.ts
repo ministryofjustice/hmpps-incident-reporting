@@ -12,7 +12,9 @@ export const createReportRouter = express.Router({ mergeParams: true })
 // form wizard to save minimal report details
 // and mark all routes as being part of report creation journey
 createReportRouter.use(
-  logoutUnless(permissions => permissions.canCreateReportInActiveCaseload || permissions.canCreatePecsReport),
+  // there is no user type that can create prison *and* PECS reports and the form wizard does not support it
+  // seems sensible to forbid this at permissions level
+  logoutUnless(permissions => permissions.canCreateReportInActiveCaseload !== permissions.canCreatePecsReport),
   (_req, res, next) => {
     res.locals.creationJourney = true
     next()

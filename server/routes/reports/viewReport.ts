@@ -173,8 +173,12 @@ export function viewReportRouter(): Router {
           if (errors.length === 0) {
             // can submit action
             try {
-              if (userAction === 'REQUEST_REVIEW') {
+              // force-regenerate title on most important author-initiated transitions
+              if (
                 // TODO: update for requesting duplicate/not-reportable?
+                userAction === 'REQUEST_REVIEW' ||
+                (isPecsReport && userAction === 'CLOSE')
+              ) {
                 await updateReportTitle(res)
               }
 

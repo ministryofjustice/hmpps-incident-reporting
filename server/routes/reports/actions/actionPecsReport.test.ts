@@ -384,6 +384,7 @@ describe('Actioning PECS reports', () => {
         currentStatus: 'DRAFT',
         userAction: 'CLOSE',
         comment: 'not allowed',
+        updatesTitle: true,
         newStatus: 'CLOSED',
         redirectedPage: 'dashboard',
       },
@@ -391,6 +392,7 @@ describe('Actioning PECS reports', () => {
         currentStatus: 'REOPENED',
         userAction: 'CLOSE',
         comment: 'not allowed',
+        updatesTitle: true,
         newStatus: 'CLOSED',
         redirectedPage: 'dashboard',
       },
@@ -512,7 +514,7 @@ describe('Actioning PECS reports', () => {
                 expect(prisonApi.getPrison).toHaveBeenNthCalledWith(1, 'NORTH', false) // to display report location
                 expect(prisonApi.getPrison).toHaveBeenNthCalledWith(2, 'NORTH', false) // to regenerate title
                 expect(incidentReportingApi.updateReport).toHaveBeenCalledWith(mockedReport.id, {
-                  title: 'Assault: Arnold A1111AA, Benjamin A2222BB (Moorland (HMP & YOI))',
+                  title: 'Assault: Arnold A1111AA, Benjamin A2222BB (PECS North)',
                 })
               } else {
                 expect(prisonApi.getPrison).toHaveBeenCalledTimes(1)

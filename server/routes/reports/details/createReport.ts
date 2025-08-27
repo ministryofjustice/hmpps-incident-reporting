@@ -28,6 +28,13 @@ class TypeController extends BaseTypeController<CreateReportValues> {
     super.middlewareLocals()
   }
 
+  getBackLink(req: FormWizard.Request<CreateReportValues, TypeFieldNames>, res: express.Response): string | undefined {
+    if (res.locals.permissions.canCreatePecsReport) {
+      return this.resolvePath(req.baseUrl, 'pecs')
+    }
+    return super.getBackLink(req, res)
+  }
+
   redirectIfPecsRegionMustBeSet(
     req: FormWizard.Request<CreateReportValues, TypeFieldNames>,
     res: express.Response,

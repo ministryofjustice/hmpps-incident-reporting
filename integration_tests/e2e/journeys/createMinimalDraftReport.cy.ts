@@ -50,7 +50,11 @@ for (const { reportType, user, location } of scenarios) {
       }
 
       const typePage = Page.verifyOnPage(TypePage)
-      typePage.checkBackLink('/')
+      if (reportType === 'PECS') {
+        typePage.checkBackLink('/create-report/pecs')
+      } else {
+        typePage.checkBackLink('/')
+      }
       typePage.selectType(reportWithDetails.type)
       typePage.submit()
 

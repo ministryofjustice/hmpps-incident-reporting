@@ -60,7 +60,6 @@ context('Creating a completed draft report', () => {
 
   function selectType() {
     const typePage = Page.verifyOnPage(TypePage)
-    typePage.checkBackLink('/')
     typePage.selectType('ATTEMPTED_ESCAPE_FROM_PRISON_1')
     typePage.submit()
 

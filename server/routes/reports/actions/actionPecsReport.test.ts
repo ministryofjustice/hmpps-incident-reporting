@@ -143,18 +143,17 @@ describe('Actioning PECS reports', () => {
             'Describe why it is not reportable',
           ],
         },
-        // TODO: all below should have different button text
         {
           reportStatus: 'CLOSED',
-          formOptions: ['Change report status'],
+          formOptions: ['Reopen and change report'],
         },
         {
           reportStatus: 'DUPLICATE',
-          formOptions: ['Change report status'],
+          formOptions: ['Reopen and change report'],
         },
         {
           reportStatus: 'NOT_REPORTABLE',
-          formOptions: ['Change report status'],
+          formOptions: ['Reopen and change report'],
         },
       ]
       it.each(optionsScenarios)(

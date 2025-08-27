@@ -2,7 +2,7 @@
 
 <div class="govuk-button-group">
   {{ govukButton({
-    text: "Close report",
+    text: possibleTransitions.CLOSE.label or "Close",
     name: "userAction",
     value: "CLOSE",
     preventDoubleClick: true,

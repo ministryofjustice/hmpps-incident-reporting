@@ -9,6 +9,7 @@ import Page from '../pages/page'
 import { DashboardPage } from '../pages/dashboard'
 import { HomePage } from '../pages/home'
 import { ReportPage } from '../pages/reports/report'
+import { PecsRegionPage } from '../pages/reports/pecsRegion'
 import { TypePage } from '../pages/reports/type'
 
 interface UserScenario {
@@ -50,9 +51,9 @@ userScenarios.forEach(({ userType, user, createReport }) => {
         cy.task('stubIncidentReportingApiGetReports')
         cy.visit('/reports')
         const dashboardPage = Page.verifyOnPage(DashboardPage)
-        dashboardPage.createPecsReportLink.should('exist')
         dashboardPage.createReportLink.should('not.exist')
-        // TODO: do something like Page.verifyOnPage(TypePage) once possible
+        dashboardPage.createPecsReportLink.click()
+        Page.verifyOnPage(PecsRegionPage)
       })
     } else if (createReport === 'prison') {
       it('should have a link to create a new prison report', () => {

@@ -8,7 +8,6 @@
 
 {% set pageTitle %}
   {%- if canEditReport and report.status in workListMapping.toDo -%}
-    {#- TODO: consider location as well?  -#}
     Check your answers – incident report {{ report.reportReference }}
   {%- else -%}
     Incident report {{ report.reportReference }}

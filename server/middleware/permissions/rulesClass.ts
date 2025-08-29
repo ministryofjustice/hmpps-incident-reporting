@@ -92,13 +92,13 @@ export class Permissions {
 
   /** Can create new PECS report */
   get canCreatePecsReport(): boolean {
-    const somePecsRegion = pecsRegions[0]
+    const somePecsRegion = pecsRegions.filter(pecsRegion => pecsRegion.active)[0]
     return somePecsRegion?.code ? this.canCreateReportInLocation(somePecsRegion.code) : false
   }
 
   /** Could have created new PECS report if it was enabled */
   get canCreatePecsReportInNomisOnly(): boolean {
-    const somePecsRegion = pecsRegions[0]
+    const somePecsRegion = pecsRegions.filter(pecsRegion => pecsRegion.active)[0]
     return somePecsRegion?.code ? this.canCreateReportInLocationInNomisOnly(somePecsRegion.code) : false
   }
 

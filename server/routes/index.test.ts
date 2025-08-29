@@ -2,7 +2,7 @@ import type { Express } from 'express'
 import request from 'supertest'
 
 import { PrisonApi } from '../data/prisonApi'
-import { mockPecsRegions, resetPecsRegions } from '../data/testData/pecsRegions'
+import { mockPecsRegions } from '../data/testData/pecsRegions'
 import { mockDataWarden, mockReportingOfficer, mockHqViewer, mockUnauthorisedUser } from '../data/testData/users'
 import { appWithAllRoutes } from './testutils/appSetup'
 
@@ -22,10 +22,6 @@ beforeEach(() => {
 
 afterEach(() => {
   jest.resetAllMocks()
-})
-
-afterAll(() => {
-  resetPecsRegions()
 })
 
 describe('Home page', () => {

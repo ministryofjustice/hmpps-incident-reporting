@@ -31,8 +31,12 @@ export class HomePage extends Page {
     )
   }
 
-  clickCreateReportCard(): Cypress.Chainable {
+  clickCreatePrisonReportCard(): Cypress.Chainable {
     return this.cards.contains('Create an incident report').click()
+  }
+
+  clickCreatePecsReportCard(): Cypress.Chainable {
+    return this.cards.contains('Create a PECS incident report').click()
   }
 
   clickViewReportsCard(): Cypress.Chainable {

@@ -2,10 +2,9 @@
 
 <div class="govuk-button-group">
   {{ govukButton({
-    text: possibleTransitions.RECALL.label or "Change report",
+    text: possibleTransitions.CLOSE.label or "Close",
     name: "userAction",
-    value: "RECALL",
-    classes: "govuk-button--secondary",
+    value: "CLOSE",
     preventDoubleClick: true,
     type: "submit"
   }) }}

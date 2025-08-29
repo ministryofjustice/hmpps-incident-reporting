@@ -3,26 +3,31 @@ import request, { type Agent, type Response } from 'supertest'
 
 import format from '../../../utils/format'
 import { appWithAllRoutes } from '../../testutils/appSetup'
+import { setActiveAgencies } from '../../../data/activeAgencies'
 import { IncidentReportingApi } from '../../../data/incidentReportingApi'
 import { convertReportDates } from '../../../data/incidentReportingApiUtils'
 import { mockErrorResponse, mockReport } from '../../../data/testData/incidentReporting'
+import { mockPecsRegions } from '../../../data/testData/pecsRegions'
 import { mockThrownError } from '../../../data/testData/thrownErrors'
 import { mockDataWarden, mockReportingOfficer, mockHqViewer, mockUnauthorisedUser } from '../../../data/testData/users'
-import { setActiveAgencies } from '../../../data/activeAgencies'
 
 jest.mock('../../../data/incidentReportingApi')
 
 const incidentReportingApi = IncidentReportingApi.prototype as jest.Mocked<IncidentReportingApi>
 
-let app: Express
-
-beforeEach(() => {
-  app = appWithAllRoutes()
+beforeAll(() => {
+  mockPecsRegions()
 })
 
 afterEach(() => {
   jest.resetAllMocks()
 })
+
+function expectOnPecsRegionPage(res: Response): void {
+  expect(res.request.url.endsWith('/create-report/pecs')).toBe(true)
+  expect(res.text).toContain('app-pecs-region')
+  expect(res.text).toContain('In which region did the incident happen?')
+}
 
 function expectOnTypePage(res: Response): void {
   expect(res.request.url.endsWith('/create-report')).toBe(true)
@@ -36,14 +41,91 @@ function expectOnDetailsPage(res: Response): void {
   expect(res.text).toContain('Incident summary')
 }
 
-describe('Creating a report', () => {
+describe.each([
+  { reportType: 'prison' as const, user: mockReportingOfficer, location: 'MDI' },
+  { reportType: 'PECS' as const, user: mockDataWarden, location: 'SOUTH' },
+])('Creating a $reportType report', ({ reportType, user, location }) => {
+  let app: Express
   let agent: Agent
 
   beforeEach(() => {
+    app = appWithAllRoutes({ userSupplier: () => user })
     agent = request.agent(app)
   })
 
-  describe('Step 1: selecting incident type', () => {
+  if (reportType === 'PECS') {
+    describe('Step 1: selecting PECS region', () => {
+      it('should list PECS regions that can be selected', () => {
+        setActiveAgencies(['NORTH'])
+        return agent
+          .get('/create-report/pecs')
+          .expect(200)
+          .expect(res => {
+            expectOnPecsRegionPage(res)
+            expect(res.text).not.toContain('There is a problem')
+
+            // active region
+            expect(res.text).toContain('NORTH')
+            expect(res.text).toContain('PECS North')
+            // inactive region
+            expect(res.text).not.toContain('SOUTH')
+            expect(res.text).not.toContain('PECS South')
+          })
+      })
+
+      it('should show an error message if submitted without choosing a PECS region', () => {
+        return agent
+          .post('/create-report/pecs')
+          .send({})
+          .redirects(1)
+          .expect(200)
+          .expect(res => {
+            expectOnPecsRegionPage(res)
+            expect(res.text).toContain('There is a problem')
+            expect(res.text).toContain('Select the region where the incident happened')
+          })
+      })
+
+      it(`should proceed to step 2 if a PECS region was chosen`, () => {
+        return agent
+          .post('/create-report/PECS')
+          .send({ pecsRegion: 'NORTH' })
+          .redirects(1)
+          .expect(200)
+          .expect(res => {
+            expectOnTypePage(res)
+          })
+      })
+
+      it('should redirect to PECS region selection if skipped', () => {
+        return agent
+          .get('/create-report')
+          .expect(302)
+          .expect(res => {
+            expect(res.redirect).toBe(true)
+            expect(res.header.location).toEqual('/create-report/pecs')
+          })
+      })
+    })
+  } else {
+    it('should forbid access to PECS region selection', () => {
+      return agent
+        .get('/create-report/pecs')
+        .expect(302)
+        .expect(res => {
+          expect(res.redirect).toBe(true)
+          expect(res.header.location).toEqual('/sign-out')
+        })
+    })
+  }
+
+  describe(`Step ${reportType === 'prison' ? '1' : '2'}: selecting incident type`, () => {
+    if (reportType === 'PECS') {
+      beforeEach(() => {
+        return agent.post('/create-report/pecs').send({ pecsRegion: location })
+      })
+    }
+
     it('should list incident types that can be selected', () => {
       return agent
         .get('/create-report')
@@ -79,7 +161,7 @@ describe('Creating a report', () => {
         })
     })
 
-    it('should proceed to step 2 if an incident type was chosen', () => {
+    it(`should proceed to step ${reportType === 'prison' ? '2' : '3'} if an incident type was chosen`, () => {
       return agent
         .post('/create-report')
         .send({ type: 'DISORDER_2' })
@@ -91,8 +173,11 @@ describe('Creating a report', () => {
     })
   })
 
-  describe('Step 2: entering date and description', () => {
-    beforeEach(() => {
+  describe(`Step ${reportType === 'prison' ? '2' : '3'}: entering date and description`, () => {
+    beforeEach(async () => {
+      if (reportType === 'PECS') {
+        await agent.post('/create-report/pecs').send({ pecsRegion: location })
+      }
       return agent.post('/create-report').send({ type: 'DISORDER_2' })
     })
 
@@ -104,8 +189,8 @@ describe('Creating a report', () => {
       description: 'Disorder took place on A wing',
     }
 
-    // TODO: throws “Missing prereq for this step” instead of redirecting :(
-    // it('should redirect to step 1 if it hasn’t been completed', () => {
+    // TODO: form wizard throws “Missing prereq for this step” instead of redirecting :(
+    // it(`should redirect to step ${reportType === 'prison' ? '1' : '2'} if it hasn’t been completed`, () => {
     //   agent = request.agent(app) // reset agent
     //   return agent
     //     .get('/create-report/details')
@@ -116,7 +201,7 @@ describe('Creating a report', () => {
     //     })
     // })
 
-    it('should display form if step 1 was completed', () => {
+    it(`should display form if step ${reportType === 'prison' ? '1' : '2'} was completed`, () => {
       return agent
         .get('/create-report/details')
         .expect(200)
@@ -243,6 +328,7 @@ describe('Creating a report', () => {
         mockReport({
           reportReference: '6544',
           reportDateAndTime: incidentDateAndTime,
+          location,
           withDetails: true,
         }),
       )
@@ -259,8 +345,8 @@ describe('Creating a report', () => {
           expect(incidentReportingApi.createReport).toHaveBeenCalledWith({
             description: 'Disorder took place on A wing',
             incidentDateAndTime,
-            location: 'MDI',
-            title: 'Disorder (Moorland (HMP & YOI))',
+            location,
+            title: reportType === 'PECS' ? 'Disorder (PECS South)' : 'Disorder (Moorland (HMP & YOI))',
             type: 'DISORDER_2',
           })
         })
@@ -277,6 +363,7 @@ describe('Creating a report', () => {
         mockReport({
           reportReference: '6544',
           reportDateAndTime: incidentDateAndTime,
+          location,
           withDetails: true,
         }),
       )
@@ -317,6 +404,7 @@ describe('Creating a report', () => {
         mockReport({
           reportReference: '6544',
           reportDateAndTime: incidentDateAndTime,
+          location,
           withDetails: true,
         }),
       )
@@ -328,42 +416,43 @@ describe('Creating a report', () => {
       })
     })
   })
+})
 
-  describe('Permissions', () => {
-    // NB: these test cases are simplified because the permissions class methods are thoroughly tested elsewhere
+describe('Permissions', () => {
+  // NB: these test cases are simplified because the permissions class methods are thoroughly tested elsewhere
 
-    const granted = 'granted' as const
-    const denied = 'denied' as const
-    it.each([
-      { userType: 'reporting officer', user: mockReportingOfficer, action: granted },
-      { userType: 'data warden', user: mockDataWarden, action: denied },
-      { userType: 'HQ view-only user', user: mockHqViewer, action: denied },
-      { userType: 'unauthorised user', user: mockUnauthorisedUser, action: denied },
-    ])('should be $action to $userType', ({ user, action }) => {
-      const testRequest = request(appWithAllRoutes({ userSupplier: () => user }))
-        .get('/create-report')
-        .redirects(1)
-      if (action === 'granted') {
-        return testRequest.expect(200)
-      }
-      return testRequest.expect(res => {
-        expect(res.redirects[0]).toContain('/sign-out')
+  const granted = 'granted' as const
+  const denied = 'denied' as const
+  it.each([
+    { userType: 'reporting officer', user: mockReportingOfficer, action: granted },
+    { userType: 'data warden', user: mockDataWarden, action: granted },
+    { userType: 'HQ view-only user', user: mockHqViewer, action: denied },
+    { userType: 'unauthorised user', user: mockUnauthorisedUser, action: denied },
+  ])('should be $action to $userType', ({ user, action }) => {
+    const testRequest = request(appWithAllRoutes({ userSupplier: () => user }))
+      .get('/create-report')
+      .redirects(1)
+    if (action === 'granted') {
+      return testRequest.expect(200)
+    }
+    return testRequest.expect(res => {
+      expect(res.redirects[0]).toContain('/sign-out')
+    })
+  })
+
+  it.each([
+    { userType: 'reporting officer', scenario: 'active caseload is not an active prison', user: mockReportingOfficer },
+    { userType: 'data warden', scenario: 'PECS is not active in the service', user: mockDataWarden },
+  ])('should be denied to $userType if $scenario', ({ user }) => {
+    const testApp = appWithAllRoutes({ userSupplier: () => user })
+    setActiveAgencies(['LEI'])
+
+    return request(testApp)
+      .get('/create-report')
+      .expect(302)
+      .expect(res => {
+        expect(res.redirect).toBe(true)
+        expect(res.header.location).toEqual('/sign-out')
       })
-    })
-
-    it.each([
-      { userType: 'reporting officer', user: mockReportingOfficer },
-      { userType: 'data warden', user: mockDataWarden },
-    ])('should be denied to $userType if active caseload is not an active prison', ({ user }) => {
-      const testApp = appWithAllRoutes({ userSupplier: () => user })
-      setActiveAgencies(['LEI'])
-
-      return request(testApp)
-        .get('/create-report')
-        .redirects(1)
-        .expect(res => {
-          expect(res.redirects[0]).toContain('/sign-out')
-        })
-    })
   })
 })

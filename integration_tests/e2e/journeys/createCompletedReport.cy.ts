@@ -53,14 +53,13 @@ context('Creating a completed draft report', () => {
 
     // start on home page
     const indexPage = Page.verifyOnPage(HomePage)
-    indexPage.clickCreateReportCard()
+    indexPage.clickCreatePrisonReportCard()
 
     return cy.end()
   }
 
   function selectType() {
     const typePage = Page.verifyOnPage(TypePage)
-    typePage.checkBackLink('/')
     typePage.selectType('ATTEMPTED_ESCAPE_FROM_PRISON_1')
     typePage.submit()
 

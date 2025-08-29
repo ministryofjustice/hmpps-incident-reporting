@@ -3,7 +3,7 @@ import nunjucks from 'nunjucks'
 
 import { fakeClock, resetClock } from '../testutils/fakeJestClock'
 import nunjucksSetup from './nunjucksSetup'
-import { mockPecsRegions, resetPecsRegions } from '../data/testData/pecsRegions'
+import { mockPecsRegions } from '../data/testData/pecsRegions'
 import { setActiveAgencies } from '../data/activeAgencies'
 import { defaultActiveAgencies } from '../routes/testutils/appSetup'
 
@@ -90,10 +90,6 @@ describe('nunjucks context', () => {
   describe('active-in-service location globals', () => {
     beforeAll(() => {
       mockPecsRegions()
-    })
-
-    afterAll(() => {
-      resetPecsRegions()
     })
 
     it('should call helper function', () => {

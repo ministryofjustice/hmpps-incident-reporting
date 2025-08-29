@@ -1,7 +1,7 @@
 import type express from 'express'
 import type FormWizard from 'hmpo-form-wizard'
 
-import { type DetailsValues, type DetailsFieldNames } from './detailsFields'
+import type { DetailsValues, DetailsFieldNames } from './detailsFields'
 import { BaseIncidentDateAndTimeController } from './incidentDateAndTimeController'
 
 /**
@@ -9,6 +9,8 @@ import { BaseIncidentDateAndTimeController } from './incidentDateAndTimeControll
  * The generic V parameter is for specifying all steps’ values, not just this one.
  */
 export abstract class BaseDetailsController<V extends DetailsValues> extends BaseIncidentDateAndTimeController<V> {
+  protected keyField = 'incidentDate' as const
+
   protected errorMessage(
     error: FormWizard.Error,
     req: FormWizard.Request<V, DetailsFieldNames>,

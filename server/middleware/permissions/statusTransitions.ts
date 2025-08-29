@@ -20,7 +20,7 @@ export type Transition = {
   newStatus?: Status
   /** Is report required to be valid before action is performed? */
   mustBeValid?: boolean
-  /** Radio button label as the users will see within the form on report page */
+  /** Radio button (or regular button if only option) label as the users will see within the form on report page */
   label?: string
   /** Is a valid incident report number required to mark as duplicate? */
   originalReportReferenceRequired?: boolean
@@ -78,7 +78,7 @@ export const prisonReportTransitions: Transitions = {
     },
     AWAITING_REVIEW: {
       EDIT: { newStatus: 'DRAFT' },
-      RECALL: { newStatus: 'DRAFT' },
+      RECALL: { newStatus: 'DRAFT', label: 'Change report' },
     },
     NEEDS_UPDATING: {
       EDIT: {},
@@ -100,16 +100,16 @@ export const prisonReportTransitions: Transitions = {
       },
     },
     UPDATED: {
-      RECALL: { newStatus: 'NEEDS_UPDATING' },
+      RECALL: { newStatus: 'NEEDS_UPDATING', label: 'Change report' },
     },
     CLOSED: {
-      RECALL: { newStatus: 'REOPENED' },
+      RECALL: { newStatus: 'REOPENED', label: 'Reopen and change report' },
     },
     DUPLICATE: {
-      RECALL: { newStatus: 'NEEDS_UPDATING' },
+      RECALL: { newStatus: 'NEEDS_UPDATING', label: 'Reopen and change report' },
     },
     NOT_REPORTABLE: {
-      RECALL: { newStatus: 'NEEDS_UPDATING' },
+      RECALL: { newStatus: 'NEEDS_UPDATING', label: 'Reopen and change report' },
     },
     REOPENED: {
       EDIT: {},
@@ -131,7 +131,7 @@ export const prisonReportTransitions: Transitions = {
       },
     },
     WAS_CLOSED: {
-      RECALL: { newStatus: 'REOPENED' },
+      RECALL: { newStatus: 'REOPENED', label: 'Change report' },
     },
   },
   DATA_WARDEN: {
@@ -213,7 +213,7 @@ export const prisonReportTransitions: Transitions = {
       },
     },
     NEEDS_UPDATING: {
-      RECALL: { newStatus: 'UPDATED' },
+      RECALL: { newStatus: 'UPDATED', label: 'Change report status' },
     },
     UPDATED: {
       CLOSE: {
@@ -259,16 +259,16 @@ export const prisonReportTransitions: Transitions = {
       },
     },
     CLOSED: {
-      RECALL: { newStatus: 'UPDATED' },
+      RECALL: { newStatus: 'UPDATED', label: 'Change report status' },
     },
     DUPLICATE: {
-      RECALL: { newStatus: 'UPDATED' },
+      RECALL: { newStatus: 'UPDATED', label: 'Change report status' },
     },
     NOT_REPORTABLE: {
-      RECALL: { newStatus: 'UPDATED' },
+      RECALL: { newStatus: 'UPDATED', label: 'Change report status' },
     },
     REOPENED: {
-      RECALL: { newStatus: 'WAS_CLOSED' },
+      RECALL: { newStatus: 'WAS_CLOSED', label: 'Change report status' },
     },
     WAS_CLOSED: {
       CLOSE: {
@@ -314,8 +314,6 @@ export const prisonReportTransitions: Transitions = {
  * NB:
  * - `VIEW` action is not included as it never changes a report nor transitions status
  * - presence of a user action does not guarantee permission: report location and validity also matter
- *
- * TODO: not confirmed
  */
 export const pecsReportTransitions: Transitions = {
   DATA_WARDEN: {
@@ -323,36 +321,21 @@ export const pecsReportTransitions: Transitions = {
       EDIT: {},
       CLOSE: {
         newStatus: 'CLOSED',
-        label: 'Close',
+        label: 'Close report',
         mustBeValid: true,
         successBanner: 'Incident report $reportReference has been marked as closed',
       },
-      MARK_DUPLICATE: {
-        newStatus: 'DUPLICATE',
-        label: 'Mark as a duplicate',
-        comment: 'optional',
-        commentLabel: 'Describe why it is a duplicate report (optional)',
-        originalReportReferenceRequired: true,
-        postCorrectionRequest: true,
-        successBanner: 'Report $reportReference has been marked as duplicate',
-      },
-      MARK_NOT_REPORTABLE: {
-        newStatus: 'NOT_REPORTABLE',
-        label: 'Mark as not reportable',
-        comment: 'optional',
-        commentLabel: 'Describe why it is not reportable (optional)',
-        postCorrectionRequest: true,
-        successBanner: 'Report $reportReference has been marked as not reportable',
-      },
+      // it would be logical to also allow MARK_DUPLICATE & MARK_NOT_REPORTABLE,
+      // but it’s been decided that those should only be possible after reopening
     },
     CLOSED: {
-      RECALL: { newStatus: 'REOPENED' },
+      RECALL: { newStatus: 'REOPENED', label: 'Reopen and change report' },
     },
     DUPLICATE: {
-      RECALL: { newStatus: 'REOPENED' },
+      RECALL: { newStatus: 'REOPENED', label: 'Reopen and change report' },
     },
     NOT_REPORTABLE: {
-      RECALL: { newStatus: 'REOPENED' },
+      RECALL: { newStatus: 'REOPENED', label: 'Reopen and change report' },
     },
     REOPENED: {
       EDIT: {},

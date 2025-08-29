@@ -3,6 +3,8 @@
  *
  * NOTE: This is kept up-to-date asynchronously by `updateActiveAgencies`
  * middleware (using Prison API)
+ *
+ * TODO: remove after full rollout
  */
 export const activeAgencies: string[] = []
 

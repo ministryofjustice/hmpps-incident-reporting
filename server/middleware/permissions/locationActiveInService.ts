@@ -5,6 +5,8 @@ import { activeAgencies, SERVICE_ALL_AGENCIES } from '../../data/activeAgencies'
  *
  * Meaning the service has been rolled out there.
  * Otherwise, users are expected to continue using NOMIS.
+ *
+ * TODO: remove after full rollout
  */
 export function isLocationActiveInService(agencyId: string): boolean {
   // empty list permits none

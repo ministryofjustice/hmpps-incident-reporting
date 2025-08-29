@@ -3,7 +3,7 @@ import type { Express, Response } from 'express'
 import { IncidentReportingApi, type ReportBasic } from '../../../data/incidentReportingApi'
 import { convertReportDates } from '../../../data/incidentReportingApiUtils'
 import { mockReport } from '../../../data/testData/incidentReporting'
-import { mockPecsRegions, resetPecsRegions } from '../../../data/testData/pecsRegions'
+import { mockPecsRegions } from '../../../data/testData/pecsRegions'
 import { mockDataWarden, mockReportingOfficer } from '../../../data/testData/users'
 import { Permissions } from '../../../middleware/permissions'
 import { now } from '../../../testutils/fakeClock'
@@ -99,10 +99,6 @@ describe('Report editing side effects', () => {
 
     beforeAll(() => {
       mockPecsRegions()
-    })
-
-    afterAll(() => {
-      resetPecsRegions()
     })
 
     describe('when a data warden edits a report (assuming they are even allowed to)', () => {

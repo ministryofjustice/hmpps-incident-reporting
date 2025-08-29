@@ -16,8 +16,6 @@ class DetailsController extends BaseDetailsController<DetailsValues> {
   // TODO: wizard namespace identifier is shared. consider generating it per request somehow?
   //       otherwise cannot edit 2 pages at once in different windows
 
-  protected keyField = 'incidentDate' as const
-
   middlewareLocals(): void {
     this.use(this.checkReportStatus)
     this.use(this.loadReportIntoSession)

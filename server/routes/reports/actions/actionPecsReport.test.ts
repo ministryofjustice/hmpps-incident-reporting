@@ -19,10 +19,12 @@ import { convertReportDates } from '../../../data/incidentReportingApiUtils'
 import * as reportValidity from '../../../data/reportValidity'
 import { mockErrorResponse, mockReport } from '../../../data/testData/incidentReporting'
 import { mockSharedUser } from '../../../data/testData/manageUsers'
-import { leeds, moorland } from '../../../data/testData/prisonApi'
+import { mockPecsRegions } from '../../../data/testData/pecsRegions'
+import { pecsNorth, pecsSouth } from '../../../data/testData/prisonApi'
 import { mockThrownError } from '../../../data/testData/thrownErrors'
 import { mockDataWarden, mockReportingOfficer, mockHqViewer, mockUnauthorisedUser } from '../../../data/testData/users'
 import * as correctionRequestPlaceholder from './correctionRequestPlaceholder'
+import { rolePecs } from '../../../data/constants'
 
 jest.mock('../../../data/incidentReportingApi')
 jest.mock('../../../data/prisonApi')
@@ -45,6 +47,13 @@ const { placeholderForCorrectionRequest } = correctionRequestPlaceholder as jest
   typeof import('./correctionRequestPlaceholder')
 >
 
+beforeAll(() => {
+  mockPecsRegions()
+})
+
+const mockReportingOfficerWithPecsRole = { ...mockReportingOfficer, roles: [...mockReportingOfficer.roles, rolePecs] }
+const mockHqViewerWithPecsRole = { ...mockHqViewer, roles: [...mockHqViewer.roles, rolePecs] }
+
 beforeEach(() => {
   userService.getUsers.mockResolvedValueOnce({
     [mockSharedUser.username]: mockSharedUser,
@@ -53,8 +62,8 @@ beforeEach(() => {
   prisonApi.getPrison.mockImplementation(locationCode =>
     Promise.resolve(
       {
-        LEI: leeds,
-        MDI: moorland,
+        NORTH: pecsNorth,
+        SOUTH: pecsSouth,
       }[locationCode],
     ),
   )
@@ -86,7 +95,7 @@ function makeReportInvalid() {
   })
 }
 
-describe('Actioning reports', () => {
+describe('Actioning PECS reports', () => {
   let mockedReport: ReportWithDetails
   let viewReportUrl: string
 
@@ -95,6 +104,7 @@ describe('Actioning reports', () => {
       mockReport({
         reportReference: '6543',
         reportDateAndTime: now,
+        location: 'NORTH',
         type: 'ASSAULT_5',
         withDetails: true,
       }),
@@ -108,293 +118,118 @@ describe('Actioning reports', () => {
       makeReportValid()
     })
 
-    interface OptionsScenario {
-      userType: string
-      user: Express.User
-      reportStatus: Status
-      formOptions: string[]
-    }
-    const optionsScenarios: OptionsScenario[] = [
-      {
-        userType: 'reporting officers',
-        user: mockReportingOfficer,
-        reportStatus: 'DRAFT',
-        formOptions: ['Submit', 'Remove it as it’s a duplicate or not reportable'],
-      },
-      {
-        userType: 'reporting officers',
-        user: mockReportingOfficer,
-        reportStatus: 'NEEDS_UPDATING',
-        formOptions: [
-          'Resubmit it with updated information',
-          'Explain what you have changed in the report',
-          'Remove it as it’s a duplicate or not reportable',
-        ],
-      },
-      {
-        userType: 'reporting officers',
-        user: mockReportingOfficer,
-        reportStatus: 'REOPENED',
-        formOptions: [
-          'Resubmit it with updated information',
-          'Explain what you have changed in the report',
-          'Remove it as it’s a duplicate or not reportable',
-        ],
-      },
-      {
-        userType: 'reporting officers',
-        user: mockReportingOfficer,
-        reportStatus: 'AWAITING_REVIEW',
-        formOptions: ['Change report'],
-      },
-      {
-        userType: 'reporting officers',
-        user: mockReportingOfficer,
-        reportStatus: 'UPDATED',
-        formOptions: ['Change report'],
-      },
-      {
-        userType: 'reporting officers',
-        user: mockReportingOfficer,
-        reportStatus: 'WAS_CLOSED',
-        formOptions: ['Change report'],
-      },
-      {
-        userType: 'reporting officers',
-        user: mockReportingOfficer,
-        reportStatus: 'CLOSED',
-        formOptions: ['Reopen and change report'],
-      },
-      {
-        userType: 'reporting officers',
-        user: mockReportingOfficer,
-        reportStatus: 'DUPLICATE',
-        formOptions: ['Reopen and change report'],
-      },
-      {
-        userType: 'reporting officers',
-        user: mockReportingOfficer,
-        reportStatus: 'NOT_REPORTABLE',
-        formOptions: ['Reopen and change report'],
-      },
-      {
-        userType: 'data wardens',
-        user: mockDataWarden,
-        reportStatus: 'AWAITING_REVIEW',
-        formOptions: [
-          'Close',
-          'Send back',
-          'Explain why you’re sending the report back',
-          'Put on hold',
-          'Describe why the report is being put on hold',
-          'Mark as a duplicate',
-          'Enter incident report number of the original report',
-          'Describe why it is a duplicate report (optional)',
-          'Mark as not reportable',
-          'Describe why it is not reportable',
-        ],
-      },
-      {
-        userType: 'data wardens',
-        user: mockDataWarden,
-        reportStatus: 'UPDATED',
-        formOptions: [
-          'Close',
-          'Send back',
-          'Explain why you’re sending the report back',
-          'Put on hold',
-          'Describe why the report is being put on hold',
-          'Mark as a duplicate',
-          'Enter incident report number of the original report',
-          'Describe why it is a duplicate report (optional)',
-          'Mark as not reportable',
-          'Describe why it is not reportable',
-        ],
-      },
-      {
-        userType: 'data wardens',
-        user: mockDataWarden,
-        reportStatus: 'WAS_CLOSED',
-        formOptions: [
-          'Close',
-          'Send back',
-          'Explain why you’re sending the report back',
-          'Mark as a duplicate',
-          'Enter incident report number of the original report',
-          'Describe why it is a duplicate report (optional)',
-          'Mark as not reportable',
-          'Describe why it is not reportable',
-        ],
-      },
-      {
-        userType: 'data wardens',
-        user: mockDataWarden,
-        reportStatus: 'ON_HOLD',
-        formOptions: [
-          'Close',
-          'Send back',
-          'Explain why you’re sending the report back',
-          'Mark as a duplicate',
-          'Enter incident report number of the original report',
-          'Describe why it is a duplicate report (optional)',
-          'Mark as not reportable',
-          'Describe why it is not reportable',
-        ],
-      },
-      {
-        userType: 'data wardens',
-        user: mockDataWarden,
-        reportStatus: 'NEEDS_UPDATING',
-        formOptions: ['Change report status'],
-      },
-      {
-        userType: 'data wardens',
-        user: mockDataWarden,
-        reportStatus: 'REOPENED',
-        formOptions: ['Change report status'],
-      },
-      { userType: 'data wardens', user: mockDataWarden, reportStatus: 'CLOSED', formOptions: ['Change report status'] },
-      {
-        userType: 'data wardens',
-        user: mockDataWarden,
-        reportStatus: 'DUPLICATE',
-        formOptions: ['Change report status'],
-      },
-      {
-        userType: 'data wardens',
-        user: mockDataWarden,
-        reportStatus: 'NOT_REPORTABLE',
-        formOptions: ['Change report status'],
-      },
-    ]
-    it.each(optionsScenarios)(
-      'should show options to $userType when viewing reports with status $reportStatus',
-      ({ user, reportStatus, formOptions }) => {
+    describe('when viewed by data wardens', () => {
+      beforeEach(() => {
+        setupAppForUser(mockDataWarden)
+      })
+
+      interface OptionsScenario {
+        reportStatus: Status
+        formOptions: string[]
+      }
+      const optionsScenarios: OptionsScenario[] = [
+        {
+          reportStatus: 'DRAFT',
+          formOptions: ['Close'],
+        },
+        {
+          reportStatus: 'REOPENED',
+          formOptions: [
+            'Close',
+            'Mark as a duplicate',
+            'Enter incident report number of the original report',
+            'Describe why it is a duplicate report (optional)',
+            'Mark as not reportable',
+            'Describe why it is not reportable',
+          ],
+        },
+        {
+          reportStatus: 'CLOSED',
+          formOptions: ['Reopen and change report'],
+        },
+        {
+          reportStatus: 'DUPLICATE',
+          formOptions: ['Reopen and change report'],
+        },
+        {
+          reportStatus: 'NOT_REPORTABLE',
+          formOptions: ['Reopen and change report'],
+        },
+      ]
+      it.each(optionsScenarios)(
+        'should show options when viewing reports with status $reportStatus',
+        ({ reportStatus, formOptions }) => {
+          mockedReport.status = reportStatus
+
+          return request(app)
+            .get(viewReportUrl)
+            .expect(200)
+            .expect(res => {
+              expect(res.text).toContain('app-view-report__user-action-form')
+              formOptions.forEach(option => expect(res.text).toContain(option))
+            })
+        },
+      )
+
+      it.each(['DRAFT', 'REOPENED'] as const)(
+        'should still show CLOSE option if a DPS report with status %s is invalid',
+        status => {
+          makeReportInvalid()
+          mockedReport.status = status
+
+          return request(app)
+            .get(viewReportUrl)
+            .expect(200)
+            .expect(res => {
+              expect(res.text).toContain('app-view-report__user-action-form')
+              expect(res.text).toContain('Close')
+            })
+        },
+      )
+
+      it.each(['DRAFT', 'REOPENED'] as const)(
+        'should still show CLOSE option if a NOMIS report with status %s is invalid',
+        status => {
+          makeReportInvalid()
+          mockedReport.status = status
+          mockedReport.createdInNomis = true
+          mockedReport.lastModifiedInNomis = true
+
+          return request(app)
+            .get(viewReportUrl)
+            .expect(200)
+            .expect(res => {
+              expect(res.text).toContain('app-view-report__user-action-form')
+              expect(res.text).toContain('Close')
+            })
+        },
+      )
+    })
+
+    describe.each([
+      { userType: 'reporting officers', user: mockReportingOfficerWithPecsRole },
+      { userType: 'HQ viewers', user: mockHqViewerWithPecsRole },
+    ])('when viewed by $userType', ({ user }) => {
+      it.each(statuses)('should not show any options when report has status $code', ({ code: status }) => {
         setupAppForUser(user)
-        mockedReport.status = reportStatus
-
-        return request(app)
-          .get(viewReportUrl)
-          .expect(200)
-          .expect(res => {
-            expect(res.text).toContain('app-view-report__user-action-form')
-            formOptions.forEach(option => expect(res.text).toContain(option))
-          })
-      },
-    )
-
-    it.each(['AWAITING_REVIEW', 'UPDATED', 'ON_HOLD', 'WAS_CLOSED'] as const)(
-      'should hide CLOSE option from data wardens if a DPS report with status %s is invalid',
-      status => {
-        setupAppForUser(mockDataWarden)
-        makeReportInvalid()
         mockedReport.status = status
 
         return request(app)
           .get(viewReportUrl)
           .expect(200)
           .expect(res => {
-            expect(res.text).toContain('app-view-report__user-action-form')
-            expect(res.text).not.toContain('Close')
+            expect(res.text).not.toContain('app-view-report__user-action-form')
+            expect(res.text).not.toContain('Continue')
+            expect(res.text).not.toContain('Submit')
+            expect(res.text).not.toContain('Resubmit')
+            expect(res.text).not.toContain('Request to remove report')
+            expect(res.text).not.toMatch(/Close[^d]/)
+            expect(res.text).not.toContain('Send back')
+            expect(res.text).not.toContain('Put on hold')
+            expect(res.text).not.toContain('Mark as a duplicate')
+            expect(res.text).not.toContain('Mark as not reportable')
           })
-      },
-    )
-
-    it.each(['AWAITING_REVIEW', 'UPDATED', 'ON_HOLD', 'WAS_CLOSED'] as const)(
-      'should show CLOSE option from data wardens if a NOMIS report with status %s is invalid',
-      status => {
-        setupAppForUser(mockDataWarden)
-        makeReportInvalid()
-        mockedReport.status = status
-        mockedReport.createdInNomis = true
-        mockedReport.lastModifiedInNomis = true
-
-        return request(app)
-          .get(viewReportUrl)
-          .expect(200)
-          .expect(res => {
-            expect(res.text).toContain('app-view-report__user-action-form')
-            expect(res.text).toContain('Close')
-          })
-      },
-    )
-
-    it.each(['AWAITING_REVIEW', 'UPDATED', 'ON_HOLD', 'WAS_CLOSED'] as const)(
-      'should hide original incident number input from data wardens if there is a recent request to mark as duplicate',
-      status => {
-        setupAppForUser(mockDataWarden)
-        mockedReport.status = status
-        mockedReport.correctionRequests.push({
-          descriptionOfChange: '(Report is a duplicate of 1235)',
-          userAction: 'REQUEST_DUPLICATE',
-          userType: 'REPORTING_OFFICER',
-          originalReportReference: '1235',
-          correctionRequestedBy: 'user1',
-          correctionRequestedAt: now,
-        })
-
-        return request(app)
-          .get(viewReportUrl)
-          .expect(200)
-          .expect(res => {
-            expect(res.text).not.toContain('Enter incident report number of the original report')
-            expect(res.text).toContain('value="1235"')
-          })
-      },
-    )
-
-    it('should not show any options to reporting officers, only a banner, when report is on hold', () => {
-      setupAppForUser(mockReportingOfficer)
-      mockedReport.status = 'ON_HOLD'
-
-      return request(app)
-        .get(viewReportUrl)
-        .expect(200)
-        .expect(res => {
-          expect(res.text).toContain('On hold')
-          expect(res.text).toContain(
-            'A data warden has placed this report on hold, if you need to make an update contact (email address)',
-          )
-          expect(res.text).not.toContain('app-view-report__user-action-form')
-          expect(res.text).not.toContain('Continue')
-          expect(res.text).not.toContain('Submit')
-          expect(res.text).not.toContain('Resubmit')
-          expect(res.text).not.toContain('Request to remove report')
-        })
-    })
-
-    it('should not show any options to data wardens when report is a draft', () => {
-      setupAppForUser(mockDataWarden)
-      mockedReport.status = 'DRAFT'
-
-      return request(app)
-        .get(viewReportUrl)
-        .expect(200)
-        .expect(res => {
-          expect(res.text).not.toContain('app-view-report__user-action-form')
-          expect(res.text).not.toContain('Continue')
-          expect(res.text).not.toContain('Submit')
-          expect(res.text).not.toContain('Resubmit')
-          expect(res.text).not.toContain('Request to remove report')
-          expect(res.text).not.toContain('Close')
-          expect(res.text).not.toContain('Send back')
-          expect(res.text).not.toContain('Put on hold')
-          expect(res.text).not.toContain('Mark as a duplicate')
-          expect(res.text).not.toContain('Mark as not reportable')
-        })
-    })
-
-    it.each(statuses)('should not show any options to HQ viewer when report has status $code', ({ code: status }) => {
-      setupAppForUser(mockHqViewer)
-      mockedReport.status = status
-
-      return request(app)
-        .get(viewReportUrl)
-        .expect(200)
-        .expect(res => {
-          expect(res.text).not.toContain('app-view-report__user-action-form')
-          expect(res.text).not.toContain('Continue')
-        })
+      })
     })
   })
 
@@ -411,79 +246,70 @@ describe('Actioning reports', () => {
     }
     const forbiddenTransitionScenarios: ForbiddenTransitionScenario[] = [
       {
-        userType: 'reporting officers',
-        user: mockReportingOfficer,
-        forbiddenTransitions: [
-          {
-            userAction: 'REQUEST_REVIEW',
-            forbiddenStatuses: [
-              'AWAITING_REVIEW',
-              'UPDATED',
-              'ON_HOLD',
-              'WAS_CLOSED',
-              'DUPLICATE',
-              'NOT_REPORTABLE',
-              'CLOSED',
-            ],
-          },
-          {
-            userAction: 'REQUEST_REMOVAL',
-            forbiddenStatuses: [
-              'AWAITING_REVIEW',
-              'UPDATED',
-              'ON_HOLD',
-              'WAS_CLOSED',
-              'DUPLICATE',
-              'NOT_REPORTABLE',
-              'CLOSED',
-            ],
-          },
-          { userAction: 'RECALL', forbiddenStatuses: ['DRAFT', 'NEEDS_UPDATING', 'REOPENED', 'ON_HOLD'] },
-          { userAction: 'REQUEST_CORRECTION', forbiddenStatuses: 'all' },
-          { userAction: 'CLOSE', forbiddenStatuses: 'all' },
-          { userAction: 'MARK_DUPLICATE', forbiddenStatuses: 'all' },
-          { userAction: 'MARK_NOT_REPORTABLE', forbiddenStatuses: 'all' },
-          { userAction: 'HOLD', forbiddenStatuses: 'all' },
-        ],
-      },
-      {
         userType: 'data wardens',
         user: mockDataWarden,
         forbiddenTransitions: [
-          { userAction: 'REQUEST_REVIEW', forbiddenStatuses: 'all' },
-          { userAction: 'REQUEST_REMOVAL', forbiddenStatuses: 'all' },
-          {
-            userAction: 'REQUEST_CORRECTION',
-            forbiddenStatuses: ['DRAFT', 'NEEDS_UPDATING', 'REOPENED', 'DUPLICATE', 'NOT_REPORTABLE', 'CLOSED'],
-          },
-          { userAction: 'RECALL', forbiddenStatuses: ['DRAFT', 'AWAITING_REVIEW', 'UPDATED', 'ON_HOLD', 'WAS_CLOSED'] },
           {
             userAction: 'CLOSE',
-            forbiddenStatuses: ['DRAFT', 'NEEDS_UPDATING', 'REOPENED', 'DUPLICATE', 'NOT_REPORTABLE', 'CLOSED'],
+            forbiddenStatuses: [
+              'NEEDS_UPDATING',
+              'AWAITING_REVIEW',
+              'UPDATED',
+              'ON_HOLD',
+              'WAS_CLOSED',
+              'CLOSED',
+              'DUPLICATE',
+              'NOT_REPORTABLE',
+            ],
           },
           {
             userAction: 'MARK_DUPLICATE',
-            forbiddenStatuses: ['DRAFT', 'NEEDS_UPDATING', 'REOPENED', 'DUPLICATE', 'NOT_REPORTABLE', 'CLOSED'],
+            forbiddenStatuses: [
+              'DRAFT',
+              'NEEDS_UPDATING',
+              'AWAITING_REVIEW',
+              'UPDATED',
+              'ON_HOLD',
+              'WAS_CLOSED',
+              'CLOSED',
+              'DUPLICATE',
+              'NOT_REPORTABLE',
+            ],
           },
           {
             userAction: 'MARK_NOT_REPORTABLE',
-            forbiddenStatuses: ['DRAFT', 'NEEDS_UPDATING', 'REOPENED', 'DUPLICATE', 'NOT_REPORTABLE', 'CLOSED'],
+            forbiddenStatuses: [
+              'DRAFT',
+              'NEEDS_UPDATING',
+              'AWAITING_REVIEW',
+              'UPDATED',
+              'ON_HOLD',
+              'WAS_CLOSED',
+              'CLOSED',
+              'DUPLICATE',
+              'NOT_REPORTABLE',
+            ],
           },
           {
-            userAction: 'HOLD',
+            userAction: 'RECALL',
             forbiddenStatuses: [
               'DRAFT',
               'NEEDS_UPDATING',
               'REOPENED',
+              'AWAITING_REVIEW',
+              'UPDATED',
+              'ON_HOLD',
               'WAS_CLOSED',
-              'DUPLICATE',
-              'NOT_REPORTABLE',
-              'CLOSED',
             ],
           },
+          { userAction: 'REQUEST_REVIEW', forbiddenStatuses: 'all' },
+          { userAction: 'REQUEST_REMOVAL', forbiddenStatuses: 'all' },
+          { userAction: 'REQUEST_CORRECTION', forbiddenStatuses: 'all' },
+          { userAction: 'HOLD', forbiddenStatuses: 'all' },
         ],
       },
-      { userType: 'HQ viewers', user: mockHqViewer, forbiddenTransitions: 'all' },
+      { userType: 'reporting officers', user: mockReportingOfficerWithPecsRole, forbiddenTransitions: 'all' },
+      { userType: 'HQ viewers', user: mockHqViewerWithPecsRole, forbiddenTransitions: 'all' },
     ]
     describe.each(forbiddenTransitionScenarios)('when $userType', ({ userType, user, forbiddenTransitions }) => {
       beforeEach(() => {
@@ -503,9 +329,9 @@ describe('Actioning reports', () => {
           .expect(res => {
             expect(res.text).toContain('There is a problem')
             const noActionsPermitted =
-              (userType === 'reporting officers' && status === 'ON_HOLD') ||
-              (userType === 'data wardens' && status === 'DRAFT') ||
-              userType === 'HQ viewers'
+              userType === 'reporting officers' ||
+              userType === 'HQ viewers' ||
+              ['NEEDS_UPDATING', 'AWAITING_REVIEW', 'UPDATED', 'ON_HOLD', 'WAS_CLOSED'].includes(status)
             if (noActionsPermitted) {
               expect(res.text).toContain('You do not have permission to action this report')
             } else {
@@ -541,14 +367,12 @@ describe('Actioning reports', () => {
       })
     })
 
-    const actionsRequiringValidReports = ['REQUEST_REVIEW', 'CLOSE']
+    const actionsRequiringValidReports = ['CLOSE']
 
     interface TransitionScenarios {
-      userType: string
-      user: Express.User
       currentStatus: Status
       userAction: UserAction
-      comment: 'not allowed' | 'optional' | 'required'
+      comment: 'not allowed' | 'optional'
       needsOriginalReportReference?: boolean
       postsCorrectionRequest?: AddCorrectionRequestRequest
       updatesTitle?: boolean
@@ -556,287 +380,45 @@ describe('Actioning reports', () => {
       redirectedPage: 'dashboard' | 'view-report'
     }
     const transitionScenarios: TransitionScenarios[] = [
-      // cannot add comment & redirect to dashboard
       {
-        userType: 'reporting officers',
-        user: mockReportingOfficer,
         currentStatus: 'DRAFT',
-        userAction: 'REQUEST_REVIEW',
+        userAction: 'CLOSE',
         comment: 'not allowed',
         updatesTitle: true,
-        newStatus: 'AWAITING_REVIEW',
-        redirectedPage: 'dashboard',
-      },
-      {
-        userType: 'data wardens',
-        user: mockDataWarden,
-        currentStatus: 'AWAITING_REVIEW',
-        userAction: 'CLOSE',
-        comment: 'not allowed',
         newStatus: 'CLOSED',
         redirectedPage: 'dashboard',
       },
       {
-        userType: 'data wardens',
-        user: mockDataWarden,
-        currentStatus: 'ON_HOLD',
+        currentStatus: 'REOPENED',
         userAction: 'CLOSE',
         comment: 'not allowed',
+        updatesTitle: true,
         newStatus: 'CLOSED',
         redirectedPage: 'dashboard',
       },
       {
-        userType: 'data wardens',
-        user: mockDataWarden,
-        currentStatus: 'UPDATED',
-        userAction: 'CLOSE',
-        comment: 'not allowed',
-        newStatus: 'CLOSED',
-        redirectedPage: 'dashboard',
-      },
-      {
-        userType: 'data wardens',
-        user: mockDataWarden,
-        currentStatus: 'WAS_CLOSED',
-        userAction: 'CLOSE',
-        comment: 'not allowed',
-        newStatus: 'CLOSED',
-        redirectedPage: 'dashboard',
-      },
-      // cannot add comment & refresh report page
-      {
-        userType: 'reporting officers',
-        user: mockReportingOfficer,
-        currentStatus: 'AWAITING_REVIEW',
-        userAction: 'RECALL',
-        comment: 'not allowed',
-        newStatus: 'DRAFT',
-        redirectedPage: 'view-report',
-      },
-      {
-        userType: 'reporting officers',
-        user: mockReportingOfficer,
-        currentStatus: 'UPDATED',
-        userAction: 'RECALL',
-        comment: 'not allowed',
-        newStatus: 'NEEDS_UPDATING',
-        redirectedPage: 'view-report',
-      },
-      {
-        userType: 'reporting officers',
-        user: mockReportingOfficer,
-        currentStatus: 'WAS_CLOSED',
-        userAction: 'RECALL',
-        comment: 'not allowed',
-        newStatus: 'REOPENED',
-        redirectedPage: 'view-report',
-      },
-      {
-        userType: 'data wardens',
-        user: mockDataWarden,
-        currentStatus: 'NEEDS_UPDATING',
-        userAction: 'RECALL',
-        comment: 'not allowed',
-        newStatus: 'UPDATED',
-        redirectedPage: 'view-report',
-      },
-      {
-        userType: 'data wardens',
-        user: mockDataWarden,
         currentStatus: 'CLOSED',
         userAction: 'RECALL',
         comment: 'not allowed',
-        newStatus: 'UPDATED',
+        newStatus: 'REOPENED',
         redirectedPage: 'view-report',
       },
       {
-        userType: 'data wardens',
-        user: mockDataWarden,
         currentStatus: 'DUPLICATE',
         userAction: 'RECALL',
         comment: 'not allowed',
-        newStatus: 'UPDATED',
+        newStatus: 'REOPENED',
         redirectedPage: 'view-report',
       },
       {
-        userType: 'data wardens',
-        user: mockDataWarden,
         currentStatus: 'NOT_REPORTABLE',
         userAction: 'RECALL',
         comment: 'not allowed',
-        newStatus: 'UPDATED',
-        redirectedPage: 'view-report',
-      },
-      {
-        userType: 'data wardens',
-        user: mockDataWarden,
-        currentStatus: 'REOPENED',
-        userAction: 'RECALL',
-        comment: 'not allowed',
-        newStatus: 'WAS_CLOSED',
-        redirectedPage: 'view-report',
-      },
-      // comment may be required & redirect to dashboard
-      {
-        userType: 'reporting officers',
-        user: mockReportingOfficer,
-        currentStatus: 'NEEDS_UPDATING',
-        userAction: 'REQUEST_REVIEW',
-        comment: 'required',
-        postsCorrectionRequest: {
-          userType: 'REPORTING_OFFICER',
-          userAction: 'REQUEST_REVIEW',
-          descriptionOfChange: 'My comment on this action',
-        },
-        updatesTitle: true,
-        newStatus: 'UPDATED',
-        redirectedPage: 'dashboard',
-      },
-      {
-        userType: 'reporting officers',
-        user: mockReportingOfficer,
-        currentStatus: 'REOPENED',
-        userAction: 'REQUEST_REVIEW',
-        comment: 'required',
-        postsCorrectionRequest: {
-          userType: 'REPORTING_OFFICER',
-          userAction: 'REQUEST_REVIEW',
-          descriptionOfChange: 'My comment on this action',
-        },
-        updatesTitle: true,
-        newStatus: 'WAS_CLOSED',
-        redirectedPage: 'dashboard',
-      },
-      {
-        userType: 'data wardens',
-        user: mockDataWarden,
-        currentStatus: 'AWAITING_REVIEW',
-        userAction: 'REQUEST_CORRECTION',
-        comment: 'required',
-        postsCorrectionRequest: {
-          userType: 'DATA_WARDEN',
-          userAction: 'REQUEST_CORRECTION',
-          descriptionOfChange: 'My comment on this action',
-        },
-        newStatus: 'NEEDS_UPDATING',
-        redirectedPage: 'dashboard',
-      },
-      {
-        userType: 'data wardens',
-        user: mockDataWarden,
-        currentStatus: 'AWAITING_REVIEW',
-        userAction: 'HOLD',
-        comment: 'required',
-        postsCorrectionRequest: {
-          userType: 'DATA_WARDEN',
-          userAction: 'HOLD',
-          descriptionOfChange: 'My comment on this action',
-        },
-        newStatus: 'ON_HOLD',
-        redirectedPage: 'dashboard',
-      },
-      {
-        userType: 'data wardens',
-        user: mockDataWarden,
-        currentStatus: 'AWAITING_REVIEW',
-        userAction: 'MARK_NOT_REPORTABLE',
-        comment: 'optional',
-        postsCorrectionRequest: {
-          userType: 'DATA_WARDEN',
-          userAction: 'MARK_NOT_REPORTABLE',
-          descriptionOfChange: 'My comment on this action',
-        },
-        newStatus: 'NOT_REPORTABLE',
-        redirectedPage: 'dashboard',
-      },
-      {
-        userType: 'data wardens',
-        user: mockDataWarden,
-        currentStatus: 'ON_HOLD',
-        userAction: 'REQUEST_CORRECTION',
-        comment: 'required',
-        postsCorrectionRequest: {
-          userType: 'DATA_WARDEN',
-          userAction: 'REQUEST_CORRECTION',
-          descriptionOfChange: 'My comment on this action',
-        },
-        newStatus: 'NEEDS_UPDATING',
-        redirectedPage: 'dashboard',
-      },
-      {
-        userType: 'data wardens',
-        user: mockDataWarden,
-        currentStatus: 'ON_HOLD',
-        userAction: 'MARK_NOT_REPORTABLE',
-        comment: 'optional',
-        postsCorrectionRequest: {
-          userType: 'DATA_WARDEN',
-          userAction: 'MARK_NOT_REPORTABLE',
-          descriptionOfChange: 'My comment on this action',
-        },
-        newStatus: 'NOT_REPORTABLE',
-        redirectedPage: 'dashboard',
-      },
-      {
-        userType: 'data wardens',
-        user: mockDataWarden,
-        currentStatus: 'UPDATED',
-        userAction: 'REQUEST_CORRECTION',
-        comment: 'required',
-        postsCorrectionRequest: {
-          userType: 'DATA_WARDEN',
-          userAction: 'REQUEST_CORRECTION',
-          descriptionOfChange: 'My comment on this action',
-        },
-        newStatus: 'NEEDS_UPDATING',
-        redirectedPage: 'dashboard',
-      },
-      {
-        userType: 'data wardens',
-        user: mockDataWarden,
-        currentStatus: 'UPDATED',
-        userAction: 'HOLD',
-        comment: 'required',
-        postsCorrectionRequest: {
-          userType: 'DATA_WARDEN',
-          userAction: 'HOLD',
-          descriptionOfChange: 'My comment on this action',
-        },
-        newStatus: 'ON_HOLD',
-        redirectedPage: 'dashboard',
-      },
-      {
-        userType: 'data wardens',
-        user: mockDataWarden,
-        currentStatus: 'UPDATED',
-        userAction: 'MARK_NOT_REPORTABLE',
-        comment: 'optional',
-        postsCorrectionRequest: {
-          userType: 'DATA_WARDEN',
-          userAction: 'MARK_NOT_REPORTABLE',
-          descriptionOfChange: 'My comment on this action',
-        },
-        newStatus: 'NOT_REPORTABLE',
-        redirectedPage: 'dashboard',
-      },
-      {
-        userType: 'data wardens',
-        user: mockDataWarden,
-        currentStatus: 'WAS_CLOSED',
-        userAction: 'REQUEST_CORRECTION',
-        comment: 'required',
-        postsCorrectionRequest: {
-          userType: 'DATA_WARDEN',
-          userAction: 'REQUEST_CORRECTION',
-          descriptionOfChange: 'My comment on this action',
-        },
         newStatus: 'REOPENED',
-        redirectedPage: 'dashboard',
+        redirectedPage: 'view-report',
       },
       {
-        userType: 'data wardens',
-        user: mockDataWarden,
-        currentStatus: 'WAS_CLOSED',
+        currentStatus: 'REOPENED',
         userAction: 'MARK_NOT_REPORTABLE',
         comment: 'optional',
         postsCorrectionRequest: {
@@ -847,59 +429,8 @@ describe('Actioning reports', () => {
         newStatus: 'NOT_REPORTABLE',
         redirectedPage: 'dashboard',
       },
-      // original report reference is needed
       {
-        userType: 'data wardens',
-        user: mockDataWarden,
-        currentStatus: 'AWAITING_REVIEW',
-        userAction: 'MARK_DUPLICATE',
-        comment: 'optional',
-        needsOriginalReportReference: true,
-        postsCorrectionRequest: {
-          userType: 'DATA_WARDEN',
-          userAction: 'MARK_DUPLICATE',
-          descriptionOfChange: 'My comment on this action',
-          originalReportReference: '1234',
-        },
-        newStatus: 'DUPLICATE',
-        redirectedPage: 'dashboard',
-      },
-      {
-        userType: 'data wardens',
-        user: mockDataWarden,
-        currentStatus: 'ON_HOLD',
-        userAction: 'MARK_DUPLICATE',
-        comment: 'optional',
-        needsOriginalReportReference: true,
-        postsCorrectionRequest: {
-          userType: 'DATA_WARDEN',
-          userAction: 'MARK_DUPLICATE',
-          descriptionOfChange: 'My comment on this action',
-          originalReportReference: '1234',
-        },
-        newStatus: 'DUPLICATE',
-        redirectedPage: 'dashboard',
-      },
-      {
-        userType: 'data wardens',
-        user: mockDataWarden,
-        currentStatus: 'UPDATED',
-        userAction: 'MARK_DUPLICATE',
-        comment: 'optional',
-        needsOriginalReportReference: true,
-        postsCorrectionRequest: {
-          userType: 'DATA_WARDEN',
-          userAction: 'MARK_DUPLICATE',
-          descriptionOfChange: 'My comment on this action',
-          originalReportReference: '1234',
-        },
-        newStatus: 'DUPLICATE',
-        redirectedPage: 'dashboard',
-      },
-      {
-        userType: 'data wardens',
-        user: mockDataWarden,
-        currentStatus: 'WAS_CLOSED',
+        currentStatus: 'REOPENED',
         userAction: 'MARK_DUPLICATE',
         comment: 'optional',
         needsOriginalReportReference: true,
@@ -914,9 +445,8 @@ describe('Actioning reports', () => {
       },
     ]
     describe.each(transitionScenarios)(
-      'when $userType try to perform $userAction on report with status $currentStatus when a comment is $comment',
+      'when data wardens try to perform $userAction on report with status $currentStatus when a comment is $comment',
       ({
-        user,
         currentStatus,
         userAction,
         comment,
@@ -944,7 +474,7 @@ describe('Actioning reports', () => {
         let expectedRedirect: string
 
         beforeEach(() => {
-          setupAppForUser(user)
+          setupAppForUser(mockDataWarden)
           mockedReport.status = currentStatus
           expectedRedirect = redirectedPage === 'dashboard' ? '/reports' : `/reports/${mockedReport.id}`
           incidentReportingApi.getReportByReference.mockRejectedValueOnce(new Error('should not be called'))
@@ -981,14 +511,14 @@ describe('Actioning reports', () => {
               }
               if (updatesTitle) {
                 expect(prisonApi.getPrison).toHaveBeenCalledTimes(2)
-                expect(prisonApi.getPrison).toHaveBeenNthCalledWith(1, 'MDI', false) // to display report location
-                expect(prisonApi.getPrison).toHaveBeenNthCalledWith(2, 'MDI', false) // to regenerate title
+                expect(prisonApi.getPrison).toHaveBeenNthCalledWith(1, 'NORTH', false) // to display report location
+                expect(prisonApi.getPrison).toHaveBeenNthCalledWith(2, 'NORTH', false) // to regenerate title
                 expect(incidentReportingApi.updateReport).toHaveBeenCalledWith(mockedReport.id, {
-                  title: 'Assault: Arnold A1111AA, Benjamin A2222BB (Moorland (HMP & YOI))',
+                  title: 'Assault: Arnold A1111AA, Benjamin A2222BB (PECS North)',
                 })
               } else {
                 expect(prisonApi.getPrison).toHaveBeenCalledTimes(1)
-                expect(prisonApi.getPrison).toHaveBeenCalledWith('MDI', false) // to display report location
+                expect(prisonApi.getPrison).toHaveBeenCalledWith('NORTH', false) // to display report location
                 if (userAction === 'MARK_DUPLICATE') {
                   expect(incidentReportingApi.updateReport).toHaveBeenCalledWith(mockedReport.id, {
                     duplicatedReportId: mockedOriginalReport.id,
@@ -1083,44 +613,7 @@ describe('Actioning reports', () => {
           })
         }
 
-        if (comment === 'required') {
-          it('should not be allowed if comment is missing', () => {
-            makeReportValid()
-            makeOriginalReportReferenceExistIfNeeded()
-            incidentReportingRelatedObjects.addToReport.mockRejectedValue(new Error('should not be called'))
-            incidentReportingApi.changeReportStatus.mockRejectedValue(new Error('should not be called'))
-
-            return request(app)
-              .post(viewReportUrl)
-              .send({
-                ...validPayload,
-                [`${userAction}_COMMENT`]: '',
-              } satisfies Payload)
-              .expect(200)
-              .expect(res => {
-                expect(res.text).toContain('There is a problem')
-                if (userAction === 'REQUEST_REVIEW') {
-                  expect(res.text).toContain('Enter what has changed in the report')
-                  expect(res.text).not.toContain('Please enter a comment')
-                } else if (userAction === 'REQUEST_CORRECTION') {
-                  expect(res.text).toContain('Add information to explain why you’re sending the report back')
-                  expect(res.text).not.toContain('Please enter a comment')
-                } else if (userAction === 'HOLD') {
-                  expect(res.text).toContain('Add information to explain why you’re putting the report on hold')
-                  expect(res.text).not.toContain('Please enter a comment')
-                } else if (userAction === 'MARK_NOT_REPORTABLE') {
-                  expect(res.text).toContain('Describe why incident is not reportable')
-                  expect(res.text).not.toContain('Please enter a comment')
-                } else {
-                  // fallback; doesn’t currently appear
-                  expect(res.text).toContain('Please enter a comment')
-                }
-                expect(incidentReportingApi.updateReport).not.toHaveBeenCalled()
-                expect(incidentReportingRelatedObjects.addToReport).not.toHaveBeenCalled()
-                expect(incidentReportingApi.changeReportStatus).not.toHaveBeenCalled()
-              })
-          })
-        } else if (comment === 'optional') {
+        if (comment === 'optional') {
           it(`should succeed changing the status to ${newStatus} even if comment is left empty`, () => {
             makeReportValid()
             makeOriginalReportReferenceExistIfNeeded()
@@ -1298,45 +791,6 @@ describe('Actioning reports', () => {
               expect(res.text).toContain('Sorry, there was a problem with your request')
               expect(res.text).not.toContain('Bad Request')
               expect(res.text).not.toContain('Comment is required')
-            })
-        })
-      },
-    )
-
-    interface RedirectScenarios {
-      currentStatus: Status
-      userAction: UserAction
-      redirectedPage: string
-    }
-    const redirectScenarios: RedirectScenarios[] = [
-      { currentStatus: 'DRAFT', userAction: 'REQUEST_REMOVAL', redirectedPage: 'request-remove' },
-      { currentStatus: 'NEEDS_UPDATING', userAction: 'REQUEST_REMOVAL', redirectedPage: 'request-remove' },
-      { currentStatus: 'REOPENED', userAction: 'REQUEST_REMOVAL', redirectedPage: 'request-remove' },
-      { currentStatus: 'CLOSED', userAction: 'RECALL', redirectedPage: 'reopen' },
-      { currentStatus: 'DUPLICATE', userAction: 'RECALL', redirectedPage: 'reopen' },
-      { currentStatus: 'NOT_REPORTABLE', userAction: 'RECALL', redirectedPage: 'reopen' },
-    ]
-    describe.each(redirectScenarios)(
-      'when reporting officers try to perform $userAction on report with status $currentStatus',
-      ({ currentStatus, userAction, redirectedPage }) => {
-        beforeEach(() => {
-          setupAppForUser(mockReportingOfficer)
-          mockedReport.status = currentStatus
-        })
-
-        it('should succeed with no status change', () => {
-          incidentReportingRelatedObjects.addToReport.mockRejectedValue(new Error('should not be called'))
-          incidentReportingApi.changeReportStatus.mockRejectedValue(new Error('should not be called'))
-
-          return request(app)
-            .post(viewReportUrl)
-            .send({ userAction })
-            .expect(302)
-            .expect(res => {
-              expect(res.redirect).toBe(true)
-              expect(res.header.location).toEqual(`/reports/${mockedReport.id}/${redirectedPage}`)
-              expect(incidentReportingRelatedObjects.addToReport).not.toHaveBeenCalled()
-              expect(incidentReportingApi.changeReportStatus).not.toHaveBeenCalled()
             })
         })
       },

@@ -91,7 +91,7 @@ describe('Submitting “to do” reports', () => {
 
         const dashboardPage = Page.verifyOnPage(DashboardPage)
         dashboardPage.checkNotificationBannerContent(
-          isDraft ? 'You have submitted incident report 6544' : 'You have resubmitted incident report 6544',
+          isDraft ? 'Incident report 6544 created' : 'Incident report 6544 resubmitted',
         )
       })
 
@@ -150,7 +150,7 @@ describe('Submitting “to do” reports', () => {
           requestRemovalPage.submit()
 
           const dashboardPage = Page.verifyOnPage(DashboardPage)
-          dashboardPage.checkNotificationBannerContent('Request to remove report 6544 sent')
+          dashboardPage.checkNotificationBannerContent('Request to remove incident report 6544 sent')
         })
 
         it('should be able to request marking it as not reportable', () => {
@@ -180,7 +180,7 @@ describe('Submitting “to do” reports', () => {
           requestRemovalPage.submit()
 
           const dashboardPage = Page.verifyOnPage(DashboardPage)
-          dashboardPage.checkNotificationBannerContent('Request to remove report 6544 sent')
+          dashboardPage.checkNotificationBannerContent('Request to remove incident report 6544 sent')
         })
       })
     })

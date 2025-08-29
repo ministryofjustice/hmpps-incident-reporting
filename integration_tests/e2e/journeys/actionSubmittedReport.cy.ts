@@ -69,7 +69,7 @@ describe('Actioning submitted reports', () => {
             userAction: 'REQUEST_CORRECTION',
             newStatus: sentBackTo,
             comment: 'Add prisoner number to description',
-            banner: 'Incident report 6544 has been sent back',
+            banner: 'Incident report 6544 sent back',
           })
         })
 
@@ -79,7 +79,7 @@ describe('Actioning submitted reports', () => {
             actionLabel: 'Close',
             userAction: 'CLOSE',
             newStatus: 'CLOSED',
-            banner: 'Incident report 6544 has been marked as closed',
+            banner: 'Incident report 6544 is now closed',
           })
         })
 
@@ -91,7 +91,7 @@ describe('Actioning submitted reports', () => {
               userAction: 'HOLD',
               newStatus: 'ON_HOLD',
               comment: 'Checking policy…',
-              banner: 'Incident report 6544 has been put on hold',
+              banner: 'Incident report 6544 is now on hold',
             })
           })
         }
@@ -120,7 +120,7 @@ describe('Actioning submitted reports', () => {
             newStatus: 'DUPLICATE',
             originalReportReference: '6543',
             comment: 'Definitely same incident as 6543',
-            banner: 'Report 6544 has been marked as duplicate',
+            banner: 'Incident report 6544 is now set as a duplicate',
           })
         })
 
@@ -131,7 +131,7 @@ describe('Actioning submitted reports', () => {
             userAction: 'MARK_NOT_REPORTABLE',
             newStatus: 'NOT_REPORTABLE',
             comment: 'Severity of incident does not necessitate a report',
-            banner: 'Report 6544 has been marked as not reportable',
+            banner: 'Incident report 6544 is now set as non reportable',
           })
         })
       })
@@ -179,7 +179,7 @@ describe('Actioning submitted reports', () => {
             newStatus: 'DUPLICATE',
             originalReportReferenceSentToApi: '6543',
             commentSentToApi: '(Report is a duplicate of 6543)',
-            banner: 'Report 6544 has been marked as duplicate',
+            banner: 'Incident report 6544 is now set as a duplicate',
           })
         })
 
@@ -208,7 +208,7 @@ describe('Actioning submitted reports', () => {
             userAction: 'MARK_NOT_REPORTABLE',
             newStatus: 'NOT_REPORTABLE',
             commentSentToApi: '(Not reportable)',
-            banner: 'Report 6544 has been marked as not reportable',
+            banner: 'Incident report 6544 is now set as non reportable',
           })
         })
       })

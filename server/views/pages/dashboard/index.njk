@@ -189,14 +189,16 @@
       {% endset %}
 
       {% set statusHtml %}
-        {% if report.status in statusHints %}
-          {{ govukDetails({
-            summaryText: statusesDescriptions[report.status] or report.status,
-            text: statusHints[report.status]
-          }) }}
-        {% else %}
-          statusesDescriptions[report.status] or report.status
-        {% endif %}
+        <div class="app-dashboard__status-cell">
+          {% if report.status in statusHints %}
+            {{ govukDetails({
+              summaryText: statusesDescriptions[report.status] or report.status,
+              text: statusHints[report.status]
+            }) }}
+          {% else %}
+            statusesDescriptions[report.status] or report.status
+          {% endif %}
+        </div>
       {% endset %}
 
       {% if showLocationFilter %}

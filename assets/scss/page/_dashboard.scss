@@ -35,3 +35,9 @@
   -webkit-box-orient: vertical;
   box-orient: vertical;
 }
+
+.app-dashboard__status-cell {
+  .govuk-details{
+    margin-bottom: 0;
+  }
+}

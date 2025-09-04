@@ -55,7 +55,7 @@ export function viewReportRouter(): Router {
       const { permissions, allowedActions, reportConfig, reportUrl, questionProgress } = res.locals
       const { userType } = permissions
 
-      const usernames = [report.reportedBy]
+      const usernames = [report.reportedBy, report.modifiedBy]
       if (report.correctionRequests?.length) {
         usernames.push(...report.correctionRequests.map(correctionRequest => correctionRequest.correctionRequestedBy))
       }

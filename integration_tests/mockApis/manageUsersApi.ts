@@ -2,7 +2,12 @@ import type { Response as SuperAgentResponse, SuperAgentRequest } from 'superage
 
 import { stubFor } from './wiremock'
 import type { Staff } from '../../server/data/prisonApi'
-import { mockUser, mockSharedUser, mockPrisonUserSearchResult } from '../../server/data/testData/manageUsers'
+import {
+  mockUser,
+  mockSharedUser,
+  mockSharedUser2,
+  mockPrisonUserSearchResult,
+} from '../../server/data/testData/manageUsers'
 import { staffBarry, staffMary } from '../../server/data/testData/prisonApi'
 import ManageUsersApiClient, {
   type User,
@@ -35,7 +40,7 @@ export default {
       name?: string
       firstName?: string
       lastName?: string
-    }[] = [mockSharedUser, staffBarry, staffMary],
+    }[] = [mockSharedUser, mockSharedUser2, staffBarry, staffMary],
   ): Promise<SuperAgentResponse[]> =>
     Promise.all(
       users.map(user =>

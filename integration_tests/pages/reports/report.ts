@@ -14,6 +14,10 @@ export class ReportPage extends Page {
     return cy.get('[data-qa=report-reported-by]')
   }
 
+  get updatedBy(): PageElement<HTMLSpanElement> {
+    return cy.get('[data-qa=report-updated-by]')
+  }
+
   get status(): PageElement<HTMLSpanElement> {
     return cy.get('[data-qa=report-status]')
   }

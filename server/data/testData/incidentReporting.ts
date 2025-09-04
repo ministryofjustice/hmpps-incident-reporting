@@ -25,6 +25,8 @@ interface MockReportConfig {
   status?: Status
   type?: Type
   reportingUsername?: string
+  modifyingUsername?: string
+  modifiedDateAndTime?: Date
   withAddendums?: boolean
 }
 
@@ -41,6 +43,8 @@ export function mockReport({
   status = 'DRAFT',
   type = 'FIND_6',
   reportingUsername = 'user1',
+  modifyingUsername = 'user1',
+  modifiedDateAndTime = reportDateAndTime,
   withDetails = false,
   withAddendums = false,
 }: MockReportConfig & { withDetails?: boolean }): DatesAsStrings<ReportBasic | ReportWithDetails> {
@@ -61,8 +65,8 @@ export function mockReport({
     reportedAt: format.isoDateTime(reportDateAndTime),
     status,
     createdAt: format.isoDateTime(reportDateAndTime),
-    modifiedAt: format.isoDateTime(reportDateAndTime),
-    modifiedBy: reportingUsername,
+    modifiedAt: format.isoDateTime(modifiedDateAndTime),
+    modifiedBy: modifyingUsername,
     createdInNomis,
     lastModifiedInNomis: createdInNomis,
     duplicatedReportId: null,

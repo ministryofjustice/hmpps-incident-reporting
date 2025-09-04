@@ -67,7 +67,7 @@ export const prisonReportTransitions: Transitions = {
         newStatus: 'AWAITING_REVIEW',
         mustBeValid: true,
         label: 'Submit',
-        successBanner: 'Incident report $reportReference created',
+        successBanner: 'Incident report $reportReference submitted for review',
       },
       REQUEST_REMOVAL: {
         newStatus: 'AWAITING_REVIEW',
@@ -90,7 +90,7 @@ export const prisonReportTransitions: Transitions = {
         commentLabel: 'Explain what you have changed in the report',
         commentMissingError: 'Enter what has changed in the report',
         postCorrectionRequest: true,
-        successBanner: 'Incident report $reportReference resubmitted',
+        successBanner: 'Incident report $reportReference resubmitted for review',
       },
       REQUEST_REMOVAL: {
         newStatus: 'UPDATED',
@@ -121,7 +121,7 @@ export const prisonReportTransitions: Transitions = {
         commentLabel: 'Explain what you have changed in the report',
         commentMissingError: 'Enter what has changed in the report',
         postCorrectionRequest: true,
-        successBanner: 'Incident report $reportReference resubmitted',
+        successBanner: 'Incident report $reportReference resubmitted for review',
       },
       REQUEST_REMOVAL: {
         newStatus: 'WAS_CLOSED',

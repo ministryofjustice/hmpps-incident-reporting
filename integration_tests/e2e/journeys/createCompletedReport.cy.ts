@@ -497,7 +497,9 @@ context('Creating a completed draft report', () => {
       .then(submitReportForReview)
       .then(() => {
         const dashboardPage = Page.verifyOnPage(DashboardPage)
-        dashboardPage.checkNotificationBannerContent(`Incident report ${reportWithDetails.reportReference} created`)
+        dashboardPage.checkNotificationBannerContent(
+          `Incident report ${reportWithDetails.reportReference} submitted for review`,
+        )
       })
   })
 })

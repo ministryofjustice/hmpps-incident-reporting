@@ -91,7 +91,7 @@ describe('Submitting “to do” reports', () => {
 
         const dashboardPage = Page.verifyOnPage(DashboardPage)
         dashboardPage.checkNotificationBannerContent(
-          isDraft ? 'Incident report 6544 created' : 'Incident report 6544 resubmitted',
+          isDraft ? 'Incident report 6544 submitted for review' : 'Incident report 6544 resubmitted for review',
         )
       })
 

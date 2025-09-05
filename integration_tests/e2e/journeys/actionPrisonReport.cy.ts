@@ -1,17 +1,11 @@
-import {
-  RelatedObjectUrlSlug,
-  type AddCorrectionRequestRequest,
-  type ReportWithDetails,
-} from '../../../server/data/incidentReportingApi'
+import type { ReportWithDetails } from '../../../server/data/incidentReportingApi'
 import { moorland } from '../../../server/data/testData/prisonApi'
 import { mockDataWarden } from '../../../server/data/testData/users'
-import type { ApiUserAction, UserAction } from '../../../server/middleware/permissions'
-import type { Status } from '../../../server/reportConfiguration/constants'
 import { now } from '../../../server/testutils/fakeClock'
 import Page from '../../pages/page'
-import { DashboardPage } from '../../pages/dashboard'
 import { ReportPage } from '../../pages/reports/report'
 import { validReport } from './validReport'
+import { actionTestCase } from './actionReport'
 
 describe('Actioning submitted prison reports', () => {
   beforeEach(() => {
@@ -245,67 +239,3 @@ describe('Actioning submitted prison reports', () => {
     })
   })
 })
-
-function actionTestCase({
-  reportWithDetails,
-  actionLabel,
-  userAction,
-  newStatus,
-  comment,
-  commentSentToApi,
-  originalReportReference,
-  originalReportReferenceSentToApi,
-  banner,
-}: {
-  reportWithDetails: DatesAsStrings<ReportWithDetails>
-  actionLabel: string
-  userAction: ApiUserAction & UserAction
-  newStatus: Status
-  /** Comment entered by user */
-  comment?: string
-  /** Comment sent to api if different from that entered by user */
-  commentSentToApi?: string
-  /** Reference entered by user */
-  originalReportReference?: string
-  /** Reference sent to api if different from that entered by user */
-  originalReportReferenceSentToApi?: string
-  banner: string
-}) {
-  const reportPage = Page.verifyOnPage(ReportPage, reportWithDetails.reportReference)
-  reportPage.selectAction(actionLabel)
-  if (originalReportReference) {
-    reportPage.enterOriginalReportReference(originalReportReference)
-  }
-  if (comment) {
-    reportPage.enterComment(userAction, comment)
-  }
-
-  const correctionRequestPayload: AddCorrectionRequestRequest = {
-    userType: 'DATA_WARDEN',
-    userAction,
-    descriptionOfChange: commentSentToApi ?? comment,
-  }
-  if (originalReportReferenceSentToApi ?? originalReportReference) {
-    correctionRequestPayload.originalReportReference = originalReportReferenceSentToApi ?? originalReportReference
-  }
-  cy.task('stubIncidentReportingApiCreateRelatedObject', {
-    urlSlug: RelatedObjectUrlSlug.correctionRequests,
-    reportId: reportWithDetails.id,
-    request: correctionRequestPayload,
-    response: reportWithDetails.correctionRequests, // technically, missing new comment
-  })
-  cy.task('stubIncidentReportingApiChangeReportStatus', {
-    request: { newStatus },
-    report: {
-      ...reportWithDetails,
-      status: newStatus,
-    },
-  })
-
-  cy.task('stubIncidentReportingApiGetReports') // for empty dashboard page
-
-  reportPage.continueButton.click()
-
-  const dashboardPage = Page.verifyOnPage(DashboardPage)
-  dashboardPage.checkNotificationBannerContent(banner)
-}

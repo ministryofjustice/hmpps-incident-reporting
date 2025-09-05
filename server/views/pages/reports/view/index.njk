@@ -66,10 +66,10 @@
     <span data-qa="report-location">{{ locationDescription }}</span>
     <br />
     <strong>Reported by:</strong>
-    <span data-qa="report-reported-by">{{ usersLookup[report.reportedBy].name or report.reportedBy }} on {{ report.reportedAt | longDate }}</span>
+    <span data-qa="report-reported-by">{{ usersLookup[report.reportedBy].name or report.reportedBy }} on {{ report.reportedAt | longDateAndTime }}</span>
     <br />
     <strong>Last updated by:</strong>
-    <span data-qa="report-updated-by">{{ usersLookup[report.modifiedBy].name or report.modifiedBy }} on {{ report.modifiedAt | longDate }}</span>
+    <span data-qa="report-updated-by">{{ usersLookup[report.modifiedBy].name or report.modifiedBy }} on {{ report.modifiedAt | longDateAndTime }}</span>
     <br />
     <strong>Status:</strong>
     <span data-qa="report-status">{{ statusesDescriptions[report.status] or report.status }}</span>

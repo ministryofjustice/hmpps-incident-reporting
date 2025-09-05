@@ -38,8 +38,8 @@ context('View report', () => {
       reportPage.checkLastBreadcrumb('Search incident reports', '/reports')
 
       reportPage.location.should('contain.text', 'Moorland')
-      reportPage.reportedBy.should('contain.text', 'John Smith on 5 December 2023')
-      reportPage.updatedBy.should('contain.text', 'John Smith on 5 December 2023')
+      reportPage.reportedBy.should('contain.text', 'John Smith on 5 December 2023 at 12:34')
+      reportPage.updatedBy.should('contain.text', 'John Smith on 5 December 2023 at 12:34')
       reportPage.status.should('contain.text', 'Draft')
     })
 
@@ -147,8 +147,8 @@ context('View report', () => {
       reportPage.checkLastBreadcrumb('Search incident reports', '/reports')
 
       reportPage.location.should('contain.text', 'Moorland')
-      reportPage.reportedBy.should('contain.text', 'John Smith on 5 December 2023')
-      reportPage.updatedBy.should('contain.text', 'Mary Johnson on 6 December 2023')
+      reportPage.reportedBy.should('contain.text', 'John Smith on 5 December 2023 at 12:34')
+      reportPage.updatedBy.should('contain.text', 'Mary Johnson on 6 December 2023 at 12:34')
       reportPage.status.should('contain.text', 'Draft')
     })
   })

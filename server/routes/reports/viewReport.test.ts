@@ -3,7 +3,7 @@ import request from 'supertest'
 
 import { PrisonApi } from '../../data/prisonApi'
 import { appWithAllRoutes } from '../testutils/appSetup'
-import { now } from '../../testutils/fakeClock'
+import { now, dayLater } from '../../testutils/fakeClock'
 import UserService from '../../services/userService'
 import { type Status, statuses } from '../../reportConfiguration/constants'
 import { setActiveAgencies } from '../../data/activeAgencies'
@@ -13,7 +13,7 @@ import { convertReportDates } from '../../data/incidentReportingApiUtils'
 import * as reportValidity from '../../data/reportValidity'
 import { mockErrorResponse, mockReport } from '../../data/testData/incidentReporting'
 import { makeSimpleQuestion } from '../../data/testData/incidentReportingJest'
-import { mockSharedUser } from '../../data/testData/manageUsers'
+import { mockSharedUser, mockSharedUser2 } from '../../data/testData/manageUsers'
 import { mockPecsRegions } from '../../data/testData/pecsRegions'
 import { leeds, moorland } from '../../data/testData/prisonApi'
 import { mockThrownError } from '../../data/testData/thrownErrors'
@@ -107,14 +107,16 @@ describe('View report page', () => {
   })
 
   describe('When all sections of an active type are filled', () => {
-    it('should render basic information that cannot be changed', () => {
+    it('should render basic information that cannot be changed with no additional modifications to report', () => {
       return request(app)
         .get(viewReportUrl)
         .expect('Content-Type', /html/)
         .expect(200)
         .expect(res => {
           expect(res.text).toContain('Check your answers – incident report 6543')
-          expect(res.text).toContain('John Smith')
+          expect(res.text).toContain('Reported by:')
+          expect(res.text).toContain('John Smith on 5 December 2023')
+          expect(res.text).toContain('Last updated by:')
           expect(res.text).toContain('Moorland (HMP &amp; YOI)')
           expect(res.text).toContain('Draft')
 
@@ -124,6 +126,38 @@ describe('View report page', () => {
           const users = userService.getUsers.mock.calls[0][1]
           users.sort()
           expect(users).toEqual(['abc12a', 'user1'])
+        })
+    })
+
+    it('should render basic information that cannot be changed with additional modifications to report', () => {
+      mockedReport.modifiedBy = 'user2'
+      mockedReport.modifiedAt = dayLater
+
+      userService.getUsers.mockReset()
+      userService.getUsers.mockResolvedValueOnce({
+        [mockSharedUser.username]: mockSharedUser,
+        [mockSharedUser2.username]: mockSharedUser2,
+      })
+
+      return request(app)
+        .get(viewReportUrl)
+        .expect('Content-Type', /html/)
+        .expect(200)
+        .expect(res => {
+          expect(res.text).toContain('Check your answers – incident report 6543')
+          expect(res.text).toContain('Reported by:')
+          expect(res.text).toContain('John Smith on 5 December 2023')
+          expect(res.text).toContain('Last updated by:')
+          expect(res.text).toContain('Mary Johnson on 6 December 2023')
+          expect(res.text).toContain('Moorland (HMP &amp; YOI)')
+          expect(res.text).toContain('Draft')
+
+          expect(incidentReportingApi.getReportWithDetailsById).toHaveBeenCalledWith(mockedReport.id)
+
+          expect(userService.getUsers.mock.calls).toHaveLength(1)
+          const users = userService.getUsers.mock.calls[0][1]
+          users.sort()
+          expect(users).toEqual(['abc12a', 'user1', 'user2'])
         })
     })
 

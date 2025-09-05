@@ -1,12 +1,12 @@
 import { mockReport } from '../../server/data/testData/incidentReporting'
 import { andrew, barry } from '../../server/data/testData/offenderSearch'
 import { moorland } from '../../server/data/testData/prisonApi'
-import { now } from '../../server/testutils/fakeClock'
+import { now, dayLater } from '../../server/testutils/fakeClock'
 import Page from '../pages/page'
 import { ReportPage } from '../pages/reports/report'
 
 context('View report', () => {
-  context('With only minimal details', () => {
+  context('With only minimal details not later updated', () => {
     const reportWithDetails = mockReport({
       type: 'DISORDER_2',
       reportReference: '6544',
@@ -38,7 +38,8 @@ context('View report', () => {
       reportPage.checkLastBreadcrumb('Search incident reports', '/reports')
 
       reportPage.location.should('contain.text', 'Moorland')
-      reportPage.reportedBy.should('contain.text', 'John Smith')
+      reportPage.reportedBy.should('contain.text', 'John Smith on 5 December 2023')
+      reportPage.updatedBy.should('contain.text', 'John Smith on 5 December 2023')
       reportPage.status.should('contain.text', 'Draft')
     })
 
@@ -109,6 +110,46 @@ context('View report', () => {
         expect(row.actionLinks[0]).to.contain('Continue')
         expect(row.actionLinks[0]).attr('href').contains(`/reports/${reportWithDetails.id}/questions/63179`)
       })
+    })
+  })
+
+  context('With only minimal details with updated report', () => {
+    const reportWithDetails = mockReport({
+      type: 'DISORDER_2',
+      reportReference: '6544',
+      reportDateAndTime: now,
+      modifyingUsername: 'user2',
+      modifiedDateAndTime: dayLater,
+      withDetails: true,
+    })
+    reportWithDetails.prisonersInvolved = []
+    reportWithDetails.prisonerInvolvementDone = false
+    reportWithDetails.staffInvolved = []
+    reportWithDetails.staffInvolvementDone = false
+    reportWithDetails.questions = []
+    reportWithDetails.correctionRequests = []
+
+    let reportPage: ReportPage
+
+    beforeEach(() => {
+      cy.resetBasicStubs()
+
+      cy.signIn()
+      cy.task('stubIncidentReportingApiGetReportWithDetailsById', { report: reportWithDetails })
+      cy.task('stubPrisonApiMockPrison', moorland)
+      cy.task('stubManageKnownUsers')
+      cy.visit(`/reports/${reportWithDetails.id}`)
+
+      reportPage = Page.verifyOnPage(ReportPage, '6544', true)
+    })
+
+    it('should show basic report info', () => {
+      reportPage.checkLastBreadcrumb('Search incident reports', '/reports')
+
+      reportPage.location.should('contain.text', 'Moorland')
+      reportPage.reportedBy.should('contain.text', 'John Smith on 5 December 2023')
+      reportPage.updatedBy.should('contain.text', 'Mary Johnson on 6 December 2023')
+      reportPage.status.should('contain.text', 'Draft')
     })
   })
 

@@ -115,7 +115,7 @@ describe('View report page', () => {
         .expect(res => {
           expect(res.text).toContain('Check your answers – incident report 6543')
           expect(res.text).toContain('Reported by:')
-          expect(res.text).toContain('John Smith on 5 December 2023')
+          expect(res.text).toContain('John Smith on 5 December 2023 at 12:34')
           expect(res.text).toContain('Last updated by:')
           expect(res.text).toContain('Moorland (HMP &amp; YOI)')
           expect(res.text).toContain('Draft')
@@ -146,9 +146,9 @@ describe('View report page', () => {
         .expect(res => {
           expect(res.text).toContain('Check your answers – incident report 6543')
           expect(res.text).toContain('Reported by:')
-          expect(res.text).toContain('John Smith on 5 December 2023')
+          expect(res.text).toContain('John Smith on 5 December 2023 at 12:34')
           expect(res.text).toContain('Last updated by:')
-          expect(res.text).toContain('Mary Johnson on 6 December 2023')
+          expect(res.text).toContain('Mary Johnson on 6 December 2023 at 12:34')
           expect(res.text).toContain('Moorland (HMP &amp; YOI)')
           expect(res.text).toContain('Draft')
 

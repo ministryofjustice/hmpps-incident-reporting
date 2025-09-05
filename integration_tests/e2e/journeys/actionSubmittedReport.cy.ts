@@ -13,7 +13,7 @@ import { DashboardPage } from '../../pages/dashboard'
 import { ReportPage } from '../../pages/reports/report'
 import { validReport } from './validReport'
 
-describe('Actioning submitted reports', () => {
+describe('Actioning submitted prison reports', () => {
   beforeEach(() => {
     cy.clock(now)
   })

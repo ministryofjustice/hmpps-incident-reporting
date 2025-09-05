@@ -4,13 +4,15 @@ import { RelatedObjectUrlSlug, type Question, type ReportWithDetails } from '../
 import type { UsersSearchResult } from '../../../server/data/manageUsersApiClient'
 import { mockReport } from '../../../server/data/testData/incidentReporting'
 import { andrew } from '../../../server/data/testData/offenderSearch'
-import { moorland, staffMary } from '../../../server/data/testData/prisonApi'
+import { moorland, pecsNorth, staffMary } from '../../../server/data/testData/prisonApi'
+import { mockReportingOfficer, mockDataWarden } from '../../../server/data/testData/users'
 import { now } from '../../../server/testutils/fakeClock'
 import { apiQuestionResponse } from '../../support/utils'
 import Page from '../../pages/page'
 import { HomePage } from '../../pages/home'
 import { DashboardPage } from '../../pages/dashboard'
 import { DetailsPage } from '../../pages/reports/details'
+import { PecsRegionPage } from '../../pages/reports/pecsRegion'
 import { TypePage } from '../../pages/reports/type'
 import {
   AddPrisonerInvolvementsPage,
@@ -25,111 +27,147 @@ import {
 import { QuestionPage } from '../../pages/reports/question'
 import { ReportPage } from '../../pages/reports/report'
 
-context('Creating a completed draft report', () => {
-  beforeEach(() => {
-    cy.clock(now)
-    cy.wrap(null).as('reportWithDetailsStub')
-  })
+const scenarios = [
+  {
+    scenario: 'Submitting a completed prison report for review',
+    user: mockReportingOfficer,
+    reportType: 'prison' as const,
+  },
+  { scenario: 'Completing a PECS report', user: mockDataWarden, reportType: 'PECS' as const },
+]
+for (const { scenario, user, reportType } of scenarios) {
+  context(scenario, () => {
+    beforeEach(() => {
+      cy.clock(now)
+      cy.wrap(null).as('reportWithDetailsStub')
+    })
 
-  let reportWithDetails: DatesAsStrings<ReportWithDetails>
+    let reportWithDetails: DatesAsStrings<ReportWithDetails>
 
-  /** report gets updated throughout so keep track of stub mapping id */
-  const stubReport = () =>
-    cy.get('@reportWithDetailsStub').then(id => {
-      if (id) {
-        cy.task('deleteStub', id)
+    /** report gets updated throughout so keep track of stub mapping id */
+    const stubReport = () =>
+      cy.get('@reportWithDetailsStub').then(id => {
+        if (id) {
+          cy.task('deleteStub', id)
+        }
+        return cy
+          .task('stubIncidentReportingApiGetReportWithDetailsById', { report: reportWithDetails })
+          .then((res: SuperAgentResponse) => JSON.parse(res.text).id)
+          .as('reportWithDetailsStub')
+      })
+
+    function startCreatingReport() {
+      cy.resetBasicStubs({ user })
+
+      // log in
+      cy.signIn()
+
+      // start on home page
+      const indexPage = Page.verifyOnPage(HomePage)
+      if (reportType === 'PECS') {
+        indexPage.clickCreatePecsReportCard()
+      } else {
+        indexPage.clickCreatePrisonReportCard()
       }
-      return cy
-        .task('stubIncidentReportingApiGetReportWithDetailsById', { report: reportWithDetails })
-        .then((res: SuperAgentResponse) => JSON.parse(res.text).id)
-        .as('reportWithDetailsStub')
-    })
 
-  function startCreatingReport() {
-    cy.resetBasicStubs()
+      return cy.end()
+    }
 
-    // log in
-    cy.signIn()
+    function selectPecsRegion() {
+      const pecsRegionPage = Page.verifyOnPage(PecsRegionPage)
+      pecsRegionPage.selectPecsRegion('PECS North')
+      pecsRegionPage.submit()
 
-    // start on home page
-    const indexPage = Page.verifyOnPage(HomePage)
-    indexPage.clickCreatePrisonReportCard()
+      return cy.end()
+    }
 
-    return cy.end()
-  }
+    function selectType() {
+      const typePage = Page.verifyOnPage(TypePage)
+      typePage.selectType('ATTEMPTED_ESCAPE_FROM_PRISON_1')
+      typePage.submit()
 
-  function selectType() {
-    const typePage = Page.verifyOnPage(TypePage)
-    typePage.selectType('ATTEMPTED_ESCAPE_FROM_PRISON_1')
-    typePage.submit()
+      return cy.end()
+    }
 
-    return cy.end()
-  }
+    function enterDetails() {
+      const detailsPage = Page.verifyOnPage(DetailsPage)
+      detailsPage.enterDate('5/12/2023')
+      detailsPage.enterTime('11', '34')
+      detailsPage.enterDescription('Arnold (A1111AA) attempted to escape')
 
-  function enterDetails() {
-    const detailsPage = Page.verifyOnPage(DetailsPage)
-    detailsPage.enterDate('5/12/2023')
-    detailsPage.enterTime('11', '34')
-    detailsPage.enterDescription('Arnold (A1111AA) attempted to escape')
+      // on submission, this report would be created
+      reportWithDetails = mockReport({
+        type: 'ATTEMPTED_ESCAPE_FROM_PRISON_1',
+        reportReference: '6544',
+        reportDateAndTime: now,
+        location: reportType === 'PECS' ? 'NORTH' : 'MDI',
+        withDetails: true,
+      })
+      reportWithDetails.title = 'Report: attempted escape from establishment'
+      reportWithDetails.description = 'Arnold (A1111AA) attempted to escape'
+      reportWithDetails.prisonersInvolved = []
+      reportWithDetails.prisonerInvolvementDone = false
+      reportWithDetails.staffInvolved = []
+      reportWithDetails.staffInvolvementDone = false
+      reportWithDetails.questions = []
+      reportWithDetails.correctionRequests = []
+      cy.task('stubIncidentReportingApiCreateReport', {
+        request: {
+          type: reportWithDetails.type,
+          incidentDateAndTime: reportWithDetails.incidentDateAndTime,
+          location: reportType === 'PECS' ? 'NORTH' : 'MDI',
+          title: `Attempted escape from establishment (${reportType === 'PECS' ? 'PECS North' : 'Moorland (HMP & YOI)'})`,
+          description: reportWithDetails.description,
+        },
+        report: reportWithDetails,
+      })
+      stubReport()
+      // minimal draft report is saved
+      detailsPage.submit()
 
-    // on submission, this report would be created
-    reportWithDetails = mockReport({
-      type: 'ATTEMPTED_ESCAPE_FROM_PRISON_1',
-      reportReference: '6544',
-      reportDateAndTime: now,
-      withDetails: true,
-    })
-    reportWithDetails.title = 'Report: attempted escape from establishment'
-    reportWithDetails.description = 'Arnold (A1111AA) attempted to escape'
-    reportWithDetails.prisonersInvolved = []
-    reportWithDetails.prisonerInvolvementDone = false
-    reportWithDetails.staffInvolved = []
-    reportWithDetails.staffInvolvementDone = false
-    reportWithDetails.questions = []
-    reportWithDetails.correctionRequests = []
-    cy.task('stubIncidentReportingApiCreateReport', {
-      request: {
-        type: reportWithDetails.type,
-        incidentDateAndTime: reportWithDetails.incidentDateAndTime,
-        location: 'MDI',
-        title: 'Attempted escape from establishment (Moorland (HMP & YOI))',
-        description: reportWithDetails.description,
-      },
-      report: reportWithDetails,
-    })
-    stubReport()
-    // minimal draft report is saved
-    detailsPage.submit()
+      return cy.end()
+    }
 
-    return cy.end()
-  }
+    function addPrisoners() {
+      let prisonerInvolvementsPage = Page.verifyOnPage(PrisonerInvolvementsPage, false)
+      prisonerInvolvementsPage.selectRadioButton('Yes')
+      prisonerInvolvementsPage.submit()
 
-  function addPrisoners() {
-    let prisonerInvolvementsPage = Page.verifyOnPage(PrisonerInvolvementsPage, false)
-    prisonerInvolvementsPage.selectRadioButton('Yes')
-    prisonerInvolvementsPage.submit()
+      // search for Andrew Arnold
+      let prisonerSearchPage = Page.verifyOnPage(PrisonerSearchPage)
+      prisonerSearchPage.enterQuery('Andrew Arnold')
+      cy.task('stubOffenderSearchInPrison', { prisonId: 'MDI', term: 'Andrew Arnold', results: [andrew] })
+      cy.task('stubPrisonApiMockPrisonerPhoto', andrew.prisonerNumber)
+      prisonerSearchPage.submit()
+      prisonerSearchPage = Page.verifyOnPage(PrisonerSearchPage)
+      cy.task('stubOffenderSearchMockPrisoners')
+      prisonerSearchPage.selectLink(0).click()
 
-    // search for Andrew Arnold
-    let prisonerSearchPage = Page.verifyOnPage(PrisonerSearchPage)
-    prisonerSearchPage.enterQuery('Andrew Arnold')
-    cy.task('stubOffenderSearchInPrison', { prisonId: 'MDI', term: 'Andrew Arnold', results: [andrew] })
-    cy.task('stubPrisonApiMockPrisonerPhoto', andrew.prisonerNumber)
-    prisonerSearchPage.submit()
-    prisonerSearchPage = Page.verifyOnPage(PrisonerSearchPage)
-    cy.task('stubOffenderSearchMockPrisoners')
-    prisonerSearchPage.selectLink(0).click()
-
-    // enter involvement details
-    const addPrisonerInvolvementsPage = Page.verifyOnPage(AddPrisonerInvolvementsPage, 'Andrew Arnold’s')
-    // NB: perpetrator would make more sense, but can’t be used more than once breaking stubbing
-    addPrisonerInvolvementsPage.selectRole('ACTIVE_INVOLVEMENT')
-    addPrisonerInvolvementsPage.enterComment('Attempted to escape')
-    // report is about to be updated…
-    reportWithDetails = {
-      ...reportWithDetails,
-      prisonerInvolvementDone: true,
-      prisonersInvolved: [
-        {
+      // enter involvement details
+      const addPrisonerInvolvementsPage = Page.verifyOnPage(AddPrisonerInvolvementsPage, 'Andrew Arnold’s')
+      // NB: perpetrator would make more sense, but can’t be used more than once breaking stubbing
+      addPrisonerInvolvementsPage.selectRole('ACTIVE_INVOLVEMENT')
+      addPrisonerInvolvementsPage.enterComment('Attempted to escape')
+      // report is about to be updated…
+      reportWithDetails = {
+        ...reportWithDetails,
+        prisonerInvolvementDone: true,
+        prisonersInvolved: [
+          {
+            prisonerNumber: andrew.prisonerNumber,
+            firstName: andrew.firstName,
+            lastName: andrew.lastName,
+            prisonerRole: 'ACTIVE_INVOLVEMENT',
+            outcome: null,
+            comment: 'Attempted to escape',
+          },
+        ],
+      }
+      stubReport()
+      cy.task('stubIncidentReportingApiCreateRelatedObject', {
+        urlSlug: RelatedObjectUrlSlug.prisonersInvolved,
+        reportId: reportWithDetails.id,
+        request: {
           prisonerNumber: andrew.prisonerNumber,
           firstName: andrew.firstName,
           lastName: andrew.lastName,
@@ -137,372 +175,386 @@ context('Creating a completed draft report', () => {
           outcome: null,
           comment: 'Attempted to escape',
         },
-      ],
+        response: reportWithDetails.prisonersInvolved,
+      })
+      cy.task('stubPrisonApiMockPrison', reportType === 'PECS' ? pecsNorth : moorland)
+      cy.task('stubIncidentReportingApiUpdateReport', {
+        request: {
+          title: `Attempted escape from establishment: Arnold A1111AA (${reportType === 'PECS' ? 'PECS North' : 'Moorland (HMP & YOI)'})`,
+        },
+        report: reportWithDetails, // technically, missing title update
+      })
+      addPrisonerInvolvementsPage.submit()
+
+      // choose to add no further prisoners
+      prisonerInvolvementsPage = Page.verifyOnPage(PrisonerInvolvementsPage, true)
+      prisonerInvolvementsPage.selectRadioButton('No')
+      prisonerInvolvementsPage.submit()
+
+      return cy.end()
     }
-    stubReport()
-    cy.task('stubIncidentReportingApiCreateRelatedObject', {
-      urlSlug: RelatedObjectUrlSlug.prisonersInvolved,
-      reportId: reportWithDetails.id,
-      request: {
-        prisonerNumber: andrew.prisonerNumber,
-        firstName: andrew.firstName,
-        lastName: andrew.lastName,
-        prisonerRole: 'ACTIVE_INVOLVEMENT',
-        outcome: null,
-        comment: 'Attempted to escape',
-      },
-      response: reportWithDetails.prisonersInvolved,
-    })
-    cy.task('stubPrisonApiMockPrison', moorland)
-    cy.task('stubIncidentReportingApiUpdateReport', {
-      request: { title: 'Attempted escape from establishment: Arnold A1111AA (Moorland (HMP & YOI))' },
-      report: reportWithDetails, // technically, missing title update
-    })
-    addPrisonerInvolvementsPage.submit()
 
-    // choose to add no further prisoners
-    prisonerInvolvementsPage = Page.verifyOnPage(PrisonerInvolvementsPage, true)
-    prisonerInvolvementsPage.selectRadioButton('No')
-    prisonerInvolvementsPage.submit()
+    function addStaffMembers() {
+      let staffInvolvementsPage = Page.verifyOnPage(StaffInvolvementsPage, false)
+      staffInvolvementsPage.selectRadioButton('Yes')
+      staffInvolvementsPage.submit()
 
-    return cy.end()
-  }
+      // search for Mary Johnson
+      let staffSearchPage = Page.verifyOnPage(StaffSearchPage)
+      staffSearchPage.enterQuery('Mary Johnson')
+      const prisonUserMary: UsersSearchResult = {
+        username: staffMary.username,
+        firstName: staffMary.firstName,
+        lastName: staffMary.lastName,
+        email: 'mary@dps.local',
+        activeCaseload: { id: 'MDI', name: moorland.description },
+      }
+      cy.task('stubSearchUsers', {
+        query: 'Mary Johnson',
+        results: [prisonUserMary],
+      })
+      staffSearchPage.submit()
+      staffSearchPage = Page.verifyOnPage(StaffSearchPage, { found: true })
+      cy.task('stubManageKnownPrisonUser', prisonUserMary)
+      staffSearchPage.selectLink(0).click()
 
-  function addStaffMembers() {
-    let staffInvolvementsPage = Page.verifyOnPage(StaffInvolvementsPage, false)
-    staffInvolvementsPage.selectRadioButton('Yes')
-    staffInvolvementsPage.submit()
-
-    // search for Mary Johnson
-    let staffSearchPage = Page.verifyOnPage(StaffSearchPage)
-    staffSearchPage.enterQuery('Mary Johnson')
-    const prisonUserMary: UsersSearchResult = {
-      username: staffMary.username,
-      firstName: staffMary.firstName,
-      lastName: staffMary.lastName,
-      email: 'mary@dps.local',
-      activeCaseload: { id: 'MDI', name: moorland.description },
-    }
-    cy.task('stubSearchUsers', {
-      query: 'Mary Johnson',
-      results: [prisonUserMary],
-    })
-    staffSearchPage.submit()
-    staffSearchPage = Page.verifyOnPage(StaffSearchPage, { found: true })
-    cy.task('stubManageKnownPrisonUser', prisonUserMary)
-    staffSearchPage.selectLink(0).click()
-
-    // enter involvement details
-    const addStaffInvolvementsPage = Page.verifyOnPage(AddStaffInvolvementsPage, 'Mary Johnson', 'Mary Johnson’s')
-    addStaffInvolvementsPage.selectRole('FIRST_ON_SCENE')
-    addStaffInvolvementsPage.enterComment('Mary spotted Arnold')
-    // report is about to be updated…
-    reportWithDetails = {
-      ...reportWithDetails,
-      staffInvolvementDone: true,
-      staffInvolved: [
-        {
+      // enter involvement details
+      const addStaffInvolvementsPage = Page.verifyOnPage(AddStaffInvolvementsPage, 'Mary Johnson', 'Mary Johnson’s')
+      addStaffInvolvementsPage.selectRole('FIRST_ON_SCENE')
+      addStaffInvolvementsPage.enterComment('Mary spotted Arnold')
+      // report is about to be updated…
+      reportWithDetails = {
+        ...reportWithDetails,
+        staffInvolvementDone: true,
+        staffInvolved: [
+          {
+            staffUsername: staffMary.username,
+            firstName: staffMary.firstName,
+            lastName: staffMary.lastName,
+            staffRole: 'FIRST_ON_SCENE',
+            comment: 'Mary spotted Arnold',
+          },
+        ],
+      }
+      cy.task('stubIncidentReportingApiCreateRelatedObject', {
+        urlSlug: RelatedObjectUrlSlug.staffInvolved,
+        reportId: reportWithDetails.id,
+        request: {
           staffUsername: staffMary.username,
           firstName: staffMary.firstName,
           lastName: staffMary.lastName,
           staffRole: 'FIRST_ON_SCENE',
           comment: 'Mary spotted Arnold',
         },
-      ],
-    }
-    cy.task('stubIncidentReportingApiCreateRelatedObject', {
-      urlSlug: RelatedObjectUrlSlug.staffInvolved,
-      reportId: reportWithDetails.id,
-      request: {
-        staffUsername: staffMary.username,
-        firstName: staffMary.firstName,
-        lastName: staffMary.lastName,
-        staffRole: 'FIRST_ON_SCENE',
-        comment: 'Mary spotted Arnold',
-      },
-      response: reportWithDetails.staffInvolved,
-    })
-    stubReport()
-    addStaffInvolvementsPage.submit()
-
-    // choose to add no further staff
-    staffInvolvementsPage = Page.verifyOnPage(StaffInvolvementsPage, true)
-    staffInvolvementsPage.selectRadioButton('No')
-    staffInvolvementsPage.submit()
-
-    return cy.end()
-  }
-
-  function respondToQuestionPage1() {
-    const questionPage = Page.verifyOnPage(QuestionPage, [1, 5], 'attempted escape from establishment')
-
-    // page 1
-    questionPage.selectResponses('44769', 'No')
-    questionPage.selectResponses('44919', 'Investigation internally')
-    questionPage.selectResponses('45033', 'No')
-    questionPage.selectResponses('44636', 'No')
-    questionPage.selectResponses('44749', 'No')
-
-    // report is about to be updated…
-    reportWithDetails = {
-      ...reportWithDetails,
-      questions: questionsPage1,
-    }
-    cy.task('stubIncidentReportingApiPutQuestions', {
-      reportId: reportWithDetails.id,
-      request: questionsPage1.map(putQuestionRequest),
-      response: reportWithDetails.questions,
-    })
-    stubReport()
-    questionPage.submit()
-
-    return cy.end()
-  }
-
-  function respondToQuestionPage2() {
-    const questionPage = Page.verifyOnPage(QuestionPage, [6, 6], 'attempted escape from establishment')
-
-    questionPage.selectResponses('44594', 'Reception')
-
-    // report is about to be updated…
-    reportWithDetails = {
-      ...reportWithDetails,
-      questions: [...reportWithDetails.questions, ...questionsPage2],
-    }
-    cy.task('stubIncidentReportingApiPutQuestions', {
-      reportId: reportWithDetails.id,
-      request: questionsPage2.map(putQuestionRequest),
-      response: reportWithDetails.questions,
-    })
-    stubReport()
-    questionPage.submit()
-
-    return cy.end()
-  }
-
-  function respondToQuestionPage3() {
-    const questionPage = Page.verifyOnPage(QuestionPage, [7, 7], 'attempted escape from establishment')
-
-    questionPage.selectResponses('44545', 'No')
-
-    // report is about to be updated…
-    reportWithDetails = {
-      ...reportWithDetails,
-      questions: [...reportWithDetails.questions, ...questionsPage3],
-    }
-    cy.task('stubIncidentReportingApiPutQuestions', {
-      reportId: reportWithDetails.id,
-      request: questionsPage3.map(putQuestionRequest),
-      response: reportWithDetails.questions,
-    })
-    stubReport()
-    questionPage.submit()
-
-    return cy.end()
-  }
-
-  function respondToQuestionPage4() {
-    const questionPage = Page.verifyOnPage(QuestionPage, [8, 8], 'attempted escape from establishment')
-
-    questionPage.selectResponses('44441', 'No')
-
-    // report is about to be updated…
-    reportWithDetails = {
-      ...reportWithDetails,
-      questions: [...reportWithDetails.questions, ...questionsPage4],
-    }
-    cy.task('stubIncidentReportingApiPutQuestions', {
-      reportId: reportWithDetails.id,
-      request: questionsPage4.map(putQuestionRequest),
-      response: reportWithDetails.questions,
-    })
-    stubReport()
-    questionPage.submit()
-
-    return cy.end()
-  }
-
-  function respondToQuestionPage5() {
-    const questionPage = Page.verifyOnPage(QuestionPage, [9, 10], 'attempted escape from establishment')
-
-    questionPage.selectResponses('44746', 'No')
-    questionPage.selectResponses('44595', 'No')
-
-    // report is about to be updated…
-    reportWithDetails = {
-      ...reportWithDetails,
-      questions: [...reportWithDetails.questions, ...questionsPage5],
-    }
-    cy.task('stubIncidentReportingApiPutQuestions', {
-      reportId: reportWithDetails.id,
-      request: questionsPage5.map(putQuestionRequest),
-      response: reportWithDetails.questions,
-    })
-    stubReport()
-    questionPage.submit()
-
-    return cy.end()
-  }
-
-  function respondToQuestionPage6() {
-    const questionPage = Page.verifyOnPage(QuestionPage, [11, 11], 'attempted escape from establishment')
-
-    questionPage.selectResponses('44983', 'No')
-
-    // report is about to be updated…
-    reportWithDetails = {
-      ...reportWithDetails,
-      questions: [...reportWithDetails.questions, ...questionsPage6],
-    }
-    cy.task('stubIncidentReportingApiPutQuestions', {
-      reportId: reportWithDetails.id,
-      request: questionsPage6.map(putQuestionRequest),
-      response: reportWithDetails.questions,
-    })
-    stubReport()
-    questionPage.submit()
-
-    return cy.end()
-  }
-
-  function respondToQuestionPage7() {
-    const questionPage = Page.verifyOnPage(QuestionPage, [12, 12], 'attempted escape from establishment')
-
-    questionPage.selectResponses('44320', 'No')
-
-    // report is about to be updated…
-    reportWithDetails = {
-      ...reportWithDetails,
-      questions: [...reportWithDetails.questions, ...questionsPage7],
-    }
-    cy.task('stubIncidentReportingApiPutQuestions', {
-      reportId: reportWithDetails.id,
-      request: questionsPage7.map(putQuestionRequest),
-      response: reportWithDetails.questions,
-    })
-    stubReport()
-    questionPage.submit()
-
-    return cy.end()
-  }
-
-  function respondToQuestionPage8() {
-    const questionPage = Page.verifyOnPage(QuestionPage, [13, 13], 'attempted escape from establishment')
-
-    questionPage.selectResponses('44731', 'No')
-
-    // report is about to be updated…
-    reportWithDetails = {
-      ...reportWithDetails,
-      questions: [...reportWithDetails.questions, ...questionsPage8],
-    }
-    cy.task('stubIncidentReportingApiPutQuestions', {
-      reportId: reportWithDetails.id,
-      request: questionsPage8.map(putQuestionRequest),
-      response: reportWithDetails.questions,
-    })
-    stubReport()
-    questionPage.submit()
-
-    return cy.end()
-  }
-
-  function respondToQuestionPage9() {
-    const questionPage = Page.verifyOnPage(QuestionPage, [14, 16], 'attempted escape from establishment')
-
-    questionPage.selectResponses('45073', 'Staff vigilance')
-    questionPage.selectResponses('44349', 'Staff intervention')
-    questionPage.selectResponses('44447', 'No')
-
-    // report is about to be updated…
-    reportWithDetails = {
-      ...reportWithDetails,
-      questions: [...reportWithDetails.questions, ...questionsPage9],
-    }
-    cy.task('stubIncidentReportingApiPutQuestions', {
-      reportId: reportWithDetails.id,
-      request: questionsPage9.map(putQuestionRequest),
-      response: reportWithDetails.questions,
-    })
-    stubReport()
-    questionPage.submit()
-
-    return cy.end()
-  }
-
-  function respondToQuestionPage10() {
-    const questionPage = Page.verifyOnPage(QuestionPage, [17, 17], 'attempted escape from establishment')
-
-    questionPage.selectResponses('44863', 'No')
-
-    // report is about to be updated…
-    reportWithDetails = {
-      ...reportWithDetails,
-      questions: [...reportWithDetails.questions, ...questionsPage10],
-    }
-    cy.task('stubIncidentReportingApiPutQuestions', {
-      reportId: reportWithDetails.id,
-      request: questionsPage10.map(putQuestionRequest),
-      response: reportWithDetails.questions,
-    })
-    stubReport()
-
-    // end of questions so prepare for report view
-    cy.task('stubPrisonApiMockPrison', moorland)
-    cy.task('stubManageKnownUsers')
-    questionPage.submit()
-
-    return cy.end()
-  }
-
-  function submitReportForReview() {
-    const reportPage = Page.verifyOnPage(ReportPage, '6544', true)
-
-    // report is about to be updated…
-    reportWithDetails = {
-      ...reportWithDetails,
-      status: 'AWAITING_REVIEW',
-    }
-    cy.task('stubIncidentReportingApiUpdateReport', {
-      request: { title: 'Attempted escape from establishment: Arnold A1111AA (Moorland (HMP & YOI))' },
-      report: reportWithDetails,
-    })
-    cy.task('stubIncidentReportingApiChangeReportStatus', {
-      request: { newStatus: 'AWAITING_REVIEW' },
-      report: reportWithDetails,
-    })
-    cy.task('stubIncidentReportingApiGetReports')
-    reportPage.selectAction('Submit')
-    reportPage.continueButton.click()
-
-    return cy.end()
-  }
-
-  it('should happen in one journey', () => {
-    startCreatingReport()
-      .then(selectType)
-      .then(enterDetails)
-      .then(addPrisoners)
-      .then(addStaffMembers)
-      .then(respondToQuestionPage1)
-      .then(respondToQuestionPage2)
-      .then(respondToQuestionPage3)
-      .then(respondToQuestionPage4)
-      .then(respondToQuestionPage5)
-      .then(respondToQuestionPage6)
-      .then(respondToQuestionPage7)
-      .then(respondToQuestionPage8)
-      .then(respondToQuestionPage9)
-      .then(respondToQuestionPage10)
-      .then(submitReportForReview)
-      .then(() => {
-        const dashboardPage = Page.verifyOnPage(DashboardPage)
-        dashboardPage.checkNotificationBannerContent(
-          `Incident report ${reportWithDetails.reportReference} submitted for review`,
-        )
+        response: reportWithDetails.staffInvolved,
       })
+      stubReport()
+      addStaffInvolvementsPage.submit()
+
+      // choose to add no further staff
+      staffInvolvementsPage = Page.verifyOnPage(StaffInvolvementsPage, true)
+      staffInvolvementsPage.selectRadioButton('No')
+      staffInvolvementsPage.submit()
+
+      return cy.end()
+    }
+
+    function respondToQuestionPage1() {
+      const questionPage = Page.verifyOnPage(QuestionPage, [1, 5], 'attempted escape from establishment')
+
+      // page 1
+      questionPage.selectResponses('44769', 'No')
+      questionPage.selectResponses('44919', 'Investigation internally')
+      questionPage.selectResponses('45033', 'No')
+      questionPage.selectResponses('44636', 'No')
+      questionPage.selectResponses('44749', 'No')
+
+      // report is about to be updated…
+      reportWithDetails = {
+        ...reportWithDetails,
+        questions: questionsPage1,
+      }
+      cy.task('stubIncidentReportingApiPutQuestions', {
+        reportId: reportWithDetails.id,
+        request: questionsPage1.map(putQuestionRequest),
+        response: reportWithDetails.questions,
+      })
+      stubReport()
+      questionPage.submit()
+
+      return cy.end()
+    }
+
+    function respondToQuestionPage2() {
+      const questionPage = Page.verifyOnPage(QuestionPage, [6, 6], 'attempted escape from establishment')
+
+      questionPage.selectResponses('44594', 'Reception')
+
+      // report is about to be updated…
+      reportWithDetails = {
+        ...reportWithDetails,
+        questions: [...reportWithDetails.questions, ...questionsPage2],
+      }
+      cy.task('stubIncidentReportingApiPutQuestions', {
+        reportId: reportWithDetails.id,
+        request: questionsPage2.map(putQuestionRequest),
+        response: reportWithDetails.questions,
+      })
+      stubReport()
+      questionPage.submit()
+
+      return cy.end()
+    }
+
+    function respondToQuestionPage3() {
+      const questionPage = Page.verifyOnPage(QuestionPage, [7, 7], 'attempted escape from establishment')
+
+      questionPage.selectResponses('44545', 'No')
+
+      // report is about to be updated…
+      reportWithDetails = {
+        ...reportWithDetails,
+        questions: [...reportWithDetails.questions, ...questionsPage3],
+      }
+      cy.task('stubIncidentReportingApiPutQuestions', {
+        reportId: reportWithDetails.id,
+        request: questionsPage3.map(putQuestionRequest),
+        response: reportWithDetails.questions,
+      })
+      stubReport()
+      questionPage.submit()
+
+      return cy.end()
+    }
+
+    function respondToQuestionPage4() {
+      const questionPage = Page.verifyOnPage(QuestionPage, [8, 8], 'attempted escape from establishment')
+
+      questionPage.selectResponses('44441', 'No')
+
+      // report is about to be updated…
+      reportWithDetails = {
+        ...reportWithDetails,
+        questions: [...reportWithDetails.questions, ...questionsPage4],
+      }
+      cy.task('stubIncidentReportingApiPutQuestions', {
+        reportId: reportWithDetails.id,
+        request: questionsPage4.map(putQuestionRequest),
+        response: reportWithDetails.questions,
+      })
+      stubReport()
+      questionPage.submit()
+
+      return cy.end()
+    }
+
+    function respondToQuestionPage5() {
+      const questionPage = Page.verifyOnPage(QuestionPage, [9, 10], 'attempted escape from establishment')
+
+      questionPage.selectResponses('44746', 'No')
+      questionPage.selectResponses('44595', 'No')
+
+      // report is about to be updated…
+      reportWithDetails = {
+        ...reportWithDetails,
+        questions: [...reportWithDetails.questions, ...questionsPage5],
+      }
+      cy.task('stubIncidentReportingApiPutQuestions', {
+        reportId: reportWithDetails.id,
+        request: questionsPage5.map(putQuestionRequest),
+        response: reportWithDetails.questions,
+      })
+      stubReport()
+      questionPage.submit()
+
+      return cy.end()
+    }
+
+    function respondToQuestionPage6() {
+      const questionPage = Page.verifyOnPage(QuestionPage, [11, 11], 'attempted escape from establishment')
+
+      questionPage.selectResponses('44983', 'No')
+
+      // report is about to be updated…
+      reportWithDetails = {
+        ...reportWithDetails,
+        questions: [...reportWithDetails.questions, ...questionsPage6],
+      }
+      cy.task('stubIncidentReportingApiPutQuestions', {
+        reportId: reportWithDetails.id,
+        request: questionsPage6.map(putQuestionRequest),
+        response: reportWithDetails.questions,
+      })
+      stubReport()
+      questionPage.submit()
+
+      return cy.end()
+    }
+
+    function respondToQuestionPage7() {
+      const questionPage = Page.verifyOnPage(QuestionPage, [12, 12], 'attempted escape from establishment')
+
+      questionPage.selectResponses('44320', 'No')
+
+      // report is about to be updated…
+      reportWithDetails = {
+        ...reportWithDetails,
+        questions: [...reportWithDetails.questions, ...questionsPage7],
+      }
+      cy.task('stubIncidentReportingApiPutQuestions', {
+        reportId: reportWithDetails.id,
+        request: questionsPage7.map(putQuestionRequest),
+        response: reportWithDetails.questions,
+      })
+      stubReport()
+      questionPage.submit()
+
+      return cy.end()
+    }
+
+    function respondToQuestionPage8() {
+      const questionPage = Page.verifyOnPage(QuestionPage, [13, 13], 'attempted escape from establishment')
+
+      questionPage.selectResponses('44731', 'No')
+
+      // report is about to be updated…
+      reportWithDetails = {
+        ...reportWithDetails,
+        questions: [...reportWithDetails.questions, ...questionsPage8],
+      }
+      cy.task('stubIncidentReportingApiPutQuestions', {
+        reportId: reportWithDetails.id,
+        request: questionsPage8.map(putQuestionRequest),
+        response: reportWithDetails.questions,
+      })
+      stubReport()
+      questionPage.submit()
+
+      return cy.end()
+    }
+
+    function respondToQuestionPage9() {
+      const questionPage = Page.verifyOnPage(QuestionPage, [14, 16], 'attempted escape from establishment')
+
+      questionPage.selectResponses('45073', 'Staff vigilance')
+      questionPage.selectResponses('44349', 'Staff intervention')
+      questionPage.selectResponses('44447', 'No')
+
+      // report is about to be updated…
+      reportWithDetails = {
+        ...reportWithDetails,
+        questions: [...reportWithDetails.questions, ...questionsPage9],
+      }
+      cy.task('stubIncidentReportingApiPutQuestions', {
+        reportId: reportWithDetails.id,
+        request: questionsPage9.map(putQuestionRequest),
+        response: reportWithDetails.questions,
+      })
+      stubReport()
+      questionPage.submit()
+
+      return cy.end()
+    }
+
+    function respondToQuestionPage10() {
+      const questionPage = Page.verifyOnPage(QuestionPage, [17, 17], 'attempted escape from establishment')
+
+      questionPage.selectResponses('44863', 'No')
+
+      // report is about to be updated…
+      reportWithDetails = {
+        ...reportWithDetails,
+        questions: [...reportWithDetails.questions, ...questionsPage10],
+      }
+      cy.task('stubIncidentReportingApiPutQuestions', {
+        reportId: reportWithDetails.id,
+        request: questionsPage10.map(putQuestionRequest),
+        response: reportWithDetails.questions,
+      })
+      stubReport()
+
+      // end of questions so prepare for report view
+      cy.task('stubPrisonApiMockPrison', reportType === 'PECS' ? pecsNorth : moorland)
+      cy.task('stubManageKnownUsers')
+      questionPage.submit()
+
+      return cy.end()
+    }
+
+    function submitReportForReview() {
+      const reportPage = Page.verifyOnPage(ReportPage, '6544', true)
+
+      // report is about to be updated…
+      reportWithDetails = {
+        ...reportWithDetails,
+        status: 'AWAITING_REVIEW',
+      }
+      cy.task('stubIncidentReportingApiUpdateReport', {
+        request: { title: 'Attempted escape from establishment: Arnold A1111AA (Moorland (HMP & YOI))' },
+        report: reportWithDetails,
+      })
+      cy.task('stubIncidentReportingApiChangeReportStatus', {
+        request: { newStatus: 'AWAITING_REVIEW' },
+        report: reportWithDetails,
+      })
+      cy.task('stubIncidentReportingApiGetReports')
+      reportPage.selectAction('Submit')
+      reportPage.continueButton.click()
+
+      const dashboardPage = Page.verifyOnPage(DashboardPage)
+      dashboardPage.checkNotificationBannerContent(
+        `Incident report ${reportWithDetails.reportReference} submitted for review`,
+      )
+
+      return cy.end()
+    }
+
+    function closeReport() {
+      const reportPage = Page.verifyOnPage(ReportPage, '6544', true)
+
+      // report is about to be updated…
+      reportWithDetails = {
+        ...reportWithDetails,
+        status: 'CLOSED',
+      }
+      cy.task('stubIncidentReportingApiUpdateReport', {
+        request: { title: 'Attempted escape from establishment: Arnold A1111AA (PECS North)' },
+        report: reportWithDetails,
+      })
+      cy.task('stubIncidentReportingApiChangeReportStatus', {
+        request: { newStatus: 'CLOSED' },
+        report: reportWithDetails,
+      })
+      cy.task('stubIncidentReportingApiGetReports')
+      reportPage.submitButtons.contains('Close').click()
+
+      const dashboardPage = Page.verifyOnPage(DashboardPage)
+      dashboardPage.checkNotificationBannerContent(`Incident report ${reportWithDetails.reportReference} is now closed`)
+
+      return cy.end()
+    }
+
+    it('should happen in one journey', () => {
+      startCreatingReport()
+        .then(reportType === 'PECS' ? selectPecsRegion : () => cy.end())
+        .then(selectType)
+        .then(enterDetails)
+        .then(addPrisoners)
+        .then(addStaffMembers)
+        .then(respondToQuestionPage1)
+        .then(respondToQuestionPage2)
+        .then(respondToQuestionPage3)
+        .then(respondToQuestionPage4)
+        .then(respondToQuestionPage5)
+        .then(respondToQuestionPage6)
+        .then(respondToQuestionPage7)
+        .then(respondToQuestionPage8)
+        .then(respondToQuestionPage9)
+        .then(respondToQuestionPage10)
+        .then(reportType === 'PECS' ? closeReport : submitReportForReview)
+    })
   })
-})
+}
 
 /** Question as submitted to API */
 const putQuestionRequest = (question: DatesAsStrings<Question>): unknown => ({

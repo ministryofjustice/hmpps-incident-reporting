@@ -526,7 +526,7 @@ for (const { scenario, user, reportType } of scenarios) {
         report: reportWithDetails,
       })
       cy.task('stubIncidentReportingApiGetReports')
-      reportPage.submitButtons.contains('Close').click()
+      reportPage.submitButtons.contains('Close report').click()
 
       const dashboardPage = Page.verifyOnPage(DashboardPage)
       dashboardPage.checkNotificationBannerContent(`Incident report ${reportWithDetails.reportReference} is now closed`)

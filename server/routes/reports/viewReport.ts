@@ -13,6 +13,7 @@ import {
   dwNotReviewed,
   workListMapping,
 } from '../../reportConfiguration/constants'
+import { correctPecsReportStatus } from '../../middleware/correctPecsReportStatus'
 import {
   logoutUnless,
   hasPermissionTo,
@@ -46,6 +47,7 @@ export function viewReportRouter(): Router {
     },
     populateReport(true),
     logoutUnless(hasPermissionTo('VIEW')),
+    correctPecsReportStatus(),
     populateReportConfiguration(true),
     async (req, res) => {
       const { incidentReportingApi, prisonApi, userService } = res.locals.apis

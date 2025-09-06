@@ -2,7 +2,7 @@ import type { RequestHandler } from 'express'
 import { NotImplemented } from 'http-errors'
 
 import { isPecsRegionCode } from '../data/pecsRegions'
-import type { Status } from '../reportConfiguration/constants'
+import { type Status, statuses } from '../reportConfiguration/constants'
 
 /**
  * When a PECS report is accessed by a data warden, and it is found to be in an unexpected status,
@@ -42,3 +42,10 @@ export const pecsStatusCorrections: Partial<Record<Status, Status>> = {
   NEEDS_UPDATING: 'REOPENED',
   WAS_CLOSED: 'REOPENED',
 }
+
+/**
+ * Statuses that are expected for PECS reports
+ */
+export const possiblePecsStatuses = statuses
+  .map(({ code: status }) => status)
+  .filter(status => !(status in pecsStatusCorrections))

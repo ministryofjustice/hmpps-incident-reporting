@@ -1,4 +1,4 @@
-import type { Request, Response, NextFunction, RequestHandler } from 'express'
+import type { RequestHandler } from 'express'
 
 import { PrisonApi } from '../data/prisonApi'
 import { type Services } from '../services'
@@ -20,7 +20,7 @@ export const activeAgenciesCache: Cache<typeof ACTIVE_AGENCIES_CACHE_UPDATED> = 
  * `activeAgencies` changes)
  */
 export default function updateActiveAgencies({ hmppsAuthClient, applicationInfo }: Services): RequestHandler {
-  return async (_req: Request, _res: Response, next: NextFunction) => {
+  return async (_req, _res, next) => {
     // check if activeAgencies cache is fresh enough
     const activeAgenciesCacheExpired = !activeAgenciesCache.get()
     if (activeAgenciesCacheExpired) {

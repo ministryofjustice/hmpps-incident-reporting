@@ -1,4 +1,4 @@
-import type { NextFunction, Request, Response } from 'express'
+import type { RequestHandler } from 'express'
 import { NotImplemented } from 'http-errors'
 
 import logger from '../../logger'
@@ -7,8 +7,8 @@ import ManageUsersApiClient from '../data/manageUsersApiClient'
 /**
  * Loads a staff member by username from `req.params.username`
  */
-export function populateStaffMember() {
-  return async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+export function populateStaffMember(): RequestHandler {
+  return async (req, res, next): Promise<void> => {
     const { username } = req.params
     if (!username) {
       next(new NotImplemented('populateStaffMember() requires req.params.username'))

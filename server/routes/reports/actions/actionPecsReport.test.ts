@@ -6,6 +6,7 @@ import { appWithAllRoutes } from '../../testutils/appSetup'
 import { now } from '../../../testutils/fakeClock'
 import UserService from '../../../services/userService'
 import { type Status, statuses } from '../../../reportConfiguration/constants'
+import * as correctPecsReportStatus from '../../../middleware/correctPecsReportStatus'
 import { type UserAction, userActions } from '../../../middleware/permissions'
 import {
   IncidentReportingApi,
@@ -29,6 +30,7 @@ import { rolePecs } from '../../../data/constants'
 jest.mock('../../../data/incidentReportingApi')
 jest.mock('../../../data/prisonApi')
 jest.mock('../../../data/reportValidity')
+jest.mock('../../../middleware/correctPecsReportStatus')
 jest.mock('../../../services/userService')
 jest.mock('./correctionRequestPlaceholder')
 
@@ -43,6 +45,9 @@ const userService = UserService.prototype as jest.Mocked<UserService>
 const prisonApi = PrisonApi.prototype as jest.Mocked<PrisonApi>
 
 const { validateReport } = reportValidity as jest.Mocked<typeof import('../../../data/reportValidity')>
+const { correctPecsReportStatus: mockCorrectPecsReportStatus } = correctPecsReportStatus as jest.Mocked<
+  typeof import('../../../middleware/correctPecsReportStatus')
+>
 const { placeholderForCorrectionRequest } = correctionRequestPlaceholder as jest.Mocked<
   typeof import('./correctionRequestPlaceholder')
 >
@@ -68,6 +73,10 @@ beforeEach(() => {
     ),
   )
 
+  mockCorrectPecsReportStatus.mockImplementationOnce(() => (_req, _res, next) => {
+    // turn off all status corrections
+    next()
+  })
   placeholderForCorrectionRequest.mockReturnValue('PLACEHOLDER')
 })
 

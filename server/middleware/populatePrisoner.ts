@@ -1,10 +1,10 @@
-import type { NextFunction, Request, Response } from 'express'
+import type { RequestHandler } from 'express'
 import { NotImplemented } from 'http-errors'
 
 import logger from '../../logger'
 
-export function populatePrisoner() {
-  return async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+export function populatePrisoner(): RequestHandler {
+  return async (req, res, next): Promise<void> => {
     const { prisonerNumber } = req.params
     if (!prisonerNumber) {
       next(new NotImplemented('populatePrisoner() requires req.params.prisonerNumber'))

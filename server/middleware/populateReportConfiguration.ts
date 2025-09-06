@@ -1,4 +1,4 @@
-import type { NextFunction, Request, Response } from 'express'
+import type { RequestHandler } from 'express'
 import { NotImplemented } from 'http-errors'
 
 import logger from '../../logger'
@@ -11,8 +11,8 @@ import { QuestionProgress } from '../data/incidentTypeConfiguration/questionProg
  * Loads report configuration for a report in `res.locals.report`.
  * Must come after populateReport() middleware.
  */
-export function populateReportConfiguration(generateQuestionSteps = true) {
-  return async (_req: Request, res: Response, next: NextFunction): Promise<void> => {
+export function populateReportConfiguration(generateQuestionSteps = true): RequestHandler {
+  return async (_req, res, next): Promise<void> => {
     const { report } = res.locals
     if (!report) {
       // expect to always be used after populateReport() middleware

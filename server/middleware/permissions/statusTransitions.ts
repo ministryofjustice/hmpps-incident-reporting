@@ -325,6 +325,10 @@ export const pecsReportTransitions: Transitions = {
         mustBeValid: true,
         successBanner: 'Incident report $reportReference is now closed',
       },
+      // it would be logical to also allow MARK_DUPLICATE & MARK_NOT_REPORTABLE
+      // and this is what the stakeholders signed off,
+      // but UCD decided that those should only be possible after first reopening
+      // since data wardens are unlikely to even start creating a duplicate or not reportable report by accident.
     },
     CLOSED: {
       RECALL: { newStatus: 'REOPENED', label: 'Reopen and change report' },

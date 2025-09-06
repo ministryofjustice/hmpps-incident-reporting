@@ -1,5 +1,5 @@
 import type { ReportWithDetails } from '../../../server/data/incidentReportingApi'
-import { moorland } from '../../../server/data/testData/prisonApi'
+import { moorland, pecsSouth } from '../../../server/data/testData/prisonApi'
 import { mockDataWarden, mockReportingOfficer } from '../../../server/data/testData/users'
 import type { Status } from '../../../server/reportConfiguration/constants'
 import { now } from '../../../server/testutils/fakeClock'
@@ -17,6 +17,7 @@ context('Reopen or recall a report', () => {
     {
       userType: 'reporting officers',
       user: mockReportingOfficer,
+      reportType: 'prison',
       transitions: [
         ['AWAITING_REVIEW', 'DRAFT'],
         ['UPDATED', 'NEEDS_UPDATING'],
@@ -27,6 +28,7 @@ context('Reopen or recall a report', () => {
     {
       userType: 'data wardens',
       user: mockDataWarden,
+      reportType: 'prison',
       transitions: [
         ['NEEDS_UPDATING', 'UPDATED'],
         ['DUPLICATE', 'UPDATED'],
@@ -36,18 +38,32 @@ context('Reopen or recall a report', () => {
       ],
       buttonText: 'Change report status',
     },
+    {
+      userType: 'data wardens',
+      user: mockDataWarden,
+      reportType: 'PECS',
+      transitions: [
+        ['DUPLICATE', 'REOPENED'],
+        ['NOT_REPORTABLE', 'REOPENED'],
+        ['CLOSED', 'REOPENED'],
+      ],
+      buttonText: 'Reopen and change report',
+    },
   ]
-  recallScenarios.forEach(({ userType, user, transitions, buttonText }) => {
+  recallScenarios.forEach(({ userType, user, reportType, transitions, buttonText }) => {
     context(`${userType}`, () => {
       transitions.forEach(([currentStatus, recalledTo]) => {
         const reportWithDetails: DatesAsStrings<ReportWithDetails> = {
           ...validReport,
           status: currentStatus,
         }
+        if (reportType === 'PECS') {
+          reportWithDetails.location = 'SOUTH'
+        }
 
-        it(`should be able to recall a report with status ${currentStatus} to ${recalledTo}`, () => {
+        it(`should be able to recall a ${reportType} report with status ${currentStatus} to ${recalledTo}`, () => {
           cy.resetBasicStubs({ user })
-          cy.task('stubPrisonApiMockPrison', moorland)
+          cy.task('stubPrisonApiMockPrison', reportType === 'PECS' ? pecsSouth : moorland)
           cy.task('stubManageKnownUsers')
           cy.signIn()
 
@@ -120,6 +136,7 @@ context('Reopen or recall a report', () => {
 interface RecallScenario {
   userType: string
   user: Express.User
+  reportType: 'prison' | 'PECS'
   transitions: [Status, Status][]
   buttonText: string
 }

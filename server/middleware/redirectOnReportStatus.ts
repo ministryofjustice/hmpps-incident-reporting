@@ -1,4 +1,4 @@
-import type { NextFunction, Request, RequestHandler, Response } from 'express'
+import type { RequestHandler } from 'express'
 import { NotImplemented } from 'http-errors'
 
 import logger from '../../logger'
@@ -9,7 +9,7 @@ export function redirectIfStatusNot(...statuses: Status[]): RequestHandler {
     throw new NotImplemented('redirectIfStatusNot() requires at least one status')
   }
 
-  return (_req: Request, res: Response, next: NextFunction): void => {
+  return (_req, res, next): void => {
     const { report } = res.locals
     if (!report) {
       // expect to always be used after populateReport() middleware

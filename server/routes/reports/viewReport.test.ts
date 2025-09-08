@@ -18,6 +18,7 @@ import { mockPecsRegions } from '../../data/testData/pecsRegions'
 import { leeds, moorland } from '../../data/testData/prisonApi'
 import { mockThrownError } from '../../data/testData/thrownErrors'
 import { mockDataWarden, mockReportingOfficer, mockHqViewer, mockUnauthorisedUser } from '../../data/testData/users'
+import { possiblePecsStatuses } from '../../middleware/correctPecsReportStatus'
 
 jest.mock('../../data/incidentReportingApi')
 jest.mock('../../data/prisonApi')
@@ -115,7 +116,7 @@ describe('View report page', () => {
         .expect(res => {
           expect(res.text).toContain('Check your answers – incident report 6543')
           expect(res.text).toContain('Reported by:')
-          expect(res.text).toContain('John Smith on 5 December 2023')
+          expect(res.text).toContain('John Smith on 5 December 2023 at 12:34')
           expect(res.text).toContain('Last updated by:')
           expect(res.text).toContain('Moorland (HMP &amp; YOI)')
           expect(res.text).toContain('Draft')
@@ -146,9 +147,9 @@ describe('View report page', () => {
         .expect(res => {
           expect(res.text).toContain('Check your answers – incident report 6543')
           expect(res.text).toContain('Reported by:')
-          expect(res.text).toContain('John Smith on 5 December 2023')
+          expect(res.text).toContain('John Smith on 5 December 2023 at 12:34')
           expect(res.text).toContain('Last updated by:')
-          expect(res.text).toContain('Mary Johnson on 6 December 2023')
+          expect(res.text).toContain('Mary Johnson on 6 December 2023 at 12:34')
           expect(res.text).toContain('Moorland (HMP &amp; YOI)')
           expect(res.text).toContain('Draft')
 
@@ -622,7 +623,7 @@ describe('View report page', () => {
     })
 
     it.each(
-      statuses.map(({ code: status }) => {
+      possiblePecsStatuses.map(status => {
         return {
           status,
           visibility: pecsStatuses.includes(status) ? ('show' as const) : ('not show' as const),
@@ -913,6 +914,27 @@ describe('View report page', () => {
           }
         })
     })
+  })
+
+  describe('PECS report with unexpected statuses', () => {
+    it.each(statuses.filter(({ code: status }) => !possiblePecsStatuses.includes(status)))(
+      'should be corrected if status is $code',
+      ({ code: status }) => {
+        app = appWithAllRoutes({ userSupplier: () => mockDataWarden })
+        mockedReport.location = 'NORTH'
+        mockedReport.status = status
+        incidentReportingApi.changeReportStatus.mockReset()
+
+        return request(app)
+          .get(viewReportUrl)
+          .expect(302)
+          .expect(res => {
+            expect(res.redirect).toBe(true)
+            expect(res.header.location).toEqual(`/reports/${mockedReport.id}`)
+            expect(incidentReportingApi.changeReportStatus).toHaveBeenCalled()
+          })
+      },
+    )
   })
 
   describe('Permissions', () => {

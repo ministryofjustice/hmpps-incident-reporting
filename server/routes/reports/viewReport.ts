@@ -61,6 +61,9 @@ export function viewReportRouter(): Router {
       if (report.reportedBy !== report.modifiedBy) {
         usernames.push(report.modifiedBy)
       }
+      if (report.incidentTypeHistory?.length) {
+        usernames.push(...report.incidentTypeHistory.map(typeChange => typeChange.changedBy))
+      }
       if (report.correctionRequests?.length) {
         usernames.push(...report.correctionRequests.map(correctionRequest => correctionRequest.correctionRequestedBy))
       }

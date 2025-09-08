@@ -21,6 +21,26 @@
   {% set dateAndTimeHiddenText = "incident summary" %}
 {% endif %}
 
+{% set typeHtml %}
+  {{ typesDescriptions[report.type] or report.type }}
+
+  {% if report.incidentTypeHistory.length != 0 %}
+    <div class="app-response--inset">
+      {# Initial entry uses type from first entry in type history with reported by and reported at values at report level #}
+      Incident created as {{ typesDescriptions[report.incidentTypeHistory[0].type] or report.incidentTypeHistory[0].type }} by {{ usersLookup[report.reportedBy].name or report.reportedBy }} on {{ report.reportedAt | longDateAndTime}} <br />
+      {% for type in report.incidentTypeHistory %}
+        {# last entry uses current incident report type with changed at and changed by values from final entry in type history #}
+        {% if loop.index0 + 1 ==  report.incidentTypeHistory.length %}
+          Incident updated to {{ typesDescriptions[report.type] or report.type }} by {{ usersLookup[type.changedBy].name or type.changedBy }} on {{ type.changedAt | longDateAndTime}} <br />
+        {# all other entries are from type history using the changed by and changed at values with the type from the next entry #}
+        {% else %}
+          Incident updated to {{ typesDescriptions[report.incidentTypeHistory[loop.index0 + 1].type] or report.incidentTypeHistory[loop.index0 + 1].type }} by {{ usersLookup[type.changedBy].name or type.changedBy }} on {{ type.changedAt | longDateAndTime}} <br />
+        {% endif %}
+      {% endfor %}
+    </div>
+  {% endif %}
+{% endset %}
+
 {{ govukSummaryList({
   card: {
     title: { text: "Incident summary" }
@@ -28,9 +48,7 @@
   rows: [
     {
       key: { text: "Type" },
-      value: {
-        text: typesDescriptions[report.type] or report.type
-      },
+      value: { html: typeHtml },
       actions: {
         items: [
           {

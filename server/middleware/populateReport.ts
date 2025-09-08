@@ -1,4 +1,4 @@
-import type { NextFunction, Request, Response } from 'express'
+import type { RequestHandler } from 'express'
 import { NotImplemented } from 'http-errors'
 
 import logger from '../../logger'
@@ -6,8 +6,8 @@ import logger from '../../logger'
 /**
  * Loads a report by id from `req.params.reportId`
  */
-export function populateReport(withDetails: boolean) {
-  return async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+export function populateReport(withDetails: boolean): RequestHandler {
+  return async (req, res, next): Promise<void> => {
     const { reportId } = req.params
     const { permissions } = res.locals
     if (!reportId) {

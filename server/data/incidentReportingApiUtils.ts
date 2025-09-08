@@ -3,6 +3,7 @@ import type {
   DescriptionAddendum,
   HistoricReport,
   HistoricStatus,
+  HistoricType,
   Question,
   ReportBasic,
   ReportWithDetails,
@@ -31,6 +32,7 @@ export function convertReportWithDetailsDates(report: DatesAsStrings<ReportWithD
     questions: report.questions.map(convertQuestionDates),
     history: report.history.map(convertHistoricReportDates),
     historyOfStatuses: report.historyOfStatuses.map(convertHistoricStatusDates),
+    incidentTypeHistory: report.incidentTypeHistory.map(convertHistoricTypeDates),
     correctionRequests: report.correctionRequests.map(convertCorrectionRequestDates),
   }
 }
@@ -83,6 +85,13 @@ function convertHistoricStatusDates(historicStatus: DatesAsStrings<HistoricStatu
   return {
     ...historicStatus,
     changedAt: new Date(historicStatus.changedAt),
+  }
+}
+
+function convertHistoricTypeDates(historicType: DatesAsStrings<HistoricType>): HistoricType {
+  return {
+    ...historicType,
+    changedAt: new Date(historicType.changedAt),
   }
 }
 

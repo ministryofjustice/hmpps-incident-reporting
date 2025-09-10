@@ -178,14 +178,18 @@ export class PrisonApi extends RestClient {
 
   /** List all PECS regions */
   async getPecsRegions(activeOnly = true): Promise<Record<string, Agency>> {
-    return this.getAgencies(AgencyType.PECS, activeOnly)
+    return this.getAgencies(AgencyType.PECS, activeOnly, true)
   }
 
-  private async getAgencies(agencyType: AgencyType, activeOnly = true): Promise<Record<string, Agency>> {
+  private async getAgencies(
+    agencyType: AgencyType,
+    activeOnly = true,
+    skipFormatLocation = false,
+  ): Promise<Record<string, Agency>> {
     const agencies = await this.get<Agency[]>(
       {
         path: `/api/agencies/type/${encodeURIComponent(agencyType)}`,
-        query: { activeOnly },
+        query: { activeOnly, skipFormatLocation },
       },
       asSystem(),
     )

@@ -224,7 +224,7 @@ userScenarios.forEach(({ userType, user, createReport }) => {
           if (userType === 'data wardens') {
             expectedLocationOptions = [
               { label: 'All locations', value: '' },
-              { label: 'All locations active in the service', value: '.ACTIVE' }, // TODO: remove after rollout
+              { label: 'All existing active locations in the prison service', value: '.ACTIVE' },
               { label: 'All PECS regions', value: '.PECS' },
               { label: 'Moorland (HMP & YOI)', value: 'MDI' },
               { label: 'Leeds (HMP)', value: 'LEI' },
@@ -234,7 +234,7 @@ userScenarios.forEach(({ userType, user, createReport }) => {
           } else {
             expectedLocationOptions = [
               { label: 'All locations', value: '' },
-              { label: 'All locations active in the service', value: '.ACTIVE' }, // TODO: remove after rollout
+              { label: 'All existing active locations in the prison service', value: '.ACTIVE' },
               { label: 'Moorland (HMP & YOI)', value: 'MDI' },
               { label: 'Leeds (HMP)', value: 'LEI' },
             ]

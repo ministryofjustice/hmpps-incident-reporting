@@ -111,6 +111,7 @@ export function mockReport({
           })),
         })),
       })),
+      incidentTypeHistory: [],
     } satisfies DatesAsStrings<ReportWithDetails>
   }
 

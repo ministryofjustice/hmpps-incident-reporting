@@ -153,6 +153,62 @@ context('View report', () => {
     })
   })
 
+  context('With only minimal details where type has been changed', () => {
+    const reportWithDetails = mockReport({
+      type: 'DISORDER_2',
+      reportReference: '6544',
+      reportDateAndTime: now,
+      modifyingUsername: 'user2',
+      modifiedDateAndTime: dayLater,
+      withDetails: true,
+    })
+    reportWithDetails.prisonersInvolved = []
+    reportWithDetails.prisonerInvolvementDone = false
+    reportWithDetails.staffInvolved = []
+    reportWithDetails.staffInvolvementDone = false
+    reportWithDetails.questions = []
+    reportWithDetails.correctionRequests = []
+
+    reportWithDetails.incidentTypeHistory = [
+      {
+        type: 'ASSAULT_5',
+        changedBy: 'user1',
+        changedAt: now.toISOString(),
+      },
+      {
+        type: 'DRONE_SIGHTING_3',
+        changedBy: 'user2',
+        changedAt: dayLater.toISOString(),
+      },
+    ]
+
+    let reportPage: ReportPage
+
+    beforeEach(() => {
+      cy.resetBasicStubs()
+
+      cy.signIn()
+      cy.task('stubIncidentReportingApiGetReportWithDetailsById', { report: reportWithDetails })
+      cy.task('stubPrisonApiMockPrison', moorland)
+      cy.task('stubManageKnownUsers')
+      cy.visit(`/reports/${reportWithDetails.id}`)
+
+      reportPage = Page.verifyOnPage(ReportPage, '6544', true)
+    })
+
+    it('should show incident type history', () => {
+      reportPage.summary.cardContents.then(rows => {
+        expect(rows).to.have.lengthOf(3)
+        const typeRow = rows[0]
+
+        expect(typeRow.value).to.contain('Disorder')
+        expect(typeRow.value).to.contain('Incident created as Assault by John Smith on 5 December 2023 at 12:34')
+        expect(typeRow.value).to.contain('Incident updated to Drone sighting by John Smith on 5 December 2023 at 12:34')
+        expect(typeRow.value).to.contain('Incident updated to Disorder by Mary Johnson on 6 December 2023 at 12:34')
+      })
+    })
+  })
+
   context('With all sections filled in', () => {
     const reportWithDetails = mockReport({
       type: 'DISORDER_2',

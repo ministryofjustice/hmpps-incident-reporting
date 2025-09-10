@@ -120,6 +120,8 @@ describe('View report page', () => {
           expect(res.text).toContain('Last updated by:')
           expect(res.text).toContain('Moorland (HMP &amp; YOI)')
           expect(res.text).toContain('Draft')
+          expect(res.text).not.toContain('Incident created as')
+          expect(res.text).not.toContain('Incident updated to')
 
           expect(incidentReportingApi.getReportWithDetailsById).toHaveBeenCalledWith(mockedReport.id)
 
@@ -329,6 +331,38 @@ describe('View report page', () => {
         .expect(res => {
           expect(res.text).toContain('Comments')
           expect(res.text).toContain('moj-timeline')
+        })
+    })
+
+    it('should render type history if it exists', () => {
+      mockedReport.incidentTypeHistory = [
+        {
+          type: 'ASSAULT_5',
+          changedBy: 'user1',
+          changedAt: now,
+        },
+        {
+          type: 'DRONE_SIGHTING_3',
+          changedBy: 'user2',
+          changedAt: dayLater,
+        },
+      ]
+
+      userService.getUsers.mockReset()
+      userService.getUsers.mockResolvedValueOnce({
+        [mockSharedUser.username]: mockSharedUser,
+        [mockSharedUser2.username]: mockSharedUser2,
+      })
+
+      return request(app)
+        .get(viewReportUrl)
+        .expect('Content-Type', /html/)
+        .expect(res => {
+          expect(res.text).toContain('Incident created as Assault by John Smith on 5 December 2023 at 12:34')
+          expect(res.text).toContain('Incident updated to Drone sighting by John Smith on 5 December 2023 at 12:34')
+          expect(res.text).toContain(
+            'Incident updated to Find of illicit items by Mary Johnson on 6 December 2023 at 12:34',
+          )
         })
     })
   })

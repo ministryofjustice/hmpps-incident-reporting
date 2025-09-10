@@ -285,7 +285,7 @@ export default function dashboard(): Router {
       // TODO: remove after rollout
       allLocations.unshift({
         value: activeLocationsFlag,
-        text: 'All locations active in the service', // TODO: confirm text
+        text: 'All existing active locations in the prison service',
       })
     }
 

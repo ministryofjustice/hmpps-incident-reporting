@@ -85,6 +85,7 @@ export type ReportWithDetails = ReportBasic & {
   questions: Question[]
   history: HistoricReport[]
   historyOfStatuses: HistoricStatus[]
+  incidentTypeHistory: HistoricType[]
   staffInvolved: StaffInvolvement[]
   prisonersInvolved: PrisonerInvolvement[]
   correctionRequests: CorrectionRequest[]
@@ -149,6 +150,12 @@ export type HistoricReport = {
 
 export type HistoricStatus = {
   status: Status
+  changedAt: Date
+  changedBy: string
+}
+
+export type HistoricType = {
+  type: Type
   changedAt: Date
   changedBy: string
 }

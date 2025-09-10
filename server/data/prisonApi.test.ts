@@ -113,7 +113,7 @@ describe('prisonApi', () => {
     it('should create a map of PECS regions from api', async () => {
       fakeApiClient
         .get('/api/agencies/type/PECS')
-        .query({ activeOnly: 'true' })
+        .query({ activeOnly: 'true', skipFormatLocation: 'true' })
         .matchHeader('authorization', `Bearer ${accessToken}`)
         .reply(200, [pecsNorth, pecsSouth] satisfies Agency[])
 

@@ -44,7 +44,7 @@ beforeEach(() => {
   app = appWithAllRoutes()
 
   mockHandleReportEdit.withoutSideEffect()
-  prisonApi.getPrison.mockResolvedValueOnce(moorland)
+  prisonApi.getAgency.mockResolvedValueOnce(moorland)
 })
 
 afterEach(() => {

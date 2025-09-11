@@ -74,7 +74,7 @@ describe('Report titles', () => {
     Object.freeze(report)
 
     const updateReport = jest.fn()
-    const getPrison = jest.fn()
+    const getAgency = jest.fn()
 
     function mockResponse(): express.Response {
       return {
@@ -82,7 +82,7 @@ describe('Report titles', () => {
           report,
           apis: {
             incidentReportingApi: { updateReport },
-            prisonApi: { getPrison },
+            prisonApi: { getAgency },
           },
         },
       } as unknown as express.Response
@@ -100,28 +100,28 @@ describe('Report titles', () => {
     ] as const
 
     it.each(updateFunctions)('should be saved successfully with $type update', async ({ updateFunction }) => {
-      getPrison.mockResolvedValueOnce(moorland)
+      getAgency.mockResolvedValueOnce(moorland)
       updateReport.mockResolvedValueOnce(report) // NB: response is ignored
 
       const res = mockResponse()
       await updateFunction(res)
 
       await setImmediate() // await asynchronous function (ie. fallible one)
-      expect(getPrison).toHaveBeenCalledWith('MDI', false)
+      expect(getAgency).toHaveBeenCalledWith('MDI', false, 'INST', false)
       expect(updateReport).toHaveBeenCalledWith(report.id, { title: 'Find of illicit items (Moorland (HMP & YOI))' })
     })
 
     it.each(updateFunctions)(
       'should be saved successfully with $type update when location is not found',
       async ({ updateFunction }) => {
-        getPrison.mockResolvedValueOnce(null)
+        getAgency.mockResolvedValueOnce(null)
         updateReport.mockResolvedValueOnce(report) // NB: response is ignored
 
         const res = mockResponse()
         await updateFunction(res)
 
         await setImmediate() // await asynchronous function (ie. fallible one)
-        expect(getPrison).toHaveBeenCalledWith('MDI', false)
+        expect(getAgency).toHaveBeenCalledWith('MDI', false, 'INST', false)
         expect(updateReport).toHaveBeenCalledWith(report.id, { title: 'Find of illicit items (MDI)' })
       },
     )
@@ -130,32 +130,32 @@ describe('Report titles', () => {
       'should be saved successfully with $type update when location lookup fails',
       async ({ updateFunction }) => {
         const error = mockThrownError(mockErrorResponse({ status: 500, message: 'External problem' }), 500)
-        getPrison.mockRejectedValueOnce(error)
+        getAgency.mockRejectedValueOnce(error)
         updateReport.mockResolvedValueOnce(report) // NB: response is ignored
 
         const res = mockResponse()
         await updateFunction(res)
 
         await setImmediate() // await asynchronous function (ie. fallible one)
-        expect(getPrison).toHaveBeenCalledWith('MDI', false)
+        expect(getAgency).toHaveBeenCalledWith('MDI', false, 'INST', false)
         expect(updateReport).toHaveBeenCalledWith(report.id, { title: 'Find of illicit items (MDI)' })
       },
     )
 
     it('should fail on infallible update if title cannot be saved', async () => {
-      getPrison.mockResolvedValueOnce(moorland)
+      getAgency.mockResolvedValueOnce(moorland)
       const error = mockThrownError(mockErrorResponse({ status: 500, message: 'External problem' }), 500)
       updateReport.mockRejectedValueOnce(error)
 
       const res = mockResponse()
       await expect(updateReportTitle(res)).rejects.toThrow()
 
-      expect(getPrison).toHaveBeenCalledWith('MDI', false)
+      expect(getAgency).toHaveBeenCalledWith('MDI', false, 'INST', false)
       expect(updateReport).toHaveBeenCalledWith(report.id, { title: 'Find of illicit items (Moorland (HMP & YOI))' })
     })
 
     it('should still proceed on fallible update if title cannot be saved', async () => {
-      getPrison.mockResolvedValueOnce(moorland)
+      getAgency.mockResolvedValueOnce(moorland)
       const error = mockThrownError(mockErrorResponse({ status: 500, message: 'External problem' }), 500)
       updateReport.mockRejectedValueOnce(error)
 
@@ -163,7 +163,7 @@ describe('Report titles', () => {
       fallibleUpdateReportTitle(res) // note no error is thrown
 
       await setImmediate() // await asynchronous function
-      expect(getPrison).toHaveBeenCalledWith('MDI', false)
+      expect(getAgency).toHaveBeenCalledWith('MDI', false, 'INST', false)
       expect(updateReport).toHaveBeenCalledWith(report.id, { title: 'Find of illicit items (Moorland (HMP & YOI))' })
     })
   })

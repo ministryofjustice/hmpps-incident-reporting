@@ -64,7 +64,7 @@ beforeEach(() => {
     [mockSharedUser.username]: mockSharedUser,
   })
 
-  prisonApi.getPrison.mockImplementation(locationCode =>
+  prisonApi.getAgency.mockImplementation(locationCode =>
     Promise.resolve(
       {
         NORTH: pecsNorth,
@@ -519,15 +519,15 @@ describe('Actioning PECS reports', () => {
                 expect(incidentReportingApi.getReportByReference).not.toHaveBeenCalled()
               }
               if (updatesTitle) {
-                expect(prisonApi.getPrison).toHaveBeenCalledTimes(2)
-                expect(prisonApi.getPrison).toHaveBeenNthCalledWith(1, 'NORTH', false) // to display report location
-                expect(prisonApi.getPrison).toHaveBeenNthCalledWith(2, 'NORTH', false) // to regenerate title
+                expect(prisonApi.getAgency).toHaveBeenCalledTimes(2)
+                expect(prisonApi.getAgency).toHaveBeenNthCalledWith(1, 'NORTH', false, 'PECS', true) // to display report location
+                expect(prisonApi.getAgency).toHaveBeenNthCalledWith(2, 'NORTH', false, 'PECS', true) // to regenerate title
                 expect(incidentReportingApi.updateReport).toHaveBeenCalledWith(mockedReport.id, {
                   title: 'Assault: Arnold A1111AA, Benjamin A2222BB (PECS North)',
                 })
               } else {
-                expect(prisonApi.getPrison).toHaveBeenCalledTimes(1)
-                expect(prisonApi.getPrison).toHaveBeenCalledWith('NORTH', false) // to display report location
+                expect(prisonApi.getAgency).toHaveBeenCalledTimes(1)
+                expect(prisonApi.getAgency).toHaveBeenCalledWith('NORTH', false, 'PECS', true) // to display report location
                 if (userAction === 'MARK_DUPLICATE') {
                   expect(incidentReportingApi.updateReport).toHaveBeenCalledWith(mockedReport.id, {
                     duplicatedReportId: mockedOriginalReport.id,

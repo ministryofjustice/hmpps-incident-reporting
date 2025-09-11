@@ -5,6 +5,8 @@ import type { ReportWithDetails } from '../data/incidentReportingApi'
 import { reportHasDetails } from '../data/incidentReportingApiUtils'
 import { getTypeDetails, type Type } from '../reportConfiguration/constants'
 import { convertToTitleCase } from '../utils/utils'
+import { isPecsRegionCode } from '../data/pecsRegions'
+import { AgencyType } from '../data/prisonApi'
 
 // NB: Report titles are never displayed in this service, but they are saved for downstream services’ compatibility
 
@@ -38,8 +40,10 @@ export async function updateReportTitle(res: express.Response): Promise<void> {
     throw new Error('implementation error: regenerateTitleForReport should only be used on report with details')
   }
 
+  const isPecsReport = isPecsRegionCode(report.location)
+
   const locationDescription = await prisonApi
-    .getPrison(report.location, false)
+    .getAgency(report.location, false, isPecsReport ? AgencyType.PECS : AgencyType.INST, isPecsReport)
     .then(prison => prison?.description || report.location)
     // fall back to code
     .catch(() => report.location)

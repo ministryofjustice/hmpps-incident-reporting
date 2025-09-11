@@ -44,7 +44,7 @@ beforeEach(() => {
     [mockSharedUser.username]: mockSharedUser,
   })
 
-  prisonApi.getPrison.mockImplementation(locationCode =>
+  prisonApi.getAgency.mockImplementation(locationCode =>
     Promise.resolve(
       {
         LEI: leeds,

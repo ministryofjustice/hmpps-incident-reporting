@@ -5,23 +5,23 @@ import logger from '../../../logger'
 import { updateReportTitle } from '../../services/reportTitle'
 import {
   aboutTheType,
+  dwNotReviewed,
   prisonerInvolvementOutcomesDescriptions,
   prisonerInvolvementRolesDescriptions,
   staffInvolvementRolesDescriptions,
   statusesDescriptions,
   typesDescriptions,
-  dwNotReviewed,
   workListMapping,
 } from '../../reportConfiguration/constants'
 import { correctPecsReportStatus } from '../../middleware/correctPecsReportStatus'
 import {
-  logoutUnless,
-  hasPermissionTo,
-  parseUserActionCode,
-  userActionMapping,
-  type ApiUserType,
   type ApiUserAction,
+  type ApiUserType,
+  hasPermissionTo,
+  logoutUnless,
+  parseUserActionCode,
   type UserAction,
+  userActionMapping,
 } from '../../middleware/permissions'
 import { populateReport } from '../../middleware/populateReport'
 import { populateReportConfiguration } from '../../middleware/populateReportConfiguration'
@@ -32,6 +32,7 @@ import type { GovukErrorSummaryItem } from '../../utils/govukFrontend'
 import { correctionRequestActionLabels } from './actions/correctionRequestLabels'
 import { placeholderForCorrectionRequest } from './actions/correctionRequestPlaceholder'
 import { findRequestDuplicate } from './actions/findRequestDuplicate'
+import { AgencyType } from '../../data/prisonApi'
 
 export function viewReportRouter(): Router {
   const router = Router({ mergeParams: true })
@@ -69,7 +70,9 @@ export function viewReportRouter(): Router {
       }
       const [usersLookup, locationDescription] = await Promise.all([
         userService.getUsers(res.locals.systemToken, usernames),
-        prisonApi.getPrison(report.location, false).then(agency => agency?.description || report.location),
+        prisonApi
+          .getAgency(report.location, false, isPecsReport ? AgencyType.PECS : AgencyType.INST, isPecsReport)
+          .then(agency => agency?.description || report.location),
       ])
 
       const questionProgressSteps = Array.from(questionProgress)

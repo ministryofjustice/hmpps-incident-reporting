@@ -23,7 +23,7 @@ let agent: Agent
 
 beforeEach(() => {
   agent = request.agent(appWithAllRoutes())
-  prisonApi.getPrison.mockResolvedValueOnce(moorland)
+  prisonApi.getAgency.mockResolvedValueOnce(moorland)
 })
 
 afterEach(() => {

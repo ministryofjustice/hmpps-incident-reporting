@@ -142,14 +142,18 @@ export class PrisonApi extends RestClient {
     })
   }
 
-  // TODO: rename method to reflect that it could be more than just a prison
   /** Look up agency details (can be a prison, a PECS region, etc) */
-  async getPrison(prisonId: string, activeOnly = true, agencyType?: AgencyType): Promise<Agency | null> {
+  async getAgency(
+    agencyId: string,
+    activeOnly = true,
+    agencyType?: AgencyType,
+    skipFormatLocation?: boolean,
+  ): Promise<Agency | null> {
     try {
       return await this.get<Agency>(
         {
-          path: `/api/agencies/${encodeURIComponent(prisonId)}`,
-          query: { activeOnly: activeOnly.toString(), agencyType },
+          path: `/api/agencies/${encodeURIComponent(agencyId)}`,
+          query: { activeOnly: activeOnly.toString(), agencyType, skipFormatLocation },
         },
         asSystem(),
       )

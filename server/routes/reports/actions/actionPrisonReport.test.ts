@@ -50,7 +50,7 @@ beforeEach(() => {
     [mockSharedUser.username]: mockSharedUser,
   })
 
-  prisonApi.getPrison.mockImplementation(locationCode =>
+  prisonApi.getAgency.mockImplementation(locationCode =>
     Promise.resolve(
       {
         LEI: leeds,
@@ -980,15 +980,15 @@ describe('Actioning prison reports', () => {
                 expect(incidentReportingApi.getReportByReference).not.toHaveBeenCalled()
               }
               if (updatesTitle) {
-                expect(prisonApi.getPrison).toHaveBeenCalledTimes(2)
-                expect(prisonApi.getPrison).toHaveBeenNthCalledWith(1, 'MDI', false) // to display report location
-                expect(prisonApi.getPrison).toHaveBeenNthCalledWith(2, 'MDI', false) // to regenerate title
+                expect(prisonApi.getAgency).toHaveBeenCalledTimes(2)
+                expect(prisonApi.getAgency).toHaveBeenNthCalledWith(1, 'MDI', false, 'INST', false) // to display report location
+                expect(prisonApi.getAgency).toHaveBeenNthCalledWith(2, 'MDI', false, 'INST', false) // to regenerate title
                 expect(incidentReportingApi.updateReport).toHaveBeenCalledWith(mockedReport.id, {
                   title: 'Assault: Arnold A1111AA, Benjamin A2222BB (Moorland (HMP & YOI))',
                 })
               } else {
-                expect(prisonApi.getPrison).toHaveBeenCalledTimes(1)
-                expect(prisonApi.getPrison).toHaveBeenCalledWith('MDI', false) // to display report location
+                expect(prisonApi.getAgency).toHaveBeenCalledTimes(1)
+                expect(prisonApi.getAgency).toHaveBeenCalledWith('MDI', false, 'INST', false) // to display report location
                 if (userAction === 'MARK_DUPLICATE') {
                   expect(incidentReportingApi.updateReport).toHaveBeenCalledWith(mockedReport.id, {
                     duplicatedReportId: mockedOriginalReport.id,

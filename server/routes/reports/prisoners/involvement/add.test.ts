@@ -49,7 +49,7 @@ beforeEach(() => {
 
   mockHandleReportEdit.withoutSideEffect()
   offenderSearchApi.getPrisoner.mockResolvedValueOnce(andrew)
-  prisonApi.getPrison.mockResolvedValueOnce(moorland)
+  prisonApi.getAgency.mockResolvedValueOnce(moorland)
 })
 
 afterEach(() => {

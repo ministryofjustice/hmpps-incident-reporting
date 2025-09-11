@@ -2,10 +2,11 @@ import nock from 'nock'
 
 import config from '../config'
 import {
-  PrisonApi,
   type ActiveAgency,
   type Agency,
+  AgencyType,
   type IncidentTypeConfiguration,
+  PrisonApi,
   type ReferenceCode,
 } from './prisonApi'
 import { brixton, leeds, moorland, pecsNorth, pecsSouth, staffMary } from './testData/prisonApi'
@@ -25,18 +26,30 @@ describe('prisonApi', () => {
     nock.cleanAll()
   })
 
-  describe('getPrison', () => {
+  describe('getAgency', () => {
     const { agencyId: prisonId } = moorland
+    const { agencyId: pecsRegion } = pecsNorth
 
     it('should return an object', async () => {
       fakeApiClient
         .get(`/api/agencies/${prisonId}`)
-        .query(true)
+        .query({ activeOnly: 'false', agencyType: 'INST', skipFormatLocation: 'false' })
         .matchHeader('authorization', `Bearer ${accessToken}`)
         .reply(200, moorland)
 
-      const response = await apiClient.getPrison(prisonId)
+      const response = await apiClient.getAgency(prisonId, false, AgencyType.INST, false)
       expect(response).toEqual(moorland)
+    })
+
+    it('should return an object for PECS', async () => {
+      fakeApiClient
+        .get(`/api/agencies/${pecsRegion}`)
+        .query({ activeOnly: 'false', agencyType: 'PECS', skipFormatLocation: 'true' })
+        .matchHeader('authorization', `Bearer ${accessToken}`)
+        .reply(200, pecsNorth)
+
+      const response = await apiClient.getAgency(pecsRegion, false, AgencyType.PECS, true)
+      expect(response).toEqual(pecsNorth)
     })
 
     it('should return null if not found', async () => {
@@ -46,7 +59,7 @@ describe('prisonApi', () => {
         .matchHeader('authorization', `Bearer ${accessToken}`)
         .reply(404)
 
-      const response = await apiClient.getPrison(prisonId)
+      const response = await apiClient.getAgency(prisonId)
       expect(response).toBeNull()
     })
 
@@ -58,7 +71,7 @@ describe('prisonApi', () => {
         .thrice()
         .reply(500)
 
-      await expect(apiClient.getPrison(prisonId)).rejects.toThrow('Internal Server Error')
+      await expect(apiClient.getAgency(prisonId)).rejects.toThrow('Internal Server Error')
     })
   })
 

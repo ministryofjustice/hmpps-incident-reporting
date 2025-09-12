@@ -412,7 +412,7 @@ describe('Dashboard', () => {
       })
   })
 
-  it('should not see clear filters button and render expected filters when cleared for a reporting officer where caseload is only 1 establishment', () => {
+  it('should render expected filters when cleared for a reporting officer where caseload is only 1 establishment', () => {
     const expectedParams: Partial<GetReportsParams> = {
       location: ['MDI'],
       incidentDateFrom: undefined,
@@ -448,7 +448,7 @@ describe('Dashboard', () => {
         expect(res.text).toContain('toDo')
         expect(res.text).not.toContain('DRAFT')
         expect(res.text).toContain('Apply filters')
-        expect(res.text).not.toContain('Clear filters')
+        expect(res.text).toContain('Clear filters')
         expect(incidentReportingApi.getReports).toHaveBeenCalledWith(expectedParams)
       })
   })
@@ -547,7 +547,7 @@ describe('Dashboard', () => {
         expect(res.text).toContain('Draft')
         expect(res.text).toContain('DRAFT')
         expect(res.text).toContain('Apply filters')
-        expect(res.text).not.toContain('Clear filters')
+        expect(res.text).toContain('Clear filters')
         expect(incidentReportingApi.getReports).toHaveBeenCalledWith(expectedParams)
       })
   })

@@ -8,6 +8,8 @@ import type { IncidentTypeConfiguration } from '../../data/incidentTypeConfigura
 import type { OffenderSearchApi } from '../../data/offenderSearchApi'
 import type { PrisonApi } from '../../data/prisonApi'
 import type { Permissions, UserAction, ReportTransitions } from '../../middleware/permissions'
+import type { TypeFamily } from '../../reportConfiguration/constants'
+import { IncidentStatuses } from '../../routes/dashboard'
 
 export default {}
 
@@ -17,7 +19,17 @@ declare module 'express-session' {
     /** Used by auth middleware for sign-in */
     returnTo: string
     nowInMinutes: number
+    dashboardFilters?: DashboardFilters
   }
+}
+
+type DashboardFilters = {
+  searchID?: string
+  location?: string
+  fromDate?: Date
+  toDate?: Date
+  typeFamily?: TypeFamily
+  incidentStatuses?: IncidentStatuses | IncidentStatuses[]
 }
 
 type BannerTypes = 'information' | 'success' | 'error'

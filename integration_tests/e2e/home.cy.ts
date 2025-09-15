@@ -19,7 +19,7 @@ for (const { userType, user } of scenarios) {
       homePage.checkLastBreadcrumb('Digital Prison Services')
       homePage.cardDetails.then(cards => {
         const expectedTiles = [
-          { title: 'Search incident reports', url: '/reports?clearFilters=true' },
+          { title: 'Search incident reports', url: '/reports?clearFilters=ToDo' },
           { title: 'Management reporting', url: '/management-reporting' },
         ]
         if (userType === 'reporting officers') {

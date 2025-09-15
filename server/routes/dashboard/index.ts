@@ -33,7 +33,7 @@ import { multiCaseloadColumns, singleCaseloadColumns } from './tableColumns'
 export type IncidentStatuses = Status | WorkList
 
 interface ListFormData {
-  clearFilters?: boolean
+  clearFilters?: string
   searchID?: string
   location?: string
   fromDate?: string
@@ -61,10 +61,19 @@ export default function dashboard(): Router {
     const userCaseloadIds = userCaseloads.map(caseload => caseload.caseLoadId)
     const pecsRegionCodes = pecsRegions.map(pecsRegion => pecsRegion.code)
 
-    const { fromDate: fromDateInput, toDate: toDateInput, page, clearFilters }: ListFormData = req.query
-    let { location, searchID, typeFamily, incidentStatuses, sort, order }: ListFormData = req.query
+    const { page, clearFilters }: ListFormData = req.query
+    let {
+      fromDate: fromDateInput,
+      toDate: toDateInput,
+      location,
+      searchID,
+      typeFamily,
+      incidentStatuses,
+      sort,
+      order,
+    }: ListFormData = req.query
 
-    if (clearFilters) {
+    if (['All', 'ToDo'].includes(clearFilters)) {
       req.session.dashboardFilters = {}
     }
 
@@ -78,9 +87,26 @@ export default function dashboard(): Router {
       order = 'DESC'
     }
 
+    // Collect errors
+    const errors: GovukErrorSummaryItem[] = []
+
+    let noFiltersSupplied = Boolean(
+      !searchID && !location && !fromDateInput && !toDateInput && !typeFamily && !incidentStatuses,
+    )
+
+    // If no filters are supplied from query and no errors generated, check for filters in session
+    if (errors.length === 0 && noFiltersSupplied && !['All', 'ToDo'].includes(clearFilters)) {
+      console.log('Triggered')
+      location = req.session.dashboardFilters?.location
+      fromDateInput = req.session.dashboardFilters?.fromDateInput
+      toDateInput = req.session.dashboardFilters?.toDateInput
+      searchID = req.session.dashboardFilters?.searchID
+      typeFamily = req.session.dashboardFilters?.typeFamily
+      incidentStatuses = req.session.dashboardFilters?.incidentStatuses
+    }
+
     // Parse params
     const todayAsShortDate = format.shortDate(new Date())
-    const errors: GovukErrorSummaryItem[] = []
     let fromDate: Date | null
     let toDate: Date | null
     try {
@@ -109,27 +135,11 @@ export default function dashboard(): Router {
       errors.push({ href: '#typeFamily', text: 'Select a valid incident type' })
     }
 
-    let noFiltersSupplied = Boolean(!searchID && !location && !fromDate && !toDate && !typeFamily && !incidentStatuses)
-
-    // If no filters are supplied from query and no errors generated, check for filters in session
-    if (errors.length === 0 && noFiltersSupplied && req.query.incidentStatuses !== '') {
-      location = req.session.dashboardFilters?.location
-      fromDate = req.session.dashboardFilters?.fromDate
-      toDate = req.session.dashboardFilters?.toDate
-      searchID = req.session.dashboardFilters?.searchID
-      typeFamily = req.session.dashboardFilters?.typeFamily
-      incidentStatuses = req.session.dashboardFilters?.incidentStatuses
-    }
     // Check for supplied filters from session
     noFiltersSupplied = Boolean(!searchID && !location && !fromDate && !toDate && !typeFamily && !incidentStatuses)
 
     // RO: Default work list to 'To do' for an RO when no other filters are applied and when the user arrives on page
-    if (
-      permissions.isReportingOfficer &&
-      !('incidentStatuses' in req.query) &&
-      !('sort' in req.query || 'page' in req.query) &&
-      noFiltersSupplied
-    ) {
+    if (permissions.isReportingOfficer && clearFilters === 'ToDo') {
       incidentStatuses = ['toDo']
       noFiltersSupplied = false
     }
@@ -332,8 +342,8 @@ export default function dashboard(): Router {
     // Set dashboard filters stored in the session
     req.session.dashboardFilters = {
       location,
-      fromDate,
-      toDate,
+      fromDateInput,
+      toDateInput,
       typeFamily,
       incidentStatuses,
     }

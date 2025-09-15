@@ -136,7 +136,7 @@ describe('Dashboard', () => {
     }
     return request(app)
       .get('/reports')
-      .query({ incidentStatuses: '' })
+      .query({ clearFilters: 'All' })
       .expect('Content-Type', /html/)
       .expect(200)
       .expect(res => {
@@ -426,7 +426,7 @@ describe('Dashboard', () => {
     }
     return request(appWithAllRoutes({ services: { userService }, userSupplier: () => mockReportingOfficer }))
       .get('/reports')
-      .query({ incidentStatuses: '' })
+      .query({ clearFilters: 'All' })
       .expect('Content-Type', /html/)
       .expect(200)
       .expect(res => {

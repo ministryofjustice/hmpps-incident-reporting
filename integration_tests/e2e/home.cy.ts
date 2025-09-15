@@ -4,8 +4,8 @@ import { HomePage } from '../pages/home'
 
 const scenarios: Scenario[] = [
   { userType: 'reporting officers', user: mockReportingOfficer, searchIncidentsUrl: '/reports?clearFilters=ToDo' },
-  { userType: 'data wardens', user: mockDataWarden, searchIncidentsUrl: '/reports' },
-  { userType: 'HQ viewers', user: mockHqViewer, searchIncidentsUrl: '/reports' },
+  { userType: 'data wardens', user: mockDataWarden, searchIncidentsUrl: '/reports?clearFilters=All' },
+  { userType: 'HQ viewers', user: mockHqViewer, searchIncidentsUrl: '/reports?clearFilters=All' },
 ]
 for (const { userType, user, searchIncidentsUrl } of scenarios) {
   context(`Home page for ${userType}`, () => {

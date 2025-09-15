@@ -33,6 +33,7 @@ import { multiCaseloadColumns, singleCaseloadColumns } from './tableColumns'
 export type IncidentStatuses = Status | WorkList
 
 interface ListFormData {
+  clearFilters?: boolean
   searchID?: string
   location?: string
   fromDate?: string
@@ -60,8 +61,12 @@ export default function dashboard(): Router {
     const userCaseloadIds = userCaseloads.map(caseload => caseload.caseLoadId)
     const pecsRegionCodes = pecsRegions.map(pecsRegion => pecsRegion.code)
 
-    const { location, fromDate: fromDateInput, toDate: toDateInput, page }: ListFormData = req.query
-    let { searchID, typeFamily, incidentStatuses, sort, order }: ListFormData = req.query
+    const { fromDate: fromDateInput, toDate: toDateInput, page, clearFilters }: ListFormData = req.query
+    let { location, searchID, typeFamily, incidentStatuses, sort, order }: ListFormData = req.query
+
+    if (clearFilters) {
+      req.session.dashboardFilters = {}
+    }
 
     if (searchID) {
       searchID = searchID.trim()
@@ -105,6 +110,18 @@ export default function dashboard(): Router {
     }
 
     let noFiltersSupplied = Boolean(!searchID && !location && !fromDate && !toDate && !typeFamily && !incidentStatuses)
+
+    // If no filters are supplied from query and no errors generated, check for filters in session
+    if (errors.length === 0 && noFiltersSupplied && req.query.incidentStatuses !== '') {
+      location = req.session.dashboardFilters?.location
+      fromDate = req.session.dashboardFilters?.fromDate
+      toDate = req.session.dashboardFilters?.toDate
+      searchID = req.session.dashboardFilters?.searchID
+      typeFamily = req.session.dashboardFilters?.typeFamily
+      incidentStatuses = req.session.dashboardFilters?.incidentStatuses
+    }
+    // Check for supplied filters from session
+    noFiltersSupplied = Boolean(!searchID && !location && !fromDate && !toDate && !typeFamily && !incidentStatuses)
 
     // RO: Default work list to 'To do' for an RO when no other filters are applied and when the user arrives on page
     if (
@@ -311,6 +328,15 @@ export default function dashboard(): Router {
 
     // Gather notification banner entries if they exist
     const banners = req.flash()
+
+    // Set dashboard filters stored in the session
+    req.session.dashboardFilters = {
+      location,
+      fromDate,
+      toDate,
+      typeFamily,
+      incidentStatuses,
+    }
 
     res.render('pages/dashboard/index', {
       activeCaseLoad,

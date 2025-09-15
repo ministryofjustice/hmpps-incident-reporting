@@ -112,7 +112,7 @@ export default function dashboard(): Router {
     let noFiltersSupplied = Boolean(!searchID && !location && !fromDate && !toDate && !typeFamily && !incidentStatuses)
 
     // If no filters are supplied from query and no errors generated, check for filters in session
-    if (!errors && noFiltersSupplied) {
+    if (errors.length === 0 && noFiltersSupplied && req.query.incidentStatuses !== '') {
       location = req.session.dashboardFilters?.location
       fromDate = req.session.dashboardFilters?.fromDate
       toDate = req.session.dashboardFilters?.toDate

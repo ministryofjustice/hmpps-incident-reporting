@@ -26,7 +26,8 @@ export default function routes(services: Services): Router {
   router.use(logoutUnless(permissions => permissions.canAccessService))
 
   router.get('/', (_req, res) => {
-    res.render('pages/index')
+    const { permissions } = res.locals
+    res.render('pages/index', { isRO: permissions.isReportingOfficer })
   })
 
   // view-only debug pages

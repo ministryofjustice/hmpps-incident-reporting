@@ -32,6 +32,12 @@
 
   {% endif %}
 
+  {% if isRO %}
+    {% set searchIncidentsLink = "/reports?clearFilters=ToDo" %}
+  {% else %}
+    {% set searchIncidentsLink = "/reports?clearFilters=All" %}
+  {% endif %}
+
   <h1 class="govuk-heading-l">Incident reporting</h1>
 
   {% call renderDpsCards() %}
@@ -56,7 +62,7 @@
     {{ renderDpsCard({
       heading: "Search incident reports",
       description: "Review the details for incidents that have taken place in prisons.",
-      href: "/reports?clearFilters=true"
+      href: searchIncidentsLink
     }) }}
 
     {# stats reports #}

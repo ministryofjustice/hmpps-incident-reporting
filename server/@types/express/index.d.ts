@@ -26,8 +26,8 @@ declare module 'express-session' {
 type DashboardFilters = {
   searchID?: string
   location?: string
-  fromDate?: Date
-  toDate?: Date
+  fromDateInput?: string
+  toDateInput?: string
   typeFamily?: TypeFamily
   incidentStatuses?: IncidentStatuses | IncidentStatuses[]
 }

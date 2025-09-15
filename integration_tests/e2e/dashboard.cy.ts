@@ -80,7 +80,7 @@ userScenarios.forEach(({ userType, user, createReport }) => {
       beforeEach(() => {
         cy.task('stubIncidentReportingApiGetReports').then((res: SuperAgentResponse) => {
           getReportWithDetailsByIdStubId = JSON.parse(res.text).id
-          cy.visit('/reports')
+          cy.visit('/reports?clearFilters=ToDo')
         })
       })
 

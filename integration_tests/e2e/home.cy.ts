@@ -3,11 +3,11 @@ import Page from '../pages/page'
 import { HomePage } from '../pages/home'
 
 const scenarios: Scenario[] = [
-  { userType: 'reporting officers', user: mockReportingOfficer },
-  { userType: 'data wardens', user: mockDataWarden },
-  { userType: 'HQ viewers', user: mockHqViewer },
+  { userType: 'reporting officers', user: mockReportingOfficer, searchIncidentsUrl: '/reports?clearFilters=ToDo' },
+  { userType: 'data wardens', user: mockDataWarden, searchIncidentsUrl: '/reports' },
+  { userType: 'HQ viewers', user: mockHqViewer, searchIncidentsUrl: '/reports' },
 ]
-for (const { userType, user } of scenarios) {
+for (const { userType, user, searchIncidentsUrl } of scenarios) {
   context(`Home page for ${userType}`, () => {
     beforeEach(() => {
       cy.resetBasicStubs({ user })
@@ -19,7 +19,7 @@ for (const { userType, user } of scenarios) {
       homePage.checkLastBreadcrumb('Digital Prison Services')
       homePage.cardDetails.then(cards => {
         const expectedTiles = [
-          { title: 'Search incident reports', url: '/reports?clearFilters=ToDo' },
+          { title: 'Search incident reports', url: searchIncidentsUrl },
           { title: 'Management reporting', url: '/management-reporting' },
         ]
         if (userType === 'reporting officers') {
@@ -36,4 +36,5 @@ for (const { userType, user } of scenarios) {
 interface Scenario {
   userType: string
   user: Express.User
+  searchIncidentsUrl: string
 }

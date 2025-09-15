@@ -96,7 +96,6 @@ export default function dashboard(): Router {
 
     // If no filters are supplied from query and no errors generated, check for filters in session
     if (errors.length === 0 && noFiltersSupplied && !['All', 'ToDo'].includes(clearFilters)) {
-      console.log('Triggered')
       location = req.session.dashboardFilters?.location
       fromDateInput = req.session.dashboardFilters?.fromDateInput
       toDateInput = req.session.dashboardFilters?.toDateInput

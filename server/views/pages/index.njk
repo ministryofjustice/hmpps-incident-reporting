@@ -22,16 +22,6 @@
 {% endblock %}
 
 {% block content %}
-
-  {% if environment === "prod" %}
-
-    {{ govukWarningText({
-      text: "This service is not ready for use.",
-      iconFallbackText: "Warning"
-    }) }}
-
-  {% endif %}
-
   {% if isRO %}
     {% set searchIncidentsLink = "/reports?clearFilters=ToDo" %}
   {% else %}

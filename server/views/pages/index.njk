@@ -23,15 +23,6 @@
 
 {% block content %}
 
-  {% if environment === "prod" %}
-
-    {{ govukWarningText({
-      text: "This service is not ready for use.",
-      iconFallbackText: "Warning"
-    }) }}
-
-  {% endif %}
-
   <h1 class="govuk-heading-l">Incident reporting</h1>
 
   {% call renderDpsCards() %}

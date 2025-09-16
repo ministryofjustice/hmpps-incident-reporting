@@ -108,7 +108,7 @@ describe('Dashboard', () => {
       type: undefined,
     }
     return request(app)
-      .get('/reports')
+      .get('/reports?clearFilters=ToDo')
       .expect('Content-Type', /html/)
       .expect(200)
       .expect(res => {
@@ -385,7 +385,7 @@ describe('Dashboard', () => {
       type: undefined,
     }
     return request(appWithAllRoutes({ services: { userService }, userSupplier: () => mockReportingOfficer }))
-      .get('/reports')
+      .get('/reports?clearFilters=ToDo')
       .expect('Content-Type', /html/)
       .expect(200)
       .expect(res => {
@@ -466,7 +466,7 @@ describe('Dashboard', () => {
       type: undefined,
     }
     return request(appWithAllRoutes({ services: { userService }, userSupplier: () => mockReportingOfficer }))
-      .get('/reports')
+      .get('/reports?clearFilters=ToDo')
       .expect('Content-Type', /html/)
       .expect(200)
       .expect(res => {

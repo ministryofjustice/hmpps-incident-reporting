@@ -340,6 +340,7 @@ export default function dashboard(): Router {
 
     // Set dashboard filters stored in the session
     req.session.dashboardFilters = {
+      searchID,
       location,
       fromDateInput,
       toDateInput,

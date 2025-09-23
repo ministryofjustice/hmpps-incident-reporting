@@ -26,11 +26,11 @@
 
   {% if report.incidentTypeHistory.length != 0 %}
     <div class="app-response--inset">
-      {# incidentTypeHistory's entries are in chronological order, from older to newer changes #}
-      {% for typeChange in incidentTypeHistory %}
+      {# incidentTypeHistory's entries are in chronological order, from older to newer changes, reverse to show newest changes on top #}
+      {% for typeChange in incidentTypeHistory | reverse %}
         {% set actionDescription = "updated to" %}
-        {# First entry is for report creation #}
-        {% if loop.index0 == 0 %}
+        {# Last entry is for report creation #}
+        {% if loop.index0 == incidentTypeHistory.length - 1 %}
           {% set actionDescription = "created as" %}
         {% endif %}
 

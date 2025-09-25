@@ -13,7 +13,7 @@ interface UserScenario {
   user: Express.User
   userActions: string
   dashboardUrl: '/reports?clearFilters=All' | '/reports?clearFilters=ToDo'
-  filterBehaviour: 'should persist' | 'should be cleared'
+  filterBehaviour: 'persists' | 'are cleared'
 }
 
 const userScenarios: UserScenario[] = [
@@ -22,49 +22,49 @@ const userScenarios: UserScenario[] = [
     user: mockDataWarden,
     userActions: 'view report',
     dashboardUrl: '/reports?clearFilters=All',
-    filterBehaviour: 'should persist',
+    filterBehaviour: 'persists',
   },
   {
     userType: 'data wardens',
     user: mockDataWarden,
     userActions: 'action report',
     dashboardUrl: '/reports?clearFilters=All',
-    filterBehaviour: 'should persist',
+    filterBehaviour: 'persists',
   },
   {
     userType: 'data wardens',
     user: mockDataWarden,
     userActions: 'return from landing page',
     dashboardUrl: '/reports?clearFilters=All',
-    filterBehaviour: 'should be cleared',
+    filterBehaviour: 'are cleared',
   },
   {
     userType: 'reporting officers',
     user: mockReportingOfficer,
     userActions: 'view report',
     dashboardUrl: '/reports?clearFilters=ToDo',
-    filterBehaviour: 'should persist',
+    filterBehaviour: 'persists',
   },
   {
     userType: 'reporting officers',
     user: mockReportingOfficer,
     userActions: 'return from landing page',
     dashboardUrl: '/reports?clearFilters=ToDo',
-    filterBehaviour: 'should be cleared',
+    filterBehaviour: 'are cleared',
   },
   {
     userType: 'hq viewers',
     user: mockHqViewer,
     userActions: 'view report',
     dashboardUrl: '/reports?clearFilters=All',
-    filterBehaviour: 'should persist',
+    filterBehaviour: 'persists',
   },
   {
     userType: 'hq viewers',
     user: mockHqViewer,
     userActions: 'return from landing page',
     dashboardUrl: '/reports?clearFilters=All',
-    filterBehaviour: 'should be cleared',
+    filterBehaviour: 'are cleared',
   },
 ]
 userScenarios.forEach(({ userType, user, userActions, dashboardUrl, filterBehaviour }) => {

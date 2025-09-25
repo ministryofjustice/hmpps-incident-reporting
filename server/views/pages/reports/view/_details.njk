@@ -26,16 +26,15 @@
 
   {% if report.incidentTypeHistory.length != 0 %}
     <div class="app-response--inset">
-      {# Initial entry uses type from first entry in type history with reported by and reported at values at report level #}
-      Incident created as {{ typesDescriptions[report.incidentTypeHistory[0].type] or report.incidentTypeHistory[0].type }} by {{ usersLookup[report.reportedBy].name or report.reportedBy }} on {{ report.reportedAt | longDateAndTime}} <br />
-      {% for typeChange in report.incidentTypeHistory %}
-        {# last entry uses current incident report type with changed at and changed by values from final entry in type history #}
-        {% if loop.index0 + 1 ==  report.incidentTypeHistory.length %}
-          Incident updated to {{ typesDescriptions[report.type] or report.type }} by {{ usersLookup[typeChange.changedBy].name or type.changedBy }} on {{ typeChange.changedAt | longDateAndTime}} <br />
-        {# all other entries are from type history using the changed by and changed at values with the type from the next entry #}
-        {% else %}
-          Incident updated to {{ typesDescriptions[report.incidentTypeHistory[loop.index0 + 1].type] or report.incidentTypeHistory[loop.index0 + 1].type }} by {{ usersLookup[typeChange.changedBy].name or typeChange.changedBy }} on {{ typeChange.changedAt | longDateAndTime}} <br />
+      {# incidentTypeHistory's entries are in chronological order, from older to newer changes, reverse to show newest changes on top #}
+      {% for typeChange in incidentTypeHistory | reverse %}
+        {% set actionDescription = "updated to" %}
+        {# Last entry is for report creation #}
+        {% if loop.index0 == incidentTypeHistory.length - 1 %}
+          {% set actionDescription = "created as" %}
         {% endif %}
+
+        Incident {{ actionDescription }} {{ typesDescriptions[typeChange.type] or typeChange.type }} by {{ usersLookup[typeChange.changedBy].name or type.changedBy }} on {{ typeChange.changedAt | longDateAndTime}} <br />
       {% endfor %}
     </div>
   {% endif %}

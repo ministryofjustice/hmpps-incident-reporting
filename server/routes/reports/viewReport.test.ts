@@ -358,11 +358,23 @@ describe('View report page', () => {
         .get(viewReportUrl)
         .expect('Content-Type', /html/)
         .expect(res => {
+          // Check content
           expect(res.text).toContain('Incident created as Assault by John Smith on 5 December 2023 at 12:34')
           expect(res.text).toContain('Incident updated to Drone sighting by John Smith on 5 December 2023 at 12:34')
           expect(res.text).toContain(
             'Incident updated to Find of illicit items by Mary Johnson on 6 December 2023 at 12:34',
           )
+
+          // Check reverse chronological order, e.g. latest updates first
+          const indexUpdateToFind = res.text.indexOf('Incident updated to Find of illicit items')
+          const indexUpdateToDrone = res.text.indexOf('Incident updated to Drone sighting')
+          const indexCreateAsAssault = res.text.indexOf('Incident created as Assault')
+
+          // Assault is last
+          expect(indexCreateAsAssault).toBeGreaterThan(indexUpdateToDrone)
+          expect(indexCreateAsAssault).toBeGreaterThan(indexUpdateToFind)
+          // Find is first
+          expect(indexUpdateToFind).toBeLessThan(indexUpdateToDrone)
         })
     })
   })

@@ -163,4 +163,8 @@ export class ReportPage extends Page {
   get continueButton(): PageElement<HTMLButtonElement> {
     return this.submitButtons.contains('Continue')
   }
+
+  get returnLink(): PageElement<HTMLAnchorElement> {
+    return cy.get('.govuk-link--no-visited-state')
+  }
 }

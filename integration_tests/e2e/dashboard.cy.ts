@@ -16,14 +16,20 @@ interface UserScenario {
   userType: string
   user: Express.User
   createReport?: 'prison' | 'pecs'
+  dashboardUrl: '/reports?clearFilters=All' | '/reports?clearFilters=ToDo'
 }
 
 const userScenarios: UserScenario[] = [
-  { userType: 'data wardens', user: mockDataWarden, createReport: 'pecs' },
-  { userType: 'reporting officers', user: mockReportingOfficer, createReport: 'prison' },
-  { userType: 'HQ viewers', user: mockHqViewer },
+  { userType: 'data wardens', user: mockDataWarden, createReport: 'pecs', dashboardUrl: '/reports?clearFilters=All' },
+  {
+    userType: 'reporting officers',
+    user: mockReportingOfficer,
+    createReport: 'prison',
+    dashboardUrl: '/reports?clearFilters=ToDo',
+  },
+  { userType: 'HQ viewers', user: mockHqViewer, dashboardUrl: '/reports?clearFilters=All' },
 ]
-userScenarios.forEach(({ userType, user, createReport }) => {
+userScenarios.forEach(({ userType, user, createReport, dashboardUrl }) => {
   context(`Dashboard for ${userType}`, () => {
     beforeEach(() => {
       cy.resetBasicStubs({ user })
@@ -40,7 +46,7 @@ userScenarios.forEach(({ userType, user, createReport }) => {
 
     it('should say when nothing was found', () => {
       cy.task('stubIncidentReportingApiGetReports')
-      cy.visit('/reports')
+      cy.visit(dashboardUrl)
       const dashboardPage = Page.verifyOnPage(DashboardPage)
       dashboardPage.showsNoTable()
       cy.root().should('contain.text', 'No incident report found')
@@ -49,7 +55,7 @@ userScenarios.forEach(({ userType, user, createReport }) => {
     if (createReport === 'pecs') {
       it('should have a link to create a new PECS report', () => {
         cy.task('stubIncidentReportingApiGetReports')
-        cy.visit('/reports')
+        cy.visit(dashboardUrl)
         const dashboardPage = Page.verifyOnPage(DashboardPage)
         dashboardPage.createReportLink.should('not.exist')
         dashboardPage.createPecsReportLink.click()
@@ -58,7 +64,7 @@ userScenarios.forEach(({ userType, user, createReport }) => {
     } else if (createReport === 'prison') {
       it('should have a link to create a new prison report', () => {
         cy.task('stubIncidentReportingApiGetReports')
-        cy.visit('/reports')
+        cy.visit(dashboardUrl)
         const dashboardPage = Page.verifyOnPage(DashboardPage)
         dashboardPage.createPecsReportLink.should('not.exist')
         dashboardPage.createReportLink.click()
@@ -67,7 +73,7 @@ userScenarios.forEach(({ userType, user, createReport }) => {
     } else {
       it('should not see links to create a report', () => {
         cy.task('stubIncidentReportingApiGetReports')
-        cy.visit('/reports')
+        cy.visit(dashboardUrl)
         const dashboardPage = Page.verifyOnPage(DashboardPage)
         dashboardPage.createPecsReportLink.should('not.exist')
         dashboardPage.createReportLink.should('not.exist')
@@ -80,7 +86,7 @@ userScenarios.forEach(({ userType, user, createReport }) => {
       beforeEach(() => {
         cy.task('stubIncidentReportingApiGetReports').then((res: SuperAgentResponse) => {
           getReportWithDetailsByIdStubId = JSON.parse(res.text).id
-          cy.visit('/reports?clearFilters=ToDo')
+          cy.visit(dashboardUrl)
         })
       })
 
@@ -217,7 +223,7 @@ userScenarios.forEach(({ userType, user, createReport }) => {
     if (userType !== 'reporting officers') {
       it('should include location options to filter by', () => {
         cy.task('stubIncidentReportingApiGetReports')
-        cy.visit('/reports')
+        cy.visit(dashboardUrl)
         const dashboardPage = Page.verifyOnPage(DashboardPage)
         dashboardPage.locationOptions.then(locationOptions => {
           let expectedLocationOptions: { label: string; value: string }[]
@@ -288,7 +294,7 @@ userScenarios.forEach(({ userType, user, createReport }) => {
           reports,
         })
         cy.task('stubManageKnownUsers')
-        cy.visit('/reports')
+        cy.visit(dashboardUrl)
         dashboardPage = Page.verifyOnPage(DashboardPage)
       })
 

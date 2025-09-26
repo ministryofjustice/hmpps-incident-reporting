@@ -11,7 +11,7 @@ import { HomePage } from '../../pages/home'
 interface UserScenario {
   userType: string
   user: Express.User
-  userActions: string
+  userActions: 'view report' | 'action report' | 'return from landing page'
   dashboardUrl: '/reports?clearFilters=All' | '/reports?clearFilters=ToDo'
   filterBehaviour: 'persists' | 'are cleared'
 }

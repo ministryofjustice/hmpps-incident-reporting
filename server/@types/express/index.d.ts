@@ -19,7 +19,6 @@ declare module 'express-session' {
   interface SessionData {
     /** Used by auth middleware for sign-in */
     returnTo: string
-    nowInMinutes: number
     dashboardFilters?: DashboardFilters
   }
 }

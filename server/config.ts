@@ -138,6 +138,7 @@ export default {
   sqs: {
     audit: auditConfig(),
   },
+  googleAnalyticsMeasurementId: get('GOOGLE_ANALYTICS_MEASUREMENT_ID', ''),
   loadReportDefinitionsOnStartup: get('LOAD_DPR_ON_STARTUP', 'false') === 'true',
   ingressUrl: get('INGRESS_URL', 'http://localhost:3000', requiredInProduction),
   dpsUrl: get('DPS_URL', 'http://dps.local', requiredInProduction),

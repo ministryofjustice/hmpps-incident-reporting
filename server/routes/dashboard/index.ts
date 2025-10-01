@@ -20,7 +20,7 @@ import {
 import type { PaginatedBasicReports } from '../../data/incidentReportingApi'
 import { type Order, orderOptions } from '../../data/offenderSearchApi'
 import { pecsRegions } from '../../data/pecsRegions'
-import { isLocationActiveInService } from '../../middleware/permissions'
+import { ApiUserAction, isLocationActiveInService } from '../../middleware/permissions'
 import type { HeaderCell } from '../../utils/sortableTable'
 import format from '../../utils/format'
 import type { GovukErrorSummaryItem, GovukSelectItem } from '../../utils/govukFrontend'
@@ -40,6 +40,7 @@ interface ListFormData {
   toDate?: string
   typeFamily?: TypeFamily
   incidentStatuses?: IncidentStatuses | IncidentStatuses[]
+  userActions?: ApiUserAction | ApiUserAction[]
   sort?: string
   order?: Order
   page?: string
@@ -69,6 +70,7 @@ export default function dashboard(): Router {
       searchID,
       typeFamily,
       incidentStatuses,
+      userActions,
       sort,
       order,
     }: ListFormData = req.query
@@ -91,7 +93,7 @@ export default function dashboard(): Router {
     const errors: GovukErrorSummaryItem[] = []
 
     let noFiltersSupplied = Boolean(
-      !searchID && !location && !fromDateInput && !toDateInput && !typeFamily && !incidentStatuses,
+      !searchID && !location && !fromDateInput && !toDateInput && !typeFamily && !incidentStatuses && !userActions,
     )
 
     // If no filters are supplied from query and no errors generated, check for filters in session
@@ -102,6 +104,7 @@ export default function dashboard(): Router {
       searchID = req.session.dashboardFilters?.searchID
       typeFamily = req.session.dashboardFilters?.typeFamily
       incidentStatuses = req.session.dashboardFilters?.incidentStatuses
+      userActions = req.session.dashboardFilters?.userActions
     }
 
     // Parse params
@@ -135,7 +138,9 @@ export default function dashboard(): Router {
     }
 
     // Check for supplied filters from session
-    noFiltersSupplied = Boolean(!searchID && !location && !fromDate && !toDate && !typeFamily && !incidentStatuses)
+    noFiltersSupplied = Boolean(
+      !searchID && !location && !fromDate && !toDate && !typeFamily && !incidentStatuses && !userActions,
+    )
 
     // RO: Default work list to 'To do' for an RO when no other filters are applied and when the user arrives on page
     if (permissions.isReportingOfficer && clearFilters === 'ToDo') {
@@ -146,6 +151,11 @@ export default function dashboard(): Router {
     // Ensure incidentStatuses is an array when provided
     if (incidentStatuses && !Array.isArray(incidentStatuses)) {
       incidentStatuses = [incidentStatuses]
+    }
+
+    // Ensure incidentStatuses is an array when provided
+    if (userActions && !Array.isArray(userActions)) {
+      userActions = [userActions]
     }
 
     let searchStatuses: Status[] | undefined
@@ -231,6 +241,7 @@ export default function dashboard(): Router {
       toDate: toDateInput,
       typeFamily,
       incidentStatuses: incidentStatuses as IncidentStatuses,
+      userActions,
       sort,
       order,
       page,
@@ -257,6 +268,13 @@ export default function dashboard(): Router {
         incidentStatuses.forEach(status => queryString.append('incidentStatuses', status))
       } else {
         queryString.append('incidentStatuses', incidentStatuses)
+      }
+    }
+    if (userActions) {
+      if (Array.isArray(userActions)) {
+        userActions.forEach(userAction => queryString.append('userActions', userAction))
+      } else {
+        queryString.append('userActions', userActions)
       }
     }
     const tableHeadUrlPrefix = `/reports?${queryString}&`
@@ -346,6 +364,7 @@ export default function dashboard(): Router {
       toDateInput,
       typeFamily,
       incidentStatuses,
+      userActions,
     }
 
     res.render('pages/dashboard/index', {

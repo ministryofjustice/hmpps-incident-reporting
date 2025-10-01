@@ -35,7 +35,7 @@
 {% endmacro %}
 
 <div id="incidentStatuses" class="govuk-grid-row">
-  <div class="govuk-grid-column-one-third">
+  <div class="govuk-grid-column-one-quarter">
     {{ statusFilters({
       id: "toDo",
       legendText: "Reporting status",
@@ -45,7 +45,7 @@
     }) }}
   </div>
 
-  <div class="govuk-grid-column-one-third">
+  <div class="govuk-grid-column-one-quarter">
     {{ statusFilters({
       id: "submitted",
       legendText: "Reviewing status",
@@ -54,12 +54,34 @@
     }) }}
   </div>
 
-  <div class="govuk-grid-column-one-third">
+  <div class="govuk-grid-column-one-quarter">
     {{ statusFilters({
       id: "completed",
       legendText: "Completed status",
       workListMapping: workListMapping,
       statusesDescriptions: statusesDescriptions
+    }) }}
+  </div>
+
+  <div class="app-dashboard__removals-filter govuk-grid-column-one-quarter">
+    {{ govukCheckboxes({
+      classes: "govuk-checkboxes--small",
+      name: "userActions",
+      attributes: {
+        id: "userActions"
+      },
+      formGroup: {
+        classes: "govuk-form-group--error" if not params.showErrors and error else ""
+      },
+      fieldset: {
+        legend: {
+          text: "Request to remove report",
+          classes: "govuk-fieldset__legend--s"
+        }
+      },
+      idPrefix: id + "-item",
+      items: [{value: "REQUEST_DUPLICATE", text: "Removal requests"}] | govukMultipleCheckedItems(formValues.userActions),
+      errorMessage: params.showErrors and error
     }) }}
   </div>
 </div>

@@ -198,6 +198,8 @@ export function viewReportRouter(): Router {
                 await updateReportTitle(res)
               }
 
+              const { newStatus } = transition
+              let addCorrectionRequest: AddCorrectionRequestRequest
               if (transition.postCorrectionRequest) {
                 const apiUserAction = userAction as ApiUserAction // transitions config ensures this is possible
                 if (!comment) {
@@ -208,7 +210,7 @@ export function viewReportRouter(): Router {
                     comment = placeholderForCorrectionRequest(apiUserAction)
                   }
                 }
-                const addCorrectionRequest: AddCorrectionRequestRequest = {
+                addCorrectionRequest = {
                   userType: userType as ApiUserType, // HQ viewer can’t get here
                   userAction: apiUserAction,
                   descriptionOfChange: comment,
@@ -216,12 +218,14 @@ export function viewReportRouter(): Router {
                 if (originalReportReference) {
                   addCorrectionRequest.originalReportReference = originalReportReference
                 }
-                await incidentReportingApi.correctionRequests.addToReport(report.id, addCorrectionRequest)
+                if (newStatus && newStatus === report.status) {
+                  // if transitioning to the same status, add a correction request to the report (not sure that ever happens)
+                  await incidentReportingApi.correctionRequests.addToReport(report.id, addCorrectionRequest)
+                }
               }
 
-              const { newStatus } = transition
               if (newStatus && newStatus !== report.status) {
-                await incidentReportingApi.changeReportStatus(report.id, { newStatus })
+                await incidentReportingApi.changeReportStatus(report.id, { newStatus, addCorrectionRequest })
               }
 
               if (userAction === 'MARK_DUPLICATE' && originalReport) {

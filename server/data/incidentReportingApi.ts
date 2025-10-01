@@ -204,7 +204,10 @@ export type UpdateReportRequest = {
   duplicatedReportId?: string | null
 }
 
-export type ChangeStatusRequest = { newStatus: Status }
+export type ChangeStatusRequest = {
+  newStatus: Status
+  addCorrectionRequest?: AddCorrectionRequestRequest
+}
 export type ChangeTypeRequest = { newType: Type }
 
 export type AddOrUpdateQuestionWithResponsesRequest = {

@@ -45,6 +45,8 @@ export default function nunjucksSetup(app: express.Express): void {
   app.locals.dpsUrl = config.dpsUrl
   app.locals.supportUrl = config.supportUrl
 
+  app.locals.googleAnalyticsMeasurementId = config.googleAnalyticsMeasurementId
+
   let assetManifest: Record<string, string> = {}
   try {
     const assetMetadataPath = path.resolve(__dirname, '../../assets/manifest.json')

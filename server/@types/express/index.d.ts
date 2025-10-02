@@ -31,7 +31,7 @@ type DashboardFilters = {
   toDateInput?: string
   typeFamily?: TypeFamily
   incidentStatuses?: IncidentStatuses | IncidentStatuses[]
-  userActions?: ApiUserAction | ApiUserAction[]
+  latestUserActions?: ApiUserAction | ApiUserAction[] | 'REQUEST_REMOVAL'
 }
 
 type BannerTypes = 'information' | 'success' | 'error'

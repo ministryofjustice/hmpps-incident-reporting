@@ -66,12 +66,9 @@
   <div class="govuk-grid-column-one-quarter">
     {{ govukCheckboxes({
       classes: "govuk-checkboxes--small",
-      name: "userActions",
+      name: "latestUserActions",
       attributes: {
-        id: "userActions"
-      },
-      formGroup: {
-        classes: "govuk-form-group--error" if not params.showErrors and error else ""
+        id: "latestUserActions"
       },
       fieldset: {
         legend: {
@@ -79,9 +76,9 @@
           classes: "govuk-fieldset__legend--s"
         }
       },
-      idPrefix: id + "-item",
-      items: [{value: "REQUEST_DUPLICATE", text: "Removal requests"}] | govukMultipleCheckedItems(formValues.userActions),
-      errorMessage: params.showErrors and error
+      idPrefix: "latestUserAction-item",
+      items: [{value: "REQUEST_REMOVAL", text: "Removal requests"}] | govukMultipleCheckedItems(formValues.latestUserActions),
+      errorMessage: errors | findFieldInGovukErrorSummary("latestUserActions")
     }) }}
   </div>
 </div>

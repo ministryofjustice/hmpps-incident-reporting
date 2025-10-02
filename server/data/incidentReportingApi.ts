@@ -107,7 +107,7 @@ export type GetReportsParams = {
   reportedByUsername: string
   involvingStaffUsername: string
   involvingPrisonerNumber: string
-  latestUserAction: ApiUserAction
+  userAction: ApiUserAction | ApiUserAction[]
 } & PaginationSortingParams
 
 export type PaginationSortingParams = {
@@ -264,7 +264,7 @@ export class IncidentReportingApi extends RestClient {
       reportedByUsername,
       involvingStaffUsername,
       involvingPrisonerNumber,
-      latestUserAction,
+      userAction,
       page,
       size,
       sort,
@@ -281,7 +281,7 @@ export class IncidentReportingApi extends RestClient {
       reportedByUsername: null,
       involvingStaffUsername: null,
       involvingPrisonerNumber: null,
-      latestUserAction: null,
+      userAction: null,
       page: 0,
       size: defaultPageSize,
       sort: ['incidentDateAndTime,DESC'],
@@ -328,8 +328,8 @@ export class IncidentReportingApi extends RestClient {
     if (involvingPrisonerNumber) {
       query.involvingPrisonerNumber = involvingPrisonerNumber
     }
-    if (latestUserAction) {
-      query.latestUserAction = latestUserAction
+    if (userAction) {
+      query.userAction = userAction
     }
 
     const response = await this.get<DatesAsStrings<PaginatedBasicReports>>(

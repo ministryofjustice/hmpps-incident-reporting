@@ -218,10 +218,6 @@ export function viewReportRouter(): Router {
                 if (originalReportReference) {
                   addCorrectionRequest.originalReportReference = originalReportReference
                 }
-                if (newStatus && newStatus === report.status) {
-                  // if transitioning to the same status, add a correction request to the report (not sure that ever happens)
-                  await incidentReportingApi.correctionRequests.addToReport(report.id, addCorrectionRequest)
-                }
               }
 
               if (newStatus && newStatus !== report.status) {

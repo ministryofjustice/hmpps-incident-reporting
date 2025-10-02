@@ -997,15 +997,10 @@ describe('Actioning prison reports', () => {
                   expect(incidentReportingApi.updateReport).not.toHaveBeenCalled()
                 }
               }
-              if (postsCorrectionRequest !== undefined) {
-                expect(incidentReportingRelatedObjects.addToReport).toHaveBeenCalledWith(
-                  mockedReport.id,
-                  postsCorrectionRequest,
-                )
-              } else {
-                expect(incidentReportingRelatedObjects.addToReport).not.toHaveBeenCalled()
-              }
-              expect(incidentReportingApi.changeReportStatus).toHaveBeenCalledWith(mockedReport.id, { newStatus })
+              expect(incidentReportingApi.changeReportStatus).toHaveBeenCalledWith(mockedReport.id, {
+                newStatus,
+                addCorrectionRequest: postsCorrectionRequest,
+              })
             })
         })
 
@@ -1045,15 +1040,10 @@ describe('Actioning prison reports', () => {
               .expect(res => {
                 expect(res.redirect).toBe(true)
                 expect(res.header.location).toEqual(expectedRedirect)
-                if (postsCorrectionRequest !== undefined) {
-                  expect(incidentReportingRelatedObjects.addToReport).toHaveBeenCalledWith(
-                    mockedReport.id,
-                    postsCorrectionRequest,
-                  )
-                } else {
-                  expect(incidentReportingRelatedObjects.addToReport).not.toHaveBeenCalled()
-                }
-                expect(incidentReportingApi.changeReportStatus).toHaveBeenCalledWith(mockedReport.id, { newStatus })
+                expect(incidentReportingApi.changeReportStatus).toHaveBeenCalledWith(mockedReport.id, {
+                  newStatus,
+                  addCorrectionRequest: postsCorrectionRequest,
+                })
               })
           })
         } else {
@@ -1070,15 +1060,10 @@ describe('Actioning prison reports', () => {
               .expect(res => {
                 expect(res.redirect).toBe(true)
                 expect(res.header.location).toEqual(expectedRedirect)
-                if (postsCorrectionRequest !== undefined) {
-                  expect(incidentReportingRelatedObjects.addToReport).toHaveBeenCalledWith(
-                    mockedReport.id,
-                    postsCorrectionRequest,
-                  )
-                } else {
-                  expect(incidentReportingRelatedObjects.addToReport).not.toHaveBeenCalled()
-                }
-                expect(incidentReportingApi.changeReportStatus).toHaveBeenCalledWith(mockedReport.id, { newStatus })
+                expect(incidentReportingApi.changeReportStatus).toHaveBeenCalledWith(mockedReport.id, {
+                  newStatus,
+                  addCorrectionRequest: postsCorrectionRequest,
+                })
               })
           })
         }
@@ -1137,15 +1122,13 @@ describe('Actioning prison reports', () => {
               .expect(res => {
                 expect(res.redirect).toBe(true)
                 expect(res.header.location).toEqual(expectedRedirect)
-                if (postsCorrectionRequest !== undefined) {
-                  expect(incidentReportingRelatedObjects.addToReport).toHaveBeenCalledWith(mockedReport.id, {
+                expect(incidentReportingApi.changeReportStatus).toHaveBeenCalledWith(mockedReport.id, {
+                  newStatus,
+                  addCorrectionRequest: {
                     ...postsCorrectionRequest,
                     descriptionOfChange: 'PLACEHOLDER',
-                  })
-                } else {
-                  expect(incidentReportingRelatedObjects.addToReport).not.toHaveBeenCalled()
-                }
-                expect(incidentReportingApi.changeReportStatus).toHaveBeenCalledWith(mockedReport.id, { newStatus })
+                  },
+                })
               })
           })
         }
@@ -1265,8 +1248,7 @@ describe('Actioning prison reports', () => {
             makeReportValid()
             makeOriginalReportReferenceExistIfNeeded()
             const error = mockThrownError(mockErrorResponse({ message: 'Comment is required' }))
-            incidentReportingRelatedObjects.addToReport.mockRejectedValueOnce(error)
-            incidentReportingApi.changeReportStatus.mockResolvedValueOnce(mockedReport) // NB: response is ignored
+            incidentReportingApi.changeReportStatus.mockRejectedValueOnce(error) // NB: response is ignored
 
             return request(app)
               .post(viewReportUrl)
@@ -1277,7 +1259,6 @@ describe('Actioning prison reports', () => {
                 expect(res.text).toContain('Sorry, there was a problem with your request')
                 expect(res.text).not.toContain('Bad Request')
                 expect(res.text).not.toContain('Comment is required')
-                expect(incidentReportingApi.changeReportStatus).not.toHaveBeenCalled()
               })
           })
         }

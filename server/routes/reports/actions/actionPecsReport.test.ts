@@ -536,15 +536,10 @@ describe('Actioning PECS reports', () => {
                   expect(incidentReportingApi.updateReport).not.toHaveBeenCalled()
                 }
               }
-              if (postsCorrectionRequest !== undefined) {
-                expect(incidentReportingRelatedObjects.addToReport).toHaveBeenCalledWith(
-                  mockedReport.id,
-                  postsCorrectionRequest,
-                )
-              } else {
-                expect(incidentReportingRelatedObjects.addToReport).not.toHaveBeenCalled()
-              }
-              expect(incidentReportingApi.changeReportStatus).toHaveBeenCalledWith(mockedReport.id, { newStatus })
+              expect(incidentReportingApi.changeReportStatus).toHaveBeenCalledWith(mockedReport.id, {
+                newStatus,
+                addCorrectionRequest: postsCorrectionRequest,
+              })
             })
         })
 
@@ -563,7 +558,6 @@ describe('Actioning PECS reports', () => {
                 expect(res.text).toContain('There is a problem')
                 expect(res.text).toContain('Fill in missing details')
                 expect(incidentReportingApi.updateReport).not.toHaveBeenCalled()
-                expect(incidentReportingRelatedObjects.addToReport).not.toHaveBeenCalled()
                 expect(incidentReportingApi.changeReportStatus).not.toHaveBeenCalled()
               })
           })
@@ -584,15 +578,10 @@ describe('Actioning PECS reports', () => {
               .expect(res => {
                 expect(res.redirect).toBe(true)
                 expect(res.header.location).toEqual(expectedRedirect)
-                if (postsCorrectionRequest !== undefined) {
-                  expect(incidentReportingRelatedObjects.addToReport).toHaveBeenCalledWith(
-                    mockedReport.id,
-                    postsCorrectionRequest,
-                  )
-                } else {
-                  expect(incidentReportingRelatedObjects.addToReport).not.toHaveBeenCalled()
-                }
-                expect(incidentReportingApi.changeReportStatus).toHaveBeenCalledWith(mockedReport.id, { newStatus })
+                expect(incidentReportingApi.changeReportStatus).toHaveBeenCalledWith(mockedReport.id, {
+                  newStatus,
+                  addCorrectionRequest: postsCorrectionRequest,
+                })
               })
           })
         } else {
@@ -609,15 +598,10 @@ describe('Actioning PECS reports', () => {
               .expect(res => {
                 expect(res.redirect).toBe(true)
                 expect(res.header.location).toEqual(expectedRedirect)
-                if (postsCorrectionRequest !== undefined) {
-                  expect(incidentReportingRelatedObjects.addToReport).toHaveBeenCalledWith(
-                    mockedReport.id,
-                    postsCorrectionRequest,
-                  )
-                } else {
-                  expect(incidentReportingRelatedObjects.addToReport).not.toHaveBeenCalled()
-                }
-                expect(incidentReportingApi.changeReportStatus).toHaveBeenCalledWith(mockedReport.id, { newStatus })
+                expect(incidentReportingApi.changeReportStatus).toHaveBeenCalledWith(mockedReport.id, {
+                  newStatus,
+                  addCorrectionRequest: postsCorrectionRequest,
+                })
               })
           })
         }
@@ -639,15 +623,13 @@ describe('Actioning PECS reports', () => {
               .expect(res => {
                 expect(res.redirect).toBe(true)
                 expect(res.header.location).toEqual(expectedRedirect)
-                if (postsCorrectionRequest !== undefined) {
-                  expect(incidentReportingRelatedObjects.addToReport).toHaveBeenCalledWith(mockedReport.id, {
+                expect(incidentReportingApi.changeReportStatus).toHaveBeenCalledWith(mockedReport.id, {
+                  newStatus,
+                  addCorrectionRequest: {
                     ...postsCorrectionRequest,
                     descriptionOfChange: 'PLACEHOLDER',
-                  })
-                } else {
-                  expect(incidentReportingRelatedObjects.addToReport).not.toHaveBeenCalled()
-                }
-                expect(incidentReportingApi.changeReportStatus).toHaveBeenCalledWith(mockedReport.id, { newStatus })
+                  },
+                })
               })
           })
         }
@@ -732,7 +714,6 @@ describe('Actioning PECS reports', () => {
                 expect(res.text).toContain('Incident number could not be looked up')
                 expect(res.text).not.toContain('Enter a valid incident report number')
                 expect(res.text).not.toContain('External problem')
-                expect(incidentReportingRelatedObjects.addToReport).not.toHaveBeenCalled()
                 expect(incidentReportingApi.changeReportStatus).not.toHaveBeenCalled()
               })
           })
@@ -763,12 +744,11 @@ describe('Actioning PECS reports', () => {
         }
 
         if (postsCorrectionRequest !== undefined) {
-          it('should show an error if API rejects adding a correction request', () => {
+          it('should show an error if API rejects adding a correction request as part of a status change', () => {
             makeReportValid()
             makeOriginalReportReferenceExistIfNeeded()
             const error = mockThrownError(mockErrorResponse({ message: 'Comment is required' }))
-            incidentReportingRelatedObjects.addToReport.mockRejectedValueOnce(error)
-            incidentReportingApi.changeReportStatus.mockResolvedValueOnce(mockedReport) // NB: response is ignored
+            incidentReportingApi.changeReportStatus.mockRejectedValueOnce(error)
 
             return request(app)
               .post(viewReportUrl)
@@ -779,7 +759,6 @@ describe('Actioning PECS reports', () => {
                 expect(res.text).toContain('Sorry, there was a problem with your request')
                 expect(res.text).not.toContain('Bad Request')
                 expect(res.text).not.toContain('Comment is required')
-                expect(incidentReportingApi.changeReportStatus).not.toHaveBeenCalled()
               })
           })
         }

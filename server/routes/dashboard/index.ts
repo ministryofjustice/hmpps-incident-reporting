@@ -20,12 +20,7 @@ import {
 import type { PaginatedBasicReports } from '../../data/incidentReportingApi'
 import { type Order, orderOptions } from '../../data/offenderSearchApi'
 import { pecsRegions } from '../../data/pecsRegions'
-import {
-  ApiUserAction,
-  apiUserActions,
-  isLocationActiveInService,
-  parseApiUserActionCode,
-} from '../../middleware/permissions'
+import { ApiUserAction, apiUserActions, isLocationActiveInService } from '../../middleware/permissions'
 import type { HeaderCell } from '../../utils/sortableTable'
 import format from '../../utils/format'
 import type { GovukErrorSummaryItem, GovukSelectItem } from '../../utils/govukFrontend'

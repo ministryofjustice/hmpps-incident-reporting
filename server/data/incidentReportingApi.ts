@@ -78,6 +78,7 @@ export type ReportBasic = {
   createdInNomis: boolean
   lastModifiedInNomis: boolean
   duplicatedReportId: string | null
+  latestUserAction: ApiUserAction | null
 }
 
 export type ReportWithDetails = ReportBasic & {
@@ -106,6 +107,7 @@ export type GetReportsParams = {
   reportedByUsername: string
   involvingStaffUsername: string
   involvingPrisonerNumber: string
+  latestUserAction: ApiUserAction
 } & PaginationSortingParams
 
 export type PaginationSortingParams = {
@@ -262,6 +264,7 @@ export class IncidentReportingApi extends RestClient {
       reportedByUsername,
       involvingStaffUsername,
       involvingPrisonerNumber,
+      latestUserAction,
       page,
       size,
       sort,
@@ -278,6 +281,7 @@ export class IncidentReportingApi extends RestClient {
       reportedByUsername: null,
       involvingStaffUsername: null,
       involvingPrisonerNumber: null,
+      latestUserAction: null,
       page: 0,
       size: defaultPageSize,
       sort: ['incidentDateAndTime,DESC'],
@@ -323,6 +327,9 @@ export class IncidentReportingApi extends RestClient {
     }
     if (involvingPrisonerNumber) {
       query.involvingPrisonerNumber = involvingPrisonerNumber
+    }
+    if (latestUserAction) {
+      query.latestUserAction = latestUserAction
     }
 
     const response = await this.get<DatesAsStrings<PaginatedBasicReports>>(

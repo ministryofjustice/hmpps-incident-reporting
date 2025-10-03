@@ -16,6 +16,7 @@ import type {
 } from '../incidentReportingApi'
 import { andrew, barry } from './offenderSearch'
 import { staffBarry, staffMary } from './prisonApi'
+import { ApiUserAction } from '../../middleware/permissions'
 
 interface MockReportConfig {
   reportReference: string
@@ -27,6 +28,7 @@ interface MockReportConfig {
   reportingUsername?: string
   modifyingUsername?: string
   modifiedDateAndTime?: Date
+  latestUserAction?: ApiUserAction | null
   withAddendums?: boolean
 }
 
@@ -45,6 +47,7 @@ export function mockReport({
   reportingUsername = 'user1',
   modifyingUsername = 'user1',
   modifiedDateAndTime = reportDateAndTime,
+  latestUserAction = null,
   withDetails = false,
   withAddendums = false,
 }: MockReportConfig & { withDetails?: boolean }): DatesAsStrings<ReportBasic | ReportWithDetails> {
@@ -70,6 +73,7 @@ export function mockReport({
     createdInNomis,
     lastModifiedInNomis: createdInNomis,
     duplicatedReportId: null,
+    latestUserAction,
   }
 
   if (withDetails) {

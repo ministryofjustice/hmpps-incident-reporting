@@ -206,7 +206,7 @@ export type UpdateReportRequest = {
 
 export type ChangeStatusRequest = {
   newStatus: Status
-  addCorrectionRequest?: AddCorrectionRequestRequest
+  correctionRequest?: AddCorrectionRequestRequest
 }
 export type ChangeTypeRequest = { newType: Type }
 

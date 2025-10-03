@@ -221,7 +221,10 @@ export function viewReportRouter(): Router {
               }
 
               if (newStatus && newStatus !== report.status) {
-                await incidentReportingApi.changeReportStatus(report.id, { newStatus, addCorrectionRequest })
+                await incidentReportingApi.changeReportStatus(report.id, {
+                  newStatus,
+                  correctionRequest: addCorrectionRequest,
+                })
               }
 
               if (userAction === 'MARK_DUPLICATE' && originalReport) {

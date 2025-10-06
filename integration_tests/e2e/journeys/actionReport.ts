@@ -1,8 +1,4 @@
-import {
-  RelatedObjectUrlSlug,
-  type AddCorrectionRequestRequest,
-  type ReportWithDetails,
-} from '../../../server/data/incidentReportingApi'
+import { type AddCorrectionRequestRequest, type ReportWithDetails } from '../../../server/data/incidentReportingApi'
 import type { ApiUserAction, UserAction } from '../../../server/middleware/permissions'
 import type { Status } from '../../../server/reportConfiguration/constants'
 import Page from '../../pages/page'

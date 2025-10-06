@@ -14,11 +14,11 @@ describe('Submitting “to do” reports', () => {
   })
 
   const scenarios = [
-    { currentStatus: 'DRAFT', newStatus: 'AWAITING_REVIEW' },
-    { currentStatus: 'NEEDS_UPDATING', newStatus: 'UPDATED' },
-    { currentStatus: 'REOPENED', newStatus: 'WAS_CLOSED' },
+    { currentStatus: 'DRAFT', newStatus: 'AWAITING_REVIEW', descriptionOfChange: '(Submitted for review)' },
+    { currentStatus: 'NEEDS_UPDATING', newStatus: 'UPDATED', descriptionOfChange: 'Updated description' },
+    { currentStatus: 'REOPENED', newStatus: 'WAS_CLOSED', descriptionOfChange: 'Updated description' },
   ] as const
-  scenarios.forEach(({ currentStatus, newStatus }) => {
+  scenarios.forEach(({ currentStatus, newStatus, descriptionOfChange }) => {
     context(`a reporting officer viewing a report with status ${currentStatus}`, () => {
       const reportWithDetails: DatesAsStrings<ReportWithDetails> = {
         ...validReport,
@@ -72,7 +72,7 @@ describe('Submitting “to do” reports', () => {
             correctionRequest: {
               userType: 'REPORTING_OFFICER',
               userAction: 'REQUEST_REVIEW',
-              descriptionOfChange: '(Submitted for review)',
+              descriptionOfChange,
             },
           },
           report: {

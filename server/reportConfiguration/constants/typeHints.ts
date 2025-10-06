@@ -41,7 +41,7 @@ const shortTypeTitles: Partial<Record<TypeFamily, string>> = {
   FIND: 'find of illicit items',
   FIRE: 'fire',
   FIREARM: 'firearm, ammunition or chemical incapacitant',
-  FOOD_REFUSAL: 'food or liquid refusual',
+  FOOD_REFUSAL: 'food or liquid refusal',
   HOSTAGE: 'hostage incident',
   INCIDENT_AT_HEIGHT: 'incident at height',
   KEY_OR_LOCK: 'key or lock compromise',

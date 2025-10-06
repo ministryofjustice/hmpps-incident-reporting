@@ -76,7 +76,7 @@ context('Reopen or recall a report', () => {
             request: {
               newStatus: recalledTo,
               correctionRequest: {
-                userType: 'DATA_WARDEN',
+                userType: userType === 'data wardens' ? 'DATA_WARDEN' : 'REPORTING_OFFICER',
                 userAction: 'RECALL',
                 descriptionOfChange: '(Reopened)',
               },

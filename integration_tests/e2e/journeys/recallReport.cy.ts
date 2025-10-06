@@ -76,9 +76,9 @@ context('Reopen or recall a report', () => {
             request: {
               newStatus: recalledTo,
               correctionRequest: {
-                userType: 'DATA_WARDEN',
-                userAction: 'CLOSE',
-                descriptionOfChange: '(Closed)',
+                userType: 'REPORTING_OFFICER',
+                userAction: 'RECALL',
+                descriptionOfChange: '(Reopened)',
               },
             },
             report: {
@@ -127,9 +127,9 @@ context('Reopen or recall a report', () => {
           request: {
             newStatus: reopenedTo,
             correctionRequest: {
-              userType: 'DATA_WARDEN',
-              userAction: 'CLOSE',
-              descriptionOfChange: '(Closed)',
+              userType: 'REPORTING_OFFICER',
+              userAction: 'RECALL',
+              descriptionOfChange: '(Reopened)',
             },
           },
           report: {

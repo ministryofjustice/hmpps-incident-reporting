@@ -76,7 +76,7 @@ context('Reopen or recall a report', () => {
             request: {
               newStatus: recalledTo,
               correctionRequest: {
-                userType: 'REPORTING_OFFICER',
+                userType: 'DATA_WARDEN',
                 userAction: 'RECALL',
                 descriptionOfChange: '(Reopened)',
               },
@@ -130,6 +130,7 @@ context('Reopen or recall a report', () => {
               userType: 'REPORTING_OFFICER',
               userAction: 'RECALL',
               descriptionOfChange: '(Reopened)',
+              originalReportReference: null,
             },
           },
           report: {

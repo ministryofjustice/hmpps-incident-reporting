@@ -72,7 +72,7 @@ describe('Submitting “to do” reports', () => {
             correctionRequest: {
               userType: 'REPORTING_OFFICER',
               userAction: 'REQUEST_REVIEW',
-              descriptionOfChange: 'Updated description',
+              descriptionOfChange: '(Submitted for review)',
             },
           },
           report: {

@@ -199,25 +199,28 @@ export function viewReportRouter(): Router {
               }
 
               const { newStatus } = transition
-              let addCorrectionRequest: AddCorrectionRequestRequest
-              if (transition.postCorrectionRequest) {
-                const apiUserAction = userAction as ApiUserAction // transitions config ensures this is possible
-                if (!comment) {
-                  if (apiUserAction === 'MARK_DUPLICATE') {
-                    comment = placeholderForCorrectionRequest(apiUserAction, originalReportReference)
-                  }
-                  if (apiUserAction === 'MARK_NOT_REPORTABLE') {
-                    comment = placeholderForCorrectionRequest(apiUserAction)
-                  }
+              const apiUserAction = userAction as ApiUserAction // transitions config ensures this is possible
+              if (!comment) {
+                if (apiUserAction === 'MARK_DUPLICATE') {
+                  comment = placeholderForCorrectionRequest(apiUserAction, originalReportReference)
                 }
-                addCorrectionRequest = {
-                  userType: userType as ApiUserType, // HQ viewer can’t get here
-                  userAction: apiUserAction,
-                  descriptionOfChange: comment,
+                if (
+                  apiUserAction === 'MARK_NOT_REPORTABLE' ||
+                  apiUserAction === 'REQUEST_NOT_REPORTABLE' ||
+                  apiUserAction === 'RECALL' ||
+                  apiUserAction === 'REQUEST_REVIEW' ||
+                  apiUserAction === 'CLOSE'
+                ) {
+                  comment = placeholderForCorrectionRequest(apiUserAction)
                 }
-                if (originalReportReference) {
-                  addCorrectionRequest.originalReportReference = originalReportReference
-                }
+              }
+              const addCorrectionRequest: AddCorrectionRequestRequest = {
+                userType: userType as ApiUserType, // HQ viewer can’t get here
+                userAction: apiUserAction,
+                descriptionOfChange: comment,
+              }
+              if (originalReportReference) {
+                addCorrectionRequest.originalReportReference = originalReportReference
               }
 
               if (newStatus && newStatus !== report.status) {

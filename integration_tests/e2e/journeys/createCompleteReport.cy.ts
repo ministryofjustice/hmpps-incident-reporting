@@ -497,9 +497,9 @@ for (const { scenario, user, reportType } of scenarios) {
         request: {
           newStatus: 'AWAITING_REVIEW',
           correctionRequest: {
-            userType: 'DATA_WARDEN',
-            userAction: 'CLOSE',
-            descriptionOfChange: '(Closed)',
+            userType: 'REPORTING_OFFICER',
+            userAction: 'REQUEST_REVIEW',
+            descriptionOfChange: '(Submitted for review)',
           },
         },
         report: reportWithDetails,

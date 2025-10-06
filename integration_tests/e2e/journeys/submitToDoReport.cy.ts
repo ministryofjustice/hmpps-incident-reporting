@@ -1,4 +1,4 @@
-import { RelatedObjectUrlSlug, type ReportWithDetails } from '../../../server/data/incidentReportingApi'
+import { type ReportWithDetails } from '../../../server/data/incidentReportingApi'
 import { moorland } from '../../../server/data/testData/prisonApi'
 import { mockReportingOfficer } from '../../../server/data/testData/users'
 import { now } from '../../../server/testutils/fakeClock'
@@ -60,26 +60,21 @@ describe('Submitting “to do” reports', () => {
         }
 
         cy.task('stubIncidentReportingApiUpdateReport', {
-          request: { title: 'Food or liquid refusual: Arnold A1111AA, Benjamin A2222BB (Moorland (HMP & YOI))' },
+          request: { title: 'Food or liquid refusal: Arnold A1111AA, Benjamin A2222BB (Moorland (HMP & YOI))' },
           report: {
             ...reportWithDetails,
-            title: 'Food or liquid refusual: Arnold A1111AA, Benjamin A2222BB (Moorland (HMP & YOI))',
+            title: 'Food or liquid refusal: Arnold A1111AA, Benjamin A2222BB (Moorland (HMP & YOI))',
           },
         })
-        if (!isDraft) {
-          cy.task('stubIncidentReportingApiCreateRelatedObject', {
-            urlSlug: RelatedObjectUrlSlug.correctionRequests,
-            reportId: reportWithDetails.id,
-            request: {
+        cy.task('stubIncidentReportingApiChangeReportStatus', {
+          request: {
+            newStatus,
+            correctionRequest: {
               userType: 'REPORTING_OFFICER',
               userAction: 'REQUEST_REVIEW',
               descriptionOfChange: 'Updated description',
             },
-            response: [], // technically, missing new comment
-          })
-        }
-        cy.task('stubIncidentReportingApiChangeReportStatus', {
-          request: { newStatus },
+          },
           report: {
             ...reportWithDetails,
             status: newStatus,
@@ -127,19 +122,16 @@ describe('Submitting “to do” reports', () => {
               reportReference: '6543',
             },
           })
-          cy.task('stubIncidentReportingApiCreateRelatedObject', {
-            urlSlug: RelatedObjectUrlSlug.correctionRequests,
-            reportId: reportWithDetails.id,
-            request: {
-              userType: 'REPORTING_OFFICER',
-              userAction: 'REQUEST_DUPLICATE',
-              originalReportReference: '6543',
-              descriptionOfChange: 'Looks the same to me',
-            },
-            response: [], // technically, missing new comment
-          })
           cy.task('stubIncidentReportingApiChangeReportStatus', {
-            request: { newStatus },
+            request: {
+              newStatus,
+              correctionRequest: {
+                userType: 'REPORTING_OFFICER',
+                userAction: 'REQUEST_DUPLICATE',
+                originalReportReference: '6543',
+                descriptionOfChange: 'Looks the same to me',
+              },
+            },
             report: {
               ...reportWithDetails,
               status: newStatus,
@@ -158,18 +150,15 @@ describe('Submitting “to do” reports', () => {
           requestRemovalPage.selectAction('It is not reportable')
           requestRemovalPage.enterNotReportableComment('Nobody was hurt')
 
-          cy.task('stubIncidentReportingApiCreateRelatedObject', {
-            urlSlug: RelatedObjectUrlSlug.correctionRequests,
-            reportId: reportWithDetails.id,
-            request: {
-              userType: 'REPORTING_OFFICER',
-              userAction: 'REQUEST_NOT_REPORTABLE',
-              descriptionOfChange: 'Nobody was hurt',
-            },
-            response: [], // technically, missing new comment
-          })
           cy.task('stubIncidentReportingApiChangeReportStatus', {
-            request: { newStatus },
+            request: {
+              newStatus,
+              correctionRequest: {
+                userType: 'REPORTING_OFFICER',
+                userAction: 'REQUEST_NOT_REPORTABLE',
+                descriptionOfChange: 'Nobody was hurt',
+              },
+            },
             report: {
               ...reportWithDetails,
               status: newStatus,

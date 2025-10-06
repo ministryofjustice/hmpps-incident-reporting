@@ -59,14 +59,11 @@ export function actionTestCase({
   if (originalReportReferenceSentToApi ?? originalReportReference) {
     correctionRequestPayload.originalReportReference = originalReportReferenceSentToApi ?? originalReportReference
   }
-  cy.task('stubIncidentReportingApiCreateRelatedObject', {
-    urlSlug: RelatedObjectUrlSlug.correctionRequests,
-    reportId: reportWithDetails.id,
-    request: correctionRequestPayload,
-    response: reportWithDetails.correctionRequests, // technically, missing new comment
-  })
   cy.task('stubIncidentReportingApiChangeReportStatus', {
-    request: { newStatus },
+    request: {
+      newStatus,
+      correctionRequest: correctionRequestPayload,
+    },
     report: {
       ...reportWithDetails,
       status: newStatus,

@@ -5,7 +5,6 @@ import { mockReport } from '../../../server/data/testData/incidentReporting'
 import { now } from '../../../server/testutils/fakeClock'
 import { moorland } from '../../../server/data/testData/prisonApi'
 import { ReportPage } from '../../pages/reports/report'
-import { RelatedObjectUrlSlug } from '../../../server/data/incidentReportingApi'
 import { HomePage } from '../../pages/home'
 
 interface UserScenario {
@@ -135,18 +134,15 @@ userScenarios.forEach(({ userType, user, userActions, dashboardUrl, filterBehavi
             reportPage = Page.verifyOnPage(ReportPage, '6543')
             reportPage.selectAction('Send back')
             reportPage.enterComment('REQUEST_CORRECTION', 'Add prisoner number to description')
-            cy.task('stubIncidentReportingApiCreateRelatedObject', {
-              urlSlug: RelatedObjectUrlSlug.correctionRequests,
-              reportId: reports[0].id,
-              request: {
-                userType: 'DATA_WARDEN',
-                userAction: 'REQUEST_CORRECTION',
-                descriptionOfChange: 'Add prisoner number to description',
-              },
-              response: reports[0].correctionRequests,
-            })
             cy.task('stubIncidentReportingApiChangeReportStatus', {
-              request: { newStatus: 'NEEDS_UPDATING' },
+              request: {
+                newStatus: 'NEEDS_UPDATING',
+                correctionRequest: {
+                  userType: 'DATA_WARDEN',
+                  userAction: 'REQUEST_CORRECTION',
+                  descriptionOfChange: 'Add prisoner number to description',
+                },
+              },
               report: {
                 ...reports[0],
                 status: 'NEEDS_UPDATING',

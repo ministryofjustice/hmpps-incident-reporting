@@ -18,6 +18,12 @@
       {% endif %}
     {% endset %}
 
+    {% if correctionRequest.descriptionOfChange | isCorrectionRequestPlaceholder %}
+      {% set itemClass = "app-view-report__no-comment-timeline-item" %}
+    {% else %}
+      {% set itemClass = null %}
+    {% endif %}
+
     {% set _ = items.push({
       label: {
         text: label
@@ -29,7 +35,8 @@
         timestamp: correctionRequest.correctionRequestedAt | longDateAndTime,
         type: "custom"
       },
-      html: commentHtml
+      html: commentHtml,
+      classes: itemClass
     }) %}
   {% endfor %}
 

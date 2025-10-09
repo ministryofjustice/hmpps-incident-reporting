@@ -74,6 +74,7 @@ describe('Actioning submitted prison reports', () => {
             userAction: 'CLOSE',
             newStatus: 'CLOSED',
             banner: 'Incident report 6544 is now closed',
+            commentSentToApi: '(Closed)',
           })
         })
 

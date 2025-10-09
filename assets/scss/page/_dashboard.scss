@@ -1,5 +1,6 @@
 .app-dashboard__search-box {
-  background-color: govuk-colour("light-grey");
+  background-color: #f3f2f1;
+  padding: 20px 20px 10px !important;
 
   .autocomplete__input {
     background-color: $govuk-body-background-colour;
@@ -40,4 +41,9 @@
   .govuk-details{
     margin-bottom: 0;
   }
+}
+
+.app-dashboard__completed-status-filter {
+  border-right-style: solid;
+  border-right-width: 2px;
 }

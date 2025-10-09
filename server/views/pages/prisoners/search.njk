@@ -91,12 +91,15 @@
 
       {% set tableRows = [] %}
       {% for result in searchResults.content %}
+        {% set prisonerName =  result | nameOfPerson %}
         {% set name %}
-          {{- result | nameOfPerson -}}
+          <a href="{{ dpsUrl }}/prisoner/{{result.prisonerNumber }}" target="_blank">
+            {{ prisonerName }}
+          </a>
         {% endset %}
 
         {% set photo %}
-          <img src="/prisoner/{{ result.prisonerNumber }}/photo.jpeg" alt="Photo of {{ name | safe }}" class="app-prisoner-photo" />
+          <img src="/prisoner/{{ result.prisonerNumber }}/photo.jpeg" alt="Photo of {{ prisonerName | safe }}" class="app-prisoner-photo" />
         {% endset %}
 
         {% if result | isBeingTransferred %}
@@ -109,7 +112,7 @@
 
         {% set link %}
           <a href="{{ reportSubUrlPrefix }}/prisoners/add/{{ result.prisonerNumber }}">
-            Select {{ name | safe }}
+            Select {{ prisonerName | safe }}
           </a>
         {% endset %}
 

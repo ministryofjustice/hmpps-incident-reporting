@@ -25,7 +25,12 @@ import {
 } from '../../middleware/permissions'
 import { populateReport } from '../../middleware/populateReport'
 import { populateReportConfiguration } from '../../middleware/populateReportConfiguration'
-import type { AddCorrectionRequestRequest, ReportBasic, ReportWithDetails } from '../../data/incidentReportingApi'
+import type {
+  AddCorrectionRequestRequest,
+  HistoricType,
+  ReportBasic,
+  ReportWithDetails,
+} from '../../data/incidentReportingApi'
 import { isPecsRegionCode } from '../../data/pecsRegions'
 import { validateReport } from '../../data/reportValidity'
 import type { GovukErrorSummaryItem } from '../../utils/govukFrontend'
@@ -193,30 +198,36 @@ export function viewReportRouter(): Router {
                 await updateReportTitle(res)
               }
 
-              if (transition.postCorrectionRequest) {
-                const apiUserAction = userAction as ApiUserAction // transitions config ensures this is possible
-                if (!comment) {
-                  if (apiUserAction === 'MARK_DUPLICATE') {
-                    comment = placeholderForCorrectionRequest(apiUserAction, originalReportReference)
-                  }
-                  if (apiUserAction === 'MARK_NOT_REPORTABLE') {
-                    comment = placeholderForCorrectionRequest(apiUserAction)
-                  }
+              const { newStatus } = transition
+              const apiUserAction = userAction as ApiUserAction // transitions config ensures this is possible
+              if (!comment) {
+                if (apiUserAction === 'MARK_DUPLICATE') {
+                  comment = placeholderForCorrectionRequest(apiUserAction, originalReportReference)
                 }
-                const addCorrectionRequest: AddCorrectionRequestRequest = {
-                  userType: userType as ApiUserType, // HQ viewer can’t get here
-                  userAction: apiUserAction,
-                  descriptionOfChange: comment,
+                if (
+                  apiUserAction === 'MARK_NOT_REPORTABLE' ||
+                  apiUserAction === 'REQUEST_NOT_REPORTABLE' ||
+                  apiUserAction === 'RECALL' ||
+                  apiUserAction === 'REQUEST_REVIEW' ||
+                  apiUserAction === 'CLOSE'
+                ) {
+                  comment = placeholderForCorrectionRequest(apiUserAction)
                 }
-                if (originalReportReference) {
-                  addCorrectionRequest.originalReportReference = originalReportReference
-                }
-                await incidentReportingApi.correctionRequests.addToReport(report.id, addCorrectionRequest)
+              }
+              const addCorrectionRequest: AddCorrectionRequestRequest = {
+                userType: userType as ApiUserType, // HQ viewer can’t get here
+                userAction: apiUserAction,
+                descriptionOfChange: comment,
+              }
+              if (originalReportReference) {
+                addCorrectionRequest.originalReportReference = originalReportReference
               }
 
-              const { newStatus } = transition
               if (newStatus && newStatus !== report.status) {
-                await incidentReportingApi.changeReportStatus(report.id, { newStatus })
+                await incidentReportingApi.changeReportStatus(report.id, {
+                  newStatus,
+                  correctionRequest: addCorrectionRequest,
+                })
               }
 
               if (userAction === 'MARK_DUPLICATE' && originalReport) {
@@ -282,6 +293,8 @@ export function viewReportRouter(): Router {
       res.locals.aboutTheType = aboutTheType(res.locals.report.type)
       const descriptionAppendOnly = !dwNotReviewed.includes(report.status)
 
+      const incidentTypeHistory = cleanTypeHistory(report)
+
       res.render('pages/reports/view/index', {
         errors,
         banners,
@@ -296,6 +309,7 @@ export function viewReportRouter(): Router {
         staffInvolvementRolesDescriptions,
         statusesDescriptions,
         typesDescriptions,
+        incidentTypeHistory,
         correctionRequestActionLabels,
         workListMapping,
         locationDescription,
@@ -307,4 +321,58 @@ export function viewReportRouter(): Router {
   )
 
   return router
+}
+
+/**
+ * Converts the report's type history to a format easier to present
+ *
+ * The `report.typeHistory` is updated every time the report type changes
+ * but its format is a bit tricky to display as-is because each entry
+ * is for the *previous* type, e.g.:
+ * - Type A, changed at T2 by U2
+ * - Type B, changed at T3 by U3
+ * (doesn't include creation metadata nor final type)
+ *
+ * While the UI wants to display something like:
+ *  - Created as Type A at T1 by U1
+ *  - Updated to Type B as T2 by U2
+ *  - Updated to Type C as T3 by U3
+ *
+ * This function returns an array of HistoricType that can be mostly be
+ * displayed as-is. The result also adds an entry for when the report was
+ * created.
+ */
+function cleanTypeHistory(report: ReportWithDetails): HistoricType[] {
+  if (report.incidentTypeHistory.length === 0) {
+    return []
+  }
+
+  const cleaned: HistoricType[] = []
+
+  // Add an entry for Report creation
+  cleaned.push({
+    type: report.incidentTypeHistory[0].type,
+    changedAt: report.reportedAt,
+    changedBy: report.reportedBy,
+  })
+
+  for (const [index, typeChange] of report.incidentTypeHistory.entries()) {
+    // Last entry corresponds to last update (to current type)
+    if (index === report.incidentTypeHistory.length - 1) {
+      cleaned.push({
+        type: report.type, // current type
+        changedAt: typeChange.changedAt,
+        changedBy: typeChange.changedBy,
+      })
+    } else {
+      // Use type from next entry
+      cleaned.push({
+        type: report.incidentTypeHistory[index + 1].type,
+        changedAt: typeChange.changedAt,
+        changedBy: typeChange.changedBy,
+      })
+    }
+  }
+
+  return cleaned
 }

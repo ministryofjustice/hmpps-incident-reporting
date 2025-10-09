@@ -28,13 +28,21 @@ export const userActions = [
 export type UserAction = (typeof userActions)[number]['code']
 
 /** IRS api has a different but overlapping set of values */
-export type ApiUserAction =
-  | Exclude<UserAction, 'VIEW' | 'EDIT' | 'REQUEST_REMOVAL'>
-  | 'REQUEST_DUPLICATE'
-  | 'REQUEST_NOT_REPORTABLE'
+export const apiUserActions = [
+  ...userActions.map(action => action.code).filter(action => !['VIEW', 'EDIT', 'REQUEST_REMOVAL'].includes(action)),
+  'REQUEST_DUPLICATE',
+  'REQUEST_NOT_REPORTABLE',
+]
+
+/** IRS api has a different but overlapping set of values */
+export type ApiUserAction = (typeof apiUserActions)[number]
 
 export const userActionMapping = Object.fromEntries(userActions.map(action => [action.code, action]))
 
 export function parseUserActionCode(code: unknown): code is UserAction {
+  return userActions.some(action => action.code === code)
+}
+
+export function parseApiUserActionCode(code: unknown): code is ApiUserAction {
   return userActions.some(action => action.code === code)
 }

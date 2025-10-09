@@ -20,7 +20,7 @@ import {
 import type { PaginatedBasicReports } from '../../data/incidentReportingApi'
 import { type Order, orderOptions } from '../../data/offenderSearchApi'
 import { pecsRegions } from '../../data/pecsRegions'
-import { isLocationActiveInService } from '../../middleware/permissions'
+import { ApiUserAction, apiUserActions, isLocationActiveInService } from '../../middleware/permissions'
 import type { HeaderCell } from '../../utils/sortableTable'
 import format from '../../utils/format'
 import type { GovukErrorSummaryItem, GovukSelectItem } from '../../utils/govukFrontend'
@@ -33,13 +33,14 @@ import { multiCaseloadColumns, singleCaseloadColumns } from './tableColumns'
 export type IncidentStatuses = Status | WorkList
 
 interface ListFormData {
-  clearFilters?: boolean
+  clearFilters?: string
   searchID?: string
   location?: string
   fromDate?: string
   toDate?: string
   typeFamily?: TypeFamily
   incidentStatuses?: IncidentStatuses | IncidentStatuses[]
+  latestUserActions?: ApiUserAction | ApiUserAction[] | 'REQUEST_REMOVAL'
   sort?: string
   order?: Order
   page?: string
@@ -61,10 +62,20 @@ export default function dashboard(): Router {
     const userCaseloadIds = userCaseloads.map(caseload => caseload.caseLoadId)
     const pecsRegionCodes = pecsRegions.map(pecsRegion => pecsRegion.code)
 
-    const { fromDate: fromDateInput, toDate: toDateInput, page, clearFilters }: ListFormData = req.query
-    let { location, searchID, typeFamily, incidentStatuses, sort, order }: ListFormData = req.query
+    const { page, clearFilters }: ListFormData = req.query
+    let {
+      fromDate: fromDateInput,
+      toDate: toDateInput,
+      location,
+      searchID,
+      typeFamily,
+      incidentStatuses,
+      latestUserActions,
+      sort,
+      order,
+    }: ListFormData = req.query
 
-    if (clearFilters) {
+    if (['All', 'ToDo'].includes(clearFilters)) {
       req.session.dashboardFilters = {}
     }
 
@@ -78,9 +89,22 @@ export default function dashboard(): Router {
       order = 'DESC'
     }
 
+    // Collect errors
+    const errors: GovukErrorSummaryItem[] = []
+
+    // If no filters are supplied from query and no errors generated, check for filters in session
+    if (errors.length === 0 && req.url === '/') {
+      location = req.session.dashboardFilters?.location
+      fromDateInput = req.session.dashboardFilters?.fromDateInput
+      toDateInput = req.session.dashboardFilters?.toDateInput
+      searchID = req.session.dashboardFilters?.searchID
+      typeFamily = req.session.dashboardFilters?.typeFamily
+      incidentStatuses = req.session.dashboardFilters?.incidentStatuses
+      latestUserActions = req.session.dashboardFilters?.latestUserActions
+    }
+
     // Parse params
     const todayAsShortDate = format.shortDate(new Date())
-    const errors: GovukErrorSummaryItem[] = []
     let fromDate: Date | null
     let toDate: Date | null
     try {
@@ -109,27 +133,13 @@ export default function dashboard(): Router {
       errors.push({ href: '#typeFamily', text: 'Select a valid incident type' })
     }
 
-    let noFiltersSupplied = Boolean(!searchID && !location && !fromDate && !toDate && !typeFamily && !incidentStatuses)
-
-    // If no filters are supplied from query and no errors generated, check for filters in session
-    if (errors.length === 0 && noFiltersSupplied && req.query.incidentStatuses !== '') {
-      location = req.session.dashboardFilters?.location
-      fromDate = req.session.dashboardFilters?.fromDate
-      toDate = req.session.dashboardFilters?.toDate
-      searchID = req.session.dashboardFilters?.searchID
-      typeFamily = req.session.dashboardFilters?.typeFamily
-      incidentStatuses = req.session.dashboardFilters?.incidentStatuses
-    }
     // Check for supplied filters from session
-    noFiltersSupplied = Boolean(!searchID && !location && !fromDate && !toDate && !typeFamily && !incidentStatuses)
+    let noFiltersSupplied = Boolean(
+      !searchID && !location && !fromDate && !toDate && !typeFamily && !incidentStatuses && !latestUserActions,
+    )
 
     // RO: Default work list to 'To do' for an RO when no other filters are applied and when the user arrives on page
-    if (
-      permissions.isReportingOfficer &&
-      !('incidentStatuses' in req.query) &&
-      !('sort' in req.query || 'page' in req.query) &&
-      noFiltersSupplied
-    ) {
+    if (permissions.isReportingOfficer && clearFilters === 'ToDo') {
       incidentStatuses = ['toDo']
       noFiltersSupplied = false
     }
@@ -137,6 +147,26 @@ export default function dashboard(): Router {
     // Ensure incidentStatuses is an array when provided
     if (incidentStatuses && !Array.isArray(incidentStatuses)) {
       incidentStatuses = [incidentStatuses]
+    }
+
+    // Ensure incidentStatuses is an array when provided
+    if (latestUserActions && !Array.isArray(latestUserActions)) {
+      latestUserActions = [latestUserActions]
+    }
+    // Validate and process user action filter
+    let userActionFilter: ApiUserAction[] | undefined
+    if (latestUserActions) {
+      try {
+        userActionFilter = processUserAction(latestUserActions as string[])
+      } catch (err) {
+        latestUserActions = undefined
+        userActionFilter = undefined
+        errors.push({ href: '#latestUserActions', text: err.message })
+      }
+    }
+    // If an RO opens a link containing filter, remove filter
+    if (permissions.isReportingOfficer) {
+      userActionFilter = undefined
     }
 
     let searchStatuses: Status[] | undefined
@@ -207,6 +237,7 @@ export default function dashboard(): Router {
         type: typeFamily && familyToType[typeFamily],
         status: searchStatuses,
         involvingPrisonerNumber: prisonerId,
+        userAction: userActionFilter,
         page: pageNumber - 1,
         sort: [`${sort},${order}`],
       })
@@ -222,6 +253,7 @@ export default function dashboard(): Router {
       toDate: toDateInput,
       typeFamily,
       incidentStatuses: incidentStatuses as IncidentStatuses,
+      latestUserActions,
       sort,
       order,
       page,
@@ -248,6 +280,13 @@ export default function dashboard(): Router {
         incidentStatuses.forEach(status => queryString.append('incidentStatuses', status))
       } else {
         queryString.append('incidentStatuses', incidentStatuses)
+      }
+    }
+    if (latestUserActions) {
+      if (Array.isArray(latestUserActions)) {
+        latestUserActions.forEach(userAction => queryString.append('latestUserActions', userAction))
+      } else {
+        queryString.append('latestUserActions', latestUserActions)
       }
     }
     const tableHeadUrlPrefix = `/reports?${queryString}&`
@@ -331,11 +370,13 @@ export default function dashboard(): Router {
 
     // Set dashboard filters stored in the session
     req.session.dashboardFilters = {
+      searchID,
       location,
-      fromDate,
-      toDate,
+      fromDateInput,
+      toDateInput,
       typeFamily,
       incidentStatuses,
+      latestUserActions,
     }
 
     res.render('pages/dashboard/index', {
@@ -403,4 +444,18 @@ function statusesFromParam(statusesParam: IncidentStatuses[] | undefined, useWor
   }
 
   return statusesParam as Status[]
+}
+
+function processUserAction(userActions: string[]): ApiUserAction[] {
+  if (hasInvalidValues(userActions, [...apiUserActions, 'REQUEST_REMOVAL'])) {
+    throw new Error('Enter a valid user action')
+  } else if (userActions.includes('REQUEST_REMOVAL')) {
+    return [
+      ...userActions.filter(action => action !== 'REQUEST_REMOVAL'),
+      'REQUEST_NOT_REPORTABLE',
+      'REQUEST_DUPLICATE',
+    ] as ApiUserAction[]
+  } else {
+    return userActions as ApiUserAction[]
+  }
 }

@@ -68,18 +68,16 @@ export class ReopenController extends BaseController<Values> {
     const { newStatus, successBanner } = transition
 
     try {
-      if (transition.postCorrectionRequest) {
-        // NB: at present, no RECALL transition posts a correction request
-        await incidentReportingApi.correctionRequests.addToReport(report.id, {
-          userType: userType as ApiUserType, // HQ viewer can’t get here
-          userAction,
-          descriptionOfChange: placeholderForCorrectionRequest(userAction),
-          originalReportReference: null,
-        })
-      }
-
       if (newStatus && newStatus !== report.status) {
-        await incidentReportingApi.changeReportStatus(report.id, { newStatus })
+        await incidentReportingApi.changeReportStatus(report.id, {
+          newStatus,
+          correctionRequest: {
+            userType: userType as ApiUserType, // HQ viewer can’t get here
+            userAction,
+            descriptionOfChange: placeholderForCorrectionRequest(userAction),
+            originalReportReference: null,
+          },
+        })
       }
 
       logger.info(`Report ${report.reportReference} reopened to ${newStatus}`)

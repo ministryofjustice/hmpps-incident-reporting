@@ -108,7 +108,7 @@ describe('Dashboard', () => {
       type: undefined,
     }
     return request(app)
-      .get('/reports')
+      .get('/reports?clearFilters=ToDo')
       .expect('Content-Type', /html/)
       .expect(200)
       .expect(res => {
@@ -136,7 +136,7 @@ describe('Dashboard', () => {
     }
     return request(app)
       .get('/reports')
-      .query({ incidentStatuses: '' })
+      .query({ clearFilters: 'All' })
       .expect('Content-Type', /html/)
       .expect(200)
       .expect(res => {
@@ -385,7 +385,7 @@ describe('Dashboard', () => {
       type: undefined,
     }
     return request(appWithAllRoutes({ services: { userService }, userSupplier: () => mockReportingOfficer }))
-      .get('/reports')
+      .get('/reports?clearFilters=ToDo')
       .expect('Content-Type', /html/)
       .expect(200)
       .expect(res => {
@@ -426,7 +426,7 @@ describe('Dashboard', () => {
     }
     return request(appWithAllRoutes({ services: { userService }, userSupplier: () => mockReportingOfficer }))
       .get('/reports')
-      .query({ incidentStatuses: '' })
+      .query({ clearFilters: 'All' })
       .expect('Content-Type', /html/)
       .expect(200)
       .expect(res => {
@@ -466,7 +466,7 @@ describe('Dashboard', () => {
       type: undefined,
     }
     return request(appWithAllRoutes({ services: { userService }, userSupplier: () => mockReportingOfficer }))
-      .get('/reports')
+      .get('/reports?clearFilters=ToDo')
       .expect('Content-Type', /html/)
       .expect(200)
       .expect(res => {
@@ -1028,4 +1028,33 @@ describe('Status/work list filter validation', () => {
         })
     },
   )
+
+  describe('Removal request filter validation in data warden view', () => {
+    beforeEach(() => {
+      // actual table doesn't matter for these tests
+      incidentReportingApi.getReports.mockResolvedValueOnce(unsortedPageOf([]))
+    })
+
+    it('should submit correct user action args when filter selected', () => {
+      const expectedParams: Partial<GetReportsParams> = {
+        location: ['MDI', 'LEI', 'NORTH', 'SOUTH'],
+        incidentDateFrom: undefined,
+        incidentDateUntil: undefined,
+        involvingPrisonerNumber: undefined,
+        page: 0,
+        reference: undefined,
+        sort: ['incidentDateAndTime,DESC'],
+        status: undefined,
+        userAction: ['REQUEST_NOT_REPORTABLE', 'REQUEST_DUPLICATE'],
+        type: undefined,
+      }
+      return request(appWithAllRoutes({ services: { userService }, userSupplier: () => mockDataWarden }))
+        .get('/reports')
+        .query({ latestUserActions: 'REQUEST_REMOVAL' })
+        .expect('Content-Type', /html/)
+        .expect(() => {
+          expect(incidentReportingApi.getReports).toHaveBeenCalledWith(expectedParams)
+        })
+    })
+  })
 })

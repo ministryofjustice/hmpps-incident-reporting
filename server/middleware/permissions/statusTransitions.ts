@@ -24,9 +24,7 @@ export type Transition = {
   label?: string
   /** Is a valid incident report number required to mark as duplicate? */
   originalReportReferenceRequired?: boolean
-  /** Post a correction request or comment to api */
-  postCorrectionRequest?: boolean
-  /** Message in success banner when landing back onto reports screen.
+  /** Message in the success banner when landing back onto the report summary screen.
    * `$reportReference` will be replaced with actual value during banner implementation */
   successBanner?: string
 } & (
@@ -72,7 +70,6 @@ export const prisonReportTransitions: Transitions = {
       REQUEST_REMOVAL: {
         newStatus: 'AWAITING_REVIEW',
         label: 'Remove it as it’s a duplicate or not reportable',
-        postCorrectionRequest: true,
         successBanner: 'Request to remove incident report $reportReference sent',
       },
     },
@@ -89,13 +86,11 @@ export const prisonReportTransitions: Transitions = {
         comment: 'required',
         commentLabel: 'Explain what you have changed in the report',
         commentMissingError: 'Enter what has changed in the report',
-        postCorrectionRequest: true,
         successBanner: 'Incident report $reportReference resubmitted for review',
       },
       REQUEST_REMOVAL: {
         newStatus: 'UPDATED',
         label: 'Remove it as it’s a duplicate or not reportable',
-        postCorrectionRequest: true,
         successBanner: 'Request to remove incident report $reportReference sent',
       },
     },
@@ -120,13 +115,11 @@ export const prisonReportTransitions: Transitions = {
         comment: 'required',
         commentLabel: 'Explain what you have changed in the report',
         commentMissingError: 'Enter what has changed in the report',
-        postCorrectionRequest: true,
         successBanner: 'Incident report $reportReference resubmitted for review',
       },
       REQUEST_REMOVAL: {
         newStatus: 'WAS_CLOSED',
         label: 'Remove it as it’s a duplicate or not reportable',
-        postCorrectionRequest: true,
         successBanner: 'Request to remove incident report $reportReference sent',
       },
     },
@@ -148,7 +141,6 @@ export const prisonReportTransitions: Transitions = {
         comment: 'required',
         commentLabel: 'Explain why you’re sending the report back',
         commentMissingError: 'Add information to explain why you’re sending the report back',
-        postCorrectionRequest: true,
         successBanner: 'Incident report $reportReference sent back',
       },
       HOLD: {
@@ -157,7 +149,6 @@ export const prisonReportTransitions: Transitions = {
         comment: 'required', // TODO: maybe this should be optional?
         commentLabel: 'Describe why the report is being put on hold',
         commentMissingError: 'Add information to explain why you’re putting the report on hold',
-        postCorrectionRequest: true,
         successBanner: 'Incident report $reportReference is now on hold',
       },
       MARK_DUPLICATE: {
@@ -166,7 +157,6 @@ export const prisonReportTransitions: Transitions = {
         comment: 'optional',
         commentLabel: 'Describe why it is a duplicate report (optional)',
         originalReportReferenceRequired: true,
-        postCorrectionRequest: true,
         successBanner: 'Incident report $reportReference is now set as a duplicate',
       },
       MARK_NOT_REPORTABLE: {
@@ -174,7 +164,6 @@ export const prisonReportTransitions: Transitions = {
         label: 'Mark as not reportable',
         comment: 'optional',
         commentLabel: 'Describe why it is not reportable (optional)',
-        postCorrectionRequest: true,
         successBanner: 'Incident report $reportReference is now set as non reportable',
       },
     },
@@ -191,7 +180,6 @@ export const prisonReportTransitions: Transitions = {
         comment: 'required',
         commentLabel: 'Explain why you’re sending the report back',
         commentMissingError: 'Add information to explain why you’re sending the report back',
-        postCorrectionRequest: true,
         successBanner: 'Incident report $reportReference sent back',
       },
       MARK_DUPLICATE: {
@@ -200,7 +188,6 @@ export const prisonReportTransitions: Transitions = {
         comment: 'optional',
         commentLabel: 'Describe why it is a duplicate report (optional)',
         originalReportReferenceRequired: true,
-        postCorrectionRequest: true,
         successBanner: 'Incident report $reportReference is now set as a duplicate',
       },
       MARK_NOT_REPORTABLE: {
@@ -208,7 +195,6 @@ export const prisonReportTransitions: Transitions = {
         label: 'Mark as not reportable',
         comment: 'optional',
         commentLabel: 'Describe why it is not reportable (optional)',
-        postCorrectionRequest: true,
         successBanner: 'Incident report $reportReference is now set as non reportable',
       },
     },
@@ -228,7 +214,6 @@ export const prisonReportTransitions: Transitions = {
         comment: 'required',
         commentLabel: 'Explain why you’re sending the report back',
         commentMissingError: 'Add information to explain why you’re sending the report back',
-        postCorrectionRequest: true,
         successBanner: 'Incident report $reportReference sent back',
       },
       HOLD: {
@@ -237,7 +222,6 @@ export const prisonReportTransitions: Transitions = {
         comment: 'required', // TODO: maybe this should be optional?
         commentLabel: 'Describe why the report is being put on hold',
         commentMissingError: 'Add information to explain why you’re putting the report on hold',
-        postCorrectionRequest: true,
         successBanner: 'Incident report $reportReference is now on hold',
       },
       MARK_DUPLICATE: {
@@ -246,7 +230,6 @@ export const prisonReportTransitions: Transitions = {
         comment: 'optional',
         commentLabel: 'Describe why it is a duplicate report (optional)',
         originalReportReferenceRequired: true,
-        postCorrectionRequest: true,
         successBanner: 'Incident report $reportReference is now set as a duplicate',
       },
       MARK_NOT_REPORTABLE: {
@@ -254,7 +237,6 @@ export const prisonReportTransitions: Transitions = {
         label: 'Mark as not reportable',
         comment: 'optional',
         commentLabel: 'Describe why it is not reportable (optional)',
-        postCorrectionRequest: true,
         successBanner: 'Incident report $reportReference is now set as non reportable',
       },
     },
@@ -283,7 +265,6 @@ export const prisonReportTransitions: Transitions = {
         comment: 'required',
         commentLabel: 'Explain why you’re sending the report back',
         commentMissingError: 'Add information to explain why you’re sending the report back',
-        postCorrectionRequest: true,
         successBanner: 'Incident report $reportReference sent back',
       },
       MARK_DUPLICATE: {
@@ -292,7 +273,6 @@ export const prisonReportTransitions: Transitions = {
         comment: 'optional',
         commentLabel: 'Describe why it is a duplicate report (optional)',
         originalReportReferenceRequired: true,
-        postCorrectionRequest: true,
         successBanner: 'Incident report $reportReference is now set as a duplicate',
       },
       MARK_NOT_REPORTABLE: {
@@ -300,7 +280,6 @@ export const prisonReportTransitions: Transitions = {
         label: 'Mark as not reportable',
         comment: 'optional',
         commentLabel: 'Describe why it is not reportable (optional)',
-        postCorrectionRequest: true,
         successBanner: 'Incident report $reportReference is now set as non reportable',
       },
     },
@@ -353,7 +332,6 @@ export const pecsReportTransitions: Transitions = {
         comment: 'optional',
         commentLabel: 'Describe why it is a duplicate report (optional)',
         originalReportReferenceRequired: true,
-        postCorrectionRequest: true,
         successBanner: 'Incident report $reportReference is now set as a duplicate',
       },
       MARK_NOT_REPORTABLE: {
@@ -361,7 +339,6 @@ export const pecsReportTransitions: Transitions = {
         label: 'Mark as not reportable',
         comment: 'optional',
         commentLabel: 'Describe why it is not reportable (optional)',
-        postCorrectionRequest: true,
         successBanner: 'Incident report $reportReference is now set as non reportable',
       },
     },

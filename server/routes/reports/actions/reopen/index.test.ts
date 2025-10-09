@@ -61,7 +61,11 @@ describe('Reopening a report', () => {
     reopenReportUrl = `/reports/${mockedReport.id}/reopen`
   })
 
-  function shouldBeAllowed(confirmationMessage: string, newStatus: Status): void {
+  function shouldBeAllowed(
+    confirmationMessage: string,
+    newStatus: Status,
+    correctionRequest: AddCorrectionRequestRequest,
+  ): void {
     it('should 404 if report is not found', () => {
       const error = mockThrownError(mockErrorResponse({ status: 404, message: 'Report not found' }), 404)
       incidentReportingApi.getReportById.mockReset()
@@ -82,13 +86,11 @@ describe('Reopening a report', () => {
         .expect(res => {
           expect(res.text).toContain('app-reopen-report')
           expect(res.text).toContain(confirmationMessage)
-          expect(incidentReportingRelatedObjects.addToReport).not.toHaveBeenCalled()
           expect(incidentReportingApi.changeReportStatus).not.toHaveBeenCalled()
         })
     })
 
     it(`should be allowed resulting in a new status of ${newStatus}`, () => {
-      incidentReportingRelatedObjects.addToReport.mockResolvedValueOnce(undefined) // NB: never actually called but response would be ignored
       incidentReportingApi.changeReportStatus.mockResolvedValueOnce(undefined) // NB: response is ignored
 
       return request(app)
@@ -98,13 +100,14 @@ describe('Reopening a report', () => {
         .expect(res => {
           expect(res.redirect).toBe(true)
           expect(res.header.location).toEqual(`/reports/${mockedReport.id}`)
-          expect(incidentReportingRelatedObjects.addToReport).not.toHaveBeenCalled()
-          expect(incidentReportingApi.changeReportStatus).toHaveBeenCalledWith(mockedReport.id, { newStatus })
+          expect(incidentReportingApi.changeReportStatus).toHaveBeenCalledWith(mockedReport.id, {
+            newStatus,
+            correctionRequest,
+          })
         })
     })
 
     it('should show an error if API rejects request to change status', () => {
-      incidentReportingRelatedObjects.addToReport.mockResolvedValueOnce(undefined) // NB: never actually called but response would be ignored
       const error = mockThrownError(mockErrorResponse({ message: 'Comment is required' }))
       incidentReportingApi.changeReportStatus.mockRejectedValueOnce(error)
       incidentReportingApi.getReportById.mockResolvedValueOnce(mockedReport) // due to redirect
@@ -120,7 +123,6 @@ describe('Reopening a report', () => {
           expect(res.text).toContain('Sorry, there was a problem with your request')
           expect(res.text).not.toContain('Bad Request')
           expect(res.text).not.toContain('Comment is required')
-          expect(incidentReportingRelatedObjects.addToReport).not.toHaveBeenCalled()
         })
     })
   }
@@ -133,7 +135,6 @@ describe('Reopening a report', () => {
         .expect(res => {
           expect(res.redirect).toBe(true)
           expect(res.header.location).toEqual(`/reports/${mockedReport.id}`)
-          expect(incidentReportingRelatedObjects.addToReport).not.toHaveBeenCalled()
           expect(incidentReportingApi.changeReportStatus).not.toHaveBeenCalled()
         })
     })
@@ -153,15 +154,46 @@ describe('Reopening a report', () => {
     })
 
     describe.each([
-      { currentStatus: 'CLOSED', newStatus: 'REOPENED' },
-      { currentStatus: 'DUPLICATE', newStatus: 'NEEDS_UPDATING' },
-      { currentStatus: 'NOT_REPORTABLE', newStatus: 'NEEDS_UPDATING' },
-    ] as const)('if the status is $currentStatus', ({ currentStatus, newStatus }) => {
+      {
+        currentStatus: 'CLOSED',
+        newStatus: 'REOPENED',
+        correctionRequest: {
+          userAction: 'RECALL',
+          userType: 'REPORTING_OFFICER',
+          descriptionOfChange: '(Reopened)',
+          originalReportReference: null,
+        },
+      },
+      {
+        currentStatus: 'DUPLICATE',
+        newStatus: 'NEEDS_UPDATING',
+        correctionRequest: {
+          userAction: 'RECALL',
+          userType: 'REPORTING_OFFICER',
+          descriptionOfChange: '(Reopened)',
+          originalReportReference: null,
+        },
+      },
+      {
+        currentStatus: 'NOT_REPORTABLE',
+        newStatus: 'NEEDS_UPDATING',
+        correctionRequest: {
+          userAction: 'RECALL',
+          userType: 'REPORTING_OFFICER',
+          descriptionOfChange: '(Reopened)',
+          originalReportReference: null,
+        },
+      },
+    ] as const)('if the status is $currentStatus', ({ currentStatus, newStatus, correctionRequest }) => {
       beforeEach(() => {
         mockedReport.status = currentStatus
       })
 
-      shouldBeAllowed('Once you have made changes, you’ll need to resubmit the report to be reviewed.', newStatus)
+      shouldBeAllowed(
+        'Once you have made changes, you’ll need to resubmit the report to be reviewed.',
+        newStatus,
+        correctionRequest,
+      )
     })
 
     describe.each(['AWAITING_REVIEW', 'UPDATED', 'WAS_CLOSED'] as const)('if the status is %s', status => {
@@ -191,7 +223,12 @@ describe('Reopening a report', () => {
         mockedReport.status = status
       })
 
-      shouldBeAllowed('Once you have made changes, you’ll need to resubmit the report.', 'UPDATED')
+      shouldBeAllowed('Once you have made changes, you’ll need to resubmit the report.', 'UPDATED', {
+        userAction: 'RECALL',
+        userType: 'DATA_WARDEN',
+        descriptionOfChange: '(Reopened)',
+        originalReportReference: null,
+      })
     })
 
     describe.each(['NEEDS_UPDATING', 'REOPENED'] as const)('if the status is %s', status => {
@@ -236,7 +273,6 @@ function expectSignOut(test: Test): Test {
   return test.expect(302).expect(res => {
     expect(res.redirect).toBe(true)
     expect(res.header.location).toEqual('/sign-out')
-    expect(incidentReportingRelatedObjects.addToReport).not.toHaveBeenCalled()
     expect(incidentReportingApi.changeReportStatus).not.toHaveBeenCalled()
   })
 }

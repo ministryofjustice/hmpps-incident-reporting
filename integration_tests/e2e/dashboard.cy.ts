@@ -202,6 +202,18 @@ userScenarios.forEach(({ userType, user, createReport, dashboardUrl }) => {
                   dashboardPage.selectedStatuses.should('deep.equal', ['NEEDS_UPDATING', 'UPDATED'])
                 },
               },
+              {
+                scenario: 'by removal requests',
+                userInteraction: dashboardPage => {
+                  dashboardPage.removalRequestsCheckbox('Removal requests').click()
+                },
+                expectedRequest: {
+                  userAction: ['REQUEST_NOT_REPORTABLE', 'REQUEST_DUPLICATE'],
+                },
+                testPage: dashboardPage => {
+                  dashboardPage.selectedRemovalRequests.should('deep.equal', ['REQUEST_REMOVAL'])
+                },
+              },
             ]),
       ]
       for (const searchScenario of searchScenarios) {
@@ -252,15 +264,24 @@ userScenarios.forEach(({ userType, user, createReport, dashboardUrl }) => {
 
     it('should allow clearing filters', () => {
       cy.task('stubIncidentReportingApiGetReports')
-      cy.visit(
-        '/reports?searchID=6544&fromDate=19%2F03%2F2025&toDate=20%2F3%2F2025&location=MDI&typeFamily=MISCELLANEOUS&incidentStatuses=submitted',
-      )
+      if (userType !== 'reporting officers') {
+        cy.visit(
+          '/reports?searchID=6544&fromDate=19%2F03%2F2025&toDate=20%2F3%2F2025&location=MDI&typeFamily=MISCELLANEOUS&incidentStatuses=submitted&latestUserActions=REQUEST_REMOVAL',
+        )
+      } else {
+        cy.visit(
+          '/reports?searchID=6544&fromDate=19%2F03%2F2025&toDate=20%2F3%2F2025&location=MDI&typeFamily=MISCELLANEOUS&incidentStatuses=submitted',
+        )
+      }
       let dashboardPage = Page.verifyOnPage(DashboardPage)
       dashboardPage.query.should('have.value', '6544')
       dashboardPage.fromDate.should('have.value', '19/03/2025') // leading zero
       dashboardPage.toDate.should('have.value', '20/3/2025') // no leading zero
       dashboardPage.type.should('have.value', 'Miscellaneous')
       dashboardPage.selectedStatuses.should('deep.equal', userType === 'reporting officers' ? ['submitted'] : [])
+      if (userType !== 'reporting officers') {
+        dashboardPage.selectedRemovalRequests.should('deep.equal', ['REQUEST_REMOVAL'])
+      }
 
       dashboardPage.clearFilters()
 
@@ -270,6 +291,9 @@ userScenarios.forEach(({ userType, user, createReport, dashboardUrl }) => {
       dashboardPage.toDate.should('have.value', '')
       dashboardPage.type.should('have.value', '')
       dashboardPage.selectedStatuses.should('deep.equal', [])
+      if (userType !== 'reporting officers') {
+        dashboardPage.selectedRemovalRequests.should('deep.equal', [])
+      }
     })
 
     context('when there are results returned', () => {

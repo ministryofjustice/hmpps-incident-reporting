@@ -36,6 +36,8 @@ generic-service:
     LOAD_DPR_ON_STARTUP: "true"
 
   namespace_secrets:
+    hmpps-incident-reporting:
+      GOOGLE_ANALYTICS_MEASUREMENT_ID: "GOOGLE_ANALYTICS_MEASUREMENT_ID"
     hmpps-incident-reporting-application-insights:
       APPLICATIONINSIGHTS_CONNECTION_STRING: "APPLICATIONINSIGHTS_CONNECTION_STRING"
     hmpps-incident-reporting-auth-code:

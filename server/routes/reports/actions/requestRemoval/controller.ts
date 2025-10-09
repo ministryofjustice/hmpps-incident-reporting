@@ -88,27 +88,27 @@ export class RequestRemovalController extends BaseController<Values> {
     const { newStatus, successBanner } = transition
 
     try {
-      if (transition.postCorrectionRequest) {
-        let comment = apiUserAction === 'REQUEST_DUPLICATE' ? duplicateComment : notReportableComment
-        if (!comment) {
-          if (apiUserAction === 'REQUEST_DUPLICATE') {
-            comment = placeholderForCorrectionRequest(apiUserAction, originalReportReference)
-          }
-          if (apiUserAction === 'REQUEST_NOT_REPORTABLE') {
-            // NB: at present, reporting officers are forced to provide a comment so this placeholder won’t appear
-            comment = placeholderForCorrectionRequest(apiUserAction)
-          }
+      let comment = apiUserAction === 'REQUEST_DUPLICATE' ? duplicateComment : notReportableComment
+      if (!comment) {
+        if (apiUserAction === 'REQUEST_DUPLICATE') {
+          comment = placeholderForCorrectionRequest(apiUserAction, originalReportReference)
         }
-        await incidentReportingApi.correctionRequests.addToReport(report.id, {
-          userType: userType as ApiUserType, // HQ viewer can’t get here
-          userAction: apiUserAction,
-          descriptionOfChange: comment,
-          originalReportReference,
-        })
+        if (apiUserAction === 'REQUEST_NOT_REPORTABLE') {
+          // NB: at present, reporting officers are forced to provide a comment so this placeholder won’t appear
+          comment = placeholderForCorrectionRequest(apiUserAction)
+        }
       }
 
       if (newStatus && newStatus !== report.status) {
-        await incidentReportingApi.changeReportStatus(report.id, { newStatus })
+        await incidentReportingApi.changeReportStatus(report.id, {
+          newStatus,
+          correctionRequest: {
+            userType: userType as ApiUserType, // HQ viewer can’t get here
+            userAction: apiUserAction,
+            descriptionOfChange: comment,
+            originalReportReference,
+          },
+        })
       }
 
       logger.info(`Request to remove report ${report.reportReference} sent`)

@@ -494,7 +494,14 @@ for (const { scenario, user, reportType } of scenarios) {
         report: reportWithDetails,
       })
       cy.task('stubIncidentReportingApiChangeReportStatus', {
-        request: { newStatus: 'AWAITING_REVIEW' },
+        request: {
+          newStatus: 'AWAITING_REVIEW',
+          correctionRequest: {
+            userType: 'REPORTING_OFFICER',
+            userAction: 'REQUEST_REVIEW',
+            descriptionOfChange: '(Submitted for review)',
+          },
+        },
         report: reportWithDetails,
       })
       cy.task('stubIncidentReportingApiGetReports')
@@ -522,7 +529,14 @@ for (const { scenario, user, reportType } of scenarios) {
         report: reportWithDetails,
       })
       cy.task('stubIncidentReportingApiChangeReportStatus', {
-        request: { newStatus: 'CLOSED' },
+        request: {
+          newStatus: 'CLOSED',
+          correctionRequest: {
+            userType: 'DATA_WARDEN',
+            userAction: 'CLOSE',
+            descriptionOfChange: '(Closed)',
+          },
+        },
         report: reportWithDetails,
       })
       cy.task('stubIncidentReportingApiGetReports')

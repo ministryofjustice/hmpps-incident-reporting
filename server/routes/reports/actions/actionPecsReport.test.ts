@@ -328,7 +328,6 @@ describe('Actioning PECS reports', () => {
 
       function expectNotAllowedErrorMessages(status: Status, payload: object): request.Test {
         mockedReport.status = status
-        incidentReportingRelatedObjects.addToReport.mockRejectedValueOnce(new Error('should not be called'))
         incidentReportingApi.changeReportStatus.mockRejectedValueOnce(new Error('should not be called'))
 
         return request(app)
@@ -351,7 +350,6 @@ describe('Actioning PECS reports', () => {
             expect(res.text).not.toContain('Enter what has changed in the report')
             expect(res.text).not.toContain('Please enter a comment')
             expect(res.text).not.toContain('Fill in missing details') // report validity should not be checked
-            expect(incidentReportingRelatedObjects.addToReport).not.toHaveBeenCalled()
             expect(incidentReportingApi.changeReportStatus).not.toHaveBeenCalled()
           })
       }
@@ -396,6 +394,11 @@ describe('Actioning PECS reports', () => {
         updatesTitle: true,
         newStatus: 'CLOSED',
         redirectedPage: 'dashboard',
+        postsCorrectionRequest: {
+          userType: 'DATA_WARDEN',
+          userAction: 'CLOSE',
+          descriptionOfChange: 'PLACEHOLDER',
+        },
       },
       {
         currentStatus: 'REOPENED',
@@ -404,6 +407,11 @@ describe('Actioning PECS reports', () => {
         updatesTitle: true,
         newStatus: 'CLOSED',
         redirectedPage: 'dashboard',
+        postsCorrectionRequest: {
+          userType: 'DATA_WARDEN',
+          userAction: 'CLOSE',
+          descriptionOfChange: 'PLACEHOLDER',
+        },
       },
       {
         currentStatus: 'CLOSED',
@@ -411,6 +419,11 @@ describe('Actioning PECS reports', () => {
         comment: 'not allowed',
         newStatus: 'REOPENED',
         redirectedPage: 'view-report',
+        postsCorrectionRequest: {
+          userType: 'DATA_WARDEN',
+          userAction: 'RECALL',
+          descriptionOfChange: 'PLACEHOLDER',
+        },
       },
       {
         currentStatus: 'DUPLICATE',
@@ -418,6 +431,11 @@ describe('Actioning PECS reports', () => {
         comment: 'not allowed',
         newStatus: 'REOPENED',
         redirectedPage: 'view-report',
+        postsCorrectionRequest: {
+          userType: 'DATA_WARDEN',
+          userAction: 'RECALL',
+          descriptionOfChange: 'PLACEHOLDER',
+        },
       },
       {
         currentStatus: 'NOT_REPORTABLE',
@@ -425,6 +443,11 @@ describe('Actioning PECS reports', () => {
         comment: 'not allowed',
         newStatus: 'REOPENED',
         redirectedPage: 'view-report',
+        postsCorrectionRequest: {
+          userType: 'DATA_WARDEN',
+          userAction: 'RECALL',
+          descriptionOfChange: 'PLACEHOLDER',
+        },
       },
       {
         currentStatus: 'REOPENED',
@@ -503,7 +526,6 @@ describe('Actioning PECS reports', () => {
           if (updatesTitle) {
             incidentReportingApi.updateReport.mockResolvedValueOnce(mockedReport) // NB: response is ignored
           }
-          incidentReportingRelatedObjects.addToReport.mockResolvedValueOnce([]) // NB: response is ignored
           incidentReportingApi.changeReportStatus.mockResolvedValueOnce(mockedReport) // NB: response is ignored
 
           return request(app)
@@ -536,15 +558,10 @@ describe('Actioning PECS reports', () => {
                   expect(incidentReportingApi.updateReport).not.toHaveBeenCalled()
                 }
               }
-              if (postsCorrectionRequest !== undefined) {
-                expect(incidentReportingRelatedObjects.addToReport).toHaveBeenCalledWith(
-                  mockedReport.id,
-                  postsCorrectionRequest,
-                )
-              } else {
-                expect(incidentReportingRelatedObjects.addToReport).not.toHaveBeenCalled()
-              }
-              expect(incidentReportingApi.changeReportStatus).toHaveBeenCalledWith(mockedReport.id, { newStatus })
+              expect(incidentReportingApi.changeReportStatus).toHaveBeenCalledWith(mockedReport.id, {
+                newStatus,
+                correctionRequest: postsCorrectionRequest,
+              })
             })
         })
 
@@ -552,7 +569,6 @@ describe('Actioning PECS reports', () => {
           it('should not be allowed if report, that was created in DPS, is invalid', () => {
             makeReportInvalid()
             makeOriginalReportReferenceExistIfNeeded()
-            incidentReportingRelatedObjects.addToReport.mockRejectedValue(new Error('should not be called'))
             incidentReportingApi.changeReportStatus.mockRejectedValue(new Error('should not be called'))
 
             return request(app)
@@ -563,7 +579,6 @@ describe('Actioning PECS reports', () => {
                 expect(res.text).toContain('There is a problem')
                 expect(res.text).toContain('Fill in missing details')
                 expect(incidentReportingApi.updateReport).not.toHaveBeenCalled()
-                expect(incidentReportingRelatedObjects.addToReport).not.toHaveBeenCalled()
                 expect(incidentReportingApi.changeReportStatus).not.toHaveBeenCalled()
               })
           })
@@ -574,7 +589,6 @@ describe('Actioning PECS reports', () => {
             mockedReport.createdInNomis = true
             mockedReport.lastModifiedInNomis = true
             incidentReportingApi.updateReport.mockResolvedValueOnce(mockedReport) // NB: response is ignored
-            incidentReportingRelatedObjects.addToReport.mockResolvedValueOnce([]) // NB: response is ignored
             incidentReportingApi.changeReportStatus.mockResolvedValueOnce(mockedReport) // NB: response is ignored
 
             return request(app)
@@ -584,22 +598,16 @@ describe('Actioning PECS reports', () => {
               .expect(res => {
                 expect(res.redirect).toBe(true)
                 expect(res.header.location).toEqual(expectedRedirect)
-                if (postsCorrectionRequest !== undefined) {
-                  expect(incidentReportingRelatedObjects.addToReport).toHaveBeenCalledWith(
-                    mockedReport.id,
-                    postsCorrectionRequest,
-                  )
-                } else {
-                  expect(incidentReportingRelatedObjects.addToReport).not.toHaveBeenCalled()
-                }
-                expect(incidentReportingApi.changeReportStatus).toHaveBeenCalledWith(mockedReport.id, { newStatus })
+                expect(incidentReportingApi.changeReportStatus).toHaveBeenCalledWith(mockedReport.id, {
+                  newStatus,
+                  correctionRequest: postsCorrectionRequest,
+                })
               })
           })
         } else {
           it(`should succeed changing the status to ${newStatus} even if the report is invalid`, () => {
             makeReportInvalid()
             makeOriginalReportReferenceExistIfNeeded()
-            incidentReportingRelatedObjects.addToReport.mockResolvedValueOnce([]) // NB: response is ignore
             incidentReportingApi.changeReportStatus.mockResolvedValueOnce(mockedReport) // NB: response is ignored
 
             return request(app)
@@ -609,15 +617,10 @@ describe('Actioning PECS reports', () => {
               .expect(res => {
                 expect(res.redirect).toBe(true)
                 expect(res.header.location).toEqual(expectedRedirect)
-                if (postsCorrectionRequest !== undefined) {
-                  expect(incidentReportingRelatedObjects.addToReport).toHaveBeenCalledWith(
-                    mockedReport.id,
-                    postsCorrectionRequest,
-                  )
-                } else {
-                  expect(incidentReportingRelatedObjects.addToReport).not.toHaveBeenCalled()
-                }
-                expect(incidentReportingApi.changeReportStatus).toHaveBeenCalledWith(mockedReport.id, { newStatus })
+                expect(incidentReportingApi.changeReportStatus).toHaveBeenCalledWith(mockedReport.id, {
+                  newStatus,
+                  correctionRequest: postsCorrectionRequest,
+                })
               })
           })
         }
@@ -626,7 +629,6 @@ describe('Actioning PECS reports', () => {
           it(`should succeed changing the status to ${newStatus} even if comment is left empty`, () => {
             makeReportValid()
             makeOriginalReportReferenceExistIfNeeded()
-            incidentReportingRelatedObjects.addToReport.mockResolvedValueOnce([]) // NB: response is ignored
             incidentReportingApi.changeReportStatus.mockResolvedValueOnce(mockedReport) // NB: response is ignored
 
             return request(app)
@@ -639,15 +641,13 @@ describe('Actioning PECS reports', () => {
               .expect(res => {
                 expect(res.redirect).toBe(true)
                 expect(res.header.location).toEqual(expectedRedirect)
-                if (postsCorrectionRequest !== undefined) {
-                  expect(incidentReportingRelatedObjects.addToReport).toHaveBeenCalledWith(mockedReport.id, {
+                expect(incidentReportingApi.changeReportStatus).toHaveBeenCalledWith(mockedReport.id, {
+                  newStatus,
+                  correctionRequest: {
                     ...postsCorrectionRequest,
                     descriptionOfChange: 'PLACEHOLDER',
-                  })
-                } else {
-                  expect(incidentReportingRelatedObjects.addToReport).not.toHaveBeenCalled()
-                }
-                expect(incidentReportingApi.changeReportStatus).toHaveBeenCalledWith(mockedReport.id, { newStatus })
+                  },
+                })
               })
           })
         }
@@ -655,7 +655,6 @@ describe('Actioning PECS reports', () => {
         if (needsOriginalReportReference) {
           it('should show an error if original reference of duplicate report is left empty', () => {
             makeReportValid()
-            incidentReportingRelatedObjects.addToReport.mockRejectedValue(new Error('should not be called'))
             incidentReportingApi.changeReportStatus.mockRejectedValue(new Error('should not be called'))
 
             return request(app)
@@ -669,14 +668,12 @@ describe('Actioning PECS reports', () => {
                 expect(res.text).toContain('There is a problem')
                 expect(res.text).toContain('Enter a valid incident report number')
                 expect(incidentReportingApi.getReportByReference).not.toHaveBeenCalled()
-                expect(incidentReportingRelatedObjects.addToReport).not.toHaveBeenCalled()
                 expect(incidentReportingApi.changeReportStatus).not.toHaveBeenCalled()
               })
           })
 
           it('should show an error if original reference of duplicate report is the same', () => {
             makeReportValid()
-            incidentReportingRelatedObjects.addToReport.mockRejectedValue(new Error('should not be called'))
             incidentReportingApi.changeReportStatus.mockRejectedValue(new Error('should not be called'))
 
             return request(app)
@@ -690,7 +687,6 @@ describe('Actioning PECS reports', () => {
                 expect(res.text).toContain('There is a problem')
                 expect(res.text).toContain('Enter a different report number')
                 expect(incidentReportingApi.getReportByReference).not.toHaveBeenCalled()
-                expect(incidentReportingRelatedObjects.addToReport).not.toHaveBeenCalled()
                 expect(incidentReportingApi.changeReportStatus).not.toHaveBeenCalled()
               })
           })
@@ -700,7 +696,6 @@ describe('Actioning PECS reports', () => {
             const error = mockThrownError(mockErrorResponse({ status: 404, message: 'Report not found' }), 404)
             incidentReportingApi.getReportByReference.mockReset()
             incidentReportingApi.getReportByReference.mockRejectedValueOnce(error)
-            incidentReportingRelatedObjects.addToReport.mockRejectedValue(new Error('should not be called'))
             incidentReportingApi.changeReportStatus.mockRejectedValue(new Error('should not be called'))
 
             return request(app)
@@ -710,7 +705,6 @@ describe('Actioning PECS reports', () => {
               .expect(res => {
                 expect(res.text).toContain('There is a problem')
                 expect(res.text).toContain('Enter a valid incident report number')
-                expect(incidentReportingRelatedObjects.addToReport).not.toHaveBeenCalled()
                 expect(incidentReportingApi.changeReportStatus).not.toHaveBeenCalled()
               })
           })
@@ -720,7 +714,6 @@ describe('Actioning PECS reports', () => {
             const error = mockThrownError(mockErrorResponse({ status: 500, message: 'External problem' }), 500)
             incidentReportingApi.getReportByReference.mockReset()
             incidentReportingApi.getReportByReference.mockRejectedValueOnce(error)
-            incidentReportingRelatedObjects.addToReport.mockRejectedValue(new Error('should not be called'))
             incidentReportingApi.changeReportStatus.mockRejectedValue(new Error('should not be called'))
 
             return request(app)
@@ -732,7 +725,6 @@ describe('Actioning PECS reports', () => {
                 expect(res.text).toContain('Incident number could not be looked up')
                 expect(res.text).not.toContain('Enter a valid incident report number')
                 expect(res.text).not.toContain('External problem')
-                expect(incidentReportingRelatedObjects.addToReport).not.toHaveBeenCalled()
                 expect(incidentReportingApi.changeReportStatus).not.toHaveBeenCalled()
               })
           })
@@ -744,7 +736,6 @@ describe('Actioning PECS reports', () => {
             makeOriginalReportReferenceExistIfNeeded()
             const error = mockThrownError(mockErrorResponse({ message: 'Title is too long' }))
             incidentReportingApi.updateReport.mockRejectedValueOnce(error)
-            incidentReportingRelatedObjects.addToReport.mockResolvedValueOnce([]) // NB: response is ignored
             incidentReportingApi.changeReportStatus.mockResolvedValueOnce(mockedReport) // NB: response is ignored
 
             return request(app)
@@ -756,19 +747,17 @@ describe('Actioning PECS reports', () => {
                 expect(res.text).toContain('Sorry, there was a problem with your request')
                 expect(res.text).not.toContain('Bad Request')
                 expect(res.text).not.toContain('Title is too long')
-                expect(incidentReportingRelatedObjects.addToReport).not.toHaveBeenCalled()
                 expect(incidentReportingApi.changeReportStatus).not.toHaveBeenCalled()
               })
           })
         }
 
         if (postsCorrectionRequest !== undefined) {
-          it('should show an error if API rejects adding a correction request', () => {
+          it('should show an error if API rejects adding a correction request as part of a status change', () => {
             makeReportValid()
             makeOriginalReportReferenceExistIfNeeded()
             const error = mockThrownError(mockErrorResponse({ message: 'Comment is required' }))
-            incidentReportingRelatedObjects.addToReport.mockRejectedValueOnce(error)
-            incidentReportingApi.changeReportStatus.mockResolvedValueOnce(mockedReport) // NB: response is ignored
+            incidentReportingApi.changeReportStatus.mockRejectedValueOnce(error)
 
             return request(app)
               .post(viewReportUrl)
@@ -779,7 +768,6 @@ describe('Actioning PECS reports', () => {
                 expect(res.text).toContain('Sorry, there was a problem with your request')
                 expect(res.text).not.toContain('Bad Request')
                 expect(res.text).not.toContain('Comment is required')
-                expect(incidentReportingApi.changeReportStatus).not.toHaveBeenCalled()
               })
           })
         }
@@ -787,7 +775,6 @@ describe('Actioning PECS reports', () => {
         it('should show an error if API rejects changing status', () => {
           makeReportValid()
           makeOriginalReportReferenceExistIfNeeded()
-          incidentReportingRelatedObjects.addToReport.mockResolvedValueOnce([]) // NB: response is ignored
           const error = mockThrownError(mockErrorResponse({ message: 'Comment is required' }))
           incidentReportingApi.changeReportStatus.mockRejectedValueOnce(error)
 
@@ -816,7 +803,6 @@ describe('Actioning PECS reports', () => {
         ({ code: userAction }) => {
           it.each(statuses)('on a report with status $code', ({ code: status }) => {
             mockedReport.status = status
-            incidentReportingRelatedObjects.addToReport.mockRejectedValue(new Error('should not be called'))
             incidentReportingApi.changeReportStatus.mockRejectedValue(new Error('should not be called'))
 
             const maybeValidPayload = { userAction } // doesn’t matter that it’s invalid since expectation is a specific error
@@ -827,7 +813,6 @@ describe('Actioning PECS reports', () => {
               .expect(res => {
                 expect(res.redirect).toBe(true)
                 expect(res.header.location).toEqual('/sign-out')
-                expect(incidentReportingRelatedObjects.addToReport).not.toHaveBeenCalled()
                 expect(incidentReportingApi.changeReportStatus).not.toHaveBeenCalled()
               })
           })

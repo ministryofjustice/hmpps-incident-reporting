@@ -64,6 +64,18 @@ export class DashboardPage extends Page {
     })
   }
 
+  removalRequestsCheckbox(label: string): PageElement<HTMLLabelElement> {
+    return this.searchForm.find('#latestUserActions').find<HTMLLabelElement>('label').contains(label)
+  }
+
+  get selectedRemovalRequests(): Cypress.Chainable<string[]> {
+    return this.searchForm.then(form => {
+      const formElement = form.get()[0]
+      const formData = new FormData(formElement)
+      return formData.getAll('latestUserActions').filter(val => typeof val === 'string')
+    })
+  }
+
   submit(): void {
     this.searchForm.find('.govuk-button').contains('Apply filters').click()
   }

@@ -92,18 +92,8 @@ export default function dashboard(): Router {
     // Collect errors
     const errors: GovukErrorSummaryItem[] = []
 
-    let noFiltersSupplied = Boolean(
-      !searchID &&
-        !location &&
-        !fromDateInput &&
-        !toDateInput &&
-        !typeFamily &&
-        !incidentStatuses &&
-        !latestUserActions,
-    )
-
     // If no filters are supplied from query and no errors generated, check for filters in session
-    if (errors.length === 0 && noFiltersSupplied && !['All', 'ToDo'].includes(clearFilters)) {
+    if (errors.length === 0 && req.url === '/') {
       location = req.session.dashboardFilters?.location
       fromDateInput = req.session.dashboardFilters?.fromDateInput
       toDateInput = req.session.dashboardFilters?.toDateInput
@@ -144,7 +134,7 @@ export default function dashboard(): Router {
     }
 
     // Check for supplied filters from session
-    noFiltersSupplied = Boolean(
+    let noFiltersSupplied = Boolean(
       !searchID && !location && !fromDate && !toDate && !typeFamily && !incidentStatuses && !latestUserActions,
     )
 

@@ -174,6 +174,10 @@ export default function dashboard(): Router {
         errors.push({ href: '#latestUserActions', text: err.message })
       }
     }
+    // If an RO opens a link containing filter, remove filter
+    if (permissions.isReportingOfficer) {
+      userActionFilter = undefined
+    }
 
     let searchStatuses: Status[] | undefined
     try {

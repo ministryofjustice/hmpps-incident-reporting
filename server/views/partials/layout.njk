@@ -5,6 +5,19 @@
     <link href="{{ "/assets/css/application.css" | assetMap }}" rel="stylesheet" />
   {% endblock %}
 
+  {% if googleAnalyticsMeasurementId %}
+    {# Global site tag (gtag.js) - Google Analytics 4  #}
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ googleAnalyticsMeasurementId }}"></script>
+    <script nonce="{{ cspNonce }}">
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', '{{ googleAnalyticsMeasurementId }}', {
+        active_case_load: '{{ user.activeCaseLoadId | default('') }}',
+      });
+    </script>
+  {% endif %}
+
   {% if feComponents.jsIncludes %}
     {% for js in feComponents.jsIncludes %}
       <script src="{{ js }}" nonce="{{ cspNonce }}"></script>

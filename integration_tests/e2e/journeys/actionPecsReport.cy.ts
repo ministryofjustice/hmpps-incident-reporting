@@ -24,7 +24,7 @@ describe('Actioning reopened PECS reports', () => {
       const reportWithDetails: DatesAsStrings<ReportWithDetails> = {
         ...validReport,
         status: 'REOPENED',
-        title: 'Food or liquid refusual: Arnold A1111AA, Benjamin A2222BB (PECS North)',
+        title: 'Food or liquid refusal: Arnold A1111AA, Benjamin A2222BB (PECS North)',
         location: 'NORTH',
         correctionRequests: [],
       }
@@ -54,6 +54,7 @@ describe('Actioning reopened PECS reports', () => {
           userAction: 'CLOSE',
           newStatus: 'CLOSED',
           banner: 'Incident report 6544 is now closed',
+          commentSentToApi: '(Closed)',
         })
       })
 

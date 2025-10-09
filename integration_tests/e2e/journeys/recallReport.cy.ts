@@ -73,7 +73,14 @@ context('Reopen or recall a report', () => {
           let reportPage = Page.verifyOnPage(ReportPage, reportWithDetails.reportReference)
 
           cy.task('stubIncidentReportingApiChangeReportStatus', {
-            request: { newStatus: recalledTo },
+            request: {
+              newStatus: recalledTo,
+              correctionRequest: {
+                userType: userType === 'data wardens' ? 'DATA_WARDEN' : 'REPORTING_OFFICER',
+                userAction: 'RECALL',
+                descriptionOfChange: '(Reopened)',
+              },
+            },
             report: {
               ...reportWithDetails,
               status: recalledTo,
@@ -117,7 +124,15 @@ context('Reopen or recall a report', () => {
         const reopenPage = Page.verifyOnPage(ReopenPage)
 
         cy.task('stubIncidentReportingApiChangeReportStatus', {
-          request: { newStatus: reopenedTo },
+          request: {
+            newStatus: reopenedTo,
+            correctionRequest: {
+              userType: 'REPORTING_OFFICER',
+              userAction: 'RECALL',
+              descriptionOfChange: '(Reopened)',
+              originalReportReference: null,
+            },
+          },
           report: {
             ...reportWithDetails,
             status: reopenedTo,

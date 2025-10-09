@@ -11,7 +11,7 @@ export function placeholderForCorrectionRequest(
   originalReportReference: string,
 ): string
 export function placeholderForCorrectionRequest(
-  userAction: 'REQUEST_NOT_REPORTABLE' | 'MARK_NOT_REPORTABLE' | 'RECALL',
+  userAction: 'REQUEST_NOT_REPORTABLE' | 'MARK_NOT_REPORTABLE' | 'RECALL' | 'REQUEST_REVIEW' | 'CLOSE',
 ): string
 // export function placeholderForCorrectionRequest(userAction: ApiUserAction, originalReportReference?: string): string
 export function placeholderForCorrectionRequest(userAction: ApiUserAction, originalReportReference?: string): string {
@@ -28,8 +28,13 @@ export function placeholderForCorrectionRequest(userAction: ApiUserAction, origi
     return '(Not reportable)'
   }
   if (userAction === 'RECALL') {
-    // NB: at present, no RECALL transition posts a correction request
     return '(Reopened)'
+  }
+  if (userAction === 'REQUEST_REVIEW') {
+    return '(Submitted for review)'
+  }
+  if (userAction === 'CLOSE') {
+    return '(Closed)'
   }
   throw new Error(`not implemented for ${userAction}`)
 }
@@ -41,6 +46,8 @@ export function isCorrectionRequestPlaceholder(descriptionOfChange: string): boo
   return (
     descriptionOfChange === '(Not reportable)' ||
     descriptionOfChange === '(Reopened)' ||
+    descriptionOfChange === '(Submitted for review)' ||
+    descriptionOfChange === '(Closed)' ||
     /^\(Report is a duplicate of \d+\)$/.test(descriptionOfChange)
   )
 }

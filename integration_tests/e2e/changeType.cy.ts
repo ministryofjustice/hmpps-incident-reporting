@@ -106,7 +106,7 @@ context('Change incident type', () => {
           checked: false,
         },
         {
-          label: 'Food or liquid refusual',
+          label: 'Food or liquid refusal',
           value: 'FOOD_REFUSAL_1',
           checked: false,
         },

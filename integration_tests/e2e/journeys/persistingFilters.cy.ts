@@ -76,6 +76,7 @@ userScenarios.forEach(({ userType, user, userActions, dashboardUrl, filterBehavi
             status: 'AWAITING_REVIEW',
             reportReference: '6543',
             reportDateAndTime: now,
+            latestUserAction: 'REQUEST_NOT_REPORTABLE',
             withDetails: true,
           }),
         ]
@@ -107,6 +108,7 @@ userScenarios.forEach(({ userType, user, userActions, dashboardUrl, filterBehavi
           dashboardPage.toDate.type('15/1/2024')
           if (userType !== 'reporting officers') {
             dashboardPage.location.type('Moorland')
+            dashboardPage.removalRequestsCheckbox('Removal requests').click()
           }
           dashboardPage.type.type('Miscellaneous')
           dashboardPage.statusCheckbox(userType === 'reporting officers' ? 'Submitted' : 'Awaiting review').click()
@@ -165,6 +167,7 @@ userScenarios.forEach(({ userType, user, userActions, dashboardUrl, filterBehavi
             dashboardPage.toDate.should('have.value', '')
             if (userType !== 'reporting officers') {
               dashboardPage.location.should('have.value', '')
+              dashboardPage.selectedRemovalRequests.should('deep.equal', [])
             }
             dashboardPage.type.should('have.value', '')
             dashboardPage.selectedStatuses.should('deep.equal', userType === 'reporting officers' ? ['toDo'] : [])
@@ -175,6 +178,7 @@ userScenarios.forEach(({ userType, user, userActions, dashboardUrl, filterBehavi
             dashboardPage.toDate.should('have.value', '15/1/2024')
             if (userType !== 'reporting officers') {
               dashboardPage.location.should('have.value', 'Moorland (HMP & YOI)')
+              dashboardPage.selectedRemovalRequests.should('deep.equal', ['REQUEST_REMOVAL'])
             }
             dashboardPage.type.should('have.value', 'Miscellaneous')
             dashboardPage.selectedStatuses.should(

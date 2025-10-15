@@ -22,6 +22,13 @@ export const moorland: Agency = {
   active: true,
 }
 
+export const pecsNou: Agency = {
+  agencyId: 'NOU',
+  description: 'National Operations Unit',
+  agencyType: AgencyType.PECS,
+  active: true,
+}
+
 export const pecsNorth: Agency = {
   agencyId: 'NORTH',
   description: 'PECS North',

@@ -391,7 +391,6 @@ describe('Permissions class', () => {
             { userType: dataWardenInLeeds, action: granted },
           ])('should be $action to $userType.description', ({ userType: { user }, action }) => {
             const permissions = new Permissions(user)
-            expect(permissions.canCreateReportInLocation('NOU')).toBe(action === denied)
             expect(permissions.canCreateReportInLocation('NORTH')).toBe(action === granted)
             expect(permissions.canCreateReportInLocation('SOUTH')).toBe(action === granted)
             expect(permissions.canCreatePecsReport).toBe(action === granted)

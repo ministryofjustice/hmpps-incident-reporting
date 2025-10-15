@@ -75,7 +75,7 @@ export class Permissions {
     return this.allowedActionsOnReport({ status: 'DRAFT', location }).has('EDIT')
   }
 
-  /** Could have created new report in DPS if given prison was active or PECS regions are enabled */
+  /** Could have created a new report in DPS if given prison was active or PECS regions are enabled */
   canCreateReportInLocationInNomisOnly(location: string): boolean {
     return this.allowedActionsOnReport({ status: 'DRAFT', location }, 'nomis').has('EDIT')
   }
@@ -90,16 +90,34 @@ export class Permissions {
     return this.canCreateReportInLocationInNomisOnly(this.activeCaseloadId)
   }
 
-  /** Can create new PECS report */
+  /** Can create a new PECS report - at least one PECS region is active and turned on in service */
   get canCreatePecsReport(): boolean {
-    const somePecsRegion = pecsRegions.filter(pecsRegion => pecsRegion.active)[0]
-    return somePecsRegion?.code ? this.canCreateReportInLocation(somePecsRegion.code) : false
+    const activePecsRegions = pecsRegions.filter(pecsRegion => pecsRegion.active)
+
+    // Need to loop through all active PECS regions to check if any of them allow creating a report
+    for (const activePecsRegion of activePecsRegions) {
+      const canCreate = activePecsRegion?.code ? this.canCreateReportInLocation(activePecsRegion.code) : false
+      if (canCreate) {
+        return true
+      }
+    }
+    return false
   }
 
-  /** Could have created new PECS report if it was enabled */
+  /** Could have created a new PECS report if it was enabled */
   get canCreatePecsReportInNomisOnly(): boolean {
-    const somePecsRegion = pecsRegions.filter(pecsRegion => pecsRegion.active)[0]
-    return somePecsRegion?.code ? this.canCreateReportInLocationInNomisOnly(somePecsRegion.code) : false
+    const activePecsRegions = pecsRegions.filter(pecsRegion => pecsRegion.active)
+
+    // Need to loop through all active PECS regions to check if any of them allow creating a report in NOMIS only
+    for (const activePecsRegion of activePecsRegions) {
+      const createNomisOnly = activePecsRegion?.code
+        ? this.canCreateReportInLocationInNomisOnly(activePecsRegion.code)
+        : false
+      if (!createNomisOnly) {
+        return false
+      }
+    }
+    return true
   }
 
   /**

@@ -83,7 +83,7 @@ const hqViewerInLeedsWithPecs: Scenario = {
 
 describe('Permissions class', () => {
   beforeAll(() => {
-    mockPecsRegions()
+    mockPecsRegions(true)
   })
 
   afterAll(() => {
@@ -385,6 +385,18 @@ describe('Permissions class', () => {
           expect(permissions.canCreatePecsReport).toBe(action === granted)
         })
 
+        describe('in a PECS region a DW', () => {
+          it.each([
+            { userType: dataWardenNotInLeeds, action: granted },
+            { userType: dataWardenInLeeds, action: granted },
+          ])('should be $action to $userType.description', ({ userType: { user }, action }) => {
+            const permissions = new Permissions(user)
+            expect(permissions.canCreateReportInLocation('NORTH')).toBe(action === granted)
+            expect(permissions.canCreateReportInLocation('SOUTH')).toBe(action === granted)
+            expect(permissions.canCreatePecsReport).toBe(action === granted)
+          })
+        })
+
         it.each([
           { userType: notLoggedIn, action: denied },
           { userType: unauthorisedNotInLeeds, action: denied },
@@ -403,8 +415,12 @@ describe('Permissions class', () => {
           ({ userType: { user }, action }) => {
             setActiveAgencies(leedsAndMoorland)
             const permissions = new Permissions(user)
+            expect(permissions.canCreateReportInLocation('NOU')).toBe(false)
+            expect(permissions.canCreateReportInLocationInNomisOnly('NOU')).toBe(action === granted)
             expect(permissions.canCreateReportInLocation('NORTH')).toBe(false)
             expect(permissions.canCreateReportInLocationInNomisOnly('NORTH')).toBe(action === granted)
+            expect(permissions.canCreateReportInLocation('SOUTH')).toBe(false)
+            expect(permissions.canCreateReportInLocationInNomisOnly('SOUTH')).toBe(action === granted)
             expect(permissions.canCreatePecsReport).toBe(false)
             expect(permissions.canCreatePecsReportInNomisOnly).toBe(action === granted)
           },

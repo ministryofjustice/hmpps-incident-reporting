@@ -91,24 +91,28 @@ class EditPrisonerInvolvementController extends PrisonerInvolvementController {
     const index = parseInt(req.params.index, 10)
     const allValues = this.getAllValues(req, false)
     try {
-      await Promise.all([
-        incidentReportingApi.prisonersInvolved.updateForReport(report.id, index, {
-          prisonerRole: this.coercePrisonerRole(allValues.prisonerRole),
-          outcome: report.createdInNomis ? this.coerceOutcome(allValues.outcome) : null,
-          comment: allValues.comment ?? '',
-        }),
-        handleReportEdit(res),
-      ])
+      await incidentReportingApi.prisonersInvolved.updateForReport(report.id, index, {
+        prisonerRole: this.coercePrisonerRole(allValues.prisonerRole),
+        outcome: report.createdInNomis ? this.coerceOutcome(allValues.outcome) : null,
+        comment: allValues.comment ?? '',
+      })
       logger.info('Prisoner involvement %d updated in report %s', index, report.id)
+    } catch (e) {
+      logger.error(e, 'Prisoner involvement %d could not be updated in report %s: %j', index, report.id, e)
+      this.handleApiError(e, req, res, next)
+      return
+    }
+    // Now look to update the status if necessary
+    try {
+      await handleReportEdit(res)
 
       fallibleUpdateReportTitle(res) // NB: errors are logged but ignored!
-
-      // clear session since involvement has been saved
+      // clear session since report has been saved
       res.locals.clearSessionOnSuccess = true
 
       next()
     } catch (e) {
-      logger.error(e, 'Prisoner involvement %d could not be updated in report %s: %j', index, report.id, e)
+      logger.error(e, `Report ${res.locals.report.reportReference} status could not be updated: %j`, e)
       this.handleApiError(e, req, res, next)
     }
   }

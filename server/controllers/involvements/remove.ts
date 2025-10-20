@@ -62,21 +62,28 @@ export abstract class RemoveInvolvement<
   }
 
   async saveValues(req: FormWizard.Request<Values>, res: express.Response, next: express.NextFunction): Promise<void> {
-    try {
-      const { confirmRemove } = req.form.values
+    const { confirmRemove } = req.form.values
 
-      if (confirmRemove === 'yes') {
-        await Promise.all([this.deleteInvolvement(req, res), handleReportEdit(res)])
-
-        // clear session since involvement has been saved
-        res.locals.clearSessionOnSuccess = true
+    if (confirmRemove === 'yes') {
+      try {
+        await this.deleteInvolvement(req, res)
+      } catch (error) {
+        logger.error(error, 'Involvement could not be deleted: %j', error)
+        this.handleApiError(error, req, res, next)
+        return
       }
-
-      next()
-    } catch (error) {
-      logger.error(error, 'Involvement could not be deleted: %j', error)
-      this.handleApiError(error, req, res, next)
+      // Now look to update the status if necessary
+      try {
+        await handleReportEdit(res)
+      } catch (e) {
+        logger.error(e, `Report ${res.locals.report.reportReference} status could not be updated: %j`, e)
+        this.handleApiError(e, req, res, next)
+        return
+      }
     }
+    // clear session since report has been saved
+    res.locals.clearSessionOnSuccess = true
+    next()
   }
 
   protected abstract deleteInvolvement(req: FormWizard.Request<Values>, res: express.Response): Promise<void>

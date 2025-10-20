@@ -65,24 +65,29 @@ class AddDescriptionAddendumController extends BaseController<AddDescriptionValu
     const lastName = lastNames.join(' ')
 
     try {
-      await Promise.all([
-        res.locals.apis.incidentReportingApi.descriptionAddendums.addToReport(report.id, {
-          firstName: firstName || 'not specified',
-          lastName: lastName || 'not specified',
-          text: allValues.descriptionAddendum,
-        }),
-        handleReportEdit(res),
-      ])
+      await res.locals.apis.incidentReportingApi.descriptionAddendums.addToReport(report.id, {
+        firstName: firstName || 'not specified',
+        lastName: lastName || 'not specified',
+        text: allValues.descriptionAddendum,
+      })
       logger.info('Additional description added to report %s', report.id)
 
-      // clear session since involvement has been saved
-      res.locals.clearSessionOnSuccess = true
-
       req.flash('success', { title: 'You have added information to the description' })
+    } catch (e) {
+      logger.error(e, 'Additional description could not be added to report %s: %j', report.id, e)
+      this.handleApiError(e, req, res, next)
+      return
+    }
+    // Now look to update the status if necessary
+    try {
+      await handleReportEdit(res)
+
+      // clear session since report has been saved
+      res.locals.clearSessionOnSuccess = true
 
       super.successHandler(req, res, next)
     } catch (e) {
-      logger.error(e, 'Additional description could not be added to report %s: %j', report.id, e)
+      logger.error(e, `Report ${report.reportReference} status could not be updated: %j`, e)
       this.handleApiError(e, req, res, next)
     }
   }

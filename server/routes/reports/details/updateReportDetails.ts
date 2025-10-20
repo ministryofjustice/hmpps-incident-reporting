@@ -64,19 +64,25 @@ class DetailsController extends BaseDetailsController<DetailsValues> {
     const { description, incidentDate, incidentTime } = allValues
     const incidentDateAndTime = this.buildIncidentDateAndTime(incidentDate, incidentTime)
 
+    // First try to update the incident details
     try {
-      await Promise.all([
-        res.locals.apis.incidentReportingApi.updateReport(report.id, { description, incidentDateAndTime }),
-        handleReportEdit(res),
-      ])
+      await res.locals.apis.incidentReportingApi.updateReport(report.id, { description, incidentDateAndTime })
       logger.info(`Report ${report.reportReference} details updated`)
+    } catch (e) {
+      logger.error(e, `Report ${report.reportReference} details could not be updated: %j`, e)
+      this.handleApiError(e, req, res, next)
+      return
+    }
+    // Now look to update the status if necessary
+    try {
+      await handleReportEdit(res)
 
       // clear session since report has been saved
       res.locals.clearSessionOnSuccess = true
 
       super.successHandler(req, res, next)
     } catch (e) {
-      logger.error(e, `Report ${report.reportReference} details could not be updated: %j`, e)
+      logger.error(e, `Report ${report.reportReference} status could not be updated: %j`, e)
       this.handleApiError(e, req, res, next)
     }
   }

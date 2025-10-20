@@ -8,6 +8,7 @@ import { handleReportEdit } from '../../actions/handleReportEdit'
 import { StaffInvolvementController } from './controller'
 import { fields, type Values } from './fields'
 import { steps } from './steps'
+import { fallibleUpdateReportTitle } from '../../../../services/reportTitle'
 
 class EditStaffInvolvementController extends StaffInvolvementController {
   protected keyField = 'staffRole' as const
@@ -69,21 +70,26 @@ class EditStaffInvolvementController extends StaffInvolvementController {
     const index = parseInt(req.params.index, 10)
     const allValues = this.getAllValues(req, false)
     try {
-      await Promise.all([
-        res.locals.apis.incidentReportingApi.staffInvolved.updateForReport(report.id, index, {
-          staffRole: this.coerceStaffRole(allValues.staffRole),
-          comment: allValues.comment ?? '',
-        }),
-        handleReportEdit(res),
-      ])
+      await res.locals.apis.incidentReportingApi.staffInvolved.updateForReport(report.id, index, {
+        staffRole: this.coerceStaffRole(allValues.staffRole),
+        comment: allValues.comment ?? '',
+      })
       logger.info('Staff involvement %d updated in report %s', index, report.id)
+    } catch (e) {
+      logger.error(e, 'Staff involvement %d could not be updated in report %s: %j', index, report.id, e)
+      this.handleApiError(e, req, res, next)
+      return
+    }
+    // Now look to update the status if necessary
+    try {
+      await handleReportEdit(res)
 
-      // clear session since involvement has been saved
+      // clear session since report has been saved
       res.locals.clearSessionOnSuccess = true
 
       next()
     } catch (e) {
-      logger.error(e, 'Staff involvement %d could not be updated in report %s: %j', index, report.id, e)
+      logger.error(e, `Report ${res.locals.report.reportReference} status could not be updated: %j`, e)
       this.handleApiError(e, req, res, next)
     }
   }

@@ -7,6 +7,7 @@ import { parseDateInput } from '../../../utils/parseDateTime'
 import type {
   AddOrUpdateQuestionResponseRequest,
   AddOrUpdateQuestionWithResponsesRequest,
+  Question,
   ReportWithDetails,
 } from '../../../data/incidentReportingApi'
 import type { QuestionConfiguration } from '../../../data/incidentTypeConfiguration/types'
@@ -290,25 +291,37 @@ export class QuestionsController extends BaseController<FormWizard.MultiValues> 
           updates.push(questionResponses)
         }
 
+        let currentQuestions: Question[]
         try {
           // Update questions' answers
-          const [currentQuestions] = await Promise.all([
-            incidentReportingApi.addOrUpdateQuestionsWithResponses(report.id, updates),
-            handleReportEdit(res),
-          ])
+          currentQuestions = await incidentReportingApi.addOrUpdateQuestionsWithResponses(report.id, updates)
           logger.info('Updated questions in report %s', report.id)
-
+        } catch (e) {
+          logger.error(e, 'Questions could not be updated in report %s: %j', report.id, e)
+          const err = this.convertIntoValidationError(e, fieldNames[0])
+          next(err)
+          return
+        }
+        try {
           // Delete any potential now-irrelevant questions
           const questionsToDelete = QuestionsToDelete.forGivenAnswers(reportConfig, currentQuestions)
           if (questionsToDelete.length > 0) {
             await incidentReportingApi.deleteQuestionsAndTheirResponses(report.id, questionsToDelete)
             logger.info('Removed obsolete questions from report %s', report.id)
           }
-
-          // clear session since questions have been saved
-          res.locals.clearSessionOnSuccess = true
         } catch (e) {
           logger.error(e, 'Questions could not be updated in report %s: %j', report.id, e)
+          const err = this.convertIntoValidationError(e, fieldNames[0])
+          next(err)
+          return
+        }
+        // Now look to update the status if necessary
+        try {
+          await handleReportEdit(res)
+          // clear session since report has been saved
+          res.locals.clearSessionOnSuccess = true
+        } catch (e) {
+          logger.error(e, `Report ${report.reportReference} status could not be updated: %j`, e)
           const err = this.convertIntoValidationError(e, fieldNames[0])
           next(err)
           return

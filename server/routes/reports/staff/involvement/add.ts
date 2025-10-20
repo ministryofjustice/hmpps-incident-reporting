@@ -8,7 +8,6 @@ import { handleReportEdit } from '../../actions/handleReportEdit'
 import { StaffInvolvementController } from './controller'
 import { fields, type Values } from './fields'
 import { steps } from './steps'
-import { fallibleUpdateReportTitle } from '../../../../services/reportTitle'
 
 export class AddStaffInvolvementController<V extends Values = Values> extends StaffInvolvementController<V> {
   protected keyField = 'staffRole' as const

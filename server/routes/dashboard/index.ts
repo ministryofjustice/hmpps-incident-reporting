@@ -341,7 +341,7 @@ export default function dashboard(): Router {
       // TODO: remove after rollout
       allLocations.unshift({
         value: activeLocationsFlag,
-        text: 'All existing active locations in the prison service',
+        text: 'All active locations in Digital Prison Services (DPS)',
       })
     }
 

@@ -1724,8 +1724,6 @@ export const ASSAULT_5: IncidentTypeConfiguration = {
       active: true,
     },
   ],
-  requiresPrisoners: true,
-  requiresStaff: true,
 }
 
 export default ASSAULT_5

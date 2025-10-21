@@ -590,7 +590,6 @@ export const DEATH_OTHER_1: IncidentTypeConfiguration = {
       active: true,
     },
   ],
-  requiresStaff: true,
 }
 
 export default DEATH_OTHER_1

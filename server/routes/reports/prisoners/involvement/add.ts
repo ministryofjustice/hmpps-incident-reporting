@@ -44,27 +44,31 @@ class AddPrisonerInvolvementController extends PrisonerInvolvementController {
     const prisoner = res.locals.prisoner as OffenderSearchResult
     const allValues = this.getAllValues(req, false)
     try {
-      await Promise.all([
-        incidentReportingApi.prisonersInvolved.addToReport(report.id, {
-          prisonerNumber: prisoner.prisonerNumber,
-          firstName: prisoner.firstName,
-          lastName: prisoner.lastName,
-          prisonerRole: this.coercePrisonerRole(allValues.prisonerRole),
-          outcome: report.createdInNomis ? this.coerceOutcome(allValues.outcome) : null,
-          comment: allValues.comment ?? '',
-        }),
-        handleReportEdit(res),
-      ])
+      await incidentReportingApi.prisonersInvolved.addToReport(report.id, {
+        prisonerNumber: prisoner.prisonerNumber,
+        firstName: prisoner.firstName,
+        lastName: prisoner.lastName,
+        prisonerRole: this.coercePrisonerRole(allValues.prisonerRole),
+        outcome: report.createdInNomis ? this.coerceOutcome(allValues.outcome) : null,
+        comment: allValues.comment ?? '',
+      })
       logger.info('Prisoner involvement added to report %s', report.id)
+    } catch (e) {
+      logger.error(e, 'Prisoner involvement could not be added to report %s: %j', report.id, e)
+      this.handleApiError(e, req, res, next)
+      return
+    }
+    // Now look to update the status if necessary
+    try {
+      await handleReportEdit(res)
 
       fallibleUpdateReportTitle(res) // NB: errors are logged but ignored!
-
-      // clear session since involvement has been saved
+      // clear session since report has been saved
       res.locals.clearSessionOnSuccess = true
 
       next()
     } catch (e) {
-      logger.error(e, 'Prisoner involvement could not be added to report %s: %j', report.id, e)
+      logger.error(e, `Report ${res.locals.report.reportReference} status could not be updated: %j`, e)
       this.handleApiError(e, req, res, next)
     }
   }

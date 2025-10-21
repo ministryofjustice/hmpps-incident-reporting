@@ -118,16 +118,21 @@ export abstract class InvolvementSummary extends BaseController<Values> {
     } else {
       if (confirmAdd === 'no' && report[this.involvementField].length === 0) {
         try {
-          await Promise.all([
-            res.locals.apis.incidentReportingApi.updateReport(report.id, {
-              [this.involvementDoneField]: true,
-            }),
-            handleReportEdit(res),
-          ])
+          await res.locals.apis.incidentReportingApi.updateReport(report.id, {
+            [this.involvementDoneField]: true,
+          })
           logger.info(`Report updated to flag %s involved as done`, this.type)
         } catch (error) {
           logger.error(error, `Report could not be updated to flag %s involved as done: %j`, this.type, error)
           this.handleApiError(error, req, res, next)
+          return
+        }
+        // Now look to update the status if necessary
+        try {
+          await handleReportEdit(res)
+        } catch (e) {
+          logger.error(e, `Report ${report.reportReference} status could not be updated: %j`, e)
+          this.handleApiError(e, req, res, next)
           return
         }
       }

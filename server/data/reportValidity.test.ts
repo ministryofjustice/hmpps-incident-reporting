@@ -91,44 +91,27 @@ describe.each([{ reportType: 'prison' as const }, { reportType: 'PECS' as const 
         })
       })
 
-      if (reportType === 'prison') {
-        it('should generate an error if staff involvements not added', async () => {
-          report.staffInvolvementDone = true
-          report.staffInvolved = []
-
-          const { reportConfig, reportUrl, questionProgressSteps } = await makeLocalsGeneratedByMiddleware(report)
-          const errorGenerator = validateReport(report, reportConfig, questionProgressSteps, reportUrl)
-
-          const errors = Array.from(errorGenerator)
-          expect(errors).toHaveLength(1)
-          const [error] = errors
-          expect(error).toEqual({
-            text: 'You need to add a member of staff',
-            href: '/reports/11111111-2222-3333-4444-55555555555A/staff',
-          })
-        })
-      } else {
-        it('should not generate errors if staff involvements not added', async () => {
-          report.staffInvolvementDone = true
-          report.staffInvolved = []
-
-          const { reportConfig, reportUrl, questionProgressSteps } = await makeLocalsGeneratedByMiddleware(report)
-          const errorGenerator = validateReport(report, reportConfig, questionProgressSteps, reportUrl)
-
-          const errors = Array.from(errorGenerator)
-          expect(errors).toHaveLength(0)
-        })
-      }
-
-      it('should generate an error if prisoner involvements were skipped', async () => {
-        report.prisonerInvolvementDone = false
-        report.prisonersInvolved = []
+      it('should not generate errors if staff involvements not added', async () => {
+        report.staffInvolvementDone = true
+        report.staffInvolved = []
 
         const { reportConfig, reportUrl, questionProgressSteps } = await makeLocalsGeneratedByMiddleware(report)
         const errorGenerator = validateReport(report, reportConfig, questionProgressSteps, reportUrl)
 
         const errors = Array.from(errorGenerator)
-        expect(errors).toHaveLength(1)
+        expect(errors).toHaveLength(0)
+      })
+
+      it('should generate an error if prisoner involvements were skipped', async () => {
+        report.prisonerInvolvementDone = false
+        report.prisonersInvolved = []
+
+        report.type = 'SELF_HARM_1'
+        const { reportConfig, reportUrl, questionProgressSteps } = await makeLocalsGeneratedByMiddleware(report)
+        const errorGenerator = validateReport(report, reportConfig, questionProgressSteps, reportUrl)
+
+        const errors = Array.from(errorGenerator)
+        expect(errors).toHaveLength(2)
         const [error] = errors
         expect(error).toEqual({
           text: 'Please complete the prisoner involvement section',
@@ -140,12 +123,12 @@ describe.each([{ reportType: 'prison' as const }, { reportType: 'PECS' as const 
         it('should generate an error if prisoner involvements not added', async () => {
           report.prisonerInvolvementDone = true
           report.prisonersInvolved = []
-
+          report.type = 'SELF_HARM_1'
           const { reportConfig, reportUrl, questionProgressSteps } = await makeLocalsGeneratedByMiddleware(report)
           const errorGenerator = validateReport(report, reportConfig, questionProgressSteps, reportUrl)
 
           const errors = Array.from(errorGenerator)
-          expect(errors).toHaveLength(1)
+          expect(errors).toHaveLength(2)
           const [error] = errors
           expect(error).toEqual({
             text: 'You need to add a prisoner',

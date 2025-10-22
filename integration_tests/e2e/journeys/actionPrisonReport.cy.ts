@@ -86,10 +86,7 @@ describe('Actioning submitted prison reports', () => {
               userAction: 'HOLD',
               newStatus: 'ON_HOLD',
               comment: 'Checking policy…',
-              banner: [
-                'Incident report 6544 has been put on hold',
-                'If you need to add further information to the report, you must contact the Operations Hub by email at hubnationaloperation@justice.gov.uk',
-              ],
+              banner: 'Incident report 6544 has been put on hold',
             })
           })
         }

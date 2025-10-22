@@ -1,5 +1,7 @@
 import type express from 'express'
 import logger from '../../../../logger'
+import { ApiUserType } from '../../../middleware/permissions'
+import { placeholderForCorrectionRequest } from './correctionRequestPlaceholder'
 
 /**
  * Users can edit report in various states, but sometimes this results in a status transition.
@@ -13,8 +15,17 @@ export async function handleReportEdit(res: express.Response): Promise<void> {
   const reportTransitions = res.locals.possibleTransitions
   const newStatus = reportTransitions.EDIT?.newStatus
   if (newStatus && newStatus !== report.status) {
+    const { permissions } = res.locals
+    const { userType } = permissions
     // status must change as a side effect of editing report in current state
-    await incidentReportingApi.changeReportStatus(report.id, { newStatus })
+    await incidentReportingApi.changeReportStatus(report.id, {
+      newStatus,
+      correctionRequest: {
+        userType: userType as ApiUserType,
+        userAction: 'RECALL',
+        descriptionOfChange: placeholderForCorrectionRequest('RECALL'),
+      },
+    })
     logger.info(`Report ${report.reportReference} status was updated`)
   }
 }

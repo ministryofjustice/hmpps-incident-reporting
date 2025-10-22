@@ -24,6 +24,7 @@ function mockResponse(user: Express.User, report: ReportBasic): Response {
       apis: { incidentReportingApi },
       report,
       possibleTransitions: permissions.possibleTransitions(report),
+      permissions,
     },
   } as unknown as Response
 }
@@ -84,7 +85,14 @@ describe('Report editing side effects', () => {
       mockedReport.status = 'AWAITING_REVIEW'
       const res = mockResponse(mockReportingOfficer, mockedReport)
       await handleReportEdit(res)
-      expect(incidentReportingApi.changeReportStatus).toHaveBeenCalledWith(mockedReport.id, { newStatus: 'DRAFT' })
+      expect(incidentReportingApi.changeReportStatus).toHaveBeenCalledWith(mockedReport.id, {
+        newStatus: 'DRAFT',
+        correctionRequest: {
+          userType: 'REPORTING_OFFICER',
+          userAction: 'RECALL',
+          descriptionOfChange: '(Reopened)',
+        },
+      })
     })
   })
 

@@ -6,6 +6,7 @@ generic-service:
 
   ingress:
     host: incident-reporting-dev.hmpps.service.justice.gov.uk
+    modsecurity_enabled: false
 
   allowlist: null
 

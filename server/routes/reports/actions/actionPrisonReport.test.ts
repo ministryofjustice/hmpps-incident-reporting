@@ -353,7 +353,7 @@ describe('Actioning prison reports', () => {
         .expect(res => {
           expect(res.text).toContain('On hold')
           expect(res.text).toContain(
-            'A data warden has placed this report on hold, if you need to make an update contact (email address)',
+            'If you need to add further information to the report, you must contact the Operations Hub by email at <a href="mailto:hubnationaloperation@justice.gov.uk">hubnationaloperation@justice.gov.uk</a>',
           )
           expect(res.text).not.toContain('app-view-report__user-action-form')
           expect(res.text).not.toContain('Continue')

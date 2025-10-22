@@ -149,7 +149,7 @@ export const prisonReportTransitions: Transitions = {
         comment: 'required', // TODO: maybe this should be optional?
         commentLabel: 'Describe why the report is being put on hold',
         commentMissingError: 'Add information to explain why you’re putting the report on hold',
-        successBanner: 'Incident report $reportReference is now on hold',
+        successBanner: 'Incident report $reportReference has been put on hold',
       },
       MARK_DUPLICATE: {
         newStatus: 'DUPLICATE',
@@ -222,7 +222,7 @@ export const prisonReportTransitions: Transitions = {
         comment: 'required', // TODO: maybe this should be optional?
         commentLabel: 'Describe why the report is being put on hold',
         commentMissingError: 'Add information to explain why you’re putting the report on hold',
-        successBanner: 'Incident report $reportReference is now on hold',
+        successBanner: 'Incident report $reportReference has been put on hold',
       },
       MARK_DUPLICATE: {
         newStatus: 'DUPLICATE',

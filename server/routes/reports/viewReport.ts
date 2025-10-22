@@ -242,7 +242,14 @@ export function viewReportRouter(): Router {
               )
               const { successBanner } = transition
               if (successBanner) {
-                req.flash('success', { title: successBanner.replace('$reportReference', report.reportReference) })
+                if (userAction === 'HOLD') {
+                  req.flash('success', {
+                    title: successBanner.replace('$reportReference', report.reportReference),
+                    content: 'on_hold_banner',
+                  })
+                } else {
+                  req.flash('success', { title: successBanner.replace('$reportReference', report.reportReference) })
+                }
               }
 
               if (userAction === 'RECALL') {

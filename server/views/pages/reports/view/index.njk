@@ -39,13 +39,15 @@
 
 {% block content %}
   {% if permissions.userType == "REPORTING_OFFICER" and report.status == "ON_HOLD" %}
-    {# TODO: replace with link to actual email address #}
+    {% set bannerHtml %}
+      If you need to add further information to the report, you must contact the Operations Hub by email at <a href="mailto:hubnationaloperation@justice.gov.uk">hubnationaloperation@justice.gov.uk</a>
+    {% endset%}
     {{ mojAlert({
       variant: "information",
       title: "On hold",
       showTitleAsHeading: true,
       dismissible: false,
-      html: "A data warden has placed this report on hold, if you need to make an update contact (email address)"
+      html: bannerHtml
     }) }}
   {% endif %}
 

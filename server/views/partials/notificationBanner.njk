@@ -11,11 +11,7 @@
         {% endif %}
         {% if banner.content %}
           <p class="govuk-body">
-            {% if banner.content == "on_hold_banner" %}
-              If you need to add further information to the report, you must contact the Operations Hub by email at <a href="mailto:hubnationaloperation@justice.gov.uk">hubnationaloperation@justice.gov.uk</a>
-            {% else %}
-              {{ banner.content }}
-            {% endif %}
+            {{ banner.content }}
           </p>
         {% endif %}
       {% endset %}

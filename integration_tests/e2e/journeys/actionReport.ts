@@ -30,7 +30,7 @@ export function actionTestCase({
   originalReportReference?: string
   /** Reference sent to api if different from that entered by user */
   originalReportReferenceSentToApi?: string
-  banner: string | string[]
+  banner: string
 }) {
   const reportPage = Page.verifyOnPage(ReportPage, reportWithDetails.reportReference, reportInToDoWorkList)
   reportPage.selectAction(actionLabel)
@@ -71,9 +71,5 @@ export function actionTestCase({
   reportPage.continueButton.click()
 
   const dashboardPage = Page.verifyOnPage(DashboardPage)
-  if (Array.isArray(banner)) {
-    banner.forEach(bannerText => dashboardPage.checkNotificationBannerContent(bannerText))
-  } else {
-    dashboardPage.checkNotificationBannerContent(banner)
-  }
+  dashboardPage.checkNotificationBannerContent(banner)
 }

@@ -86,7 +86,7 @@ describe('Actioning submitted prison reports', () => {
               userAction: 'HOLD',
               newStatus: 'ON_HOLD',
               comment: 'Checking policy…',
-              banner: 'Incident report 6544 is now on hold',
+              banner: 'Incident report 6544 has been put on hold',
             })
           })
         }

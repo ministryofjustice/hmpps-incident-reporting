@@ -1,7 +1,7 @@
 generic-service:
   ingress:
     host: incident-reporting.hmpps.service.justice.gov.uk
-    modsecurity_enabled: false
+    modsecurity_audit_enabled: true
 
   scheduledDowntime:
     enabled: false

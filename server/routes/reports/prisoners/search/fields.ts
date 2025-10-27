@@ -3,6 +3,7 @@ import type FormWizard from 'hmpo-form-wizard'
 export const fields = {
   q: {
     label: 'Name or prison number',
+    hint: 'If searching by name, enter last name and then first name. For example, Smith John.',
     component: 'govukInput',
     validate: ['required'],
   },

@@ -51,6 +51,6 @@
 
 {% block bodyEnd %}
   {% block pageJavascript %}
-    <script type="module" src="{{ "/assets/js/application.js" | assetMap }}"></script>
+    <script nonce="{{ cspNonce }}" type="module" src="{{ "/assets/js/application.js" | assetMap }}"></script>
   {% endblock %}
 {% endblock %}

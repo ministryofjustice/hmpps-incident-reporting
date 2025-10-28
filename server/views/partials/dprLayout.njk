@@ -29,5 +29,5 @@
 {% endblock %}
 
 {% block pageJavascript %}
-  <script type="module" src="{{ "/assets/js/dpr.js" | assetMap }}"></script>
+  <script nonce="{{ cspNonce }}" type="module" src="{{ "/assets/js/dpr.js" | assetMap }}"></script>
 {% endblock %}

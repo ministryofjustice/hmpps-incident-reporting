@@ -1,0 +1,22 @@
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+
+{% macro feedbackMessage() %}
+  This is a new service.
+  <a target="_blank" href="{{ feedbackUrl }}" aria-label="This is a new service. Give feedback to help us improve it">
+    Give feedback
+  </a>
+  to help us improve it.
+{% endmacro %}
+
+{% block feedbackBanner %}
+  {% if feedbackUrl %}
+    <div class="govuk-width-container">
+      {{ govukPhaseBanner({
+        tag: {
+          text: "Beta"
+        },
+        html: feedbackMessage()
+      }) }}
+    </div>
+  {% endif %}
+{% endblock feedbackBanner %}

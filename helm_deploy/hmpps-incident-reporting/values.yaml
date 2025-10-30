@@ -69,6 +69,7 @@ generic-service:
 
   namespace_secrets:
     hmpps-incident-reporting:
+      FEEDBACK_URL: "FEEDBACK_URL"
       GOOGLE_ANALYTICS_MEASUREMENT_ID: "GOOGLE_ANALYTICS_MEASUREMENT_ID"
     hmpps-incident-reporting-application-insights:
       APPLICATIONINSIGHTS_CONNECTION_STRING: "APPLICATIONINSIGHTS_CONNECTION_STRING"

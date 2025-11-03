@@ -6,7 +6,7 @@
     {{ renderDescriptions(report, usersLookup) }}
   {% endset %}
 {% else %}
-  {% set descriptionHtml = report.description | escape | nl2br %}
+  {% set descriptionHtml = report.description | trim | escape | nl2br %}
 {% endif %}
 
 {% if descriptionAppendOnly %}

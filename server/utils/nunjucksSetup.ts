@@ -44,6 +44,7 @@ export default function nunjucksSetup(app: express.Express): void {
   app.locals.authUrl = config.apis.hmppsAuth.externalUrl
   app.locals.dpsUrl = config.dpsUrl
   app.locals.supportUrl = config.supportUrl
+  app.locals.feedbackUrl = config.feedbackUrl
 
   app.locals.googleAnalyticsMeasurementId = config.googleAnalyticsMeasurementId
 

@@ -24,28 +24,34 @@ generic-service:
       SecAuditLog /var/log/nginx/error.log
       SecAuditLogType Serial
       {{ end -}}
-      SecRuleRemoveById 920320
-      SecRuleRemoveById 920300
-      SecRuleRemoveById 920440
-      SecRuleRemoveById 942110
-      SecRuleRemoveById 913101
-      SecRuleUpdateTargetById 931130 "!ARGS:/redirect_uri/"
-      SecRuleUpdateTargetById 942440 "!REQUEST_COOKIES:/jwtSession/"
-      SecRuleUpdateTargetById 942450 "!REQUEST_COOKIES:/jwtSession/"
-      SecRuleUpdateTargetById 930120 "!REQUEST_COOKIES:/jwtSession/"
-      SecRuleUpdateTargetById 942210 "!REQUEST_COOKIES:/jwtSession/"
-      SecRuleUpdateTargetById 920450 "!REQUEST_HEADERS_NAMES:/accept-charset/"
-      SecRuleUpdateTargetById 933150 "!REQUEST_COOKIES:/jwtSession/"
-      SecAction "id:900200,phase:1,nolog,pass,t:none,setvar:tx.allowed_methods=GET HEAD PATCH POST OPTIONS PUT DELETE"
-      SecDefaultAction "phase:2,pass,log,tag:github_team=hmpps-incident-reporting"
-      SecRule REQUEST_METHOD "POST" \
-        "id:10000, \
-        phase:2, \
-        t:none, \
-        ctl:ruleRemoveById=949110, \
-        nolog, \
-        pass"
-      SecDefaultAction "phase:4,pass,log,tag:github_team=hmpps-incident-reporting"
+      # team here grants access to the OpenSearch logs to delve into the cause of the blockage
+      SecDefaultAction "phase:2,pass,log,tag:github_team=hmpps-incident-reporting,tag:namespace={{ .Release.Namespace }}"
+      # Default is only GET HEAD POST OPTIONS so need to include PUT etc.
+      SecAction "id:900200,phase:1,nolog,pass,t:none,setvar:tx.allowed_methods=GET HEAD POST OPTIONS PUT PATCH DELETE"
+      # attack-protocol is 921 range
+      SecRuleUpdateTargetByTag "attack-protocol" "!ARGS:/.*comment/"
+      SecRuleUpdateTargetByTag "attack-protocol" "!ARGS:/.*description/"
+      SecRuleUpdateTargetById 930100 "!ARGS:/.*comment/"
+      SecRuleUpdateTargetById 930100 "!ARGS:/.*description/"
+      SecRuleUpdateTargetById 930110 "!ARGS:/.*comment/"
+      SecRuleUpdateTargetById 930110 "!ARGS:/.*description/"
+      # attack-rce is 932 range
+      SecRuleUpdateTargetByTag "attack-rce" "!ARGS:/.*comment/"
+      SecRuleUpdateTargetByTag "attack-rce" "!ARGS:/.*description/"
+      # attack-injection-php is 933 range
+      SecRuleUpdateTargetByTag "attack-injection-php" "!ARGS:/.*comment/"
+      SecRuleUpdateTargetByTag "attack-injection-php" "!ARGS:/.*description/"
+      SecRuleUpdateTargetById 933210 "!ARGS:/.*description/"
+      # attack-xss is 941 range
+      SecRuleUpdateTargetByTag "attack-xss" "!ARGS:/.*comment/"
+      SecRuleUpdateTargetByTag "attack-xss" "!ARGS:/.*description/"
+      # attack-sqli is 942 range
+      SecRuleUpdateTargetByTag "attack-sqli" "!ARGS:/.*comment/"
+      SecRuleUpdateTargetByTag "attack-sqli" "!ARGS:/.*description/"
+      SecRuleUpdateTargetById 942100 "!ARGS:/.*description/"
+      SecRuleUpdateTargetById 942130 "!ARGS:/.*description/"
+      SecRuleUpdateTargetById 942230 "!ARGS:/.*description/"
+      SecRuleUpdateActionById 949110 "t:none,deny,status:406,logdata:%{SERVER_NAME}"
       SecRuleUpdateActionById 959100 "t:none,deny,status:406,logdata:%{SERVER_NAME}"
 
   livenessProbe:

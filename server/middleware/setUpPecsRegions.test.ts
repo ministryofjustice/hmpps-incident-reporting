@@ -4,8 +4,8 @@ import { AuthenticationClient } from '@ministryofjustice/hmpps-auth-clients'
 import { AgencyType, PrisonApi } from '../data/prisonApi'
 import { type PecsRegion, pecsRegions } from '../data/pecsRegions'
 import { mockErrorResponse } from '../data/testData/incidentReporting'
-import { pecsNorthRegion, pecsSouthRegion } from '../data/testData/pecsRegions'
-import { pecsNorth, pecsSouth } from '../data/testData/prisonApi'
+import { nouRegion, pecsNorthRegion, pecsSouthRegion } from '../data/testData/pecsRegions'
+import { pecsNorth, pecsNou, pecsSouth } from '../data/testData/prisonApi'
 import { mockThrownError } from '../data/testData/thrownErrors'
 import type { Services } from '../services'
 import setUpPecsRegions from './setUpPecsRegions'
@@ -32,6 +32,7 @@ describe('Loading PECS regions', () => {
     prisonApi.getPecsRegions.mockResolvedValueOnce({
       [pecsNorth.agencyId]: pecsNorth,
       [pecsSouth.agencyId]: pecsSouth,
+      [pecsNou.agencyId]: pecsNou,
     })
   })
 
@@ -49,7 +50,7 @@ describe('Loading PECS regions', () => {
     middleware(req, res, (...nextArgs) => {
       expect(nextArgs).toHaveLength(0) // next function called with no args
       expect(prisonApi.getPecsRegions).toHaveBeenCalledWith(false)
-      expect(pecsRegions).toEqual([pecsNorthRegion, pecsSouthRegion])
+      expect(pecsRegions).toEqual([pecsNorthRegion, pecsSouthRegion, nouRegion])
 
       done()
     })

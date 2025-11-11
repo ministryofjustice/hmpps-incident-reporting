@@ -18,7 +18,7 @@ export function isPecsRegionCode(code: string): boolean {
 }
 
 export function getActivePecsRegions(): PecsRegion[] {
-  return pecsRegions.filter(region => region.active)
+  return pecsRegions.filter(region => region.active && region.code !== 'NOU')
 }
 
 export function fromAgency(agency: Agency): PecsRegion {

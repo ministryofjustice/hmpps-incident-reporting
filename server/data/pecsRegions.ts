@@ -26,6 +26,6 @@ export function fromAgency(agency: Agency): PecsRegion {
   return {
     code: agency.agencyId,
     description: agency.description,
-    active: agency.active,
+    active: agency.agencyId !== 'NOU' ? agency.active : false,
   }
 }

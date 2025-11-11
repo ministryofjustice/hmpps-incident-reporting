@@ -4,7 +4,7 @@
     <br />
     <small class="govuk-!-font-size-16">{{ date | longDateAndTime }}</small>
     <p>
-      {{ text | escape | nl2br }}
+      {{ text | trim | escape | nl2br }}
     </p>
   </li>
 {% endmacro %}

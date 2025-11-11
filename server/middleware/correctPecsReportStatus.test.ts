@@ -8,12 +8,19 @@ import { now } from '../testutils/fakeClock'
 import type { Status } from '../reportConfiguration/constants'
 import { Permissions } from './permissions'
 import { correctPecsReportStatus } from './correctPecsReportStatus'
+import { setActiveAgencies } from '../data/activeAgencies'
+
+const pecsCodes = ['NORTH', 'SOUTH']
 
 describe('Middleware to auto-correct PECS report statuses', () => {
   const report = convertReportDates(mockReport({ reportReference: '6543', reportDateAndTime: now }))
 
   beforeAll(() => {
     mockPecsRegions()
+  })
+
+  beforeEach(() => {
+    setActiveAgencies([...pecsCodes])
   })
 
   function makeMockRequest(
@@ -81,6 +88,17 @@ describe('Middleware to auto-correct PECS report statuses', () => {
     expect(res.redirect).toHaveBeenCalledWith('/some/path')
     expect(next).not.toHaveBeenCalled()
   })
+
+  it.each([{ status: 'AWAITING_REVIEW' }] as const)(
+    'should not correct a $status PECS report when not managed by service',
+    async ({ status }) => {
+      const { req, res, next } = makeMockRequest(mockDataWarden, 'NOU', status)
+      await correctPecsReportStatus()(req, res, next)
+
+      expect(res.locals.apis.incidentReportingApi.changeReportStatus).not.toHaveBeenCalled()
+      expect(next).toHaveBeenCalled()
+    },
+  )
 
   it.each(['report', 'permissions'] as const)('should fail if %s local is not supplied', async property => {
     const { req, res, next } = makeMockRequest(mockDataWarden, 'NORTH', 'AWAITING_REVIEW')

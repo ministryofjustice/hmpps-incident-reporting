@@ -42,42 +42,6 @@ export default {
     }),
 
   /**
-   * Stub searching for a prisoner in a prison
-   */
-  stubOffenderSearchInPrison: ({
-    prisonId,
-    term,
-    results,
-    page = 0,
-    totalElements = undefined,
-  }: {
-    prisonId: string
-    term: string
-    results: OffenderSearchResult[]
-    page: number
-    totalElements: number | undefined
-  }): SuperAgentRequest =>
-    stubFor({
-      request: {
-        method: 'GET',
-        urlPath: `/offenderSearchApi/prison/${encodeURIComponent(prisonId)}/prisoners`,
-        queryParameters: {
-          term: { equalTo: term },
-          page: { equalTo: page.toString() },
-          size: { equalTo: OffenderSearchApi.PAGE_SIZE.toString() },
-        },
-      },
-      response: {
-        status: 200,
-        headers: { 'Content-Type': 'application/json;charset=UTF-8' },
-        jsonBody: {
-          content: results,
-          totalElements: totalElements ?? results.length,
-        },
-      },
-    }),
-
-  /**
    * Stub searching for a prisoner globally
    * NB: stub supports only searching by prisoner number
    */

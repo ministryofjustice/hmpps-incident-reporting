@@ -84,7 +84,10 @@ export class PrisonerSearchController extends GetBaseController<Values> {
 
     try {
       if (global === 'yes') {
-        searchResults = await offenderSearchApi.searchGlobally(this.globalSearchFilters(q, userCaseloadIds), page - 1)
+        searchResults = await offenderSearchApi.searchGlobally(
+          this.globalSearchFilters(q, [...userCaseloadIds, 'OUT', 'TRN']),
+          page - 1,
+        )
       } else {
         searchResults = await offenderSearchApi.searchGlobally(
           this.globalSearchFilters(q, [activeCaseload.caseLoadId]),

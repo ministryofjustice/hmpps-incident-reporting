@@ -95,20 +95,21 @@
           {html: link, classes: "govuk-!-text-align-right"}
         ]) %}
       {% endfor %}
-
-      {{ govukTable({
-        classes: "app-involvement-search-results govuk-!-margin-top-4",
-        caption: "Staff search results",
-        captionClasses: "govuk-visually-hidden",
-        head: [
-          {text: "Name"},
-          {text: "Location"},
-          {text: "User ID"},
-          {text: "Email address"},
-          {text: "Action", classes: "govuk-!-text-align-right"}
-        ],
-        rows: tableRows
-      }) }}
+      <div class="moj-scrollable-pane">
+        {{ govukTable({
+          classes: "app-involvement-search-results govuk-!-margin-top-4",
+          caption: "Staff search results",
+          captionClasses: "govuk-visually-hidden",
+          head: [
+            {text: "Name"},
+            {text: "Location"},
+            {text: "User ID"},
+            {text: "Email address"},
+            {text: "Action", classes: "govuk-!-text-align-right"}
+          ],
+          rows: tableRows
+        }) }}
+      </div>
 
       {{ mojPagination(paginationParams) }}
     {% endif %}

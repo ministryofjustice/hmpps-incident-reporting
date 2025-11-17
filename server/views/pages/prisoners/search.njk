@@ -125,21 +125,22 @@
           {html: link}
         ]) %}
       {% endfor %}
-
-      {{ govukTable({
-        classes: "app-involvement-search-results govuk-!-margin-top-4",
-        caption: "Prisoner search results",
-        captionClasses: "govuk-visually-hidden",
-        head: [
-          {text: "Photo"},
-          {text: "Name"},
-          {text: "Prison number"},
-          {text: "Age"},
-          {text: "Establishment"},
-          {text: "Action"}
-        ],
-        rows: tableRows
-      }) }}
+      <div class="moj-scrollable-pane">
+        {{ govukTable({
+          classes: "app-involvement-search-results govuk-!-margin-top-4",
+          caption: "Prisoner search results",
+          captionClasses: "govuk-visually-hidden",
+          head: [
+            {text: "Photo"},
+            {text: "Name"},
+            {text: "Prison number"},
+            {text: "Age"},
+            {text: "Establishment"},
+            {text: "Action"}
+          ],
+          rows: tableRows
+        }) }}
+      </div>
 
       {{ mojPagination(paginationParams) }}
 

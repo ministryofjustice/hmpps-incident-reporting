@@ -42,56 +42,20 @@ export default {
     }),
 
   /**
-   * Stub searching for a prisoner in a prison
-   */
-  stubOffenderSearchInPrison: ({
-    prisonId,
-    term,
-    results,
-    page = 0,
-    totalElements = undefined,
-  }: {
-    prisonId: string
-    term: string
-    results: OffenderSearchResult[]
-    page: number
-    totalElements: number | undefined
-  }): SuperAgentRequest =>
-    stubFor({
-      request: {
-        method: 'GET',
-        urlPath: `/offenderSearchApi/prison/${encodeURIComponent(prisonId)}/prisoners`,
-        queryParameters: {
-          term: { equalTo: term },
-          page: { equalTo: page.toString() },
-          size: { equalTo: OffenderSearchApi.PAGE_SIZE.toString() },
-        },
-      },
-      response: {
-        status: 200,
-        headers: { 'Content-Type': 'application/json;charset=UTF-8' },
-        jsonBody: {
-          content: results,
-          totalElements: totalElements ?? results.length,
-        },
-      },
-    }),
-
-  /**
    * Stub searching for a prisoner globally
    * NB: stub supports only searching by prisoner number
    */
   stubOffenderSearchGlobally: ({
-    prisonerIdentifier,
-    location = 'ALL',
-    includeAliases = true,
+    andWords,
+    prisonIds,
+    fuzzyMatch = true,
     results,
     page = 0,
     totalElements = undefined,
   }: {
-    prisonerIdentifier: string
-    location: 'ALL' | 'IN' | 'OUT'
-    includeAliases: boolean
+    andWords: string
+    fuzzyMatch: boolean
+    prisonIds: string[]
     results: OffenderSearchResult[]
     page: number
     totalElements: number | undefined
@@ -99,7 +63,7 @@ export default {
     stubFor({
       request: {
         method: 'POST',
-        urlPath: '/offenderSearchApi/global-search',
+        urlPath: '/offenderSearchApi/keyword',
         queryParameters: {
           page: { equalTo: page.toString() },
           size: { equalTo: OffenderSearchApi.PAGE_SIZE.toString() },
@@ -107,9 +71,9 @@ export default {
         bodyPatterns: [
           {
             equalToJson: {
-              prisonerIdentifier,
-              location,
-              includeAliases,
+              andWords,
+              prisonIds,
+              fuzzyMatch,
             },
           },
         ],

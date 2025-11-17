@@ -98,54 +98,20 @@ export class OffenderSearchApi extends RestClient {
   }
 
   /**
-   * Search for people in a given prison using a search term (which works with names and prisoner numbers)
-   */
-  searchInPrison(
-    prisonId: string,
-    term: string,
-    page: number = 0,
-    sort: Sort = 'lastName',
-    order: Order = 'ASC',
-  ): Promise<OffenderSearchResults> {
-    return this.get<OffenderSearchResults>(
-      {
-        path: `/prison/${encodeURIComponent(prisonId)}/prisoners`,
-        query: {
-          term,
-          size: OffenderSearchApi.PAGE_SIZE,
-          page,
-          sort: `${sort},${order}`,
-        },
-      },
-      asSystem(),
-    )
-  }
-
-  /**
    * Search for people globally using a search term (which works with names and prisoner numbers)
    * NB: global search does not support sorting
    */
   searchGlobally(
     filters: {
-      prisonerIdentifier?: string
-      firstName?: string
-      lastName?: string
-      location?: 'ALL' | 'IN' | 'OUT'
-      includeAliases?: boolean
+      andWords?: string
+      fuzzyMatch: boolean
+      prisonIds: string[]
     },
     page: number = 0,
   ): Promise<OffenderSearchResults> {
-    if (!('location' in filters)) {
-      // eslint-disable-next-line no-param-reassign
-      filters.location = 'ALL'
-    }
-    if (!('includeAliases' in filters)) {
-      // eslint-disable-next-line no-param-reassign
-      filters.includeAliases = true
-    }
     return this.post<OffenderSearchResults>(
       {
-        path: '/global-search',
+        path: '/keyword',
         query: {
           size: OffenderSearchApi.PAGE_SIZE,
           page: encodeURIComponent(page),

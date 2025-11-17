@@ -105,7 +105,7 @@ context('Prisoner search page', () => {
   context('when searching globally', () => {
     context('and nobody was found', () => {
       beforeEach(() => {
-        cy.task('stubOffenderSearchGlobally', { prisonerIdentifier: 'A1111', results: [] })
+        cy.task('stubOffenderSearchGlobally', { andWords: 'A1111', results: [] })
 
         cy.visit(`/reports/${reportWithDetails.id}/prisoners/search?page=1&global=yes&q=A1111`)
         prisonerSearchPage = Page.verifyOnPage(PrisonerSearchPage)
@@ -122,7 +122,7 @@ context('Prisoner search page', () => {
 
     context('and results were returned', () => {
       beforeEach(() => {
-        cy.task('stubOffenderSearchGlobally', { prisonerIdentifier: 'A1111', results: [andrew] })
+        cy.task('stubOffenderSearchGlobally', { andWords: 'A1111', results: [andrew] })
         cy.task('stubPrisonApiMockPrisonerPhoto', andrew.prisonerNumber)
 
         cy.visit(`/reports/${reportWithDetails.id}/prisoners/search?page=1&global=yes&q=A1111`)

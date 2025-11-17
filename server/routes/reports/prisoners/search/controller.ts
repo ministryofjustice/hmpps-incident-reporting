@@ -63,7 +63,7 @@ export class PrisonerSearchController extends GetBaseController<Values> {
     super.render(req, res, next)
 
     if (res.locals.searchResults) {
-      // clear session after rendering page since search was successfully performed and session would leak otherwise
+      // clear session after rendering the page since search was successfully performed and the session would leak otherwise
       req.journeyModel.reset()
     }
   }
@@ -78,12 +78,18 @@ export class PrisonerSearchController extends GetBaseController<Values> {
 
     const { offenderSearchApi } = res.locals.apis
     let searchResults: OffenderSearchResults
+    // label local search with active caseload
+    const { activeCaseLoad: activeCaseload, caseLoads: userCaseloads } = res.locals.user
+    const userCaseloadIds = userCaseloads.map(caseload => caseload.caseLoadId)
+
     try {
       if (global === 'yes') {
-        searchResults = await offenderSearchApi.searchGlobally(this.globalSearchFilters(q), page - 1)
+        searchResults = await offenderSearchApi.searchGlobally(this.globalSearchFilters(q, userCaseloadIds), page - 1)
       } else {
-        const activeCaseload = res.locals.user.activeCaseLoad
-        searchResults = await offenderSearchApi.searchInPrison(activeCaseload.caseLoadId, q, page - 1)
+        searchResults = await offenderSearchApi.searchGlobally(
+          this.globalSearchFilters(q, [activeCaseload.caseLoadId]),
+          page - 1,
+        )
       }
       res.locals.searchResults = searchResults
     } catch (e) {
@@ -125,24 +131,11 @@ export class PrisonerSearchController extends GetBaseController<Values> {
     next()
   }
 
-  private globalSearchFilters(q: string): OffenderSearchFilters {
-    const filters: OffenderSearchFilters = {
-      location: 'ALL',
-      includeAliases: true,
+  private globalSearchFilters(keywords: string, prisonIds: string[]): OffenderSearchFilters {
+    return {
+      andWords: keywords,
+      prisonIds,
+      fuzzyMatch: true,
     }
-
-    if (/\d/.test(q)) {
-      // DPS global search assumes the whole query is a prisoner identifier if it contains numbers
-      filters.prisonerIdentifier = q.toUpperCase()
-    } else {
-      // DPS global search assumes that up to 2 words are entered, being the last and first name in that order
-      const [lastName, firstName] = q.split(' ')
-      filters.lastName = lastName
-      if (firstName?.length) {
-        filters.firstName = firstName
-      }
-    }
-
-    return filters
   }
 }

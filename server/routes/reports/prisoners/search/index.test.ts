@@ -64,7 +64,6 @@ describe('Searching for a prisoner to add to a report', () => {
       .expect(res => {
         expect(res.text).toContain('Page not found')
 
-        expect(offenderSearchApi.searchInPrison).not.toHaveBeenCalled()
         expect(offenderSearchApi.searchGlobally).not.toHaveBeenCalled()
       })
   })
@@ -79,7 +78,6 @@ describe('Searching for a prisoner to add to a report', () => {
         expect(res.text).toContain('Search for a prisoner')
         expect(res.text).toContain('In Moorland')
 
-        expect(offenderSearchApi.searchInPrison).not.toHaveBeenCalled()
         expect(offenderSearchApi.searchGlobally).not.toHaveBeenCalled()
       })
   })
@@ -111,7 +109,6 @@ describe('Searching for a prisoner to add to a report', () => {
         expect(res.text).toContain('There is a problem')
         expect(res.text).toContain(expectedError)
 
-        expect(offenderSearchApi.searchInPrison).not.toHaveBeenCalled()
         expect(offenderSearchApi.searchGlobally).not.toHaveBeenCalled()
       })
   })
@@ -120,26 +117,26 @@ describe('Searching for a prisoner to add to a report', () => {
     {
       scenario: 'on submission',
       validPayload: { q: 'John', global: 'no', page: '1' },
-      expectedCall: ['MDI', 'John', 0],
+      expectedCall: [{ andWords: 'John', fuzzyMatch: true, prisonIds: ['MDI'] }, 0],
     },
     {
       scenario: 'on another page',
       validPayload: { q: 'Smith', global: 'no', page: '2' },
-      expectedCall: ['MDI', 'Smith', 1],
+      expectedCall: [{ andWords: 'Smith', fuzzyMatch: true, prisonIds: ['MDI'] }, 1],
     },
     {
       scenario: 'ignoring missing location switch',
       validPayload: { q: 'A1234AA', page: '1' },
-      expectedCall: ['MDI', 'A1234AA', 0],
+      expectedCall: [{ andWords: 'A1234AA', fuzzyMatch: true, prisonIds: ['MDI'] }, 0],
     },
     {
       scenario: 'ignoring missing page',
       validPayload: { q: 'Barry', global: 'no' },
-      expectedCall: ['MDI', 'Barry', 0],
+      expectedCall: [{ andWords: 'Barry', fuzzyMatch: true, prisonIds: ['MDI'] }, 0],
     },
   ])('should search in active caseload prison $scenario', ({ validPayload, expectedCall }) => {
     // mock no results as this test is concerned with api call, table contents tested separately
-    offenderSearchApi.searchInPrison.mockResolvedValueOnce({
+    offenderSearchApi.searchGlobally.mockResolvedValueOnce({
       content: [],
       totalElements: 0,
     })
@@ -154,8 +151,7 @@ describe('Searching for a prisoner to add to a report', () => {
         expect(res.text).not.toContain('There is a problem')
         expect(res.text).toContain(`0 results found for “${validPayload.q}”.`)
 
-        expect(offenderSearchApi.searchInPrison).toHaveBeenCalledWith(...expectedCall)
-        expect(offenderSearchApi.searchGlobally).not.toHaveBeenCalled()
+        expect(offenderSearchApi.searchGlobally).toHaveBeenCalledWith(...expectedCall)
       })
   })
 
@@ -165,9 +161,9 @@ describe('Searching for a prisoner to add to a report', () => {
       validPayload: { q: 'Smith', global: 'yes', page: '1' },
       expectedCall: [
         {
-          lastName: 'Smith',
-          location: 'ALL',
-          includeAliases: true,
+          andWords: 'Smith',
+          fuzzyMatch: true,
+          prisonIds: ['MDI'],
         },
         0,
       ],
@@ -177,9 +173,9 @@ describe('Searching for a prisoner to add to a report', () => {
       validPayload: { q: 'Smith', global: 'yes', page: '2' },
       expectedCall: [
         {
-          lastName: 'Smith',
-          location: 'ALL',
-          includeAliases: true,
+          andWords: 'Smith',
+          fuzzyMatch: true,
+          prisonIds: ['MDI'],
         },
         1,
       ],
@@ -189,9 +185,9 @@ describe('Searching for a prisoner to add to a report', () => {
       validPayload: { q: 'Smith', global: 'yes' },
       expectedCall: [
         {
-          lastName: 'Smith',
-          location: 'ALL',
-          includeAliases: true,
+          andWords: 'Smith',
+          fuzzyMatch: true,
+          prisonIds: ['MDI'],
         },
         0,
       ],
@@ -202,9 +198,9 @@ describe('Searching for a prisoner to add to a report', () => {
       validPayload: { q: 'a1234ab', global: 'yes', page: '1' },
       expectedCall: [
         {
-          prisonerIdentifier: 'A1234AB',
-          location: 'ALL',
-          includeAliases: true,
+          andWords: 'a1234ab',
+          fuzzyMatch: true,
+          prisonIds: ['MDI'],
         },
         0,
       ],
@@ -215,10 +211,9 @@ describe('Searching for a prisoner to add to a report', () => {
       validPayload: { q: 'Smith John', global: 'yes', page: '1' },
       expectedCall: [
         {
-          firstName: 'John',
-          lastName: 'Smith',
-          location: 'ALL',
-          includeAliases: true,
+          andWords: 'Smith John',
+          fuzzyMatch: true,
+          prisonIds: ['MDI'],
         },
         0,
       ],
@@ -228,10 +223,9 @@ describe('Searching for a prisoner to add to a report', () => {
       validPayload: { q: 'Arnold Andrew Moorland', global: 'yes', page: '1' },
       expectedCall: [
         {
-          firstName: 'Andrew',
-          lastName: 'Arnold',
-          location: 'ALL',
-          includeAliases: true,
+          andWords: 'Arnold Andrew Moorland',
+          fuzzyMatch: true,
+          prisonIds: ['MDI'],
         },
         0,
       ],
@@ -241,9 +235,9 @@ describe('Searching for a prisoner to add to a report', () => {
       validPayload: { q: 'Arnold a1111aa', global: 'yes', page: '1' },
       expectedCall: [
         {
-          prisonerIdentifier: 'ARNOLD A1111AA',
-          location: 'ALL',
-          includeAliases: true,
+          andWords: 'Arnold a1111aa',
+          fuzzyMatch: true,
+          prisonIds: ['MDI'],
         },
         0,
       ],
@@ -265,7 +259,6 @@ describe('Searching for a prisoner to add to a report', () => {
         expect(res.text).not.toContain('There is a problem')
         expect(res.text).toContain(`0 results found for “${validPayload.q}”.`)
 
-        expect(offenderSearchApi.searchInPrison).not.toHaveBeenCalled()
         expect(offenderSearchApi.searchGlobally).toHaveBeenCalledWith(...expectedCall)
       })
   })
@@ -287,11 +280,7 @@ describe('Searching for a prisoner to add to a report', () => {
         content: [andrew, barry, chris, donald, ernie, fred],
         totalElements: 6,
       }
-      if (global) {
-        offenderSearchApi.searchGlobally.mockResolvedValueOnce(results)
-      } else {
-        offenderSearchApi.searchInPrison.mockResolvedValueOnce(results)
-      }
+      offenderSearchApi.searchGlobally.mockResolvedValueOnce(results)
     })
 
     // TODO: fakeClock() seems to prevent tests from running so age assertions need to be done in integration tests
@@ -380,22 +369,6 @@ describe('Searching for a prisoner to add to a report', () => {
           expect(res.headers.location).toContain('&page=2')
         })
     })
-  })
-
-  it('should show an error if API rejects local request', () => {
-    const error = mockThrownError(mockErrorResponse({ message: 'Query is too long' }))
-    offenderSearchApi.searchInPrison.mockRejectedValueOnce(error)
-
-    return request(app)
-      .get(searchPageUrl())
-      .query({ q: 'John', global: 'no', page: '1' })
-      .expect(200)
-      .expect(res => {
-        expect(res.text).toContain('There is a problem')
-        expect(res.text).toContain('Sorry, there was a problem with your request')
-        expect(res.text).not.toContain('Bad Request')
-        expect(res.text).not.toContain('Query is too long')
-      })
   })
 
   it('should show an error if API rejects global request', () => {

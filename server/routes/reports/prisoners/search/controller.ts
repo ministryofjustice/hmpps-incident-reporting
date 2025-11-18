@@ -80,14 +80,10 @@ export class PrisonerSearchController extends GetBaseController<Values> {
     let searchResults: OffenderSearchResults
     // label local search with active caseload
     const { activeCaseLoad: activeCaseload, caseLoads: userCaseloads } = res.locals.user
-    const userCaseloadIds = userCaseloads.map(caseload => caseload.caseLoadId)
 
     try {
       if (global === 'yes') {
-        searchResults = await offenderSearchApi.searchGlobally(
-          this.globalSearchFilters(q, [...userCaseloadIds, 'OUT', 'TRN']),
-          page - 1,
-        )
+        searchResults = await offenderSearchApi.searchGlobally(this.globalSearchFilters(q), page - 1)
       } else {
         searchResults = await offenderSearchApi.searchGlobally(
           this.globalSearchFilters(q, [activeCaseload.caseLoadId]),
@@ -134,7 +130,7 @@ export class PrisonerSearchController extends GetBaseController<Values> {
     next()
   }
 
-  private globalSearchFilters(keywords: string, prisonIds: string[]): OffenderSearchFilters {
+  private globalSearchFilters(keywords: string, prisonIds: string[] = null): OffenderSearchFilters {
     return {
       andWords: keywords,
       prisonIds,

@@ -60,6 +60,13 @@ export const types = [
     active: true,
     nomisCode: 'DEATH_NI',
   },
+  {
+    familyCode: 'DIRTY_PROTEST',
+    code: 'DIRTY_PROTEST_1',
+    description: 'Dirty protest',
+    active: false,
+    nomisCode: 'DIRTYPROTEST',
+  },
   { familyCode: 'DISORDER', code: 'DISORDER_1', description: 'Disorder', active: false, nomisCode: 'DISORDER' },
   { familyCode: 'DISORDER', code: 'DISORDER_2', description: 'Disorder', active: true, nomisCode: 'DISORDER1' },
   {
@@ -231,6 +238,7 @@ export const typesDescriptions: Record<Type, string> = {
   DAMAGE_1: 'Deliberate damage',
   DEATH_PRISONER_1: 'Death of prisoner',
   DEATH_OTHER_1: 'Death of other person',
+  DIRTY_PROTEST_1: 'Dirty protest',
   DISORDER_1: 'Disorder',
   DISORDER_2: 'Disorder',
   DRONE_SIGHTING_1: 'Drone sighting',

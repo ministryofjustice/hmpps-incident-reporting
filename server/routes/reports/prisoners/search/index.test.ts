@@ -163,7 +163,7 @@ describe('Searching for a prisoner to add to a report', () => {
         {
           andWords: 'Smith',
           fuzzyMatch: true,
-          prisonIds: ['MDI', 'OUT', 'TRN'],
+          prisonIds: null,
         },
         0,
       ],
@@ -175,7 +175,7 @@ describe('Searching for a prisoner to add to a report', () => {
         {
           andWords: 'Smith',
           fuzzyMatch: true,
-          prisonIds: ['MDI', 'OUT', 'TRN'],
+          prisonIds: null,
         },
         1,
       ],
@@ -187,7 +187,7 @@ describe('Searching for a prisoner to add to a report', () => {
         {
           andWords: 'Smith',
           fuzzyMatch: true,
-          prisonIds: ['MDI', 'OUT', 'TRN'],
+          prisonIds: null,
         },
         0,
       ],
@@ -200,7 +200,7 @@ describe('Searching for a prisoner to add to a report', () => {
         {
           andWords: 'a1234ab',
           fuzzyMatch: true,
-          prisonIds: ['MDI', 'OUT', 'TRN'],
+          prisonIds: null,
         },
         0,
       ],
@@ -213,7 +213,7 @@ describe('Searching for a prisoner to add to a report', () => {
         {
           andWords: 'Smith John',
           fuzzyMatch: true,
-          prisonIds: ['MDI', 'OUT', 'TRN'],
+          prisonIds: null,
         },
         0,
       ],
@@ -225,7 +225,7 @@ describe('Searching for a prisoner to add to a report', () => {
         {
           andWords: 'Arnold Andrew Moorland',
           fuzzyMatch: true,
-          prisonIds: ['MDI', 'OUT', 'TRN'],
+          prisonIds: null,
         },
         0,
       ],
@@ -237,7 +237,7 @@ describe('Searching for a prisoner to add to a report', () => {
         {
           andWords: 'Arnold a1111aa',
           fuzzyMatch: true,
-          prisonIds: ['MDI', 'OUT', 'TRN'],
+          prisonIds: null,
         },
         0,
       ],

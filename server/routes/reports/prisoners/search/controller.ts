@@ -79,7 +79,7 @@ export class PrisonerSearchController extends GetBaseController<Values> {
     const { offenderSearchApi } = res.locals.apis
     let searchResults: OffenderSearchResults
     // label local search with active caseload
-    const { activeCaseLoad: activeCaseload, caseLoads: userCaseloads } = res.locals.user
+    const { activeCaseLoad: activeCaseload } = res.locals.user
 
     try {
       if (global === 'yes') {

@@ -9,6 +9,8 @@ export const typeHints: Partial<Record<Type, string>> = {
   CLOSE_DOWN_SEARCH_1: 'Any finds must be reported using the Find type.',
   DISORDER_2: 'Includes barricade, concerted indiscipline, hostage, and incident at height.',
   DRONE_SIGHTING_3: 'Drones must have been seen by staff.',
+  DIRTY_PROTEST_1:
+    'Defecation and urination anywhere other than a toilet, throwing or smearing urine and / or faeces.  Where this is one prolonged incident of dirty protest only 1 incident is required in IRS.',
   FIND_6: 'Items must be recovered, not just seen.',
   MISCELLANEOUS_1:
     'Includes dirty protest, failure of IT or telephony, large scale evacuation, late release or unlawful detention, loss of essential services, public demonstration, secondary exposure to airborne contaminants and any other incident not listed.',
@@ -32,7 +34,8 @@ const shortTypeTitles: Partial<Record<TypeFamily, string>> = {
   CONCERTED_INDISCIPLINE: 'incident involving 2 or more prisioners acting together',
   DAMAGE: 'deliberate damage',
   DEATH_OTHER: 'death of other person',
-  DEATH_PRISONER: 'death of a prisioner',
+  DEATH_PRISONER: 'death of a prisoner',
+  DIRTY_PROTEST: 'dirty protest',
   DISORDER: 'disorder',
   DRONE_SIGHTING: 'drone sighting',
   DRUGS: 'drugs',

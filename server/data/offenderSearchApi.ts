@@ -106,17 +106,21 @@ export class OffenderSearchApi extends RestClient {
       andWords?: string
       fuzzyMatch: boolean
       prisonIds: string[]
+      pagination?: {
+        size: number
+        page: number
+      }
     },
     page: number = 0,
   ): Promise<OffenderSearchResults> {
+    const requestData = {
+      ...filters,
+      pagination: { size: OffenderSearchApi.PAGE_SIZE, page },
+    }
     return this.post<OffenderSearchResults>(
       {
         path: '/keyword',
-        query: {
-          size: OffenderSearchApi.PAGE_SIZE,
-          page: encodeURIComponent(page),
-        },
-        data: filters,
+        data: requestData,
       },
       asSystem(),
     )

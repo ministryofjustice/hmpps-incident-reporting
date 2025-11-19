@@ -64,16 +64,13 @@ export default {
       request: {
         method: 'POST',
         urlPath: '/offenderSearchApi/keyword',
-        queryParameters: {
-          page: { equalTo: page.toString() },
-          size: { equalTo: OffenderSearchApi.PAGE_SIZE.toString() },
-        },
         bodyPatterns: [
           {
             equalToJson: {
               andWords,
               prisonIds,
               fuzzyMatch,
+              pagination: { page, size: OffenderSearchApi.PAGE_SIZE },
             },
           },
         ],

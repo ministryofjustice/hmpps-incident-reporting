@@ -13,7 +13,7 @@ export const typeHints: Partial<Record<Type, string>> = {
     'Defecation and urination anywhere other than a toilet, throwing or smearing urine and / or faeces.  Where this is one prolonged incident of dirty protest only 1 incident is required in IRS.',
   FIND_6: 'Items must be recovered, not just seen.',
   MISCELLANEOUS_1:
-    'Includes dirty protest, failure of IT or telephony, large scale evacuation, late release or unlawful detention, loss of essential services, public demonstration, secondary exposure to airborne contaminants and any other incident not listed.',
+    'Includes failure of IT or telephony, large scale evacuation, late release or unlawful detention, loss of essential services, public demonstration, secondary exposure to airborne contaminants and any other incidents not listed.',
   SELF_HARM_1:
     'Includes suspected and reported self-harm. Do not use to report a noose, unless it’s around the neck or applying pressure.',
   TOOL_LOSS_1: 'Do not use for radio and key or lock compromises. They are separate incident types.',

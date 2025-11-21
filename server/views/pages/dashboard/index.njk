@@ -8,6 +8,9 @@
 {% from "govuk/components/select/macro.njk" import govukSelect %}
 {% from "govuk/components/table/macro.njk" import govukTable %}
 {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+{% from "govuk/components/tag/macro.njk" import govukTag %}
+
 {% from "moj/components/date-picker/macro.njk" import mojDatePicker %}
 {% from "moj/components/pagination/macro.njk" import mojPagination %}
 {% from "macros/accessible-autocomplete/macro.njk" import accessibleAutocomplete %}
@@ -167,6 +170,27 @@
     </form>
   </div>
 
+  <div class="app-dashboard__status-hints">
+    {% set statusHintsRows = [] %}
+    {% for status, description in statusHints %}
+      {% set _ = statusHintsRows.push(
+        {
+          key: { text: statusesDescriptions[status] },
+          value: { text: description }
+        }
+      ) %}
+    {% endfor %}
+
+    {% set statusDetailsHtml %}
+      {{ govukSummaryList({ rows: statusHintsRows }) }}
+    {% endset %}
+
+    {{ govukDetails({
+      summaryText: "Help with statuses",
+      html: statusDetailsHtml
+    }) }}
+  </div>
+
   {% if reports.length > 0 %}
 
     {% set rows = [] %}
@@ -188,14 +212,18 @@
 
       {% set statusHtml %}
         <div class="app-dashboard__status-cell">
-          {% if report.status in statusHints %}
-            {{ govukDetails({
-              summaryText: statusesDescriptions[report.status] or report.status,
-              text: statusHints[report.status]
-            }) }}
-          {% else %}
-            statusesDescriptions[report.status] or report.status
+          {% if report.status in workListMapping['toDo'] %}
+            {% set tagClass = 'govuk-tag--grey' %}
+          {% elif report.status in workListMapping['submitted'] %}
+            {% set tagClass = 'govuk-tag--yellow' %}
+          {% elif report.status in workListMapping['submitted'] %}
+            {% set tagClass = 'govuk-tag--blue' %}
           {% endif %}
+
+          {{ govukTag({
+            text: statusesDescriptions[report.status] or report.status,
+            classes: tagClass
+          }) }}
         </div>
       {% endset %}
 

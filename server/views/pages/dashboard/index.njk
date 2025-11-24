@@ -216,7 +216,7 @@
             {% set tagClass = 'govuk-tag--grey' %}
           {% elif report.status in workListMapping['submitted'] %}
             {% set tagClass = 'govuk-tag--yellow' %}
-          {% elif report.status in workListMapping['submitted'] %}
+          {% elif report.status in workListMapping['completed'] %}
             {% set tagClass = 'govuk-tag--blue' %}
           {% endif %}
 

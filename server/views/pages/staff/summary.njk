@@ -22,16 +22,18 @@
       ), rows) %}
   {% endfor %}
 
-  {{ govukTable({
-    classes: "app-involvement-table",
-    head: [
-      { text: "Staff" },
-      { text: "Role" },
-      { text: "Details" },
-      { text: "Action" }
-    ],
-    rows: rows
-  }) }}
+  <div class="moj-scrollable-pane">
+    {{ govukTable({
+      classes: "app-involvement-table",
+      head: [
+        { text: "Staff" },
+        { text: "Role" },
+        { text: "Details" },
+        { text: "Action" }
+      ],
+      rows: rows
+    }) }}
+  </div>
 
 {% endblock %}
 

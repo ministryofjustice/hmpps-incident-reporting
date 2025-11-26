@@ -4,18 +4,18 @@ import type { IncidentTypeConfiguration } from '../../data/incidentTypeConfigura
 
 export const DIRTY_PROTEST_1: IncidentTypeConfiguration = {
   incidentType: 'DIRTY_PROTEST_1',
-  active: true,
-  startingQuestionCode: '75203',
+  active: false,
+  startingQuestionCode: '100000',
   questions: {
-    '75203': {
-      code: '75203',
+    '100000': {
+      code: '100000',
       active: true,
       question: 'What was the location of the Incident?',
       label: 'What was the location of the incident?',
       multipleAnswers: false,
       answers: [
         {
-          code: '221739',
+          code: '100001',
           response: 'Ordinary Cell',
           active: true,
           label: 'Ordinary cell',
@@ -24,7 +24,7 @@ export const DIRTY_PROTEST_1: IncidentTypeConfiguration = {
           nextQuestionCode: null,
         },
         {
-          code: '221740',
+          code: '100002',
           response: 'Specialist cell/unit',
           active: true,
           label: 'Specialist cell/unit',
@@ -33,16 +33,16 @@ export const DIRTY_PROTEST_1: IncidentTypeConfiguration = {
           nextQuestionCode: null,
         },
         {
-          code: '221741',
+          code: '100003',
           response: 'Shower/changing room',
           active: true,
           label: 'Shower/changing room',
-          commentRequired: false,
+          commentRequired: true,
           dateRequired: false,
           nextQuestionCode: null,
         },
         {
-          code: '221742',
+          code: '100004',
           response: 'Other Location within Prison',
           active: true,
           label: 'Other location within prison',
@@ -51,7 +51,7 @@ export const DIRTY_PROTEST_1: IncidentTypeConfiguration = {
           nextQuestionCode: null,
         },
         {
-          code: '221743',
+          code: '100005',
           response: 'Crown/Magistrates Court',
           active: true,
           label: 'Crown/magistrates court',
@@ -60,7 +60,7 @@ export const DIRTY_PROTEST_1: IncidentTypeConfiguration = {
           nextQuestionCode: null,
         },
         {
-          code: '221744',
+          code: '100006',
           response: 'Court Cell',
           active: true,
           label: 'Court cell',
@@ -69,11 +69,11 @@ export const DIRTY_PROTEST_1: IncidentTypeConfiguration = {
           nextQuestionCode: null,
         },
         {
-          code: '221745',
+          code: '100007',
           response: 'Vehicle',
           active: true,
           label: 'Vehicle',
-          commentRequired: false,
+          commentRequired: true,
           dateRequired: false,
           nextQuestionCode: null,
         },

@@ -64,7 +64,7 @@ export const types = [
     familyCode: 'DIRTY_PROTEST',
     code: 'DIRTY_PROTEST_1',
     description: 'Dirty protest',
-    active: true,
+    active: false,
     nomisCode: 'DIRTYPROTEST',
   },
   { familyCode: 'DISORDER', code: 'DISORDER_1', description: 'Disorder', active: false, nomisCode: 'DISORDER' },

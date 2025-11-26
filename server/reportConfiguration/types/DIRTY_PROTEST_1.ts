@@ -4,7 +4,7 @@ import type { IncidentTypeConfiguration } from '../../data/incidentTypeConfigura
 
 export const DIRTY_PROTEST_1: IncidentTypeConfiguration = {
   incidentType: 'DIRTY_PROTEST_1',
-  active: false,
+  active: true,
   startingQuestionCode: '100000',
   questions: {
     '100000': {

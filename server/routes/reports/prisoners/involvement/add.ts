@@ -6,20 +6,25 @@ import type { ReportWithDetails } from '../../../../data/incidentReportingApi'
 import type { OffenderSearchResult } from '../../../../data/offenderSearchApi'
 import { fallibleUpdateReportTitle } from '../../../../services/reportTitle'
 import { handleReportEdit } from '../../actions/handleReportEdit'
-import { PrisonerInvolvementController } from './controller'
+import { AllowedRoleCode, PrisonerInvolvementController } from './controller'
 import { fields, type Values } from './fields'
 import { steps } from './steps'
 
 class AddPrisonerInvolvementController extends PrisonerInvolvementController {
   protected keyField = 'prisonerRole' as const
 
-  protected getAllowedPrisonerRoles(_req: FormWizard.Request<Values>, res: express.Response): Set<string> {
+  protected getAllowedPrisonerRoles(_req: FormWizard.Request<Values>, res: express.Response): Set<AllowedRoleCode> {
     const report = res.locals.report as ReportWithDetails
     const { reportConfig } = res.locals
 
     // set of codes allowed by incident type
-    const allowedRoleCodes: Set<string> = new Set(
-      reportConfig.prisonerRoles.filter(role => role.active).map(role => role.prisonerRole),
+    const allowedRoleCodes: Set<AllowedRoleCode> = new Set(
+      reportConfig.prisonerRoles
+        .filter(role => role.active)
+        .map(role => ({
+          prisonerRole: role.prisonerRole,
+          roleInformation: role.roleInformation,
+        })),
     )
     // …less those that are allowed only once and are already used
     report.prisonersInvolved
@@ -27,7 +32,11 @@ class AddPrisonerInvolvementController extends PrisonerInvolvementController {
       .forEach(role => {
         const roleConfig = reportConfig.prisonerRoles.find(someRole => someRole.prisonerRole === role)
         if (roleConfig?.onlyOneAllowed) {
-          allowedRoleCodes.delete(role)
+          // Find the actual object in the Set that matches this role string
+          const codeToDelete = Array.from(allowedRoleCodes).find(code => code.prisonerRole === role)
+          if (codeToDelete) {
+            allowedRoleCodes.delete(codeToDelete)
+          }
         }
       })
 

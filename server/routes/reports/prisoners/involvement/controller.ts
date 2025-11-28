@@ -8,6 +8,11 @@ import type { ReportWithDetails } from '../../../../data/incidentReportingApi'
 import { populateReportConfiguration } from '../../../../middleware/populateReportConfiguration'
 import type { Values } from './fields'
 
+export interface AllowedRoleCode {
+  prisonerRole: string
+  roleInformation?: string
+}
+
 export abstract class PrisonerInvolvementController extends BaseController<Values> {
   middlewareLocals(): void {
     this.router.use(populateReportConfiguration(false))
@@ -35,7 +40,7 @@ export abstract class PrisonerInvolvementController extends BaseController<Value
       label: `Details of ${possessiveFirstName} involvement (optional)`,
     }
 
-    // outcome only exists for reports originally made in NOIMIS
+    // outcome only exists for reports originally made in NOMIS
     if (!report.createdInNomis) {
       delete customisedFields.outcome
     }
@@ -51,11 +56,22 @@ export abstract class PrisonerInvolvementController extends BaseController<Value
     next: express.NextFunction,
   ): void {
     const { fields: customisedFields } = req.form.options
-
     const allowedRoleCodes = this.getAllowedPrisonerRoles(req, res)
-    customisedFields.prisonerRole.items = customisedFields.prisonerRole.items.filter(role =>
-      allowedRoleCodes.has(role.value),
-    )
+
+    const existingItemsMap = new Map(customisedFields.prisonerRole.items.map(item => [item.value, item]))
+    const newItems = []
+
+    for (const code of allowedRoleCodes) {
+      const existingItem = existingItemsMap.get(code.prisonerRole)
+      if (existingItem) {
+        newItems.push({
+          value: code.prisonerRole,
+          label: existingItem.label,
+          hint: code.roleInformation,
+        })
+      }
+    }
+    customisedFields.prisonerRole.items = newItems
 
     if (customisedFields.prisonerRole.items.length === 0) {
       req.flash('error', {
@@ -69,7 +85,10 @@ export abstract class PrisonerInvolvementController extends BaseController<Value
     next()
   }
 
-  protected abstract getAllowedPrisonerRoles(req: FormWizard.Request<Values>, res: express.Response): Set<string>
+  protected abstract getAllowedPrisonerRoles(
+    req: FormWizard.Request<Values>,
+    res: express.Response,
+  ): Set<AllowedRoleCode>
 
   locals(req: FormWizard.Request<Values>, res: express.Response): Partial<FormWizard.Locals<Values>> {
     return {

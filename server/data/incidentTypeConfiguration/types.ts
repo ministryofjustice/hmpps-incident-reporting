@@ -59,4 +59,6 @@ interface PrisonerRoleConfiguration {
   onlyOneAllowed: boolean
   /** Indicates this role is active */
   active: boolean
+  /** Additional text to be shown to users when they select this role */
+  roleInformation?: string
 }

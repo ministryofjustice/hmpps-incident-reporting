@@ -54,7 +54,7 @@ class EditPrisonerInvolvementController extends PrisonerInvolvementController {
           roleInformation: role.roleInformation,
         })),
     )
-    // …less those that are allowed only once and are already used
+    // …less those that are allowed only once and are already used in a _different_ involvement
     report.prisonersInvolved
       .filter((_involvement, i) => i !== index - 1)
       .map(involvement => involvement.prisonerRole)

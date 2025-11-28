@@ -81,6 +81,11 @@ context('Change incident type', () => {
           checked: false,
         },
         {
+          label: 'Dirty protest',
+          value: 'DIRTY_PROTEST_1',
+          checked: false,
+        },
+        {
           label: 'Drone sighting',
           value: 'DRONE_SIGHTING_3',
           checked: false,

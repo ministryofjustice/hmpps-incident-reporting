@@ -56,6 +56,7 @@ class EditPrisonerInvolvementController extends PrisonerInvolvementController {
     )
     // …less those that are allowed only once and are already used
     report.prisonersInvolved
+      .filter((_involvement, i) => i !== index - 1)
       .map(involvement => involvement.prisonerRole)
       .forEach(role => {
         const roleConfig = reportConfig.prisonerRoles.find(someRole => someRole.prisonerRole === role)
@@ -115,7 +116,7 @@ class EditPrisonerInvolvementController extends PrisonerInvolvementController {
       await handleReportEdit(res)
 
       fallibleUpdateReportTitle(res) // NB: errors are logged but ignored!
-      // clear session since report has been saved
+      // clear session since the report has been saved
       res.locals.clearSessionOnSuccess = true
 
       next()

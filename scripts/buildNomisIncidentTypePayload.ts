@@ -7,7 +7,7 @@ Usage:
   ./scripts/buildNomisIncidentTypePayload.ts <dpsTypeCode>
 
 Where <dpsTypeCode> is one of the codes from server/reportConfiguration/constants/types.ts
-  e.g. DIRTY_PROTEST_1, ASSAULT_5, FIND_6, ...
+  e.g., DIRTY_PROTEST_1, ASSAULT_5, FIND_6, ...
 
 It prints to stdout the JSON body you can use with:
   PUT ${HMPPS_PRISON_API_URL}/incidents/configuration/<NOMIS_CODE>
@@ -19,7 +19,6 @@ import { getIncidentTypeConfiguration } from '../server/reportConfiguration/type
 import type {
   IncidentTypeConfiguration as DpsIncidentTypeConfiguration,
   QuestionConfiguration as DpsQuestionConfiguration,
-  AnswerConfiguration as DpsAnswerConfiguration,
 } from '../server/data/incidentTypeConfiguration/types'
 
 interface Arguments {
@@ -36,7 +35,6 @@ async function main() {
   if (!typeMeta) {
     printText(`Type '${dpsTypeCode}' not found in server/reportConfiguration/constants/types.ts`)
     printHelpAndExit(scriptName)
-    return
   }
 
   const dpsConfig = await getIncidentTypeConfiguration(dpsTypeCode)
@@ -120,7 +118,7 @@ function orderQuestionsByFlow(dpsConfig: DpsIncidentTypeConfiguration): DpsQuest
   // Traverse from the configured starting question
   dfs(dpsConfig.startingQuestionCode)
 
-  // Append any remaining questions (unreachable from start) in a stable order
+  // Append any remaining questions (unreachable from the start) in a stable order
   const remaining = Object.keys(questionsByCode).filter(code => !visited.has(code))
   const compareCodes = (a: string, b: string) => {
     const ai = parseInt(a, 10)

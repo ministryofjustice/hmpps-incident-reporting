@@ -76,7 +76,7 @@ function toPrisonApiUpdatePayload({
     questions: questionsArray,
     prisonerRoles: dpsConfig.prisonerRoles.map(pr => ({
       prisonerRole: pr.prisonerRole,
-      onlyOneAllowed: pr.onlyOneAllowed,
+      singleRole: pr.onlyOneAllowed,
       active: pr.active,
     })),
   }

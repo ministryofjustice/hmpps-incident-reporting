@@ -50,14 +50,14 @@ context('Edit prisoner involvement page', () => {
     editPrisonerInvolvementPage.roleChoices.then(choices => {
       expect(choices).to.deep.equal([
         {
-          label: 'Active involvement',
-          value: 'ACTIVE_INVOLVEMENT',
+          label: 'Perpetrator',
+          value: 'PERPETRATOR',
           checked: false,
         },
         {
-          label: 'Assisted staff',
-          value: 'ASSISTED_STAFF',
-          checked: true,
+          label: 'Active involvement',
+          value: 'ACTIVE_INVOLVEMENT',
+          checked: false,
         },
         {
           label: 'Impeded staff',
@@ -65,9 +65,9 @@ context('Edit prisoner involvement page', () => {
           checked: false,
         },
         {
-          label: 'Perpetrator',
-          value: 'PERPETRATOR',
-          checked: false,
+          label: 'Assisted staff',
+          value: 'ASSISTED_STAFF',
+          checked: true,
         },
         {
           label: 'Suspected involved',

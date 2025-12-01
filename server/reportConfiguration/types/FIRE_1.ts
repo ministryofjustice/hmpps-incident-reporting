@@ -2233,6 +2233,16 @@ export const FIRE_1: IncidentTypeConfiguration = {
   },
   prisonerRoles: [
     {
+      prisonerRole: 'PERPETRATOR',
+      onlyOneAllowed: false,
+      active: true,
+    },
+    {
+      prisonerRole: 'IMPEDED_STAFF',
+      onlyOneAllowed: false,
+      active: true,
+    },
+    {
       prisonerRole: 'ACTIVE_INVOLVEMENT',
       onlyOneAllowed: false,
       active: true,
@@ -2243,22 +2253,12 @@ export const FIRE_1: IncidentTypeConfiguration = {
       active: true,
     },
     {
-      prisonerRole: 'IMPEDED_STAFF',
-      onlyOneAllowed: false,
-      active: true,
-    },
-    {
-      prisonerRole: 'PERPETRATOR',
+      prisonerRole: 'SUSPECTED_INVOLVED',
       onlyOneAllowed: false,
       active: true,
     },
     {
       prisonerRole: 'PRESENT_AT_SCENE',
-      onlyOneAllowed: false,
-      active: true,
-    },
-    {
-      prisonerRole: 'SUSPECTED_INVOLVED',
       onlyOneAllowed: false,
       active: true,
     },

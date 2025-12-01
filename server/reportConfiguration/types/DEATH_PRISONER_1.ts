@@ -1153,19 +1153,10 @@ export const DEATH_PRISONER_1: IncidentTypeConfiguration = {
   },
   prisonerRoles: [
     {
-      prisonerRole: 'ACTIVE_INVOLVEMENT',
-      onlyOneAllowed: false,
-      active: true,
-    },
-    {
-      prisonerRole: 'ASSISTED_STAFF',
-      onlyOneAllowed: false,
-      active: true,
-    },
-    {
       prisonerRole: 'DECEASED',
-      onlyOneAllowed: false,
+      onlyOneAllowed: true,
       active: true,
+      roleInformation: 'Use this role for the person who has died',
     },
     {
       prisonerRole: 'PERPETRATOR',
@@ -1173,7 +1164,17 @@ export const DEATH_PRISONER_1: IncidentTypeConfiguration = {
       active: true,
     },
     {
+      prisonerRole: 'ACTIVE_INVOLVEMENT',
+      onlyOneAllowed: false,
+      active: true,
+    },
+    {
       prisonerRole: 'PRESENT_AT_SCENE',
+      onlyOneAllowed: false,
+      active: true,
+    },
+    {
+      prisonerRole: 'ASSISTED_STAFF',
       onlyOneAllowed: false,
       active: true,
     },

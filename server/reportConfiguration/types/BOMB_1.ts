@@ -1945,12 +1945,12 @@ export const BOMB_1: IncidentTypeConfiguration = {
   },
   prisonerRoles: [
     {
-      prisonerRole: 'ACTIVE_INVOLVEMENT',
+      prisonerRole: 'PERPETRATOR',
       onlyOneAllowed: false,
       active: true,
     },
     {
-      prisonerRole: 'ASSISTED_STAFF',
+      prisonerRole: 'ACTIVE_INVOLVEMENT',
       onlyOneAllowed: false,
       active: true,
     },
@@ -1960,17 +1960,17 @@ export const BOMB_1: IncidentTypeConfiguration = {
       active: true,
     },
     {
-      prisonerRole: 'PERPETRATOR',
-      onlyOneAllowed: false,
-      active: true,
-    },
-    {
-      prisonerRole: 'PRESENT_AT_SCENE',
+      prisonerRole: 'ASSISTED_STAFF',
       onlyOneAllowed: false,
       active: true,
     },
     {
       prisonerRole: 'SUSPECTED_INVOLVED',
+      onlyOneAllowed: false,
+      active: true,
+    },
+    {
+      prisonerRole: 'PRESENT_AT_SCENE',
       onlyOneAllowed: false,
       active: true,
     },

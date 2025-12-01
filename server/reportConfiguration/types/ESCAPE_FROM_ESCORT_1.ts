@@ -2944,22 +2944,22 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
   },
   prisonerRoles: [
     {
-      prisonerRole: 'ACTIVE_INVOLVEMENT',
-      onlyOneAllowed: false,
-      active: true,
-    },
-    {
-      prisonerRole: 'ASSISTED_STAFF',
-      onlyOneAllowed: false,
-      active: true,
-    },
-    {
       prisonerRole: 'ESCAPE',
       onlyOneAllowed: true,
       active: true,
     },
     {
+      prisonerRole: 'ACTIVE_INVOLVEMENT',
+      onlyOneAllowed: false,
+      active: true,
+    },
+    {
       prisonerRole: 'IMPEDED_STAFF',
+      onlyOneAllowed: false,
+      active: true,
+    },
+    {
+      prisonerRole: 'ASSISTED_STAFF',
       onlyOneAllowed: false,
       active: true,
     },

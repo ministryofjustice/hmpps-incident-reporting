@@ -793,12 +793,12 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
   },
   prisonerRoles: [
     {
-      prisonerRole: 'ACTIVE_INVOLVEMENT',
+      prisonerRole: 'PERPETRATOR',
       onlyOneAllowed: false,
       active: true,
     },
     {
-      prisonerRole: 'ASSISTED_STAFF',
+      prisonerRole: 'ACTIVE_INVOLVEMENT',
       onlyOneAllowed: false,
       active: true,
     },
@@ -808,7 +808,7 @@ export const MISCELLANEOUS_1: IncidentTypeConfiguration = {
       active: true,
     },
     {
-      prisonerRole: 'PERPETRATOR',
+      prisonerRole: 'ASSISTED_STAFF',
       onlyOneAllowed: false,
       active: true,
     },

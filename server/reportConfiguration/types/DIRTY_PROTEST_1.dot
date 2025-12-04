@@ -1,0 +1,16 @@
+digraph DIRTY_PROTEST_1 {
+  rankdir=LR;
+  node [shape = circle];
+
+  START_NODE [label="", shape=none];
+  START_NODE -> 100000 [label = "start"];
+  END_NODE [label="END", shape="doublecircle"];
+    100000 [label=< <FONT COLOR="royalblue">100000 </FONT> What was the location of the incident? >];
+      100000 -> END_NODE [label=< <FONT COLOR="royalblue">100001 </FONT> Ordinary cell >];
+      100000 -> END_NODE [label=< <FONT COLOR="royalblue">100002 </FONT> Specialist cell/unit >];
+      100000 -> END_NODE [label=< <FONT COLOR="royalblue">100003 </FONT> Shower/changing room >];
+      100000 -> END_NODE [label=< <FONT COLOR="royalblue">100004 </FONT> Other location within prison >];
+      100000 -> END_NODE [label=< <FONT COLOR="royalblue">100005 </FONT> Crown/magistrates court >];
+      100000 -> END_NODE [label=< <FONT COLOR="royalblue">100006 </FONT> Court cell >];
+      100000 -> END_NODE [label=< <FONT COLOR="royalblue">100007 </FONT> Vehicle >];
+}

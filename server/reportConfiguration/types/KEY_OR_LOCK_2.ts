@@ -1585,12 +1585,12 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
   },
   prisonerRoles: [
     {
-      prisonerRole: 'ACTIVE_INVOLVEMENT',
+      prisonerRole: 'PERPETRATOR',
       onlyOneAllowed: false,
       active: true,
     },
     {
-      prisonerRole: 'ASSISTED_STAFF',
+      prisonerRole: 'ACTIVE_INVOLVEMENT',
       onlyOneAllowed: false,
       active: true,
     },
@@ -1600,7 +1600,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
       active: true,
     },
     {
-      prisonerRole: 'PERPETRATOR',
+      prisonerRole: 'ASSISTED_STAFF',
       onlyOneAllowed: false,
       active: true,
     },

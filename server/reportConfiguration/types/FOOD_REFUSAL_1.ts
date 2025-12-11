@@ -380,7 +380,7 @@ export const FOOD_REFUSAL_1: IncidentTypeConfiguration = {
   prisonerRoles: [
     {
       prisonerRole: 'PERPETRATOR',
-      onlyOneAllowed: false,
+      onlyOneAllowed: true,
       active: true,
     },
   ],

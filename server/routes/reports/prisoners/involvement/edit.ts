@@ -6,7 +6,7 @@ import logger from '../../../../../logger'
 import type { PrisonerInvolvement, ReportWithDetails } from '../../../../data/incidentReportingApi'
 import { fallibleUpdateReportTitle } from '../../../../services/reportTitle'
 import { handleReportEdit } from '../../actions/handleReportEdit'
-import { PrisonerInvolvementController } from './controller'
+import { AllowedRoleCode, PrisonerInvolvementController } from './controller'
 import { fields, type Values } from './fields'
 import { steps } from './steps'
 
@@ -40,14 +40,19 @@ class EditPrisonerInvolvementController extends PrisonerInvolvementController {
     next()
   }
 
-  protected getAllowedPrisonerRoles(req: FormWizard.Request<Values>, res: express.Response): Set<string> {
+  protected getAllowedPrisonerRoles(req: FormWizard.Request<Values>, res: express.Response): Set<AllowedRoleCode> {
     const index = parseInt(req.params.index, 10)
     const report = res.locals.report as ReportWithDetails
     const { reportConfig } = res.locals
 
     // set of codes allowed by incident type
-    const allowedRoleCodes: Set<string> = new Set(
-      reportConfig.prisonerRoles.filter(role => role.active).map(role => role.prisonerRole),
+    const allowedRoleCodes: Set<AllowedRoleCode> = new Set(
+      reportConfig.prisonerRoles
+        .filter(role => role.active)
+        .map(role => ({
+          prisonerRole: role.prisonerRole,
+          roleInformation: role.roleInformation,
+        })),
     )
     // …less those that are allowed only once and are already used in a _different_ involvement
     report.prisonersInvolved
@@ -56,7 +61,11 @@ class EditPrisonerInvolvementController extends PrisonerInvolvementController {
       .forEach(role => {
         const roleConfig = reportConfig.prisonerRoles.find(someRole => someRole.prisonerRole === role)
         if (roleConfig?.onlyOneAllowed) {
-          allowedRoleCodes.delete(role)
+          // Find the actual object in the Set that matches this role string
+          const codeToDelete = Array.from(allowedRoleCodes).find(code => code.prisonerRole === role)
+          if (codeToDelete) {
+            allowedRoleCodes.delete(codeToDelete)
+          }
         }
       })
 
@@ -107,7 +116,7 @@ class EditPrisonerInvolvementController extends PrisonerInvolvementController {
       await handleReportEdit(res)
 
       fallibleUpdateReportTitle(res) // NB: errors are logged but ignored!
-      // clear session since report has been saved
+      // clear session since the report has been saved
       res.locals.clearSessionOnSuccess = true
 
       next()

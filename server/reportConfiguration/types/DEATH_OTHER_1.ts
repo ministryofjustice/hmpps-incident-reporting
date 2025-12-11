@@ -559,23 +559,19 @@ export const DEATH_OTHER_1: IncidentTypeConfiguration = {
   },
   prisonerRoles: [
     {
-      prisonerRole: 'ACTIVE_INVOLVEMENT',
-      onlyOneAllowed: false,
-      active: true,
-    },
-    {
-      prisonerRole: 'ASSISTED_STAFF',
-      onlyOneAllowed: false,
-      active: true,
-    },
-    {
       // NB: new; not allowed in NOMIS
       prisonerRole: 'DECEASED',
-      onlyOneAllowed: false,
+      onlyOneAllowed: true,
       active: true,
+      roleInformation: 'Use this role for the person who has died',
     },
     {
       prisonerRole: 'PERPETRATOR',
+      onlyOneAllowed: false,
+      active: true,
+    },
+    {
+      prisonerRole: 'ACTIVE_INVOLVEMENT',
       onlyOneAllowed: false,
       active: true,
     },
@@ -584,6 +580,12 @@ export const DEATH_OTHER_1: IncidentTypeConfiguration = {
       onlyOneAllowed: false,
       active: true,
     },
+    {
+      prisonerRole: 'ASSISTED_STAFF',
+      onlyOneAllowed: false,
+      active: true,
+    },
+
     {
       prisonerRole: 'SUSPECTED_INVOLVED',
       onlyOneAllowed: false,

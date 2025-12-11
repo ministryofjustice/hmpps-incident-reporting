@@ -1207,6 +1207,12 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
   },
   prisonerRoles: [
     {
+      prisonerRole: 'PERPETRATOR',
+      onlyOneAllowed: true,
+      active: true,
+      roleInformation: 'Use this role for the person who has self harmed',
+    },
+    {
       prisonerRole: 'ACTIVE_INVOLVEMENT',
       onlyOneAllowed: false,
       active: true,
@@ -1218,11 +1224,6 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
     },
     {
       prisonerRole: 'IMPEDED_STAFF',
-      onlyOneAllowed: false,
-      active: true,
-    },
-    {
-      prisonerRole: 'PERPETRATOR',
       onlyOneAllowed: false,
       active: true,
     },

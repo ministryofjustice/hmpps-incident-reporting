@@ -17,6 +17,54 @@ export const fields = {
     default: 'no',
     validate: ['required'],
   },
+  prisonerLocationStatus: {
+    label: 'Location status of prisoner',
+    component: 'govukSelect',
+    items: [
+      {
+        value: 'ALL',
+        label: 'All',
+      },
+      {
+        value: 'IN',
+        label: 'Inside',
+      },
+      {
+        value: 'OUT',
+        label: 'Outside',
+      },
+    ],
+  },
+  prisonerGender: {
+    label: 'Prisoner gender',
+    component: 'govukSelect',
+    items: [
+      {
+        value: 'ALL',
+        label: 'All',
+      },
+      {
+        value: 'M',
+        label: 'Male',
+      },
+      {
+        value: 'F',
+        label: 'Female',
+      },
+      {
+        value: 'NK',
+        label: 'Not known',
+      },
+      {
+        value: 'NS',
+        label: 'Not specified',
+      },
+    ],
+  },
+  prisonerDateOfBirth: {
+    component: 'mojDatePicker',
+    validate: ['ukDate'],
+  },
   page: {
     label: 'Page',
     component: 'hidden',

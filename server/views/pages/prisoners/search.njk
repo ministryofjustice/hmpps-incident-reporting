@@ -3,10 +3,10 @@
 {% from "govuk/components/input/macro.njk" import govukInput %}
 {% from "govuk/components/radios/macro.njk" import govukRadios %}
 {% from "govuk/components/select/macro.njk" import govukSelect %}
-{% from "govuk/components/date-input/macro.njk" import govukDateInput %}
 {% from "govuk/components/details/macro.njk" import govukDetails %}
 {% from "govuk/components/table/macro.njk" import govukTable %}
 {% from "moj/components/pagination/macro.njk" import mojPagination %}
+{% from "moj/components/date-picker/macro.njk" import mojDatePicker %}
 
 {% set pageTitle = "Search for a prisoner" %}
 {% set bodyClasses = "app-involvement-search app-prisoner-search" %}
@@ -65,6 +65,66 @@
           errorMessage: { text: errors[fieldName].message } if errors[fieldName] else undefined
         }) }}
 
+        <div>
+          {% set filtersHtml %}
+          {% set fieldName = "prisonerLocationStatus" %}
+          {% set field = options.fields[fieldName] %}
+          {% set items = [] %}
+          {% for item in field.items %}
+          {% set _ = items.push({
+            value: item.value,
+            text: item.label
+          }) %}
+          {% endfor %}
+          {{ govukSelect({
+            id: fieldName,
+            name: fieldName,
+            label: {
+              text: field.label
+            },
+            items: items | govukSelectSetSelected("ALL") | govukSelectSetSelected(values[fieldName])
+          }) }}
+
+          {% set fieldName = "prisonerGender" %}
+          {% set field = options.fields[fieldName] %}
+          {% set items = [] %}
+          {% for item in field.items %}
+          {% set _ = items.push({
+          value: item.value,
+          text: item.label
+          }) %}
+          {% endfor %}
+          {{ govukSelect({
+            id: fieldName,
+            name: fieldName,
+            label: {
+              text: field.label
+            },
+            items: items | govukSelectSetSelected("ALL") | govukSelectSetSelected(values[fieldName])
+          }) }}
+
+          {{ mojDatePicker({
+            id: "prisonerDateOfBirth",
+            name: "prisonerDateOfBirth",
+            label: {text: "Date of birth (optional)"},
+            hint: {
+              text: "For example, 17/5/1985"
+            },
+            value: formValues.dateOfBirth,
+            maxDate: todayAsShortDate,
+            errorMessage: { text: errors["dateOfBirth"].message } if errors["dateOfBirth"] else undefined
+          }) }}
+
+          <a href="./search?q={{values['q']}}" data-test="clear-link" class="govuk-body govuk-link govuk-link--no-visited-state">Clear</a>
+
+          {% endset %}
+
+          {{ govukDetails({
+          summaryText: "Filters",
+          html: filtersHtml
+          }) }}
+        </div>
+
         <div class="app-involvement-search-form__name-row">
           {% set fieldName = "q" %}
           {% set field = options.fields[fieldName] %}
@@ -83,85 +143,6 @@
               type: "submit"
             }) }}
           </div>
-        </div>
-        <div>
-          {% set filtersHtml %}
-          {{ govukSelect({
-            id: "prisonerLocationStatus",
-            name: "prisonerLocationStatus",
-            label: {
-              text: "Location status of prisoner"
-            },
-            items: [
-              {
-                value: "ALL",
-                text: "All",
-                selected: true
-              },
-              {
-                value: "IN",
-                text: "Inside"
-              },
-              {
-                value: "OUT",
-                text: "Outside"
-              }
-            ]
-          }) }}
-
-          {{ govukSelect({
-            id: "prisonerGender",
-            name: "prisonerGender",
-            label: {
-              text: "Prisoner gender"
-            },
-            items: [
-            {
-              value: "ALL",
-              text: "All",
-              selected: true
-            },
-            {
-              value: "M",
-              text: "Male"
-            },
-            {
-              value: "F",
-              text: "Female"
-            },
-            {
-              value: "NK",
-              text: "Not known"
-            },
-            {
-              value: "NS",
-              text: "Not specified"
-            }
-            ]
-          }) }}
-
-          {{ govukDateInput({
-            id: "dateOfBirth",
-            namePrefix: "dateOfBirth",
-            fieldset: {
-              legend: {
-                text: "Date of birth (optional)",
-                classes: "govuk-fieldset__legend--s"
-              }
-            },
-            hint: {
-              text: "For example, 31 3 1980"
-            }
-          }) }}
-
-          <a href="./search?q={{values[fieldName]}}" data-test="clear-link" class="govuk-body govuk-link govuk-link--no-visited-state">Clear</a>
-
-          {% endset %}
-
-          {{ govukDetails({
-            summaryText: "Filters",
-            html: filtersHtml
-          }) }}
         </div>
       </form>
 

@@ -110,7 +110,7 @@
             hint: {
               text: "For example, 17/5/1985"
             },
-            value: formValues.dateOfBirth,
+            value: values.prisonerDateOfBirth,
             maxDate: todayAsShortDate,
             errorMessage: { text: errors["dateOfBirth"].message } if errors["dateOfBirth"] else undefined
           }) }}
@@ -183,7 +183,7 @@
           {html: photo},
           {html: name},
           {text: result.prisonerNumber},
-          {text: result.dateOfBirth | yearsSince | default("")},
+          {text: result.dateOfBirth | default("")},
           {text: establishment},
           {html: link}
         ]) %}
@@ -197,7 +197,7 @@
             {text: "Photo"},
             {text: "Name"},
             {text: "Prison number"},
-            {text: "Age"},
+            {text: "Date of birth"},
             {text: "Establishment"},
             {text: "Action"}
           ],

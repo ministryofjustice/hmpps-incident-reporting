@@ -25,8 +25,8 @@ export class QuestionProgressStep {
   get isComplete(): boolean {
     return Boolean(
       this.responses &&
-        ((this.questionConfig.multipleAnswers && this.responses.length >= 1) || this.responses.length === 1) &&
-        this.responses.every(item => item.isComplete),
+      ((this.questionConfig.multipleAnswers && this.responses.length >= 1) || this.responses.length === 1) &&
+      this.responses.every(item => item.isComplete),
     )
   }
 

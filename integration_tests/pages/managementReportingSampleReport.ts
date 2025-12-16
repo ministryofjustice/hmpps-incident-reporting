@@ -6,6 +6,6 @@ export class ManagementReportingSampleReportPage extends Page {
   }
 
   get title(): PageElement<HTMLSpanElement> {
-    return cy.get('[class=govuk-heading-l]')
+    return cy.get('[class=govuk-heading-xl]')
   }
 }

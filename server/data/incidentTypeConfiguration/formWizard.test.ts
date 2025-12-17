@@ -3,7 +3,7 @@ import type FormWizard from 'hmpo-form-wizard'
 
 import { EmptyController } from '../../controllers/empty'
 import { QuestionsController } from '../../routes/reports/questions/controller'
-import { checkMultipleValues, generateFields, generateSteps } from './formWizard'
+import generateFields, { checkMultipleValues, generateSteps } from './formWizard'
 import type { IncidentTypeConfiguration } from './types'
 import * as FIND_6 from '../testData/FIND_6'
 import * as ESCAPE_FROM_PRISON_1 from '../testData/ESCAPE_FROM_PRISON_1'
@@ -17,6 +17,7 @@ const testConfig: IncidentTypeConfiguration = {
     qanimals: {
       code: 'qanimals',
       question: 'WHICH ANIMALS DO YOU LIKE',
+      questionHint: 'Please select all that apply',
       label: 'Which animals do you like?',
       active: true,
       multipleAnswers: true,
@@ -24,6 +25,7 @@ const testConfig: IncidentTypeConfiguration = {
         {
           code: 'qanimals-a1',
           response: 'DOG',
+          responseHint: 'A loyal and friendly companion',
           label: 'Dog',
           active: true,
           dateRequired: false,
@@ -33,6 +35,7 @@ const testConfig: IncidentTypeConfiguration = {
         {
           code: 'qanimals-a2',
           response: 'CAT',
+          responseHint: 'Meow',
           label: 'Cat',
           active: true,
           dateRequired: false,
@@ -42,6 +45,7 @@ const testConfig: IncidentTypeConfiguration = {
         {
           code: 'qanimals-a3',
           response: 'FOX',
+          responseHint: 'Jumps around',
           label: 'Fox',
           active: true,
           dateRequired: false,
@@ -63,6 +67,7 @@ const testConfig: IncidentTypeConfiguration = {
     qdog: {
       code: 'qdog',
       question: 'DO YOU HAVE A DOG',
+      questionHint: 'Please select one option',
       label: 'Do you have a dog?',
       active: true,
       multipleAnswers: false,
@@ -74,6 +79,7 @@ const testConfig: IncidentTypeConfiguration = {
           active: true,
           dateRequired: true,
           commentRequired: true,
+          commentNotMandatory: true,
           nextQuestionCode: 'qicecream',
         },
         {
@@ -90,6 +96,8 @@ const testConfig: IncidentTypeConfiguration = {
     qicecream: {
       code: 'qicecream',
       question: 'DO YOU LIKE ICE CREAM',
+      questionHint:
+        'This question is trying to find out if you like ice cream. If you do, please specify your favourite flavour.',
       label: 'Do you like ice cream?',
       active: true,
       multipleAnswers: false,
@@ -97,9 +105,11 @@ const testConfig: IncidentTypeConfiguration = {
         {
           code: 'qicecream-a1',
           response: 'YES (SPECIFY FAVOURITE FLAVOUR)',
-          label: 'Yes (specify favourite flabour)',
+          responseHint: 'If yes then please specify your favourite flavour',
+          label: 'Yes (specify favourite flavour)',
           active: true,
           dateRequired: false,
+          commentLabel: 'Enter ice cream flavour',
           commentRequired: true,
           nextQuestionCode: 'qend',
         },
@@ -253,6 +263,7 @@ describe('generateFields()', () => {
       qanimals: {
         name: 'qanimals',
         label: 'Which animals do you like?',
+        hint: 'Please select all that apply',
         validate: ['required'],
         multiple: true,
         component: 'govukCheckboxes',
@@ -260,18 +271,21 @@ describe('generateFields()', () => {
           {
             value: 'DOG',
             label: 'Dog',
+            hint: 'A loyal and friendly companion',
             dateRequired: false,
             commentRequired: false,
           },
           {
             value: 'CAT',
             label: 'Cat',
+            hint: 'Meow',
             dateRequired: false,
             commentRequired: false,
           },
           {
             value: 'FOX',
             label: 'Fox',
+            hint: 'Jumps around',
             dateRequired: false,
             commentRequired: false,
           },
@@ -280,6 +294,7 @@ describe('generateFields()', () => {
       qdog: {
         name: 'qdog',
         label: 'Do you have a dog?',
+        hint: 'Please select one option',
         validate: ['required'],
         multiple: false,
         component: 'govukRadios',
@@ -310,9 +325,9 @@ describe('generateFields()', () => {
       },
       'qdog-qdog-a1-comment': {
         name: 'qdog-qdog-a1-comment',
-        label: 'Comment',
+        label: 'Comment (optional)',
         component: 'govukInput',
-        validate: ['required'],
+        validate: null,
         dependent: {
           field: 'qdog',
           value: 'YES',
@@ -321,13 +336,15 @@ describe('generateFields()', () => {
       qicecream: {
         name: 'qicecream',
         label: 'Do you like ice cream?',
+        hint: 'This question is trying to find out if you like ice cream. If you do, please specify your favourite flavour.',
         validate: ['required'],
         multiple: false,
         component: 'govukRadios',
         items: [
           {
             value: 'YES (SPECIFY FAVOURITE FLAVOUR)',
-            label: 'Yes (specify favourite flabour)',
+            label: 'Yes (specify favourite flavour)',
+            hint: 'If yes then please specify your favourite flavour',
             dateRequired: false,
             commentRequired: true,
           },
@@ -341,7 +358,7 @@ describe('generateFields()', () => {
       },
       'qicecream-qicecream-a1-comment': {
         name: 'qicecream-qicecream-a1-comment',
-        label: 'Comment',
+        label: 'Enter ice cream flavour',
         component: 'govukInput',
         validate: ['required'],
         dependent: {

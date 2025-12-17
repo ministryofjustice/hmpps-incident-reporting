@@ -21,12 +21,14 @@ export interface QuestionConfiguration {
   active: boolean
   /** Question as seen by machines, e.g. it shouldn't change.
    *
-   * For example: 'WHAT WAS THE METHOD OF CONCEALMENT'
+   * For example, 'WHAT WAS THE METHOD OF CONCEALMENT'
    */
   question: string
+  /** Additional hint text to be shown to users for this question */
+  questionHint?: string
   /** Question as shown to humans.
    *
-   * For example: 'What was the method of concealment?'
+   * For example, 'What was the method of concealment?'
    */
   label: string
   multipleAnswers: boolean
@@ -39,13 +41,17 @@ export interface AnswerConfiguration {
   code: string
   /** Answer as seen by machines, e.g. it shouldn't change.
    *
-   * For example 'DRONE RECOVERY' */
+   * For example, 'DRONE RECOVERY' */
   response: string
+  /** Additional hint text to be shown to users for this answer */
+  responseHint?: string
   active: boolean
   /** Answer as shown to humans.
    *
-   * For example 'Drone recovery' */
+   * For example, 'Drone recovery' */
   label: string
+  /** Override the comment text label */
+  commentLabel?: string
   dateRequired: boolean
   commentRequired: boolean
   nextQuestionCode: string | null

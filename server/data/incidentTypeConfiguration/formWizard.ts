@@ -232,7 +232,7 @@ function groupSteps(steps: FormWizard.Steps<FormWizard.MultiValues>) {
  * @param config questionnaire config
  * @returns the Form Wizard's fields
  */
-export function generateFields(config: IncidentTypeConfiguration): FormWizard.Fields {
+function generateFields(config: IncidentTypeConfiguration): FormWizard.Fields {
   const fields: FormWizard.Fields = {}
   Object.values(config.questions)
     .filter(question => question.active)
@@ -243,6 +243,7 @@ export function generateFields(config: IncidentTypeConfiguration): FormWizard.Fi
       fields[fieldName] = {
         name: fieldName,
         label: question.label,
+        hint: question.questionHint,
         validate: ['required'],
         multiple: question.multipleAnswers,
         component: question.multipleAnswers ? 'govukCheckboxes' : 'govukRadios',
@@ -250,6 +251,7 @@ export function generateFields(config: IncidentTypeConfiguration): FormWizard.Fi
           return {
             value: answer.response,
             label: answer.label,
+            hint: answer.responseHint,
             dateRequired: answer.dateRequired,
             commentRequired: answer.commentRequired,
           } satisfies FormWizard.FieldItem
@@ -274,9 +276,10 @@ export function generateFields(config: IncidentTypeConfiguration): FormWizard.Fi
 
         if (answer.commentRequired) {
           const commentFieldName = conditionalFieldName(question, answer, 'comment')
+          const commentLabel = `${answer.commentLabel || 'Comment'}`
           fields[commentFieldName] = {
             name: commentFieldName,
-            label: 'Comment',
+            label: commentLabel,
             component: 'govukInput',
             validate: ['required'],
             dependent: {
@@ -290,6 +293,8 @@ export function generateFields(config: IncidentTypeConfiguration): FormWizard.Fi
 
   return fields
 }
+
+export default generateFields
 
 /**
  * Returns the list of next step conditions for the question/answers

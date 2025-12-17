@@ -42,7 +42,7 @@ export function generateSteps(
           const dateFieldName = conditionalFieldName(question, answer, 'date')
           fields.push(dateFieldName)
         }
-        if (answer.commentRequired) {
+        if (answer.commentRequired === true || answer.commentOptional === true) {
           const commentFieldName = conditionalFieldName(question, answer, 'comment')
           fields.push(commentFieldName)
         }
@@ -254,6 +254,7 @@ function generateFields(config: IncidentTypeConfiguration): FormWizard.Fields {
             hint: answer.responseHint,
             dateRequired: answer.dateRequired,
             commentRequired: answer.commentRequired,
+            commentOptional: answer.commentOptional,
           } satisfies FormWizard.FieldItem
         }),
       } satisfies FormWizard.Field
@@ -274,7 +275,7 @@ function generateFields(config: IncidentTypeConfiguration): FormWizard.Fields {
           } satisfies FormWizard.Field
         }
 
-        if (answer.commentRequired || answer.commentOptional) {
+        if (answer.commentRequired === true || answer.commentOptional === true) {
           const commentFieldName = conditionalFieldName(question, answer, 'comment')
           const optionalText = answer.commentOptional ? ' (optional)' : ''
           const commentLabel = `${answer.commentLabel || 'Comment'}${optionalText}`
@@ -282,7 +283,7 @@ function generateFields(config: IncidentTypeConfiguration): FormWizard.Fields {
             name: commentFieldName,
             label: commentLabel,
             component: 'govukInput',
-            validate: answer.commentOptional ? null : ['required'],
+            validate: answer.commentOptional === true ? null : ['required'],
             dependent: {
               field: fieldName,
               value: answer.response,

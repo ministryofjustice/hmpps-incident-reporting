@@ -55,6 +55,7 @@ export function fromNomis(nomisConfig: NomisIncidentTypeConfiguration): DpsIncid
             active: ans.answerActiveFlag === true,
             label: convertToSentenceCase(ans.answerDesc),
             commentRequired: ans.commentRequiredFlag === true,
+            commentOptional: ans.commentRequiredFlag === true,
             dateRequired: ans.dateRequiredFlag === true,
             nextQuestionCode,
           }

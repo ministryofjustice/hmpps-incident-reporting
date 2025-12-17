@@ -48,9 +48,9 @@ class ResponseItem {
   get isComplete(): boolean {
     return (
       this.answerConfig &&
-      (!this.answerConfig.commentRequired ||
+      (!this.answerConfig.commentRequired === true ||
         this.response.additionalInformation?.length > 0 ||
-        (this.answerConfig.commentOptional !== undefined && this.answerConfig.commentOptional)) &&
+        this.answerConfig.commentOptional === true) &&
       (!this.answerConfig.dateRequired || Boolean(this.response.responseDate))
     )
   }

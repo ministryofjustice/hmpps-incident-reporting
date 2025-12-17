@@ -25,6 +25,7 @@ declare module 'hmpo-form-wizard' {
       // TODO: set in `generateFields`, but never read?
       dateRequired?: boolean
       commentRequired?: boolean
+      commentOptional?: boolean
     }
   }
 }

@@ -78,7 +78,7 @@ const testConfig: IncidentTypeConfiguration = {
           label: 'Yes',
           active: true,
           dateRequired: true,
-          commentOptional: true,
+          commentRequired: true,
           nextQuestionCode: 'qicecream',
         },
         {
@@ -88,6 +88,16 @@ const testConfig: IncidentTypeConfiguration = {
           active: true,
           dateRequired: false,
           commentRequired: false,
+          nextQuestionCode: 'qicecream',
+        },
+        {
+          code: 'qdog-a3',
+          response: 'NOT SURE',
+          label: 'Not sure',
+          responseHint: 'Explain why if you can',
+          active: true,
+          dateRequired: false,
+          commentOptional: true,
           nextQuestionCode: 'qicecream',
         },
       ],
@@ -199,12 +209,12 @@ describe.each([
       },
       '/qdog': {
         controller: QuestionsController,
-        fields: ['qdog', 'qdog-qdog-a1-date', 'qdog-qdog-a1-comment'],
+        fields: ['qdog', 'qdog-qdog-a1-date', 'qdog-qdog-a1-comment', 'qdog-qdog-a3-comment'],
         next: [
           {
             field: 'qdog',
             op: 'in',
-            value: ['YES', 'NO'],
+            value: ['YES', 'NO', 'NOT SURE'],
             next: 'qicecream',
           },
         ],
@@ -310,6 +320,13 @@ describe('generateFields()', () => {
             dateRequired: false,
             commentRequired: false,
           },
+          {
+            value: 'NOT SURE',
+            label: 'Not sure',
+            hint: 'Explain why if you can',
+            commentOptional: true,
+            dateRequired: false,
+          },
         ],
       },
       'qdog-qdog-a1-date': {
@@ -324,13 +341,23 @@ describe('generateFields()', () => {
       },
       'qdog-qdog-a1-comment': {
         name: 'qdog-qdog-a1-comment',
-        label: 'Comment (optional)',
+        label: 'Comment',
         component: 'govukInput',
-        validate: null,
+        validate: ['required'],
         dependent: {
           field: 'qdog',
           value: 'YES',
         },
+      },
+      'qdog-qdog-a3-comment': {
+        component: 'govukInput',
+        dependent: {
+          field: 'qdog',
+          value: 'NOT SURE',
+        },
+        label: 'Comment (optional)',
+        name: 'qdog-qdog-a3-comment',
+        validate: null,
       },
       qicecream: {
         name: 'qicecream',

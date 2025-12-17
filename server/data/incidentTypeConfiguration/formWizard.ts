@@ -274,14 +274,15 @@ function generateFields(config: IncidentTypeConfiguration): FormWizard.Fields {
           } satisfies FormWizard.Field
         }
 
-        if (answer.commentRequired) {
+        if (answer.commentRequired || answer.commentOptional) {
           const commentFieldName = conditionalFieldName(question, answer, 'comment')
-          const commentLabel = `${answer.commentLabel || 'Comment'}`
+          const optionalText = answer.commentOptional ? ' (optional)' : ''
+          const commentLabel = `${answer.commentLabel || 'Comment'}${optionalText}`
           fields[commentFieldName] = {
             name: commentFieldName,
             label: commentLabel,
             component: 'govukInput',
-            validate: ['required'],
+            validate: answer.commentOptional ? null : ['required'],
             dependent: {
               field: fieldName,
               value: answer.response,

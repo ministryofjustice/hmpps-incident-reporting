@@ -53,9 +53,9 @@ export interface AnswerConfiguration {
   /** Override the comment text label */
   commentLabel?: string
   dateRequired: boolean
-  commentRequired: boolean
+  commentRequired?: boolean
   /** Indicates this comment is not mandatory */
-  commentNotMandatory?: boolean
+  commentOptional?: boolean
   nextQuestionCode: string | null
 }
 

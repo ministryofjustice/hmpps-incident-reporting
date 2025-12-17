@@ -50,7 +50,7 @@ class ResponseItem {
       this.answerConfig &&
       (!this.answerConfig.commentRequired ||
         this.response.additionalInformation?.length > 0 ||
-        (this.answerConfig.commentNotMandatory !== undefined && this.answerConfig.commentNotMandatory)) &&
+        (this.answerConfig.commentOptional !== undefined && this.answerConfig.commentOptional)) &&
       (!this.answerConfig.dateRequired || Boolean(this.response.responseDate))
     )
   }

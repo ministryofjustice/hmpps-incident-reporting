@@ -78,8 +78,7 @@ const testConfig: IncidentTypeConfiguration = {
           label: 'Yes',
           active: true,
           dateRequired: true,
-          commentRequired: true,
-          commentNotMandatory: true,
+          commentOptional: true,
           nextQuestionCode: 'qicecream',
         },
         {

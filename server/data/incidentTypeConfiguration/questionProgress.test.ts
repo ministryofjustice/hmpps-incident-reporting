@@ -556,16 +556,6 @@ describe('Question progress', () => {
                 commentRequired: true,
                 nextQuestionCode: null,
               },
-              {
-                code: '5',
-                response: 'A5',
-                active: true,
-                label: 'Answer 5 (enter optional comment)',
-                dateRequired: false,
-                commentRequired: true,
-                commentNotMandatory: true,
-                nextQuestionCode: null,
-              },
             ],
           },
         },
@@ -627,26 +617,6 @@ describe('Question progress', () => {
               label: 'A2',
               responseDate: provided ? new Date() : null,
               additionalInformation: null,
-              recordedAt: new Date(),
-              recordedBy: 'some-user',
-            },
-          ],
-          expectValid,
-        )
-      })
-
-      it.each([
-        { scenario: 'provided', provided: true, expectValid: true },
-        { scenario: 'not provided', provided: false, expectValid: true },
-      ])('when comment can be entered but not required and $scenario', ({ provided, expectValid }) => {
-        expectProgressStepValidity(
-          [
-            {
-              code: '5',
-              response: 'A5',
-              label: 'A5',
-              responseDate: null,
-              additionalInformation: provided ? 'COMMENT' : null,
               recordedAt: new Date(),
               recordedBy: 'some-user',
             },
@@ -798,7 +768,6 @@ describe('Question progress', () => {
                 label: 'Answer 5 (enter optional comment)',
                 dateRequired: false,
                 commentRequired: true,
-                commentNotMandatory: true,
                 nextQuestionCode: null,
               },
             ],
@@ -849,16 +818,6 @@ describe('Question progress', () => {
               label: 'A3',
               responseDate: null,
               additionalInformation: 'COMMENT',
-              recordedAt: new Date(),
-              recordedBy: 'some-user',
-            },
-            // complete
-            {
-              code: '5',
-              response: 'A5',
-              label: 'A5',
-              responseDate: null,
-              additionalInformation: null,
               recordedAt: new Date(),
               recordedBy: 'some-user',
             },

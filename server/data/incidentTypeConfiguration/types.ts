@@ -54,8 +54,6 @@ export interface AnswerConfiguration {
   commentLabel?: string
   dateRequired: boolean
   commentRequired: boolean
-  /** Indicates this comment is not mandatory */
-  commentNotMandatory?: boolean
   nextQuestionCode: string | null
 }
 

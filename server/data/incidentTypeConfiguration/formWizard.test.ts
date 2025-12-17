@@ -79,7 +79,6 @@ const testConfig: IncidentTypeConfiguration = {
           active: true,
           dateRequired: true,
           commentRequired: true,
-          commentNotMandatory: true,
           nextQuestionCode: 'qicecream',
         },
         {
@@ -325,9 +324,9 @@ describe('generateFields()', () => {
       },
       'qdog-qdog-a1-comment': {
         name: 'qdog-qdog-a1-comment',
-        label: 'Comment (optional)',
+        label: 'Comment',
         component: 'govukInput',
-        validate: null,
+        validate: ['required'],
         dependent: {
           field: 'qdog',
           value: 'YES',

@@ -478,7 +478,8 @@ function buildAnswer({
     label,
     active,
     dateRequired: false,
-    commentRequired: false,
+    commentRequested: false,
+    commentMandatory: false,
     nextQuestionCode,
   }
 }

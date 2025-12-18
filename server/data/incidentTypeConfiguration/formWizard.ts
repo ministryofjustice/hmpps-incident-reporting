@@ -42,7 +42,7 @@ export function generateSteps(
           const dateFieldName = conditionalFieldName(question, answer, 'date')
           fields.push(dateFieldName)
         }
-        if (answer.commentRequired) {
+        if (answer.commentRequested) {
           const commentFieldName = conditionalFieldName(question, answer, 'comment')
           fields.push(commentFieldName)
         }
@@ -253,7 +253,7 @@ function generateFields(config: IncidentTypeConfiguration): FormWizard.Fields {
             label: answer.label,
             hint: answer.responseHint,
             dateRequired: answer.dateRequired,
-            commentRequired: answer.commentRequired,
+            commentRequired: answer.commentRequested,
           } satisfies FormWizard.FieldItem
         }),
       } satisfies FormWizard.Field
@@ -274,7 +274,7 @@ function generateFields(config: IncidentTypeConfiguration): FormWizard.Fields {
           } satisfies FormWizard.Field
         }
 
-        if (answer.commentRequired) {
+        if (answer.commentRequested) {
           const commentFieldName = conditionalFieldName(question, answer, 'comment')
           const commentLabel = `${answer.commentLabel || 'Comment'}`
           fields[commentFieldName] = {

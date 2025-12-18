@@ -495,7 +495,7 @@ describe('Dashboard', () => {
       type: undefined,
     }
     return request(appWithAllRoutes({ services: { userService }, userSupplier: () => mockDataWarden }))
-      .get('/reports')
+      .get('/reports?clearFilers=All')
       .expect('Content-Type', /html/)
       .expect(200)
       .expect(res => {
@@ -524,7 +524,7 @@ describe('Dashboard', () => {
       type: undefined,
     }
     return request(appWithAllRoutes({ services: { userService }, userSupplier: () => mockDataWarden }))
-      .get('/reports')
+      .get('/reports?clearFilters=All')
       .expect('Content-Type', /html/)
       .expect(200)
       .expect(res => {

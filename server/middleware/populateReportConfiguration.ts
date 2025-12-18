@@ -4,7 +4,7 @@ import { NotImplemented } from 'http-errors'
 import logger from '../../logger'
 import { getIncidentTypeConfiguration } from '../reportConfiguration/types'
 import { reportHasDetails } from '../data/incidentReportingApiUtils'
-import { generateFields, generateSteps } from '../data/incidentTypeConfiguration/formWizard'
+import generateFields, { generateSteps } from '../data/incidentTypeConfiguration/formWizard'
 import { QuestionProgress } from '../data/incidentTypeConfiguration/questionProgress'
 
 /**

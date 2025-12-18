@@ -34,7 +34,7 @@ export function fromNomis(nomisConfig: NomisIncidentTypeConfiguration): DpsIncid
   return {
     incidentType: typeFromNomisCode(nomisConfig.incidentType),
     active: nomisConfig.active === true,
-    // 1st question is starting question
+    // 1st question is the starting question
     startingQuestionCode: nomisQuestions[0]?.questionnaireQueId?.toString() ?? null,
     questions: nomisQuestions.reduce((qs: Record<string, DpsQuestionConfiguration>, q: NomisQuestionConfiguration) => {
       const nomisAnswers = q.answers.sort(sortByAnswerSequence)

@@ -44,7 +44,7 @@ class ResponseItem {
     readonly answerConfig: AnswerConfiguration | undefined,
   ) {}
 
-  /** Response choice is valid for question and comment and/or date is present if required */
+  /** Response choice is valid for question and comment, and/or date is present if required */
   get isComplete(): boolean {
     return (
       this.answerConfig &&

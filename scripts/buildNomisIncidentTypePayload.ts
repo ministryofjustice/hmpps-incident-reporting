@@ -64,7 +64,7 @@ function toPrisonApiUpdatePayload({
       code: ans.code,
       response: ans.response,
       active: ans.active,
-      commentRequired: ans.commentRequired,
+      commentRequired: ans.commentRequired || ans.commentOptional,
       dateRequired: ans.dateRequired,
       nextQuestionCode: ans.nextQuestionCode,
     })),

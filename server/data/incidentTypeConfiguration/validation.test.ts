@@ -92,6 +92,18 @@ describe('DPS config validation', () => {
     })
   })
 
+  describe("when config answers have mandatory comment but don't request one", () => {
+    it('returns an error', () => {
+      // A comment can't be mandatory if it's not requested
+      const config: IncidentTypeConfiguration = buildValidConfig()
+      config.questions['2'].answers[0].commentRequested = false
+      config.questions['2'].answers[0].commentMandatory = true
+
+      const errors = validateConfig(config).map(err => err.message)
+      expect(errors).toContain("the following answers have mandatory comment but they don't request one: 2/yes")
+    })
+  })
+
   describe('when config has active questions without active answers', () => {
     it('returns an error', () => {
       const config: IncidentTypeConfiguration = {

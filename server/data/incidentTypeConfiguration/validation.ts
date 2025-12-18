@@ -9,6 +9,7 @@ export function validateConfig(config: IncidentTypeConfiguration): Error[] {
   checkStartingQuestion(config, errors)
   checkCodesDontIncludeHyphens(config, errors)
   checkQuestionsWithoutAnswers(config, errors)
+  checkAnswersCommentsRequirements(config, errors)
   checkMultipleChoicesNextQuestions(config, errors)
   checkUnknownQuestions(configGraph, errors)
 
@@ -65,6 +66,27 @@ function checkQuestionsWithoutAnswers(config: IncidentTypeConfiguration, errors:
         errors.push(new Error(`active question ${question.code} has no active answers`))
       }
     })
+}
+
+function checkAnswersCommentsRequirements(config: IncidentTypeConfiguration, errors: Error[]): void {
+  const invalidAnswerCodes: string[] = []
+  Object.values(config.questions)
+    .filter(question => question.active === true)
+    .forEach(question => {
+      for (const answer of question.answers) {
+        // Comment can't be mandatory if it's not requested
+        if (answer.active && answer.commentMandatory && answer.commentRequested === false) {
+          invalidAnswerCodes.push(`${question.code}/${answer.code}`)
+        }
+      }
+    })
+  if (invalidAnswerCodes.length > 0) {
+    errors.push(
+      new Error(
+        `the following answers have mandatory comment but they don't request one: ${invalidAnswerCodes.join(', ')}`,
+      ),
+    )
+  }
 }
 
 function checkMultipleChoicesNextQuestions(config: IncidentTypeConfiguration, errors: Error[]): void {

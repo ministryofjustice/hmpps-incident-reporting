@@ -32,6 +32,8 @@ type DashboardFilters = {
   typeFamily?: TypeFamily
   incidentStatuses?: IncidentStatuses | IncidentStatuses[]
   latestUserActions?: ApiUserAction | ApiUserAction[] | 'REQUEST_REMOVAL'
+  sort?: string
+  order?: 'DESC' | 'ASC'
 }
 
 type BannerTypes = 'information' | 'success' | 'error'

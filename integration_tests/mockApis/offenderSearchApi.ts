@@ -55,7 +55,7 @@ export default {
     prisonIds,
     location,
     gender,
-    dateOfBirth,
+    dateOfBirth = null,
     fuzzyMatch = true,
     results,
     page = 0,
@@ -66,7 +66,7 @@ export default {
     prisonIds: string[]
     location: PrisonerLocationStatus
     gender: PrisonerGender
-    dateOfBirth: string
+    dateOfBirth: string | null
     results: OffenderSearchResult[]
     page: number
     totalElements: number | undefined

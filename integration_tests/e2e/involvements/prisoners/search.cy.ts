@@ -75,7 +75,7 @@ context('Prisoner search page', () => {
         cy.task('stubPrisonApiMockPrisonerPhoto', barry.prisonerNumber)
 
         cy.visit(
-          `/reports/${reportWithDetails.id}/prisoners/search?page=1&global=no&q=AR&prisonerLocationStatus=ALL&prisonerGender=ALL&dateOfBirth=null`,
+          `/reports/${reportWithDetails.id}/prisoners/search?page=1&global=no&q=AR&prisonerLocationStatus=ALL&prisonerGender=ALL&prisonerDateOfBirth=`,
         )
         prisonerSearchPage = Page.verifyOnPage(PrisonerSearchPage)
       })
@@ -142,7 +142,7 @@ context('Prisoner search page', () => {
         cy.task('stubPrisonApiMockPrisonerPhoto', andrew.prisonerNumber)
 
         cy.visit(
-          `/reports/${reportWithDetails.id}/prisoners/search?page=1&global=yes&q=A1111&prisonerLocationStatus=ALL&prisonerGender=ALL&dateOfBirth=null`,
+          `/reports/${reportWithDetails.id}/prisoners/search?page=1&global=yes&q=A1111&prisonerLocationStatus=ALL&prisonerGender=ALL&dateOfBirth=`,
         )
         prisonerSearchPage = Page.verifyOnPage(PrisonerSearchPage)
       })

@@ -58,7 +58,7 @@ export class PrisonerSearchController extends GetBaseController<Values> {
       // NB: this will not show in practice
       return 'Page is not valid'
     }
-    if (error.key === 'dateOfBirth') {
+    if (error.key === 'prisonerDateOfBirth') {
       return 'Enter a valid date'
     }
     return super.errorMessage(error, req, res)

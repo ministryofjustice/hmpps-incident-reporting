@@ -85,18 +85,51 @@ describe('Searching for a prisoner to add to a report', () => {
   it.each([
     {
       scenario: 'name or prisoner number is not provided',
-      invalidPayload: { q: '', global: 'yes', page: '1' },
+      invalidPayload: {
+        q: '',
+        global: 'yes',
+        prisonerLocationStatus: 'ALL',
+        prisonerGender: 'ALL',
+        prisonerDateOfBirth: null,
+        page: '1',
+      },
       expectedError: 'Enter the prisoner’s name or prison number',
     },
     {
       scenario: 'global option is invalid',
-      invalidPayload: { q: 'John', global: '', page: '1' },
+      invalidPayload: {
+        q: 'John',
+        global: '',
+        prisonerLocationStatus: 'ALL',
+        prisonerGender: 'ALL',
+        prisonerDateOfBirth: null,
+        page: '1',
+      },
       expectedError: 'Choose where to search',
     },
     {
       scenario: 'page is invalid',
-      invalidPayload: { q: 'John', global: 'no', page: '0' },
+      invalidPayload: {
+        q: 'John',
+        global: 'no',
+        prisonerLocationStatus: 'ALL',
+        prisonerGender: 'ALL',
+        prisonerDateOfBirth: null,
+        page: '0',
+      },
       expectedError: 'Page is not valid',
+    },
+    {
+      scenario: 'date of birth is invalid',
+      invalidPayload: {
+        q: 'John',
+        global: 'no',
+        prisonerLocationStatus: 'ALL',
+        prisonerGender: 'ALL',
+        prisonerDateOfBirth: '32/1/1990',
+        page: '1',
+      },
+      expectedError: 'Enter a valid date',
     },
   ])('should display errors when $scenario', ({ invalidPayload, expectedError }) => {
     return request(app)
@@ -299,6 +332,28 @@ describe('Searching for a prisoner to add to a report', () => {
           dateOfBirth: null,
           gender: undefined,
           location: undefined,
+        },
+        0,
+      ],
+    },
+    {
+      scenario: 'including all parameters',
+      validPayload: {
+        q: 'Smith',
+        global: 'yes',
+        prisonerLocationStatus: 'IN',
+        prisonerGender: 'M',
+        prisonerDateOfBirth: '8/1/1990',
+        page: '1',
+      },
+      expectedCall: [
+        {
+          andWords: 'Smith',
+          fuzzyMatch: true,
+          prisonIds: null,
+          dateOfBirth: '1990-01-08',
+          gender: 'M',
+          location: 'IN',
         },
         0,
       ],

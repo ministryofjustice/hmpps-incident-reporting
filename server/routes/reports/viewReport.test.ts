@@ -1030,7 +1030,7 @@ describe('View report page', () => {
             const canEditTextMatcher = canEdit ? expect(res.text).toContain : expect(res.text).not.toContain
             ;[
               // question page links
-              'question responses',
+              'question responses:',
               // change links
               'Change',
               `${viewReportUrl}/change-type`,

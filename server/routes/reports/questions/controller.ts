@@ -180,7 +180,7 @@ export class QuestionsController extends BaseController<FormWizard.MultiValues> 
           }
 
           // comment field
-          if (answerConfig.commentRequired) {
+          if (answerConfig.commentRequested) {
             const commentFieldName = conditionalFieldName(questionConfig, answerConfig, 'comment')
             if (formValues[commentFieldName] === undefined) {
               formValues[commentFieldName] = response.additionalInformation
@@ -279,7 +279,7 @@ export class QuestionsController extends BaseController<FormWizard.MultiValues> 
               additionalInformation: null,
             }
 
-            if (answerConfig.commentRequired) {
+            if (answerConfig.commentRequested) {
               const commentFieldName = conditionalFieldName(questionConfig, answerConfig, 'comment')
               response.additionalInformation = submittedValues[commentFieldName] as string
             }

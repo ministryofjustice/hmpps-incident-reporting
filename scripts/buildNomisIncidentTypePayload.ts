@@ -64,7 +64,8 @@ function toPrisonApiUpdatePayload({
       code: ans.code,
       response: ans.response,
       active: ans.active,
-      commentRequired: ans.commentRequired,
+      // In NOMIS this field means the comment is requested but is not mandatory
+      commentRequired: ans.commentRequested,
       dateRequired: ans.dateRequired,
       nextQuestionCode: ans.nextQuestionCode,
     })),

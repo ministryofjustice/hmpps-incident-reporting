@@ -101,6 +101,8 @@ export default function dashboard(): Router {
       typeFamily = req.session.dashboardFilters?.typeFamily
       incidentStatuses = req.session.dashboardFilters?.incidentStatuses
       latestUserActions = req.session.dashboardFilters?.latestUserActions
+      sort = req.session.dashboardFilters?.sort
+      order = req.session.dashboardFilters?.order
     }
 
     // Parse params
@@ -377,6 +379,8 @@ export default function dashboard(): Router {
       typeFamily,
       incidentStatuses,
       latestUserActions,
+      sort,
+      order,
     }
 
     res.render('pages/dashboard/index', {

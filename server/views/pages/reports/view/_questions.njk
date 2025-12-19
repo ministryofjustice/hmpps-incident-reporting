@@ -46,7 +46,7 @@
     actions: {items: [{
       href: reportSubUrlPrefix + "/questions" + (questionProgressStep.urlSuffix or "") + "#question-" + questionProgressStep.fieldName,
       text: "Change" if questionProgressStep.isComplete else "Continue",
-      visuallyHiddenText: "question responses"
+      visuallyHiddenText: "question responses: " + questionProgressStep.questionConfig.label
     }]} if canEditReport and reportConfig.active else {}
   }) %}
 

@@ -341,7 +341,27 @@ context('Responding to questions', () => {
       questionPage.errorSummary.should('contain.text', 'There is a problem')
       questionPage.errorSummary.should(
         'contain.text',
-        'Enter a date for ‘Has the prison service press office been informed?’',
+        'The date for ‘Has the prison service press office been informed?’ cannot be empty',
+      )
+    })
+
+    it('should show an error if a required date is invalid', () => {
+      cy.visit(`/reports/${reportWithDetails.id}/questions/44769`)
+      const questionPage = Page.verifyOnPage(QuestionPage, [1, 5], 'attempted escape from establishment')
+
+      questionPage.selectResponses('44769', 'No')
+      questionPage.selectResponses('44919', 'Investigation by police', 'Investigation internally')
+      questionPage.selectResponses('45033', 'No')
+      questionPage.selectResponses('44636', 'No')
+      questionPage.selectResponses('44749', 'Yes') // response requiring date
+      questionPage.enterDate('44749', '181104', '35/3/2025')
+      questionPage.submit()
+
+      Page.verifyOnPage(QuestionPage, [1, 5], 'attempted escape from establishment')
+      questionPage.errorSummary.should('contain.text', 'There is a problem')
+      questionPage.errorSummary.should(
+        'contain.text',
+        'Enter a valid date for ‘Has the prison service press office been informed?’',
       )
     })
   })

@@ -5,9 +5,15 @@ import type FormWizard from 'hmpo-form-wizard'
 
 import logger from '../../../../../logger'
 import { GetBaseController } from '../../../../controllers'
-import { OffenderSearchApi, type OffenderSearchResults } from '../../../../data/offenderSearchApi'
+import {
+  OffenderSearchApi,
+  type OffenderSearchResults,
+  PrisonerGender,
+  PrisonerLocationStatus,
+} from '../../../../data/offenderSearchApi'
 import { pagination } from '../../../../utils/pagination'
 import type { Values } from './fields'
+import { parseDateInput } from '../../../../utils/parseDateTime'
 
 type OffenderSearchFilters = Parameters<OffenderSearchApi['searchGlobally']>[0]
 
@@ -52,6 +58,9 @@ export class PrisonerSearchController extends GetBaseController<Values> {
       // NB: this will not show in practice
       return 'Page is not valid'
     }
+    if (error.key === 'prisonerDateOfBirth') {
+      return 'Enter a valid date'
+    }
     return super.errorMessage(error, req, res)
   }
 
@@ -73,7 +82,18 @@ export class PrisonerSearchController extends GetBaseController<Values> {
     res: express.Response,
     next: express.NextFunction,
   ): Promise<void> {
-    const { q, global, page: pageStr } = this.getAllValues(req)
+    const {
+      q,
+      prisonerLocationStatus,
+      prisonerGender,
+      prisonerDateOfBirth,
+      global,
+      page: pageStr,
+    } = this.getAllValues(req)
+    let dateOfBirth: string | null = null
+    if (prisonerDateOfBirth) {
+      dateOfBirth = parseDateInput(prisonerDateOfBirth).toLocaleDateString('en-CA')
+    }
     const page = parseInt(pageStr, 10) || 1
 
     const { offenderSearchApi } = res.locals.apis
@@ -83,10 +103,24 @@ export class PrisonerSearchController extends GetBaseController<Values> {
 
     try {
       if (global === 'yes') {
-        searchResults = await offenderSearchApi.searchGlobally(this.globalSearchFilters(q), page - 1)
+        searchResults = await offenderSearchApi.searchGlobally(
+          this.globalSearchFilters(
+            q,
+            prisonerGender as PrisonerGender,
+            prisonerLocationStatus as PrisonerLocationStatus,
+            dateOfBirth,
+          ),
+          page - 1,
+        )
       } else {
         searchResults = await offenderSearchApi.searchGlobally(
-          this.globalSearchFilters(q, [activeCaseload.caseLoadId]),
+          this.globalSearchFilters(
+            q,
+            prisonerGender as PrisonerGender,
+            prisonerLocationStatus as PrisonerLocationStatus,
+            dateOfBirth,
+            [activeCaseload.caseLoadId],
+          ),
           page - 1,
         )
       }
@@ -109,6 +143,15 @@ export class PrisonerSearchController extends GetBaseController<Values> {
       } else {
         searchParams.append('global', 'no')
       }
+      if (prisonerLocationStatus) {
+        searchParams.append('prisonerLocationStatus', prisonerLocationStatus)
+      }
+      if (prisonerGender) {
+        searchParams.append('prisonerGender', prisonerGender)
+      }
+      if (prisonerDateOfBirth) {
+        searchParams.append('prisonerDateOfBirth', prisonerDateOfBirth)
+      }
       if (page > pageCount) {
         searchParams.append('page', `${pageCount}`)
         res.redirect(`${res.locals.reportSubUrlPrefix}/prisoners/search?${searchParams.toString()}`)
@@ -130,11 +173,20 @@ export class PrisonerSearchController extends GetBaseController<Values> {
     next()
   }
 
-  private globalSearchFilters(keywords: string, prisonIds: string[] = null): OffenderSearchFilters {
+  private globalSearchFilters(
+    keywords: string,
+    gender: PrisonerGender,
+    location: PrisonerLocationStatus,
+    dateOfBirth: string,
+    prisonIds: string[] = null,
+  ): OffenderSearchFilters {
     return {
       andWords: keywords,
       prisonIds,
       fuzzyMatch: true,
+      gender,
+      location,
+      dateOfBirth,
     }
   }
 }

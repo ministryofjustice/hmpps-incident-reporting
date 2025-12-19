@@ -1,7 +1,12 @@
 import type { Response as SuperAgentResponse, SuperAgentRequest } from 'superagent'
 
 import { stubFor } from './wiremock'
-import { OffenderSearchApi, type OffenderSearchResult } from '../../server/data/offenderSearchApi'
+import {
+  OffenderSearchApi,
+  type OffenderSearchResult,
+  PrisonerGender,
+  PrisonerLocationStatus,
+} from '../../server/data/offenderSearchApi'
 import { andrew, barry, chris, donald, ernie, fred } from '../../server/data/testData/offenderSearch'
 
 export default {
@@ -48,6 +53,9 @@ export default {
   stubOffenderSearchGlobally: ({
     andWords,
     prisonIds,
+    location,
+    gender,
+    dateOfBirth = null,
     fuzzyMatch = true,
     results,
     page = 0,
@@ -56,6 +64,9 @@ export default {
     andWords: string
     fuzzyMatch: boolean
     prisonIds: string[]
+    location: PrisonerLocationStatus
+    gender: PrisonerGender
+    dateOfBirth: string | null
     results: OffenderSearchResult[]
     page: number
     totalElements: number | undefined
@@ -70,6 +81,9 @@ export default {
               andWords,
               prisonIds,
               fuzzyMatch,
+              location,
+              gender,
+              dateOfBirth,
               pagination: { page, size: OffenderSearchApi.PAGE_SIZE },
             },
           },

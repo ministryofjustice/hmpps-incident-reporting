@@ -136,7 +136,14 @@ for (const { scenario, user, reportType } of scenarios) {
       // search for Andrew Arnold
       let prisonerSearchPage = Page.verifyOnPage(PrisonerSearchPage)
       prisonerSearchPage.enterQuery('Andrew Arnold')
-      cy.task('stubOffenderSearchGlobally', { prisonIds: ['MDI'], andWords: 'Andrew Arnold', results: [andrew] })
+      cy.task('stubOffenderSearchGlobally', {
+        prisonIds: ['MDI'],
+        andWords: 'Andrew Arnold',
+        location: 'ALL',
+        gender: 'ALL',
+        dateOfBirth: null,
+        results: [andrew],
+      })
       cy.task('stubPrisonApiMockPrisonerPhoto', andrew.prisonerNumber)
       prisonerSearchPage.submit()
       prisonerSearchPage = Page.verifyOnPage(PrisonerSearchPage)

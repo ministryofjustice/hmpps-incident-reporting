@@ -21,7 +21,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Bail',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -31,7 +31,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Final discharge/end of sentence',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -41,7 +41,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Police production',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -51,7 +51,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Court production/PEMS',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -61,7 +61,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Escort - HMPS',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -71,7 +71,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Other: please explain',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -81,7 +81,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Bail',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45180',
         },
         {
@@ -91,7 +91,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Final discharge/end of sentence',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45180',
         },
         {
@@ -101,7 +101,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Police production',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45180',
         },
         {
@@ -111,7 +111,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Court production/PEMS',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45180',
         },
         {
@@ -121,7 +121,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Escort – HMPS',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45180',
         },
         {
@@ -131,7 +131,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Other : please explain',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45180',
         },
         {
@@ -141,7 +141,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Court production/PEMS',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45180',
         },
       ],
@@ -160,7 +160,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Establishment: enter name',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -170,7 +170,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Court: enter name',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -180,7 +180,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Other: please enter details',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -190,7 +190,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Establishment : enter name',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45181',
         },
         {
@@ -200,7 +200,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Court : enter name',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45181',
         },
         {
@@ -210,7 +210,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Other : please enter details',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45181',
         },
       ],
@@ -229,7 +229,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Wrong person released',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -239,7 +239,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Sentence miscalculated',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -249,7 +249,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'ADA not included in calculations',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -259,7 +259,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Immigration warrant not applied/misfiled/missing',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -269,7 +269,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Remand warrant not applied/misfiled/missing',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -279,7 +279,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Imprisonment warrant not applied/misfiled/missing',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -289,7 +289,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Civil/non payment of fines warrant not applied/misfiled/missing',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -299,7 +299,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Bail conditions not fully met',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -309,7 +309,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Release criteria not met',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -319,7 +319,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Recall procedures not applied',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -329,7 +329,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Other: please explain',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -339,7 +339,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Wrong person released',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45182',
         },
         {
@@ -349,7 +349,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Sentence miscalculated',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45182',
         },
         {
@@ -359,7 +359,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'ADA not included on calculations',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45182',
         },
         {
@@ -369,7 +369,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Immigration warrant not applied/misfiled/missing',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45182',
         },
         {
@@ -379,7 +379,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Remand warrant not applied/misfiled/missing',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45182',
         },
         {
@@ -389,7 +389,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Imprisonment warrant not applied/misfiled/missing',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45182',
         },
         {
@@ -399,7 +399,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Civil/non payment of fines warrant not applied/misfiled/missing',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45182',
         },
         {
@@ -409,7 +409,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Bail conditions not fully met',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45182',
         },
         {
@@ -419,7 +419,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Release criteria not met',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45182',
         },
         {
@@ -429,7 +429,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Recall procedures not applied',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45182',
         },
         {
@@ -439,7 +439,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Other : please explain',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45182',
         },
       ],
@@ -458,7 +458,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Recall procedures',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -468,7 +468,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Home probation officer',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -478,7 +478,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Prisoner contacted',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -488,7 +488,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Court contacted',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -498,7 +498,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Police contacted',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -508,7 +508,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Other: please explain',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -518,7 +518,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'None - explain why none of the above procedures have been actioned',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -528,7 +528,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Recall procedures',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45183',
         },
         {
@@ -538,7 +538,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Home probation officer',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45183',
         },
         {
@@ -548,7 +548,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Prisoner contacted',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45183',
         },
         {
@@ -558,7 +558,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Court contacted',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45183',
         },
         {
@@ -568,7 +568,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Police contacted',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45183',
         },
         {
@@ -578,7 +578,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Other : please explain',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45183',
         },
         {
@@ -588,7 +588,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'None - explain why none of the above procedures have been actioned',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45183',
         },
       ],
@@ -607,7 +607,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Contact from PEMS',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -617,7 +617,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Contact from courts',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -627,7 +627,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Contact from UKBA',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -637,7 +637,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Contact from police',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -647,7 +647,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Post release check by establishment',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -657,7 +657,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Contact from other agency: please enter details',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -667,7 +667,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Sentence calculations',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -677,7 +677,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Other: please explain',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -687,7 +687,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Contact from PEMS',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45184',
         },
         {
@@ -697,7 +697,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Contact from courts',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45184',
         },
         {
@@ -707,7 +707,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Contact from UKBA',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45184',
         },
         {
@@ -717,7 +717,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Contact from police',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45184',
         },
         {
@@ -727,7 +727,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Post release check by establishment',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45184',
         },
         {
@@ -737,7 +737,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Contact from other agency : please enter details',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45184',
         },
         {
@@ -747,7 +747,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Sentence calculations (new receptions)',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45184',
         },
         {
@@ -757,7 +757,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Other: please explain',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45184',
         },
         {
@@ -767,7 +767,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Contact from PEMS',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45184',
         },
       ],
@@ -786,7 +786,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Date:',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: true,
+          dateMandatory: true,
           nextQuestionCode: null,
         },
         {
@@ -796,7 +796,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Date:',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: true,
+          dateMandatory: true,
           nextQuestionCode: '45185',
         },
       ],
@@ -815,7 +815,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Enter details:',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -825,7 +825,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Enter details:',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45186',
         },
       ],
@@ -844,7 +844,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Sentenced prisoner',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -854,7 +854,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Remand prisoner',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -864,7 +864,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Immigration detainee',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -874,7 +874,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Recall prisoner',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -884,7 +884,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Civil prisoner',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -894,7 +894,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Sentenced prisoner',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45189',
         },
         {
@@ -904,7 +904,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Remand prisoner',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45189',
         },
         {
@@ -914,7 +914,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Immigration detainee',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45189',
         },
         {
@@ -924,7 +924,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Recall prisoner',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45189',
         },
         {
@@ -934,7 +934,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Civil prisoner',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45189',
         },
       ],
@@ -953,7 +953,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Yes: date',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: true,
+          dateMandatory: true,
           nextQuestionCode: null,
         },
         {
@@ -963,7 +963,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Police incident number:',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -973,7 +973,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
       ],
@@ -992,7 +992,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Yes: date',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: true,
+          dateMandatory: true,
           nextQuestionCode: null,
         },
         {
@@ -1002,7 +1002,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -1012,7 +1012,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Incident ref no:',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -1022,7 +1022,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Yes: date',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: true,
+          dateMandatory: true,
           nextQuestionCode: '45190',
         },
         {
@@ -1032,7 +1032,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Incident ref no:',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45190',
         },
         {
@@ -1042,7 +1042,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45190',
         },
       ],
@@ -1061,7 +1061,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Yes: date',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: true,
+          dateMandatory: true,
           nextQuestionCode: null,
         },
         {
@@ -1071,7 +1071,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Police incident number:',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -1081,7 +1081,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -1091,7 +1091,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Yes: date',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: true,
+          dateMandatory: true,
           nextQuestionCode: '45188',
         },
         {
@@ -1101,7 +1101,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Police incident number:',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45188',
         },
         {
@@ -1111,7 +1111,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45188',
         },
       ],
@@ -1130,7 +1130,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -1140,7 +1140,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -1150,7 +1150,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Other: please enter details',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -1160,7 +1160,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45191',
         },
         {
@@ -1170,7 +1170,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45191',
         },
         {
@@ -1180,7 +1180,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Other: please enter details',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45191',
         },
         {
@@ -1190,7 +1190,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
       ],
@@ -1209,7 +1209,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Date:',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: true,
+          dateMandatory: true,
           nextQuestionCode: null,
         },
         {
@@ -1219,7 +1219,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Date:',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: true,
+          dateMandatory: true,
           nextQuestionCode: '45192',
         },
       ],
@@ -1238,7 +1238,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Yes: please enter details of offence',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -1248,7 +1248,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -1258,7 +1258,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Yes: please enter details of offence',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45193',
         },
         {
@@ -1268,7 +1268,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45193',
         },
       ],
@@ -1287,7 +1287,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Enter details:',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -1297,7 +1297,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Enter details:',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45235',
         },
       ],
@@ -1316,7 +1316,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Enter value',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
       ],
@@ -1335,7 +1335,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Hours',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -1345,7 +1345,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Days',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -1355,7 +1355,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Weeks',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -1365,7 +1365,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Months',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -1375,7 +1375,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Other',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
       ],
@@ -1394,7 +1394,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Hours',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -1404,7 +1404,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Days',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -1414,7 +1414,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Weeks',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -1424,7 +1424,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Months',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -1434,7 +1434,7 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
           label: 'Other',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
       ],

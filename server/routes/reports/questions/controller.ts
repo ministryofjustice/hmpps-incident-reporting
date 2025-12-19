@@ -188,7 +188,7 @@ export class QuestionsController extends BaseController<FormWizard.MultiValues> 
           }
 
           // date field
-          if (answerConfig.dateRequired) {
+          if (answerConfig.dateMandatory) {
             const dateFieldName = conditionalFieldName(questionConfig, answerConfig, 'date')
             if (formValues[dateFieldName] === undefined) {
               formValues[dateFieldName] = format.shortDate(response.responseDate)
@@ -284,7 +284,7 @@ export class QuestionsController extends BaseController<FormWizard.MultiValues> 
               response.additionalInformation = submittedValues[commentFieldName] as string
             }
 
-            if (answerConfig.dateRequired) {
+            if (answerConfig.dateMandatory) {
               const dateFieldName = conditionalFieldName(questionConfig, answerConfig, 'date')
               response.responseDate = parseDateInput(submittedValues[dateFieldName] as string)
             }

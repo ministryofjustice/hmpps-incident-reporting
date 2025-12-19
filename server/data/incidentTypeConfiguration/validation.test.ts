@@ -489,7 +489,7 @@ function buildAnswer({
     response: label.toUpperCase(),
     label,
     active,
-    dateRequired: false,
+    dateMandatory: false,
     commentRequested: false,
     commentMandatory: false,
     nextQuestionCode,

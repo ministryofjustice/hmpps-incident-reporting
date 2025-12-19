@@ -21,7 +21,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'No further action',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51231',
         },
         {
@@ -31,7 +31,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'IEP regression',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51231',
         },
         {
@@ -41,7 +41,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Placed on report/adjudication referral',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51231',
         },
         {
@@ -51,7 +51,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Police referral',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51231',
         },
         {
@@ -61,7 +61,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'CPS referral',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51231',
         },
         {
@@ -71,7 +71,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Prosecution referral',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51231',
         },
       ],
@@ -90,7 +90,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51232',
         },
         {
@@ -100,7 +100,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51232',
         },
       ],
@@ -119,7 +119,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51233',
         },
         {
@@ -129,7 +129,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51234',
         },
       ],
@@ -148,7 +148,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Administration',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51234',
         },
         {
@@ -158,7 +158,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Association area',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51234',
         },
         {
@@ -168,7 +168,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Cell',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51234',
         },
         {
@@ -178,7 +178,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Chapel',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51234',
         },
         {
@@ -188,7 +188,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Crown court',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51234',
         },
         {
@@ -198,7 +198,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Dining room',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51234',
         },
         {
@@ -208,7 +208,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Dormitory',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51234',
         },
         {
@@ -218,7 +218,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Education',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51234',
         },
         {
@@ -228,7 +228,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Elsewhere',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51234',
         },
         {
@@ -238,7 +238,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Exercise yard',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51234',
         },
         {
@@ -248,7 +248,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Funeral',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51234',
         },
         {
@@ -258,7 +258,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Gate',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51234',
         },
         {
@@ -268,7 +268,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Gym',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51234',
         },
         {
@@ -278,7 +278,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Health care centre',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51234',
         },
         {
@@ -288,7 +288,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Hospital outside (patient)',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51234',
         },
         {
@@ -298,7 +298,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Hospital outside (visiting)',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51234',
         },
         {
@@ -308,7 +308,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Kitchen',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51234',
         },
         {
@@ -318,7 +318,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Magistrates court',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51234',
         },
         {
@@ -328,7 +328,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Office',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51234',
         },
         {
@@ -338,7 +338,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Outside working party',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51234',
         },
         {
@@ -348,7 +348,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Reception',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51234',
         },
         {
@@ -358,7 +358,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Recess',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51234',
         },
         {
@@ -368,7 +368,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Segregation unit',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51234',
         },
         {
@@ -378,7 +378,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Showers/changing room',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51234',
         },
         {
@@ -388,7 +388,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Special unit',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51234',
         },
         {
@@ -398,7 +398,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Sports field',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51234',
         },
         {
@@ -408,7 +408,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Vehicle',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51234',
         },
         {
@@ -418,7 +418,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Visits',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51234',
         },
         {
@@ -428,7 +428,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Weddings',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51234',
         },
         {
@@ -438,7 +438,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Wing',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51234',
         },
         {
@@ -448,7 +448,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Within perimeter',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51234',
         },
         {
@@ -458,7 +458,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Works department',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51234',
         },
         {
@@ -468,7 +468,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Workshop',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51234',
         },
         {
@@ -478,7 +478,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Induction/first night centre',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51234',
         },
         {
@@ -488,7 +488,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Mail room',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51234',
         },
         {
@@ -498,7 +498,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'External roof',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51234',
         },
         {
@@ -508,7 +508,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Vulnerable prisoners unit (VPU)',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51234',
         },
       ],
@@ -527,7 +527,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51235',
         },
         {
@@ -537,7 +537,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51240',
         },
       ],
@@ -556,7 +556,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Amphetamines',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51236',
         },
         {
@@ -566,7 +566,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Barbiturates',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51236',
         },
         {
@@ -576,7 +576,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Benzodiazepines',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51236',
         },
         {
@@ -586,7 +586,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Buprenorphine/subutex',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51236',
         },
         {
@@ -596,7 +596,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Cannabis',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51236',
         },
         {
@@ -606,7 +606,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Cannabis plant',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51236',
         },
         {
@@ -616,7 +616,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Cocaine',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51236',
         },
         {
@@ -626,7 +626,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Crack',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51236',
         },
         {
@@ -636,7 +636,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Heroin',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51236',
         },
         {
@@ -646,7 +646,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'LSD',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51236',
         },
         {
@@ -656,7 +656,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Methadone',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51236',
         },
         {
@@ -666,7 +666,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Pregabalin',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51236',
         },
         {
@@ -676,7 +676,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Tranquilisers',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51236',
         },
         {
@@ -686,7 +686,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Tramadol',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51236',
         },
         {
@@ -696,7 +696,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Gabapentin',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51236',
         },
         {
@@ -706,7 +706,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'NPS: spice',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51236',
         },
         {
@@ -716,7 +716,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'NPS: black mamba',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51236',
         },
         {
@@ -726,7 +726,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'NPS: other',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51236',
         },
         {
@@ -736,7 +736,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Steroids',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51236',
         },
         {
@@ -746,7 +746,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Other (please specify)',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51236',
         },
         {
@@ -756,7 +756,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Unknown',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51236',
         },
       ],
@@ -775,7 +775,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '<1g',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51237',
         },
         {
@@ -785,7 +785,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '2g to 5g',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51237',
         },
         {
@@ -795,7 +795,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '6g to 10g',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51237',
         },
         {
@@ -805,7 +805,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '11g to 20g',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51237',
         },
         {
@@ -815,7 +815,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '21g to 30g',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51237',
         },
         {
@@ -825,7 +825,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '31g to 40g',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51237',
         },
         {
@@ -835,7 +835,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '41g to 50g',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51237',
         },
         {
@@ -845,7 +845,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '50g to 100g',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51237',
         },
         {
@@ -855,7 +855,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '101g to 200g',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51237',
         },
         {
@@ -865,7 +865,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '201g to 300g',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51237',
         },
         {
@@ -875,7 +875,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '301g to 400g',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51237',
         },
         {
@@ -885,7 +885,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '401g to 500g',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51237',
         },
         {
@@ -895,7 +895,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '501g to 1,000g',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51237',
         },
         {
@@ -905,7 +905,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'More than 1kg',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51237',
         },
         {
@@ -915,7 +915,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Unknown',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51237',
         },
       ],
@@ -934,7 +934,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51238',
         },
         {
@@ -944,7 +944,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51239',
         },
       ],
@@ -963,7 +963,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Forensic laboratory',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51239',
         },
         {
@@ -973,7 +973,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Local with BDH kit or similar',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51239',
         },
       ],
@@ -992,7 +992,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Name',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51240',
         },
       ],
@@ -1011,7 +1011,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51241',
         },
         {
@@ -1021,7 +1021,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51242',
         },
       ],
@@ -1040,7 +1040,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Authentic needle',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51242',
         },
         {
@@ -1050,7 +1050,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Authentic syringe',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51242',
         },
         {
@@ -1060,7 +1060,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Improvised needle',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51242',
         },
         {
@@ -1070,7 +1070,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Improvised syringe',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51242',
         },
         {
@@ -1080,7 +1080,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Pipe(s)',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51242',
         },
         {
@@ -1090,7 +1090,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Roach',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51242',
         },
         {
@@ -1100,7 +1100,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Other (please specify)',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51242',
         },
       ],
@@ -1119,7 +1119,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51243',
         },
         {
@@ -1129,7 +1129,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51253',
         },
       ],
@@ -1148,7 +1148,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51244',
         },
         {
@@ -1158,7 +1158,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51245',
         },
       ],
@@ -1177,7 +1177,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '0',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51245',
         },
         {
@@ -1187,7 +1187,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '1',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51245',
         },
         {
@@ -1197,7 +1197,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '2',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51245',
         },
         {
@@ -1207,7 +1207,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '4',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51245',
         },
         {
@@ -1217,7 +1217,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '5',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51245',
         },
         {
@@ -1227,7 +1227,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '6',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51245',
         },
         {
@@ -1237,7 +1237,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '7',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51245',
         },
         {
@@ -1247,7 +1247,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '8',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51245',
         },
         {
@@ -1257,7 +1257,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '9',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51245',
         },
         {
@@ -1267,7 +1267,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '10',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51245',
         },
         {
@@ -1277,7 +1277,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '11',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51245',
         },
         {
@@ -1287,7 +1287,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '12',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51245',
         },
         {
@@ -1297,7 +1297,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '13',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51245',
         },
         {
@@ -1307,7 +1307,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '14',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51245',
         },
         {
@@ -1317,7 +1317,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '15',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51245',
         },
         {
@@ -1327,7 +1327,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '16',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51245',
         },
         {
@@ -1337,7 +1337,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '17',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51245',
         },
         {
@@ -1347,7 +1347,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '18',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51245',
         },
         {
@@ -1357,7 +1357,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '19',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51245',
         },
         {
@@ -1367,7 +1367,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '20',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51245',
         },
         {
@@ -1377,7 +1377,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'More than 20',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51245',
         },
         {
@@ -1387,7 +1387,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Unknown',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51245',
         },
         {
@@ -1397,7 +1397,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '3',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51245',
         },
       ],
@@ -1416,7 +1416,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51246',
         },
         {
@@ -1426,7 +1426,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51247',
         },
       ],
@@ -1445,7 +1445,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '0',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51247',
         },
         {
@@ -1455,7 +1455,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '1',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51247',
         },
         {
@@ -1465,7 +1465,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '2',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51247',
         },
         {
@@ -1475,7 +1475,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '3',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51247',
         },
         {
@@ -1485,7 +1485,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '4',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51247',
         },
         {
@@ -1495,7 +1495,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '5',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51247',
         },
         {
@@ -1505,7 +1505,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '6',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51247',
         },
         {
@@ -1515,7 +1515,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '7',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51247',
         },
         {
@@ -1525,7 +1525,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '8',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51247',
         },
         {
@@ -1535,7 +1535,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '9',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51247',
         },
         {
@@ -1545,7 +1545,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '10',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51247',
         },
         {
@@ -1555,7 +1555,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '11',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51247',
         },
         {
@@ -1565,7 +1565,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '12',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51247',
         },
         {
@@ -1575,7 +1575,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '13',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51247',
         },
         {
@@ -1585,7 +1585,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '14',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51247',
         },
         {
@@ -1595,7 +1595,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '15',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51247',
         },
         {
@@ -1605,7 +1605,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '16',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51247',
         },
         {
@@ -1615,7 +1615,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '17',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51247',
         },
         {
@@ -1625,7 +1625,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '18',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51247',
         },
         {
@@ -1635,7 +1635,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '19',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51247',
         },
         {
@@ -1645,7 +1645,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '20',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51247',
         },
         {
@@ -1655,7 +1655,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'More than 20',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51247',
         },
         {
@@ -1665,7 +1665,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Unknown',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51247',
         },
       ],
@@ -1684,7 +1684,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51248',
         },
         {
@@ -1694,7 +1694,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51249',
         },
       ],
@@ -1713,7 +1713,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '0',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51249',
         },
         {
@@ -1723,7 +1723,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '1',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51249',
         },
         {
@@ -1733,7 +1733,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '2',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51249',
         },
         {
@@ -1743,7 +1743,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '3',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51249',
         },
         {
@@ -1753,7 +1753,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '4',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51249',
         },
         {
@@ -1763,7 +1763,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '5',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51249',
         },
         {
@@ -1773,7 +1773,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '6',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51249',
         },
         {
@@ -1783,7 +1783,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '7',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51249',
         },
         {
@@ -1793,7 +1793,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '8',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51249',
         },
         {
@@ -1803,7 +1803,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '9',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51249',
         },
         {
@@ -1813,7 +1813,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '10',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51249',
         },
         {
@@ -1823,7 +1823,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '11',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51249',
         },
         {
@@ -1833,7 +1833,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '12',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51249',
         },
         {
@@ -1843,7 +1843,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '13',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51249',
         },
         {
@@ -1853,7 +1853,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '14',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51249',
         },
         {
@@ -1863,7 +1863,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '15',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51249',
         },
         {
@@ -1873,7 +1873,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '16',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51249',
         },
         {
@@ -1883,7 +1883,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '17',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51249',
         },
         {
@@ -1893,7 +1893,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '18',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51249',
         },
         {
@@ -1903,7 +1903,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '19',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51249',
         },
         {
@@ -1913,7 +1913,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '20',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51249',
         },
         {
@@ -1923,7 +1923,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'More than 20',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51249',
         },
         {
@@ -1933,7 +1933,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Unknown',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51249',
         },
       ],
@@ -1952,7 +1952,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51250',
         },
         {
@@ -1962,7 +1962,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51250',
         },
       ],
@@ -1981,7 +1981,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Yes: please specify',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51251',
         },
         {
@@ -1991,7 +1991,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51251',
         },
       ],
@@ -2010,7 +2010,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Yes: date',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: true,
+          dateMandatory: true,
           nextQuestionCode: '51252',
         },
         {
@@ -2020,7 +2020,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Evidence bag number',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51252',
         },
         {
@@ -2030,7 +2030,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'No: please state why',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51252',
         },
       ],
@@ -2049,7 +2049,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51253',
         },
         {
@@ -2059,7 +2059,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51253',
         },
       ],
@@ -2078,7 +2078,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51254',
         },
         {
@@ -2088,7 +2088,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51255',
         },
       ],
@@ -2107,7 +2107,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Blunt instrument (cosh, item in sock etc)',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51255',
         },
         {
@@ -2117,7 +2117,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Knife/bladed article',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51255',
         },
         {
@@ -2127,7 +2127,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Firearm (fake guns, ammunition, chemical incapacitant etc)',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51255',
         },
         {
@@ -2137,7 +2137,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Other (please specify)',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51255',
         },
       ],
@@ -2156,7 +2156,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51256',
         },
         {
@@ -2166,7 +2166,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51257',
         },
       ],
@@ -2185,7 +2185,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '< 1 litre',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51257',
         },
         {
@@ -2195,7 +2195,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '1 to 2 litres',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51257',
         },
         {
@@ -2205,7 +2205,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '2 to 3 litres',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51257',
         },
         {
@@ -2215,7 +2215,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '3 to 4 litres',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51257',
         },
         {
@@ -2225,7 +2225,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '4 to 5 litres',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51257',
         },
         {
@@ -2235,7 +2235,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '6 to 10 litres',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51257',
         },
         {
@@ -2245,7 +2245,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '11 to 20 litres',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51257',
         },
         {
@@ -2255,7 +2255,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'More than 20 litres',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51257',
         },
         {
@@ -2265,7 +2265,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Unknown',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51257',
         },
       ],
@@ -2284,7 +2284,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51258',
         },
         {
@@ -2294,7 +2294,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51258',
         },
       ],
@@ -2313,7 +2313,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51259',
         },
         {
@@ -2323,7 +2323,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51260',
         },
       ],
@@ -2342,7 +2342,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Please specify',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51260',
         },
       ],
@@ -2361,7 +2361,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Boss chair',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51261',
         },
         {
@@ -2371,7 +2371,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Cell search',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51261',
         },
         {
@@ -2381,7 +2381,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Crime scene',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51261',
         },
         {
@@ -2391,7 +2391,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Dog search',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51261',
         },
         {
@@ -2401,7 +2401,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'High sensitivity wand',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51261',
         },
         {
@@ -2411,7 +2411,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Information received',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51261',
         },
         {
@@ -2421,7 +2421,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Intelligence led search',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51261',
         },
         {
@@ -2431,7 +2431,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Item observed',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51261',
         },
         {
@@ -2441,7 +2441,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Mobile phone signal detector',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51261',
         },
         {
@@ -2451,7 +2451,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Mobile phone rod',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51261',
         },
         {
@@ -2461,7 +2461,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Other search (inmate)',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51261',
         },
         {
@@ -2471,7 +2471,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Other search (premises)',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51261',
         },
         {
@@ -2481,7 +2481,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Other search (visitor)',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51261',
         },
         {
@@ -2491,7 +2491,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Pre-occupation search',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51261',
         },
         {
@@ -2501,7 +2501,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Unusual behaviour',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51261',
         },
         {
@@ -2511,7 +2511,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Other (please specify)',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51261',
         },
         {
@@ -2521,7 +2521,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Drone recovery',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51261',
         },
       ],
@@ -2540,7 +2540,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Prisoner',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51262',
         },
         {
@@ -2550,7 +2550,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Staff',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51262',
         },
         {
@@ -2560,7 +2560,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Visitor (friend)',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51262',
         },
         {
@@ -2570,7 +2570,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Visitor (official)',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51262',
         },
         {
@@ -2580,7 +2580,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Visitor (relative)',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51262',
         },
         {
@@ -2590,7 +2590,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Contractor',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51262',
         },
         {
@@ -2600,7 +2600,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Post (rule 39)',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51262',
         },
         {
@@ -2610,7 +2610,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Post (other)',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51262',
         },
         {
@@ -2620,7 +2620,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Thrown in',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51262',
         },
         {
@@ -2630,7 +2630,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Drone/UAV',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51262',
         },
         {
@@ -2640,7 +2640,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Other (please specify)',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51262',
         },
         {
@@ -2650,7 +2650,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Unknown',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51262',
         },
       ],
@@ -2669,7 +2669,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Prisoner',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51263',
         },
         {
@@ -2679,7 +2679,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Staff',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51263',
         },
         {
@@ -2689,7 +2689,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Visitor (friend)',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51263',
         },
         {
@@ -2699,7 +2699,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Visitor (official)',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51263',
         },
         {
@@ -2709,7 +2709,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Visitor (relative)',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51263',
         },
         {
@@ -2719,7 +2719,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Contractor',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51263',
         },
         {
@@ -2729,7 +2729,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Other (please specify)',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51263',
         },
         {
@@ -2739,7 +2739,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Not applicable',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51263',
         },
       ],
@@ -2758,7 +2758,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Not concealed',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51264',
         },
         {
@@ -2768,7 +2768,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Bed/bedding',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51264',
         },
         {
@@ -2778,7 +2778,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Book/papers',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51264',
         },
         {
@@ -2788,7 +2788,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Cell/building fabric',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51264',
         },
         {
@@ -2798,7 +2798,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Food/container',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51264',
         },
         {
@@ -2808,7 +2808,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'In clothing',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51264',
         },
         {
@@ -2818,7 +2818,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'In hand',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51264',
         },
         {
@@ -2828,7 +2828,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'In mouth',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51264',
         },
         {
@@ -2838,7 +2838,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Internally/plugged',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51264',
         },
         {
@@ -2848,7 +2848,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Letter/parcel',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51264',
         },
         {
@@ -2858,7 +2858,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Light fittings',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51264',
         },
         {
@@ -2868,7 +2868,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Pipework',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51264',
         },
         {
@@ -2878,7 +2878,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Rule 39/legal papers',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51264',
         },
         {
@@ -2888,7 +2888,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'TV/radio/DVD/consoles etc',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51264',
         },
         {
@@ -2898,7 +2898,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Other',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51264',
         },
       ],
@@ -2917,7 +2917,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51265',
         },
         {
@@ -2927,7 +2927,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51265',
         },
       ],
@@ -2946,7 +2946,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51266',
         },
         {
@@ -2956,7 +2956,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51268',
         },
       ],
@@ -2975,7 +2975,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'After entering prison',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51267',
         },
         {
@@ -2985,7 +2985,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Before entering prison',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51267',
         },
       ],
@@ -3004,7 +3004,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Please specify',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51268',
         },
       ],
@@ -3023,7 +3023,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51269',
         },
         {
@@ -3033,7 +3033,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51270',
         },
         {
@@ -3043,7 +3043,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Unknown',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51270',
         },
       ],
@@ -3062,7 +3062,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Community visit',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51270',
         },
         {
@@ -3072,7 +3072,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Compassionate',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51270',
         },
         {
@@ -3082,7 +3082,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Facility',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51270',
         },
         {
@@ -3092,7 +3092,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Resettlement',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51270',
         },
         {
@@ -3102,7 +3102,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Unknown',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '51270',
         },
       ],
@@ -3121,7 +3121,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '£0',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -3131,7 +3131,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '£1 to £100',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -3141,7 +3141,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '£101 to £200',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -3151,7 +3151,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '£201 to £300',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -3161,7 +3161,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '£301 to £400',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -3171,7 +3171,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '£401 to £500',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -3181,7 +3181,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '£501 to £1000',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -3191,7 +3191,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '£1001 to £5000',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -3201,7 +3201,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '£5001 to £10,000',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -3211,7 +3211,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '£10,001 to £20,000',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -3221,7 +3221,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '£20,001 to £30,000',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -3231,7 +3231,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '£30,001 to £40,000',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -3241,7 +3241,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '£40,001 to £50,000',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -3251,7 +3251,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'More than £50,000',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -3261,7 +3261,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Unknown',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
       ],
@@ -3280,7 +3280,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '57224',
         },
         {
@@ -3290,7 +3290,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '57226',
         },
       ],
@@ -3309,7 +3309,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Loose tobacco',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '57225',
         },
         {
@@ -3319,7 +3319,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Cigarettes/cigars',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '57225',
         },
         {
@@ -3329,7 +3329,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Other (including packaging and roaches)',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '57225',
         },
       ],
@@ -3348,7 +3348,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Up to 1 gramme',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '57226',
         },
         {
@@ -3358,7 +3358,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '2g to 5g',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '57226',
         },
         {
@@ -3368,7 +3368,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '6g to 10g',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '57226',
         },
         {
@@ -3378,7 +3378,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '10g +',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '57226',
         },
       ],
@@ -3397,7 +3397,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '57227',
         },
         {
@@ -3407,7 +3407,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '57228',
         },
       ],
@@ -3426,7 +3426,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Please specify',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '57228',
         },
       ],
@@ -3445,7 +3445,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Boss chair',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '57229',
         },
         {
@@ -3455,7 +3455,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Cell search',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '57229',
         },
         {
@@ -3465,7 +3465,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Crime scene',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '57229',
         },
         {
@@ -3475,7 +3475,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Dog search',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '57229',
         },
         {
@@ -3485,7 +3485,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Drone recovery',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '57229',
         },
         {
@@ -3495,7 +3495,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'High sensitivity wand',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '57230',
         },
         {
@@ -3505,7 +3505,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Information received',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '57230',
         },
         {
@@ -3515,7 +3515,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Ntelligence led search',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '57230',
         },
         {
@@ -3525,7 +3525,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Item observed',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '57230',
         },
         {
@@ -3535,7 +3535,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Mobile phone signal detector',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '57230',
         },
         {
@@ -3545,7 +3545,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Mobile phone rod',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '57230',
         },
         {
@@ -3555,7 +3555,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Other search (inmate)',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '57230',
         },
         {
@@ -3565,7 +3565,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Other search (premises)',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '57230',
         },
         {
@@ -3575,7 +3575,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Other search (visitor)',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '57230',
         },
         {
@@ -3585,7 +3585,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Pre-occupation search',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '57230',
         },
         {
@@ -3595,7 +3595,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Unusual behaviour',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '57230',
         },
         {
@@ -3605,7 +3605,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Other (please specify)',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '57230',
         },
       ],
@@ -3624,7 +3624,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Prisoner',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '57230',
         },
         {
@@ -3634,7 +3634,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Staff',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '57230',
         },
         {
@@ -3644,7 +3644,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Visitor (friend)',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '57230',
         },
         {
@@ -3654,7 +3654,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Visitor (relative)',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '57230',
         },
         {
@@ -3664,7 +3664,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Visitor (official)',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '57230',
         },
         {
@@ -3674,7 +3674,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Contractor',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '57230',
         },
         {
@@ -3684,7 +3684,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Post (rule39)',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '57230',
         },
         {
@@ -3694,7 +3694,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Post (other)',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '57230',
         },
         {
@@ -3704,7 +3704,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Drone/UAV',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '57230',
         },
         {
@@ -3714,7 +3714,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Other (please specify',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '57230',
         },
         {
@@ -3724,7 +3724,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Unknown',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '57230',
         },
         {
@@ -3734,7 +3734,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Thrown in',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '57230',
         },
       ],
@@ -3753,7 +3753,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Prisoner',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '57231',
         },
         {
@@ -3763,7 +3763,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Staff',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '57231',
         },
         {
@@ -3773,7 +3773,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Visitor (friend)',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '57231',
         },
         {
@@ -3783,7 +3783,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Visitor (official)',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '57231',
         },
         {
@@ -3793,7 +3793,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Visitor (relative)',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '57231',
         },
         {
@@ -3803,7 +3803,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Contractor',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '57231',
         },
         {
@@ -3813,7 +3813,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Other (please specify)',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '57231',
         },
         {
@@ -3823,7 +3823,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Not applicable',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '57231',
         },
       ],
@@ -3842,7 +3842,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Not concealed',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '57232',
         },
         {
@@ -3852,7 +3852,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Not concealed',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '57232',
         },
         {
@@ -3862,7 +3862,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Bed/bedding',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '57232',
         },
         {
@@ -3872,7 +3872,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Book/papers',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '57232',
         },
         {
@@ -3882,7 +3882,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Cell/building fabric',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '57232',
         },
         {
@@ -3892,7 +3892,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Food/container',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '57232',
         },
         {
@@ -3902,7 +3902,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'In clothing',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '57232',
         },
         {
@@ -3912,7 +3912,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'In hand',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '57232',
         },
         {
@@ -3922,7 +3922,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'In mouth',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '57232',
         },
         {
@@ -3932,7 +3932,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Internally/plugged',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '57232',
         },
         {
@@ -3942,7 +3942,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Letter/parcel',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '57232',
         },
         {
@@ -3952,7 +3952,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Light fittings',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '57232',
         },
         {
@@ -3962,7 +3962,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Pipework',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '57232',
         },
         {
@@ -3972,7 +3972,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Rule 39/legal papers',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '57232',
         },
         {
@@ -3982,7 +3982,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'TV/radio/DVD/consoles etc.',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '57232',
         },
         {
@@ -3992,7 +3992,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Other',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '57232',
         },
       ],
@@ -4011,7 +4011,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '57233',
         },
         {
@@ -4021,7 +4021,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '57233',
         },
       ],
@@ -4040,7 +4040,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '57234',
         },
         {
@@ -4050,7 +4050,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '57234',
         },
       ],
@@ -4069,7 +4069,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'After entering prison',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '57235',
         },
         {
@@ -4079,7 +4079,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Before entering prison',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '57235',
         },
       ],
@@ -4098,7 +4098,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Specify',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '57236',
         },
       ],
@@ -4117,7 +4117,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '57237',
         },
         {
@@ -4127,7 +4127,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '57238',
         },
         {
@@ -4137,7 +4137,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Unknown',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '57238',
         },
       ],
@@ -4156,7 +4156,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Community visit',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '57238',
         },
         {
@@ -4166,7 +4166,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Compassionate',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '57238',
         },
         {
@@ -4176,7 +4176,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Facility',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '57238',
         },
         {
@@ -4186,7 +4186,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Resettlement',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '57238',
         },
         {
@@ -4196,7 +4196,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Unknown',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '57238',
         },
       ],
@@ -4215,7 +4215,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '£0',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -4225,7 +4225,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '£1 to £100',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -4235,7 +4235,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '£101 to £200',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -4245,7 +4245,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '£201 to £300',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -4255,7 +4255,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '£301 to £400',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -4265,7 +4265,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '£401 to £500',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -4275,7 +4275,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '£501 to £1,000',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -4285,7 +4285,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '£1,001 to £5,000',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -4295,7 +4295,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '£5,001 to £10,000',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -4305,7 +4305,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '£10,001 to £20,000',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -4315,7 +4315,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '£20,001 to £30,000',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -4325,7 +4325,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '£30,001 to £40,000',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -4335,7 +4335,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: '£40,001 to £50,000',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -4345,7 +4345,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'More than £50,000',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -4355,7 +4355,7 @@ export const FIND_2: IncidentTypeConfiguration = {
           label: 'Unknown',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
       ],

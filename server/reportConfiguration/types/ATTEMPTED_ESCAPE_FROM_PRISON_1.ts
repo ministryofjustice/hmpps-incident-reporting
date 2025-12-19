@@ -21,7 +21,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45096',
         },
         {
@@ -31,7 +31,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44320',
         },
       ],
@@ -50,7 +50,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Ladder',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44297',
         },
         {
@@ -60,7 +60,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Rope',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44297',
         },
         {
@@ -70,7 +70,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Climbing aids',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44297',
         },
         {
@@ -80,7 +80,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Furniture items',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44297',
         },
         {
@@ -90,7 +90,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Sports items',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44297',
         },
         {
@@ -100,7 +100,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Grounds items',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44297',
         },
         {
@@ -110,7 +110,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Other',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44297',
         },
       ],
@@ -129,7 +129,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'SSU',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44506',
         },
         {
@@ -139,7 +139,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'CRC',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44506',
         },
         {
@@ -149,7 +149,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Wing/houseblock',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44506',
         },
         {
@@ -159,7 +159,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Health care centre',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44506',
         },
         {
@@ -169,7 +169,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Segregation unit',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44506',
         },
         {
@@ -179,7 +179,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Rule 43 unit (or)',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44506',
         },
         {
@@ -189,7 +189,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Rule 43 unit (GOAD)',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44506',
         },
       ],
@@ -208,7 +208,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Window',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44952',
         },
         {
@@ -218,7 +218,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'External wall',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44952',
         },
         {
@@ -228,7 +228,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Floor',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44952',
         },
         {
@@ -238,7 +238,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Roof',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44952',
         },
         {
@@ -248,7 +248,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Door/gate',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44952',
         },
         {
@@ -258,7 +258,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Through fence',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44952',
         },
         {
@@ -268,7 +268,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Under fence',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44952',
         },
         {
@@ -278,7 +278,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Over fence',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44152',
         },
       ],
@@ -297,7 +297,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Clad',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45019',
         },
         {
@@ -307,7 +307,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Unclad',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44327',
         },
       ],
@@ -326,7 +326,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44681',
         },
         {
@@ -336,7 +336,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44681',
         },
       ],
@@ -355,7 +355,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Staff',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45014',
         },
         {
@@ -365,7 +365,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Prisoners',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45014',
         },
         {
@@ -375,7 +375,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Civilian grades',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45014',
         },
         {
@@ -385,7 +385,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Police',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45014',
         },
         {
@@ -395,7 +395,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'External civilians',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45014',
         },
       ],
@@ -414,7 +414,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45006',
         },
         {
@@ -424,7 +424,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45003',
         },
       ],
@@ -443,7 +443,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45170',
         },
         {
@@ -453,7 +453,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44759',
         },
       ],
@@ -472,7 +472,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Full',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44346',
         },
         {
@@ -482,7 +482,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Partial (enter details)',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44346',
         },
       ],
@@ -501,7 +501,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44681',
         },
         {
@@ -511,7 +511,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44441',
         },
       ],
@@ -530,7 +530,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Inside',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44225',
         },
         {
@@ -540,7 +540,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Outside',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44225',
         },
       ],
@@ -559,7 +559,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Local',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45150',
         },
         {
@@ -569,7 +569,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Service supplier',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44920',
         },
       ],
@@ -588,7 +588,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Works department',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44681',
         },
         {
@@ -598,7 +598,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Contractors',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44681',
         },
         {
@@ -608,7 +608,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Education',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44681',
         },
         {
@@ -618,7 +618,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Health care centre',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44681',
         },
         {
@@ -628,7 +628,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Farms and gardens',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44681',
         },
         {
@@ -638,7 +638,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Gymnasium/sports field',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44681',
         },
         {
@@ -648,7 +648,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Workshops',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44681',
         },
         {
@@ -658,7 +658,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Kitchen',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44681',
         },
         {
@@ -668,7 +668,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Hobbies',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44681',
         },
         {
@@ -678,7 +678,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Cell furnishings',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44681',
         },
         {
@@ -688,7 +688,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Wing/houseblock furnishings',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44681',
         },
         {
@@ -698,7 +698,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Smuggled',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44681',
         },
         {
@@ -708,7 +708,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Not known',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44681',
         },
       ],
@@ -727,7 +727,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Works department',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44352',
         },
         {
@@ -737,7 +737,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Contractors',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44352',
         },
         {
@@ -747,7 +747,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Education',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44352',
         },
         {
@@ -757,7 +757,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Health care centre',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44352',
         },
         {
@@ -767,7 +767,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Farms and gardens',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44352',
         },
         {
@@ -777,7 +777,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Gymnasium/sports field',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44352',
         },
         {
@@ -787,7 +787,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Workshops',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44352',
         },
         {
@@ -797,7 +797,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Kitchen',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44352',
         },
         {
@@ -807,7 +807,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Hobbies',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44352',
         },
         {
@@ -817,7 +817,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Cell furnishings',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44352',
         },
         {
@@ -827,7 +827,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Wing/houseblock furnishings',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44352',
         },
         {
@@ -837,7 +837,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Smuggled',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44352',
         },
         {
@@ -847,7 +847,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Not known',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44352',
         },
         {
@@ -857,7 +857,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Other',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44352',
         },
       ],
@@ -876,7 +876,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Inside',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44992',
         },
         {
@@ -886,7 +886,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Outside',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44992',
         },
       ],
@@ -905,7 +905,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Hacksaw blade',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44869',
         },
         {
@@ -915,7 +915,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Other blade',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44869',
         },
         {
@@ -925,7 +925,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Wire cutters',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44869',
         },
         {
@@ -935,7 +935,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Bolt croppers',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44869',
         },
         {
@@ -945,7 +945,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Digging tool',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44869',
         },
         {
@@ -955,7 +955,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Crow bar',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44869',
         },
         {
@@ -965,7 +965,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Improvised tool',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44869',
         },
         {
@@ -975,7 +975,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Other tool',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44869',
         },
         {
@@ -985,7 +985,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Not known',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44869',
         },
       ],
@@ -1004,7 +1004,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44554',
         },
         {
@@ -1014,7 +1014,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44731',
         },
       ],
@@ -1033,7 +1033,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44875',
         },
         {
@@ -1043,7 +1043,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44352',
         },
       ],
@@ -1062,7 +1062,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45107',
         },
         {
@@ -1072,7 +1072,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45150',
         },
       ],
@@ -1091,7 +1091,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Another cell',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44528',
         },
         {
@@ -1101,7 +1101,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Recess/showers',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44528',
         },
         {
@@ -1111,7 +1111,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Store room',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44528',
         },
         {
@@ -1121,7 +1121,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Association area',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44528',
         },
         {
@@ -1131,7 +1131,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Office',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44528',
         },
         {
@@ -1141,7 +1141,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Canteen',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44528',
         },
         {
@@ -1151,7 +1151,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Kitchen/servery',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44528',
         },
         {
@@ -1161,7 +1161,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Roof space',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44528',
         },
         {
@@ -1171,7 +1171,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Basement',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44528',
         },
         {
@@ -1181,7 +1181,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Other',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44528',
         },
       ],
@@ -1200,7 +1200,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Governor',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44958',
         },
         {
@@ -1210,7 +1210,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Deputy governor',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44958',
         },
         {
@@ -1220,7 +1220,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Duty governor',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44958',
         },
         {
@@ -1230,7 +1230,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Other',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44958',
         },
       ],
@@ -1249,7 +1249,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Staff intervention',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44447',
         },
         {
@@ -1259,7 +1259,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Prisoner abandoned attempt',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44447',
         },
         {
@@ -1269,7 +1269,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Prisoner injured',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44447',
         },
         {
@@ -1279,7 +1279,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Physical barrier',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44447',
         },
       ],
@@ -1298,7 +1298,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45090',
         },
         {
@@ -1308,7 +1308,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44752',
         },
       ],
@@ -1327,7 +1327,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Works department',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44746',
         },
         {
@@ -1337,7 +1337,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Contractors',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44746',
         },
         {
@@ -1347,7 +1347,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Education',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44746',
         },
         {
@@ -1357,7 +1357,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Health care centre',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44746',
         },
         {
@@ -1367,7 +1367,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Farms and gardens',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44746',
         },
         {
@@ -1377,7 +1377,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Gymnasium/sports field',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44746',
         },
         {
@@ -1387,7 +1387,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Workshops',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44746',
         },
         {
@@ -1397,7 +1397,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Kitchen',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44746',
         },
         {
@@ -1407,7 +1407,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Hobbies',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44746',
         },
         {
@@ -1417,7 +1417,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Cell furnishings',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44746',
         },
         {
@@ -1427,7 +1427,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Wing/houseblock furnishings',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44746',
         },
         {
@@ -1437,7 +1437,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Smuggled',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44746',
         },
         {
@@ -1447,7 +1447,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Not known',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44746',
         },
         {
@@ -1457,7 +1457,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Other',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44746',
         },
       ],
@@ -1476,7 +1476,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Through the cladding',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44592',
         },
         {
@@ -1486,7 +1486,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Above the cladding',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44592',
         },
         {
@@ -1496,7 +1496,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Below the cladding',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44592',
         },
       ],
@@ -1515,7 +1515,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Enter comment and date',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: true,
+          dateMandatory: true,
           nextQuestionCode: '44674',
         },
       ],
@@ -1534,7 +1534,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Hacksaw blade',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44498',
         },
         {
@@ -1544,7 +1544,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Other blade',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44498',
         },
         {
@@ -1554,7 +1554,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Wire cutters',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44498',
         },
         {
@@ -1564,7 +1564,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Bolt croppers',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44498',
         },
         {
@@ -1574,7 +1574,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Digging tool',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44498',
         },
         {
@@ -1584,7 +1584,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Crow bar',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44498',
         },
         {
@@ -1594,7 +1594,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Improvised tool',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44498',
         },
         {
@@ -1604,7 +1604,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Other tool',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44498',
         },
         {
@@ -1614,7 +1614,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Not known',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44498',
         },
       ],
@@ -1633,7 +1633,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45111',
         },
         {
@@ -1643,7 +1643,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44746',
         },
       ],
@@ -1662,7 +1662,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Works department',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44746',
         },
         {
@@ -1672,7 +1672,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Contractors',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44746',
         },
         {
@@ -1682,7 +1682,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Education',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44746',
         },
         {
@@ -1692,7 +1692,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Health care centre',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44746',
         },
         {
@@ -1702,7 +1702,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Farms and gardens',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44746',
         },
         {
@@ -1712,7 +1712,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Gymnasium/sports field',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44746',
         },
         {
@@ -1722,7 +1722,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Workshops',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44746',
         },
         {
@@ -1732,7 +1732,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Kitchen',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44746',
         },
         {
@@ -1742,7 +1742,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Hobbies',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44746',
         },
         {
@@ -1752,7 +1752,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Cell furnishings',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44746',
         },
         {
@@ -1762,7 +1762,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Wing/houseblock furnishings',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44746',
         },
         {
@@ -1772,7 +1772,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Smuggled',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44746',
         },
         {
@@ -1782,7 +1782,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Not known',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44746',
         },
       ],
@@ -1801,7 +1801,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44843',
         },
         {
@@ -1811,7 +1811,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44863',
         },
       ],
@@ -1830,7 +1830,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Another prisoner',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44935',
         },
         {
@@ -1840,7 +1840,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'A visitor (enter identity if known)',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44935',
         },
       ],
@@ -1859,7 +1859,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Works department',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44681',
         },
         {
@@ -1869,7 +1869,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Contractors',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44681',
         },
         {
@@ -1879,7 +1879,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Education',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44681',
         },
         {
@@ -1889,7 +1889,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Health care centre',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44681',
         },
         {
@@ -1899,7 +1899,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Farms and gardens',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44681',
         },
         {
@@ -1909,7 +1909,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Gymnasium/sports field',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44681',
         },
         {
@@ -1919,7 +1919,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Workshops',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44681',
         },
         {
@@ -1929,7 +1929,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Kitchen',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44681',
         },
         {
@@ -1939,7 +1939,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Hobbies',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44681',
         },
         {
@@ -1949,7 +1949,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Cell furnishings',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44681',
         },
         {
@@ -1959,7 +1959,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Wing/houseblock furnishings',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44681',
         },
         {
@@ -1969,7 +1969,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Smuggled',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44681',
         },
         {
@@ -1979,7 +1979,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Not known',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44681',
         },
         {
@@ -1989,7 +1989,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Other',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44681',
         },
       ],
@@ -2008,7 +2008,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Works department',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44352',
         },
         {
@@ -2018,7 +2018,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Contractors',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44352',
         },
         {
@@ -2028,7 +2028,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Education',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44352',
         },
         {
@@ -2038,7 +2038,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Health care centre',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44352',
         },
         {
@@ -2048,7 +2048,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Farms and gardens',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44352',
         },
         {
@@ -2058,7 +2058,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Gymnasium/sports field',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44352',
         },
         {
@@ -2068,7 +2068,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Workshops',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44352',
         },
         {
@@ -2078,7 +2078,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Kitchen',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44352',
         },
         {
@@ -2088,7 +2088,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Hobbies',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44352',
         },
         {
@@ -2098,7 +2098,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Cell furnishings',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44352',
         },
         {
@@ -2108,7 +2108,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Wing/houseblock furnishings',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44352',
         },
         {
@@ -2118,7 +2118,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Smuggled',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44352',
         },
         {
@@ -2128,7 +2128,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Not known',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44352',
         },
         {
@@ -2138,7 +2138,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Other',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44352',
         },
       ],
@@ -2157,7 +2157,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44746',
         },
         {
@@ -2167,7 +2167,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44746',
         },
       ],
@@ -2186,7 +2186,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Prison health care centre',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45073',
         },
         {
@@ -2196,7 +2196,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Outside hospital',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45073',
         },
       ],
@@ -2215,7 +2215,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Works department',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44352',
         },
         {
@@ -2225,7 +2225,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Contractors',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44352',
         },
         {
@@ -2235,7 +2235,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Education',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44352',
         },
         {
@@ -2245,7 +2245,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Health care centre',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44352',
         },
         {
@@ -2255,7 +2255,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Farms and gardens',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44352',
         },
         {
@@ -2265,7 +2265,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Gymnasium/sports field',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44352',
         },
         {
@@ -2275,7 +2275,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Workshops',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44352',
         },
         {
@@ -2285,7 +2285,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Kitchen',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44352',
         },
         {
@@ -2295,7 +2295,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Hobbies',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44352',
         },
         {
@@ -2305,7 +2305,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Cell furnishings',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44352',
         },
         {
@@ -2315,7 +2315,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Wing/houseblock furnishings',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44352',
         },
         {
@@ -2325,7 +2325,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Smuggled',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44352',
         },
         {
@@ -2335,7 +2335,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Not known',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44352',
         },
         {
@@ -2345,7 +2345,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Other',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44352',
         },
       ],
@@ -2364,7 +2364,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Single',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44242',
         },
         {
@@ -2374,7 +2374,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Multiple occupancy (enter capacity)',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44242',
         },
       ],
@@ -2393,7 +2393,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'UV hand stamp',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44597',
         },
         {
@@ -2403,7 +2403,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Hand geometry',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44597',
         },
         {
@@ -2413,7 +2413,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Photographic record',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44597',
         },
         {
@@ -2423,7 +2423,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Identifying clothing',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44597',
         },
         {
@@ -2433,7 +2433,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Staff supervision',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44597',
         },
         {
@@ -2443,7 +2443,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Other',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44597',
         },
       ],
@@ -2462,7 +2462,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Hacksaw blade',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44471',
         },
         {
@@ -2472,7 +2472,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Other blade',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44471',
         },
         {
@@ -2482,7 +2482,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Wire cutters',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44471',
         },
         {
@@ -2492,7 +2492,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Bolt croppers',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44471',
         },
         {
@@ -2502,7 +2502,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Digging tool',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44471',
         },
         {
@@ -2512,7 +2512,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Crow bar',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44471',
         },
         {
@@ -2522,7 +2522,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Improvised tool',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44471',
         },
         {
@@ -2532,7 +2532,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Other tool',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44471',
         },
         {
@@ -2542,7 +2542,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Not known',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44471',
         },
       ],
@@ -2561,7 +2561,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45021',
         },
         {
@@ -2571,7 +2571,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44935',
         },
       ],
@@ -2590,7 +2590,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Enter amount in pound sterling',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44863',
         },
       ],
@@ -2609,7 +2609,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44171',
         },
         {
@@ -2619,7 +2619,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44441',
         },
       ],
@@ -2638,7 +2638,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Description',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44433',
         },
       ],
@@ -2657,7 +2657,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Firearm',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44731',
         },
         {
@@ -2667,7 +2667,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Chemical incapacitant',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44731',
         },
         {
@@ -2677,7 +2677,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Knife/blade',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44731',
         },
         {
@@ -2687,7 +2687,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Other sharp instrument',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44731',
         },
         {
@@ -2697,7 +2697,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Blunt instrument',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44731',
         },
         {
@@ -2707,7 +2707,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Ligature',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44731',
         },
         {
@@ -2717,7 +2717,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Dangerous liquid',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44731',
         },
         {
@@ -2727,7 +2727,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Excreta/urine',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44731',
         },
         {
@@ -2737,7 +2737,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Spitting',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44731',
         },
         {
@@ -2747,7 +2747,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Food',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44731',
         },
         {
@@ -2757,7 +2757,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Thrown furniture',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44731',
         },
         {
@@ -2767,7 +2767,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Thrown equipment',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44731',
         },
         {
@@ -2777,7 +2777,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Other',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44731',
         },
       ],
@@ -2796,7 +2796,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44440',
         },
         {
@@ -2806,7 +2806,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44352',
         },
       ],
@@ -2825,7 +2825,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44315',
         },
         {
@@ -2835,7 +2835,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44746',
         },
       ],
@@ -2854,7 +2854,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44525',
         },
         {
@@ -2864,7 +2864,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44681',
         },
       ],
@@ -2883,7 +2883,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44617',
         },
         {
@@ -2893,7 +2893,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44352',
         },
       ],
@@ -2912,7 +2912,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Sports field',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44274',
         },
         {
@@ -2922,7 +2922,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Cell (enter location)',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44163',
         },
         {
@@ -2932,7 +2932,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Visits',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45124',
         },
         {
@@ -2942,7 +2942,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Wing/houseblock',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44545',
         },
         {
@@ -2952,7 +2952,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Dormitory',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44545',
         },
         {
@@ -2962,7 +2962,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Health care centre',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44545',
         },
         {
@@ -2972,7 +2972,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Chapel',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44545',
         },
         {
@@ -2982,7 +2982,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Kitchen',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44545',
         },
         {
@@ -2992,7 +2992,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Education/library',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44545',
         },
         {
@@ -3002,7 +3002,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Workshop',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44545',
         },
         {
@@ -3012,7 +3012,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Stores',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44545',
         },
         {
@@ -3022,7 +3022,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Administration',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44545',
         },
         {
@@ -3032,7 +3032,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Gymnasium',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44545',
         },
         {
@@ -3042,7 +3042,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Reception',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44545',
         },
         {
@@ -3052,7 +3052,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Works department',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44545',
         },
         {
@@ -3062,7 +3062,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Exercise yard',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44545',
         },
         {
@@ -3072,7 +3072,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Other secure area',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44545',
         },
         {
@@ -3082,7 +3082,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Grounds with no access to external perimeter',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44545',
         },
         {
@@ -3092,7 +3092,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Grounds with access to external perimeter',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44545',
         },
       ],
@@ -3111,7 +3111,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44912',
         },
         {
@@ -3121,7 +3121,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44983',
         },
       ],
@@ -3140,7 +3140,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44450',
         },
         {
@@ -3150,7 +3150,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44935',
         },
       ],
@@ -3169,7 +3169,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Hacksaw blade',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44300',
         },
         {
@@ -3179,7 +3179,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Other blade',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44300',
         },
         {
@@ -3189,7 +3189,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Wire cutters',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44300',
         },
         {
@@ -3199,7 +3199,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Bolt croppers',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44300',
         },
         {
@@ -3209,7 +3209,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Digging tool',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44300',
         },
         {
@@ -3219,7 +3219,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Crow bar',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44300',
         },
         {
@@ -3229,7 +3229,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Improvised tool',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44300',
         },
         {
@@ -3239,7 +3239,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Other tool',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44300',
         },
         {
@@ -3249,7 +3249,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Not known',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44300',
         },
       ],
@@ -3268,7 +3268,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'On foot',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44752',
         },
         {
@@ -3278,7 +3278,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Drove vehicle out',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45152',
         },
         {
@@ -3288,7 +3288,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Concealed in vehicle',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45152',
         },
       ],
@@ -3307,7 +3307,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44749',
         },
         {
@@ -3317,7 +3317,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44749',
         },
       ],
@@ -3336,7 +3336,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Digging through',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44574',
         },
         {
@@ -3346,7 +3346,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Digging under',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44574',
         },
         {
@@ -3356,7 +3356,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Explosion',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44574',
         },
         {
@@ -3366,7 +3366,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Rammed by vehicle',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44574',
         },
         {
@@ -3376,7 +3376,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Other',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44574',
         },
         {
@@ -3386,7 +3386,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Not known',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44574',
         },
       ],
@@ -3405,7 +3405,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Local',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -3415,7 +3415,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Service supplier',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
       ],
@@ -3434,7 +3434,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44940',
         },
         {
@@ -3444,7 +3444,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44352',
         },
       ],
@@ -3463,7 +3463,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44909',
         },
         {
@@ -3473,7 +3473,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44746',
         },
       ],
@@ -3492,7 +3492,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Clad',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44368',
         },
         {
@@ -3502,7 +3502,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Unclad',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44592',
         },
       ],
@@ -3521,7 +3521,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Enter time',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44255',
         },
       ],
@@ -3540,7 +3540,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44233',
         },
         {
@@ -3550,7 +3550,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45073',
         },
       ],
@@ -3569,7 +3569,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'From inside',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44670',
         },
         {
@@ -3579,7 +3579,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'From outside',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44670',
         },
       ],
@@ -3598,7 +3598,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44595',
         },
         {
@@ -3608,7 +3608,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44595',
         },
       ],
@@ -3627,7 +3627,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: true,
+          dateMandatory: true,
           nextQuestionCode: '44594',
         },
         {
@@ -3637,7 +3637,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44594',
         },
       ],
@@ -3656,7 +3656,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45152',
         },
         {
@@ -3666,7 +3666,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44746',
         },
       ],
@@ -3685,7 +3685,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44313',
         },
         {
@@ -3695,7 +3695,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44849',
         },
       ],
@@ -3714,7 +3714,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: true,
+          dateMandatory: true,
           nextQuestionCode: '44919',
         },
         {
@@ -3724,7 +3724,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44919',
         },
       ],
@@ -3743,7 +3743,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Works department',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44352',
         },
         {
@@ -3753,7 +3753,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Contractors',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44352',
         },
         {
@@ -3763,7 +3763,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Education',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44352',
         },
         {
@@ -3773,7 +3773,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Health care centre',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44352',
         },
         {
@@ -3783,7 +3783,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Farms and gardens',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44352',
         },
         {
@@ -3793,7 +3793,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Gymnasium/sports field',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44352',
         },
         {
@@ -3803,7 +3803,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Workshops',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44352',
         },
         {
@@ -3813,7 +3813,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Kitchen',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44352',
         },
         {
@@ -3823,7 +3823,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Hobbies',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44352',
         },
         {
@@ -3833,7 +3833,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Cell furnishings',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44352',
         },
         {
@@ -3843,7 +3843,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Wing/houseblock furnishings',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44352',
         },
         {
@@ -3853,7 +3853,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Smuggled',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44352',
         },
         {
@@ -3863,7 +3863,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Not known',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44352',
         },
         {
@@ -3873,7 +3873,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Other',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44352',
         },
       ],
@@ -3892,7 +3892,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44278',
         },
         {
@@ -3902,7 +3902,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44247',
         },
       ],
@@ -3921,7 +3921,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Ladder',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44480',
         },
         {
@@ -3931,7 +3931,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Rope',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44480',
         },
         {
@@ -3941,7 +3941,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Climbing aids',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44480',
         },
         {
@@ -3951,7 +3951,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Furniture items',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44480',
         },
         {
@@ -3961,7 +3961,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Sports items',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44480',
         },
         {
@@ -3971,7 +3971,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Grounds items',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44480',
         },
         {
@@ -3981,7 +3981,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Other',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44480',
         },
       ],
@@ -4000,7 +4000,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Minor',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44544',
         },
         {
@@ -4010,7 +4010,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Serious',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44544',
         },
         {
@@ -4020,7 +4020,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Extensive',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44544',
         },
       ],
@@ -4039,7 +4039,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44737',
         },
         {
@@ -4049,7 +4049,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44352',
         },
       ],
@@ -4068,7 +4068,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Yes (enter date)',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: true,
+          dateMandatory: true,
           nextQuestionCode: '44285',
         },
         {
@@ -4078,7 +4078,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
       ],
@@ -4097,7 +4097,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Works department',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44746',
         },
         {
@@ -4107,7 +4107,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Contractors',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44746',
         },
         {
@@ -4117,7 +4117,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Education',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44746',
         },
         {
@@ -4127,7 +4127,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Health care centre',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44746',
         },
         {
@@ -4137,7 +4137,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Farms and gardens',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44746',
         },
         {
@@ -4147,7 +4147,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Gymnasium/sports field',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44746',
         },
         {
@@ -4157,7 +4157,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Workshops',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44746',
         },
         {
@@ -4167,7 +4167,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Kitchen',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44746',
         },
         {
@@ -4177,7 +4177,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Hobbies',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44746',
         },
         {
@@ -4187,7 +4187,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Cell furnishings',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44746',
         },
         {
@@ -4197,7 +4197,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Wing/houseblock furnishings',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44746',
         },
         {
@@ -4207,7 +4207,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Smuggled',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44746',
         },
         {
@@ -4217,7 +4217,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Not known',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44746',
         },
         {
@@ -4227,7 +4227,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Other',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44746',
         },
       ],
@@ -4246,7 +4246,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Works department',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44352',
         },
         {
@@ -4256,7 +4256,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Contractors',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44352',
         },
         {
@@ -4266,7 +4266,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Education',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44352',
         },
         {
@@ -4276,7 +4276,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Health care centre',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44352',
         },
         {
@@ -4286,7 +4286,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Farms and gardens',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44352',
         },
         {
@@ -4296,7 +4296,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Gymnasium/sports field',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44352',
         },
         {
@@ -4306,7 +4306,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Workshops',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44352',
         },
         {
@@ -4316,7 +4316,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Kitchen',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44352',
         },
         {
@@ -4326,7 +4326,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Hobbies',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44352',
         },
         {
@@ -4336,7 +4336,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Cell furnishings',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44352',
         },
         {
@@ -4346,7 +4346,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Wing/houseblock furnishings',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44352',
         },
         {
@@ -4356,7 +4356,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Smuggled',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44352',
         },
         {
@@ -4366,7 +4366,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Not known',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44352',
         },
         {
@@ -4376,7 +4376,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Other',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44352',
         },
       ],
@@ -4395,7 +4395,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Hacksaw blade',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44789',
         },
         {
@@ -4405,7 +4405,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Other blade',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44789',
         },
         {
@@ -4415,7 +4415,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Wire cutters',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44789',
         },
         {
@@ -4425,7 +4425,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Bolt croppers',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44789',
         },
         {
@@ -4435,7 +4435,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Digging tool',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44789',
         },
         {
@@ -4445,7 +4445,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Crow bar',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44789',
         },
         {
@@ -4455,7 +4455,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Improvised tool',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44789',
         },
         {
@@ -4465,7 +4465,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Other tool',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44789',
         },
         {
@@ -4475,7 +4475,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Not known',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44789',
         },
       ],
@@ -4494,7 +4494,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Hacksaw blade',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44353',
         },
         {
@@ -4504,7 +4504,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Other blade',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44353',
         },
         {
@@ -4514,7 +4514,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Wire cutters',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44353',
         },
         {
@@ -4524,7 +4524,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Bolt croppers',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44353',
         },
         {
@@ -4534,7 +4534,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Digging tool',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44353',
         },
         {
@@ -4544,7 +4544,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Crow bar',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44353',
         },
         {
@@ -4554,7 +4554,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Improvised tool',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44353',
         },
         {
@@ -4564,7 +4564,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Other tool',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44353',
         },
         {
@@ -4574,7 +4574,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Not known',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44353',
         },
       ],
@@ -4593,7 +4593,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44983',
         },
         {
@@ -4603,7 +4603,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44983',
         },
       ],
@@ -4622,7 +4622,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Investigation by police',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45033',
         },
         {
@@ -4632,7 +4632,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Investigation internally',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45033',
         },
         {
@@ -4642,7 +4642,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: "Governor's adjudication",
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45033',
         },
         {
@@ -4652,7 +4652,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'No investigation',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45033',
         },
       ],
@@ -4671,7 +4671,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Number',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44340',
         },
       ],
@@ -4690,7 +4690,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Hacksaw blade',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44871',
         },
         {
@@ -4700,7 +4700,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Other blade',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44871',
         },
         {
@@ -4710,7 +4710,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Wire cutters',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44871',
         },
         {
@@ -4720,7 +4720,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Bolt croppers',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44871',
         },
         {
@@ -4730,7 +4730,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Digging tool',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44871',
         },
         {
@@ -4740,7 +4740,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Crow bar',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44871',
         },
         {
@@ -4750,7 +4750,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Improvised tool',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44871',
         },
         {
@@ -4760,7 +4760,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Other tool',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44871',
         },
         {
@@ -4770,7 +4770,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Not known',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44871',
         },
       ],
@@ -4789,7 +4789,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Cut',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44327',
         },
         {
@@ -4799,7 +4799,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Removed',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44327',
         },
       ],
@@ -4818,7 +4818,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44681',
         },
         {
@@ -4828,7 +4828,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44441',
         },
       ],
@@ -4847,7 +4847,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Main gate',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44631',
         },
         {
@@ -4857,7 +4857,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Other gate in perimeter',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44631',
         },
         {
@@ -4867,7 +4867,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Over wall',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44840',
         },
         {
@@ -4877,7 +4877,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Over fence',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44840',
         },
         {
@@ -4887,7 +4887,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Through fence',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44822',
         },
         {
@@ -4897,7 +4897,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Under fence',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44822',
         },
         {
@@ -4907,7 +4907,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Through wall',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44759',
         },
         {
@@ -4917,7 +4917,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Under wall',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44759',
         },
       ],
@@ -4936,7 +4936,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45172',
         },
         {
@@ -4946,7 +4946,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44229',
         },
       ],
@@ -4965,7 +4965,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Cut window or bars',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44582',
         },
         {
@@ -4975,7 +4975,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Forced window or bars',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44582',
         },
         {
@@ -4985,7 +4985,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Cut and forced window and bars',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44582',
         },
         {
@@ -4995,7 +4995,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Dug through external wall',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44582',
         },
         {
@@ -5005,7 +5005,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Dug through internal wall',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44582',
         },
         {
@@ -5015,7 +5015,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Dug through floor',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44582',
         },
         {
@@ -5025,7 +5025,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Broke through ceiling',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44582',
         },
         {
@@ -5035,7 +5035,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Forced door',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44582',
         },
       ],
@@ -5054,7 +5054,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44550',
         },
         {
@@ -5064,7 +5064,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44433',
         },
       ],
@@ -5083,7 +5083,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Smuggled weapons',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44320',
         },
         {
@@ -5093,7 +5093,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Smuggled tools/equipment',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44320',
         },
         {
@@ -5103,7 +5103,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Swapped identity',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44320',
         },
         {
@@ -5113,7 +5113,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Breached perimeter',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44320',
         },
         {
@@ -5123,7 +5123,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Provided get away vehicle',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44320',
         },
         {
@@ -5133,7 +5133,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Other',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44320',
         },
       ],
@@ -5152,7 +5152,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44977',
         },
         {
@@ -5162,7 +5162,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44320',
         },
       ],
@@ -5181,7 +5181,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Cut window or bars',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44528',
         },
         {
@@ -5191,7 +5191,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Forced window or bars',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44528',
         },
         {
@@ -5201,7 +5201,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Cut and forced window and bars',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44528',
         },
         {
@@ -5211,7 +5211,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Dug through external wall',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44528',
         },
         {
@@ -5221,7 +5221,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Dug through internal wall',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44341',
         },
         {
@@ -5231,7 +5231,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Dug through floor',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44341',
         },
         {
@@ -5241,7 +5241,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Broke through ceiling',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44341',
         },
         {
@@ -5251,7 +5251,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Forced door',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44341',
         },
       ],
@@ -5270,7 +5270,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Dug through',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45047',
         },
         {
@@ -5280,7 +5280,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Dug under',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45047',
         },
         {
@@ -5290,7 +5290,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Explosion',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45047',
         },
         {
@@ -5300,7 +5300,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Rammed by vehicle',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45047',
         },
         {
@@ -5310,7 +5310,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Other',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45047',
         },
         {
@@ -5320,7 +5320,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Not known',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45047',
         },
       ],
@@ -5339,7 +5339,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44953',
         },
         {
@@ -5349,7 +5349,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44746',
         },
       ],
@@ -5368,7 +5368,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44984',
         },
         {
@@ -5378,7 +5378,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45124',
         },
       ],
@@ -5397,7 +5397,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44494',
         },
         {
@@ -5407,7 +5407,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45073',
         },
       ],
@@ -5426,7 +5426,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Through the cladding',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44933',
         },
         {
@@ -5436,7 +5436,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Above the cladding',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44327',
         },
         {
@@ -5446,7 +5446,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Below the cladding',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44327',
         },
       ],
@@ -5465,7 +5465,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Hacksaw blade',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45121',
         },
         {
@@ -5475,7 +5475,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Other blade',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45121',
         },
         {
@@ -5485,7 +5485,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Wire cutters',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45121',
         },
         {
@@ -5495,7 +5495,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Bolt croppers',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45121',
         },
         {
@@ -5505,7 +5505,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Digging tool',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45121',
         },
         {
@@ -5515,7 +5515,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Crow bar',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45121',
         },
         {
@@ -5525,7 +5525,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Improvised tool',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45121',
         },
         {
@@ -5535,7 +5535,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Other tool',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45121',
         },
         {
@@ -5545,7 +5545,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Not known',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45121',
         },
       ],
@@ -5564,7 +5564,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44636',
         },
         {
@@ -5574,7 +5574,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44636',
         },
       ],
@@ -5593,7 +5593,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44923',
         },
         {
@@ -5603,7 +5603,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44352',
         },
       ],
@@ -5622,7 +5622,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Staff vigilance',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44349',
         },
         {
@@ -5632,7 +5632,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Equipment found',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44349',
         },
         {
@@ -5642,7 +5642,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Information/intelligence',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44349',
         },
         {
@@ -5652,7 +5652,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Observed in progress',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44349',
         },
         {
@@ -5662,7 +5662,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Alerted by security aid',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44349',
         },
         {
@@ -5672,7 +5672,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Other',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44349',
         },
       ],
@@ -5691,7 +5691,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Gander',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44752',
         },
         {
@@ -5701,7 +5701,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Pipe',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44752',
         },
         {
@@ -5711,7 +5711,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: "'s' wire",
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44752',
         },
         {
@@ -5721,7 +5721,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Scare strip',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44752',
         },
         {
@@ -5731,7 +5731,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Taut wire',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44752',
         },
         {
@@ -5741,7 +5741,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Geophones',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44752',
         },
         {
@@ -5751,7 +5751,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Infra red detectors',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44752',
         },
         {
@@ -5761,7 +5761,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Microphonic cable',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44752',
         },
         {
@@ -5771,7 +5771,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Fibre optic system',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44752',
         },
         {
@@ -5781,7 +5781,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Leaky co-axil cable',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44752',
         },
         {
@@ -5791,7 +5791,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Pressure sensors',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44752',
         },
         {
@@ -5801,7 +5801,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'CCTV',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44752',
         },
         {
@@ -5811,7 +5811,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Other',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44752',
         },
       ],
@@ -5830,7 +5830,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Cut window or bars',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44685',
         },
         {
@@ -5840,7 +5840,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Forced window or bars',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44685',
         },
         {
@@ -5850,7 +5850,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Cut and forced window and bars',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44685',
         },
         {
@@ -5860,7 +5860,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Dug through external wall',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44685',
         },
         {
@@ -5870,7 +5870,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Dug through internal wall',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44685',
         },
         {
@@ -5880,7 +5880,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Dug through floor',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44685',
         },
         {
@@ -5890,7 +5890,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Broke through ceiling',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44685',
         },
         {
@@ -5900,7 +5900,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Forced door',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44685',
         },
       ],
@@ -5919,7 +5919,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45150',
         },
         {
@@ -5929,7 +5929,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45150',
         },
       ],
@@ -5948,7 +5948,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Window',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44147',
         },
         {
@@ -5958,7 +5958,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'External wall',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44147',
         },
         {
@@ -5968,7 +5968,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Floor',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44147',
         },
         {
@@ -5978,7 +5978,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Roof',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44147',
         },
         {
@@ -5988,7 +5988,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Door/gate',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44147',
         },
         {
@@ -5998,7 +5998,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Through fence',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44147',
         },
         {
@@ -6008,7 +6008,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Under fence',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44147',
         },
         {
@@ -6018,7 +6018,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Over fence',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45114',
         },
       ],
@@ -6037,7 +6037,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Ladder',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44444',
         },
         {
@@ -6047,7 +6047,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Rope',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44444',
         },
         {
@@ -6057,7 +6057,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Climbing aids',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44444',
         },
         {
@@ -6067,7 +6067,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Furniture items',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44444',
         },
         {
@@ -6077,7 +6077,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Sports items',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44444',
         },
         {
@@ -6087,7 +6087,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Grounds items',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44444',
         },
         {
@@ -6097,7 +6097,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Other',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44444',
         },
       ],
@@ -6116,7 +6116,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Works department',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44935',
         },
         {
@@ -6126,7 +6126,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Contractors',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44935',
         },
         {
@@ -6136,7 +6136,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Education',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44935',
         },
         {
@@ -6146,7 +6146,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Health care centre',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44935',
         },
         {
@@ -6156,7 +6156,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Farms and gardens',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44935',
         },
         {
@@ -6166,7 +6166,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Gymnasium/sports field',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44935',
         },
         {
@@ -6176,7 +6176,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Workshops',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44935',
         },
         {
@@ -6186,7 +6186,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Kitchen',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44935',
         },
         {
@@ -6196,7 +6196,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Hobbies',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44935',
         },
         {
@@ -6206,7 +6206,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Cell furnishings',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44935',
         },
         {
@@ -6216,7 +6216,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Wing/houseblock furnishings',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44935',
         },
         {
@@ -6226,7 +6226,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Smuggled',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44935',
         },
         {
@@ -6236,7 +6236,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Not known',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44935',
         },
         {
@@ -6246,7 +6246,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Other',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44935',
         },
       ],
@@ -6265,7 +6265,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44517',
         },
         {
@@ -6275,7 +6275,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44517',
         },
       ],
@@ -6294,7 +6294,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Telephony',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44713',
         },
         {
@@ -6304,7 +6304,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'IT',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44713',
         },
       ],
@@ -6323,7 +6323,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Prison service vehicle',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44484',
         },
         {
@@ -6333,7 +6333,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Contractors',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44484',
         },
         {
@@ -6343,7 +6343,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Escort contractor',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44484',
         },
         {
@@ -6353,7 +6353,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Official vehicle',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44484',
         },
         {
@@ -6363,7 +6363,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Staff vehicle',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44484',
         },
         {
@@ -6373,7 +6373,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Private vehicle',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44484',
         },
         {
@@ -6383,7 +6383,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Taxi',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44484',
         },
         {
@@ -6393,7 +6393,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Other',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44484',
         },
       ],
@@ -6412,7 +6412,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'From inside',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44707',
         },
         {
@@ -6422,7 +6422,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'From outside',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44707',
         },
       ],
@@ -6441,7 +6441,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Cut window or bars',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44589',
         },
         {
@@ -6451,7 +6451,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Forced window or bars',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44589',
         },
         {
@@ -6461,7 +6461,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Cut and forced window and bars',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44589',
         },
         {
@@ -6471,7 +6471,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Dug through external wall',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44589',
         },
         {
@@ -6481,7 +6481,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Dug through internal wall',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44589',
         },
         {
@@ -6491,7 +6491,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Dug through floor',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44589',
         },
         {
@@ -6501,7 +6501,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Broke through ceiling',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44589',
         },
         {
@@ -6511,7 +6511,7 @@ export const ATTEMPTED_ESCAPE_FROM_PRISON_1: IncidentTypeConfiguration = {
           label: 'Forced door',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '44589',
         },
       ],

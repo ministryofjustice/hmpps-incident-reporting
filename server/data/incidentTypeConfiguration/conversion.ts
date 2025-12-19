@@ -58,7 +58,7 @@ export function fromNomis(nomisConfig: NomisIncidentTypeConfiguration): DpsIncid
             // In DPS we default to mandatory comments if this option is true
             commentRequested: ans.commentRequiredFlag === true,
             commentMandatory: ans.commentRequiredFlag === true,
-            dateRequired: ans.dateRequiredFlag === true,
+            dateMandatory: ans.dateRequiredFlag === true,
             nextQuestionCode,
           }
         }),

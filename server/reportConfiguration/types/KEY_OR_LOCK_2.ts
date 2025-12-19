@@ -21,7 +21,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Keys taken out of the establishment',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -31,7 +31,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Keys lost',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -41,7 +41,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Key left unattended in prison',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -51,7 +51,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Key issued to wrong person',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -61,7 +61,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Doors/gates/cell door left unlocked',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -71,7 +71,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Loss of handcuffs',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -81,7 +81,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Loss of escort chain',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -91,7 +91,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Other handcuff key/lock issues',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -101,7 +101,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Broken/damaged keys',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -111,7 +111,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Worn locks (not malicious)',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -121,7 +121,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Malicious damage to/blockage of locks',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -131,7 +131,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Lock picked',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -141,7 +141,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Part of lock removed',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -151,7 +151,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Complete lock removed',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -161,7 +161,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Electronics overcome (electronic door)',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -171,7 +171,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Electronics failure (electronic door)',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -181,7 +181,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Replica key found/used',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -191,7 +191,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Key viewed by prisoner',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -201,7 +201,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Other: (anything else including prisoner grabbing key chain, etc)',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -211,7 +211,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Keys taken out of the establishment',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45197',
         },
         {
@@ -221,7 +221,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Keys lost',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45197',
         },
         {
@@ -231,7 +231,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Key left unattended in prison',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45197',
         },
         {
@@ -241,7 +241,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Key issued to wrong person',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45197',
         },
         {
@@ -251,7 +251,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Doors/gates/cell door left unlocked',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45197',
         },
         {
@@ -261,7 +261,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Loss of handcuffs',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45197',
         },
         {
@@ -271,7 +271,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Loss of escort chain',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45197',
         },
         {
@@ -281,7 +281,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Other handcuff key/lock issues',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45197',
         },
         {
@@ -291,7 +291,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Broken/damaged keys',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45197',
         },
         {
@@ -301,7 +301,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Worn locks (not malicious)',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45197',
         },
         {
@@ -311,7 +311,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Malicious damage to/blockage of locks',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45197',
         },
         {
@@ -321,7 +321,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Lock picked',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45197',
         },
         {
@@ -331,7 +331,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Part of lock removed',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45197',
         },
         {
@@ -341,7 +341,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Complete lock removed',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45197',
         },
         {
@@ -351,7 +351,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Electronics overcome (electronic door)',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45197',
         },
         {
@@ -361,7 +361,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Electronics failure (electronic door)',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45197',
         },
         {
@@ -371,7 +371,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Replica key found/used',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45197',
         },
         {
@@ -381,7 +381,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Key viewed by prisoner',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45197',
         },
         {
@@ -391,7 +391,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Other (anything else including prisoner grabbing key chain, etc)',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45197',
         },
       ],
@@ -410,7 +410,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Class 1 pass key',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -420,7 +420,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Class 2 pass key',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -430,7 +430,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Cell key',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -440,7 +440,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Class 3 A1 suite key',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -450,7 +450,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Class 3 accountable key',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -460,7 +460,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Handcuff key',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -470,7 +470,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Escort chain key',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -480,7 +480,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Class 1 lock',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -490,7 +490,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Class 2 lock',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -500,7 +500,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Cell lock',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -510,7 +510,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Class 3 A1 suite lock',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -520,7 +520,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Class 3 accountable lock',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -530,7 +530,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Handcuffs',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -540,7 +540,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Escort chain',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -550,7 +550,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Electronic lock system',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -560,7 +560,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Magnetic keys',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -570,7 +570,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Magnetic lock',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -580,7 +580,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Cell door',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -590,7 +590,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Brent keys',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -600,7 +600,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Other: specify',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -610,7 +610,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Class 1 pass key',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45198',
         },
         {
@@ -620,7 +620,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Class 2 pass key',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45198',
         },
         {
@@ -630,7 +630,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Cell key',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45198',
         },
         {
@@ -640,7 +640,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Class 3 A1 suite key',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45198',
         },
         {
@@ -650,7 +650,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Class 3 accountable key',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45198',
         },
         {
@@ -660,7 +660,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Handcuff key',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45198',
         },
         {
@@ -670,7 +670,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Escort chain key',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45198',
         },
         {
@@ -680,7 +680,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Class 1 lock',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45198',
         },
         {
@@ -690,7 +690,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Class 2 lock',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45198',
         },
         {
@@ -700,7 +700,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Cell lock',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45198',
         },
         {
@@ -710,7 +710,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Class 3 A1 suite lock',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45198',
         },
         {
@@ -720,7 +720,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Class 3 accountable lock',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45198',
         },
         {
@@ -730,7 +730,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Handcuffs',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45198',
         },
         {
@@ -740,7 +740,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Escort chain',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45198',
         },
         {
@@ -750,7 +750,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Electronic lock system',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45198',
         },
         {
@@ -760,7 +760,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Magnetic keys',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45198',
         },
         {
@@ -770,7 +770,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Magnetic lock',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45198',
         },
         {
@@ -780,7 +780,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Cell door',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45198',
         },
         {
@@ -790,7 +790,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Brent keys',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45198',
         },
         {
@@ -800,7 +800,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Other : specify',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45198',
         },
       ],
@@ -819,7 +819,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Enter value:',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -829,7 +829,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Enter value:',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45199',
         },
       ],
@@ -848,7 +848,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -858,7 +858,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -868,7 +868,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45200',
         },
         {
@@ -878,7 +878,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45200',
         },
         {
@@ -888,7 +888,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45202',
         },
         {
@@ -898,7 +898,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45208',
         },
         {
@@ -908,7 +908,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45202',
         },
       ],
@@ -927,7 +927,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Complete relock',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -937,7 +937,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Partial relock',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -947,7 +947,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Complete replacement',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -957,7 +957,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Partial replacement',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -967,7 +967,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Forensic testing',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -977,7 +977,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Complete relock',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45201',
         },
         {
@@ -987,7 +987,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Partial relock',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45201',
         },
         {
@@ -997,7 +997,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Complete replacement',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45201',
         },
         {
@@ -1007,7 +1007,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Partial replacement',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45201',
         },
         {
@@ -1017,7 +1017,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Forensic testing',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45201',
         },
         {
@@ -1027,7 +1027,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Other',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45201',
         },
       ],
@@ -1046,7 +1046,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: '£',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -1056,7 +1056,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: '£',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45202',
         },
         {
@@ -1066,7 +1066,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'N/A',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45202',
         },
       ],
@@ -1085,7 +1085,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -1095,7 +1095,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -1105,7 +1105,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45203',
         },
         {
@@ -1115,7 +1115,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45203',
         },
         {
@@ -1125,7 +1125,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'N/A',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45203',
         },
       ],
@@ -1144,7 +1144,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -1154,7 +1154,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -1164,7 +1164,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45204',
         },
         {
@@ -1174,7 +1174,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45204',
         },
         {
@@ -1184,7 +1184,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45205',
         },
         {
@@ -1194,7 +1194,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'N/A',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45205',
         },
       ],
@@ -1213,7 +1213,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Full close down search',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -1223,7 +1223,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Partial search',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -1233,7 +1233,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Other: specify',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -1243,7 +1243,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Full close down search',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45205',
         },
         {
@@ -1253,7 +1253,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Partial search',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45205',
         },
         {
@@ -1263,7 +1263,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Other: please specify',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45205',
         },
       ],
@@ -1282,7 +1282,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -1292,7 +1292,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -1302,7 +1302,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45206',
         },
         {
@@ -1312,7 +1312,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45206',
         },
         {
@@ -1322,7 +1322,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45208',
         },
       ],
@@ -1341,7 +1341,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Hacksaw blade',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -1351,7 +1351,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Other blade',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -1361,7 +1361,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Wire cutters',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -1371,7 +1371,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Bolt cutters',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -1381,7 +1381,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Digging tool',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -1391,7 +1391,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Crow bar',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -1401,7 +1401,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Improvised tool',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -1411,7 +1411,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Other: specify',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -1421,7 +1421,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Not known',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -1431,7 +1431,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Hacksaw blade',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45207',
         },
         {
@@ -1441,7 +1441,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Other blade',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45207',
         },
         {
@@ -1451,7 +1451,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Wire cutters',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45207',
         },
         {
@@ -1461,7 +1461,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Bolt cutters',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45207',
         },
         {
@@ -1471,7 +1471,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Digging tool',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45207',
         },
         {
@@ -1481,7 +1481,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Crow bar',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45207',
         },
         {
@@ -1491,7 +1491,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Improvised tool',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45207',
         },
         {
@@ -1501,7 +1501,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Other: please specify',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45207',
         },
         {
@@ -1511,7 +1511,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Not known',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45207',
         },
       ],
@@ -1530,7 +1530,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Works department',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -1540,7 +1540,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Contractors',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -1550,7 +1550,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Education',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -1560,7 +1560,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Heathcare centre',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -1570,7 +1570,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Farms and gardens',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -1580,7 +1580,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Staff',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -1590,7 +1590,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Visitor',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -1600,7 +1600,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Other: specify',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -1610,7 +1610,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Not known',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -1620,7 +1620,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Works department',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45208',
         },
         {
@@ -1630,7 +1630,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Contractors',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45208',
         },
         {
@@ -1640,7 +1640,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Education',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45208',
         },
         {
@@ -1650,7 +1650,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Health care centre',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45208',
         },
         {
@@ -1660,7 +1660,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Farms and gardens',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45208',
         },
         {
@@ -1670,7 +1670,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Staff',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45208',
         },
         {
@@ -1680,7 +1680,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Visitor',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45208',
         },
         {
@@ -1690,7 +1690,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Other: please specify',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45208',
         },
         {
@@ -1700,7 +1700,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Not known',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '45208',
         },
       ],
@@ -1719,7 +1719,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Yes: date',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: true,
+          dateMandatory: true,
           nextQuestionCode: null,
         },
         {
@@ -1729,7 +1729,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -1739,7 +1739,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           label: 'Incident ref no:',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
       ],

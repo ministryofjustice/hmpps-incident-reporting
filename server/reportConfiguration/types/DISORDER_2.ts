@@ -21,7 +21,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Barricade/prevention of access',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63180',
         },
         {
@@ -31,7 +31,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Concerted indiscipline',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63180',
         },
         {
@@ -41,7 +41,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Hostage',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63180',
         },
         {
@@ -51,7 +51,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Incident at height',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63180',
         },
       ],
@@ -70,7 +70,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'No further action',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63181',
         },
         {
@@ -80,7 +80,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Placed on report/adjudication referral',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63181',
         },
         {
@@ -90,7 +90,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'IEP regression',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63181',
         },
         {
@@ -100,7 +100,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Police referral',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63181',
         },
       ],
@@ -119,7 +119,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63182',
         },
         {
@@ -129,7 +129,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63183',
         },
       ],
@@ -148,7 +148,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Administration',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63183',
         },
         {
@@ -158,7 +158,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Association area',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63183',
         },
         {
@@ -168,7 +168,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Cell',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63183',
         },
         {
@@ -178,7 +178,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Chapel',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63183',
         },
         {
@@ -188,7 +188,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Crown court',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63183',
         },
         {
@@ -198,7 +198,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Dining room',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63183',
         },
         {
@@ -208,7 +208,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Dormitory',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63183',
         },
         {
@@ -218,7 +218,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Education',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63183',
         },
         {
@@ -228,7 +228,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Exercise yard',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63183',
         },
         {
@@ -238,7 +238,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'External roof',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63183',
         },
         {
@@ -248,7 +248,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Funeral',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63183',
         },
         {
@@ -258,7 +258,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Gate',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63183',
         },
         {
@@ -268,7 +268,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Gym',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63183',
         },
         {
@@ -278,7 +278,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Health care centre',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63183',
         },
         {
@@ -288,7 +288,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Hospital outside (patient)',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63183',
         },
         {
@@ -298,7 +298,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Hospital outside (visiting)',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63183',
         },
         {
@@ -308,7 +308,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Induction/1st night centre',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63183',
         },
         {
@@ -318,7 +318,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Kitchen',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63183',
         },
         {
@@ -328,7 +328,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Magistrates court',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63183',
         },
         {
@@ -338,7 +338,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Office',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63183',
         },
         {
@@ -348,7 +348,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Outside working party',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63183',
         },
         {
@@ -358,7 +358,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Reception',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63183',
         },
         {
@@ -368,7 +368,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Recess',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63183',
         },
         {
@@ -378,7 +378,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Segregation unit',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63183',
         },
         {
@@ -388,7 +388,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Showers/changing room',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63183',
         },
         {
@@ -398,7 +398,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Special unit',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63183',
         },
         {
@@ -408,7 +408,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Sports field',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63183',
         },
         {
@@ -418,7 +418,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Vehicle',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63183',
         },
         {
@@ -428,7 +428,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Visits',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63183',
         },
         {
@@ -438,7 +438,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Vulnerable prisoners unit',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63183',
         },
         {
@@ -448,7 +448,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Weddings',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63183',
         },
         {
@@ -458,7 +458,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Wing',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63183',
         },
         {
@@ -468,7 +468,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Within perimeter',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63183',
         },
         {
@@ -478,7 +478,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Works department',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63183',
         },
         {
@@ -488,7 +488,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Workshop',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63183',
         },
         {
@@ -498,7 +498,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Other - enter details',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63183',
         },
       ],
@@ -517,7 +517,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63184',
         },
         {
@@ -527,7 +527,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63184',
         },
       ],
@@ -546,7 +546,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63185',
         },
         {
@@ -556,7 +556,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Demanding external transfer',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63185',
         },
         {
@@ -566,7 +566,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Demanding internal transfer',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63185',
         },
         {
@@ -576,7 +576,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Facilities',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63185',
         },
         {
@@ -586,7 +586,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Food',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63185',
         },
         {
@@ -596,7 +596,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Pay',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63185',
         },
         {
@@ -606,7 +606,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Refusing external transfer',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63185',
         },
         {
@@ -616,7 +616,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Refusing internal transfer',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63185',
         },
         {
@@ -626,7 +626,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Time out of cell',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63185',
         },
         {
@@ -636,7 +636,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Visits',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63185',
         },
         {
@@ -646,7 +646,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Other - enter details',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63185',
         },
       ],
@@ -665,7 +665,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Access difficulties',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63186',
         },
         {
@@ -675,7 +675,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Damage resulting in loss of facilities or utilities',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63186',
         },
         {
@@ -685,7 +685,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Damage resulting in the loss of accommodation',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63186',
         },
         {
@@ -695,7 +695,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Media interest',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63186',
         },
         {
@@ -705,7 +705,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'ORRU assistance requested',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63186',
         },
         {
@@ -715,7 +715,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Perpetrator under influence of drugs or alcohol',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63186',
         },
         {
@@ -725,7 +725,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Threat or actual self harm',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63186',
         },
         {
@@ -735,7 +735,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Violence directed against staff',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63186',
         },
       ],
@@ -754,7 +754,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: '< 1 minute',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63187',
         },
         {
@@ -764,7 +764,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: '1 min to <5mins',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63187',
         },
         {
@@ -774,7 +774,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: '10 mins to <15mins',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63187',
         },
         {
@@ -784,7 +784,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: '15 mins to <30mins',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63187',
         },
         {
@@ -794,7 +794,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: '30 mins to <1 hour',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63187',
         },
         {
@@ -804,7 +804,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: '1 hour to <2 hours',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63187',
         },
         {
@@ -814,7 +814,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: '2 hours to <3 hours',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63187',
         },
         {
@@ -824,7 +824,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: '3 hours to <4 hours',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63187',
         },
         {
@@ -834,7 +834,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: '4 hours to <5 hours',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63187',
         },
         {
@@ -844,7 +844,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: '5 hours plus',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63187',
         },
         {
@@ -854,7 +854,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Unknown - enter details',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63187',
         },
       ],
@@ -873,7 +873,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Complied with order or instruction',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63188',
         },
         {
@@ -883,7 +883,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Negotiation',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63188',
         },
         {
@@ -893,7 +893,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Intervention (local staff)',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63188',
         },
         {
@@ -903,7 +903,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Intervention (ORRU staff)',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63188',
         },
         {
@@ -913,7 +913,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Intervention (operation Tornado)',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63188',
         },
         {
@@ -923,7 +923,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Other - enter details',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63188',
         },
       ],
@@ -942,7 +942,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63189',
         },
         {
@@ -952,7 +952,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63189',
         },
       ],
@@ -971,7 +971,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63190',
         },
         {
@@ -981,7 +981,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'C & r advisor',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63190',
         },
         {
@@ -991,7 +991,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Incident liaison officer',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63190',
         },
         {
@@ -1001,7 +1001,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Health care staff',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63190',
         },
         {
@@ -1011,7 +1011,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Works services staff',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63190',
         },
         {
@@ -1021,7 +1021,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Other - enter details',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63190',
         },
       ],
@@ -1040,7 +1040,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63191',
         },
         {
@@ -1050,7 +1050,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Door jack',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63191',
         },
         {
@@ -1060,7 +1060,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Extendable batons',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63191',
         },
         {
@@ -1070,7 +1070,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Negotiation adviser (including hostage)',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63191',
         },
         {
@@ -1080,7 +1080,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Operational resilience and response unit (ORRU)',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63191',
         },
         {
@@ -1090,7 +1090,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Tornado',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63191',
         },
         {
@@ -1100,7 +1100,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Water hoses',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63191',
         },
         {
@@ -1110,7 +1110,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Other - enter details',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63191',
         },
       ],
@@ -1129,7 +1129,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63192',
         },
         {
@@ -1139,7 +1139,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Police',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63192',
         },
         {
@@ -1149,7 +1149,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Fire',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63192',
         },
         {
@@ -1159,7 +1159,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Ambulance',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63192',
         },
         {
@@ -1169,7 +1169,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Other - enter details',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63192',
         },
       ],
@@ -1188,7 +1188,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63193',
         },
         {
@@ -1198,7 +1198,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63193',
         },
       ],
@@ -1217,7 +1217,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Active',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63194',
         },
         {
@@ -1227,7 +1227,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Passive',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63194',
         },
       ],
@@ -1246,7 +1246,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Number - enter details',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63195',
         },
       ],
@@ -1265,7 +1265,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Prisoner - enter number of',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63196',
         },
         {
@@ -1275,7 +1275,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Visitor - enter number of',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63196',
         },
         {
@@ -1285,7 +1285,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Other - enter number of',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63196',
         },
       ],
@@ -1304,7 +1304,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63197',
         },
         {
@@ -1314,7 +1314,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63198',
         },
       ],
@@ -1333,7 +1333,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63198',
         },
         {
@@ -1343,7 +1343,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63198',
         },
       ],
@@ -1362,7 +1362,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Yes - please log find incident if weapon recovered',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63199',
         },
         {
@@ -1372,7 +1372,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63199',
         },
       ],
@@ -1391,7 +1391,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Yes - please log damage incident',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63200',
         },
         {
@@ -1401,7 +1401,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63200',
         },
       ],
@@ -1420,7 +1420,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63201',
         },
         {
@@ -1430,7 +1430,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63209',
         },
       ],
@@ -1449,7 +1449,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63202',
         },
         {
@@ -1459,7 +1459,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63204',
         },
       ],
@@ -1478,7 +1478,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Bites',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63203',
         },
         {
@@ -1488,7 +1488,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Black eye',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63203',
         },
         {
@@ -1498,7 +1498,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Broken nose',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63203',
         },
         {
@@ -1508,7 +1508,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Broken teeth',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63203',
         },
         {
@@ -1518,7 +1518,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Crushing',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63203',
         },
         {
@@ -1528,7 +1528,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Cuts requiring sutures',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63203',
         },
         {
@@ -1538,7 +1538,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Extensive/multiple bruising',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63203',
         },
         {
@@ -1548,7 +1548,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Fracture',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63203',
         },
         {
@@ -1558,7 +1558,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Gun shot wound',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63203',
         },
         {
@@ -1568,7 +1568,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Scald or burn',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63203',
         },
         {
@@ -1578,7 +1578,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Stabbing',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63203',
         },
         {
@@ -1588,7 +1588,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Temporary/permanent blindness',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63203',
         },
       ],
@@ -1607,7 +1607,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Civilian grades',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63204',
         },
         {
@@ -1617,7 +1617,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'External civilians',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63204',
         },
         {
@@ -1627,7 +1627,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Police',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63204',
         },
         {
@@ -1637,7 +1637,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Prisoners',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63204',
         },
         {
@@ -1647,7 +1647,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Operational staff - prison officer',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63204',
         },
         {
@@ -1657,7 +1657,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Operational staff - other',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63204',
         },
         {
@@ -1667,7 +1667,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Non-operational staff',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63204',
         },
         {
@@ -1677,7 +1677,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Non-directly employed staff',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63204',
         },
         {
@@ -1687,7 +1687,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Other - enter details',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63204',
         },
       ],
@@ -1706,7 +1706,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63205',
         },
         {
@@ -1716,7 +1716,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63207',
         },
       ],
@@ -1735,7 +1735,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Grazes, scratches or abrasions',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63206',
         },
         {
@@ -1745,7 +1745,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Minor bruises',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63206',
         },
         {
@@ -1755,7 +1755,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Superficial cuts',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63206',
         },
         {
@@ -1765,7 +1765,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Swellings',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63206',
         },
         {
@@ -1776,7 +1776,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Other - enter details',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63206',
         },
       ],
@@ -1795,7 +1795,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Civilian grades',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63207',
         },
         {
@@ -1805,7 +1805,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'External civilians',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63207',
         },
         {
@@ -1815,7 +1815,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Police',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63207',
         },
         {
@@ -1825,7 +1825,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Prisoners',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63207',
         },
         {
@@ -1835,7 +1835,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Operational staff - prison officer',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63207',
         },
         {
@@ -1845,7 +1845,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Operational staff - other',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63207',
         },
         {
@@ -1855,7 +1855,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Non-operational staff',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63207',
         },
         {
@@ -1865,7 +1865,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Non-directly employed staff',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63207',
         },
         {
@@ -1875,7 +1875,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Other - enter details',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63207',
         },
         {
@@ -1886,7 +1886,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Other - enter details',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63207',
         },
       ],
@@ -1905,7 +1905,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63208',
         },
         {
@@ -1915,7 +1915,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63209',
         },
       ],
@@ -1934,7 +1934,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Civilian grades',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63209',
         },
         {
@@ -1944,7 +1944,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'External civilians',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63209',
         },
         {
@@ -1954,7 +1954,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Police',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63209',
         },
         {
@@ -1964,7 +1964,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Prisoners',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63209',
         },
         {
@@ -1974,7 +1974,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Operational staff - prison officer',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63209',
         },
         {
@@ -1984,7 +1984,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Operational staff - other',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63209',
         },
         {
@@ -1994,7 +1994,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Non-operational staff',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63209',
         },
         {
@@ -2004,7 +2004,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Non-directly employed staff',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63209',
         },
         {
@@ -2014,7 +2014,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Other - enter details',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63209',
         },
       ],
@@ -2033,7 +2033,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63210',
         },
         {
@@ -2043,7 +2043,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63210',
         },
       ],
@@ -2062,7 +2062,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63211',
         },
         {
@@ -2072,7 +2072,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63213',
         },
       ],
@@ -2091,7 +2091,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Contractors equipment',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63212',
         },
         {
@@ -2101,7 +2101,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'External access: fencing',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63212',
         },
         {
@@ -2111,7 +2111,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'External access: roof',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63212',
         },
         {
@@ -2121,7 +2121,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'External access: tree',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63212',
         },
         {
@@ -2131,7 +2131,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Internal access: landings/railings',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63212',
         },
         {
@@ -2141,7 +2141,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Internal access: netting',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63212',
         },
         {
@@ -2151,7 +2151,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Internal access: window/gate bars',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63212',
         },
         {
@@ -2161,7 +2161,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Other: internal - enter details',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63212',
         },
         {
@@ -2171,7 +2171,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Other: external - enter details',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63212',
         },
       ],
@@ -2190,7 +2190,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Between 3 feet and <1st floor',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63213',
         },
         {
@@ -2200,7 +2200,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: '1st floor',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63213',
         },
         {
@@ -2210,7 +2210,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: '2nd floor',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63213',
         },
         {
@@ -2220,7 +2220,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: '3rd floor or higher',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63213',
         },
       ],
@@ -2239,7 +2239,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63214',
         },
         {
@@ -2249,7 +2249,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63214',
         },
       ],
@@ -2268,7 +2268,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63215',
         },
         {
@@ -2278,7 +2278,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
       ],
@@ -2297,7 +2297,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Civilian staff - state number of',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63216',
         },
         {
@@ -2307,7 +2307,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Officer - state number of',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63216',
         },
         {
@@ -2317,7 +2317,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Prisoner - state number of',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63216',
         },
         {
@@ -2327,7 +2327,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Staff - state number of',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63216',
         },
         {
@@ -2337,7 +2337,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Other - state number of',
           commentRequested: true,
           commentMandatory: true,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63216',
         },
       ],
@@ -2356,7 +2356,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63217',
         },
         {
@@ -2366,7 +2366,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63217',
         },
       ],
@@ -2385,7 +2385,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63218',
         },
         {
@@ -2395,7 +2395,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63218',
         },
       ],
@@ -2414,7 +2414,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63219',
         },
         {
@@ -2424,7 +2424,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63219',
         },
       ],
@@ -2443,7 +2443,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63220',
         },
         {
@@ -2453,7 +2453,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: '63220',
         },
       ],
@@ -2472,7 +2472,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'Yes',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
         {
@@ -2482,7 +2482,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           label: 'No',
           commentRequested: false,
           commentMandatory: false,
-          dateRequired: false,
+          dateMandatory: false,
           nextQuestionCode: null,
         },
       ],

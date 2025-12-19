@@ -118,8 +118,11 @@ export class QuestionsController extends BaseController<FormWizard.MultiValues> 
         const sourceField = req.form.options.fields[parsedField.questionCode]
         if (sourceField) {
           if (field.component === 'mojDatePicker') {
-            // date
-            return `Enter a date for ‘${sourceField.label}’`
+            if (error.type === 'ukDate') {
+              // date
+              return `Enter a valid date for ‘${sourceField.label}’`
+            }
+            return `The date for ‘${sourceField.label}’ cannot be empty`
           }
           // comment
           return `Enter a comment for ‘${sourceField.label}’`

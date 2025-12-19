@@ -563,7 +563,39 @@ describe('Submitting questions’ responses', () => {
           expect(res.text).toContain('There is a problem')
           expect(fieldNames(res.text)).toEqual(['45054'])
           expect(res.text).toContain(
-            '<a href="#45054-182204-date">Enter a date for ‘Were the police informed of the incident?’</a>',
+            '<a href="#45054-182204-date">Enter a valid date for ‘Were the police informed of the incident?’</a>',
+          )
+          expect(res.redirects[0]).toMatch(postUrl)
+          expect(res.redirects[0]).not.toMatch(`/${followingStep}`)
+        })
+    })
+
+    it('submitting with missing date shows errors', () => {
+      reportWithDetails.type = 'DEATH_OTHER_1'
+      const firstQuestionStep = DEATH_OTHER_1.startingQuestionCode
+      const followingStep = '44434'
+      const submittedAnswers = {
+        // 'WERE THE POLICE INFORMED OF THE INCIDENT',
+        '45054': 'YES',
+        // invalid date
+        '45054-182204-date': '',
+      }
+      incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(reportWithDetails)
+
+      const postUrl = `${reportQuestionsUrl(createJourney)}/${firstQuestionStep}`
+      return agent
+        .post(postUrl)
+        .send(submittedAnswers)
+        .redirects(1)
+        .expect(200)
+        .expect(res => {
+          expect(incidentReportingApi.addOrUpdateQuestionsWithResponses).not.toHaveBeenCalled()
+          expect(incidentReportingApi.deleteQuestionsAndTheirResponses).not.toHaveBeenCalled()
+          mockHandleReportEdit.expectNotCalled()
+          expect(res.text).toContain('There is a problem')
+          expect(fieldNames(res.text)).toEqual(['45054'])
+          expect(res.text).toContain(
+            '<a href="#45054-182204-date">The date for ‘Were the police informed of the incident?’ cannot be empty</a>',
           )
           expect(res.redirects[0]).toMatch(postUrl)
           expect(res.redirects[0]).not.toMatch(`/${followingStep}`)

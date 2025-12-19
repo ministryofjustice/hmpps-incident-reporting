@@ -63,11 +63,20 @@ context('Prisoner search page', () => {
 
     context('and results were returned', () => {
       beforeEach(() => {
-        cy.task('stubOffenderSearchGlobally', { prisonIds: ['MDI'], andWords: 'AR', results: [andrew, barry] })
+        cy.task('stubOffenderSearchGlobally', {
+          prisonIds: ['MDI'],
+          andWords: 'AR',
+          location: 'ALL',
+          gender: 'ALL',
+          dateOfBirth: null,
+          results: [andrew, barry],
+        })
         cy.task('stubPrisonApiMockPrisonerPhoto', andrew.prisonerNumber)
         cy.task('stubPrisonApiMockPrisonerPhoto', barry.prisonerNumber)
 
-        cy.visit(`/reports/${reportWithDetails.id}/prisoners/search?page=1&global=no&q=AR`)
+        cy.visit(
+          `/reports/${reportWithDetails.id}/prisoners/search?page=1&global=no&q=AR&prisonerLocationStatus=ALL&prisonerGender=ALL&prisonerDateOfBirth=`,
+        )
         prisonerSearchPage = Page.verifyOnPage(PrisonerSearchPage)
       })
 
@@ -125,11 +134,16 @@ context('Prisoner search page', () => {
         cy.task('stubOffenderSearchGlobally', {
           andWords: 'A1111',
           prisonIds: null,
+          location: 'ALL',
+          gender: 'ALL',
+          dateOfBirth: null,
           results: [andrew],
         })
         cy.task('stubPrisonApiMockPrisonerPhoto', andrew.prisonerNumber)
 
-        cy.visit(`/reports/${reportWithDetails.id}/prisoners/search?page=1&global=yes&q=A1111`)
+        cy.visit(
+          `/reports/${reportWithDetails.id}/prisoners/search?page=1&global=yes&q=A1111&prisonerLocationStatus=ALL&prisonerGender=ALL&dateOfBirth=`,
+        )
         prisonerSearchPage = Page.verifyOnPage(PrisonerSearchPage)
       })
 

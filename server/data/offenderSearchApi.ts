@@ -53,6 +53,9 @@ export type Sort = (typeof sortOptions)[number]
 export const orderOptions = ['ASC', 'DESC'] as const
 export type Order = (typeof orderOptions)[number]
 
+export type PrisonerGender = 'ALL' | 'M' | 'F' | 'NK' | 'NS'
+export type PrisonerLocationStatus = 'ALL' | 'IN' | 'OUT'
+
 export class OffenderSearchApi extends RestClient {
   static readonly PAGE_SIZE = 20
 
@@ -106,6 +109,9 @@ export class OffenderSearchApi extends RestClient {
       andWords?: string
       fuzzyMatch: boolean
       prisonIds: string[]
+      gender?: PrisonerGender
+      location?: PrisonerLocationStatus
+      dateOfBirth?: string
       pagination?: {
         size: number
         page: number

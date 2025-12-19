@@ -10,7 +10,7 @@ export class PrisonerSearchPage extends SearchPage {
       photo: HTMLImageElement
       name: string
       prisonerNumber: string
-      age: string
+      dateOfBirth: string
       establishment: string
       actionLink: HTMLAnchorElement
     }[]
@@ -22,10 +22,10 @@ export class PrisonerSearchPage extends SearchPage {
           const photo = ($cells.eq(0).find('img') as unknown as JQuery<HTMLImageElement>).get()[0]
           const name = $cells.eq(1).text().trim()
           const prisonerNumber = $cells.eq(2).text().trim()
-          const age = $cells.eq(3).text().trim()
+          const dateOfBirth = $cells.eq(3).text().trim()
           const establishment = $cells.eq(4).text().trim()
           const actionLink = ($cells.eq(5).find('a') as unknown as JQuery<HTMLAnchorElement>).get()[0]
-          return { photo, name, prisonerNumber, age, establishment, actionLink }
+          return { photo, name, prisonerNumber, dateOfBirth, establishment, actionLink }
         })
         .toArray(),
     )

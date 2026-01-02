@@ -1619,9 +1619,10 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         {
           code: '214836',
           response: 'OTHER - ENTER DETAILS',
+          responseHint: 'If none of the above options apply, please enter the details of the injury.',
           active: true,
           label: 'Other - enter details',
-          commentRequired: false,
+          commentRequired: true,
           dateRequired: false,
           nextQuestionCode: '63206',
         },
@@ -1718,6 +1719,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
         {
           code: '214846',
           response: 'OTHER - ENTER DETAILS',
+          responseHint: 'Please enter the details of the person(s) involved in the incident.',
           active: true,
           label: 'Other - enter details',
           commentRequired: true,

@@ -32,6 +32,8 @@ import { multiCaseloadColumns, singleCaseloadColumns } from './tableColumns'
 
 export type IncidentStatuses = Status | WorkList
 
+const sortOptions = ['incidentDateAndTime', 'reportReference', 'location', 'type', 'status', 'reportedBy']
+
 interface ListFormData {
   clearFilters?: string
   searchID?: string
@@ -82,7 +84,7 @@ export default function dashboard(): Router {
     if (searchID) {
       searchID = searchID.trim()
     }
-    if (!sort) {
+    if (!sort || !sortOptions.includes(sort)) {
       sort = 'incidentDateAndTime'
     }
     if (!orderOptions.includes(order)) {

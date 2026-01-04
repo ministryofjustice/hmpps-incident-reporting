@@ -1284,15 +1284,6 @@ export const ASSAULT_5: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          code: '213180',
-          response: 'NO',
-          active: true,
-          label: 'No',
-          commentRequired: false,
-          dateRequired: false,
-          nextQuestionCode: '61305',
-        },
-        {
           code: '213181',
           response: 'YES',
           active: true,
@@ -1300,6 +1291,15 @@ export const ASSAULT_5: IncidentTypeConfiguration = {
           commentRequired: false,
           dateRequired: false,
           nextQuestionCode: '61303',
+        },
+        {
+          code: '213180',
+          response: 'NO',
+          active: true,
+          label: 'No',
+          commentRequired: false,
+          dateRequired: false,
+          nextQuestionCode: '61305',
         },
       ],
     },
@@ -1500,15 +1500,6 @@ export const ASSAULT_5: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          code: '213205',
-          response: 'NO',
-          active: true,
-          label: 'No',
-          commentRequired: false,
-          dateRequired: false,
-          nextQuestionCode: '61311',
-        },
-        {
           code: '213206',
           response: 'YES',
           active: true,
@@ -1516,6 +1507,15 @@ export const ASSAULT_5: IncidentTypeConfiguration = {
           commentRequired: false,
           dateRequired: false,
           nextQuestionCode: '61310',
+        },
+        {
+          code: '213205',
+          response: 'NO',
+          active: true,
+          label: 'No',
+          commentRequired: false,
+          dateRequired: false,
+          nextQuestionCode: '61311',
         },
       ],
     },

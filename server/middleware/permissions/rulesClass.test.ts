@@ -8,7 +8,7 @@ import {
   mockHqViewer,
   mockUnauthorisedUser,
 } from '../../data/testData/users'
-import { roleReadOnly, roleReadWrite, roleApproveReject, rolePecs } from '../../data/constants'
+import { roleReadOnly, roleReadWrite, roleApproveReject, rolePecs, roleAdmin } from '../../data/constants'
 import type { ReportBasic } from '../../data/incidentReportingApi'
 import { convertReportDates } from '../../data/incidentReportingApiUtils'
 import { mockReport } from '../../data/testData/incidentReporting'
@@ -63,12 +63,12 @@ const reportingOfficerInLeedsWithPecs: Scenario = {
 const dataWardenNotInLeeds: Scenario = {
   description: 'data warden without Leeds caseload',
   descriptionIgnoringCaseload: 'data warden',
-  user: mockUser([makeMockCaseload(moorland)], [roleApproveReject, rolePecs]),
+  user: mockUser([makeMockCaseload(moorland)], [roleApproveReject, rolePecs, roleAdmin]),
 }
 const dataWardenInLeeds: Scenario = { description: 'data warden with Leeds caseload', user: mockDataWarden }
 const dataWardenInLeedsWithoutPecs: Scenario = {
   description: 'data warden with Leeds caseload missing PECS role',
-  user: mockUser([makeMockCaseload(leeds)], [roleApproveReject]),
+  user: mockUser([makeMockCaseload(leeds)], [roleApproveReject, roleAdmin]),
 }
 const hqViewerNotInLeeds: Scenario = {
   description: 'HQ view-only user without Leeds caseload',
@@ -155,6 +155,26 @@ describe('Permissions class', () => {
         expect(permissions.hasPecsAccess).toBe(false)
       },
     )
+
+    it.each([dataWardenNotInLeeds, dataWardenNotInLeeds, dataWardenInLeedsWithoutPecs])(
+      'should grant Admin access to $description',
+      ({ user }) => {
+        const permissions = new Permissions(user)
+        expect(permissions.hasAdminAccess).toBe(true)
+      },
+    )
+
+    it.each([
+      reportingOfficerNotInLeeds,
+      reportingOfficerInLeeds,
+      reportingOfficerInLeedsWithPecs,
+      hqViewerInLeeds,
+      hqViewerNotInLeeds,
+      hqViewerInLeedsWithPecs,
+    ])('should deny Admin access to $description', ({ user }) => {
+      const permissions = new Permissions(user)
+      expect(permissions.hasAdminAccess).toBe(false)
+    })
   })
 
   describe('Allowed actions and transitions', () => {

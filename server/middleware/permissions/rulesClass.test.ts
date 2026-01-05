@@ -63,7 +63,7 @@ const reportingOfficerInLeedsWithPecs: Scenario = {
 const dataWardenNotInLeeds: Scenario = {
   description: 'data warden without Leeds caseload',
   descriptionIgnoringCaseload: 'data warden',
-  user: mockUser([makeMockCaseload(moorland)], [roleApproveReject, rolePecs, roleAdmin]),
+  user: mockUser([makeMockCaseload(moorland)], [roleApproveReject, rolePecs]),
 }
 const dataWardenInLeeds: Scenario = { description: 'data warden with Leeds caseload', user: mockDataWarden }
 const dataWardenInLeedsWithoutPecs: Scenario = {
@@ -78,7 +78,7 @@ const hqViewerNotInLeeds: Scenario = {
 const hqViewerInLeeds: Scenario = { description: 'HQ view-only user with Leeds caseload', user: mockHqViewer }
 const hqViewerInLeedsWithPecs: Scenario = {
   description: 'HQ view-only user with Leeds caseload and PECS role',
-  user: mockUser([makeMockCaseload(moorland), makeMockCaseload(leeds)], [roleReadOnly, rolePecs]),
+  user: mockUser([makeMockCaseload(moorland), makeMockCaseload(leeds)], [roleReadOnly, rolePecs, roleAdmin]),
 }
 
 describe('Permissions class', () => {
@@ -156,7 +156,7 @@ describe('Permissions class', () => {
       },
     )
 
-    it.each([dataWardenNotInLeeds, dataWardenNotInLeeds, dataWardenInLeedsWithoutPecs])(
+    it.each([dataWardenInLeeds, dataWardenInLeedsWithoutPecs, hqViewerInLeedsWithPecs])(
       'should grant Admin access to $description',
       ({ user }) => {
         const permissions = new Permissions(user)
@@ -168,9 +168,9 @@ describe('Permissions class', () => {
       reportingOfficerNotInLeeds,
       reportingOfficerInLeeds,
       reportingOfficerInLeedsWithPecs,
+      dataWardenNotInLeeds,
       hqViewerInLeeds,
       hqViewerNotInLeeds,
-      hqViewerInLeedsWithPecs,
     ])('should deny Admin access to $description', ({ user }) => {
       const permissions = new Permissions(user)
       expect(permissions.hasAdminAccess).toBe(false)

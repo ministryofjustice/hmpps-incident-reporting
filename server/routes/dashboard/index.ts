@@ -95,7 +95,7 @@ export default function dashboard(): Router {
     const errors: GovukErrorSummaryItem[] = []
 
     // If no filters are supplied from query and no errors generated, check for filters in session
-    if (errors.length === 0 && req.url === '/') {
+    if (errors.length === 0 && req.url === '/' && req.session.dashboardFilters) {
       location = req.session.dashboardFilters?.location
       fromDateInput = req.session.dashboardFilters?.fromDateInput
       toDateInput = req.session.dashboardFilters?.toDateInput
@@ -103,8 +103,8 @@ export default function dashboard(): Router {
       typeFamily = req.session.dashboardFilters?.typeFamily
       incidentStatuses = req.session.dashboardFilters?.incidentStatuses
       latestUserActions = req.session.dashboardFilters?.latestUserActions
-      sort = req.session.dashboardFilters?.sort
-      order = req.session.dashboardFilters?.order
+      sort = req.session.dashboardFilters?.sort ?? 'incidentDateAndTime'
+      order = req.session.dashboardFilters?.order ?? 'DESC'
     }
 
     // Parse params

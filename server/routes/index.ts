@@ -28,7 +28,8 @@ export default function routes(services: Services): Router {
 
   router.get('/', (_req, res) => {
     const { permissions } = res.locals
-    res.render('pages/index', { isRO: permissions.isReportingOfficer })
+    const prisonId = res.locals.user.activeCaseLoad.caseLoadId
+    res.render('pages/index', { isRO: permissions.isReportingOfficer, prisonId })
   })
 
   // view-only debug pages

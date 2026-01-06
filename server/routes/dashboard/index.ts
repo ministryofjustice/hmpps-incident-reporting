@@ -103,8 +103,8 @@ export default function dashboard(): Router {
       typeFamily = req.session.dashboardFilters?.typeFamily
       incidentStatuses = req.session.dashboardFilters?.incidentStatuses
       latestUserActions = req.session.dashboardFilters?.latestUserActions
-      sort = req.session.dashboardFilters?.sort
-      order = req.session.dashboardFilters?.order
+      sort = req.session.dashboardFilters?.sort ?? 'incidentDateAndTime'
+      order = req.session.dashboardFilters?.order ?? 'DESC'
     }
 
     // Parse params

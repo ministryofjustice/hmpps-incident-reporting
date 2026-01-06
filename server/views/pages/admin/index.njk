@@ -1,0 +1,92 @@
+{% extends "partials/layout.njk" %}
+
+{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+{% set pageTitle = "Incident reports" %}
+{% set bodyClasses = "app-dashboard" %}
+
+{% block beforeContent %}
+  {{ super() }}
+
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Digital Prison Services",
+        href: dpsUrl
+      },
+      {
+        text: "Incident reporting",
+        href: "/"
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <h1 class="govuk-heading-l">Prison service configuration</h1>
+
+  {{ govukSummaryList({rows:[
+      {
+        key: {
+          text: 'Prison'
+        },
+        value: {
+          text: prisonId
+        }
+      },
+      {
+        key: {
+          text: 'Service status in DPS'
+        },
+        value: {
+          text: 'Active'
+        },
+        actions: {
+          items: [
+            {
+              href: "/admin/" + prisonId,
+              text: "Change",
+              visuallyHiddenText: "Change service status in DPS"
+            }
+          ]
+        }
+      },
+      {
+        key: {
+          text: 'NOMIS warning screen'
+        },
+        value: {
+          text: 'Warning On'
+        },
+        actions: {
+          items: [
+            {
+              href: "/admin/" + prisonId,
+              text: "Change",
+              visuallyHiddenText: "NOMIS warning screen"
+            }
+          ]
+        }
+      },
+      {
+        key: {
+          text: 'NOMIS screens blocked'
+        },
+        value: {
+          text: 'Not blocked'
+        },
+        actions: {
+          items: [
+            {
+              href: "/admin/" + prisonId,
+              text: "Change",
+              visuallyHiddenText: "NOMIS screens blocked"
+            }
+          ]
+        }
+      }
+    ]
+  }) }}
+
+{% endblock %}

@@ -18,6 +18,7 @@ import { reopenRouter } from './reports/actions/reopen'
 import { requestRemovalRouter } from './reports/actions/requestRemoval'
 import dashboard from './dashboard'
 import { dprRouter } from './dpr'
+import prisonServiceConfiguration from './admin'
 
 export default function routes(services: Services): Router {
   const router = Router()
@@ -54,6 +55,7 @@ export default function routes(services: Services): Router {
   router.use('/reports/:reportId/update-date-and-time', updateIncidentDateAndTimeRouter)
   router.use('/reports/:reportId/add-description', addDescriptionRouter)
   router.use('/reports/:reportId', editReportRouter)
+  router.use('/admin/:prisonId', prisonServiceConfiguration())
 
   // Auxiliary routes
   router.get('/prisoner/:prisonerNumber/photo.jpeg', async (req, res) => {

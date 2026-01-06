@@ -19,6 +19,7 @@ import { requestRemovalRouter } from './reports/actions/requestRemoval'
 import dashboard from './dashboard'
 import { dprRouter } from './dpr'
 import prisonServiceConfiguration from './admin'
+import switchPrisonStatus from './admin/switchStatus'
 
 export default function routes(services: Services): Router {
   const router = Router()
@@ -57,6 +58,7 @@ export default function routes(services: Services): Router {
   router.use('/reports/:reportId/add-description', addDescriptionRouter)
   router.use('/reports/:reportId', editReportRouter)
   router.use('/admin/:prisonId', prisonServiceConfiguration())
+  router.use('/admin/:prisonId/switch-status', switchPrisonStatus())
 
   // Auxiliary routes
   router.get('/prisoner/:prisonerNumber/photo.jpeg', async (req, res) => {

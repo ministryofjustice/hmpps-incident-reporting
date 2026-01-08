@@ -54,7 +54,7 @@ export type SplashModule = {
   moduleName: string
   functionName: string
   function: {
-    function: string
+    functionName: string
     description: string
   }
   warningText: string
@@ -278,7 +278,7 @@ export class PrisonApi extends RestClient {
 
   async deactivatePrison(prisonId: string): Promise<void> {
     const SERVICE_CODE = 'INCIDENTS'
-    await this.delete<ActiveAgency>(
+    return this.delete(
       {
         path: `/api/agency-switches/${encodeURIComponent(SERVICE_CODE)}/agency/${encodeURIComponent(prisonId)}`,
       },
@@ -288,7 +288,7 @@ export class PrisonApi extends RestClient {
 
   async checkSplashScreenStatus(module: string, prisonId: string): Promise<SplashCondition | null> {
     try {
-      return this.get<SplashCondition>(
+      return await this.get<SplashCondition>(
         {
           path: `/api/splash-screen/${encodeURIComponent(module)}/condition/CASELOAD/${encodeURIComponent(prisonId)}`,
         },

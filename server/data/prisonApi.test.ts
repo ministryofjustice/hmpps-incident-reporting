@@ -8,6 +8,8 @@ import {
   type IncidentTypeConfiguration,
   PrisonApi,
   type ReferenceCode,
+  SplashCondition,
+  SplashModule,
 } from './prisonApi'
 import { brixton, leeds, moorland, pecsNorth, pecsSouth, staffMary } from './testData/prisonApi'
 
@@ -119,6 +121,272 @@ describe('prisonApi', () => {
 
       const activeAgencies = await apiClient.getAgenciesSwitchedOn()
       expect(activeAgencies).toEqual([])
+    })
+  })
+
+  describe('isPrisonActive', () => {
+    const { agencyId: prisonId } = moorland
+
+    it('should return true if active', async () => {
+      fakeApiClient
+        .get(`/api/agency-switches/INCIDENTS/agency/${prisonId}`)
+        .matchHeader('authorization', `Bearer ${accessToken}`)
+        .reply(200)
+
+      const response = await apiClient.isPrisonActive(prisonId)
+      expect(response).toEqual(true)
+    })
+
+    it('should return false if inactive/not found', async () => {
+      fakeApiClient
+        .get(`/api/agency-switches/INCIDENTS/agency/${prisonId}`)
+        .matchHeader('authorization', `Bearer ${accessToken}`)
+        .reply(404)
+
+      const response = await apiClient.isPrisonActive(prisonId)
+      expect(response).toEqual(false)
+    })
+
+    it('should throw when it receives another error', async () => {
+      fakeApiClient
+        .get(`/api/agency-switches/INCIDENTS/agency/${prisonId}`)
+        .matchHeader('authorization', `Bearer ${accessToken}`)
+        .thrice()
+        .reply(500)
+
+      await expect(apiClient.isPrisonActive(prisonId)).rejects.toThrow('Internal Server Error')
+    })
+  })
+
+  describe('activatePrison', () => {
+    const { agencyId: prisonId } = moorland
+
+    it('should return value if successful', async () => {
+      fakeApiClient
+        .post(`/api/agency-switches/INCIDENTS/agency/${prisonId}`)
+        .matchHeader('authorization', `Bearer ${accessToken}`)
+        .reply(200, { agencyId: moorland.agencyId, name: moorland.description })
+
+      const response = await apiClient.activatePrison(prisonId)
+      expect(response).toEqual({ agencyId: moorland.agencyId, name: moorland.description })
+    })
+
+    it('should throw when unsuccessful', async () => {
+      fakeApiClient
+        .post(`/api/agency-switches/INCIDENTS/agency/${prisonId}`)
+        .matchHeader('authorization', `Bearer ${accessToken}`)
+        .thrice()
+        .reply(500)
+
+      await expect(apiClient.activatePrison(prisonId)).rejects.toThrow('Internal Server Error')
+    })
+  })
+
+  describe('deactivatePrison', () => {
+    const { agencyId: prisonId } = moorland
+
+    it('should return value if successful', async () => {
+      fakeApiClient
+        .delete(`/api/agency-switches/INCIDENTS/agency/${prisonId}`)
+        .matchHeader('authorization', `Bearer ${accessToken}`)
+        .reply(200)
+
+      await expect(apiClient.deactivatePrison(prisonId)).resolves.toEqual({})
+    })
+
+    it('should throw when unsuccessful', async () => {
+      fakeApiClient
+        .delete(`/api/agency-switches/INCIDENTS/agency/${prisonId}`)
+        .matchHeader('authorization', `Bearer ${accessToken}`)
+        .thrice()
+        .reply(500)
+
+      await expect(apiClient.deactivatePrison(prisonId)).rejects.toThrow('Internal Server Error')
+    })
+  })
+
+  describe('checkSplashScreenStatus', () => {
+    const module = 'OIIIRSEN'
+    const { agencyId: prisonId } = moorland
+
+    it('should return payload if it exists', async () => {
+      const payload: SplashCondition = {
+        splashConditionId: 1,
+        conditionType: 'CASELOAD',
+        conditionValue: 'MDI',
+        blockAccess: false,
+      }
+      fakeApiClient
+        .get(`/api/splash-screen/${module}/condition/CASELOAD/${prisonId}`)
+        .matchHeader('authorization', `Bearer ${accessToken}`)
+        .reply(200, payload)
+
+      const response = await apiClient.checkSplashScreenStatus(module, prisonId)
+      expect(response).toEqual(payload)
+    })
+
+    it('should return false if inactive/not found', async () => {
+      fakeApiClient
+        .get(`/api/splash-screen/${module}/condition/CASELOAD/${prisonId}`)
+        .matchHeader('authorization', `Bearer ${accessToken}`)
+        .reply(404, {
+          status: 404,
+          userMessage: 'Entity Not Found',
+          developerMessage: 'Serious error in the system',
+        })
+
+      const response = await apiClient.checkSplashScreenStatus(module, prisonId)
+      expect(response).toEqual(null)
+    })
+
+    it('should throw when it receives another error', async () => {
+      fakeApiClient
+        .get(`/api/splash-screen/${module}/condition/CASELOAD/${prisonId}`)
+        .matchHeader('authorization', `Bearer ${accessToken}`)
+        .thrice()
+        .reply(500)
+
+      await expect(apiClient.checkSplashScreenStatus(module, prisonId)).rejects.toThrow('Internal Server Error')
+    })
+  })
+
+  describe('activateSplashScreenWarning', () => {
+    const module = 'OIIIRSEN'
+    const { agencyId: prisonId } = moorland
+
+    const splashModule: SplashModule = {
+      splashId: 1,
+      moduleName: 'OIDCHOLO',
+      functionName: 'string',
+      function: {
+        functionName: 'string',
+        description: 'string',
+      },
+      warningText: 'Access to this screen will soon be revoked',
+      blockedText: 'You can not longer use this screen, use DPS',
+      blockAccessType: 'NO',
+      conditions: [
+        {
+          splashConditionId: 1,
+          conditionType: 'CASELOAD',
+          conditionValue: 'MDI',
+          blockAccess: true,
+        },
+      ],
+    }
+
+    it('should return value if successful', async () => {
+      fakeApiClient
+        .post(`/api/splash-screen/${encodeURIComponent(module)}/condition`)
+        .query({ conditionType: 'CASELOAD', conditionValue: prisonId, blockAccess: false })
+        .matchHeader('authorization', `Bearer ${accessToken}`)
+        .reply(200, splashModule)
+
+      const response = await apiClient.activateSplashScreenWarning(module, prisonId)
+      expect(response).toEqual(splashModule)
+    })
+
+    it('should throw when unsuccessful', async () => {
+      fakeApiClient
+        .post(`/api/splash-screen/${encodeURIComponent(module)}/condition`)
+        .query({ conditionType: 'CASELOAD', conditionValue: prisonId, blockAccess: false })
+        .matchHeader('authorization', `Bearer ${accessToken}`)
+        .thrice()
+        .reply(500)
+
+      await expect(apiClient.activateSplashScreenWarning(module, prisonId)).rejects.toThrow('Internal Server Error')
+    })
+  })
+
+  describe('deactivateSplashScreenWarning', () => {
+    const module = 'OIIIRSEN'
+    const { agencyId: prisonId } = moorland
+
+    const splashModule: SplashModule = {
+      splashId: 1,
+      moduleName: 'OIDCHOLO',
+      functionName: 'string',
+      function: {
+        functionName: 'string',
+        description: 'string',
+      },
+      warningText: 'Access to this screen will soon be revoked',
+      blockedText: 'You can not longer use this screen, use DPS',
+      blockAccessType: 'NO',
+      conditions: [
+        {
+          splashConditionId: 1,
+          conditionType: 'CASELOAD',
+          conditionValue: 'MDI',
+          blockAccess: true,
+        },
+      ],
+    }
+
+    it('should return value if successful', async () => {
+      fakeApiClient
+        .delete(`/api/splash-screen/${module}/condition/CASELOAD/${prisonId}`)
+        .matchHeader('authorization', `Bearer ${accessToken}`)
+        .reply(200, splashModule)
+
+      const response = await apiClient.deactivateSplashScreenWarning(module, prisonId)
+      expect(response).toEqual(splashModule)
+    })
+
+    it('should throw when unsuccessful', async () => {
+      fakeApiClient
+        .delete(`/api/splash-screen/${module}/condition/CASELOAD/${prisonId}`)
+        .matchHeader('authorization', `Bearer ${accessToken}`)
+        .thrice()
+        .reply(500)
+
+      await expect(apiClient.deactivateSplashScreenWarning(module, prisonId)).rejects.toThrow('Internal Server Error')
+    })
+  })
+
+  describe('setNomisScreenAccess', () => {
+    const module = 'OIIIRSEN'
+    const { agencyId: prisonId } = moorland
+
+    const splashModule: SplashModule = {
+      splashId: 1,
+      moduleName: 'OIDCHOLO',
+      functionName: 'string',
+      function: {
+        functionName: 'string',
+        description: 'string',
+      },
+      warningText: 'Access to this screen will soon be revoked',
+      blockedText: 'You can not longer use this screen, use DPS',
+      blockAccessType: 'NO',
+      conditions: [
+        {
+          splashConditionId: 1,
+          conditionType: 'CASELOAD',
+          conditionValue: 'MDI',
+          blockAccess: true,
+        },
+      ],
+    }
+
+    it('should return values when successful', async () => {
+      fakeApiClient
+        .put(`/api/splash-screen/${module}/condition/CASELOAD/${prisonId}/true`)
+        .matchHeader('authorization', `Bearer ${accessToken}`)
+        .reply(200, splashModule)
+
+      const response = await apiClient.setNomisScreenAccess(module, prisonId, 'true')
+      expect(response).toEqual(splashModule satisfies SplashModule)
+    })
+
+    it('should throw when unsuccessful', async () => {
+      fakeApiClient
+        .put(`/api/splash-screen/${module}/condition/CASELOAD/${prisonId}/true`)
+        .matchHeader('authorization', `Bearer ${accessToken}`)
+        .thrice()
+        .reply(500)
+
+      await expect(apiClient.setNomisScreenAccess(module, prisonId, 'true')).rejects.toThrow('Internal Server Error')
     })
   })
 

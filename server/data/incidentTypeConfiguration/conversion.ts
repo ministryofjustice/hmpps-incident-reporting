@@ -54,8 +54,11 @@ export function fromNomis(nomisConfig: NomisIncidentTypeConfiguration): DpsIncid
             response: ans.answerDesc,
             active: ans.answerActiveFlag === true,
             label: convertToSentenceCase(ans.answerDesc),
-            commentRequired: ans.commentRequiredFlag === true,
-            dateRequired: ans.dateRequiredFlag === true,
+            // In NOMIS commentRequiredFlag means a comment input will be shown
+            // In DPS we default to mandatory comments if this option is true
+            commentRequested: ans.commentRequiredFlag === true,
+            commentMandatory: ans.commentRequiredFlag === true,
+            dateMandatory: ans.dateRequiredFlag === true,
             nextQuestionCode,
           }
         }),

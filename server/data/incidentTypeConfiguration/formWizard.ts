@@ -38,11 +38,11 @@ export function generateSteps(
       const fieldName = question.code
       const fields = [fieldName]
       for (const answer of activeAnswers) {
-        if (answer.dateRequired) {
+        if (answer.dateMandatory) {
           const dateFieldName = conditionalFieldName(question, answer, 'date')
           fields.push(dateFieldName)
         }
-        if (answer.commentRequired) {
+        if (answer.commentRequested) {
           const commentFieldName = conditionalFieldName(question, answer, 'comment')
           fields.push(commentFieldName)
         }
@@ -252,15 +252,15 @@ function generateFields(config: IncidentTypeConfiguration): FormWizard.Fields {
             value: answer.response,
             label: answer.label,
             hint: answer.responseHint,
-            dateRequired: answer.dateRequired,
-            commentRequired: answer.commentRequired,
+            dateRequired: answer.dateMandatory,
+            commentRequired: answer.commentRequested,
           } satisfies FormWizard.FieldItem
         }),
       } satisfies FormWizard.Field
 
       // Add conditional comment/date fields
       for (const answer of activeAnswers) {
-        if (answer.dateRequired) {
+        if (answer.dateMandatory) {
           const dateFieldName = conditionalFieldName(question, answer, 'date')
           fields[dateFieldName] = {
             name: dateFieldName,
@@ -274,7 +274,7 @@ function generateFields(config: IncidentTypeConfiguration): FormWizard.Fields {
           } satisfies FormWizard.Field
         }
 
-        if (answer.commentRequired) {
+        if (answer.commentRequested) {
           const commentFieldName = conditionalFieldName(question, answer, 'comment')
           const commentLabel = `${answer.commentLabel || 'Comment'}`
           fields[commentFieldName] = {

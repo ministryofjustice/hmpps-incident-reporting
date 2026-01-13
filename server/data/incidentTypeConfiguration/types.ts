@@ -52,8 +52,12 @@ export interface AnswerConfiguration {
   label: string
   /** Override the comment text label */
   commentLabel?: string
-  dateRequired: boolean
-  commentRequired: boolean
+  /** Indicates that user must enter a date */
+  dateMandatory: boolean
+  /** Indicates that user can enter a comment */
+  commentRequested: boolean
+  /** Indicates that user must enter a comment */
+  commentMandatory: boolean
   nextQuestionCode: string | null
 }
 

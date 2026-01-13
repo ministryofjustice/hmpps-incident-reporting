@@ -24,7 +24,43 @@
 {% endblock %}
 
 {% block content %}
+
+  {% include "partials/notificationBanner.njk" %}
+
   <h1 class="govuk-heading-l">Prison service configuration</h1>
+
+  {% if prisonActive %}
+    {% set prisonStatus = "Active" %}
+  {% else %}
+    {% set prisonStatus = "Inactive" %}
+  {% endif %}
+
+  {% set canSwitchNomisStatus = false %}
+
+  {% if incidentCreationWarningActive or incidentEnquiryWarningActive %}
+    {% if incidentCreationWarningActive and incidentEnquiryWarningActive %}
+      {% set warningStatus = "Both warning screens active" %}
+      {% set canSwitchNomisStatus = true %}
+    {% elif incidentCreationWarningActive %}
+      {% set warningStatus = "Incident creation warning screen active" %}
+    {% else %}
+      {% set warningStatus = "Incident enquiry warning screen active" %}
+    {% endif %}
+  {% else %}
+    {% set warningStatus = "Neither warning screen active" %}
+  {% endif %}
+
+  {% if incidentCreationBlocked or incidentEnquiryBlocked %}
+    {% if incidentCreationBlocked and incidentEnquiryBlocked %}
+      {% set blockedStatus = "Both screens blocked" %}
+    {% elif incidentCreationBlocked %}
+      {% set blockedStatus = "Incident creation screen blocked" %}
+    {% else %}
+      {% set blockedStatus = "Incident enquiry screen blocked" %}
+    {% endif %}
+  {% else %}
+    {% set blockedStatus = "Neither screen blocked" %}
+  {% endif %}
 
   {{ govukSummaryList({rows:[
       {
@@ -40,12 +76,12 @@
           text: 'Service status in DPS'
         },
         value: {
-          text: 'Active'
+          text: prisonStatus
         },
         actions: {
           items: [
             {
-              href: "/admin/" + prisonId + "/switch-status",
+              href: "/admin/" + prisonId + "/switch-dps-status",
               text: "Change",
               visuallyHiddenText: "Change service status in DPS"
             }
@@ -54,15 +90,15 @@
       },
       {
         key: {
-          text: 'NOMIS warning screen'
+          text: 'NOMIS warning screens'
         },
         value: {
-          text: 'Warning On'
+          text: warningStatus
         },
         actions: {
           items: [
             {
-              href: "/admin/" + prisonId,
+              href: "/admin/" + prisonId + "/switch-warning-screens",
               text: "Change",
               visuallyHiddenText: "NOMIS warning screen"
             }
@@ -74,17 +110,17 @@
           text: 'NOMIS screens blocked'
         },
         value: {
-          text: 'Not blocked'
+          text: blockedStatus
         },
         actions: {
           items: [
             {
-              href: "/admin/" + prisonId,
+              href: "/admin/" + prisonId + "/switch-nomis-access",
               text: "Change",
               visuallyHiddenText: "NOMIS screens blocked"
             }
           ]
-        }
+        } if canSwitchNomisStatus else {}
       }
     ]
   }) }}

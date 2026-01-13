@@ -1,0 +1,85 @@
+{% extends "partials/layout.njk" %}
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+{% from "govuk/components/error-summary/macro.njk" import govukErrorSummary %}
+
+{% set pageTitle = "Update IRS status in DPS" %}
+{% set bodyClasses = "app-update-irs-status" %}
+
+{% block beforeContent %}
+  {{ super() }}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "/admin/" + prisonId
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  {% if errors.length > 0 %}
+    {{ govukErrorSummary({
+      titleText: "There is a problem",
+      errorList: errors
+    }) }}
+  {% endif %}
+
+  <h1 class="govuk-heading-l">Prison status in DPS</h1>
+
+  {% if prisonActive %}
+    {% set prisonStatus = "Active" %}
+  {% else %}
+    {% set prisonStatus = "Inactive" %}
+  {% endif %}
+
+  {{ govukSummaryList({rows:[
+      {
+        key: {
+          text: 'Prison'
+        },
+        value: {
+          text: prisonId
+        }
+      },
+      {
+        key: {
+          text: 'Service status in DPS'
+        },
+        value: {
+          text: prisonStatus
+        }
+      }
+    ]
+  }) }}
+
+  <div class="govuk-button-group">
+    <form id="app-admin__dps-status-form" class="govuk-!-display-none-print" method="POST" novalidate>
+    <input type="hidden" name="_csrf" value="{{ csrfToken }}" />
+
+      {% if prisonActive %}
+        {{ govukButton({
+          text: "Deactivate in DPS",
+          name: "formAction",
+          value: "deactivate",
+          preventDoubleClick: true,
+          type: "submit"
+        }) }}
+      {% else %}
+        {{ govukButton({
+          text: "Activate in DPS",
+          name: "formAction",
+          value: "activate",
+          preventDoubleClick: true,
+          type: "submit"
+        }) }}
+      {% endif %}
+
+      <a href="/admin/{{prisonId}}" class="govuk-link govuk-link--no-visited-state">
+        Cancel and return to prison configuration details
+      </a>
+    </form>
+  </div>
+
+{% endblock %}

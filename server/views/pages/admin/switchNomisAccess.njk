@@ -1,0 +1,98 @@
+{% extends "partials/layout.njk" %}
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+{% from "govuk/components/error-summary/macro.njk" import govukErrorSummary %}
+
+{% set pageTitle = "Switch NOMIS screen access" %}
+{% set bodyClasses = "app-switch-nomis-screen-access" %}
+
+{% block beforeContent %}
+  {{ super() }}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "/admin/" + prisonId
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  {% if errors.length > 0 %}
+    {{ govukErrorSummary({
+      titleText: "There is a problem",
+      errorList: errors
+    }) }}
+  {% endif %}
+
+  <h1 class="govuk-heading-l">NOMIS screens access</h1>
+
+  {% if incidentCreationBlocked %}
+    {% set incidentCreationBlockedStatus = "Blocked" %}
+  {% else %}
+    {% set incidentCreationBlockedStatus = "Not blocked" %}
+  {% endif %}
+
+  {% if incidentEnquiryBlocked %}
+    {% set incidentEnquiryBlockedStatus = "Blocked" %}
+  {% else %}
+    {% set incidentEnquiryBlockedStatus = "Not blocked" %}
+  {% endif %}
+
+  {{ govukSummaryList({rows:[
+      {
+        key: {
+          text: 'Prison'
+        },
+        value: {
+          text: prisonId
+        }
+      },
+      {
+        key: {
+          text: 'Incident creation screen'
+        },
+        value: {
+          text: incidentCreationBlockedStatus
+        }
+      },
+      {
+        key: {
+          text: 'Incident enquiry screen'
+        },
+        value: {
+          text: incidentEnquiryBlockedStatus
+        }
+      }
+    ]
+  }) }}
+
+  <form id="app-admin__status-form" method="post" novalidate>
+    <input type="hidden" name="_csrf" value="{{ csrfToken }}" />
+    <div class="govuk-button-group">
+      {% if incidentCreationBlocked and incidentEnquiryBlocked %}
+        {{ govukButton({
+          text: "Unblock NOMIS screens",
+          name: "formAction",
+          value: "unblock",
+          preventDoubleClick: true,
+          type: "submit"
+        }) }}
+      {% else %}
+        {{ govukButton({
+          text: "Block NOMIS screens",
+          name: "formAction",
+          value: "block",
+          preventDoubleClick: true,
+          type: "submit"
+        }) }}
+      {% endif %}
+
+      <a href="/admin/{{prisonId}}" class="govuk-link govuk-link--no-visited-state">
+        Cancel and return to prison configuration details
+      </a>
+    </div>
+  </form>
+
+{% endblock %}

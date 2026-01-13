@@ -307,10 +307,10 @@ export class PrisonApi extends RestClient {
     return this.post<SplashModule>(
       {
         path: `/api/splash-screen/${encodeURIComponent(module)}/condition`,
-        query: {
+        data: {
           conditionType: 'CASELOAD',
           conditionValue: prisonId,
-          blockAccess: false,
+          blockAccess: 'false',
         },
       },
       asSystem(),

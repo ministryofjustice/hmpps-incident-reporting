@@ -16,6 +16,7 @@ export default function switchDpsStatus(): Router {
         next(new MethodNotAllowed())
       }
     },
+    logoutUnless(permissions => permissions.hasAdminAccess),
     async (req, res) => {
       const { prisonId } = req.params
       const { prisonApi } = res.locals.apis

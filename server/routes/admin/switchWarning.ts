@@ -2,6 +2,7 @@ import { Router } from 'express'
 import { MethodNotAllowed } from 'http-errors'
 import logger from '../../../logger'
 import type { GovukErrorSummaryItem } from '../../utils/govukFrontend'
+import { logoutUnless } from '../../middleware/permissions'
 
 export default function switchWarningScreen(): Router {
   const router = Router({ mergeParams: true })
@@ -15,6 +16,7 @@ export default function switchWarningScreen(): Router {
         next(new MethodNotAllowed())
       }
     },
+    logoutUnless(permissions => permissions.hasAdminAccess),
     async (req, res) => {
       const { prisonId } = req.params
       const { prisonApi } = res.locals.apis

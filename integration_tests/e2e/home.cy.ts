@@ -26,6 +26,7 @@ for (const { userType, user, searchIncidentsUrl } of scenarios) {
           expectedTiles.unshift({ title: 'Create an incident report', url: '/create-report' })
         } else if (userType === 'data wardens') {
           expectedTiles.unshift({ title: 'Create a PECS incident report', url: '/create-report/pecs' })
+          expectedTiles.push({ title: 'Admin', url: '/admin/MDI' })
         }
         expect(cards).to.deep.equal(expectedTiles)
       })

@@ -18,6 +18,10 @@ import { reopenRouter } from './reports/actions/reopen'
 import { requestRemovalRouter } from './reports/actions/requestRemoval'
 import dashboard from './dashboard'
 import { dprRouter } from './dpr'
+import prisonServiceConfiguration from './admin'
+import switchWarningScreen from './admin/switchWarning'
+import switchDpsStatus from './admin/switchDpsStatus'
+import switchNomisAccess from './admin/switchNomisAccess'
 
 export default function routes(services: Services): Router {
   const router = Router()
@@ -27,7 +31,8 @@ export default function routes(services: Services): Router {
 
   router.get('/', (_req, res) => {
     const { permissions } = res.locals
-    res.render('pages/index', { isRO: permissions.isReportingOfficer })
+    const prisonId = res.locals.user.activeCaseLoad.caseLoadId
+    res.render('pages/index', { isRO: permissions.isReportingOfficer, prisonId })
   })
 
   // view-only debug pages
@@ -54,6 +59,10 @@ export default function routes(services: Services): Router {
   router.use('/reports/:reportId/update-date-and-time', updateIncidentDateAndTimeRouter)
   router.use('/reports/:reportId/add-description', addDescriptionRouter)
   router.use('/reports/:reportId', editReportRouter)
+  router.use('/admin/:prisonId', prisonServiceConfiguration())
+  router.use('/admin/:prisonId/switch-dps-status', switchDpsStatus())
+  router.use('/admin/:prisonId/switch-warning-screens', switchWarningScreen())
+  router.use('/admin/:prisonId/switch-nomis-access', switchNomisAccess())
 
   // Auxiliary routes
   router.get('/prisoner/:prisonerNumber/photo.jpeg', async (req, res) => {

@@ -1,6 +1,6 @@
 import type { Express, NextFunction, Request, Response } from 'express'
 
-import { roleReadOnly, roleReadWrite, roleApproveReject, rolePecs } from '../../data/constants'
+import { roleReadOnly, roleReadWrite, roleApproveReject, rolePecs, roleAdmin } from '../../data/constants'
 import type { ReportBasic } from '../../data/incidentReportingApi'
 import { isPecsRegionCode, pecsRegions } from '../../data/pecsRegions'
 import { isLocationActiveInService } from './locationActiveInService'
@@ -46,6 +46,11 @@ export class Permissions {
     if (roles.has(rolePecs)) {
       this.hasPecsAccess = true
     }
+
+    // access to Admin screens is additionally granted to any user type
+    if (roles.has(roleAdmin)) {
+      this.hasAdminAccess = true
+    }
   }
 
   readonly userType: UserType | null = null
@@ -63,6 +68,8 @@ export class Permissions {
   }
 
   readonly hasPecsAccess: boolean = false
+
+  readonly hasAdminAccess: boolean = false
 
   /** Has *some* role granting access to service */
   get canAccessService(): boolean {

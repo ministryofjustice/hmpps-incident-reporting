@@ -1,0 +1,128 @@
+{% extends "partials/layout.njk" %}
+
+{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+{% set pageTitle = "Admin" %}
+{% set bodyClasses = "app-admin" %}
+
+{% block beforeContent %}
+  {{ super() }}
+
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Digital Prison Services",
+        href: dpsUrl
+      },
+      {
+        text: "Incident reporting",
+        href: "/"
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  {% include "partials/notificationBanner.njk" %}
+
+  <h1 class="govuk-heading-l">Prison service configuration</h1>
+
+  {% if prisonActive %}
+    {% set prisonStatus = "Active" %}
+  {% else %}
+    {% set prisonStatus = "Inactive" %}
+  {% endif %}
+
+  {% set canSwitchNomisStatus = false %}
+
+  {% if incidentCreationWarningActive or incidentEnquiryWarningActive %}
+    {% if incidentCreationWarningActive and incidentEnquiryWarningActive %}
+      {% set warningStatus = "Both warning screens active" %}
+      {% set canSwitchNomisStatus = true %}
+    {% elif incidentCreationWarningActive %}
+      {% set warningStatus = "Incident creation warning screen active" %}
+    {% else %}
+      {% set warningStatus = "Incident enquiry warning screen active" %}
+    {% endif %}
+  {% else %}
+    {% set warningStatus = "Neither warning screen active" %}
+  {% endif %}
+
+  {% if incidentCreationBlocked or incidentEnquiryBlocked %}
+    {% if incidentCreationBlocked and incidentEnquiryBlocked %}
+      {% set blockedStatus = "Both screens blocked" %}
+    {% elif incidentCreationBlocked %}
+      {% set blockedStatus = "Incident creation screen blocked" %}
+    {% else %}
+      {% set blockedStatus = "Incident enquiry screen blocked" %}
+    {% endif %}
+  {% else %}
+    {% set blockedStatus = "Neither screen blocked" %}
+  {% endif %}
+
+  {{ govukSummaryList({rows:[
+      {
+        key: {
+          text: 'Prison'
+        },
+        value: {
+          text: prisonId
+        }
+      },
+      {
+        key: {
+          text: 'Service status in DPS'
+        },
+        value: {
+          text: prisonStatus
+        },
+        actions: {
+          items: [
+            {
+              href: "/admin/" + prisonId + "/switch-dps-status",
+              text: "Change",
+              visuallyHiddenText: "Change service status in DPS"
+            }
+          ]
+        }
+      },
+      {
+        key: {
+          text: 'NOMIS warning screens'
+        },
+        value: {
+          text: warningStatus
+        },
+        actions: {
+          items: [
+            {
+              href: "/admin/" + prisonId + "/switch-warning-screens",
+              text: "Change",
+              visuallyHiddenText: "NOMIS warning screen"
+            }
+          ]
+        }
+      },
+      {
+        key: {
+          text: 'NOMIS screens blocked'
+        },
+        value: {
+          text: blockedStatus
+        },
+        actions: {
+          items: [
+            {
+              href: "/admin/" + prisonId + "/switch-nomis-access",
+              text: "Change",
+              visuallyHiddenText: "NOMIS screens blocked"
+            }
+          ]
+        } if canSwitchNomisStatus else {}
+      }
+    ]
+  }) }}
+
+{% endblock %}

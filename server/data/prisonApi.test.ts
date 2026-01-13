@@ -277,8 +277,8 @@ describe('prisonApi', () => {
 
     it('should return value if successful', async () => {
       fakeApiClient
-        .post(`/api/splash-screen/${encodeURIComponent(module)}/condition`)
-        .query({ conditionType: 'CASELOAD', conditionValue: prisonId, blockAccess: false })
+        .intercept(`/api/splash-screen/${encodeURIComponent(module)}/condition`, 'post')
+        .query(true)
         .matchHeader('authorization', `Bearer ${accessToken}`)
         .reply(200, splashModule)
 
@@ -288,8 +288,8 @@ describe('prisonApi', () => {
 
     it('should throw when unsuccessful', async () => {
       fakeApiClient
-        .post(`/api/splash-screen/${encodeURIComponent(module)}/condition`)
-        .query({ conditionType: 'CASELOAD', conditionValue: prisonId, blockAccess: false })
+        .intercept(`/api/splash-screen/${encodeURIComponent(module)}/condition`, 'post')
+        .query(true)
         .matchHeader('authorization', `Bearer ${accessToken}`)
         .thrice()
         .reply(500)

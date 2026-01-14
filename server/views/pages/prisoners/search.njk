@@ -157,7 +157,7 @@
         {% set prisonerName =  result | nameOfPerson %}
         {% set name %}
           <a href="{{ dpsUrl }}/prisoner/{{result.prisonerNumber }}" target="_blank">
-            {{ prisonerName }}
+            {{ prisonerName }} (opens in a new tab)
           </a>
         {% endset %}
 

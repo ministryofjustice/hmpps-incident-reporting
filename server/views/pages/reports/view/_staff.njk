@@ -32,7 +32,7 @@
         {
           href: reportSubUrlPrefix + "/staff",
           text: "Change" if report.staffInvolved.length else "Add a member of staff",
-          visuallyHiddenText: "Change staff involved" if report.prisonersInvolved.length else "Add a member of staff"
+          visuallyHiddenText: "staff involved" if report.prisonersInvolved.length else ""
         }
       ]
     } if canEditReport else {}

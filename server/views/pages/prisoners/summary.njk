@@ -27,8 +27,8 @@
   {% for prisoner in report.prisonersInvolved %}
     {% set prisonerNumberAndName = prisoner.prisonerNumber + ": " + (prisoner | nameOfPerson) %}
     {% set actionCell %}
-      <a href="{{ reportSubUrlPrefix }}/prisoners/remove/{{ loop.index }}"><span class="govuk-visually-hidden">Remove {{ prisonerNumberAndName }}</span>Remove</a> |
-      <a href="{{ reportSubUrlPrefix }}/prisoners/{{ loop.index }}"><span class="govuk-visually-hidden">Edit {{ prisonerNumberAndName }}</span>Edit</a>
+      <a href="{{ reportSubUrlPrefix }}/prisoners/remove/{{ loop.index }}">Remove<span class="govuk-visually-hidden"> {{ prisonerNumberAndName }}</span></a> |
+      <a href="{{ reportSubUrlPrefix }}/prisoners/{{ loop.index }}">Edit<span class="govuk-visually-hidden"> {{ prisonerNumberAndName }}</span></a>
     {% endset %}
     {% if report.createdInNomis %}
       {% set rows = (rows.push(

@@ -21,6 +21,7 @@ export function sortableTableHead<Column = string>({
   order,
   sortParameter,
   orderParameter,
+  destinationFocusId,
 }: {
   columns: {
     column: Column
@@ -33,6 +34,7 @@ export function sortableTableHead<Column = string>({
   order: 'ASC' | 'DESC'
   sortParameter?: string
   orderParameter?: string
+  destinationFocusId?: string
 }): HeaderCell[] {
   const sortParam = sortParameter ?? 'sort'
   const orderParam = orderParameter ?? 'order'
@@ -64,13 +66,19 @@ export function sortableTableHead<Column = string>({
     } as const
     const ariaSort: AriaSort = column === sortColumn ? ariaSortMap[order] : 'none'
 
+    let destinationUrl: string = `${urlPrefix}${sortQuery}`
+    if (destinationFocusId) {
+      destinationUrl = `${urlPrefix}${sortQuery}#${destinationFocusId}`
+    }
+
     const html = renderString(
-      '<a href="{{ urlPrefix }}{{ sortQuery }}">{{ escapedHtml | safe }} {{ sortDescriptionHtml | safe }}</a>',
+      '<a href="{{ destinationUrl }}">{{ escapedHtml | safe }} {{ sortDescriptionHtml | safe }}</a>',
       {
         urlPrefix,
         escapedHtml,
         sortQuery,
         sortDescriptionHtml,
+        destinationUrl,
       },
     )
 

@@ -90,7 +90,7 @@ context('Prisoner search page', () => {
           const [row1, row2] = rows
 
           expect(row1).to.contain({
-            name: 'Andrew Arnold',
+            name: 'Andrew Arnold (opens in a new tab)',
             prisonerNumber: 'A1111AA',
             establishment: 'Moorland (HMP & YOI)',
           })
@@ -99,7 +99,7 @@ context('Prisoner search page', () => {
           expect(row1.actionLink).to.have.attr('href', `/reports/${reportWithDetails.id}/prisoners/add/A1111AA`)
 
           expect(row2).to.contain({
-            name: 'Barry Benjamin',
+            name: 'Barry Benjamin (opens in a new tab)',
             prisonerNumber: 'A2222BB',
             establishment: 'Moorland (HMP & YOI)',
           })
@@ -157,7 +157,7 @@ context('Prisoner search page', () => {
           const [row1] = rows
 
           expect(row1).to.contain({
-            name: 'Andrew Arnold',
+            name: 'Andrew Arnold (opens in a new tab)',
             prisonerNumber: 'A1111AA',
             establishment: 'Moorland (HMP & YOI)',
           })

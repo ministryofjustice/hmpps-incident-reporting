@@ -31,7 +31,7 @@ export default abstract class Page {
 
   checkOnPage(): void {
     cy.get('h1').contains(this.h1)
-    cy.title().should('eq', `${this.pageTitle ?? this.h1} – Digital Prison Services`)
+    cy.title().should('eq', `${this.pageTitle ?? this.h1} – Digital Prison Services: Incident reporting`)
   }
 
   get signOut(): PageElement<HTMLAnchorElement> {

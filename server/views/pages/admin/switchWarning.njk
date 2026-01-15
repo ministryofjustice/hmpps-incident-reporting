@@ -1,0 +1,98 @@
+{% extends "partials/layout.njk" %}
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+{% from "govuk/components/error-summary/macro.njk" import govukErrorSummary %}
+
+{% set pageTitle = "Switch NOMIS warning screens" %}
+{% set bodyClasses = "app-switch-nomis-warning-screens" %}
+
+{% block beforeContent %}
+  {{ super() }}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "/admin/" + prisonId
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  {% if errors.length > 0 %}
+    {{ govukErrorSummary({
+      titleText: "There is a problem",
+      errorList: errors
+    }) }}
+  {% endif %}
+
+  <h1 class="govuk-heading-l">NOMIS warning screens</h1>
+
+  {% if incidentCreationWarningActive %}
+    {% set incidentCreationWarningStatus = "Warning On" %}
+  {% else %}
+    {% set incidentCreationWarningStatus = "No warning" %}
+  {% endif %}
+
+  {% if incidentEnquiryWarningActive %}
+    {% set incidentEnquiryWarningStatus = "Warning On" %}
+  {% else %}
+    {% set incidentEnquiryWarningStatus = "No warning" %}
+  {% endif %}
+
+  {{ govukSummaryList({rows:[
+      {
+        key: {
+          text: 'Prison'
+        },
+        value: {
+          text: prisonId
+        }
+      },
+      {
+        key: {
+          text: 'Incident creation warning screen'
+        },
+        value: {
+          text: incidentCreationWarningStatus
+        }
+      },
+      {
+        key: {
+          text: 'Incident enquiry warning screen'
+        },
+        value: {
+          text: incidentEnquiryWarningStatus
+        }
+      }
+    ]
+  }) }}
+
+  <form id="app-admin__status-form" method="post" novalidate>
+    <input type="hidden" name="_csrf" value="{{ csrfToken }}" />
+    <div class="govuk-button-group">
+      {% if incidentCreationWarningActive and incidentEnquiryWarningActive %}
+        {{ govukButton({
+          text: "Switch off warning screens",
+          name: "formAction",
+          value: "deactivate",
+          preventDoubleClick: true,
+          type: "submit"
+        }) }}
+      {% else %}
+        {{ govukButton({
+          text: "Switch on warning screens",
+          name: "formAction",
+          value: "activate",
+          preventDoubleClick: true,
+          type: "submit"
+        }) }}
+      {% endif %}
+
+      <a href="/admin/{{prisonId}}" class="govuk-link govuk-link--no-visited-state">
+        Cancel and return to prison configuration details
+      </a>
+    </div>
+  </form>
+
+{% endblock %}

@@ -8,7 +8,7 @@ import {
   mockHqViewer,
   mockUnauthorisedUser,
 } from '../../data/testData/users'
-import { roleReadOnly, roleReadWrite, roleApproveReject, rolePecs } from '../../data/constants'
+import { roleReadOnly, roleReadWrite, roleApproveReject, rolePecs, roleAdmin } from '../../data/constants'
 import type { ReportBasic } from '../../data/incidentReportingApi'
 import { convertReportDates } from '../../data/incidentReportingApiUtils'
 import { mockReport } from '../../data/testData/incidentReporting'
@@ -68,7 +68,7 @@ const dataWardenNotInLeeds: Scenario = {
 const dataWardenInLeeds: Scenario = { description: 'data warden with Leeds caseload', user: mockDataWarden }
 const dataWardenInLeedsWithoutPecs: Scenario = {
   description: 'data warden with Leeds caseload missing PECS role',
-  user: mockUser([makeMockCaseload(leeds)], [roleApproveReject]),
+  user: mockUser([makeMockCaseload(leeds)], [roleApproveReject, roleAdmin]),
 }
 const hqViewerNotInLeeds: Scenario = {
   description: 'HQ view-only user without Leeds caseload',
@@ -78,7 +78,7 @@ const hqViewerNotInLeeds: Scenario = {
 const hqViewerInLeeds: Scenario = { description: 'HQ view-only user with Leeds caseload', user: mockHqViewer }
 const hqViewerInLeedsWithPecs: Scenario = {
   description: 'HQ view-only user with Leeds caseload and PECS role',
-  user: mockUser([makeMockCaseload(moorland), makeMockCaseload(leeds)], [roleReadOnly, rolePecs]),
+  user: mockUser([makeMockCaseload(moorland), makeMockCaseload(leeds)], [roleReadOnly, rolePecs, roleAdmin]),
 }
 
 describe('Permissions class', () => {
@@ -155,6 +155,26 @@ describe('Permissions class', () => {
         expect(permissions.hasPecsAccess).toBe(false)
       },
     )
+
+    it.each([dataWardenInLeeds, dataWardenInLeedsWithoutPecs, hqViewerInLeedsWithPecs])(
+      'should grant Admin access to $description',
+      ({ user }) => {
+        const permissions = new Permissions(user)
+        expect(permissions.hasAdminAccess).toBe(true)
+      },
+    )
+
+    it.each([
+      reportingOfficerNotInLeeds,
+      reportingOfficerInLeeds,
+      reportingOfficerInLeedsWithPecs,
+      dataWardenNotInLeeds,
+      hqViewerInLeeds,
+      hqViewerNotInLeeds,
+    ])('should deny Admin access to $description', ({ user }) => {
+      const permissions = new Permissions(user)
+      expect(permissions.hasAdminAccess).toBe(false)
+    })
   })
 
   describe('Allowed actions and transitions', () => {

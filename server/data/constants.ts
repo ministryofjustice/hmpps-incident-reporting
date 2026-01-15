@@ -34,6 +34,12 @@ export const roleApproveReject = 'INCIDENT_REPORTS__APPROVE' as const
  */
 export const rolePecs = 'INCIDENT_REPORTS__PECS' as const
 
+/**
+ * Admin role.
+ * This is used in addition to the roles above to grant access to any admin screens.
+ */
+export const roleAdmin = 'INCIDENT_REPORTS__ADMIN' as const
+
 // TODO: will management reporting need a separate role?
 
 /**

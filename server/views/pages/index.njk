@@ -63,6 +63,14 @@
       href: "/management-reporting"
     }) }}
 
+    {% if permissions.hasAdminAccess %}
+      {{ renderDpsCard({
+        heading: "Admin",
+        description: "Administer incident report service.",
+        href: "/admin/" + prisonId
+      }) }}
+    {% endif %}
+
   {% endcall %}
 
 {% endblock %}

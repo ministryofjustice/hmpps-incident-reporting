@@ -129,14 +129,17 @@ describe('sortableTableHead', () => {
           order: 'ASC',
           sortParameter: 'sortBy',
           orderParameter: 'sortDirection',
+          destinationFocusId: 'table',
         }),
       ).toEqual([
         // flip order if same column clicked
         expect.objectContaining({
-          html: expect.stringContaining('?size=large&amp;sortBy=month&amp;sortDirection=DESC'),
+          html: expect.stringContaining('?size=large&amp;sortBy=month&amp;sortDirection=DESC#table'),
         }),
         // preserve same order if different column clicked
-        expect.objectContaining({ html: expect.stringContaining('?size=large&amp;sortBy=rate&amp;sortDirection=ASC') }),
+        expect.objectContaining({
+          html: expect.stringContaining('?size=large&amp;sortBy=rate&amp;sortDirection=ASC#table'),
+        }),
       ])
     })
 
@@ -149,14 +152,17 @@ describe('sortableTableHead', () => {
           order: 'DESC',
           sortParameter: 'sortBy',
           orderParameter: 'sortDirection',
+          destinationFocusId: 'table',
         }),
       ).toEqual([
         // preserve same order if different column clicked
         expect.objectContaining({
-          html: expect.stringContaining('?size=large&amp;sortBy=month&amp;sortDirection=DESC'),
+          html: expect.stringContaining('?size=large&amp;sortBy=month&amp;sortDirection=DESC#table'),
         }),
         // flip order if same column clicked
-        expect.objectContaining({ html: expect.stringContaining('?size=large&amp;sortBy=rate&amp;sortDirection=ASC') }),
+        expect.objectContaining({
+          html: expect.stringContaining('?size=large&amp;sortBy=rate&amp;sortDirection=ASC#table'),
+        }),
       ])
     })
 
@@ -169,15 +175,16 @@ describe('sortableTableHead', () => {
           order: 'DESC',
           sortParameter: 'sortBy',
           orderParameter: 'sortDirection',
+          destinationFocusId: 'table',
         }),
       ).toEqual([
         // preserve same order if different column clicked
         expect.objectContaining({
-          html: expect.stringContaining('?size=large&amp;sortBy=month&amp;sortDirection=DESC'),
+          html: expect.stringContaining('?size=large&amp;sortBy=month&amp;sortDirection=DESC#table'),
         }),
         // preserve same order if different column clicked
         expect.objectContaining({
-          html: expect.stringContaining('?size=large&amp;sortBy=rate&amp;sortDirection=DESC'),
+          html: expect.stringContaining('?size=large&amp;sortBy=rate&amp;sortDirection=DESC#table'),
         }),
       ])
     })
@@ -242,24 +249,25 @@ describe('sortableTableHead', () => {
       urlPrefix: '?',
       sortColumn: 'D',
       order: 'DESC',
+      destinationFocusId: 'table',
     })
     expect(tableHead).toEqual<HeaderCell[]>([
       {
-        html: expect.stringContaining('"?sort=A&amp;order=DESC"'),
+        html: expect.stringContaining('"?sort=A&amp;order=DESC#table"'),
         classes: 'table-cell-a',
         attributes: { 'aria-sort': 'none' },
       },
       {
-        html: expect.stringContaining('"?sort=B&amp;order=DESC"'),
+        html: expect.stringContaining('"?sort=B&amp;order=DESC#table"'),
         classes: 'table-cell-b',
         attributes: { 'aria-sort': 'none' },
       },
       {
-        html: expect.stringContaining('"?sort=C&amp;order=DESC"'),
+        html: expect.stringContaining('"?sort=C&amp;order=DESC#table"'),
         classes: 'table-cell-c',
         attributes: { 'aria-sort': 'none' },
       },
-      { html: expect.stringContaining('"?sort=D&amp;order=ASC"'), attributes: { 'aria-sort': 'descending' } },
+      { html: expect.stringContaining('"?sort=D&amp;order=ASC#table"'), attributes: { 'aria-sort': 'descending' } },
     ])
   })
 })

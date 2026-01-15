@@ -358,6 +358,7 @@ export default function dashboard(): Router {
         sortColumn: sort,
         order,
         urlPrefix: tableHeadUrlPrefix,
+        destinationFocusId: 'results-table',
       })
       paginationParams = pagination(
         pageNumber,

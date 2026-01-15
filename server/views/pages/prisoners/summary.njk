@@ -25,14 +25,15 @@
 
   {% set rows = [] %}
   {% for prisoner in report.prisonersInvolved %}
+    {% set prisonerNumberAndName = prisoner.prisonerNumber + ": " + (prisoner | nameOfPerson) %}
     {% set actionCell %}
-      <a href="{{ reportSubUrlPrefix }}/prisoners/remove/{{ loop.index }}">Remove</a> |
-      <a href="{{ reportSubUrlPrefix }}/prisoners/{{ loop.index }}">Edit</a>
+      <a href="{{ reportSubUrlPrefix }}/prisoners/remove/{{ loop.index }}">Remove<span class="govuk-visually-hidden"> {{ prisonerNumberAndName }}</span></a> |
+      <a href="{{ reportSubUrlPrefix }}/prisoners/{{ loop.index }}">Edit<span class="govuk-visually-hidden"> {{ prisonerNumberAndName }}</span></a>
     {% endset %}
     {% if report.createdInNomis %}
       {% set rows = (rows.push(
         [
-          { text: prisoner.prisonerNumber + ": " + (prisoner | nameOfPerson), classes: "govuk-table__cell--numeric govuk-!-text-align-left" },
+          { text: prisonerNumberAndName, classes: "govuk-table__cell--numeric govuk-!-text-align-left" },
           { text: prisonerInvolvementRolesDescriptions[prisoner.prisonerRole] or prisoner.prisonerRole },
           { text: prisonerInvolvementOutcomesDescriptions[prisoner.outcome] or prisoner.outcome },
           { html: prisoner.comment | escape | nl2br },
@@ -42,7 +43,7 @@
     {% else %}
       {% set rows = (rows.push(
         [
-          { text: prisoner.prisonerNumber + ": " + (prisoner | nameOfPerson), classes: "govuk-table__cell--numeric govuk-!-text-align-left" },
+          { text: prisonerNumberAndName, classes: "govuk-table__cell--numeric govuk-!-text-align-left" },
           { text: prisonerInvolvementRolesDescriptions[prisoner.prisonerRole] or prisoner.prisonerRole },
           { html: prisoner.comment | escape | nl2br },
           { html: actionCell }

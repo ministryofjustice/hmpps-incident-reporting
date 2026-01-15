@@ -54,7 +54,8 @@
       items: [
         {
           href: reportSubUrlPrefix + "/prisoners",
-          text: "Change" if report.prisonersInvolved.length else "Add a prisoner"
+          text: "Change" if report.prisonersInvolved.length else "Add a prisoner",
+          visuallyHiddenText: "prisoners" if report.prisonersInvolved.length else ""
         }
       ]
     } if canEditReport else {}

@@ -8,13 +8,14 @@
 
   {% set rows = [] %}
   {% for staff in report.staffInvolved %}
+    {% set staffName = (staff | nameOfPerson) %}
     {% set actionCell %}
-      <a href="{{ reportSubUrlPrefix }}/staff/remove/{{ loop.index }}">Remove</a> |
-      <a href="{{ reportSubUrlPrefix }}/staff/{{ loop.index }}">Edit</a>
+      <a href="{{ reportSubUrlPrefix }}/staff/remove/{{ loop.index }}">Remove<span class="govuk-visually-hidden"> {{ staffName }}</span></a> |
+      <a href="{{ reportSubUrlPrefix }}/staff/{{ loop.index }}">Edit<span class="govuk-visually-hidden"> {{ staffName }}</span></a>
     {% endset %}
     {% set rows = (rows.push(
       [
-        { text: (staff | nameOfPerson) },
+        { text: staffName },
         { text: staffInvolvementRolesDescriptions[staff.staffRole] or staff.staffRole },
         { text: staff.comment | escape | nl2br },
         { html: actionCell }

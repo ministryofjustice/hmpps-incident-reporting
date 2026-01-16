@@ -16,7 +16,7 @@ interface ColumnEntry {
 
 const reportReferenceColumn: ColumnEntry = {
   column: 'reportReference',
-  escapedHtml: 'Reference number',
+  escapedHtml: 'Incident number',
   classes: 'govuk-table__cell--incident-ref',
 }
 

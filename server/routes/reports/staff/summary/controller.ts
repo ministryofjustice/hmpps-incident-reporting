@@ -18,7 +18,9 @@ export default class StaffSummary extends InvolvementSummary {
 
   protected labelOnceInvolvementsExist = 'Do you want to add another member of staff?'
 
-  protected confirmError = 'Select yes if you want to add a member of staff'
+  protected confirmError = 'Select if you want to add a member of staff'
+
+  protected confirmErrorOnceInvolvementsExist = 'Select if you want to add another member of staff'
 
   protected localsForLookups(): Record<string, unknown> {
     return {

@@ -28,6 +28,8 @@ export abstract class InvolvementSummary extends BaseController<Values> {
 
   protected abstract confirmError: string
 
+  protected abstract confirmErrorOnceInvolvementsExist: string
+
   middlewareLocals(): void {
     this.use(this.customiseFields)
     super.middlewareLocals()
@@ -86,7 +88,13 @@ export abstract class InvolvementSummary extends BaseController<Values> {
   }
 
   protected errorMessage(error: FormWizard.Error, req: FormWizard.Request<Values>, res: express.Response): string {
+    const report = res.locals.report as ReportWithDetails
+
+    const involvementsExist = report[this.involvementField].length > 0
     if (error.key === 'confirmAdd') {
+      if (involvementsExist) {
+        return this.confirmErrorOnceInvolvementsExist
+      }
       return this.confirmError
     }
     return super.errorMessage(error, req, res)

@@ -17,7 +17,7 @@ const getSignInUrl = (): Promise<string> =>
 const mockHtmlResponse = (title: string) => `
 <html lang="en">
 <head>
-  <title>${title} – Digital Prison Services: Incident reporting</title>
+  <title>${title} – Incident reporting - DPS</title>
 </head>
 <body>
   <h1>${title}</h1>

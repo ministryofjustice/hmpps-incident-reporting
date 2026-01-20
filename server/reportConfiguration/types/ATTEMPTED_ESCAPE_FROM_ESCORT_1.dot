@@ -15,7 +15,7 @@ digraph ATTEMPTED_ESCAPE_FROM_ESCORT_1 {
       44139 -> 44496 [label=< <FONT COLOR="royalblue">178959 </FONT> Funeral >];
       44139 -> 44496 [label=< <FONT COLOR="royalblue">178965 </FONT> Wedding >];
       44139 -> 44496 [label=< <FONT COLOR="royalblue">178960 </FONT> Home visit >];
-      44139 -> 44496 [label=< <FONT COLOR="royalblue">178961 </FONT> Hosp visit (dying relative) >];
+      44139 -> 44496 [label=< <FONT COLOR="royalblue">178961 </FONT> Hospital visit (dying relative) >];
       44139 -> 44496 [label=< <FONT COLOR="royalblue">178964 </FONT> Other >];
     44148 [label=< <FONT COLOR="royalblue">44148 </FONT> What was the source of the knife or blade? >];
       44148 -> 44157 [label=< <FONT COLOR="royalblue">178995 </FONT> Secreted on the prisoner >];

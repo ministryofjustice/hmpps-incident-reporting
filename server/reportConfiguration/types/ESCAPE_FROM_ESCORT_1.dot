@@ -80,7 +80,7 @@ digraph ESCAPE_FROM_ESCORT_1 {
       44490 -> 45112 [label=< <FONT COLOR="royalblue">180175 </FONT> Funeral >];
       44490 -> 45112 [label=< <FONT COLOR="royalblue">180181 </FONT> Wedding >];
       44490 -> 45112 [label=< <FONT COLOR="royalblue">180176 </FONT> Home visit >];
-      44490 -> 45112 [label=< <FONT COLOR="royalblue">180177 </FONT> Hosp visit (dying relative) >];
+      44490 -> 45112 [label=< <FONT COLOR="royalblue">180177 </FONT> Hospital visit (dying relative) >];
       44490 -> 45112 [label=< <FONT COLOR="royalblue">180180 </FONT> Other >];
     44507 [label=< <FONT COLOR="royalblue">44507 </FONT> What was the source of the weapons used? >];
       44507 -> 45151 [label=< <FONT COLOR="royalblue">180246 </FONT> Secreted on prisoner >];

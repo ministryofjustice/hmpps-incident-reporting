@@ -743,7 +743,7 @@ export const ESCAPE_FROM_ESCORT_1: IncidentTypeConfiguration = {
           code: '180177',
           response: 'HOSP VISIT (DYING RELATIVE)',
           active: true,
-          label: 'Hosp visit (dying relative)',
+          label: 'Hospital visit (dying relative)',
           commentRequested: true,
           commentMandatory: true,
           dateMandatory: false,

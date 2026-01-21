@@ -274,7 +274,7 @@ describe('Searching for a member of staff to add to a report', () => {
           expect(res.text).not.toContain('bot@localhost')
 
           // no pagination links
-          expect(res.text).not.toContain('moj-pagination__item')
+          expect(res.text).not.toContain('govuk-pagination__item')
           expect(res.text).not.toContain('Page 1 of')
           expect(res.text).not.toContain('&amp;page=1')
           expect(res.text).not.toContain('&amp;page=2')
@@ -294,9 +294,9 @@ describe('Searching for a member of staff to add to a report', () => {
           expect(res.text).not.toContain('There is a problem')
 
           // pagination links
-          expect(res.text).toContain('moj-pagination__item')
-          expect(res.text).toContain('Page 1 of 2')
-          expect(res.text).not.toContain('&amp;page=1')
+          expect(res.text).toContain('govuk-pagination__item')
+          expect(res.text).toContain('Showing 1 to 20 of 21 total members of staff')
+          expect(res.text).toContain('&amp;page=1')
           expect(res.text).toContain('&amp;page=2')
         })
     })
@@ -315,10 +315,10 @@ describe('Searching for a member of staff to add to a report', () => {
           expect(res.text).not.toContain('There is a problem')
 
           // pagination links
-          expect(res.text).toContain('moj-pagination__item')
-          expect(res.text).toContain('Page 1 of 2')
+          expect(res.text).toContain('govuk-pagination__item')
+          expect(res.text).toContain('Showing 21 to 21 of 21 total members of staff')
           expect(res.text).toContain('&amp;page=1')
-          expect(res.text).not.toContain('&amp;page=2')
+          expect(res.text).toContain('&amp;page=2')
         })
     })
 

@@ -280,18 +280,12 @@ context('View report', () => {
         const [typeRow, dateRow, descriptionRow] = rows
 
         expect(typeRow.value).to.contain('Disorder')
-        expect(typeRow.actionLinks).to.have.lengthOf(1)
-        expect(typeRow.actionLinks[0]).to.contain('Change')
-        expect(typeRow.actionLinks[0]).attr('href').contains(`/reports/${reportWithDetails.id}/change-type`)
+        expect(typeRow.actionLinks).to.have.lengthOf(0)
 
         expect(dateRow.value).to.contain(now.getFullYear())
-        expect(dateRow.actionLinks).to.have.lengthOf(1)
-        expect(dateRow.actionLinks[0]).to.contain('Change')
-        expect(dateRow.actionLinks[0]).attr('href').contains(`/reports/${reportWithDetails.id}/update-details`)
+        expect(dateRow.actionLinks).to.have.lengthOf(0)
 
-        expect(descriptionRow.actionLinks).to.have.lengthOf(1)
-        expect(descriptionRow.actionLinks[0]).to.contain('Change')
-        expect(descriptionRow.actionLinks[0]).attr('href').contains(`/reports/${reportWithDetails.id}/update-details`)
+        expect(descriptionRow.actionLinks).to.have.lengthOf(0)
       })
       reportPage.summary.descriptionChunks.then(chunks => {
         expect(chunks).to.have.lengthOf(3)
@@ -306,7 +300,7 @@ context('View report', () => {
     })
 
     it('should show prisoner involvements', () => {
-      reportPage.prisonerInvolvements.shouldHaveActionLink('Change', `/reports/${reportWithDetails.id}/prisoners`)
+      reportPage.prisonerInvolvements.shouldNotHaveActionLinks()
       reportPage.prisonerInvolvements.cardContents.then(rows => {
         expect(rows).to.have.lengthOf(2)
         const [row1, row2] = rows
@@ -326,7 +320,7 @@ context('View report', () => {
     })
 
     it('should show staff involvements', () => {
-      reportPage.staffInvolvements.shouldHaveActionLink('Change', `/reports/${reportWithDetails.id}/staff`)
+      reportPage.staffInvolvements.shouldNotHaveActionLinks()
       reportPage.staffInvolvements.cardContents.then(rows => {
         expect(rows).to.have.lengthOf(2)
         const [row1, row2] = rows
@@ -351,15 +345,11 @@ context('View report', () => {
 
         expect(row1.key).to.contain('1. What type of disorder incident was this?')
         expect(row1.value).to.contain('Incident at height')
-        expect(row1.actionLinks).to.have.lengthOf(1)
-        expect(row1.actionLinks[0]).to.contain('Change')
-        expect(row1.actionLinks[0]).attr('href').contains(`/reports/${reportWithDetails.id}/questions/63179`)
+        expect(row1.actionLinks).to.have.lengthOf(0)
 
         expect(row2.key).to.contain('2. What was the main management outcome of this incident?')
         expect(row2.value.trim()).to.equal('')
-        expect(row2.actionLinks).to.have.lengthOf(1)
-        expect(row2.actionLinks[0]).to.contain('Continue')
-        expect(row2.actionLinks[0]).attr('href').contains(`/reports/${reportWithDetails.id}/questions/63179`) // NB: still page 1
+        expect(row2.actionLinks).to.have.lengthOf(0)
       })
     })
   })

@@ -2,7 +2,7 @@ import Page, { type PageElement } from './page'
 
 export class DashboardPage extends Page {
   constructor() {
-    super('Incident reports')
+    super('Search incident reports')
   }
 
   get createReportLink(): PageElement<HTMLAnchorElement> {

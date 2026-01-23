@@ -74,7 +74,6 @@ export const prisonReportTransitions: Transitions = {
       },
     },
     AWAITING_REVIEW: {
-      EDIT: { newStatus: 'DRAFT' },
       RECALL: { newStatus: 'DRAFT', label: 'Change report' },
     },
     NEEDS_UPDATING: {

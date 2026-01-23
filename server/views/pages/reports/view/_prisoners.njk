@@ -27,10 +27,9 @@
     {% endset %}
 
     {% set prisonerUrl %}
-      <a href="{{ dpsUrl }}/prisoner/{{ prisonerInvolved.prisonerNumber }}" target="_blank">
+      <a href="{{ dpsUrl }}/save-backlink?service=incident-reporting&backLinkText=Back%20to%20incident&returnPath=/reports/{{ report.id }}&redirectPath=/prisoner/{{ prisonerInvolved.prisonerNumber }}/personal">
         {{ prisonerInvolved | nameOfPerson }},
         {{ prisonerInvolved.prisonerNumber }}
-        (opens in a new tab)
       </a>
     {% endset %}
 

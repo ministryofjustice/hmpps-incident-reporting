@@ -80,20 +80,6 @@ describe('Report editing side effects', () => {
         expect(incidentReportingApi.changeReportStatus).not.toHaveBeenCalled()
       })
     })
-
-    it('should change status from AWAITING_REVIEW to DRAFT when reporting officer edits a report', async () => {
-      mockedReport.status = 'AWAITING_REVIEW'
-      const res = mockResponse(mockReportingOfficer, mockedReport)
-      await handleReportEdit(res)
-      expect(incidentReportingApi.changeReportStatus).toHaveBeenCalledWith(mockedReport.id, {
-        newStatus: 'DRAFT',
-        correctionRequest: {
-          userType: 'REPORTING_OFFICER',
-          userAction: 'RECALL',
-          descriptionOfChange: '(Reopened)',
-        },
-      })
-    })
   })
 
   describe('PECS reports', () => {

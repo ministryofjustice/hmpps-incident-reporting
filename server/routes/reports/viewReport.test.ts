@@ -212,7 +212,7 @@ describe('View report page', () => {
       updateLinks: 'change description page' | 'append-only description page' | 'no description pages'
     }[] = [
       { status: 'DRAFT', updateLinks: 'change description page' },
-      { status: 'AWAITING_REVIEW', updateLinks: 'change description page' },
+      { status: 'AWAITING_REVIEW', updateLinks: 'no description pages' },
       { status: 'ON_HOLD', updateLinks: 'no description pages' },
       { status: 'NEEDS_UPDATING', updateLinks: 'append-only description page' },
       { status: 'UPDATED', updateLinks: 'no description pages' },

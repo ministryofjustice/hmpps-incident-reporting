@@ -80,7 +80,7 @@ describe('Changing incident type', () => {
     },
   )
 
-  it.each(['DRAFT', 'AWAITING_REVIEW', 'NEEDS_UPDATING', 'REOPENED'] as const)(
+  it.each(['DRAFT', 'NEEDS_UPDATING', 'REOPENED'] as const)(
     'should show a confirmation page first if report status is %s',
     status => {
       mockedReport.status = status

@@ -279,7 +279,7 @@ describe('Updating report details', () => {
         | 'forbid editing date and description'
     }[] = [
       { status: 'DRAFT', result: 'allow editing date and description' },
-      { status: 'AWAITING_REVIEW', result: 'allow editing date and description' },
+      { status: 'AWAITING_REVIEW', result: 'forbid editing date and description' },
       { status: 'ON_HOLD', result: 'forbid editing date and description' },
       { status: 'NEEDS_UPDATING', result: 'redirect to incident date page' },
       { status: 'UPDATED', result: 'forbid editing date and description' },

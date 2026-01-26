@@ -35,7 +35,7 @@ type DashboardFilters = {
   order?: 'DESC' | 'ASC'
 }
 
-type BannerTypes = 'information' | 'success' | 'error'
+type BannerTypes = 'information' | 'success' | 'error' | 'important'
 
 interface Banner {
   title?: string

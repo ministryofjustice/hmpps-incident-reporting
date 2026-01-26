@@ -16,8 +16,24 @@
         {% endif %}
       {% endset %}
 
+      {% if bannerType == "error" %}
+        {% set titleText = "Error" %}
+      {% elif bannerType == "important" %}
+        {% set titleText = "Important" %}
+      {% else %}
+        {% set titleText = undefined %}
+      {% endif %}
+
+      {% if bannerType == "success" %}
+        {% set type = "success" %}
+      {% elif bannerType == "important" %}
+        {% set type = "important" %}
+      {% else %}
+        {% set type = null %}
+      {% endif %}
+
       {{ govukNotificationBanner({
-        titleText: "Error" if bannerType == "error" else undefined,
+        titleText: titleText,
         html: html,
         type: "success" if bannerType == "success" else null,
         classes: "govuk-notification-banner--error" if bannerType == "error" else ""

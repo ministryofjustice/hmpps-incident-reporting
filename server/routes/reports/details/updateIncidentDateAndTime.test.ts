@@ -279,7 +279,7 @@ describe('Updating report incident date and time', () => {
         | 'forbid changing incident date'
     }[] = [
       { status: 'DRAFT', result: 'redirect to incident date and description page' },
-      { status: 'AWAITING_REVIEW', result: 'redirect to incident date and description page' },
+      { status: 'AWAITING_REVIEW', result: 'forbid changing incident date' },
       { status: 'ON_HOLD', result: 'forbid changing incident date' },
       { status: 'NEEDS_UPDATING', result: 'allow changing incident date' },
       { status: 'UPDATED', result: 'forbid changing incident date' },

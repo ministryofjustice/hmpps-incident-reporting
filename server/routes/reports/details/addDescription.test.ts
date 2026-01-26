@@ -199,7 +199,7 @@ describe('Adding a description addendum to report', () => {
         | 'forbid appending to the description'
     }[] = [
       { status: 'DRAFT', result: 'redirect to incident date and description page' },
-      { status: 'AWAITING_REVIEW', result: 'redirect to incident date and description page' },
+      { status: 'AWAITING_REVIEW', result: 'forbid appending to the description' },
       { status: 'ON_HOLD', result: 'forbid appending to the description' },
       { status: 'NEEDS_UPDATING', result: 'allow appending to the description' },
       { status: 'UPDATED', result: 'forbid appending to the description' },

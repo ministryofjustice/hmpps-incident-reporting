@@ -4924,11 +4924,21 @@ export const FIND_6: IncidentTypeConfiguration = {
       prisonerRole: 'IN_POSSESSION',
       onlyOneAllowed: false,
       active: true,
+      roleInformation:
+        'Use this if item is in offenders possession, including in their cell even if they are not present, or if they have been seen in possession but have thrown item and it has then been recovered.',
     },
     {
       prisonerRole: 'INTENDED_RECIPIENT',
       onlyOneAllowed: false,
       active: true,
+      roleInformation: 'Use this for intended recipients of parcels/mail/drone drops or attempted passes.',
+    },
+    {
+      prisonerRole: 'SUSPECTED_INVOLVED',
+      onlyOneAllowed: false,
+      active: true,
+      roleInformation:
+        'Use this if multiple offenders in the area of find, but no clear indication or who had the illicit item (excluding where item in own cell)',
     },
     {
       prisonerRole: 'ASSISTED_STAFF',
@@ -4942,11 +4952,6 @@ export const FIND_6: IncidentTypeConfiguration = {
     },
     {
       prisonerRole: 'PRESENT_AT_SCENE',
-      onlyOneAllowed: false,
-      active: true,
-    },
-    {
-      prisonerRole: 'SUSPECTED_INVOLVED',
       onlyOneAllowed: false,
       active: true,
     },

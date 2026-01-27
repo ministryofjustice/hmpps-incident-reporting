@@ -1839,16 +1839,20 @@ export const ASSAULT_5: IncidentTypeConfiguration = {
       prisonerRole: 'ASSAILANT',
       onlyOneAllowed: false,
       active: true,
-    },
-    {
-      prisonerRole: 'FIGHTER',
-      onlyOneAllowed: false,
-      active: true,
+      roleInformation:
+        'Use this when other offender does not retaliate in any way, or for prisoner on staff/other assaults.',
     },
     {
       prisonerRole: 'VICTIM',
       onlyOneAllowed: false,
       active: true,
+      roleInformation: 'Use this when prisoner is assaulted and does not retaliate.',
+    },
+    {
+      prisonerRole: 'FIGHTER',
+      onlyOneAllowed: false,
+      active: true,
+      roleInformation: 'Use this when both/all offenders participate in the assault/exchange blows',
     },
     {
       prisonerRole: 'SUSPECTED_ASSAILANT',

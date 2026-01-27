@@ -4,7 +4,7 @@ import type { IncidentTypeConfiguration } from '../../data/incidentTypeConfigura
 
 export const BC_FUEL_SHORTAGE_1: IncidentTypeConfiguration = {
   incidentType: 'BC_FUEL_SHORTAGE_1',
-  active: true,
+  active: false,
   startingQuestionCode: '100020',
   questions: {
     '100020': {

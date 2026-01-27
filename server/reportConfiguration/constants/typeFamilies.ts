@@ -36,14 +36,14 @@ export const typeFamilies = [
   { code: 'TOOL_LOSS', description: 'Tool or implement loss' },
   { code: 'BC_DISRUPT_3RD_PTY', description: 'Disruption to 3rd party supplier - Business Continuity' },
   { code: 'BC_FUEL_SHORTAGE', description: 'Fuel Shortage - Business Continuity' },
-  { code: 'BC_LOSS_ACCESS_EGRESS', description: 'Loss of Access / Egress  - Business Continuity' },
+  { code: 'BC_LOSS_ACCESS_EGRESS', description: 'Loss of Access / Egress - Business Continuity' },
   {
     code: 'BC_LOSS_COMMS',
     description: 'Loss of Communications & Digital Systems - Business Continuity',
   },
   { code: 'BC_LOSS_UTILS', description: 'Loss of Utilities - Business Continuity' },
   { code: 'BC_SERV_WEATHER', description: 'Severe Weather - Business Continuity' },
-  { code: 'BC_STAFF_SHORTAGES', description: 'Staff shortages  - Business Continuity' },
+  { code: 'BC_STAFF_SHORTAGES', description: 'Staff shortages - Business Continuity' },
   { code: 'BC_WIDESPREAD_ILLNESS', description: 'Widespread illness - Business Continuity' },
 ] as const
 
@@ -89,11 +89,11 @@ export const typeFamiliesDescriptions: Record<TypeFamily, string> = {
   TOOL_LOSS: 'Tool or implement loss',
   BC_DISRUPT_3RD_PTY: 'Disruption to 3rd party supplier - Business Continuity',
   BC_FUEL_SHORTAGE: 'Fuel Shortage - Business Continuity',
-  BC_LOSS_ACCESS_EGRESS: 'Loss of Access / Egress  - Business Continuity',
+  BC_LOSS_ACCESS_EGRESS: 'Loss of Access / Egress - Business Continuity',
   BC_LOSS_COMMS: 'Loss of Communications & Digital Systems - Business Continuity',
   BC_LOSS_UTILS: 'Loss of Utilities - Business Continuity',
   BC_SERV_WEATHER: 'Severe Weather - Business Continuity',
-  BC_STAFF_SHORTAGES: 'Staff shortages  - Business Continuity',
+  BC_STAFF_SHORTAGES: 'Staff shortages - Business Continuity',
   BC_WIDESPREAD_ILLNESS: 'Widespread illness - Business Continuity',
 }
 

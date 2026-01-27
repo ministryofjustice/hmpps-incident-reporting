@@ -4,7 +4,7 @@ import type { IncidentTypeConfiguration } from '../../data/incidentTypeConfigura
 
 export const BC_SERV_WEATHER_1: IncidentTypeConfiguration = {
   incidentType: 'BC_SERV_WEATHER_1',
-  active: true,
+  active: false,
   startingQuestionCode: '100060',
   questions: {
     '100060': {

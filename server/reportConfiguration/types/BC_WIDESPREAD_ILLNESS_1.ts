@@ -4,7 +4,7 @@ import type { IncidentTypeConfiguration } from '../../data/incidentTypeConfigura
 
 export const BC_WIDESPREAD_ILLNESS_1: IncidentTypeConfiguration = {
   incidentType: 'BC_WIDESPREAD_ILLNESS_1',
-  active: true,
+  active: false,
   startingQuestionCode: '100080',
   questions: {
     '100080': {

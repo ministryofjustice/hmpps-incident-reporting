@@ -34,6 +34,17 @@ export const typeFamilies = [
   { code: 'SELF_HARM', description: 'Self harm' },
   { code: 'TEMPORARY_RELEASE_FAILURE', description: 'Temporary release failure' },
   { code: 'TOOL_LOSS', description: 'Tool or implement loss' },
+  { code: 'BC_DISRUPT_3RD_PTY', description: 'Disruption to 3rd party supplier - Business Continuity' },
+  { code: 'BC_FUEL_SHORTAGE', description: 'Fuel Shortage - Business Continuity' },
+  { code: 'BC_LOSS_ACCESS_EGRESS', description: 'Loss of Access / Egress  - Business Continuity' },
+  {
+    code: 'BC_LOSS_COMMS',
+    description: 'Loss of Communications & Digital Systems - Business Continuity',
+  },
+  { code: 'BC_LOSS_UTILS', description: 'Loss of Utilities - Business Continuity' },
+  { code: 'BC_SERV_WEATHER', description: 'Severe Weather - Business Continuity' },
+  { code: 'BC_STAFF_SHORTAGES', description: 'Staff shortages  - Business Continuity' },
+  { code: 'BC_WIDESPREAD_ILLNESS', description: 'Widespread illness - Business Continuity' },
 ] as const
 
 /** Incident type families */
@@ -52,7 +63,7 @@ export const typeFamiliesDescriptions: Record<TypeFamily, string> = {
   BOMB: 'Bomb explosion or threat',
   BREACH_OF_SECURITY: 'Breach or attempted breach of security',
   CLOSE_DOWN_SEARCH: 'Close down search',
-  CONCERTED_INDISCIPLINE: 'Incident involving 2 or more prisioners acting together',
+  CONCERTED_INDISCIPLINE: 'Incident involving 2 or more prisoners acting together',
   DAMAGE: 'Deliberate damage',
   DEATH_PRISONER: 'Death of prisoner',
   DEATH_OTHER: 'Death of other person',
@@ -76,6 +87,14 @@ export const typeFamiliesDescriptions: Record<TypeFamily, string> = {
   SELF_HARM: 'Self harm',
   TEMPORARY_RELEASE_FAILURE: 'Temporary release failure',
   TOOL_LOSS: 'Tool or implement loss',
+  BC_DISRUPT_3RD_PTY: 'Disruption to 3rd party supplier - Business Continuity',
+  BC_FUEL_SHORTAGE: 'Fuel Shortage - Business Continuity',
+  BC_LOSS_ACCESS_EGRESS: 'Loss of Access / Egress  - Business Continuity',
+  BC_LOSS_COMMS: 'Loss of Communications & Digital Systems - Business Continuity',
+  BC_LOSS_UTILS: 'Loss of Utilities - Business Continuity',
+  BC_SERV_WEATHER: 'Severe Weather - Business Continuity',
+  BC_STAFF_SHORTAGES: 'Staff shortages  - Business Continuity',
+  BC_WIDESPREAD_ILLNESS: 'Widespread illness - Business Continuity',
 }
 
 /** Lookup for incident type families */

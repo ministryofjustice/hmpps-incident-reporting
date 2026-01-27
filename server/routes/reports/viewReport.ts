@@ -246,6 +246,18 @@ export function viewReportRouter(): Router {
               }
 
               if (userAction === 'RECALL') {
+                if (userType === 'REPORTING_OFFICER') {
+                  req.flash('important', {
+                    title:
+                      'You have recalled the incident report. After updating information in the report, you still need to resubmit it. To do so, select the "Submit" option and then the "Continue" button.',
+                  })
+                }
+                if (userType === 'DATA_WARDEN') {
+                  req.flash('important', {
+                    title:
+                      'You have recalled the incident report. You still need to decide what to do with the report. Once you have selected an option, select the "Continue" button.',
+                  })
+                }
                 res.redirect(reportUrl)
               } else {
                 res.redirect('/reports')

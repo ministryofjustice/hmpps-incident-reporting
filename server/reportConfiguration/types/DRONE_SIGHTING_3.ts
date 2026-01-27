@@ -868,6 +868,11 @@ export const DRONE_SIGHTING_3: IncidentTypeConfiguration = {
   },
   prisonerRoles: [
     {
+      prisonerRole: 'INTENDED_RECIPIENT',
+      onlyOneAllowed: false,
+      active: true,
+    },
+    {
       prisonerRole: 'ASSISTED_STAFF',
       onlyOneAllowed: false,
       active: true,
@@ -879,11 +884,6 @@ export const DRONE_SIGHTING_3: IncidentTypeConfiguration = {
     },
     {
       prisonerRole: 'IN_POSSESSION',
-      onlyOneAllowed: false,
-      active: true,
-    },
-    {
-      prisonerRole: 'INTENDED_RECIPIENT',
       onlyOneAllowed: false,
       active: true,
     },

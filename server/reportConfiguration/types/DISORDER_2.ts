@@ -2490,6 +2490,19 @@ export const DISORDER_2: IncidentTypeConfiguration = {
   },
   prisonerRoles: [
     {
+      prisonerRole: 'PERPETRATOR',
+      onlyOneAllowed: false,
+      active: true,
+      roleInformation:
+        'Use this for all offenders who go at height, take someone hostage, partake in Concerted Indiscipline or who use a barricade.',
+    },
+    {
+      prisonerRole: 'HOSTAGE',
+      onlyOneAllowed: false,
+      active: true,
+      roleInformation: 'Use this if offender is taken hostage',
+    },
+    {
       prisonerRole: 'ACTIVE_INVOLVEMENT',
       onlyOneAllowed: false,
       active: true,
@@ -2510,17 +2523,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
       active: true,
     },
     {
-      prisonerRole: 'HOSTAGE',
-      onlyOneAllowed: false,
-      active: true,
-    },
-    {
       prisonerRole: 'IMPEDED_STAFF',
-      onlyOneAllowed: false,
-      active: true,
-    },
-    {
-      prisonerRole: 'PERPETRATOR',
       onlyOneAllowed: false,
       active: true,
     },

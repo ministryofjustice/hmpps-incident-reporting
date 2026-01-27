@@ -112,7 +112,7 @@ describe('Dashboard', () => {
       .expect('Content-Type', /html/)
       .expect(200)
       .expect(res => {
-        expect(res.text).toContain('Incident reports')
+        expect(res.text).toContain('Search incident reports')
         expect(res.text).toContain('Create a report for Moorland')
         expect(res.text).toContain('6543')
         expect(res.text).toContain('6544')
@@ -140,7 +140,7 @@ describe('Dashboard', () => {
       .expect('Content-Type', /html/)
       .expect(200)
       .expect(res => {
-        expect(res.text).toContain('Incident reports')
+        expect(res.text).toContain('Search incident reports')
         expect(res.text).toContain('Create a report for Moorland')
         expect(res.text).toContain('6543')
         expect(res.text).toContain('6544')

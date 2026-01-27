@@ -15,7 +15,7 @@
 {% from "moj/components/pagination/macro.njk" import mojPagination %}
 {% from "macros/accessible-autocomplete/macro.njk" import accessibleAutocomplete %}
 
-{% set pageTitle = "Incident reports" %}
+{% set pageTitle = "Search incident reports" %}
 {% set bodyClasses = "app-dashboard" %}
 
 {% block beforeContent %}
@@ -50,7 +50,7 @@
     </div>
   </div>
 
-  <h1 class="govuk-heading-l">Incident reports</h1>
+  <h1 class="govuk-heading-l">Search incident reports</h1>
 
   <div class="govuk-button-group">
     {% if permissions.canCreateReportInActiveCaseload %}

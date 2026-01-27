@@ -34,7 +34,7 @@ export const types = [
     familyCode: 'BC_FUEL_SHORTAGE',
     code: 'BC_FUEL_SHORTAGE_1',
     description: 'Fuel Shortage - Business Continuity',
-    active: false,
+    active: true,
     nomisCode: 'FUELSHORTAGE',
   },
   {

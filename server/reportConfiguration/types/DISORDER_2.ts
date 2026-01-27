@@ -2490,6 +2490,16 @@ export const DISORDER_2: IncidentTypeConfiguration = {
   },
   prisonerRoles: [
     {
+      prisonerRole: 'HOSTAGE',
+      onlyOneAllowed: false,
+      active: true,
+    },
+    {
+      prisonerRole: 'PERPETRATOR',
+      onlyOneAllowed: false,
+      active: true,
+    },
+    {
       prisonerRole: 'ACTIVE_INVOLVEMENT',
       onlyOneAllowed: false,
       active: true,
@@ -2510,17 +2520,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
       active: true,
     },
     {
-      prisonerRole: 'HOSTAGE',
-      onlyOneAllowed: false,
-      active: true,
-    },
-    {
       prisonerRole: 'IMPEDED_STAFF',
-      onlyOneAllowed: false,
-      active: true,
-    },
-    {
-      prisonerRole: 'PERPETRATOR',
       onlyOneAllowed: false,
       active: true,
     },

@@ -4921,22 +4921,22 @@ export const FIND_6: IncidentTypeConfiguration = {
   },
   prisonerRoles: [
     {
-      prisonerRole: 'ASSISTED_STAFF',
-      onlyOneAllowed: false,
-      active: true,
-    },
-    {
-      prisonerRole: 'IMPEDED_STAFF',
-      onlyOneAllowed: false,
-      active: true,
-    },
-    {
       prisonerRole: 'IN_POSSESSION',
       onlyOneAllowed: false,
       active: true,
     },
     {
       prisonerRole: 'INTENDED_RECIPIENT',
+      onlyOneAllowed: false,
+      active: true,
+    },
+    {
+      prisonerRole: 'ASSISTED_STAFF',
+      onlyOneAllowed: false,
+      active: true,
+    },
+    {
+      prisonerRole: 'IMPEDED_STAFF',
       onlyOneAllowed: false,
       active: true,
     },

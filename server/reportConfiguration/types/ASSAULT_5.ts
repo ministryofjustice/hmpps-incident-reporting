@@ -1836,17 +1836,7 @@ export const ASSAULT_5: IncidentTypeConfiguration = {
   },
   prisonerRoles: [
     {
-      prisonerRole: 'ACTIVE_INVOLVEMENT',
-      onlyOneAllowed: false,
-      active: true,
-    },
-    {
       prisonerRole: 'ASSAILANT',
-      onlyOneAllowed: false,
-      active: true,
-    },
-    {
-      prisonerRole: 'ASSISTED_STAFF',
       onlyOneAllowed: false,
       active: true,
     },
@@ -1856,12 +1846,7 @@ export const ASSAULT_5: IncidentTypeConfiguration = {
       active: true,
     },
     {
-      prisonerRole: 'IMPEDED_STAFF',
-      onlyOneAllowed: false,
-      active: true,
-    },
-    {
-      prisonerRole: 'PRESENT_AT_SCENE',
+      prisonerRole: 'VICTIM',
       onlyOneAllowed: false,
       active: true,
     },
@@ -1871,7 +1856,22 @@ export const ASSAULT_5: IncidentTypeConfiguration = {
       active: true,
     },
     {
-      prisonerRole: 'VICTIM',
+      prisonerRole: 'PRESENT_AT_SCENE',
+      onlyOneAllowed: false,
+      active: true,
+    },
+    {
+      prisonerRole: 'ASSISTED_STAFF',
+      onlyOneAllowed: false,
+      active: true,
+    },
+    {
+      prisonerRole: 'IMPEDED_STAFF',
+      onlyOneAllowed: false,
+      active: true,
+    },
+    {
+      prisonerRole: 'ACTIVE_INVOLVEMENT',
       onlyOneAllowed: false,
       active: true,
     },

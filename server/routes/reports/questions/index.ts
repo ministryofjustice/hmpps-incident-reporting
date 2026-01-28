@@ -3,6 +3,7 @@ import wizard from 'hmpo-form-wizard'
 import { NotFound } from 'http-errors'
 
 import { populateReportConfiguration } from '../../../middleware/populateReportConfiguration'
+import config from '../../../config'
 
 export const questionsRouter = express.Router({ mergeParams: true })
 // NB: questionsRouter is unprotected with permissions checks
@@ -10,7 +11,7 @@ export const questionsRouter = express.Router({ mergeParams: true })
 questionsRouter.use(populateReportConfiguration(), (req, res, next) => {
   const { reportId } = req.params
 
-  if (!res.locals.reportConfig.active) {
+  if (!(res.locals.reportConfig.active || config.incidentTypesOverride.has(res.locals.reportConfig.incidentType))) {
     // forbid editing questions for reports of inactive incident types
     next(new NotFound())
     return

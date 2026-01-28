@@ -1,6 +1,7 @@
 import type FormWizard from 'hmpo-form-wizard'
 
 import { types, typeHints, type Type } from '../../../reportConfiguration/constants'
+import config from '../../../config'
 
 export const typeFields = {
   type: {
@@ -8,7 +9,7 @@ export const typeFields = {
     validate: ['required'],
     component: 'govukRadios',
     items: types
-      .filter(type => type.active)
+      .filter(type => type.active || config.incidentTypesOverride.has(type.code))
       .sort(({ code: code1 }, { code: code2 }) => {
         if (code1.startsWith('MISCELLANEOUS_')) {
           return 1

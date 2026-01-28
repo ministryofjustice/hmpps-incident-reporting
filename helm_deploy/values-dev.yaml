@@ -16,6 +16,7 @@ generic-service:
     INGRESS_URL: "https://incident-reporting-dev.hmpps.service.justice.gov.uk"
     DPS_URL: "https://digital-dev.prison.service.justice.gov.uk"
     SUPPORT_URL: "https://support-dev.hmpps.service.justice.gov.uk"
+    INCIDENT_TYPES_OVERRIDE: "BC_DISRUPT_3RD_PTY_1,BC_FUEL_SHORTAGE_1,BC_LOSS_ACCESS_EGRESS_1,BC_LOSS_COMMS_1,BC_LOSS_UTILS_1,BC_SERV_WEATHER_1,BC_STAFF_SHORTAGES_1,BC_WIDESPREAD_ILLNESS_1"
 
     COMPONENT_API_URL: "https://frontend-components-dev.hmpps.service.justice.gov.uk"
     HMPPS_AUTH_URL: "https://sign-in-dev.hmpps.service.justice.gov.uk/auth"

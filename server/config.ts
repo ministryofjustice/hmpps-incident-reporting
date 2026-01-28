@@ -144,4 +144,10 @@ export default {
   dpsUrl: get('DPS_URL', 'http://dps.local', requiredInProduction),
   supportUrl: get('SUPPORT_URL', 'http://support.dps.local', requiredInProduction),
   feedbackUrl: get('FEEDBACK_URL', ''),
+  incidentTypesOverride: new Set(
+    String(get('INCIDENT_TYPES_OVERRIDE', ''))
+      .split(',')
+      .map(s => s.trim())
+      .filter(Boolean),
+  ),
 }

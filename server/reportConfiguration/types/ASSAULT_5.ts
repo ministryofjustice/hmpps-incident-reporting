@@ -1840,19 +1840,19 @@ export const ASSAULT_5: IncidentTypeConfiguration = {
       onlyOneAllowed: false,
       active: true,
       roleInformation:
-        'Use this when other offender does not retaliate in any way, or for prisoner on staff/other assaults.',
+        'Use this term when there is an offender that has attacked another party who does not retaliate in any way. Or, for prisoner on staff and other assault types.',
     },
     {
       prisonerRole: 'VICTIM',
       onlyOneAllowed: false,
       active: true,
-      roleInformation: 'Use this when prisoner is assaulted and does not retaliate.',
+      roleInformation: 'Use this term when someone is assaulted but does not retaliate.',
     },
     {
       prisonerRole: 'FIGHTER',
       onlyOneAllowed: false,
       active: true,
-      roleInformation: 'Use this when both/all offenders participate in the assault/exchange blows',
+      roleInformation: 'Use this term when both, or all, parties participate in the assault.',
     },
     {
       prisonerRole: 'SUSPECTED_ASSAILANT',

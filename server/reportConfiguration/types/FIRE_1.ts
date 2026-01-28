@@ -186,7 +186,7 @@ export const FIRE_1: IncidentTypeConfiguration = {
           label: 'Cell',
           commentRequested: true,
           responseHint: 'Provide details of the cell number and location.',
-          commentMandatory: false,
+          commentMandatory: true,
           dateMandatory: false,
           nextQuestionCode: '44732',
         },

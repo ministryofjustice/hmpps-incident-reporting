@@ -6,6 +6,7 @@ import { getIncidentTypeConfiguration } from '../reportConfiguration/types'
 import { reportHasDetails } from '../data/incidentReportingApiUtils'
 import generateFields, { generateSteps } from '../data/incidentTypeConfiguration/formWizard'
 import { QuestionProgress } from '../data/incidentTypeConfiguration/questionProgress'
+import config from '../config'
 
 /**
  * Loads report configuration for a report in `res.locals.report`.
@@ -24,7 +25,7 @@ export function populateReportConfiguration(generateQuestionSteps = true): Reque
       res.locals.reportConfig = await getIncidentTypeConfiguration(report.type)
 
       if (generateQuestionSteps) {
-        if (res.locals.reportConfig.active) {
+        if (res.locals.reportConfig.active || config.incidentTypesOverride.has(report.type)) {
           res.locals.questionSteps = generateSteps(res.locals.reportConfig)
           res.locals.questionFields = generateFields(res.locals.reportConfig)
         } else {

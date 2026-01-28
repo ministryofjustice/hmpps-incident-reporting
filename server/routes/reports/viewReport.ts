@@ -38,6 +38,7 @@ import { correctionRequestActionLabels } from './actions/correctionRequestLabels
 import { placeholderForCorrectionRequest } from './actions/correctionRequestPlaceholder'
 import { findRequestDuplicate } from './actions/findRequestDuplicate'
 import { AgencyType } from '../../data/prisonApi'
+import config from '../../config'
 
 export function viewReportRouter(): Router {
   const router = Router({ mergeParams: true })
@@ -85,7 +86,7 @@ export function viewReportRouter(): Router {
       const canEditReport = allowedActions.has('EDIT')
       const allowedActionsInNomisOnly = permissions.allowedActionsOnReport(report, 'nomis')
       const canEditReportInNomisOnly = allowedActionsInNomisOnly.has('EDIT')
-
+      const hasOverrideActiveStatus = config.incidentTypesOverride.has(report.type)
       const allowedActionsNeedingForm = new Set<UserAction>()
       for (const action of allowedActions) {
         // these user actions are not part of this form
@@ -314,6 +315,7 @@ export function viewReportRouter(): Router {
         allowedActionsNeedingForm,
         canEditReport,
         canEditReportInNomisOnly,
+        hasOverrideActiveStatus,
         descriptionAppendOnly,
         usersLookup,
         prisonerInvolvementOutcomesDescriptions,

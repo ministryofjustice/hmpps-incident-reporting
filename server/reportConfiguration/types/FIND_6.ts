@@ -4925,20 +4925,21 @@ export const FIND_6: IncidentTypeConfiguration = {
       onlyOneAllowed: false,
       active: true,
       roleInformation:
-        'Use this if item is in offenders possession, including in their cell even if they are not present, or if they have been seen in possession but have thrown item and it has then been recovered.',
+        'Use this term if an item is found in an offenders’ possession, including in their cell, even if they are not present. Or, if they have been seen in possession of the item but have thrown the item away and it has then been recovered.',
     },
     {
       prisonerRole: 'INTENDED_RECIPIENT',
       onlyOneAllowed: false,
       active: true,
-      roleInformation: 'Use this for intended recipients of parcels/mail/drone drops or attempted passes.',
+      roleInformation:
+        'Use this term for the intended recipients of parcels, mail, drone drops or the attempted passes of items in other scenarios.',
     },
     {
       prisonerRole: 'SUSPECTED_INVOLVED',
       onlyOneAllowed: false,
       active: true,
       roleInformation:
-        'Use this if multiple offenders in the area of find, but no clear indication or who had the illicit item (excluding where item in own cell)',
+        'Use this term if multiple offenders are situated in the area where an illicit item has been found, but there is no clear indication as to who was in possession of the illicit item. This excludes where the item was found in a prisoner’s cell.',
     },
     {
       prisonerRole: 'ASSISTED_STAFF',

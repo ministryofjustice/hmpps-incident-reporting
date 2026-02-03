@@ -10,14 +10,14 @@ export const typeFields = {
     component: 'govukRadios',
     items: types
       .filter(type => type.active || config.incidentTypesOverride.has(type.code))
-      .sort(({ code: code1 }, { code: code2 }) => {
-        if (code1.startsWith('MISCELLANEOUS_')) {
+      .sort(({ description: description1 }, { description: description2 }) => {
+        if (description1.startsWith('Miscellaneous')) {
           return 1
         }
-        if (code2.startsWith('MISCELLANEOUS_')) {
+        if (description2.startsWith('Miscellaneous')) {
           return -1
         }
-        return code1 < code2 ? -1 : 1
+        return description1 < description2 ? -1 : 1
       })
       .map(
         type =>

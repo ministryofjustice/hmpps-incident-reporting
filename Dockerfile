@@ -22,7 +22,7 @@ ARG BUILD_NUMBER
 ARG GIT_REF
 ARG GIT_BRANCH
 
-COPY package*.json ./
+COPY package*.json .allowed-scripts.mjs ./
 # Ensure npm patches are available when building the image
 COPY patches/ ./patches/
 RUN CYPRESS_INSTALL_BINARY=0 npm run setup

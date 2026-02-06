@@ -89,6 +89,7 @@
             id: "searchID",
             name: "searchID",
             label: {text: "Search an incident number or offender ID"},
+            hint: {text: "For example, 12345678 or A0011BB"},
             value: formValues.searchID,
             errorMessage: errors | findFieldInGovukErrorSummary("searchID")
           }) }}
@@ -99,6 +100,7 @@
             id: "fromDate",
             name: "fromDate",
             label: {text: "Incident date from"},
+            hint: {text: "For example, 17/5/2024"},
             value: formValues.fromDate,
             maxDate: todayAsShortDate,
             errorMessage: errors | findFieldInGovukErrorSummary("fromDate")
@@ -110,6 +112,7 @@
             id: "toDate",
             name: "toDate",
             label: {text: "Incident date to"},
+            hint: {text: "For example, 18/5/2024"},
             value: formValues.toDate,
             maxDate: todayAsShortDate,
             errorMessage: errors | findFieldInGovukErrorSummary("toDate")

@@ -373,17 +373,19 @@ export default function dashboard(): Router {
     // Gather notification banner entries if they exist
     const banners = req.flash()
 
-    // Set dashboard filters stored in the session
-    req.session.dashboardFilters = {
-      searchID,
-      location,
-      fromDateInput,
-      toDateInput,
-      typeFamily,
-      incidentStatuses,
-      latestUserActions,
-      sort,
-      order,
+    // Set dashboard filters stored in the session if no errors present
+    if (errors.length === 0) {
+      req.session.dashboardFilters = {
+        searchID,
+        location,
+        fromDateInput,
+        toDateInput,
+        typeFamily,
+        incidentStatuses,
+        latestUserActions,
+        sort,
+        order,
+      }
     }
 
     res.render('pages/dashboard/index', {

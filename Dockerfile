@@ -25,13 +25,13 @@ ARG GIT_BRANCH
 COPY package*.json .allowed-scripts.mjs ./
 # Ensure npm patches are available when building the image
 COPY patches/ ./patches/
-RUN CYPRESS_INSTALL_BINARY=0 npm run setup
+RUN NPM_CONFIG_AUDIT=false NPM_CONFIG_FUND=false CYPRESS_INSTALL_BINARY=0 npm run setup
 ENV NODE_ENV='production'
 
 COPY . .
 RUN npm run build
 
-RUN npm prune --no-audit --omit=dev
+RUN npm prune --no-audit --no-fund --omit=dev
 
 # Stage: copy production assets and dependencies
 FROM base

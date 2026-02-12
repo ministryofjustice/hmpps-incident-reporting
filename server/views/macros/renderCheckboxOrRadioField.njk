@@ -20,7 +20,8 @@
     {% set _ = items.push({
       value: item.value,
       html: item.label + visuallyHiddenText,
-      hint: {text: item.hint} if item.hint else undefined
+      hint: {text: item.hint} if item.hint else undefined,
+      attributes: { 'data-test': item.label }
     }) %}
   {% endfor %}
 

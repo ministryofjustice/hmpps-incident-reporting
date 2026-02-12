@@ -10,7 +10,7 @@ export class PecsRegionPage extends FormWizardPage {
     return this.radioOrCheckboxChoices('pecsRegion')
   }
 
-  selectPecsRegion(label: string): PageElement<HTMLLabelElement> {
+  selectPecsRegion(label: string): PageElement<HTMLInputElement> {
     return this.radioOrCheckboxButton('pecsRegion', label).click()
   }
 }

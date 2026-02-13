@@ -6,6 +6,7 @@ declare module 'hmpo-form-wizard' {
     interface Field {
       name?: string
       label?: string
+      visuallyHiddenText?: string
       hint?: string
       component?:
         | 'hidden'
@@ -20,6 +21,7 @@ declare module 'hmpo-form-wizard' {
 
     interface FieldItem {
       label?: string
+      visuallyHiddenText?: string
       hint?: string
 
       // TODO: set in `generateFields`, but never read?

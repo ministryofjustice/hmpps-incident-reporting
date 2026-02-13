@@ -12,7 +12,7 @@ export class AddStaffInvolvementsPage extends AddInvolvementsPage {
     super(`How was ${who}`, `How was ${who} involved in the incident?`)
   }
 
-  selectRole(staffRole: StaffInvolvementRole): PageElement<HTMLLabelElement> {
+  selectRole(staffRole: StaffInvolvementRole): PageElement<HTMLInputElement> {
     return super.selectRole(getStaffInvolvementRoleDetails(staffRole).description)
   }
 }

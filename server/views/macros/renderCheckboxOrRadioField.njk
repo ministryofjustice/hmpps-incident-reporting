@@ -9,10 +9,19 @@
 
   {% set items = [] %}
   {% for item in field.items %}
+    {% set visuallyHiddenText %}
+      {% if item.visuallyHiddenText %}
+        <span class="govuk-visually-hidden">
+          {{ item.visuallyHiddenText }}
+        </span>
+      {% endif %}
+    {% endset %}
+
     {% set _ = items.push({
       value: item.value,
-      text: item.label,
-      hint: {text: item.hint} if item.hint else undefined
+      html: item.label + visuallyHiddenText,
+      hint: {text: item.hint} if item.hint else undefined,
+      attributes: { 'data-test': item.label }
     }) %}
   {% endfor %}
 

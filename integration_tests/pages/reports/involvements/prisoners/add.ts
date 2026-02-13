@@ -12,7 +12,7 @@ export class AddPrisonerInvolvementsPage extends AddInvolvementsPage {
     super(`${whose} involvement in the incident`)
   }
 
-  selectRole(prisonerRole: PrisonerInvolvementRole): PageElement<HTMLLabelElement> {
+  selectRole(prisonerRole: PrisonerInvolvementRole): PageElement<HTMLInputElement> {
     return super.selectRole(getPrisonerInvolvementRoleDetails(prisonerRole).description)
   }
 }

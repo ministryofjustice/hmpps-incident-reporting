@@ -1,71 +1,22 @@
-{% extends "partials/layout.njk" %}
+{% extends "partials/formWizardLayout.njk" %}
 
-{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
-{% from "govuk/components/button/macro.njk" import govukButton %}
 {% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
-{% from "macros/renderFields.njk" import renderFields %}
 
-{% block beforeContent %}
-  {% if backLink %}
-    {{ govukBackLink({
-      text: "Back",
-      href: backLink
-    }) }}
-  {% endif %}
+<!--Remove the existing standalone h1 heading-->
+{% block pageHeading %}
 {% endblock %}
 
-{% block content %}
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+<!--Replace heading with field label using gov fieldset-->
+{% block formFields %}
+  {% call govukFieldset({
+    legend: {
+      text: pageTitle,
+      classes: "govuk-fieldset__legend--l",
+      isPageHeading: true
+    }
+  }) %}
 
-      {% include "partials/errorSummary.njk" %}
+    {{ renderFields(options, values, errors) }}
 
-      <form id="form-wizard" method="post" novalidate>
-        <input type="hidden" name="_csrf" value="{{ csrfToken }}" />
-        <input type="hidden" name="x-csrf-token" value="{{ csrfToken }}" />
-
-        {% call govukFieldset({
-          legend: {
-            text: pageTitle,
-            classes: "govuk-fieldset__legend--l",
-            isPageHeading: true
-          }
-        }) %}
-
-          {% block formFields %}
-            {{ renderFields(options, values, errors) }}
-          {% endblock %}
-
-        {% endcall %}
-
-        <div class="govuk-button-group">
-          {{ govukButton({
-            text: saveButtonText or "Continue",
-            name: "formAction",
-            value: "continue",
-            preventDoubleClick: true,
-            type: "submit"
-          }) }}
-
-          {% if allowSaveAndExit %}
-            {{ govukButton({
-              text: "Save and exit",
-              name: "formAction",
-              value: "exit",
-              preventDoubleClick: true,
-              classes: "govuk-button--secondary",
-              type: "submit"
-            }) }}
-          {% endif %}
-
-          {% if cancelUrl %}
-            <a href="{{ cancelUrl }}" class="govuk-link govuk-link--no-visited-state" data-qa="cancelLink">
-              Cancel
-            </a>
-          {% endif %}
-        </div>
-      </form>
-
-    </div>
-  </div>
+  {% endcall %}
 {% endblock %}

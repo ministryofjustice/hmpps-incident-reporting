@@ -57,7 +57,7 @@ export function sortableTableHead<Column = string>({
     } else {
       // preserves order if another column is sorted by
       sortQuery = `${sortParam}=${column}&${orderParam}=${order}`
-      sortDescriptionHtml = ''
+      sortDescriptionHtml = '<span class="govuk-visually-hidden">(sortable)</span>'
     }
 
     const ariaSortMap = {

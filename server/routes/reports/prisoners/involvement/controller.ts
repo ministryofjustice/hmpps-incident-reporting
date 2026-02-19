@@ -99,6 +99,8 @@ export abstract class PrisonerInvolvementController extends BaseController<Value
 
   protected errorMessage(error: FormWizard.Error, req: FormWizard.Request<Values>, res: express.Response): string {
     if (error.key === 'prisonerRole') {
+      // eslint-disable-next-line no-param-reassign
+      error.field = 'prisonerRole-item'
       return 'Select the prisoner’s role in the incident'
     }
     if (error.key === 'outcome') {

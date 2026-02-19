@@ -19,6 +19,8 @@ export class RemovePrisoner extends RemoveInvolvement<PrisonerInvolvement> {
 
   protected errorMessage(error: FormWizard.Error, req: FormWizard.Request<Values>, res: express.Response): string {
     if (error.key === 'confirmRemove') {
+      // eslint-disable-next-line no-param-reassign
+      error.field = 'confirmRemove-item'
       return 'Select yes if you want to remove the prisoner'
     }
     return super.errorMessage(error, req, res)

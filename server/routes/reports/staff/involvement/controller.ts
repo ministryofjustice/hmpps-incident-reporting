@@ -44,6 +44,8 @@ export abstract class StaffInvolvementController<V extends Values = Values> exte
 
   protected errorMessage(error: FormWizard.Error, req: FormWizard.Request<V>, res: express.Response): string {
     if (error.key === 'staffRole') {
+      // eslint-disable-next-line no-param-reassign
+      error.field = 'staffRole-item'
       return 'Select how the member of staff was involved in the incident'
     }
     return super.errorMessage(error, req, res)

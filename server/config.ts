@@ -147,6 +147,9 @@ export default {
   sqs: {
     audit: auditConfig(),
   },
+  dpr: {
+    dataProductDefinitionsPath: 'definitions/prisons/dps/incidents',
+  },
   googleAnalyticsMeasurementId: get('GOOGLE_ANALYTICS_MEASUREMENT_ID', ''),
   loadReportDefinitionsOnStartup: get('LOAD_DPR_ON_STARTUP', 'false') === 'true',
   ingressUrl: get('INGRESS_URL', 'http://localhost:3000', requiredInProduction),

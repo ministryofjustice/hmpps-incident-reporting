@@ -62,6 +62,15 @@ export default {
       },
       agent: new AgentConfig(Number(get('HMPPS_INCIDENT_REPORTING_API_TIMEOUT_RESPONSE', 60000))),
     },
+    dpr: {
+      url: get('DPR_API_URL', 'http://127.0.0.1:3002', requiredInProduction),
+      healthPath: '/ping',
+      timeout: {
+        response: Number(get('DPR_API_TIMEOUT_RESPONSE', 60000)),
+        deadline: Number(get('DPR_API_TIMEOUT_DEADLINE', 60000)),
+      },
+      agent: new AgentConfig(Number(get('DPR_API_TIMEOUT_RESPONSE', 60000))),
+    },
     hmppsAuth: {
       url: get('HMPPS_AUTH_URL', 'http://localhost:9090/auth', requiredInProduction),
       healthPath: '/health/ping',

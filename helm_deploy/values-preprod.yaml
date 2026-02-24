@@ -15,6 +15,7 @@ generic-service:
     SUPPORT_URL: "https://support-preprod.hmpps.service.justice.gov.uk"
 
     COMPONENT_API_URL: "https://frontend-components-preprod.hmpps.service.justice.gov.uk"
+    DPR_API_URL: "https://digital-prison-reporting-mi-ui-preprod.hmpps.service.justice.gov.uk"
     HMPPS_AUTH_URL: "https://sign-in-preprod.hmpps.service.justice.gov.uk/auth"
     HMPPS_INCIDENT_REPORTING_API_URL: "https://incident-reporting-api-preprod.hmpps.service.justice.gov.uk"
     HMPPS_PRISON_API_URL: "https://prison-api-preprod.prison.service.justice.gov.uk"

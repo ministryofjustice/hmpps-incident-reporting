@@ -4,7 +4,7 @@ import type { IncidentTypeConfiguration } from '../../data/incidentTypeConfigura
 
 export const RADIO_COMPROMISE_1: IncidentTypeConfiguration = {
   incidentType: 'RADIO_COMPROMISE_1',
-  active: true,
+  active: false,
   startingQuestionCode: '44802',
   questions: {
     '44125': {

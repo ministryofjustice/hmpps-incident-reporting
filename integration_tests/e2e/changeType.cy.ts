@@ -66,6 +66,22 @@ context('Change incident type', () => {
           checked: false,
         },
         {
+          label: 'Business Continuity - Disruption to 3rd party supplier',
+          value: 'BC_DISRUPT_3RD_PTY_1',
+          checked: false,
+        },
+        { label: 'Business Continuity - Fuel shortage', value: 'BC_FUEL_SHORTAGE_1', checked: false },
+        { label: 'Business Continuity - Loss of access / egress', value: 'BC_LOSS_ACCESS_EGRESS_1', checked: false },
+        {
+          label: 'Business Continuity - Loss of communications & digital systems',
+          value: 'BC_LOSS_COMMS_1',
+          checked: false,
+        },
+        { label: 'Business Continuity - Loss of utilities', value: 'BC_LOSS_UTILS_1', checked: false },
+        { label: 'Business Continuity - Severe weather', value: 'BC_SERV_WEATHER_1', checked: false },
+        { label: 'Business Continuity - Staff shortages', value: 'BC_STAFF_SHORTAGES_1', checked: false },
+        { label: 'Business Continuity - Widespread illness', value: 'BC_WIDESPREAD_ILLNESS_1', checked: false },
+        {
           label: 'Close down search',
           value: 'CLOSE_DOWN_SEARCH_1',
           checked: false,
@@ -118,11 +134,6 @@ context('Change incident type', () => {
         {
           label: 'Key or lock compromise',
           value: 'KEY_OR_LOCK_2',
-          checked: false,
-        },
-        {
-          label: 'Radio compromise',
-          value: 'RADIO_COMPROMISE_1',
           checked: false,
         },
         {

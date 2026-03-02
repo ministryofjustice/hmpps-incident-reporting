@@ -12,11 +12,10 @@ export const typeHints: Partial<Record<Type, string>> = {
   DIRTY_PROTEST_1:
     'Deliberately defecating or urinating without a toilet or, throwing or smearing urine and/or faeces. An ongoing dirty protest is one incident.',
   FIND_6: 'Items must be recovered, not just seen.',
-  MISCELLANEOUS_1:
-    'Includes failure of IT or telephony, large scale evacuation, late release or unlawful detention, loss of essential services, public demonstration, secondary exposure to airborne contaminants and any other incident not listed.',
+  MISCELLANEOUS_1: 'Includes any other incident type not listed.',
   SELF_HARM_1:
     'Includes suspected and reported self-harm. Do not use to report a noose, unless it’s around the neck or applying pressure.',
-  TOOL_LOSS_1: 'Do not use for radio and key or lock compromises. They are separate incident types.',
+  TOOL_LOSS_1: 'Do not use for key or lock compromises. They are separate incident types.',
 }
 
 /**
@@ -39,7 +38,7 @@ const shortTypeTitles: Partial<Record<TypeFamily, string>> = {
   BOMB: 'bomb explosion or threat',
   BREACH_OF_SECURITY: 'breach or attempted breach of security',
   CLOSE_DOWN_SEARCH: 'close down search',
-  CONCERTED_INDISCIPLINE: 'incident involving 2 or more prisioners acting together',
+  CONCERTED_INDISCIPLINE: 'incident involving 2 or more prisoners acting together',
   DAMAGE: 'deliberate damage',
   DEATH_OTHER: 'death of other person',
   DEATH_PRISONER: 'death of a prisoner',

@@ -46,6 +46,8 @@ export class RequestRemovalController extends BaseController<Values> {
 
   protected errorMessage(error: FormWizard.Error, req: FormWizard.Request<Values>, res: express.Response): string {
     if (error.key === 'userAction' && error.type === 'required') {
+      // eslint-disable-next-line no-param-reassign
+      error.field = 'userAction-item'
       return 'Select why you want to remove this report'
     }
     if (error.key === 'notReportableComment') {

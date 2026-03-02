@@ -40,11 +40,13 @@
           items: [
             {
               value: "yes",
-              text: "Yes"
+              text: "Yes",
+              attributes: { 'data-test': 'Yes' }
             },
             {
               value: "no",
-              text: "No"
+              text: "No",
+              attributes: { 'data-test': 'No' }
             }
           ],
           errorMessage: { text: errors.confirmRemove.message } if errors.confirmRemove else undefined

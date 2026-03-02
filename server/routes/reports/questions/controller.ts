@@ -104,6 +104,8 @@ export class QuestionsController extends BaseController<FormWizard.MultiValues> 
 
     const field = req.form.options.fields[fieldName]
     if (field?.items?.length > 0 && error.type === 'required') {
+      // eslint-disable-next-line no-param-reassign
+      error.field = `${fieldName}-item`
       if (field.multiple) {
         // checkboxes
         return `Select one or more options for ‘${field.label}’`

@@ -65,8 +65,8 @@ export default abstract class FormWizardPage extends Page {
   /**
    * Find the label for a radio or checkbox button
    */
-  protected radioOrCheckboxButton(name: string, label: string): PageElement<HTMLLabelElement> {
-    return this.form.find(`#${name}`).find<HTMLLabelElement>('label').contains(label)
+  protected radioOrCheckboxButton(name: string, label: string): PageElement<HTMLInputElement> {
+    return this.form.find(`#${name}`).find(`[data-test="${label}"]`)
   }
 
   /**

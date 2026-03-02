@@ -43,7 +43,8 @@
           {% set _ = items.push({
             value: item.value,
             text: item.label,
-            hint: {text: item.hint} if item.hint else undefined
+            hint: {text: item.hint} if item.hint else undefined,
+            attributes: { 'data-test': item.label }
           }) %}
         {% endfor %}
         {{ govukRadios({

@@ -248,13 +248,19 @@ function generateFields(config: IncidentTypeConfiguration): FormWizard.Fields {
         multiple: question.multipleAnswers,
         component: question.multipleAnswers ? 'govukCheckboxes' : 'govukRadios',
         items: activeAnswers.map(answer => {
-          return {
+          const fieldItem: FormWizard.FieldItem = {
             value: answer.response,
             label: answer.label,
             hint: answer.responseHint,
             dateRequired: answer.dateMandatory,
             commentRequired: answer.commentRequested,
-          } satisfies FormWizard.FieldItem
+          }
+
+          if (answer.commentMandatory) {
+            fieldItem.visuallyHiddenText = 'If selected, provide details'
+          }
+
+          return fieldItem
         }),
       } satisfies FormWizard.Field
 
@@ -265,6 +271,7 @@ function generateFields(config: IncidentTypeConfiguration): FormWizard.Fields {
           fields[dateFieldName] = {
             name: dateFieldName,
             label: 'Date',
+            visuallyHiddenText: `for ${answer.label}`,
             component: 'mojDatePicker',
             validate: ['required', 'ukDate'],
             dependent: {
@@ -276,10 +283,11 @@ function generateFields(config: IncidentTypeConfiguration): FormWizard.Fields {
 
         if (answer.commentRequested) {
           const commentFieldName = conditionalFieldName(question, answer, 'comment')
-          const commentLabel = `${answer.commentLabel || 'Comment'}`
+          const commentLabel = answer.commentLabel || 'Comment'
           fields[commentFieldName] = {
             name: commentFieldName,
             label: commentLabel,
+            visuallyHiddenText: `for ${answer.label}`,
             component: 'govukInput',
             validate: ['required'],
             dependent: {

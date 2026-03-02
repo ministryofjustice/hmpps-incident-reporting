@@ -1,7 +1,7 @@
 /**
- * GOV.UK Frontend types based on v5.8.0
+ * GOV.UK Frontend types based on v5.14.0
  * NB: this was recreated manually from javascript sources and remains incomplete!
- * For example, no concrete component classes are included.
+ * For example, no concrete component classes are included like Accordion or Radios.
  */
 
 // eslint-disable-next-line max-classes-per-file
@@ -15,8 +15,9 @@ declare module 'govuk-frontend/dist/govuk/govuk-frontend-component' {
 
     static elementType: new () => RootElementType = HTMLElement
 
-    protected constructor($root: RootElementType)
+    constructor($root: RootElementType)
 
+    /** Returns the root element of the component */
     get $root(): RootElementType
 
     checkInitialised(): void
@@ -47,7 +48,7 @@ declare module 'govuk-frontend/dist/govuk/common/configuration' {
 
     static abstract defaults: Config
 
-    protected constructor($root: RootElementType, config?: Config)
+    constructor($root: RootElementType, config?: Config)
 
     [configOverride](param: Config): object
 
@@ -75,14 +76,35 @@ declare module 'govuk-frontend' {
   // eslint-disable-next-line import/no-unresolved
   export { ConfigurableComponent } from 'govuk-frontend/dist/govuk/common/configuration'
 
+  /**
+   * Checks if GOV.UK Frontend is supported on this page
+   *
+   * Some browsers will load and run our JavaScript but GOV.UK Frontend
+   * won't be supported.
+   */
   export function isSupported(scope?: HTMLElement): boolean
 
   interface ErrorCallback {
     onError: (error: Error) => void
   }
 
+  /**
+   * Initialise all components
+   *
+   * Use the `data-module` attributes to find, instantiate and init all of the
+   * components provided as part of GOV.UK Frontend.
+   */
   export function initAll(config?: { onError?: ErrorCallback; scope?: HTMLElement } & Record<string, object>): void
 
+  /**
+   * Create all instances of a specific component on the page
+   *
+   * Uses the `data-module` attribute to find all elements matching the specified
+   * component on the page, creating instances of the component object for each
+   * of them.
+   *
+   * Any component errors will be caught and logged to the console.
+   */
   export function createAll<T extends Component>(
     component: typeof T,
     config?: ConstructorParameters<T>[1],
@@ -94,4 +116,6 @@ declare module 'govuk-frontend' {
       | HTMLElement
       | ErrorCallback,
   ): void
+
+  export const version: string
 }

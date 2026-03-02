@@ -11,14 +11,10 @@
 
 {% if descriptionAppendOnly %}
   {% set descriptionLink = reportUrl + "/add-description" %}
-  {% set descriptionHiddenText = "description" %}
   {% set dateAndTimeLink = reportUrl + "/update-date-and-time" %}
-  {% set dateAndTimeHiddenText = "incident date and time" %}
 {% else %}
   {% set descriptionLink = reportUrl + "/update-details" %}
-  {% set descriptionHiddenText = "incident summary" %}
   {% set dateAndTimeLink = reportUrl + "/update-details" %}
-  {% set dateAndTimeHiddenText = "incident summary" %}
 {% endif %}
 
 {% set typeHtml %}
@@ -68,7 +64,7 @@
           {
             href: dateAndTimeLink,
             text: "Change",
-            visuallyHiddenText: dateAndTimeHiddenText
+            visuallyHiddenText: "incident date and time"
           }
         ]
       } if canEditReport else {}
@@ -83,7 +79,7 @@
           {
             href: descriptionLink,
             text: "Change",
-            visuallyHiddenText: descriptionHiddenText
+            visuallyHiddenText: "description"
           }
         ]
       } if canEditReport else {}

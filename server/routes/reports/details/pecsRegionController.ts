@@ -60,6 +60,8 @@ export abstract class BasePecsRegionController<V extends PecsRegionValues> exten
     res: express.Response,
   ): string {
     if (error.key === 'pecsRegion') {
+      // eslint-disable-next-line no-param-reassign
+      error.field = 'pecsRegion-item'
       return 'Select the region where the incident happened'
     }
     return super.errorMessage(error, req, res)

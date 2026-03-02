@@ -92,6 +92,8 @@ export abstract class InvolvementSummary extends BaseController<Values> {
 
     const involvementsExist = report[this.involvementField].length > 0
     if (error.key === 'confirmAdd') {
+      // eslint-disable-next-line no-param-reassign
+      error.field = 'confirmAdd-item'
       if (involvementsExist) {
         return this.confirmErrorOnceInvolvementsExist
       }

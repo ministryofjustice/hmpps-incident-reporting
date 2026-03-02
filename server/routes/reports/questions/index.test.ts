@@ -459,7 +459,7 @@ describe('Submitting questions’ responses', () => {
           expect(res.text).toContain('There is a problem')
           expect(fieldNames(res.text)).toEqual(['45054'])
           expect(res.text).toContain(
-            '<a href="#45054">Select an answer for ‘Were the police informed of the incident?’</a>',
+            '<a href="#45054-item">Select an answer for ‘Were the police informed of the incident?’</a>',
           )
           expect(res.redirects[0]).toMatch(postUrl)
           expect(res.redirects[0]).not.toMatch(`/${followingStep}`)
@@ -495,7 +495,9 @@ describe('Submitting questions’ responses', () => {
           mockHandleReportEdit.expectNotCalled()
           expect(res.text).toContain('There is a problem')
           expect(fieldNames(res.text)).toEqual(['44769', '44919', '45033', '44636', '44749'])
-          expect(res.text).toContain('<a href="#44919">Select one or more options for ‘The incident is subject to’</a>')
+          expect(res.text).toContain(
+            '<a href="#44919-item">Select one or more options for ‘The incident is subject to’</a>',
+          )
           expect(res.redirects[0]).toMatch(postUrl)
           expect(res.redirects[0]).not.toMatch('/44594')
         })

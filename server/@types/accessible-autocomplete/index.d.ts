@@ -5,10 +5,16 @@
  */
 
 declare module 'accessible-autocomplete' {
-  interface Options {
+  export type Source =
+    | string[]
+    | {
+        (query: string, populateResults: (options: string[]) => void): void
+      }
+
+  export interface Options {
     element: HTMLElement
     id: string
-    source: string[] | (() => string[])
+    source: Source
     inputClasses?: string | null
     hintClasses?: string | null
     menuAttributes?: DOMStringMap
@@ -40,7 +46,7 @@ declare module 'accessible-autocomplete' {
 
   function accessibleAutocomplete(options: Options): void
 
-  interface EnhanceSelectOptions extends Omit<Partial<Options>, 'element'> {
+  export interface EnhanceSelectOptions extends Omit<Partial<Options>, 'element'> {
     selectElement: HTMLElement
     preserveNullOptions?: boolean
   }

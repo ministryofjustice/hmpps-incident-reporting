@@ -8,11 +8,11 @@ import type { PageElement } from '../../../page'
 export class AddStaffInvolvementsPage extends AddInvolvementsPage {
   protected roleFieldName = 'staffRole'
 
-  constructor(who: string, whose: string) {
-    super(`How was ${who}`, `${whose} involvement in the incident`)
+  constructor(who: string) {
+    super(`How was ${who}`, `How was ${who} involved in the incident?`)
   }
 
-  selectRole(staffRole: StaffInvolvementRole): PageElement<HTMLLabelElement> {
+  selectRole(staffRole: StaffInvolvementRole): PageElement<HTMLInputElement> {
     return super.selectRole(getStaffInvolvementRoleDetails(staffRole).description)
   }
 }

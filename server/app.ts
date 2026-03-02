@@ -1,3 +1,4 @@
+import { setupResources } from '@ministryofjustice/hmpps-digital-prison-reporting-frontend/dpr/middleware/setUpDprResources'
 import flash from 'connect-flash'
 import express from 'express'
 import { NotFound } from 'http-errors'
@@ -39,7 +40,8 @@ export default function createApp(services: Services): express.Application {
   app.use(flash())
   app.use(setUpWebRequestParsing())
   app.use(setUpStaticResources())
-  nunjucksSetup(app)
+  const env = nunjucksSetup(app)
+  app.use(setupResources(services, 'partials/dprLayout.njk', env, config.dpr))
   app.use(setUpAuthentication())
   app.use(authorisationMiddleware())
   app.use(setUpCsrf())

@@ -34,7 +34,7 @@ import { isLocationActiveInService } from '../middleware/permissions'
 import { isCorrectionRequestPlaceholder } from '../routes/reports/actions/correctionRequestPlaceholder'
 import { sortCorrectionRequests } from './sortCorrectionRequests'
 
-export default function nunjucksSetup(app: express.Express): void {
+export default function nunjucksSetup(app: express.Express): nunjucks.Environment {
   app.set('view engine', 'njk')
 
   app.locals.asset_path = '/assets/'
@@ -128,6 +128,8 @@ export default function nunjucksSetup(app: express.Express): void {
 
   // MoJ frontend components
   njkEnv.addFilter('mojDate', mojFrontendFilters().mojDate)
+
+  return njkEnv
 }
 
 class PanicExtension implements nunjucks.Extension {

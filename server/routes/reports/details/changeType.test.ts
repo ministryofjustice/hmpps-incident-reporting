@@ -30,6 +30,14 @@ afterEach(() => {
   jest.resetAllMocks()
 })
 
+const escapeHtml = (value: string): string =>
+  value
+    .replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;')
+    .replaceAll("'", '&#39;')
+
 describe('Changing incident type', () => {
   let mockedReport: ReportWithDetails
 
@@ -120,7 +128,7 @@ describe('Changing incident type', () => {
               // expect(res.text).not.toContain(type.description)
             } else {
               expect(res.text).toContain(type.code)
-              expect(res.text).toContain(type.description)
+              expect(res.text).toContain(escapeHtml(type.description))
             }
           })
 

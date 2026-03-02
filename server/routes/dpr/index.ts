@@ -1,5 +1,6 @@
 import { Request, Response, Router } from 'express'
 import ReportListUtils from '@ministryofjustice/hmpps-digital-prison-reporting-frontend/dpr/components/report-list/utils'
+import dprRoutes from '@ministryofjustice/hmpps-digital-prison-reporting-frontend/dpr/routes/index'
 import config from '../../config'
 import { IncidentReportingApi, ManagementReportDefinition } from '../../data/incidentReportingApi'
 import { Services } from '../../services'
@@ -52,6 +53,9 @@ export function dprRouter(router: Router, services: Services): Router {
     const definitions = await populateRoutes(incidentReportingApi, router)
     res.render('pages/managementReporting/index', { definitions })
   })
+
+  // DPR FE Platform spike endpoint
+  router.use('/management-reporting-fe-spike', dprRoutes({ services, layoutPath: 'partials/dprLayout.njk' }))
 
   return router
 }

@@ -4,6 +4,7 @@
  * In particular, applicationinsights automatically collects bunyan logs
  */
 import { AuthenticationClient, InMemoryTokenStore, RedisTokenStore } from '@ministryofjustice/hmpps-auth-clients'
+import { initDprReportingClients } from '@ministryofjustice/hmpps-digital-prison-reporting-frontend/dpr/data/dprReportingClient'
 
 import { initialiseAppInsights, buildAppInsightsClient } from '../utils/azureAppInsights'
 import applicationInfoSupplier from '../applicationInfo'
@@ -18,6 +19,15 @@ import ManageUsersApiClient from './manageUsersApiClient'
 import FrontendComponentsClient from './frontendComponentsClient'
 import logger from '../../logger'
 
+const {
+  reportingClient,
+  dashboardClient,
+  reportDataStore,
+  productCollectionClient,
+  missingReportClient,
+  featureFlagService,
+} = initDprReportingClients(config.apis.dpr, createRedisClient())
+
 export type RestClientBuilder<T> = (token: string) => T
 
 export const dataAccess = () => ({
@@ -29,6 +39,13 @@ export const dataAccess = () => ({
   ),
   manageUsersApiClient: new ManageUsersApiClient(),
   frontendComponentsClient: new FrontendComponentsClient(),
+  // DPR
+  reportingClient,
+  dashboardClient,
+  reportDataStore,
+  productCollectionClient,
+  missingReportClient,
+  featureFlagService,
 })
 
 export type DataAccess = ReturnType<typeof dataAccess>

@@ -35,14 +35,17 @@ export abstract class StaffInvolvementController<V extends Values = Values> exte
   }
 
   locals(req: FormWizard.Request<V>, res: express.Response): Partial<FormWizard.Locals<V>> {
+    const staffMemberName = this.getStaffMemberName(req, res)
     return {
       ...super.locals(req, res),
-      pageTitle: `${possessive(nameOfPerson(this.getStaffMemberName(req, res)))} involvement in the incident`,
+      pageTitle: `How was ${nameOfPerson(staffMemberName)} involved in the incident?`,
     }
   }
 
   protected errorMessage(error: FormWizard.Error, req: FormWizard.Request<V>, res: express.Response): string {
     if (error.key === 'staffRole') {
+      // eslint-disable-next-line no-param-reassign
+      error.field = 'staffRole-item'
       return 'Select how the member of staff was involved in the incident'
     }
     return super.errorMessage(error, req, res)

@@ -311,6 +311,7 @@ describe('generateFields()', () => {
           {
             value: 'YES',
             label: 'Yes',
+            visuallyHiddenText: 'If selected, provide details',
             dateRequired: true,
             commentRequired: true,
           },
@@ -325,6 +326,7 @@ describe('generateFields()', () => {
       'qdog-qdog-a1-date': {
         name: 'qdog-qdog-a1-date',
         label: 'Date',
+        visuallyHiddenText: 'for Yes',
         component: 'mojDatePicker',
         validate: ['required', 'ukDate'],
         dependent: {
@@ -335,6 +337,7 @@ describe('generateFields()', () => {
       'qdog-qdog-a1-comment': {
         name: 'qdog-qdog-a1-comment',
         label: 'Comment',
+        visuallyHiddenText: 'for Yes',
         component: 'govukInput',
         validate: ['required'],
         dependent: {
@@ -353,6 +356,7 @@ describe('generateFields()', () => {
           {
             value: 'YES (SPECIFY FAVOURITE FLAVOUR)',
             label: 'Yes (specify favourite flavour)',
+            visuallyHiddenText: 'If selected, provide details',
             hint: 'If yes then please specify your favourite flavour',
             dateRequired: false,
             commentRequired: true,
@@ -368,6 +372,7 @@ describe('generateFields()', () => {
       'qicecream-qicecream-a1-comment': {
         name: 'qicecream-qicecream-a1-comment',
         label: 'Enter ice cream flavour',
+        visuallyHiddenText: 'for Yes (specify favourite flavour)',
         component: 'govukInput',
         validate: ['required'],
         dependent: {

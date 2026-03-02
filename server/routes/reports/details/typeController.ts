@@ -18,6 +18,8 @@ export abstract class BaseTypeController<V extends TypeValues> extends BaseContr
     res: express.Response,
   ): string {
     if (error.key === 'type') {
+      // eslint-disable-next-line no-param-reassign
+      error.field = 'type-item'
       return 'Select the incident type'
     }
     return super.errorMessage(error, req, res)

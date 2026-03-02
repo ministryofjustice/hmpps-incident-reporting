@@ -4,9 +4,18 @@
 {% from "govuk/components/input/macro.njk" import govukInput %}
 
 {% macro renderTimeFields(fieldName, field, options, values, errors) %}
+  {% set fieldPrefix = "_" + fieldName %}
+  {% set hintId = fieldPrefix + "-hint" %}
+  {% set errorId = fieldPrefix + "-error" %}
 
   <div id="{{ fieldName }}__form-group" class="govuk-form-group {% if errors[fieldName] %}govuk-form-group--error{% endif %}">
+    {% set describedBy = hintId %}
+    {% if errors[fieldName] %}
+      {% set describedBy = describedBy + " " + errorId %}
+    {% endif %}
+
     {% call govukFieldset({
+      describedBy: describedBy,
       legend: {
         text: field.label,
         classes: "govuk-fieldset__legend--m"
@@ -15,12 +24,14 @@
 
       {% if field.hint %}
         {{ govukHint({
+          id: hintId,
           text: field.hint
         }) }}
       {% endif %}
 
       {% if errors[fieldName] %}
         {{ govukErrorMessage({
+          id: errorId,
           text: errors[fieldName].message
         }) }}
       {% endif %}
@@ -32,7 +43,7 @@
 
       <div id="{{ fieldName }}" class="govuk-date-input">
         <div class="govuk-date-input__item">
-          {% set hoursFieldName = "_" + fieldName + "-hours" %}
+          {% set hoursFieldName = fieldPrefix + "-hours" %}
           {{ govukInput({
             name: hoursFieldName,
             id: hoursFieldName,
@@ -46,7 +57,7 @@
           }) }}
         </div>
         <div class="govuk-date-input__item">
-          {% set minutesFieldName = "_" + fieldName + "-minutes" %}
+          {% set minutesFieldName = fieldPrefix + "-minutes" %}
           {{ govukInput({
             name: minutesFieldName,
             id: minutesFieldName,

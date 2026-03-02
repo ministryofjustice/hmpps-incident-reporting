@@ -33,12 +33,20 @@
 
   {% elif field.component === "govukInput" %}
 
+    {% set visuallyHiddenText %}
+      {% if field.visuallyHiddenText %}
+        <span class="govuk-visually-hidden">
+          {{ field.visuallyHiddenText }}
+        </span>
+      {% endif %}
+    {% endset %}
+
     {{ govukInput({
       name: fieldName,
       id: fieldName,
       classes: "govuk-!-width-three-quarters",
       label: {
-        text: field.label,
+        html: field.label + visuallyHiddenText,
         attributes: {
           id: fieldName + "__label"
         }

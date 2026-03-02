@@ -1,0 +1,22 @@
+{% extends "partials/formWizardLayout.njk" %}
+
+{% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
+
+<!--Remove the existing standalone h1 heading-->
+{% block pageHeading %}
+{% endblock %}
+
+<!--Replace heading with field label using gov fieldset-->
+{% block formFields %}
+  {% call govukFieldset({
+    legend: {
+      text: pageTitle,
+      classes: "govuk-fieldset__legend--l",
+      isPageHeading: true
+    }
+  }) %}
+
+    {{ renderFields(options, values, errors) }}
+
+  {% endcall %}
+{% endblock %}

@@ -18,7 +18,7 @@ export class TypePage extends FormWizardPage {
     return this.radioOrCheckboxChoices('type')
   }
 
-  selectType(type: Type): PageElement<HTMLLabelElement> {
+  selectType(type: Type): PageElement<HTMLInputElement> {
     return this.radioOrCheckboxButton('type', getTypeDetails(type).description).click()
   }
 }

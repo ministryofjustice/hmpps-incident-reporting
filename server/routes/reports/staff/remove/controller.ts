@@ -18,6 +18,8 @@ export class RemoveStaff extends RemoveInvolvement<StaffInvolvement> {
 
   protected errorMessage(error: FormWizard.Error, req: FormWizard.Request<Values>, res: express.Response): string {
     if (error.key === 'confirmRemove') {
+      // eslint-disable-next-line no-param-reassign
+      error.field = 'confirmRemove-item'
       return 'Select yes if you want to remove the member of staff'
     }
     return super.errorMessage(error, req, res)

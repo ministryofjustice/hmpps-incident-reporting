@@ -2,11 +2,19 @@
 
 {% macro renderDateField(fieldName, field, options, values, errors) %}
 
+  {% set visuallyHiddenText %}
+    {% if field.visuallyHiddenText %}
+      <span class="govuk-visually-hidden">
+        {{ field.visuallyHiddenText }}
+      </span>
+    {% endif %}
+  {% endset %}
+
   {{ mojDatePicker({
     name: fieldName,
     id: fieldName,
     label: {
-      text: field.label,
+      html: field.label + visuallyHiddenText,
       attributes: {
         id: fieldName + "__label"
       }

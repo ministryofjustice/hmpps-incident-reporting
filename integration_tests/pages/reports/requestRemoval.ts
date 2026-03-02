@@ -10,7 +10,7 @@ export class RequestRemovalPage extends FormWizardPage {
     return this.radioOrCheckboxChoices('userAction')
   }
 
-  selectAction(label: string): PageElement<HTMLLabelElement> {
+  selectAction(label: string): PageElement<HTMLInputElement> {
     return this.radioOrCheckboxButton('userAction', label).click()
   }
 

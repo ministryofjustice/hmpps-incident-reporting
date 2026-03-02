@@ -80,6 +80,7 @@ export abstract class BaseIncidentDateAndTimeController<V extends IncidentDateAn
           return
         }
         const error = new this.Error('incidentTime', {
+          field: hoursFieldName,
           key: 'incidentTime',
           message: 'Time of the incident must be in the past',
         })
@@ -118,6 +119,8 @@ export abstract class BaseIncidentDateAndTimeController<V extends IncidentDateAn
       return 'Enter the date of the incident using the format DD MM YYYY'
     }
     if (error.key === 'incidentTime' && error.type === 'required') {
+      // eslint-disable-next-line no-param-reassign
+      error.field = hoursFieldName
       return 'Enter the time of the incident using the 24 hour clock'
     }
     return super.errorMessage(error, req, res)

@@ -1,5 +1,6 @@
-import { createDprServices } from '@ministryofjustice/hmpps-digital-prison-reporting-frontend/dpr/utils/CreateDprServices'
-
+// import { createDprServices } from '@ministryofjustice/hmpps-digital-prison-reporting-frontend/dpr/utils/CreateDprServices'
+// TODO: Import from https://ministryofjustice.github.io/hmpps-digital-prison-reporting-frontend/integration-guides/integrating-the-fe-platform/#create-services
+import { createDprServices } from '@ministryofjustice/hmpps-digital-prison-reporting-frontend/createDprServices'
 import { dataAccess } from '../data'
 import UserService from './userService'
 

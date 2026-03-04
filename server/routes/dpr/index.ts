@@ -1,8 +1,12 @@
 import { Request, Response, Router } from 'express'
-import ReportListUtils from '@ministryofjustice/hmpps-digital-prison-reporting-frontend/dpr/components/report-list/utils'
+// import ReportListUtils from '@ministryofjustice/hmpps-digital-prison-reporting-frontend/dpr/components/report-list/utils'
 import dprRoutes from '@ministryofjustice/hmpps-digital-prison-reporting-frontend/dpr/routes/index'
+// TODO: Worked on v4. What's the v5 equivalent?
 import { init as initCatalogue } from '@ministryofjustice/hmpps-digital-prison-reporting-frontend/dpr/components/_catalogue/catalogue/utils'
 import { init as initUserReports } from '@ministryofjustice/hmpps-digital-prison-reporting-frontend/dpr/components/user-reports/utils'
+// TODO: It doesn't work, from: https://github.com/ministryofjustice/hmpps-digital-prison-reporting-mi-ui/blob/main/server/routes/index.ts#L3C1-L4C114
+// import { initCatalogue } from '@ministryofjustice/hmpps-digital-prison-reporting-frontend/catalogueUtils'
+// import { initUserReports } from '@ministryofjustice/hmpps-digital-prison-reporting-frontend/userReportsListUtils'
 
 import config from '../../config'
 import { IncidentReportingApi, ManagementReportDefinition } from '../../data/incidentReportingApi'
@@ -15,47 +19,49 @@ async function getIncidentReportingApi(services: Services): Promise<IncidentRepo
   return new IncidentReportingApi(systemToken)
 }
 
-async function populateRoutes(
-  incidentReportingApi: IncidentReportingApi,
-  router: Router,
-): Promise<ManagementReportDefinition[]> {
-  const allDefinitions = await incidentReportingApi.getManagementReportDefinitions()
-  if (definitionsRoutesInitialised === false) {
-    for (const definition of allDefinitions) {
-      for (const variant of definition.variants) {
-        router.get(
-          `/management-reporting/${definition.id}-${variant.id}`,
-          ReportListUtils.createReportListRequestHandler({
-            title: variant.name,
-            definitionName: definition.id,
-            variantName: variant.id,
-            apiUrl: config.apis.hmppsIncidentReportingApi.url,
-            apiTimeout: config.apis.hmppsIncidentReportingApi.timeout.deadline,
-            layoutTemplate: 'partials/dprLayout.njk',
-            tokenProvider: (request: Request, response: Response) => {
-              return response.locals.systemToken
-            },
-          }),
-        )
-      }
-    }
-    definitionsRoutesInitialised = true
-  }
-  return allDefinitions
-}
+// // REMOVED: Doesn't work like this in DPR FE v5
+// async function populateRoutes(
+//   incidentReportingApi: IncidentReportingApi,
+//   router: Router,
+// ): Promise<ManagementReportDefinition[]> {
+//   const allDefinitions = await incidentReportingApi.getManagementReportDefinitions()
+//   if (definitionsRoutesInitialised === false) {
+//     for (const definition of allDefinitions) {
+//       for (const variant of definition.variants) {
+//         router.get(
+//           `/management-reporting/${definition.id}-${variant.id}`,
+//           ReportListUtils.createReportListRequestHandler({
+//             title: variant.name,
+//             definitionName: definition.id,
+//             variantName: variant.id,
+//             apiUrl: config.apis.hmppsIncidentReportingApi.url,
+//             apiTimeout: config.apis.hmppsIncidentReportingApi.timeout.deadline,
+//             layoutTemplate: 'partials/dprLayout.njk',
+//             tokenProvider: (request: Request, response: Response) => {
+//               return response.locals.systemToken
+//             },
+//           }),
+//         )
+//       }
+//     }
+//     definitionsRoutesInitialised = true
+//   }
+//   return allDefinitions
+// }
 
 export function dprRouter(router: Router, services: Services): Router {
-  if (config.loadReportDefinitionsOnStartup === true && definitionsRoutesInitialised === false) {
-    getIncidentReportingApi(services).then(incidentReportingApi => populateRoutes(incidentReportingApi, router))
-  }
+  // // REMOVED: Doesn't work like this in DPR FE v5
+  // if (config.loadReportDefinitionsOnStartup === true && definitionsRoutesInitialised === false) {
+  //   getIncidentReportingApi(services).then(incidentReportingApi => populateRoutes(incidentReportingApi, router))
+  // }
 
-  // TODO: will management reporting need a separate role?
+  // // TODO: will management reporting need a separate role?
 
-  router.get('/management-reporting', async (req, res) => {
-    const { incidentReportingApi } = res.locals.apis
-    const definitions = await populateRoutes(incidentReportingApi, router)
-    res.render('pages/managementReporting/index', { definitions })
-  })
+  // router.get('/management-reporting', async (req, res) => {
+  //   const { incidentReportingApi } = res.locals.apis
+  //   const definitions = await populateRoutes(incidentReportingApi, router)
+  //   res.render('pages/managementReporting/index', { definitions })
+  // })
 
   // TODO: "Lets try loading a report to see if the endpoints are working correctly":
   // https://mojdt.slack.com/archives/C03FYCXFBQT/p1769088170179389?thread_ts=1769086216.185899&cid=C03FYCXFBQT

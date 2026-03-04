@@ -7,6 +7,13 @@ This application is a front-end application used by staff in HMPPS prisons to vi
 
 It is backed by [hmpps-incident-reporting-api](https://github.com/ministryofjustice/hmpps-incident-reporting-api).
 
+[View the guidelines here](guidelines.md)
+
+[Get a technical overview here](docs/technical-overview.md)
+
+[View the architecture of the UI here](docs/architecture.md)
+
+
 ## Running locally
 
 The application needs a suite of services to work.

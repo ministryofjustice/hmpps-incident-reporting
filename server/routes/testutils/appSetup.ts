@@ -66,7 +66,11 @@ function appSetup(services: Services, production: boolean, userSupplier: () => E
 
 export function appWithAllRoutes({
   production = false,
-  services = { applicationInfo: testAppInfo },
+  services = {
+    applicationInfo: testAppInfo,
+    // DPR?
+    // ...
+  },
   userSupplier = () => mockReportingOfficer,
 }: {
   production?: boolean

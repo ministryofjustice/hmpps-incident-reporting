@@ -32,6 +32,9 @@ export const services = () => {
     bookmarking: true, // Enables bookmarking feature
     download: true, // Enables download feature
     saveDefaults: true, // Enables save user defaults feature
+    // TODO: https://mojdt.slack.com/archives/C03FYCXFBQT/p1769086861912869?thread_ts=1769086216.185899&cid=C03FYCXFBQT
+    // collections: true,
+    // missingReports: true,
   }
   const dprServices = createDprServices(dprClients, featureConfig)
 

@@ -116,6 +116,9 @@
   "overrides": {
     "mocha": {
       "diff": ">=8.0.3"
+    },
+    "@ministryofjustice/hmpps-digital-prison-reporting-frontend": {
+      "chart.js": ">= 4.0.0"
     }
   }
 }

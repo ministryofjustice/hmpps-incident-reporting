@@ -2,7 +2,6 @@
   "$schema": "https://json.schemastore.org/tsconfig",
   "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "module": "commonjs",
     "target": "es2020",
     "noEmit": true,
     "lib": ["dom", "dom.iterable", "es2020"],
@@ -11,9 +10,9 @@
     "sourceMap": false,
     "typeRoots": [
       "../../node_modules/@types",
-      "../../server/@types",
+      "../../server/@types"
     ]
   },
   "exclude": [],
-  "include": ["*.ts"],
+  "include": ["*.ts"]
 }

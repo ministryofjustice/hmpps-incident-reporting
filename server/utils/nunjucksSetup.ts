@@ -46,6 +46,7 @@ export default function nunjucksSetup(app: express.Express): void {
   app.locals.dpsUrl = config.dpsUrl
   app.locals.supportUrl = config.supportUrl
   app.locals.feedbackUrl = config.feedbackUrl
+  app.locals.sharepointUrl = config.sharepointUrl
 
   app.locals.googleAnalyticsMeasurementId = config.googleAnalyticsMeasurementId
 

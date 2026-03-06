@@ -17,26 +17,35 @@
 
   {% set responsesHtml %}
     {% if questionProgressStep.isComplete or not (reportConfig.active or hasOverrideActiveStatus) %}
-      {% for responseItem in questionProgressStep.responses %}
-        {% set inset = responseItem.response.responseDate or responseItem.response.additionalInformation or (questionProgressStep.responses | length) > 1 %}
+      {% if questionProgressStep.responses | length > 1 %}
+        <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
+      {% endif %}
+          {% for responseItem in questionProgressStep.responses %}
+            {% set inset = responseItem.response.responseDate or responseItem.response.additionalInformation %}
 
-        {% if inset %}
-          <div class="app-response--inset">
-            {{ responseItem.answerConfig.label }}
-            {% if responseItem.response.responseDate %}
-              <br />
-              {{ responseItem.response.responseDate | longDate }}
+            {% if questionProgressStep.responses | length > 1 %}
+              <li>
             {% endif %}
-            {% if responseItem.response.additionalInformation %}
-              <br />
-              {{ responseItem.response.additionalInformation }}
+              {% if inset %}
+                {{ responseItem.answerConfig.label }}:
+                {% if responseItem.response.responseDate %}
+                  <br />
+                  {{ responseItem.response.responseDate | longDate }}
+                {% endif %}
+                {% if responseItem.response.additionalInformation %}
+                  <br />
+                  {{ responseItem.response.additionalInformation }}
+                {% endif %}
+              {% else %}
+                {{ responseItem.answerConfig.label }}
+              {% endif %}
+            {% if questionProgressStep.responses | length > 1 %}
+              </li>
             {% endif %}
-          </div>
-        {% else %}
-          {{ responseItem.answerConfig.label }}
-        {% endif %}
-
-      {% endfor %}
+          {% endfor %}
+      {% if questionProgressStep.responses | length > 1 %}
+        </ul>
+      {% endif %}
     {% endif %}
   {% endset %}
 

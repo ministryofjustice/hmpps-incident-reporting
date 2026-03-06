@@ -73,15 +73,17 @@
 
   {% endcall %}
 
-<div class="govuk-!-width-full landing-page-guidance">
-  <h2 class="govuk-heading-m">Guidance on using this service is available</h2>
-  {{ feedbackUrl }}
-  <p>
-    This includes information such as a quick start guide and demo videos on using the service.
-    <a target="_blank" href="{{ sharepointUrl }}" aria-label="View guidance on the Incident Reporting SharePoint site (opens in a new tab).">
-      View guidance on the Incident Reporting SharePoint site (opens in a new tab).
-    </a>
-  </p>
-</div>
+  {% if sharepointUrl %}
+    <div class="govuk-!-width-full landing-page-guidance">
+      <h2 class="govuk-heading-m">Guidance on using this service is available</h2>
+      {{ feedbackUrl }}
+      <p>
+        This includes information such as a quick start guide and demo videos on using the service.
+        <a target="_blank" href="{{ sharepointUrl }}" aria-label="View guidance on the Incident Reporting SharePoint site (opens in a new tab).">
+          View guidance on the Incident Reporting SharePoint site (opens in a new tab).
+        </a>
+      </p>
+    </div>
+  {% endif %}
 
 {% endblock %}

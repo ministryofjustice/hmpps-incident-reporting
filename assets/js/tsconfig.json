@@ -2,10 +2,8 @@
   "$schema": "https://json.schemastore.org/tsconfig",
   "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "module": "commonjs",
-    "target": "es2020",
     "noEmit": true,
-    "lib": ["dom", "dom.iterable", "es2020"],
+    "lib": ["dom", "dom.iterable", "es2024"],
     "esModuleInterop": true,
     "skipLibCheck": true,
     "sourceMap": false,

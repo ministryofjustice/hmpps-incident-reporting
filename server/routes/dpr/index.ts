@@ -1,9 +1,9 @@
 import { Request, Response, Router } from 'express'
 // import ReportListUtils from '@ministryofjustice/hmpps-digital-prison-reporting-frontend/dpr/components/report-list/utils'
-import dprRoutes from '@ministryofjustice/hmpps-digital-prison-reporting-frontend/dpr/routes/index'
+import dprRoutes from '@ministryofjustice/hmpps-digital-prison-reporting-frontend/routes'
 // TODO: Worked on v4. What's the v5 equivalent?
-import { init as initCatalogue } from '@ministryofjustice/hmpps-digital-prison-reporting-frontend/dpr/components/_catalogue/catalogue/utils'
-import { init as initUserReports } from '@ministryofjustice/hmpps-digital-prison-reporting-frontend/dpr/components/user-reports/utils'
+import { initCatalogue } from '@ministryofjustice/hmpps-digital-prison-reporting-frontend/catalogueUtils'
+import { initUserReports } from '@ministryofjustice/hmpps-digital-prison-reporting-frontend/userReportsListUtils'
 // TODO: It doesn't work, from: https://github.com/ministryofjustice/hmpps-digital-prison-reporting-mi-ui/blob/main/server/routes/index.ts#L3C1-L4C114
 // import { initCatalogue } from '@ministryofjustice/hmpps-digital-prison-reporting-frontend/catalogueUtils'
 // import { initUserReports } from '@ministryofjustice/hmpps-digital-prison-reporting-frontend/userReportsListUtils'

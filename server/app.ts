@@ -1,4 +1,4 @@
-import { setupResources } from '@ministryofjustice/hmpps-digital-prison-reporting-frontend/dpr/middleware/setUpDprResources'
+import { setupResources } from '@ministryofjustice/hmpps-digital-prison-reporting-frontend/setUpDprResources'
 import flash from 'connect-flash'
 import express from 'express'
 import { NotFound } from 'http-errors'

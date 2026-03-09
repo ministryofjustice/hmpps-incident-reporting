@@ -184,7 +184,7 @@
           {html: photo},
           {html: name},
           {text: result.prisonerNumber},
-          {text: result.dateOfBirth | default("")},
+          {text: result.dateOfBirth | longDate | default("")},
           {text: establishment},
           {html: link}
         ]) %}

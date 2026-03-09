@@ -3,6 +3,6 @@
  * NB: this was recreated manually from javascript sources and remains incomplete!
  */
 
-declare module '@ministryofjustice/hmpps-digital-prison-reporting-frontend' {
+declare module '@ministryofjustice/hmpps-digital-prison-reporting-frontend/all' {
   function initAll(): void
 }

@@ -1,4 +1,4 @@
-import { v7 as uuidFromDate } from 'uuid'
+import { randomUUID } from 'node:crypto'
 
 import format from '../../utils/format'
 import { buildArray } from '../../utils/utils'
@@ -57,7 +57,7 @@ export function mockReport({
   incidentDateAndTime.setMilliseconds(0)
 
   const basicReport: DatesAsStrings<ReportBasic> = {
-    id: uuidFromDate({ msecs: reportDateAndTime.getTime() }),
+    id: randomUUID(),
     reportReference,
     type,
     incidentDateAndTime: format.isoDateTime(incidentDateAndTime),

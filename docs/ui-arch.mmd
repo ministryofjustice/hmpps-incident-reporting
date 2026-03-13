@@ -1,0 +1,63 @@
+graph TD
+    subgraph "User Environment"
+        User((User / Browser))
+    end
+
+    subgraph "HMPPS Incident Reporting UI"
+        direction TB
+        Express[Express.js Framework]
+        Wizard[hmpo-form-wizard <br/> Multi-step flows]
+        Middleware[Middleware stack <br/> Auth, Permissions, API Setup]
+        Services[Business Services <br/> Audit, User, ReportTitle]
+        Session[(Redis <br/> Session Store)]
+        Config[Static Incident Config <br/> Dynamic Question Steps]
+        Clients[API Clients]
+    end
+
+    subgraph "HMPPS Services"
+        Auth[HMPPS Auth <br/> Authentication & Tokens]
+        TokenVerify[Token Verification API <br/> Security Checks]
+        IncidentAPI[Incident Reporting API <br/> Core Incident Data]
+        PrisonAPI[Prison API <br/> Locations & Reference Data]
+        OffenderSearch[Offender Search API <br/> Prisoner Details]
+        ManageUsers[Manage Users API <br/> Staff & User Details]
+        FeComponents[Frontend Components API <br/> Shared Header/Footer & Caseloads]
+    end
+
+    subgraph "Infrastructure"
+        SQS[SQS Queue]
+        Audit[Audit Service]
+    end
+
+    %% User Interactions
+    User <--> Express
+
+    %% Internal Logic
+    Express --> Middleware
+    Middleware --> Wizard
+    Middleware --> Services
+    Express <--> Session
+    Wizard <--> Session
+    Wizard --- Config
+    Services --> Clients
+    Middleware --> Clients
+
+    %% External API Calls
+    Clients <--> Auth
+    Clients <--> TokenVerify
+    Clients <--> IncidentAPI
+    Clients <--> PrisonAPI
+    Clients <--> OffenderSearch
+    Clients <--> ManageUsers
+    Clients <--> FeComponents
+
+    %% Audit Flow
+    Services -- Send Audit Events --> SQS
+    SQS --> Audit
+
+    %% Legend/Annotations
+    classDef external fill:#f9f,stroke:#333,stroke-width:2px;
+    class Auth,TokenVerify,IncidentAPI,PrisonAPI,OffenderSearch,ManageUsers,FeComponents,Audit external;
+
+    classDef infra fill:#eee,stroke:#333,stroke-dasharray: 5 5;
+    class SQS,Audit infra;

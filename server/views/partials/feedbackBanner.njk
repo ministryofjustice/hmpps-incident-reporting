@@ -10,13 +10,11 @@
 
 {% block feedbackBanner %}
   {% if feedbackUrl %}
-    <div class="govuk-width-container">
-      {{ govukPhaseBanner({
-        tag: {
-          text: "Beta"
-        },
-        html: feedbackMessage()
-      }) }}
-    </div>
+    {{ govukPhaseBanner({
+      tag: {
+        text: "Beta"
+      },
+      html: feedbackMessage()
+    }) }}
   {% endif %}
 {% endblock feedbackBanner %}

@@ -3,11 +3,11 @@
   padding: 20px 20px 10px !important;
 
   .autocomplete__input {
-    background-color: $govuk-body-background-colour;
+    background-color: govuk-functional-colour('body-background');
   }
 
   .govuk-checkboxes__label::before {
-    background-color: $govuk-body-background-colour;
+    background-color: govuk-functional-colour('body-background');
   }
 
   .govuk-button-group {

@@ -8,7 +8,7 @@ $card-border-color: govuk-colour('black', $variant: 'tint-80');
   width: 100%;
   margin-bottom: govuk-spacing(7);
   padding: govuk-spacing(5);
-  background: $govuk-body-background-colour;
+  background: govuk-functional-colour('body-background');
   border: $card-border-width solid $card-border-color;
 
   .dps-card__heading {
@@ -27,7 +27,7 @@ $card-border-color: govuk-colour('black', $variant: 'tint-80');
       cursor: pointer;
 
       .dps-card__heading a, .dps-card__link {
-        color: $govuk-link-hover-colour;
+        color: govuk-functional-colour('link-hover');
         text-decoration: none;
 
         &:focus {

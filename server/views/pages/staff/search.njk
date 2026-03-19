@@ -10,7 +10,9 @@
 
 {% extends "partials/layout.njk" %}
 
-{% block beforeContent %}
+{% block containerStart %}
+  {{ super() }}
+
   {% if backLink %}
     {{ govukBackLink({
       text: "Back",

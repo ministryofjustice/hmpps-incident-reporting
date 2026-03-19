@@ -8,15 +8,11 @@
   to help us improve it.
 {% endmacro %}
 
-{% block feedbackBanner %}
-  {% if feedbackUrl %}
-    <div class="govuk-width-container">
-      {{ govukPhaseBanner({
-        tag: {
-          text: "Beta"
-        },
-        html: feedbackMessage()
-      }) }}
-    </div>
-  {% endif %}
-{% endblock feedbackBanner %}
+{% if feedbackUrl %}
+  {{ govukPhaseBanner({
+    tag: {
+      text: "Beta"
+    },
+    html: feedbackMessage()
+  }) }}
+{% endif %}

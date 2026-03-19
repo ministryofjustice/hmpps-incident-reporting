@@ -4,7 +4,9 @@
 {% from "govuk/components/button/macro.njk" import govukButton %}
 {% from "macros/renderFields.njk" import renderFields %}
 
-{% block beforeContent %}
+{% block containerStart %}
+  {{ super() }}
+
   {% if backLink %}
     {{ govukBackLink({
       text: "Back",

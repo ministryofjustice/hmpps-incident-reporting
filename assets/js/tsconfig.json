@@ -8,12 +8,13 @@
     "lib": ["dom", "dom.iterable", "es2020"],
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "sourceMap": false,
+    "sourceMap": true,
     "typeRoots": [
       "../../node_modules/@types",
-      "../../server/@types",
+      "../../node_modules/@ministryofjustice/frontend-types",
+      "../../server/@types"
     ]
   },
   "exclude": [],
-  "include": ["*.ts"],
+  "include": ["*.ts"]
 }

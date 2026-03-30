@@ -35,7 +35,7 @@
     "node": "^24"
   },
   "dependencies": {
-    "@aws-sdk/client-sqs": "^3.1018.0",
+    "@aws-sdk/client-sqs": "^3.1019.0",
     "@ministryofjustice/frontend": "^9.0.0",
     "@ministryofjustice/hmpps-auth-clients": "^1.0.2",
     "@ministryofjustice/hmpps-digital-prison-reporting-frontend": "^4.32.1",
@@ -118,7 +118,7 @@
   "overrides": {
     "mocha": {
       "diff": ">=8.0.4",
-      "serialize-javascript": "^7.0.4"
+      "serialize-javascript": "^7.0.5"
     }
   }
 }

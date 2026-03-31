@@ -27,6 +27,10 @@
 {% block content %}
   <h1 class="govuk-heading-l">Management reporting</h1>
 
+  <h2>Reports have moved to the reporting suite in DPS</h2>
+  <a href="{{ dprUrl }}?dpr-reports-catalogue_search_input=incident+reports" target="_blank">
+    Click to view management incident reports
+  </a>
   {% for definition in definitions %}
     {% if definition.authorised %}
       <h2 class="govuk-heading-m">{{ definition.name }}</h2>

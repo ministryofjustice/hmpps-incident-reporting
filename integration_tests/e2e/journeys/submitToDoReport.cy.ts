@@ -42,11 +42,17 @@ describe('Submitting “to do” reports', () => {
         reportPage.userActionsChoices.then(choices => {
           const expectedChoices: typeof choices = [
             {
-              label: isDraft ? 'Submit' : 'Resubmit it with updated information',
+              label: isDraft ? 'Submit report' : 'Resubmit it with updated information',
               value: 'REQUEST_REVIEW',
               checked: false,
             },
-            { label: 'Remove it as it’s a duplicate or not reportable', value: 'REQUEST_REMOVAL', checked: false },
+            {
+              label: isDraft
+                ? 'Remove the report as it’s a duplicate or not reportable'
+                : 'Remove it as it’s a duplicate or not reportable',
+              value: 'REQUEST_REMOVAL',
+              checked: false,
+            },
           ]
           expect(choices).to.deep.equal(expectedChoices)
         })
@@ -54,7 +60,7 @@ describe('Submitting “to do” reports', () => {
 
       it('should be able to submit report for review', () => {
         const reportPage = Page.verifyOnPage(ReportPage, reportWithDetails.reportReference, true)
-        reportPage.selectAction(isDraft ? 'Submit' : 'Resubmit it with updated information')
+        reportPage.selectAction(isDraft ? 'Submit report' : 'Resubmit it with updated information')
         if (!isDraft) {
           reportPage.enterComment('REQUEST_REVIEW', 'Updated description')
         }
@@ -93,7 +99,11 @@ describe('Submitting “to do” reports', () => {
       context('choosing to remove a report', () => {
         beforeEach(() => {
           const reportPage = Page.verifyOnPage(ReportPage, reportWithDetails.reportReference, true)
-          reportPage.selectAction('Remove it as it’s a duplicate or not reportable')
+          reportPage.selectAction(
+            isDraft
+              ? 'Remove the report as it’s a duplicate or not reportable'
+              : 'Remove it as it’s a duplicate or not reportable',
+          )
 
           cy.task('stubIncidentReportingApiGetReportById', { report: reportWithDetails })
 

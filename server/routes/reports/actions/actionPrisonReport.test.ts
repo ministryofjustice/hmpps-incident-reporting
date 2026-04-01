@@ -119,7 +119,7 @@ describe('Actioning prison reports', () => {
         userType: 'reporting officers',
         user: mockReportingOfficer,
         reportStatus: 'DRAFT',
-        formOptions: ['Submit', 'Remove it as it’s a duplicate or not reportable'],
+        formOptions: ['Submit report', 'Remove the report as it’s a duplicate or not reportable'],
       },
       {
         userType: 'reporting officers',

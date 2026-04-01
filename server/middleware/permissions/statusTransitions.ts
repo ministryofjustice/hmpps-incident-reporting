@@ -64,12 +64,12 @@ export const prisonReportTransitions: Transitions = {
       REQUEST_REVIEW: {
         newStatus: 'AWAITING_REVIEW',
         mustBeValid: true,
-        label: 'Submit',
+        label: 'Submit report',
         successBanner: 'Incident report $reportReference submitted for review',
       },
       REQUEST_REMOVAL: {
         newStatus: 'AWAITING_REVIEW',
-        label: 'Remove it as it’s a duplicate or not reportable',
+        label: 'Remove the report as it’s a duplicate or not reportable',
         successBanner: 'Request to remove incident report $reportReference sent',
       },
     },

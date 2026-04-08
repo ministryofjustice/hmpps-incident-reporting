@@ -7,10 +7,10 @@ import type { TypeFamily } from './typeFamilies'
 export const typeHints: Partial<Record<Type, string>> = {
   ASSAULT_5: 'Includes fights and suspected assaults.',
   CLOSE_DOWN_SEARCH_1: 'Any finds must be reported using the Find type.',
-  DISORDER_2: 'Includes barricade, concerted indiscipline, hostage, and incident at height.',
-  DRONE_SIGHTING_3: 'Drones must have been seen by staff.',
   DIRTY_PROTEST_1:
     'Deliberately defecating or urinating without a toilet or, throwing or smearing urine and/or faeces. An ongoing dirty protest is one incident.',
+  DISORDER_2: 'Includes barricade, concerted indiscipline, hostage, and incident at height.',
+  DRONE_SIGHTING_3: 'Drones must have been seen by staff.',
   FIND_6: 'Items must be recovered, not just seen.',
   MISCELLANEOUS_1: 'Includes any other incident type not listed.',
   SELF_HARM_1:

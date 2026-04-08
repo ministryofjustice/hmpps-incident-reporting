@@ -6,6 +6,7 @@ import type { TypeFamily } from './typeFamilies'
  */
 export const typeHints: Partial<Record<Type, string>> = {
   ASSAULT_5: 'Includes fights and suspected assaults.',
+  BREACH_OF_SECURITY_1: 'A person who breaches, or who attempts to breach, the secure perimeter of the establishment.',
   CLOSE_DOWN_SEARCH_1: 'Any finds must be reported using the Find type.',
   DIRTY_PROTEST_1:
     'Deliberately defecating or urinating without a toilet or, throwing or smearing urine and/or faeces. An ongoing dirty protest is one incident.',

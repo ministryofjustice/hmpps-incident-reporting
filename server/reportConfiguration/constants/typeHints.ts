@@ -14,6 +14,7 @@ export const typeHints: Partial<Record<Type, string>> = {
   DRONE_SIGHTING_3: 'Drones must have been seen by staff.',
   FIND_6: 'Items must be recovered, not just seen.',
   MISCELLANEOUS_1: 'Includes any other incident type not listed.',
+  RELEASE_IN_ERROR_1: 'A person released from HMPPS custody earlier than intended.',
   SELF_HARM_1:
     'Includes suspected and reported self-harm. Do not use to report a noose, unless it’s around the neck or applying pressure.',
   TOOL_LOSS_1: 'Do not use for key or lock compromises. They are separate incident types.',

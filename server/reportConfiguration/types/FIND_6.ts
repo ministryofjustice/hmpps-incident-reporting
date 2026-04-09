@@ -1152,6 +1152,8 @@ export const FIND_6: IncidentTypeConfiguration = {
           response: 'OTHER REPORTABLE ITEMS (BY NATIONAL OR LOCAL POLICY)',
           active: true,
           label: 'Other reportable items (by national or local policy)',
+          responseHint:
+            'All illicit items not listed in the existing categories, including older style vapes not tampered with.',
           commentRequested: false,
           commentMandatory: false,
           dateMandatory: false,

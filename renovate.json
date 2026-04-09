@@ -18,13 +18,6 @@
     {
       "matchManagers": ["npm"],
       "matchUpdateTypes": ["minor", "patch"],
-      "matchPackageNames": ["@ministryofjustice/hmpps-digital-prison-reporting-frontend"],
-      "groupName": "hmpps-digital-prison-reporting-frontend",
-      "groupSlug": "hmpps-digital-prison-reporting-frontend"
-    },
-    {
-      "matchManagers": ["npm"],
-      "matchUpdateTypes": ["minor", "patch"],
       "matchPackageNames": ["nock"],
       "groupName": "nock",
       "groupSlug": "nock"

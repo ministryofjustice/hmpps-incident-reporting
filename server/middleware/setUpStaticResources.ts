@@ -29,8 +29,6 @@ export default function setUpStaticResources(): Router {
     '/node_modules/govuk-frontend/dist',
     '/node_modules/@ministryofjustice/frontend/moj/assets',
     '/node_modules/@ministryofjustice/frontend',
-    '/node_modules/@ministryofjustice/hmpps-digital-prison-reporting-frontend/dpr/assets',
-    '/node_modules/@ministryofjustice/hmpps-digital-prison-reporting-frontend',
     '/node_modules/accessible-autocomplete/dist',
   ).forEach(dir => staticRoute('/assets', dir))
 

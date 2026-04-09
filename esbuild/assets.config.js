@@ -47,7 +47,6 @@ const getAssetsConfig = buildConfig => ({
         path.join(process.cwd(), 'node_modules'),
         path.join(process.cwd(), 'node_modules/govuk-frontend/dist'),
         path.join(process.cwd(), 'node_modules/@ministryofjustice/frontend'),
-        path.join(process.cwd(), 'node_modules/@ministryofjustice/hmpps-digital-prison-reporting-frontend'),
       ],
     }),
     typecheckPlugin(),

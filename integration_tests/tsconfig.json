@@ -2,9 +2,9 @@
   "$schema": "https://json.schemastore.org/tsconfig",
   "extends": "../tsconfig.json",
   "compilerOptions": {
-    "target": "es2022",
+    "target": "es2024",
     "noEmit": true,
-    "lib": ["dom", "es2022"],
+    "lib": ["dom", "es2024"],
     "types": ["cypress", "express", "express-session"],
     "sourceMap": false,
     "typeRoots": ["../node_modules/@types", "../node_modules", "../server/@types"]

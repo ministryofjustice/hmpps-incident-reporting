@@ -877,6 +877,7 @@ export const ASSAULT_5: IncidentTypeConfiguration = {
       active: true,
       question: 'WERE ANY WEAPONS USED',
       label: 'Were any weapons used?',
+      questionHint: 'A weapon is an item, excluding saliva, making contact with another person.',
       multipleAnswers: false,
       answers: [
         {

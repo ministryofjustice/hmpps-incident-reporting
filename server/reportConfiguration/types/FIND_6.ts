@@ -1101,6 +1101,7 @@ export const FIND_6: IncidentTypeConfiguration = {
           response: 'DRUG / DRUG EQUIPMENT',
           active: true,
           label: 'Drug / drug equipment',
+          responseHint: 'Includes prescription drugs and tampered vapes.',
           commentRequested: false,
           commentMandatory: false,
           dateMandatory: false,

@@ -17,7 +17,7 @@ const testConfig: IncidentTypeConfiguration = {
     qanimals: {
       code: 'qanimals',
       question: 'WHICH ANIMALS DO YOU LIKE',
-      questionHint: 'Please select all that apply',
+      questionHint: 'Please select all that apply.',
       label: 'Which animals do you like?',
       active: true,
       multipleAnswers: true,
@@ -25,7 +25,7 @@ const testConfig: IncidentTypeConfiguration = {
         {
           code: 'qanimals-a1',
           response: 'DOG',
-          responseHint: 'A loyal and friendly companion',
+          responseHint: 'A loyal and friendly companion.',
           label: 'Dog',
           active: true,
           dateMandatory: false,
@@ -36,7 +36,7 @@ const testConfig: IncidentTypeConfiguration = {
         {
           code: 'qanimals-a2',
           response: 'CAT',
-          responseHint: 'Meow',
+          responseHint: 'Meow.',
           label: 'Cat',
           active: true,
           dateMandatory: false,
@@ -47,7 +47,7 @@ const testConfig: IncidentTypeConfiguration = {
         {
           code: 'qanimals-a3',
           response: 'FOX',
-          responseHint: 'Jumps around',
+          responseHint: 'Jumps around.',
           label: 'Fox',
           active: true,
           dateMandatory: false,
@@ -71,7 +71,7 @@ const testConfig: IncidentTypeConfiguration = {
     qdog: {
       code: 'qdog',
       question: 'DO YOU HAVE A DOG',
-      questionHint: 'Please select one option',
+      questionHint: 'Please select one option.',
       label: 'Do you have a dog?',
       active: true,
       multipleAnswers: false,
@@ -110,7 +110,7 @@ const testConfig: IncidentTypeConfiguration = {
         {
           code: 'qicecream-a1',
           response: 'YES (SPECIFY FAVOURITE FLAVOUR)',
-          responseHint: 'If yes then please specify your favourite flavour',
+          responseHint: 'If yes then please specify your favourite flavour.',
           label: 'Yes (specify favourite flavour)',
           active: true,
           dateMandatory: false,
@@ -272,7 +272,7 @@ describe('generateFields()', () => {
       qanimals: {
         name: 'qanimals',
         label: 'Which animals do you like?',
-        hint: 'Please select all that apply',
+        hint: 'Please select all that apply.',
         validate: ['required'],
         multiple: true,
         component: 'govukCheckboxes',
@@ -280,21 +280,21 @@ describe('generateFields()', () => {
           {
             value: 'DOG',
             label: 'Dog',
-            hint: 'A loyal and friendly companion',
+            hint: 'A loyal and friendly companion.',
             dateRequired: false,
             commentRequired: false,
           },
           {
             value: 'CAT',
             label: 'Cat',
-            hint: 'Meow',
+            hint: 'Meow.',
             dateRequired: false,
             commentRequired: false,
           },
           {
             value: 'FOX',
             label: 'Fox',
-            hint: 'Jumps around',
+            hint: 'Jumps around.',
             dateRequired: false,
             commentRequired: false,
           },
@@ -303,7 +303,7 @@ describe('generateFields()', () => {
       qdog: {
         name: 'qdog',
         label: 'Do you have a dog?',
-        hint: 'Please select one option',
+        hint: 'Please select one option.',
         validate: ['required'],
         multiple: false,
         component: 'govukRadios',
@@ -357,7 +357,7 @@ describe('generateFields()', () => {
             value: 'YES (SPECIFY FAVOURITE FLAVOUR)',
             label: 'Yes (specify favourite flavour)',
             visuallyHiddenText: 'If selected, provide details',
-            hint: 'If yes then please specify your favourite flavour',
+            hint: 'If yes then please specify your favourite flavour.',
             dateRequired: false,
             commentRequired: true,
           },

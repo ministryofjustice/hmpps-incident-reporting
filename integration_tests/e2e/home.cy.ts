@@ -20,7 +20,6 @@ for (const { userType, user, searchIncidentsUrl } of scenarios) {
       homePage.cardDetails.then(cards => {
         const expectedTiles = [
           { title: 'Search incident reports', url: searchIncidentsUrl },
-          { title: 'Management reporting', url: '/management-reporting' },
         ]
         if (userType === 'reporting officers') {
           expectedTiles.unshift({ title: 'Create an incident report', url: '/create-report' })

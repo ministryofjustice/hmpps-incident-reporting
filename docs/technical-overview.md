@@ -53,7 +53,6 @@ Each incident type has a set of specific questions that must be answered.
 - **Components**:
   - **GOV.UK Frontend**: For standard accessible GDS components.
   - **MoJ Frontend**: For Ministry of Justice specific patterns (e.g., header, side navigation).
-  - **Digital Prison Reporting (DPR)**: Used for some management reporting views.
 - **Filters & Globals**: Extensive custom filters in `server/utils/nunjucksSetup.ts` handle date formatting, name casing, and GDS component configuration.
 
 ### Form Handling

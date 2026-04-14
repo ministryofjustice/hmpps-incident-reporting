@@ -73,7 +73,6 @@ export class Permissions {
 
   /** Has *some* role granting access to service */
   get canAccessService(): boolean {
-    // TODO: will management reporting need a separate role?
     return this.isHqViewer || this.isReportingOfficer || this.isDataWarden
   }
 

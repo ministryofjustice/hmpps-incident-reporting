@@ -19,7 +19,7 @@ export const DIRTY_PROTEST_1: IncidentTypeConfiguration = {
         {
           code: '100001',
           response: 'Ordinary Cell',
-          responseHint: 'The dirty protest occurred in the prisoners cell',
+          responseHint: 'The dirty protest occurred in the prisoners cell.',
           active: true,
           label: 'Ordinary cell',
           commentRequested: true,

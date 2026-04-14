@@ -42,8 +42,4 @@ export class HomePage extends Page {
   clickViewReportsCard(): Cypress.Chainable {
     return this.cards.contains('Search incident reports').click()
   }
-
-  clickManagementReportsCard(): Cypress.Chainable {
-    return this.cards.contains('Management reporting').click()
-  }
 }

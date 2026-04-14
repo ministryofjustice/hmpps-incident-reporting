@@ -55,14 +55,6 @@
       href: searchIncidentsLink
     }) }}
 
-    {# stats reports #}
-    {# TODO: will the management reporting tile need a separate role? #}
-    {{ renderDpsCard({
-      heading: "Management reporting",
-      description: "Reports that include in-depth data about different incidents in prisons.",
-      href: "/management-reporting"
-    }) }}
-
     {% if permissions.hasAdminAccess %}
       {{ renderDpsCard({
         heading: "Admin",

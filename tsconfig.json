@@ -4,8 +4,6 @@
   "compileOnSave": true,
   "compilerOptions": {
     "strict": false,
-    "module": "CommonJS",
-    "moduleResolution": "Node",
     "isolatedModules": true,
     "outDir": "./dist",
     "sourceMap": true,
@@ -15,7 +13,6 @@
     "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,
     "noImplicitAny": true,
-    "experimentalDecorators": true,
     "typeRoots": ["./server/@types", "./node_modules/@types"]
   },
   "exclude": [

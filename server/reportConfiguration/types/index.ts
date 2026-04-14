@@ -13,11 +13,5 @@ export function getIncidentTypeConfiguration(type: string): Promise<IncidentType
   const ext = __filename.endsWith('.js') ? 'js' : 'ts'
   const configPath = path.resolve(__dirname, `./${type}.${ext}`)
 
-  return import(configPath).then(module => {
-    if (ext === 'js') {
-      return module.default.default
-    }
-
-    return module.default
-  })
+  return import(configPath).then(module => module.default.default)
 }

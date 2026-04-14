@@ -18,9 +18,7 @@ for (const { userType, user, searchIncidentsUrl } of scenarios) {
       const homePage = Page.verifyOnPage(HomePage)
       homePage.checkLastBreadcrumb('Digital Prison Services')
       homePage.cardDetails.then(cards => {
-        const expectedTiles = [
-          { title: 'Search incident reports', url: searchIncidentsUrl },
-        ]
+        const expectedTiles = [{ title: 'Search incident reports', url: searchIncidentsUrl }]
         if (userType === 'reporting officers') {
           expectedTiles.unshift({ title: 'Create an incident report', url: '/create-report' })
         } else if (userType === 'data wardens') {

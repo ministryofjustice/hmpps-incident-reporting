@@ -17,7 +17,6 @@ import { editReportRouter } from './reports/editReportRouter'
 import { reopenRouter } from './reports/actions/reopen'
 import { requestRemovalRouter } from './reports/actions/requestRemoval'
 import dashboard from './dashboard'
-import { dprRouter } from './dpr'
 import prisonServiceConfiguration from './admin'
 import switchWarningScreen from './admin/switchWarning'
 import switchDpsStatus from './admin/switchDpsStatus'
@@ -85,9 +84,6 @@ export default function routes(services: Services): Router {
 
   // NOMIS data dumps used for updating constants in this repository
   router.use('/download-report-config', makeDownloadConfigRouter())
-
-  // Digital Prison Reporting
-  dprRouter(router)
 
   return router
 }

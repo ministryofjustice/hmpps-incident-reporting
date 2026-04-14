@@ -15,8 +15,8 @@ generic-service:
 
     INGRESS_URL: "https://incident-reporting-dev.hmpps.service.justice.gov.uk"
     DPS_URL: "https://digital-dev.prison.service.justice.gov.uk"
+    NEW_DPS_URL: "https://dps-dev.prison.service.justice.gov.uk"
     SUPPORT_URL: "https://support-dev.hmpps.service.justice.gov.uk"
-    DPR_URL: "https://digital-prison-reporting-mi-ui-dev.hmpps.service.justice.gov.uk"
 
     COMPONENT_API_URL: "https://frontend-components-dev.hmpps.service.justice.gov.uk"
     HMPPS_AUTH_URL: "https://sign-in-dev.hmpps.service.justice.gov.uk/auth"

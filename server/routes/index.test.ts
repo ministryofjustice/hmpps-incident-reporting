@@ -49,7 +49,6 @@ describe('Home page', () => {
         expect(res.text).toContain('Digital Prison Services')
         expect(res.text).toContain('Incident reporting')
         expect(res.text).toContain('Search incident reports')
-        expect(res.text).toContain('Management reporting')
         expectedText.forEach(text => {
           expect(res.text).toContain(text)
         })

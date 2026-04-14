@@ -40,8 +40,6 @@ export const rolePecs = 'INCIDENT_REPORTS__PECS' as const
  */
 export const roleAdmin = 'INCIDENT_REPORTS__ADMIN' as const
 
-// TODO: will management reporting need a separate role?
-
 /**
  * Used by DPS/NOMIS central admin/support.
  * TODO: will they need any special access?

@@ -336,6 +336,13 @@ export const typesDescriptions: Record<Type, string> = {
   TOOL_LOSS_1: 'Tool or implement loss',
 }
 
+/** Adding bespoke hint text for incident types */
+export const typeIncidentDateHints: { [K in Type]?: Record<string, string> } = {
+  ESCAPE_FROM_PRISON_1: {
+    incidentDate: 'This should be the date the person was released - for example, 17/5/2024',
+  },
+}
+
 /**
  * NOMIS codes for Types of reportable incidents
  * @deprecated

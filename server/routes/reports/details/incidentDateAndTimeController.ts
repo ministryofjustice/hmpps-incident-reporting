@@ -10,16 +10,37 @@ import {
   hoursFieldName,
   minutesFieldName,
 } from './incidentDateAndTimeFields'
+import { typeIncidentDateHints, Type } from '../../../reportConfiguration/constants'
 
+type IncidentDateAndTimeControllerValues = IncidentDateAndTimeValues & { type?: Type }
 /**
  * Controller for adding or updating the date of an incident report.
  * Handles error messages and validating combined date and time fields.
  * The generic V parameter is for specifying all steps’ values, not just this one.
  */
-export abstract class BaseIncidentDateAndTimeController<V extends IncidentDateAndTimeValues> extends BaseController<
-  V,
-  IncidentDateAndTimeFieldNames
-> {
+export abstract class BaseIncidentDateAndTimeController<
+  V extends IncidentDateAndTimeControllerValues,
+> extends BaseController<V, IncidentDateAndTimeFieldNames> {
+  middlewareLocals(): void {
+    this.use(this.customiseFields)
+    super.middlewareLocals()
+  }
+
+  /** Rewrite hint text for incident date if required */
+  private customiseFields(
+    req: FormWizard.Request<V, IncidentDateAndTimeFieldNames>,
+    res: express.Response,
+    next: express.NextFunction,
+  ): void {
+    const reportType: Type = (req.sessionModel.get('type') as Type) ?? res.locals.report?.type
+
+    if (typeIncidentDateHints[reportType]?.incidentDate) {
+      req.form.options.fields.incidentDate.hint = typeIncidentDateHints[reportType].incidentDate
+    }
+
+    next()
+  }
+
   getValues(
     req: FormWizard.Request<V, IncidentDateAndTimeFieldNames>,
     res: express.Response,

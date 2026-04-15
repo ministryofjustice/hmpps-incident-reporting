@@ -91,8 +91,8 @@ describe('Updating report incident date and time', () => {
       })
   })
 
-  it('should bespoke hint text for escape from establishment', () => {
-    reportBasic.type = 'ESCAPE_FROM_PRISON_1' as Type
+  it('should bespoke hint text for release in error', () => {
+    reportBasic.type = 'RELEASE_IN_ERROR_1' as Type
     return agent
       .get(updateIncidentDateAndTimeUrl)
       .expect(200)

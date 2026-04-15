@@ -337,7 +337,7 @@ export const typesDescriptions: Record<Type, string> = {
 }
 
 /** Adding bespoke hint text for incident types */
-export const typeIncidentDateHints: { [K in Type]?: Record<string, string> } = {
+export const incidentTypeHints: { [K in Type]?: Record<string, string> } = {
   RELEASE_IN_ERROR_1: {
     incidentDate: 'This should be the date the person was released - for example, 17/5/2024',
   },

@@ -10,7 +10,7 @@ import {
   hoursFieldName,
   minutesFieldName,
 } from './incidentDateAndTimeFields'
-import { typeIncidentDateHints, Type } from '../../../reportConfiguration/constants'
+import { incidentTypeHints, Type } from '../../../reportConfiguration/constants'
 
 type IncidentDateAndTimeControllerValues = IncidentDateAndTimeValues & { type?: Type }
 /**
@@ -22,20 +22,20 @@ export abstract class BaseIncidentDateAndTimeController<
   V extends IncidentDateAndTimeControllerValues,
 > extends BaseController<V, IncidentDateAndTimeFieldNames> {
   middlewareLocals(): void {
-    this.use(this.customiseFields)
+    this.use(this.customiseIncidentDateHint)
     super.middlewareLocals()
   }
 
   /** Rewrite hint text for incident date if required */
-  private customiseFields(
+  private customiseIncidentDateHint(
     req: FormWizard.Request<V, IncidentDateAndTimeFieldNames>,
     res: express.Response,
     next: express.NextFunction,
   ): void {
     const reportType: Type = (req.sessionModel.get('type') as Type) ?? res.locals.report?.type
 
-    if (typeIncidentDateHints[reportType]?.incidentDate) {
-      req.form.options.fields.incidentDate.hint = typeIncidentDateHints[reportType].incidentDate
+    if (incidentTypeHints[reportType]?.incidentDate) {
+      req.form.options.fields.incidentDate.hint = incidentTypeHints[reportType].incidentDate
     }
 
     next()

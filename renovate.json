@@ -16,6 +16,13 @@
       "stabilityDays": 7
     },
     {
+      "matchManagers": ["npm"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "matchPackageNames": ["nock"],
+      "groupName": "nock",
+      "groupSlug": "nock"
+    },
+    {
       "matchDepTypes": ["engines"],
       "enabled": false
     },

@@ -9,7 +9,7 @@ import { convertReportDates } from '../../../data/incidentReportingApiUtils'
 import { mockErrorResponse, mockReport } from '../../../data/testData/incidentReporting'
 import { mockThrownError } from '../../../data/testData/thrownErrors'
 import { mockDataWarden, mockReportingOfficer, mockHqViewer, mockUnauthorisedUser } from '../../../data/testData/users'
-import type { Status } from '../../../reportConfiguration/constants'
+import type { Status, Type } from '../../../reportConfiguration/constants'
 
 jest.mock('../../../data/incidentReportingApi')
 jest.mock('../actions/handleReportEdit')
@@ -72,6 +72,32 @@ describe('Updating report incident date and time', () => {
       .expect(404)
       .expect(res => {
         expect(res.text).toContain('Page not found')
+      })
+  })
+
+  it.each([
+    { incidentType: 'FIND_6' },
+    { incidentType: 'ASSAULT_5' },
+    { incidentType: 'ATTEMPTED_ESCAPE_FROM_PRISON_1' },
+    { incidentType: 'DRONE_SIGHTING_3' },
+  ])('should show regular hint text for incident type - $incidentType', ({ incidentType }) => {
+    reportBasic.type = incidentType as Type
+    return agent
+      .get(updateIncidentDateAndTimeUrl)
+      .expect(200)
+      .expect(res => {
+        expect(res.text).not.toContain('This should be the date the person was released')
+        expect(res.text).toContain('For example, 17/5/2024')
+      })
+  })
+
+  it('should bespoke hint text for escape from establishment', () => {
+    reportBasic.type = 'ESCAPE_FROM_PRISON_1' as Type
+    return agent
+      .get(updateIncidentDateAndTimeUrl)
+      .expect(200)
+      .expect(res => {
+        expect(res.text).toContain('This should be the date the person was released - for example, 17/5/2024')
       })
   })
 

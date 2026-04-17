@@ -77,7 +77,7 @@ digraph DISORDER_2 {
       63185 -> 63186 [label=< <FONT COLOR="royalblue">214746 </FONT> Media interest >];
       63185 -> 63186 [label=< <FONT COLOR="royalblue">214747 </FONT> ORRU assistance requested >];
       63185 -> 63186 [label=< <FONT COLOR="royalblue">214748 </FONT> Perpetrator under influence of drugs or alcohol >];
-      63185 -> 63186 [label=< <FONT COLOR="royalblue">214749 </FONT> Threat or actual self harm >];
+      63185 -> 63186 [label=< <FONT COLOR="royalblue">214749 </FONT> Threat or actual self-harm >];
       63185 -> 63186 [label=< <FONT COLOR="royalblue">214750 </FONT> Violence directed against staff >];
     63186 [label=< <FONT COLOR="royalblue">63186 </FONT> What was the duration of the incident? >];
       63186 -> 63187 [label=< <FONT COLOR="royalblue">214751 </FONT> &lt; 1 minute >];

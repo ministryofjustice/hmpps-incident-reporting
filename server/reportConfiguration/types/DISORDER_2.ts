@@ -722,7 +722,7 @@ export const DISORDER_2: IncidentTypeConfiguration = {
           code: '214749',
           response: 'THREAT OR ACTUAL SELF HARM',
           active: true,
-          label: 'Threat or actual self harm',
+          label: 'Threat or actual self-harm',
           commentRequested: false,
           commentMandatory: false,
           dateMandatory: false,

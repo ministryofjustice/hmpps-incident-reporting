@@ -1,0 +1,11 @@
+digraph BC_FUEL_SHORTAGE_1 {
+  rankdir=LR;
+  node [shape = circle];
+
+  START_NODE [label="", shape=none];
+  START_NODE -> 100020 [label = "start"];
+  END_NODE [label="END", shape="doublecircle"];
+    100020 [label=< <FONT COLOR="royalblue">100020 </FONT> Was there an impact to the daily regime? >];
+      100020 -> END_NODE [label=< <FONT COLOR="royalblue">100021 </FONT> Yes >];
+      100020 -> END_NODE [label=< <FONT COLOR="royalblue">100022 </FONT> No >];
+}

@@ -1,0 +1,11 @@
+digraph BC_STAFF_SHORTAGES_1 {
+  rankdir=LR;
+  node [shape = circle];
+
+  START_NODE [label="", shape=none];
+  START_NODE -> 100070 [label = "start"];
+  END_NODE [label="END", shape="doublecircle"];
+    100070 [label=< <FONT COLOR="royalblue">100070 </FONT> Was there an impact to the daily regime? >];
+      100070 -> END_NODE [label=< <FONT COLOR="royalblue">100071 </FONT> Yes >];
+      100070 -> END_NODE [label=< <FONT COLOR="royalblue">100072 </FONT> No >];
+}

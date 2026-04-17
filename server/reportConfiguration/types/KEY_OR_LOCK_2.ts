@@ -1557,7 +1557,7 @@ export const KEY_OR_LOCK_2: IncidentTypeConfiguration = {
           code: '182817',
           response: 'Heathcare Centre',
           active: false,
-          label: 'Heathcare centre',
+          label: 'Healthcare centre',
           commentRequested: false,
           commentMandatory: false,
           dateMandatory: false,

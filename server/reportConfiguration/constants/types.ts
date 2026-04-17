@@ -232,7 +232,7 @@ export const types = [
     active: true,
     nomisCode: 'REL_ERROR',
   },
-  { familyCode: 'SELF_HARM', code: 'SELF_HARM_1', description: 'Self harm', active: true, nomisCode: 'SELF_HARM' },
+  { familyCode: 'SELF_HARM', code: 'SELF_HARM_1', description: 'Self-harm', active: true, nomisCode: 'SELF_HARM' },
   {
     familyCode: 'TEMPORARY_RELEASE_FAILURE',
     code: 'TEMPORARY_RELEASE_FAILURE_1',
@@ -328,7 +328,7 @@ export const typesDescriptions: Record<Type, string> = {
   MOBILE_PHONE_1: 'Mobile phone',
   RADIO_COMPROMISE_1: 'Radio compromise',
   RELEASE_IN_ERROR_1: 'Release in error',
-  SELF_HARM_1: 'Self harm',
+  SELF_HARM_1: 'Self-harm',
   TEMPORARY_RELEASE_FAILURE_1: 'Temporary release failure',
   TEMPORARY_RELEASE_FAILURE_2: 'Temporary release failure',
   TEMPORARY_RELEASE_FAILURE_3: 'Temporary release failure',

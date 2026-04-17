@@ -42,7 +42,7 @@ export const typeFamilies = [
   { code: 'MOBILE_PHONE', description: 'Mobile phone' },
   { code: 'RADIO_COMPROMISE', description: 'Radio compromise' },
   { code: 'RELEASE_IN_ERROR', description: 'Release in error' },
-  { code: 'SELF_HARM', description: 'Self harm' },
+  { code: 'SELF_HARM', description: 'Self-harm' },
   { code: 'TEMPORARY_RELEASE_FAILURE', description: 'Temporary release failure' },
   { code: 'TOOL_LOSS', description: 'Tool or implement loss' },
 ] as const
@@ -92,7 +92,7 @@ export const typeFamiliesDescriptions: Record<TypeFamily, string> = {
   MOBILE_PHONE: 'Mobile phone',
   RADIO_COMPROMISE: 'Radio compromise',
   RELEASE_IN_ERROR: 'Release in error',
-  SELF_HARM: 'Self harm',
+  SELF_HARM: 'Self-harm',
   TEMPORARY_RELEASE_FAILURE: 'Temporary release failure',
   TOOL_LOSS: 'Tool or implement loss',
 }

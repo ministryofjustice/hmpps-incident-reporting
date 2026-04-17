@@ -735,6 +735,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
       active: true,
       question: 'DID SELF HARM METHOD INVOLVE CUTTING',
       label: 'Did self-harm method involve cutting?',
+      questionHint: 'Includes new cuts and scratches but not reopening wounds.',
       multipleAnswers: false,
       answers: [
         {

@@ -10,13 +10,13 @@ digraph SELF_HARM_1 {
       44155 -> 44733 [label=< <FONT COLOR="royalblue">179014 </FONT> Steri strips or sutures >];
       44155 -> 44733 [label=< <FONT COLOR="royalblue">179011 </FONT> Cleaned and dressed >];
       44155 -> 44733 [label=< <FONT COLOR="royalblue">179013 </FONT> Other >];
-    44207 [label=< <FONT COLOR="royalblue">44207 </FONT> Did self harm method involve self strangulation? >];
+    44207 [label=< <FONT COLOR="royalblue">44207 </FONT> Did self-harm method involve self strangulation? >];
       44207 -> 44583 [label=< <FONT COLOR="royalblue">179187 </FONT> Yes >];
       44207 -> 44753 [label=< <FONT COLOR="royalblue">179188 </FONT> No >];
     44214 [label=< <FONT COLOR="royalblue">44214 </FONT> Was resuscitation required? >];
       44214 -> 44944 [label=< <FONT COLOR="royalblue">179201 </FONT> Yes >];
       44214 -> 44944 [label=< <FONT COLOR="royalblue">179200 </FONT> No >];
-    44244 [label=< <FONT COLOR="royalblue">44244 </FONT> Did self harm method involve hanging? >];
+    44244 [label=< <FONT COLOR="royalblue">44244 </FONT> Did self-harm method involve hanging? >];
       44244 -> 44653 [label=< <FONT COLOR="royalblue">179302 </FONT> Yes >];
       44244 -> 44207 [label=< <FONT COLOR="royalblue">179303 </FONT> No >];
     44332 [label=< <FONT COLOR="royalblue">44332 </FONT> Who administered treatment? >];
@@ -39,7 +39,7 @@ digraph SELF_HARM_1 {
     44511 [label=< <FONT COLOR="royalblue">44511 </FONT> Was treatment administered? >];
       44511 -> 44332 [label=< <FONT COLOR="royalblue">180256 </FONT> Yes >];
       44511 -> 44214 [label=< <FONT COLOR="royalblue">180257 </FONT> No >];
-    44552 [label=< <FONT COLOR="royalblue">44552 </FONT> Was any other self harm method involved? >];
+    44552 [label=< <FONT COLOR="royalblue">44552 </FONT> Was any other self-harm method involved? >];
       44552 -> 45105 [label=< <FONT COLOR="royalblue">180436 </FONT> Yes >];
       44552 -> 44511 [label=< <FONT COLOR="royalblue">180437 </FONT> No >];
     44573 [label=< <FONT COLOR="royalblue">44573 </FONT> Self poisoning/overdose/substances/swallowing >];
@@ -76,10 +76,10 @@ digraph SELF_HARM_1 {
       44718 -> 45020 [label=< <FONT COLOR="royalblue">180997 </FONT> Feet off floor >];
       44718 -> 45020 [label=< <FONT COLOR="royalblue">180998 </FONT> Kneeling or other >];
       44718 -> 45020 [label=< <FONT COLOR="royalblue">180999 </FONT> Neither of above >];
-    44733 [label=< <FONT COLOR="royalblue">44733 </FONT> Did self harm involve self poisoning/ overdose/swallowing objects? >];
+    44733 [label=< <FONT COLOR="royalblue">44733 </FONT> Did self-harm involve self poisoning/ overdose/swallowing objects? >];
       44733 -> 44573 [label=< <FONT COLOR="royalblue">181062 </FONT> Yes >];
       44733 -> 45167 [label=< <FONT COLOR="royalblue">181063 </FONT> No >];
-    44753 [label=< <FONT COLOR="royalblue">44753 </FONT> Did self harm method involve cutting? >];
+    44753 [label=< <FONT COLOR="royalblue">44753 </FONT> Did self-harm method involve cutting? >];
       44753 -> 44991 [label=< <FONT COLOR="royalblue">181110 </FONT> Yes >];
       44753 -> 44733 [label=< <FONT COLOR="royalblue">181111 </FONT> No >];
     44791 [label=< <FONT COLOR="royalblue">44791 </FONT> What was the cell type? >];
@@ -129,13 +129,13 @@ digraph SELF_HARM_1 {
       45051 -> 44791 [label=< <FONT COLOR="royalblue">182181 </FONT> Prison escort vehicle >];
       45051 -> 44791 [label=< <FONT COLOR="royalblue">182175 </FONT> Court cell >];
       45051 -> 44791 [label=< <FONT COLOR="royalblue">182180 </FONT> Other >];
-    45105 [label=< <FONT COLOR="royalblue">45105 </FONT> What other method of self harm was involved? >];
+    45105 [label=< <FONT COLOR="royalblue">45105 </FONT> What other method of self-harm was involved? >];
       45105 -> 44511 [label=< <FONT COLOR="royalblue">182366 </FONT> Head banging >];
       45105 -> 44511 [label=< <FONT COLOR="royalblue">182368 </FONT> Suffocation >];
       45105 -> 44511 [label=< <FONT COLOR="royalblue">182369 </FONT> Wound >];
       45105 -> 44511 [label=< <FONT COLOR="royalblue">182367 </FONT> Noose ligature making >];
       45105 -> 44511 [label=< <FONT COLOR="royalblue">3901 </FONT> Other >];
-    45167 [label=< <FONT COLOR="royalblue">45167 </FONT> Did self harm method involve burning? >];
+    45167 [label=< <FONT COLOR="royalblue">45167 </FONT> Did self-harm method involve burning? >];
       45167 -> 44643 [label=< <FONT COLOR="royalblue">182616 </FONT> Yes >];
       45167 -> 44552 [label=< <FONT COLOR="royalblue">182617 </FONT> No >];
 }

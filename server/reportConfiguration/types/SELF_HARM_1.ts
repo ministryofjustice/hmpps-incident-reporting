@@ -60,7 +60,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
       code: '44207',
       active: true,
       question: 'DID SELF HARM METHOD INVOLVE SELF STRANGULATION',
-      label: 'Did self harm method involve self strangulation?',
+      label: 'Did self-harm method involve self strangulation?',
       multipleAnswers: false,
       answers: [
         {
@@ -118,7 +118,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
       code: '44244',
       active: true,
       question: 'DID SELF HARM METHOD INVOLVE HANGING',
-      label: 'Did self harm method involve hanging?',
+      label: 'Did self-harm method involve hanging?',
       multipleAnswers: false,
       answers: [
         {
@@ -342,7 +342,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
       code: '44552',
       active: true,
       question: 'WAS ANY OTHER SELF HARM METHOD INVOLVED',
-      label: 'Was any other self harm method involved?',
+      label: 'Was any other self-harm method involved?',
       multipleAnswers: false,
       answers: [
         {
@@ -705,7 +705,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
       code: '44733',
       active: true,
       question: 'DID SELF HARM INVOLVE SELF POISONING/ OVERDOSE/SWALLOWING OBJECTS',
-      label: 'Did self harm involve self poisoning/ overdose/swallowing objects?',
+      label: 'Did self-harm involve self poisoning/ overdose/swallowing objects?',
       multipleAnswers: false,
       answers: [
         {
@@ -734,7 +734,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
       code: '44753',
       active: true,
       question: 'DID SELF HARM METHOD INVOLVE CUTTING',
-      label: 'Did self harm method involve cutting?',
+      label: 'Did self-harm method involve cutting?',
       multipleAnswers: false,
       answers: [
         {
@@ -1225,7 +1225,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
       code: '45105',
       active: true,
       question: 'WHAT OTHER METHOD OF SELF HARM WAS INVOLVED',
-      label: 'What other method of self harm was involved?',
+      label: 'What other method of self-harm was involved?',
       multipleAnswers: true,
       answers: [
         {
@@ -1284,7 +1284,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
       code: '45167',
       active: true,
       question: 'DID SELF HARM METHOD INVOLVE BURNING',
-      label: 'Did self harm method involve burning?',
+      label: 'Did self-harm method involve burning?',
       multipleAnswers: false,
       answers: [
         {
@@ -1315,7 +1315,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
       prisonerRole: 'PERPETRATOR',
       onlyOneAllowed: true,
       active: true,
-      roleInformation: 'Use this role for the person who has self harmed',
+      roleInformation: 'Use this role for the person who has self-harmed',
     },
     {
       prisonerRole: 'ACTIVE_INVOLVEMENT',

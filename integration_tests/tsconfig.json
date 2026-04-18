@@ -5,8 +5,7 @@
     "target": "es2024",
     "lib": ["dom", "es2024"],
     "types": ["cypress", "express", "express-session"],
-    "sourceMap": false,
-    "typeRoots": ["../node_modules/@types", "../node_modules", "../server/@types"]
+    "sourceMap": false
   },
   "exclude": [],
   "include": ["../server/@types/**/*.d.ts", "**/*.ts"]

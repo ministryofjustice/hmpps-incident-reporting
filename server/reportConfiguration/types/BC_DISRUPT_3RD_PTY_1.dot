@@ -1,0 +1,11 @@
+digraph BC_DISRUPT_3RD_PTY_1 {
+  rankdir=LR;
+  node [shape = circle];
+
+  START_NODE [label="", shape=none];
+  START_NODE -> 100010 [label = "start"];
+  END_NODE [label="END", shape="doublecircle"];
+    100010 [label=< <FONT COLOR="royalblue">100010 </FONT> Was there an impact to the daily regime? >];
+      100010 -> END_NODE [label=< <FONT COLOR="royalblue">100011 </FONT> Yes >];
+      100010 -> END_NODE [label=< <FONT COLOR="royalblue">100012 </FONT> No >];
+}

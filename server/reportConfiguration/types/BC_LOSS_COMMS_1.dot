@@ -1,0 +1,11 @@
+digraph BC_LOSS_COMMS_1 {
+  rankdir=LR;
+  node [shape = circle];
+
+  START_NODE [label="", shape=none];
+  START_NODE -> 100040 [label = "start"];
+  END_NODE [label="END", shape="doublecircle"];
+    100040 [label=< <FONT COLOR="royalblue">100040 </FONT> Was there an impact to the daily regime? >];
+      100040 -> END_NODE [label=< <FONT COLOR="royalblue">100041 </FONT> Yes >];
+      100040 -> END_NODE [label=< <FONT COLOR="royalblue">100042 </FONT> No >];
+}

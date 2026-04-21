@@ -6,8 +6,8 @@ digraph DRONE_SIGHTING_3 {
   START_NODE -> 69179 [label = "start"];
   END_NODE [label="END", shape="doublecircle"];
     69179 [label=< <FONT COLOR="royalblue">69179 </FONT> Was a drone sighted in mid-flight? >];
-      69179 -> 69180 [label=< <FONT COLOR="royalblue">220684 </FONT> No >];
       69179 -> 69180 [label=< <FONT COLOR="royalblue">220685 </FONT> Yes >];
+      69179 -> 69180 [label=< <FONT COLOR="royalblue">220684 </FONT> No >];
     69180 [label=< <FONT COLOR="royalblue">69180 </FONT> Number of drones sighted >];
       69180 -> 69181 [label=< <FONT COLOR="royalblue">220686 </FONT> Please specify >];
     69181 [label=< <FONT COLOR="royalblue">69181 </FONT> Where were the drone(s) sighted? >];
@@ -76,11 +76,11 @@ digraph DRONE_SIGHTING_3 {
       69195 -> 69196 [label=< <FONT COLOR="royalblue">220730 </FONT> Yes 501g to 1000g >];
       69195 -> 69196 [label=< <FONT COLOR="royalblue">220731 </FONT> Yes more than 1001g >];
     69196 [label=< <FONT COLOR="royalblue">69196 </FONT> Were any photos or CCTV taken of the drone(s) or payload? >];
-      69196 -> 69197 [label=< <FONT COLOR="royalblue">220732 </FONT> No >];
       69196 -> 69197 [label=< <FONT COLOR="royalblue">220733 </FONT> Yes >];
+      69196 -> 69197 [label=< <FONT COLOR="royalblue">220732 </FONT> No >];
     69197 [label=< <FONT COLOR="royalblue">69197 </FONT> Was the pilot identified? >];
-      69197 -> 69199 [label=< <FONT COLOR="royalblue">220734 </FONT> No >];
       69197 -> 69198 [label=< <FONT COLOR="royalblue">220735 </FONT> Yes >];
+      69197 -> 69199 [label=< <FONT COLOR="royalblue">220734 </FONT> No >];
     69198 [label=< <FONT COLOR="royalblue">69198 </FONT> What was the distance of the pilot from the prison perimeter? >];
       69198 -> 69199 [label=< <FONT COLOR="royalblue">220736 </FONT> 0 to less than 10 metres >];
       69198 -> 69199 [label=< <FONT COLOR="royalblue">220737 </FONT> 10 to less than 100 metres >];
@@ -88,9 +88,9 @@ digraph DRONE_SIGHTING_3 {
       69198 -> 69199 [label=< <FONT COLOR="royalblue">220739 </FONT> 200 metres or more >];
       69198 -> 69199 [label=< <FONT COLOR="royalblue">220740 </FONT> Unknown >];
     69199 [label=< <FONT COLOR="royalblue">69199 </FONT> Were the police contacted? >];
-      69199 -> 69200 [label=< <FONT COLOR="royalblue">220741 </FONT> No >];
       69199 -> 69200 [label=< <FONT COLOR="royalblue">220742 </FONT> Yes >];
+      69199 -> 69200 [label=< <FONT COLOR="royalblue">220741 </FONT> No >];
     69200 [label=< <FONT COLOR="royalblue">69200 </FONT> To the extent of your knowledge was the pilot apprehended? >];
-      69200 -> END_NODE [label=< <FONT COLOR="royalblue">220743 </FONT> No >];
       69200 -> END_NODE [label=< <FONT COLOR="royalblue">220744 </FONT> Yes >];
+      69200 -> END_NODE [label=< <FONT COLOR="royalblue">220743 </FONT> No >];
 }

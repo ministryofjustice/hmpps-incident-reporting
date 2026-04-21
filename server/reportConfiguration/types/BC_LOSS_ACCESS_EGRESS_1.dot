@@ -1,0 +1,11 @@
+digraph BC_LOSS_ACCESS_EGRESS_1 {
+  rankdir=LR;
+  node [shape = circle];
+
+  START_NODE [label="", shape=none];
+  START_NODE -> 100030 [label = "start"];
+  END_NODE [label="END", shape="doublecircle"];
+    100030 [label=< <FONT COLOR="royalblue">100030 </FONT> Was there an impact to the daily regime? >];
+      100030 -> END_NODE [label=< <FONT COLOR="royalblue">100031 </FONT> Yes >];
+      100030 -> END_NODE [label=< <FONT COLOR="royalblue">100032 </FONT> No >];
+}

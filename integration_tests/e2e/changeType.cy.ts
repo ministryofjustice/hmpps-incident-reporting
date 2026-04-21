@@ -142,7 +142,7 @@ context('Change incident type', () => {
           checked: false,
         },
         {
-          label: 'Self harm',
+          label: 'Self-harm',
           value: 'SELF_HARM_1',
           checked: false,
         },

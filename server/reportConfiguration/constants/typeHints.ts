@@ -60,7 +60,7 @@ const shortTypeTitles: Partial<Record<TypeFamily, string>> = {
   MOBILE_PHONE: 'mobile phone incident',
   RADIO_COMPROMISE: 'radio compromise',
   RELEASE_IN_ERROR: 'release in error',
-  SELF_HARM: 'self harm',
+  SELF_HARM: 'self-harm',
   TEMPORARY_RELEASE_FAILURE: 'temporary release failure',
   TOOL_LOSS: 'tool or implement loss',
 }

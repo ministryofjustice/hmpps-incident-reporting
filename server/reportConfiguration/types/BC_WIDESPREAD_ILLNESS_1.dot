@@ -1,0 +1,11 @@
+digraph BC_WIDESPREAD_ILLNESS_1 {
+  rankdir=LR;
+  node [shape = circle];
+
+  START_NODE [label="", shape=none];
+  START_NODE -> 100080 [label = "start"];
+  END_NODE [label="END", shape="doublecircle"];
+    100080 [label=< <FONT COLOR="royalblue">100080 </FONT> Was there an impact to the daily regime? >];
+      100080 -> END_NODE [label=< <FONT COLOR="royalblue">100081 </FONT> Yes >];
+      100080 -> END_NODE [label=< <FONT COLOR="royalblue">100082 </FONT> No >];
+}

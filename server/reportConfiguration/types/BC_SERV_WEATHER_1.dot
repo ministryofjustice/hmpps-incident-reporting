@@ -1,0 +1,11 @@
+digraph BC_SERV_WEATHER_1 {
+  rankdir=LR;
+  node [shape = circle];
+
+  START_NODE [label="", shape=none];
+  START_NODE -> 100060 [label = "start"];
+  END_NODE [label="END", shape="doublecircle"];
+    100060 [label=< <FONT COLOR="royalblue">100060 </FONT> Was there an impact to the daily regime? >];
+      100060 -> END_NODE [label=< <FONT COLOR="royalblue">100061 </FONT> Yes >];
+      100060 -> END_NODE [label=< <FONT COLOR="royalblue">100062 </FONT> No >];
+}

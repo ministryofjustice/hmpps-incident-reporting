@@ -143,6 +143,7 @@ export default {
   dpsUrl: get('DPS_URL', 'http://dps.local', requiredInProduction),
   newDpsUrl: get('NEW_DPS_URL', 'http://dps.local', requiredInProduction),
   supportUrl: get('SUPPORT_URL', 'http://support.dps.local', requiredInProduction),
+  dprUrl: get('DPR_URL', 'http://support.dpr.local', requiredInProduction),
   feedbackUrl: get('FEEDBACK_URL', ''),
   sharepointUrl: get('SHAREPOINT_URL', ''),
   incidentTypesOverride: new Set(

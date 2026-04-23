@@ -14,7 +14,7 @@ for (const { userType, user, searchIncidentsUrl } of scenarios) {
       cy.signIn()
     })
 
-    it('should show tiles & breadcrumbs', () => {
+    it('shows tiles, breadcrumbs and DPR signpost', () => {
       const homePage = Page.verifyOnPage(HomePage)
       homePage.checkLastBreadcrumb('Digital Prison Services')
       homePage.cardDetails.then(cards => {
@@ -27,6 +27,8 @@ for (const { userType, user, searchIncidentsUrl } of scenarios) {
         }
         expect(cards).to.deep.equal(expectedTiles)
       })
+
+      homePage.verifyDprSignpost()
     })
   })
 }

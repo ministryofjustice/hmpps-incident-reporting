@@ -1,3 +1,4 @@
+import config from '../../server/config'
 import Page, { type PageElement } from './page'
 
 export class HomePage extends Page {
@@ -29,6 +30,16 @@ export class HomePage extends Page {
         })
         .toArray(),
     )
+  }
+
+  verifyDprSignpost() {
+    const { dprUrl } = config
+    return cy
+      .get('.dpr-signpost')
+      .should('contain.text', 'You can view Management and Operational reports in Digital Prison Reporting.')
+      .within(() => {
+        cy.get('a').should('have.attr', 'href', `${dprUrl}?dpr-reports-catalogue_search_input=incident+reports`)
+      })
   }
 
   clickCreatePrisonReportCard(): Cypress.Chainable {

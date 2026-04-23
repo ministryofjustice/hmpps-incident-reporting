@@ -8,7 +8,7 @@ export const detailsFields = {
     label: 'Incident description',
     hint:
       'Include enough detail for the description to stand alone as a full report. ' +
-      'Do not include details of staff who may be under investigation.',
+      'Throughout this report, do not include details of staff who may be under investigation.',
     component: 'govukTextarea',
     validate: ['required'],
   },

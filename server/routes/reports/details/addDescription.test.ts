@@ -108,6 +108,7 @@ describe('Adding a description addendum to report', () => {
         expect(res.text).toContain('Jane Doe')
         expect(res.text).toContain('Addendum #2')
         expect(res.text).toContain('Add information to the description')
+        expect(res.text).toContain('Do not include details of staff who may be under investigation.')
         expect(res.text).toContain('descriptionAddendum')
 
         expect(userService.getUsers).toHaveBeenCalledWith('test-system-token', ['user1'])

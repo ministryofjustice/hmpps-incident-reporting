@@ -2,7 +2,7 @@ import { RestClient, asUser } from '@ministryofjustice/hmpps-rest-client'
 
 import logger from '../../logger'
 import config from '../config'
-import type { AgencyType } from './prisonApi'
+import type { AgencyType } from './constants'
 
 export interface Component {
   html: string

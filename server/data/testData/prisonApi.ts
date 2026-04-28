@@ -1,5 +1,5 @@
 import type { Agency, Staff } from '../prisonApi'
-import { AgencyType } from '../prisonApi'
+import { AgencyType } from '../constants'
 
 export const brixton: Agency = {
   agencyId: 'BXI',

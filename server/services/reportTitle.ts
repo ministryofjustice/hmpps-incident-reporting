@@ -6,7 +6,7 @@ import { reportHasDetails } from '../data/incidentReportingApiUtils'
 import { getTypeDetails, type Type } from '../reportConfiguration/constants'
 import { convertToTitleCase } from '../utils/utils'
 import { isPecsRegionCode } from '../data/pecsRegions'
-import { AgencyType } from '../data/prisonApi'
+import { AgencyType } from '../data/constants'
 
 // NB: Report titles are never displayed in this service, but they are saved for downstream services’ compatibility
 

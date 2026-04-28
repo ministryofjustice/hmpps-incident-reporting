@@ -1,7 +1,5 @@
 import { defineConfig } from 'cypress'
 
-import webpackPreprocessor from '@cypress/webpack-batteries-included-preprocessor'
-
 import { deleteStub, resetStubs } from './integration_tests/mockApis/wiremock'
 import auth from './integration_tests/mockApis/auth'
 import prisonApi from './integration_tests/mockApis/prisonApi'
@@ -11,16 +9,6 @@ import manageUsersApi from './integration_tests/mockApis/manageUsersApi'
 import offenderSearchApi from './integration_tests/mockApis/offenderSearchApi'
 import nomisUserRolesApi from './integration_tests/mockApis/nomisUserRolesApi'
 import tokenVerification from './integration_tests/mockApis/tokenVerification'
-
-function getWebpackOptions() {
-  const options = webpackPreprocessor.getFullWebpackOptions()
-
-  // add built-ins as needed
-  options.resolve.fallback.util = require.resolve('util')
-  options.resolve.fallback.assert = require.resolve('assert')
-
-  return options
-}
 
 export default defineConfig({
   chromeWebSecurity: false,
@@ -49,13 +37,6 @@ export default defineConfig({
         ...tokenVerification,
         ...frontendComponents,
       })
-      on(
-        'file:preprocessor',
-        webpackPreprocessor({
-          typescript: true,
-          webpackOptions: getWebpackOptions(),
-        }),
-      )
     },
     baseUrl: 'http://localhost:3007',
     excludeSpecPattern: '**/!(*.cy).ts',

@@ -71,3 +71,10 @@ export enum AgencyType {
   // PNP = 'PNP',
   // PSY = 'PSY',
 }
+
+export enum RelatedObjectUrlSlug {
+  descriptionAddendums = 'description-addendums',
+  prisonersInvolved = 'prisoners-involved',
+  staffInvolved = 'staff-involved',
+  correctionRequests = 'correction-requests',
+}

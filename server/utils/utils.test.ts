@@ -67,7 +67,7 @@ describe('prisoners’ locations', () => {
   it.each([andrew, barry, chris])(
     'for people who are in prison with a known cell location (e.g. $cellLocation)',
     prisoner => {
-      expect(prisonerLocation(prisoner)).toEqual(prisoner.cellLocation)
+      expect(prisonerLocation(prisoner)).toEqual(prisoner.prisonName)
 
       expect(isBeingTransferred(prisoner)).toBe(false)
       expect(isOutside(prisoner)).toBe(false)
@@ -78,7 +78,7 @@ describe('prisoners’ locations', () => {
   it('for people who are in prison without a known cell location', () => {
     const prisoner = { ...andrew }
     delete prisoner.cellLocation
-    expect(prisonerLocation(prisoner)).toEqual('Not known')
+    expect(prisonerLocation(prisoner)).toEqual(prisoner.prisonName)
 
     expect(isBeingTransferred(prisoner)).toBe(false)
     expect(isOutside(prisoner)).toBe(false)
@@ -86,7 +86,7 @@ describe('prisoners’ locations', () => {
   })
 
   it('for people being transferred', () => {
-    expect(prisonerLocation(donald)).toEqual('Transfer')
+    expect(prisonerLocation(donald)).toEqual('N/A')
 
     expect(isBeingTransferred(donald)).toBe(true)
     expect(isOutside(donald)).toBe(false)
@@ -96,7 +96,7 @@ describe('prisoners’ locations', () => {
   it('for people being transferred without a location description', () => {
     const prisoner = { ...donald }
     delete prisoner.locationDescription
-    expect(prisonerLocation(prisoner)).toEqual('Transfer')
+    expect(prisonerLocation(prisoner)).toEqual('N/A')
 
     expect(isBeingTransferred(prisoner)).toBe(true)
     expect(isOutside(prisoner)).toBe(false)
@@ -125,6 +125,7 @@ describe('prisoners’ locations', () => {
     const prisoner = {
       ...andrew,
       prisonId: '',
+      prisonName: '',
       cellLocation: '',
     }
     expect(prisonerLocation(prisoner)).toEqual('Not known')

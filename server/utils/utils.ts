@@ -111,12 +111,12 @@ export function datesAsStrings<T>(obj: T): DatesAsStrings<T> {
  */
 export const prisonerLocation = (prisoner: OffenderSearchResult): string => {
   if (isBeingTransferred(prisoner)) {
-    return prisoner.locationDescription || 'Transfer'
+    return 'N/A'
   }
   if (isOutside(prisoner)) {
     return prisoner.locationDescription || 'Outside'
   }
-  return prisoner.cellLocation || 'Not known'
+  return prisoner.prisonName || 'Not known'
 }
 
 /** Convert camelCase or PascalCase into kebab-case */

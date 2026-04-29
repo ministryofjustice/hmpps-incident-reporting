@@ -421,7 +421,7 @@ describe('Searching for a prisoner to add to a report', () => {
           expect(res.text).toContain(`/reports/${report.id}/prisoners/add/A2222BB`)
           expect(res.text).toContain('Moorland')
           expect(res.text).toContain('Leeds')
-          expect(res.text).toContain('Transfer')
+          expect(res.text).toContain('N/A')
           expect(res.text).toContain('Outside')
           expect(res.text).toContain('Not known')
 

@@ -21,7 +21,7 @@ export function isInPrison(prisoner: OffenderSearchResult): prisoner is Offender
 /**
  * Display location of a prisoner in prison, during transfer and outside/released
  */
-export const prisonerLocation = (prisoner: OffenderSearchResult): string => {
+export function prisonerLocation(prisoner: OffenderSearchResult): string {
   if (isBeingTransferred(prisoner)) {
     return 'N/A'
   }

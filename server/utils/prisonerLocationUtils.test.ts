@@ -1,51 +1,50 @@
 import { andrew, barry, chris, donald, ernie, fred } from '../data/testData/offenderSearch'
 import { prisonerLocation } from './prisonerLocationUtils'
 
-describe('prisoners’ locations', () => {
-  it.each([andrew, barry, chris])(
-    'for people who are in prison with a known cell location (e.g. $cellLocation)',
-    prisoner => {
+describe('prisonerLocation()', () => {
+  describe('for people in prison with a known prison name', () => {
+    it.each([andrew, barry, chris])('returns the prison name', prisoner => {
       expect(prisonerLocation(prisoner)).toEqual(prisoner.prisonName)
-    },
-  )
-
-  it('for people who are in prison without a known cell location', () => {
-    const prisoner = { ...andrew }
-    delete prisoner.cellLocation
-    expect(prisonerLocation(prisoner)).toEqual(prisoner.prisonName)
+    })
   })
 
-  it('for people being transferred', () => {
-    expect(prisonerLocation(donald)).toEqual('N/A')
+  describe('for people being tranferred', () => {
+    it(`returns 'N/A'`, () => {
+      expect(prisonerLocation(donald)).toEqual('N/A')
+    })
+
+    it(`without a location description, also returns 'N/A'`, () => {
+      const prisoner = { ...donald }
+      delete prisoner.locationDescription
+      expect(prisonerLocation(prisoner)).toEqual('N/A')
+    })
   })
 
-  it('for people being transferred without a location description', () => {
-    const prisoner = { ...donald }
-    delete prisoner.locationDescription
-    expect(prisonerLocation(prisoner)).toEqual('N/A')
+  describe('for people outside prison', () => {
+    it('returns the location description', () => {
+      expect(prisonerLocation(ernie)).toEqual('Outside - released from Moorland (HMP)')
+    })
+
+    it(`without a location description, returns 'Outside'`, () => {
+      const prisoner = { ...ernie }
+      delete prisoner.locationDescription
+      expect(prisonerLocation(prisoner)).toEqual('Outside')
+    })
   })
 
-  it('for people outside prison', () => {
-    expect(prisonerLocation(ernie)).toEqual('Outside - released from Moorland (HMP)')
-  })
+  describe('for people with unknown location', () => {
+    it(`when location is blank, returns 'Not known'`, () => {
+      const prisoner = {
+        ...andrew,
+        prisonId: '',
+        prisonName: '',
+        cellLocation: '',
+      }
+      expect(prisonerLocation(prisoner)).toEqual('Not known')
+    })
 
-  it('for people outside prison without a location description', () => {
-    const prisoner = { ...ernie }
-    delete prisoner.locationDescription
-    expect(prisonerLocation(prisoner)).toEqual('Outside')
-  })
-
-  it('for people whose location is blank', () => {
-    const prisoner = {
-      ...andrew,
-      prisonId: '',
-      prisonName: '',
-      cellLocation: '',
-    }
-    expect(prisonerLocation(prisoner)).toEqual('Not known')
-  })
-
-  it('for people whose location is undefined', () => {
-    expect(prisonerLocation(fred)).toEqual('Not known')
+    it(`when location is undefined, returns 'Not known'`, () => {
+      expect(prisonerLocation(fred)).toEqual('Not known')
+    })
   })
 })

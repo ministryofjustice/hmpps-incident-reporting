@@ -22,7 +22,7 @@ import format from './format'
 import { isLocationActiveInService } from '../middleware/permissions'
 import { isCorrectionRequestPlaceholder } from '../routes/reports/actions/correctionRequestPlaceholder'
 import { sortCorrectionRequests } from './sortCorrectionRequests'
-import { prisonerLocation } from './offenderSearchUtils'
+import { prisonerLocation } from './prisonerLocationUtils'
 
 export default function nunjucksSetup(app: express.Express): void {
   app.set('view engine', 'njk')

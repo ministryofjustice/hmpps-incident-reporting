@@ -17,3 +17,16 @@ export function isOutside(prisoner: OffenderSearchResult): prisoner is OffenderS
 export function isInPrison(prisoner: OffenderSearchResult): prisoner is OffenderSearchResultIn {
   return !isBeingTransferred(prisoner) && !isOutside(prisoner) && Boolean(prisoner.prisonId)
 }
+
+/**
+ * Display location of a prisoner in prison, during transfer and outside/released
+ */
+export const prisonerLocation = (prisoner: OffenderSearchResult): string => {
+  if (isBeingTransferred(prisoner)) {
+    return 'N/A'
+  }
+  if (isOutside(prisoner)) {
+    return prisoner.locationDescription || 'Outside'
+  }
+  return prisoner.prisonName || 'Not known'
+}

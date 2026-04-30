@@ -8,15 +8,7 @@ import mojFrontendFilters from '@ministryofjustice/frontend/moj/filters/all'
 
 import logger from '../../logger'
 import config from '../config'
-import {
-  convertToTitleCase,
-  initialiseName,
-  nameOfPerson,
-  reversedNameOfPerson,
-  possessive,
-  prisonerLocation,
-  yearsSince,
-} from './utils'
+import { convertToTitleCase, initialiseName, nameOfPerson, reversedNameOfPerson, possessive, yearsSince } from './utils'
 import {
   findFieldInGovukErrorSummary,
   govukCheckedItems,
@@ -30,6 +22,7 @@ import format from './format'
 import { isLocationActiveInService } from '../middleware/permissions'
 import { isCorrectionRequestPlaceholder } from '../routes/reports/actions/correctionRequestPlaceholder'
 import { sortCorrectionRequests } from './sortCorrectionRequests'
+import { prisonerLocation } from './offenderSearchUtils'
 
 export default function nunjucksSetup(app: express.Express): void {
   app.set('view engine', 'njk')

@@ -13,7 +13,7 @@ import {
   yearsSince,
 } from './utils'
 import { andrew, barry, chris, donald, ernie, fred } from '../data/testData/offenderSearch'
-import { isInPrison, isOutside, isBeingTransferred, prisonerLocation } from './offenderSearchUtils'
+import { isInPrison, isOutside, isBeingTransferred, prisonerLocation } from './prisonerLocationUtils'
 import { fakeClock } from '../testutils/fakeJestClock'
 
 describe('convert to title case', () => {

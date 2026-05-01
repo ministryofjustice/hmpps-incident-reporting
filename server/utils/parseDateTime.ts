@@ -8,7 +8,7 @@
 export function parseDateInput(input: string): Date {
   const match = input && /^(?<day>\d{1,2})\/(?<month>\d{1,2})\/(?<year>\d{4})$/.exec(input.trim())
   if (!match) throw new Error('Invalid date')
-  const { year, month, day } = match.groups
+  const { year, month, day } = match.groups as Record<'year' | 'month' | 'day', string>
   const y = parseInt(year, 10)
   const m = parseInt(month, 10)
   const d = parseInt(day, 10)
@@ -30,7 +30,7 @@ export function parseDateInput(input: string): Date {
 export function parseTimeInput(input: string): { hours: number; minutes: number; time: string } {
   const match = input && /^(?<hours>\d{1,2}):(?<minutes>\d\d)$/.exec(input.trim())
   if (!match) throw new Error('Invalid time')
-  const { hours, minutes } = match.groups
+  const { hours, minutes } = match.groups as Record<'hours' | 'minutes', string>
   const h = parseInt(hours, 10)
   const m = parseInt(minutes, 10)
   if (h >= 0 && h < 24 && m >= 0 && m < 60)

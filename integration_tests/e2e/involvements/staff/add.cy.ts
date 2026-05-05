@@ -1,4 +1,4 @@
-import { RelatedObjectUrlSlug } from '../../../../server/data/incidentReportingApi'
+import { RelatedObjectUrlSlug } from '../../../../server/data/constants'
 import type { UsersSearchResult } from '../../../../server/data/manageUsersApiClient'
 import { mockReport } from '../../../../server/data/testData/incidentReporting'
 import { moorland, staffBarry, staffMary } from '../../../../server/data/testData/prisonApi'

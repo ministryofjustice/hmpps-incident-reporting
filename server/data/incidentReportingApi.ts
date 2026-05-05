@@ -20,6 +20,7 @@ import {
   convertQuestionDates,
   convertReportWithDetailsDates,
 } from './incidentReportingApiUtils'
+import { RelatedObjectUrlSlug } from './constants'
 
 /**
  * Structure representing an error response from the incident reporting api
@@ -592,13 +593,6 @@ export type UpdateCorrectionRequestRequest = {
   userType?: ApiUserType | null
   userAction?: ApiUserAction | null
   originalReportReference?: string | null
-}
-
-export enum RelatedObjectUrlSlug {
-  descriptionAddendums = 'description-addendums',
-  prisonersInvolved = 'prisoners-involved',
-  staffInvolved = 'staff-involved',
-  correctionRequests = 'correction-requests',
 }
 
 export class RelatedObjects<

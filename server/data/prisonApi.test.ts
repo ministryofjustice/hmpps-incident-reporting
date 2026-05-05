@@ -1,10 +1,10 @@
 import nock from 'nock'
 
 import config from '../config'
+import { AgencyType } from './constants'
 import {
   type ActiveAgency,
   type Agency,
-  AgencyType,
   type IncidentTypeConfiguration,
   PrisonApi,
   type ReferenceCode,

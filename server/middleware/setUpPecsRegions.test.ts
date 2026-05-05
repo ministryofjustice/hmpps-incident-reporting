@@ -1,7 +1,8 @@
 import type { Request, Response } from 'express'
 import { AuthenticationClient } from '@ministryofjustice/hmpps-auth-clients'
 
-import { AgencyType, PrisonApi } from '../data/prisonApi'
+import { AgencyType } from '../data/constants'
+import { PrisonApi } from '../data/prisonApi'
 import { type PecsRegion, pecsRegions } from '../data/pecsRegions'
 import { mockErrorResponse } from '../data/testData/incidentReporting'
 import { nouRegion, pecsNorthRegion, pecsSouthRegion } from '../data/testData/pecsRegions'

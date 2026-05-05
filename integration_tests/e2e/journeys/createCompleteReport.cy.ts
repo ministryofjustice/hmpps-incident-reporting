@@ -1,6 +1,6 @@
 import type { Response as SuperAgentResponse } from 'superagent'
 
-import { RelatedObjectUrlSlug, type Question, type ReportWithDetails } from '../../../server/data/incidentReportingApi'
+import { type Question, type ReportWithDetails } from '../../../server/data/incidentReportingApi'
 import type { UsersSearchResult } from '../../../server/data/manageUsersApiClient'
 import { mockReport } from '../../../server/data/testData/incidentReporting'
 import { andrew } from '../../../server/data/testData/offenderSearch'
@@ -26,6 +26,7 @@ import {
 } from '../../pages/reports/involvements/staff'
 import { QuestionPage } from '../../pages/reports/question'
 import { ReportPage } from '../../pages/reports/report'
+import { RelatedObjectUrlSlug } from '../../../server/data/constants'
 
 const scenarios = [
   {

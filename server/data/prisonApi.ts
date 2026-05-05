@@ -3,32 +3,7 @@ import { asSystem, RestClient } from '@ministryofjustice/hmpps-rest-client'
 import logger from '../../logger'
 import config from '../config'
 import type { NomisPrisonerInvolvementRole, NomisType } from '../reportConfiguration/constants'
-
-export enum AgencyType {
-  /** Prison */
-  INST = 'INST',
-  /** PECS region */
-  PECS = 'PECS',
-  // CRC = 'CRC',
-  // POLSTN = 'POLSTN',
-  // COMM = 'COMM',
-  // APPR = 'APPR',
-  // CRT = 'CRT',
-  // POLICE = 'POLICE',
-  // IMDC = 'IMDC',
-  // TRN = 'TRN',
-  // OUT = 'OUT',
-  // YOT = 'YOT',
-  // SCH = 'SCH',
-  // STC = 'STC',
-  // HOST = 'HOST',
-  // AIRPORT = 'AIRPORT',
-  // HSHOSP = 'HSHOSP',
-  // HOSPITAL = 'HOSPITAL',
-  // PAR = 'PAR',
-  // PNP = 'PNP',
-  // PSY = 'PSY',
-}
+import { AgencyType } from './constants'
 
 export type Agency = {
   agencyId: string

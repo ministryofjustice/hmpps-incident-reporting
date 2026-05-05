@@ -37,7 +37,7 @@ import type { GovukErrorSummaryItem } from '../../utils/govukFrontend'
 import { correctionRequestActionLabels } from './actions/correctionRequestLabels'
 import { placeholderForCorrectionRequest } from './actions/correctionRequestPlaceholder'
 import { findRequestDuplicate } from './actions/findRequestDuplicate'
-import { AgencyType } from '../../data/prisonApi'
+import { AgencyType } from '../../data/constants'
 import config from '../../config'
 
 export function viewReportRouter(): Router {

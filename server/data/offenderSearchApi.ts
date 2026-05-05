@@ -1,6 +1,6 @@
 import { asSystem, RestClient } from '@ministryofjustice/hmpps-rest-client'
 import config from '../config'
-import { TransferPrisonId, OutsidePrisonId, transferPrisonId, outsidePrisonId } from './constants'
+import { TransferPrisonId, OutsidePrisonId } from './constants'
 import logger from '../../logger'
 
 interface BaseOffenderSearchResult {
@@ -76,18 +76,6 @@ function mapOffenderFromApi(offender: OffenderSearchResultApi): OffenderSearchRe
     ...offender,
     dateOfBirth: parseIsoDateOnlyToLocalNoon(offender.dateOfBirth),
   }
-}
-
-export function isBeingTransferred(prisoner: OffenderSearchResult): prisoner is OffenderSearchResultTransfer {
-  return prisoner.prisonId === transferPrisonId
-}
-
-export function isOutside(prisoner: OffenderSearchResult): prisoner is OffenderSearchResultOut {
-  return prisoner.prisonId === outsidePrisonId
-}
-
-export function isInPrison(prisoner: OffenderSearchResult): prisoner is OffenderSearchResultIn {
-  return !isBeingTransferred(prisoner) && !isOutside(prisoner) && Boolean(prisoner.prisonId)
 }
 
 export type OffenderSearchResults = {

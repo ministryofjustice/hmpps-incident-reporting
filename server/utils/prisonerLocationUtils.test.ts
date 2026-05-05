@@ -14,8 +14,12 @@ describe('prisonerLocation()', () => {
     })
 
     it(`without a location description, also returns 'N/A'`, () => {
-      const prisoner = { ...donald }
-      delete prisoner.locationDescription
+      const prisoner = {
+        ...donald,
+        // @ts-expect-error - invalid input for testing purpose
+        locationDescription: undefined,
+      }
+
       expect(prisonerLocation(prisoner)).toEqual('N/A')
     })
   })
@@ -26,8 +30,12 @@ describe('prisonerLocation()', () => {
     })
 
     it(`without a location description, returns 'Outside'`, () => {
-      const prisoner = { ...ernie }
-      delete prisoner.locationDescription
+      const prisoner = {
+        ...ernie,
+        // @ts-expect-error - invalid input for testing purpose
+        locationDescription: undefined,
+      }
+
       expect(prisonerLocation(prisoner)).toEqual('Outside')
     })
   })

@@ -45,3 +45,36 @@ export const roleAdmin = 'INCIDENT_REPORTS__ADMIN' as const
  * TODO: will they need any special access?
  */
 export const roleCentralAdmin = 'CADM_I' as const
+
+export enum AgencyType {
+  /** Prison */
+  INST = 'INST',
+  /** PECS region */
+  PECS = 'PECS',
+  // CRC = 'CRC',
+  // POLSTN = 'POLSTN',
+  // COMM = 'COMM',
+  // APPR = 'APPR',
+  // CRT = 'CRT',
+  // POLICE = 'POLICE',
+  // IMDC = 'IMDC',
+  // TRN = 'TRN',
+  // OUT = 'OUT',
+  // YOT = 'YOT',
+  // SCH = 'SCH',
+  // STC = 'STC',
+  // HOST = 'HOST',
+  // AIRPORT = 'AIRPORT',
+  // HSHOSP = 'HSHOSP',
+  // HOSPITAL = 'HOSPITAL',
+  // PAR = 'PAR',
+  // PNP = 'PNP',
+  // PSY = 'PSY',
+}
+
+export enum RelatedObjectUrlSlug {
+  descriptionAddendums = 'description-addendums',
+  prisonersInvolved = 'prisoners-involved',
+  staffInvolved = 'staff-involved',
+  correctionRequests = 'correction-requests',
+}

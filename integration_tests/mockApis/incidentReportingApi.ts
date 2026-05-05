@@ -12,7 +12,8 @@ import type {
   ChangeTypeRequest,
   Question,
 } from '../../server/data/incidentReportingApi'
-import { RelatedObjectUrlSlug, defaultPageSize } from '../../server/data/incidentReportingApi'
+import { defaultPageSize } from '../../server/data/incidentReportingApi'
+import { RelatedObjectUrlSlug } from '../../server/data/constants'
 
 export default {
   stubIncidentReportingApiGetReports: ({

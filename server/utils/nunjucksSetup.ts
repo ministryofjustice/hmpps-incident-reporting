@@ -26,7 +26,7 @@ import {
   govukSelectInsertDefault,
   govukSelectSetSelected,
 } from './govukFrontend'
-import { isBeingTransferred, isOutside, isInPrison } from '../data/offenderSearchApi'
+import { isInPrison, isOutside, isBeingTransferred } from './offenderSearchUtils'
 import format from './format'
 import { isLocationActiveInService } from '../middleware/permissions'
 import { isCorrectionRequestPlaceholder } from '../routes/reports/actions/correctionRequestPlaceholder'

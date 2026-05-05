@@ -27,7 +27,7 @@ export class DpsCard extends Component<HTMLDivElement> {
     if (event.target instanceof HTMLElement && event.target.nodeName !== 'A') {
       event.stopPropagation()
       const divertedEvent = new (event.constructor as typeof MouseEvent)(event.type, event)
-      this.link.dispatchEvent(divertedEvent)
+      this.link?.dispatchEvent(divertedEvent)
     }
   }
 }

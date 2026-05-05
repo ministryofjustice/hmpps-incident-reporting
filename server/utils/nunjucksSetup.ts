@@ -8,15 +8,7 @@ import mojFrontendFilters from '@ministryofjustice/frontend/moj/filters/all'
 
 import logger from '../../logger'
 import config from '../config'
-import {
-  convertToTitleCase,
-  initialiseName,
-  nameOfPerson,
-  reversedNameOfPerson,
-  possessive,
-  prisonerLocation,
-  yearsSince,
-} from './utils'
+import { convertToTitleCase, initialiseName, nameOfPerson, reversedNameOfPerson, possessive, yearsSince } from './utils'
 import {
   findFieldInGovukErrorSummary,
   govukCheckedItems,
@@ -26,11 +18,11 @@ import {
   govukSelectInsertDefault,
   govukSelectSetSelected,
 } from './govukFrontend'
-import { isInPrison, isOutside, isBeingTransferred } from './offenderSearchUtils'
 import format from './format'
 import { isLocationActiveInService } from '../middleware/permissions'
 import { isCorrectionRequestPlaceholder } from '../routes/reports/actions/correctionRequestPlaceholder'
 import { sortCorrectionRequests } from './sortCorrectionRequests'
+import { prisonerLocation } from './prisonerLocationUtils'
 
 export default function nunjucksSetup(app: express.Express): void {
   app.set('view engine', 'njk')
@@ -106,9 +98,6 @@ export default function nunjucksSetup(app: express.Express): void {
 
   // prisoner utils
   njkEnv.addFilter('prisonerLocation', prisonerLocation)
-  njkEnv.addFilter('isBeingTransferred', isBeingTransferred)
-  njkEnv.addFilter('isOutside', isOutside)
-  njkEnv.addFilter('isInPrison', isInPrison)
 
   // application-provided utils for GDS & MoJ components
   njkEnv.addFilter('findFieldInGovukErrorSummary', findFieldInGovukErrorSummary)

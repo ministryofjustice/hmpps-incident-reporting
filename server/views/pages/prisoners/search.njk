@@ -168,14 +168,6 @@
           <img src="/prisoner/{{ result.prisonerNumber }}/photo.jpeg" alt="Photo of {{ prisonerName | safe }}" class="app-prisoner-photo" />
         {% endset %}
 
-        {% if result | isBeingTransferred %}
-          {% set establishment = "N/A" %}
-        {% elif result | isOutside %}
-          {% set establishment = result | prisonerLocation %}
-        {% else %}
-          {% set establishment = result.prisonName or "Not known" %}
-        {% endif %}
-
         {% set link %}
           <a href="{{ reportSubUrlPrefix }}/prisoners/add/{{ result.prisonerNumber }}">
             Select {{ prisonerName | safe }}
@@ -187,7 +179,7 @@
           {html: name},
           {text: result.prisonerNumber},
           {text: result.dateOfBirth | longDate | default("")},
-          {text: establishment},
+          {text: result | prisonerLocation},
           {html: link}
         ]) %}
       {% endfor %}

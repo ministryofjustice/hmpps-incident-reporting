@@ -1,6 +1,3 @@
-import { type OffenderSearchResult } from '../data/offenderSearchApi'
-import { isOutside, isBeingTransferred } from './offenderSearchUtils'
-
 const properCase = (word: string): string =>
   word.length >= 1 ? word[0].toUpperCase() + word.toLowerCase().slice(1) : word
 
@@ -104,19 +101,6 @@ export function datesAsStrings<T>(obj: T): DatesAsStrings<T> {
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
   return Object.fromEntries(Object.entries(obj).map(([property, value]) => [property, datesAsStrings(value)]))
-}
-
-/**
- * Display location of a prisoner in prison, during transfer and outside/released
- */
-export const prisonerLocation = (prisoner: OffenderSearchResult): string => {
-  if (isBeingTransferred(prisoner)) {
-    return prisoner.locationDescription || 'Transfer'
-  }
-  if (isOutside(prisoner)) {
-    return prisoner.locationDescription || 'Outside'
-  }
-  return prisoner.cellLocation || 'Not known'
 }
 
 /** Convert camelCase or PascalCase into kebab-case */

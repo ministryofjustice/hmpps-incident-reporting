@@ -4,7 +4,7 @@ import { Dialogue } from './dialogue'
 export class IncidentDateCheck extends Dialogue {
   static moduleName = 'incident-date-check'
 
-  form: HTMLFormElement
+  form: HTMLFormElement | undefined
 
   constructor(root: HTMLDialogElement) {
     super(root)
@@ -48,7 +48,7 @@ export class IncidentDateCheck extends Dialogue {
   onClose(): void {
     if (this.$root.returnValue === 'yes') {
       // submit form
-      this.form.submit()
+      this.form?.submit()
     }
   }
 }

@@ -11,6 +11,8 @@ import nomisUserRolesApi from './integration_tests/mockApis/nomisUserRolesApi'
 import tokenVerification from './integration_tests/mockApis/tokenVerification'
 
 export default defineConfig({
+  // See: https://docs.cypress.io/app/references/migration-guide
+  allowCypressEnv: false,
   chromeWebSecurity: false,
   fixturesFolder: 'integration_tests/fixtures',
   screenshotsFolder: 'integration_tests/screenshots',

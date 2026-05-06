@@ -61,8 +61,7 @@
     "passport-oauth2": "^1.8.0",
     "redis": "^5.12.1",
     "superagent": "^10.3.0",
-    "url-value-parser": "^2.2.0",
-    "uuid": "^11.1.0"
+    "url-value-parser": "^2.2.0"
   },
   "devDependencies": {
     "@jgoz/esbuild-plugin-typecheck": "^4.0.4",
@@ -93,7 +92,7 @@
     "aws-sdk-client-mock": "^4.1.0",
     "cookie-parser": "^1.4.7",
     "cookie-session": "^2.1.1",
-    "cypress": "^15.14.1",
+    "cypress": "^15.14.2",
     "cypress-multi-reporters": "^2.0.5",
     "del": "8.0.1",
     "esbuild": "^0.28.0",
@@ -111,7 +110,7 @@
     "supertest": "^7.2.2",
     "ts-jest": "^29.4.9",
     "tsx": "^4.21.0",
-    "typescript": "^5.9.3",
+    "typescript": "^6.0.3",
     "yaml": "^2.8.3"
   },
   "overrides": {

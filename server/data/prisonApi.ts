@@ -4,6 +4,7 @@ import logger from '../../logger'
 import config from '../config'
 import type { NomisPrisonerInvolvementRole, NomisType } from '../reportConfiguration/constants'
 import { AgencyType } from './constants'
+import { errorResponseStatusMatches } from '../utils/utils'
 
 export type Agency = {
   agencyId: string
@@ -128,8 +129,7 @@ export class PrisonApi extends RestClient {
         asSystem(),
       )
     } catch (error) {
-      const status = error?.responseStatus
-      if (status === 404) {
+      if (errorResponseStatusMatches(error, 404)) {
         // return null if not found
         return null
       }
@@ -182,8 +182,7 @@ export class PrisonApi extends RestClient {
         asSystem(),
       )
     } catch (error) {
-      const status = error?.responseStatus
-      if (status === 403 || status === 404) {
+      if (errorResponseStatusMatches(error, 403) || errorResponseStatusMatches(error, 404)) {
         // return null if unauthorised or not found
         return null
       }
@@ -200,8 +199,7 @@ export class PrisonApi extends RestClient {
         asSystem(),
       )
     } catch (error) {
-      const status = error?.responseStatus
-      if (status === 404) {
+      if (errorResponseStatusMatches(error, 404)) {
         // return null if not found
         return null
       }

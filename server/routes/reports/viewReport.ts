@@ -39,6 +39,7 @@ import { placeholderForCorrectionRequest } from './actions/correctionRequestPlac
 import { findRequestDuplicate } from './actions/findRequestDuplicate'
 import { AgencyType } from '../../data/constants'
 import config from '../../config'
+import { errorResponseStatusMatches } from '../../utils/utils'
 
 export function viewReportRouter(): Router {
   const router = Router({ mergeParams: true })
@@ -171,7 +172,7 @@ export function viewReportRouter(): Router {
                 logger.debug(`Original report incident number ${originalReportReference} does belong to a valid report`)
               } catch (e) {
                 let errorMessage = 'Incident number could not be looked up, please try again'
-                if ('responseStatus' in e && e.responseStatus === 404) {
+                if (errorResponseStatusMatches(e, 404)) {
                   logger.debug(
                     `Original report incident number ${originalReportReference} does NOT belong to a valid report`,
                   )

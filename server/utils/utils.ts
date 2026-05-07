@@ -320,3 +320,19 @@ export function hasInvalidValues(input: string | string[], validValues: string[]
   }
   return !validValues.includes(input)
 }
+
+/**
+ * Checks if the error has a `responseStatus` property and its value matches `statusCode`
+ *
+ * @param error anything, but possibly an object with `responseStatus` property
+ * @param statusCode expected status code, e.g. 404
+ *
+ * @returns true if the error status code matches `statusCode`
+ */
+export function errorResponseStatusMatches(error: unknown, statusCode: number): boolean {
+  if (error && typeof error === 'object' && 'responseStatus' in error && error?.responseStatus === statusCode) {
+    return true
+  }
+
+  return false
+}

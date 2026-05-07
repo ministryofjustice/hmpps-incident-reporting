@@ -11,8 +11,10 @@ import {
   nameOfPerson,
   reversedNameOfPerson,
   yearsSince,
+  errorResponseStatusMatches,
 } from './utils'
 import { fakeClock } from '../testutils/fakeJestClock'
+import { mockThrownError } from '../data/testData/thrownErrors'
 
 describe('convert to title case', () => {
   it.each([
@@ -256,4 +258,29 @@ describe('hasInvalidValues()', () => {
       expect(hasInvalidValues(a, b)).toEqual(expected)
     },
   )
+})
+
+describe('errorResponseStatusMatches()', () => {
+  describe('for values without response status', () => {
+    it.each([
+      ['undefined', undefined],
+      ['null', null],
+      ['[empty string]', ''],
+      ['[an Error instance]', new Error('Some error')],
+    ])('for (%s, 404) returns false', (_scenario, error) => {
+      expect(errorResponseStatusMatches(error, 404)).toEqual(false)
+    })
+  })
+
+  describe('for values with a response status', () => {
+    it.each([
+      ['[an object with undefined responseStatus]', false, { responseStatus: undefined }],
+      ['[an object with responseStatus=400]', false, { responseStatus: 400 }],
+      ['[an object with responseStatus=404]', true, { responseStatus: 404 }],
+      ['[a 400 SanitisedError]', false, mockThrownError('400 API error', 400)],
+      ['[a 404 SanitisedError]', true, mockThrownError('404 API error', 404)],
+    ])('for (%s, 404) returns %s', (_scenario, expected, error) => {
+      expect(errorResponseStatusMatches(error, 404)).toEqual(expected)
+    })
+  })
 })

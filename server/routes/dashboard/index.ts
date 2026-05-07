@@ -163,7 +163,8 @@ export default function dashboard(): Router {
       } catch (err) {
         latestUserActions = undefined
         userActionFilter = undefined
-        errors.push({ href: '#latestUserActions-item', text: err.message })
+        const errorMessage = err instanceof Error ? err.message : err.toString()
+        errors.push({ href: '#latestUserActions-item', text: errorMessage })
       }
     }
     // If an RO opens a link containing filter, remove filter
@@ -177,7 +178,8 @@ export default function dashboard(): Router {
       searchStatuses = statusesFromParam(incidentStatuses as IncidentStatuses[], useWorklists)
     } catch (err) {
       incidentStatuses = undefined
-      errors.push({ href: '#incidentStatuses-item', text: err.message })
+      const errorMessage = err instanceof Error ? err.message : err.toString()
+      errors.push({ href: '#incidentStatuses-item', text: errorMessage })
     }
 
     let prisonerId: string

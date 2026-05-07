@@ -4,8 +4,8 @@
   "compileOnSave": true,
   "compilerOptions": {
     "strict": false,
+    "strictBuiltinIteratorReturn": true,
     "noImplicitThis": true,
-
     "isolatedModules": true,
     "outDir": "./dist",
     "sourceMap": true,

@@ -4,6 +4,8 @@
   "compileOnSave": true,
   "compilerOptions": {
     "strict": false,
+    "noImplicitThis": true,
+
     "isolatedModules": true,
     "outDir": "./dist",
     "sourceMap": true,

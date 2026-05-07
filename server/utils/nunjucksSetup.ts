@@ -66,7 +66,6 @@ export default function nunjucksSetup(app: express.Express): void {
 
   // misc utils
   njkEnv.addFilter('assetMap', (url: string) => assetManifest[url] || url)
-  njkEnv.addGlobal('callAsMacro', callAsMacro)
   njkEnv.addGlobal('mergeObjects', (...objects: object[]) => {
     const merged = {}
     for (const o of objects) {
@@ -127,14 +126,4 @@ class PanicExtension implements nunjucks.Extension {
     error.name = 'Panic'
     throw error
   }
-}
-
-function callAsMacro(name: string): (...args: unknown[]) => unknown {
-  const macro = this.ctx[name]
-
-  if (typeof macro !== 'function') {
-    throw Error(`Macro ${name} not found`)
-  }
-
-  return macro
 }

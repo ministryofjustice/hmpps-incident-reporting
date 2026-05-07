@@ -6,6 +6,7 @@
     "strict": false,
     "strictBuiltinIteratorReturn": true,
     "noImplicitThis": true,
+    "useUnknownInCatchVariables": true,
     "isolatedModules": true,
     "outDir": "./dist",
     "sourceMap": true,

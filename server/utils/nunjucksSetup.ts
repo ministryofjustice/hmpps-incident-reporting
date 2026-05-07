@@ -45,7 +45,8 @@ export default function nunjucksSetup(app: express.Express): void {
     assetManifest = JSON.parse(fs.readFileSync(assetMetadataPath, 'utf8'))
   } catch (e) {
     if (process.env.NODE_ENV !== 'test') {
-      logger.error(`Could not read asset manifest file: ${e.message}`)
+      const errorMessage = e instanceof Error ? e.message : e.toString()
+      logger.error(`Could not read asset manifest file: ${errorMessage}`)
     }
   }
 

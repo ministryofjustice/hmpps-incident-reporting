@@ -4,6 +4,7 @@
   "compileOnSave": true,
   "compilerOptions": {
     "strict": false,
+    "strictBindCallApply": true,
     "strictBuiltinIteratorReturn": true,
     "noImplicitThis": true,
     "useUnknownInCatchVariables": true,

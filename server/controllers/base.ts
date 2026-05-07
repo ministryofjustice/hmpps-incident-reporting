@@ -171,11 +171,12 @@ export abstract class BaseController<
     // so _here_ is too early to clear the session and the `next` function is never called
     if (res.locals.clearSessionOnSuccess) {
       const actualRedirect = res.redirect.bind(res)
-      res.redirect = (...args: unknown[]) => {
+      const newRedirect = (...args: Parameters<typeof res.redirect>) => {
         // clear the session just before redirecting
         req.journeyModel.reset()
         actualRedirect(...args)
       }
+      res.redirect = newRedirect as unknown as typeof res.redirect
     }
 
     super.successHandler(req, res, next)

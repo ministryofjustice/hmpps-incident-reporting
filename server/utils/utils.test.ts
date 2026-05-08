@@ -7,7 +7,6 @@ import {
   datesAsStrings,
   initialiseName,
   possessive,
-  kebabCase,
   nameOfPerson,
   errorResponseStatusMatches,
 } from './utils'
@@ -132,22 +131,6 @@ describe('datesAsStrings()', () => {
       expected: { str: 'abc', array: [dateString], nested: { dates: [dateString] } },
     } satisfies Scenario<{ str: string; array: [Date]; nested: { dates: [Date] } }>,
   ])('should work on $scenario', ({ input, expected }) => expect(datesAsStrings(input)).toEqual(expected))
-})
-
-describe('kebab-case', () => {
-  it.each([
-    { input: undefined, expected: undefined },
-    { input: null, expected: undefined },
-    { input: 'ATestValue', expected: 'a-test-value' },
-    { input: 'aTestValue', expected: 'a-test-value' },
-    { input: 'aTestvalue', expected: 'a-testvalue' },
-    { input: 'atestvalue', expected: 'atestvalue' },
-    { input: 'a-test-value', expected: 'a-test-value' },
-    { input: 'govukCheckboxes', expected: 'govuk-checkboxes' },
-    { input: 'HTML', expected: 'h-t-m-l' },
-  ])('should convert $input to $expected', ({ input, expected }) => {
-    expect(kebabCase(input)).toEqual(expected)
-  })
 })
 
 describe('adds question mark to questions', () => {

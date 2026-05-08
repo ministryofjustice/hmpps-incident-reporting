@@ -4,7 +4,7 @@ import createUserToken from '../testutils/createUserToken'
 import authorisationMiddleware from './authorisationMiddleware'
 
 describe('authorisationMiddleware', () => {
-  let req: Request
+  const req: Request = {} as Request
   const next = jest.fn()
 
   function createResWithToken({ authorities }: { authorities: string[] }): Response {

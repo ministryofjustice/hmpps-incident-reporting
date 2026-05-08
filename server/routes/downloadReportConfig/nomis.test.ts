@@ -29,7 +29,8 @@ describe('NOMIS config downloads', () => {
       fileType === 'csv' ? /attachment; filename=.*\.csv/ : /attachment; filename=.*\.json/
 
     it('incident types', () => {
-      const nomisData = ['ASSAULTS1', 'DRONE'].map((type: NomisType, index): IncidentTypeConfiguration => {
+      const nomisTypes: NomisType[] = ['ASSAULTS1', 'DRONE']
+      const nomisData = nomisTypes.map((type: NomisType, index): IncidentTypeConfiguration => {
         const index1 = index + 1
         return {
           incidentType: type,

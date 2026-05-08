@@ -8,7 +8,7 @@ import mojFrontendFilters from '@ministryofjustice/frontend/moj/filters/all'
 
 import logger from '../../logger'
 import config from '../config'
-import { convertToTitleCase, initialiseName, nameOfPerson, reversedNameOfPerson, possessive, yearsSince } from './utils'
+import { convertToTitleCase, initialiseName, nameOfPerson, reversedNameOfPerson, possessive } from './utils'
 import {
   findFieldInGovukErrorSummary,
   govukCheckedItems,
@@ -92,7 +92,6 @@ export default function nunjucksSetup(app: express.Express): void {
   njkEnv.addFilter('shortDateAndTime', format.shortDateAndTime.bind(format))
   njkEnv.addFilter('shortDate', format.shortDate.bind(format))
   njkEnv.addFilter('time', format.time.bind(format))
-  njkEnv.addFilter('yearsSince', yearsSince)
 
   // prisoner utils
   njkEnv.addFilter('prisonerLocation', prisonerLocation)

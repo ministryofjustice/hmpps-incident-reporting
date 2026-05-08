@@ -2,7 +2,7 @@ import type express from 'express'
 import FormWizard from 'hmpo-form-wizard'
 
 import logger from '../../../../../logger'
-import type { AddStaffInvolvementRequest, ReportWithDetails } from '../../../../data/incidentReportingApi'
+import type { AddStaffInvolvementRequest } from '../../../../data/incidentReportingApi'
 import type { PrisonUser } from '../../../../data/manageUsersApiClient'
 import { handleReportEdit } from '../../actions/handleReportEdit'
 import { StaffInvolvementController } from './controller'
@@ -20,7 +20,7 @@ export class AddStaffInvolvementController<V extends Values = Values> extends St
   }
 
   async saveValues(req: FormWizard.Request<V>, res: express.Response, next: express.NextFunction): Promise<void> {
-    const report = res.locals.report as ReportWithDetails
+    const { report } = res.locals
     const allValues = this.getAllValues(req, false)
     try {
       await res.locals.apis.incidentReportingApi.staffInvolved.addToReport(report.id, {

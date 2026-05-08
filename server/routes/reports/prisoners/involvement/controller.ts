@@ -4,7 +4,6 @@ import type FormWizard from 'hmpo-form-wizard'
 import type { PrisonerInvolvementOutcome, PrisonerInvolvementRole } from '../../../../reportConfiguration/constants'
 import { BaseController } from '../../../../controllers'
 import { convertToTitleCase, nameOfPerson, possessive } from '../../../../utils/utils'
-import type { ReportWithDetails } from '../../../../data/incidentReportingApi'
 import { populateReportConfiguration } from '../../../../middleware/populateReportConfiguration'
 import type { Values } from './fields'
 
@@ -23,7 +22,7 @@ export abstract class PrisonerInvolvementController extends BaseController<Value
 
   private customiseFields(req: FormWizard.Request<Values>, res: express.Response, next: express.NextFunction): void {
     const { fields } = req.form.options
-    const report = res.locals.report as ReportWithDetails
+    const { report } = res.locals
 
     const { firstName } = this.getPrisonerName(res)
     const possessiveFirstName = possessive(convertToTitleCase(firstName))

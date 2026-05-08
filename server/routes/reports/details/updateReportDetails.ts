@@ -3,7 +3,6 @@ import FormWizard from 'hmpo-form-wizard'
 
 import logger from '../../../../logger'
 import format from '../../../utils/format'
-import type { ReportBasic } from '../../../data/incidentReportingApi'
 import { logoutUnless, hasPermissionTo } from '../../../middleware/permissions'
 import { populateReport } from '../../../middleware/populateReport'
 import { dwNotReviewed } from '../../../reportConfiguration/constants'
@@ -28,7 +27,7 @@ class DetailsController extends BaseDetailsController<DetailsValues> {
     next: express.NextFunction,
   ): void {
     /** Check status of report. If DW has seen report, redirect to update incident date and time page */
-    const report = res.locals.report as ReportBasic
+    const { report } = res.locals
     if (!dwNotReviewed.includes(report.status)) {
       res.redirect(`/reports/${report.id}/update-date-and-time`)
     } else {
@@ -41,7 +40,7 @@ class DetailsController extends BaseDetailsController<DetailsValues> {
     res: express.Response,
     next: express.NextFunction,
   ): void {
-    const report = res.locals.report as ReportBasic
+    const { report } = res.locals
 
     // load existing report details into session model to prefill inputs
     req.sessionModel.set('incidentDate', format.shortDate(report.incidentDateAndTime))
@@ -58,7 +57,7 @@ class DetailsController extends BaseDetailsController<DetailsValues> {
     res: express.Response,
     next: express.NextFunction,
   ): Promise<void> {
-    const report = res.locals.report as ReportBasic
+    const { report } = res.locals
     const allValues = this.getAllValues(req)
 
     const { description, incidentDate, incidentTime } = allValues

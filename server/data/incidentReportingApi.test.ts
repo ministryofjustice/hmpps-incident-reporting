@@ -10,7 +10,6 @@ import {
   UpdateReportRequest,
   AddOrUpdateQuestionWithResponsesRequest,
   IncidentReportingApi,
-  isErrorResponse,
 } from './incidentReportingApi'
 import {
   mockDescriptionAddendum,
@@ -20,6 +19,13 @@ import {
   mockReport,
 } from './testData/incidentReporting'
 import { unsortedPageOf } from './testData/paginatedResponses'
+
+function isErrorResponse(obj: unknown): obj is ErrorResponse {
+  // TODO: would be nice to make userMessage & developerMessage non-nullable in the api
+  return (
+    obj !== null && typeof obj === 'object' && 'status' in obj && typeof obj.status === 'number' && 'userMessage' in obj
+  )
+}
 
 describe('Incident reporting API client', () => {
   const accessToken = 'token'

@@ -4,7 +4,6 @@ import FormWizard from 'hmpo-form-wizard'
 
 import logger from '../../../../logger'
 import { BaseController } from '../../../controllers'
-import type { ReportBasic } from '../../../data/incidentReportingApi'
 import { logoutUnless, hasPermissionTo } from '../../../middleware/permissions'
 import { populateReport } from '../../../middleware/populateReport'
 import { fallibleUpdateReportTitle } from '../../../services/reportTitle'
@@ -33,7 +32,7 @@ class TypeController extends BaseTypeController<TypeValues> {
     next: express.NextFunction,
   ): void {
     const { fields } = req.form.options
-    const report = res.locals.report as ReportBasic
+    const { report } = res.locals
 
     const customisedFields = { ...fields }
 

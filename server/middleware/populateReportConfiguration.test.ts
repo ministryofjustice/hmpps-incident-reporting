@@ -25,7 +25,7 @@ describe('Middleware to load report configuration and progress', () => {
 
     await populateReportConfiguration()(req, res, next)
 
-    expect(res.locals.reportConfig.incidentType).toEqual(report.type)
+    expect(res.locals.reportConfig?.incidentType).toEqual(report.type)
     expect(res.locals.questionFields).toBeInstanceOf(Object)
     expect(res.locals.questionSteps).toBeInstanceOf(Object)
     if (reportHasDetails(report)) {
@@ -46,7 +46,7 @@ describe('Middleware to load report configuration and progress', () => {
 
     await populateReportConfiguration(false)(req, res, next)
 
-    expect(res.locals.reportConfig.incidentType).toEqual(report.type)
+    expect(res.locals.reportConfig?.incidentType).toEqual(report.type)
     expect(res.locals.questionFields).toBeUndefined()
     expect(res.locals.questionSteps).toBeUndefined()
     expect(res.locals.questionProgress).toBeUndefined()

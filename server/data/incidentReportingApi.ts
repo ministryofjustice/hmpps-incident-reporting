@@ -36,11 +36,6 @@ export interface ErrorResponse {
   moreInfo?: string
 }
 
-export function isErrorResponse(obj: unknown): obj is ErrorResponse {
-  // TODO: would be nice to make userMessage & developerMessage non-nullable in the api
-  return typeof obj === 'object' && 'status' in obj && typeof obj.status === 'number' && 'userMessage' in obj
-}
-
 export const defaultPageSize = 20
 
 export interface Page<T> {

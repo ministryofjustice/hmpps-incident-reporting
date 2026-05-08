@@ -32,7 +32,7 @@ declare module 'hmpo-form-wizard' {
       submittedValue: Value | MultiValue,
       req: Request,
       res: express.Response,
-      condition: unknown,
+      condition: { value: string[] },
     ) => boolean
 
     /** Possible conditions for next steps */

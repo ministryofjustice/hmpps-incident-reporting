@@ -3,7 +3,6 @@ import FormWizard from 'hmpo-form-wizard'
 
 import logger from '../../../../logger'
 import { BaseController } from '../../../controllers'
-import type { ReportWithDetails } from '../../../data/incidentReportingApi'
 import { logoutUnless, hasPermissionTo } from '../../../middleware/permissions'
 import { populateReport } from '../../../middleware/populateReport'
 import { dwNotReviewed } from '../../../reportConfiguration/constants'
@@ -25,7 +24,7 @@ class AddDescriptionAddendumController extends BaseController<AddDescriptionValu
     next: express.NextFunction,
   ): void {
     /** Check status of report. If DW has not seen report yet, redirect to update details page */
-    const report = res.locals.report as ReportWithDetails
+    const { report } = res.locals
     if (dwNotReviewed.includes(report.status)) {
       res.redirect(`/reports/${report.id}/update-details`)
     } else {
@@ -38,7 +37,7 @@ class AddDescriptionAddendumController extends BaseController<AddDescriptionValu
     res: express.Response,
     next: express.NextFunction,
   ): Promise<void> {
-    const report = res.locals.report as ReportWithDetails
+    const { report } = res.locals
     res.locals.usersLookup = await res.locals.apis.userService.getUsers(res.locals.systemToken, [report.reportedBy])
     next()
   }
@@ -59,7 +58,7 @@ class AddDescriptionAddendumController extends BaseController<AddDescriptionValu
     res: express.Response,
     next: express.NextFunction,
   ): Promise<void> {
-    const report = res.locals.report as ReportWithDetails
+    const { report } = res.locals
     const allValues = this.getAllValues(req, false)
     const [firstName, ...lastNames] = res.locals.user.name.split(/\s+/)
     const lastName = lastNames.join(' ')

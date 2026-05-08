@@ -65,7 +65,7 @@ class EditStaffInvolvementController extends StaffInvolvementController {
   }
 
   async saveValues(req: FormWizard.Request<Values>, res: express.Response, next: express.NextFunction): Promise<void> {
-    const report = res.locals.report as ReportWithDetails
+    const { report } = res.locals
     const index = parseInt(req.params.index, 10)
     const allValues = this.getAllValues(req, false)
     try {

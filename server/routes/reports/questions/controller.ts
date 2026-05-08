@@ -216,7 +216,7 @@ export class QuestionsController extends BaseController<FormWizard.MultiValues> 
 
         const submittedValues = req.form.values
 
-        const report = res.locals.report as ReportWithDetails
+        const { report } = res.locals
         const { reportConfig, questionSteps, questionFields } = res.locals
 
         // get step's fields in proper order (submittedValues is not properly ordered)

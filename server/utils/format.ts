@@ -40,8 +40,8 @@ export default {
    *
    * Example: `2 March 2022 at 11:00`
    */
-  longDateAndTime(date: Date): string {
-    if (typeof date === 'undefined' || date === null) {
+  longDateAndTime(date: Date | null | undefined): string {
+    if (!date) {
       return ''
     }
     return longDateAndTimeFormatter.format(date)
@@ -52,8 +52,8 @@ export default {
    *
    * Example: `2 March 2022`
    */
-  longDate(date: Date): string {
-    if (typeof date === 'undefined' || date === null) {
+  longDate(date: Date | null | undefined): string {
+    if (!date) {
       return ''
     }
     return longDateFormatter.format(date)
@@ -65,8 +65,8 @@ export default {
    *
    * Example: `2/3/2022`
    */
-  shortDateAndTime(date: Date): string {
-    if (typeof date === 'undefined' || date === null) {
+  shortDateAndTime(date: Date | null | undefined): string {
+    if (!date) {
       return ''
     }
     return `${this.shortDate(date)} at ${this.time(date)}`
@@ -78,8 +78,8 @@ export default {
    *
    * Example: `2/3/2022`
    */
-  shortDate(date: Date): string {
-    if (typeof date === 'undefined' || date === null) {
+  shortDate(date: Date | null | undefined): string {
+    if (!date) {
       return ''
     }
     return shortDateFormatter
@@ -93,8 +93,8 @@ export default {
    *
    * Example: `14:22`
    */
-  time(date: Date): string {
-    if (typeof date === 'undefined' || date === null) {
+  time(date: Date | null | undefined): string {
+    if (!date) {
       return ''
     }
     return hourAndMinuteFormatter.format(date)

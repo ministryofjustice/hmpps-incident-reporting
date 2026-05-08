@@ -74,14 +74,6 @@ export function datesAsStrings<T>(obj: T): DatesAsStrings<T> {
   return Object.fromEntries(Object.entries(obj).map(([property, value]) => [property, datesAsStrings(value)]))
 }
 
-/** Convert camelCase or PascalCase into kebab-case */
-export function kebabCase(str: string): string {
-  return str
-    ?.replace(/([A-Z])/g, '-$1')
-    ?.replace(/^-/, '')
-    ?.toLowerCase()
-}
-
 /**
  * Adds missing question mark to a question.
  *

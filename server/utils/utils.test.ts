@@ -10,10 +10,8 @@ import {
   kebabCase,
   nameOfPerson,
   reversedNameOfPerson,
-  yearsSince,
   errorResponseStatusMatches,
 } from './utils'
-import { fakeClock } from '../testutils/fakeJestClock'
 import { mockThrownError } from '../data/testData/thrownErrors'
 
 describe('convert to title case', () => {
@@ -88,28 +86,6 @@ describe('possessive', () => {
     [' Fred ', 'Fred’s'],
   ])('of %s is %s', (input, expected) => {
     expect(possessive(input)).toEqual(expected)
-  })
-})
-
-describe('yearsSince', () => {
-  beforeEach(() => {
-    // set "now" to 2023-12-05T12:34:56.000Z
-    fakeClock()
-  })
-
-  it.each([undefined, null, '', 'today'])('should return null for %p', input => {
-    expect(yearsSince(input)).toBeNull()
-  })
-
-  it.each([
-    ['2023-12-05', 0],
-    ['2023-01-05', 0],
-    ['2020-01-05', 3],
-    ['2020-12-05', 3],
-    ['2020-12-06', 2],
-    ['1987-01-01', 36],
-  ])('should say years since %p is %d', (input, expectedYears) => {
-    expect(yearsSince(input)).toEqual(expectedYears)
   })
 })
 

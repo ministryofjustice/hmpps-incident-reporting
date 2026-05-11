@@ -3,7 +3,6 @@ import type { Express, NextFunction, Request, Response } from 'express'
 import { roleReadOnly, roleReadWrite, roleApproveReject, rolePecs } from '../../data/constants'
 import type { ReportBasic } from '../../data/incidentReportingApi'
 import { isPecsRegionCode, pecsRegions } from '../../data/pecsRegions'
-import { isLocationActiveInService } from './locationActiveInService'
 import { type ReportTransitions, prisonReportTransitions, pecsReportTransitions } from './statusTransitions'
 import type { UserAction } from './userActions'
 import type { UserType } from './userType'
@@ -134,7 +133,6 @@ export class Permissions {
     const isPecsReport = isPecsRegionCode(reportLike.location)
     const { canAccessService, hasPecsAccess } = this
     const canAccessLocation = isPecsReport ? hasPecsAccess : this.caseloadIds.has(reportLike.location)
-    const locationIsActive = isLocationActiveInService(reportLike.location)
 
     if (!canAccessService || !canAccessLocation) {
       // insufficient roles or caseloads
@@ -143,7 +141,7 @@ export class Permissions {
 
     const allowedActions = new Set<UserAction>(['VIEW'])
 
-    if ((where === 'dps' && !locationIsActive) || (where === 'nomis' && locationIsActive)) {
+    if (where === 'nomis') {
       // only modifiable in nomis
       return allowedActions
     }

@@ -285,29 +285,6 @@ describe('Permissions class', () => {
           const permissions = new Permissions(user)
           expect(permissions.canCreateReportInLocation('LEI')).toBe(action === granted)
         })
-
-        it.each([
-          { userType: notLoggedIn, action: denied },
-          { userType: unauthorisedNotInLeeds, action: denied },
-          { userType: unauthorisedInLeeds, action: denied },
-          { userType: reportingOfficerNotInLeeds, action: denied },
-          { userType: reportingOfficerInLeeds, action: granted },
-          { userType: reportingOfficerInLeedsWithPecs, action: granted },
-          { userType: dataWardenNotInLeeds, action: denied },
-          { userType: dataWardenInLeeds, action: denied },
-          { userType: dataWardenInLeedsWithoutPecs, action: denied },
-          { userType: hqViewerNotInLeeds, action: denied },
-          { userType: hqViewerInLeeds, action: denied },
-          { userType: hqViewerInLeedsWithPecs, action: denied },
-        ])(
-          'should be $action to $userType.description only in NOMIS when Leeds is inactive in DPS',
-          ({ userType: { user }, action }) => {
-            setActiveAgencies(['MDI'])
-            const permissions = new Permissions(user)
-            expect(permissions.canCreateReportInLocation('LEI')).toBe(false)
-            expect(permissions.canCreateReportInLocationInNomisOnly('LEI')).toBe(action === granted)
-          },
-        )
       })
 
       describe('in active caseload', () => {
@@ -323,22 +300,8 @@ describe('Permissions class', () => {
           },
           {
             userType: {
-              descriptionIgnoringCaseload: 'reporting officer whose active caseload is inactive in the service',
-              user: mockUser([makeMockCaseload(brixton), makeMockCaseload(leeds)], [roleReadWrite]),
-            },
-            action: denied,
-          },
-          {
-            userType: {
               descriptionIgnoringCaseload: 'data warden whose active caseload is active in the service',
               user: mockUser([makeMockCaseload(leeds), makeMockCaseload(brixton)], [roleApproveReject, rolePecs]),
-            },
-            action: denied,
-          },
-          {
-            userType: {
-              descriptionIgnoringCaseload: 'data warden whose active caseload is inactive in the service',
-              user: mockUser([makeMockCaseload(brixton), makeMockCaseload(leeds)], [roleApproveReject, rolePecs]),
             },
             action: denied,
           },
@@ -347,22 +310,6 @@ describe('Permissions class', () => {
           const permissions = new Permissions(user)
           expect(permissions.canCreateReportInActiveCaseload).toBe(action === granted)
         })
-
-        it.each([
-          { userType: notLoggedIn, action: denied },
-          { userType: unauthorisedNotInLeeds, action: denied },
-          { userType: reportingOfficerNotInLeeds, action: granted },
-          { userType: dataWardenNotInLeeds, action: denied },
-          { userType: hqViewerNotInLeeds, action: denied },
-        ])(
-          'should be $action to $userType.descriptionIgnoringCaseload only in NOMIS when active casload is inactive in DPS',
-          ({ userType: { user }, action }) => {
-            setActiveAgencies([])
-            const permissions = new Permissions(user)
-            expect(permissions.canCreateReportInActiveCaseload).toBe(false)
-            expect(permissions.canCreateReportInActiveCaseloadInNomisOnly).toBe(action === granted)
-          },
-        )
       })
 
       describe('in a PECS region', () => {
@@ -396,35 +343,6 @@ describe('Permissions class', () => {
             expect(permissions.canCreatePecsReport).toBe(action === granted)
           })
         })
-
-        it.each([
-          { userType: notLoggedIn, action: denied },
-          { userType: unauthorisedNotInLeeds, action: denied },
-          { userType: unauthorisedInLeeds, action: denied },
-          { userType: reportingOfficerNotInLeeds, action: denied },
-          { userType: reportingOfficerInLeeds, action: denied },
-          { userType: reportingOfficerInLeedsWithPecs, action: denied },
-          { userType: dataWardenNotInLeeds, action: granted },
-          { userType: dataWardenInLeeds, action: granted },
-          { userType: dataWardenInLeedsWithoutPecs, action: denied },
-          { userType: hqViewerNotInLeeds, action: denied },
-          { userType: hqViewerInLeeds, action: denied },
-          { userType: hqViewerInLeedsWithPecs, action: denied },
-        ])(
-          'should be $action to $userType.description only in NOMIS when PECS reports are inactive in DPS',
-          ({ userType: { user }, action }) => {
-            setActiveAgencies(leedsAndMoorland)
-            const permissions = new Permissions(user)
-            expect(permissions.canCreateReportInLocation('NOU')).toBe(false)
-            expect(permissions.canCreateReportInLocationInNomisOnly('NOU')).toBe(action === granted)
-            expect(permissions.canCreateReportInLocation('NORTH')).toBe(false)
-            expect(permissions.canCreateReportInLocationInNomisOnly('NORTH')).toBe(action === granted)
-            expect(permissions.canCreateReportInLocation('SOUTH')).toBe(false)
-            expect(permissions.canCreateReportInLocationInNomisOnly('SOUTH')).toBe(action === granted)
-            expect(permissions.canCreatePecsReport).toBe(false)
-            expect(permissions.canCreatePecsReportInNomisOnly).toBe(action === granted)
-          },
-        )
       })
     })
 
@@ -451,38 +369,6 @@ describe('Permissions class', () => {
             all: action,
           })
         })
-
-        it.each([
-          { userType: notLoggedIn, action: denied },
-          { userType: unauthorisedNotInLeeds, action: denied },
-          { userType: unauthorisedInLeeds, action: denied },
-          { userType: reportingOfficerNotInLeeds, action: denied },
-          { userType: reportingOfficerInLeeds, action: granted },
-          { userType: reportingOfficerInLeedsWithPecs, action: granted },
-          { userType: dataWardenNotInLeeds, action: denied },
-          { userType: dataWardenInLeeds, action: denied },
-          { userType: dataWardenInLeedsWithoutPecs, action: denied },
-          { userType: hqViewerNotInLeeds, action: denied },
-          { userType: hqViewerInLeeds, action: denied },
-          { userType: hqViewerInLeedsWithPecs, action: denied },
-        ])(
-          'should be $action to $userType.description only in NOMIS when Leeds is inactive in DPS',
-          ({ userType: { user }, action }) => {
-            setActiveAgencies(['MDI'])
-            const permissions = new Permissions(user)
-            expectActionsOnPrisonReports({
-              permissions,
-              userActions: ['EDIT'],
-              all: denied,
-            })
-            expectActionsOnPrisonReports({
-              permissions,
-              userActions: ['EDIT'],
-              all: action,
-              onlyInNomis: true,
-            })
-          },
-        )
       })
 
       describe('in a PECS region', () => {
@@ -507,38 +393,6 @@ describe('Permissions class', () => {
             all: action,
           })
         })
-
-        it.each([
-          { userType: notLoggedIn, action: denied },
-          { userType: unauthorisedNotInLeeds, action: denied },
-          { userType: unauthorisedInLeeds, action: denied },
-          { userType: reportingOfficerNotInLeeds, action: denied },
-          { userType: reportingOfficerInLeeds, action: denied },
-          { userType: reportingOfficerInLeedsWithPecs, action: denied },
-          { userType: dataWardenNotInLeeds, action: granted },
-          { userType: dataWardenInLeeds, action: granted },
-          { userType: dataWardenInLeedsWithoutPecs, action: denied },
-          { userType: hqViewerNotInLeeds, action: denied },
-          { userType: hqViewerInLeeds, action: denied },
-          { userType: hqViewerInLeedsWithPecs, action: denied },
-        ])(
-          'should be $action to $userType.description only in NOMIS when PECS reports are inactive in DPS',
-          ({ userType: { user }, action }) => {
-            setActiveAgencies([])
-            const permissions = new Permissions(user)
-            expectActionsOnPecsReports({
-              permissions,
-              userActions: ['EDIT'],
-              all: denied,
-            })
-            expectActionsOnPecsReports({
-              permissions,
-              userActions: ['EDIT'],
-              all: action,
-              onlyInNomis: true,
-            })
-          },
-        )
       })
     })
 
@@ -578,38 +432,6 @@ describe('Permissions class', () => {
             all: action,
           })
         })
-
-        it.each([
-          { userType: notLoggedIn, action: denied },
-          { userType: unauthorisedNotInLeeds, action: denied },
-          { userType: unauthorisedInLeeds, action: denied },
-          { userType: reportingOfficerNotInLeeds, action: denied },
-          { userType: reportingOfficerInLeeds, action: denied },
-          { userType: reportingOfficerInLeedsWithPecs, action: denied },
-          { userType: dataWardenNotInLeeds, action: denied },
-          { userType: dataWardenInLeeds, action: granted },
-          { userType: dataWardenInLeedsWithoutPecs, action: granted },
-          { userType: hqViewerNotInLeeds, action: denied },
-          { userType: hqViewerInLeeds, action: denied },
-          { userType: hqViewerInLeedsWithPecs, action: denied },
-        ])(
-          'should be $action to $userType.description only in NOMIS when Leeds is inactive in DPS',
-          ({ userType: { user }, action }) => {
-            setActiveAgencies(['MDI'])
-            const permissions = new Permissions(user)
-            expectActionsOnPrisonReports({
-              permissions,
-              userActions: ['CLOSE', 'MARK_DUPLICATE', 'MARK_NOT_REPORTABLE'],
-              all: denied,
-            })
-            expectActionsOnPrisonReports({
-              permissions,
-              userActions: ['CLOSE', 'MARK_DUPLICATE', 'MARK_NOT_REPORTABLE'],
-              all: action,
-              onlyInNomis: true,
-            })
-          },
-        )
       })
 
       describe('in a PECS region', () => {
@@ -634,38 +456,6 @@ describe('Permissions class', () => {
             all: action,
           })
         })
-
-        it.each([
-          { userType: notLoggedIn, action: denied },
-          { userType: unauthorisedNotInLeeds, action: denied },
-          { userType: unauthorisedInLeeds, action: denied },
-          { userType: reportingOfficerNotInLeeds, action: denied },
-          { userType: reportingOfficerInLeeds, action: denied },
-          { userType: reportingOfficerInLeedsWithPecs, action: denied },
-          { userType: dataWardenNotInLeeds, action: granted },
-          { userType: dataWardenInLeeds, action: granted },
-          { userType: dataWardenInLeedsWithoutPecs, action: denied },
-          { userType: hqViewerNotInLeeds, action: denied },
-          { userType: hqViewerInLeeds, action: denied },
-          { userType: hqViewerInLeedsWithPecs, action: denied },
-        ])(
-          'should be $action to $userType.description only in NOMIS when active casload is inactive in DPS',
-          ({ userType: { user }, action }) => {
-            setActiveAgencies(leedsAndMoorland)
-            const permissions = new Permissions(user)
-            expectActionsOnPecsReports({
-              permissions,
-              userActions: ['CLOSE'],
-              all: denied,
-            })
-            expectActionsOnPecsReports({
-              permissions,
-              userActions: ['CLOSE'],
-              all: action,
-              onlyInNomis: true,
-            })
-          },
-        )
       })
     })
   })

@@ -17,10 +17,6 @@ import { editReportRouter } from './reports/editReportRouter'
 import { reopenRouter } from './reports/actions/reopen'
 import { requestRemovalRouter } from './reports/actions/requestRemoval'
 import dashboard from './dashboard'
-import prisonServiceConfiguration from './admin'
-import switchWarningScreen from './admin/switchWarning'
-import switchDpsStatus from './admin/switchDpsStatus'
-import switchNomisAccess from './admin/switchNomisAccess'
 
 export default function routes(services: Services): Router {
   const router = Router()
@@ -59,10 +55,6 @@ export default function routes(services: Services): Router {
   router.use('/reports/:reportId/update-date-and-time', updateIncidentDateAndTimeRouter)
   router.use('/reports/:reportId/add-description', addDescriptionRouter)
   router.use('/reports/:reportId', editReportRouter)
-  router.use('/admin/:prisonId', prisonServiceConfiguration())
-  router.use('/admin/:prisonId/switch-dps-status', switchDpsStatus())
-  router.use('/admin/:prisonId/switch-warning-screens', switchWarningScreen())
-  router.use('/admin/:prisonId/switch-nomis-access', switchNomisAccess())
 
   // Auxiliary routes
   router.get('/prisoner/:prisonerNumber/photo.jpeg', async (req, res) => {

@@ -222,45 +222,6 @@ export class PrisonApi extends RestClient {
     }
   }
 
-  async isPrisonActive(prisonId: string): Promise<boolean> {
-    const SERVICE_CODE = 'INCIDENTS'
-    try {
-      await this.get<ActiveAgency>(
-        {
-          path: `/api/agency-switches/${encodeURIComponent(SERVICE_CODE)}/agency/${encodeURIComponent(prisonId)}`,
-        },
-        asSystem(),
-      )
-      return true
-    } catch (error) {
-      if (error?.responseStatus === 404) {
-        // endpoint returns 404s when agency is not active
-        return false
-      }
-      throw error
-    }
-  }
-
-  async activatePrison(prisonId: string): Promise<ActiveAgency> {
-    const SERVICE_CODE = 'INCIDENTS'
-    return this.post<ActiveAgency>(
-      {
-        path: `/api/agency-switches/${encodeURIComponent(SERVICE_CODE)}/agency/${encodeURIComponent(prisonId)}`,
-      },
-      asSystem(),
-    )
-  }
-
-  async deactivatePrison(prisonId: string): Promise<void> {
-    const SERVICE_CODE = 'INCIDENTS'
-    return this.delete(
-      {
-        path: `/api/agency-switches/${encodeURIComponent(SERVICE_CODE)}/agency/${encodeURIComponent(prisonId)}`,
-      },
-      asSystem(),
-    )
-  }
-
   async checkSplashScreenStatus(module: string, prisonId: string): Promise<SplashCondition | null> {
     try {
       return await this.get<SplashCondition>(

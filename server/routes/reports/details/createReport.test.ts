@@ -56,7 +56,6 @@ describe.each([
   if (reportType === 'PECS') {
     describe('Step 1: selecting PECS region', () => {
       it('should list PECS regions that can be selected', () => {
-        setActiveAgencies(['NORTH'])
         return agent
           .get('/create-report/pecs')
           .expect(200)
@@ -64,12 +63,11 @@ describe.each([
             expectOnPecsRegionPage(res)
             expect(res.text).not.toContain('There is a problem')
 
-            // active region
+            // active regions
             expect(res.text).toContain('NORTH')
             expect(res.text).toContain('PECS North')
-            // inactive region
-            expect(res.text).not.toContain('SOUTH')
-            expect(res.text).not.toContain('PECS South')
+            expect(res.text).toContain('SOUTH')
+            expect(res.text).toContain('PECS South')
           })
       })
 

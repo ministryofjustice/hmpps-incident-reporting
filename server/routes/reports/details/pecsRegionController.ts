@@ -2,7 +2,6 @@ import type express from 'express'
 import type FormWizard from 'hmpo-form-wizard'
 
 import { pecsRegions } from '../../../data/pecsRegions'
-import { isLocationActiveInService } from '../../../middleware/permissions'
 import { BaseController } from '../../../controllers'
 import type { PecsRegionFieldNames, PecsRegionValues } from './pecsRegionFields'
 
@@ -34,13 +33,8 @@ export abstract class BasePecsRegionController<V extends PecsRegionValues> exten
       pecsRegion: {
         ...fields.pecsRegion,
         items: pecsRegions
-          .filter(
-            pecsRegion =>
-              // PECS region must be active
-              pecsRegion.active &&
-              // and active in the service (though the expectation is that all active regions will be turned on simultaneously)
-              isLocationActiveInService(pecsRegion.code),
-          )
+          // PECS region must be active
+          .filter(pecsRegion => pecsRegion.active)
           .map(
             pecsRegion =>
               ({

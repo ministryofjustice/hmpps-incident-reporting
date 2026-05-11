@@ -17,27 +17,6 @@ export type ActiveAgency = {
   name: string
 }
 
-export type SplashCondition = {
-  splashConditionId: number
-  conditionType: string
-  conditionValue: string
-  blockAccess: boolean
-}
-
-export type SplashModule = {
-  splashId: number
-  moduleName: string
-  functionName: string
-  function: {
-    functionName: string
-    description: string
-  }
-  warningText: string
-  blockedText: string
-  blockAccessType: string
-  conditions: SplashCondition[]
-}
-
 export interface Staff {
   firstName: string
   lastName: string
@@ -220,55 +199,6 @@ export class PrisonApi extends RestClient {
       }
       throw error
     }
-  }
-
-  async checkSplashScreenStatus(module: string, prisonId: string): Promise<SplashCondition | null> {
-    try {
-      return await this.get<SplashCondition>(
-        {
-          path: `/api/splash-screen/${encodeURIComponent(module)}/condition/CASELOAD/${encodeURIComponent(prisonId)}`,
-        },
-        asSystem(),
-      )
-    } catch (error) {
-      if (error?.responseStatus === 404) {
-        // endpoint returns 404s when no condition found
-        return null
-      }
-      throw error
-    }
-  }
-
-  async activateSplashScreenWarning(module: string, prisonId: string): Promise<SplashModule> {
-    return this.post<SplashModule>(
-      {
-        path: `/api/splash-screen/${encodeURIComponent(module)}/condition`,
-        data: {
-          conditionType: 'CASELOAD',
-          conditionValue: prisonId,
-          blockAccess: 'false',
-        },
-      },
-      asSystem(),
-    )
-  }
-
-  async deactivateSplashScreenWarning(module: string, prisonId: string): Promise<SplashModule> {
-    return this.delete<SplashModule>(
-      {
-        path: `/api/splash-screen/${encodeURIComponent(module)}/condition/CASELOAD/${encodeURIComponent(prisonId)}`,
-      },
-      asSystem(),
-    )
-  }
-
-  async setNomisScreenAccess(module: string, prisonId: string, access: 'true' | 'false'): Promise<SplashModule> {
-    return this.put<SplashModule>(
-      {
-        path: `/api/splash-screen/${encodeURIComponent(module)}/condition/CASELOAD/${encodeURIComponent(prisonId)}/${encodeURIComponent(access)}`,
-      },
-      asSystem(),
-    )
   }
 
   async getPhoto(prisonerNumber: string): Promise<Buffer | null> {

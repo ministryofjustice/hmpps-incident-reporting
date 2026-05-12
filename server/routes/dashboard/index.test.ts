@@ -3,7 +3,6 @@ import request from 'supertest'
 
 import { appWithAllRoutes } from '../testutils/appSetup'
 import { now } from '../../testutils/fakeClock'
-import { setActiveAgencies } from '../../data/activeAgencies'
 import { rolePecs } from '../../data/constants'
 import { type GetReportsParams, IncidentReportingApi } from '../../data/incidentReportingApi'
 import { convertReportDates } from '../../data/incidentReportingApiUtils'
@@ -64,21 +63,6 @@ describe('Dashboard permissions', () => {
           expect(res.text).not.toContain('Create a report')
           expect(res.text).not.toContain('Create a PECS report')
         }
-      })
-  })
-
-  it('should hide report button for reporting officer when their active caseload in not active in the service', () => {
-    const testApp = appWithAllRoutes({
-      services: { userService },
-      userSupplier: () => mockReportingOfficer,
-    })
-    setActiveAgencies(['LEI'])
-
-    return request(testApp)
-      .get('/reports')
-      .expect(res => {
-        expect(res.text).not.toContain('Report an incident')
-        expect(res.text).toContain('You must use NOMIS to create reports in this establishment')
       })
   })
 })

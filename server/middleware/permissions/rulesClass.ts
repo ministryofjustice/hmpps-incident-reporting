@@ -73,19 +73,9 @@ export class Permissions {
     return this.allowedActionsOnReport({ status: 'DRAFT', location }).has('EDIT')
   }
 
-  /** Could have created a new report in DPS if given prison was active or PECS regions are enabled */
-  canCreateReportInLocationInNomisOnly(location: string): boolean {
-    return this.allowedActionsOnReport({ status: 'DRAFT', location }, 'nomis').has('EDIT')
-  }
-
   /** Can create new report in active caseload prison */
   get canCreateReportInActiveCaseload(): boolean {
     return this.canCreateReportInLocation(this.activeCaseloadId)
-  }
-
-  /** Could have created new report in active caseload prison were it enabled */
-  get canCreateReportInActiveCaseloadInNomisOnly(): boolean {
-    return this.canCreateReportInLocationInNomisOnly(this.activeCaseloadId)
   }
 
   /** Can create a new PECS report - at least one PECS region is active and turned on in service */
@@ -100,22 +90,6 @@ export class Permissions {
       }
     }
     return false
-  }
-
-  /** Could have created a new PECS report if it was enabled */
-  get canCreatePecsReportInNomisOnly(): boolean {
-    const activePecsRegions = pecsRegions.filter(pecsRegion => pecsRegion.active)
-
-    // Need to loop through all active PECS regions to check if any of them allow creating a report in NOMIS only
-    for (const activePecsRegion of activePecsRegions) {
-      const createNomisOnly = activePecsRegion?.code
-        ? this.canCreateReportInLocationInNomisOnly(activePecsRegion.code)
-        : false
-      if (!createNomisOnly) {
-        return false
-      }
-    }
-    return true
   }
 
   /**

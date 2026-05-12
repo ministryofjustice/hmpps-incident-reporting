@@ -84,8 +84,6 @@ export function viewReportRouter(): Router {
       const questionProgressSteps = Array.from(questionProgress)
 
       const canEditReport = allowedActions.has('EDIT')
-      const allowedActionsInNomisOnly = permissions.allowedActionsOnReport(report, 'nomis')
-      const canEditReportInNomisOnly = allowedActionsInNomisOnly.has('EDIT')
       const hasOverrideActiveStatus = config.incidentTypesOverride.has(report.type)
       const allowedActionsNeedingForm = new Set<UserAction>()
       for (const action of allowedActions) {
@@ -314,7 +312,6 @@ export function viewReportRouter(): Router {
         questionProgressSteps,
         allowedActionsNeedingForm,
         canEditReport,
-        canEditReportInNomisOnly,
         hasOverrideActiveStatus,
         descriptionAppendOnly,
         usersLookup,

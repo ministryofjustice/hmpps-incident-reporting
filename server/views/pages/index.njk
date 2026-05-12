@@ -54,15 +54,6 @@
       description: "Review the details for incidents that have taken place in prisons.",
       href: searchIncidentsLink
     }) }}
-
-    {% if permissions.hasAdminAccess %}
-      {{ renderDpsCard({
-        heading: "Admin",
-        description: "Administer incident report service.",
-        href: "/admin/" + prisonId
-      }) }}
-    {% endif %}
-
   {% endcall %}
 
   <div class="govuk-grid-row">

@@ -17,13 +17,9 @@ import { mockPecsRegions, resetPecsRegions } from '../../data/testData/pecsRegio
 import { brixton, leeds, moorland } from '../../data/testData/prisonApi'
 import { Permissions } from './rulesClass'
 import type { UserAction } from './userActions'
-import { setActiveAgencies } from '../../data/activeAgencies'
 
 const granted = 'granted' as const
 const denied = 'denied' as const
-
-const leedsAndMoorland = [leeds.agencyId, moorland.agencyId]
-const pecsCodes = ['NORTH', 'SOUTH']
 
 interface Scenario {
   /** Most tests use this description since they are affected by roles and caseloads */
@@ -88,10 +84,6 @@ describe('Permissions class', () => {
 
   afterAll(() => {
     resetPecsRegions()
-  })
-
-  beforeEach(() => {
-    setActiveAgencies([...leedsAndMoorland, ...pecsCodes])
   })
 
   describe('User types', () => {

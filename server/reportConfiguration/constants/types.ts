@@ -268,6 +268,13 @@ export const types = [
     active: true,
     nomisCode: 'TOOL_LOSS',
   },
+  {
+    familyCode: 'UNLAWFUL_DETENTION',
+    code: 'UNLAWFUL_DETENTION_1',
+    description: 'Unlawful detention',
+    active: true,
+    nomisCode: 'UNLWFL_DTNTN',
+  },
 ] as const
 
 /** Types of reportable incidents */
@@ -334,12 +341,17 @@ export const typesDescriptions: Record<Type, string> = {
   TEMPORARY_RELEASE_FAILURE_3: 'Temporary release failure',
   TEMPORARY_RELEASE_FAILURE_4: 'Temporary release failure',
   TOOL_LOSS_1: 'Tool or implement loss',
+  UNLAWFUL_DETENTION_1: 'Unlawful detention',
 }
 
 /** Adding bespoke hint text for incident types */
 export const incidentTypeHints: { [K in Type]?: Record<string, string> } = {
   RELEASE_IN_ERROR_1: {
     incidentDate: 'This should be the date the person was released - for example, 17/5/2024',
+  },
+  UNLAWFUL_DETENTION_1: {
+    incidentDate: 'The date the person was meant to be released - for example, 17/5/2024',
+    incidentTime: "For example, 09 08. If you're unsure, enter 23 59",
   },
 }
 

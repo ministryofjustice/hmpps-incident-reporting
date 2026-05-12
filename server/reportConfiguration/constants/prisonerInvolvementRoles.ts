@@ -20,6 +20,7 @@ export const prisonerInvolvementRoles = [
   { code: 'SUSPECTED_INVOLVED', description: 'Suspected involved', nomisCode: 'SUSINV' },
   { code: 'TEMPORARY_RELEASE_FAILURE', description: 'Temporary release failure', nomisCode: 'TRF' },
   { code: 'VICTIM', description: 'Victim', nomisCode: 'VICT' },
+  { code: 'UNLAWFUL_DETENTION', description: 'Unlawful detention', nomisCode: 'UNLAWF' },
 ] as const
 
 /** Roles of a prisoner’s involvement in an incident */
@@ -48,6 +49,7 @@ export const prisonerInvolvementRolesDescriptions: Record<PrisonerInvolvementRol
   SUSPECTED_INVOLVED: 'Suspected involved',
   TEMPORARY_RELEASE_FAILURE: 'Temporary release failure',
   VICTIM: 'Victim',
+  UNLAWFUL_DETENTION: 'Unlawful detention',
 }
 
 /**

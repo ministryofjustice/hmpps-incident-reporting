@@ -54,25 +54,6 @@ export default {
     }),
 
   /**
-   * Stub endpoint to determine where service is active
-   */
-  stubPrisonApiMockAgencySwitches: ({ agencies = [moorland, leeds, pecsNorth, pecsSouth] } = {}): SuperAgentRequest =>
-    stubFor({
-      request: {
-        method: 'GET',
-        urlPath: '/prisonApi/api/agency-switches/INCIDENTS',
-      },
-      response: {
-        status: 200,
-        headers: { 'Content-Type': 'application/json;charset=UTF-8' },
-        jsonBody: agencies.map(agency => ({
-          agencyId: agency.agencyId,
-          name: agency.description,
-        })),
-      },
-    }),
-
-  /**
    * Stub a plaholder JPEG photo
    */
   stubPrisonApiMockPrisonerPhoto: (prisonerNumber: string): SuperAgentRequest =>

@@ -10,7 +10,6 @@ context('Healthcheck', () => {
       cy.task('stubNomisUserRolesApiPing')
       cy.task('stubOffenderSearchApiPing')
       cy.task('stubTokenVerificationPing')
-      cy.task('stubPrisonApiMockAgencySwitches')
     })
 
     it('Health check page is visible and UP', () => {

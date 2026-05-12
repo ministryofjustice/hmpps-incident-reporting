@@ -1,10 +1,8 @@
-// Generated with ./scripts/updateNomisIncidentTypeConfigurations.ts at 2026-01-27T13:21:00.000Z
-
 import type { IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 
 export const UNLAWFUL_DETENTION_1: IncidentTypeConfiguration = {
   incidentType: 'UNLAWFUL_DETENTION_1',
-  active: true,
+  active: false,
   startingQuestionCode: '100100',
   questions: {
     '100100': {
@@ -15,7 +13,7 @@ export const UNLAWFUL_DETENTION_1: IncidentTypeConfiguration = {
       multipleAnswers: false,
       answers: [
         {
-          code: '100100',
+          code: '100101',
           response: 'when_first_error_identified_date',
           active: true,
           label: 'Enter date of first error identified',
@@ -154,6 +152,7 @@ export const UNLAWFUL_DETENTION_1: IncidentTypeConfiguration = {
       active: true,
     },
   ],
+  requiresPrisoners: true,
 }
 
 export default UNLAWFUL_DETENTION_1

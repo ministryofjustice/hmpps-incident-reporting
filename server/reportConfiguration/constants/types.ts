@@ -273,7 +273,7 @@ export const types = [
     code: 'UNLAWFUL_DETENTION_1',
     description: 'Unlawful detention',
     active: true,
-    nomisCode: 'UNLWFL_DTNTN',
+    nomisCode: 'UNLAW_DET',
   },
 ] as const
 

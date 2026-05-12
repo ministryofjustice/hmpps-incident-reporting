@@ -2,15 +2,14 @@
  * Caches a value of type T for `durationMillisecs` ms
  */
 export default class Cache<T> {
-  durationMillisecs: number
+  readonly durationMillisecs: number
 
-  updatedAt: Date | null
+  updatedAt: Date | null = null
 
-  value: T | null
+  value: T | null = null
 
   constructor(durationMillisecs: number) {
     this.durationMillisecs = durationMillisecs
-    this.reset()
   }
 
   set(newValue: T) {

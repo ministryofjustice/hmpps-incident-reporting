@@ -20,10 +20,6 @@ context('Healthcheck', () => {
     it('Ping is visible and UP', () => {
       cy.request('/ping').its('body.status').should('equal', 'UP')
     })
-
-    it('Info is visible and active agencies', () => {
-      cy.request('/info').its('body.activeAgencies').should('deep.equal', ['***'])
-    })
   })
 
   context('Some unhealthy', () => {

@@ -147,7 +147,7 @@ export const UNLAWFUL_DETENTION_1: IncidentTypeConfiguration = {
   },
   prisonerRoles: [
     {
-      prisonerRole: 'UNLAWFUL_DETENTION',
+      prisonerRole: 'UNLAWFULLY_DETAINED',
       onlyOneAllowed: true,
       active: true,
     },

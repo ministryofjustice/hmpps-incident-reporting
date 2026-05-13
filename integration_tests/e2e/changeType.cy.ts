@@ -157,6 +157,11 @@ context('Change incident type', () => {
           checked: false,
         },
         {
+          label: 'Unlawful detention',
+          value: 'UNLAWFUL_DETENTION_1',
+          checked: false,
+        },
+        {
           label: 'Miscellaneous',
           value: 'MISCELLANEOUS_1',
           checked: false,

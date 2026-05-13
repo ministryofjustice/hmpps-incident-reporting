@@ -84,7 +84,7 @@ export const UNLAWFUL_DETENTION_1: IncidentTypeConfiguration = {
       answers: [
         {
           code: '100121',
-          response: 'first_idenified_how_transfer_check',
+          response: 'first_identified_how_transfer_check',
           active: true,
           label: 'Transfer check',
           commentRequested: false,
@@ -94,7 +94,7 @@ export const UNLAWFUL_DETENTION_1: IncidentTypeConfiguration = {
         },
         {
           code: '100122',
-          response: 'first_idenified_how_2_day_check',
+          response: 'first_identified_how_2_day_check',
           active: true,
           label: '2 day check',
           commentRequested: false,
@@ -104,7 +104,7 @@ export const UNLAWFUL_DETENTION_1: IncidentTypeConfiguration = {
         },
         {
           code: '100123',
-          response: 'first_idenified_how_14_day_check',
+          response: 'first_identified_how_14_day_check',
           active: true,
           label: '14 day check',
           commentRequested: false,
@@ -114,7 +114,7 @@ export const UNLAWFUL_DETENTION_1: IncidentTypeConfiguration = {
         },
         {
           code: '100124',
-          response: 'first_idenified_how_other',
+          response: 'first_identified_how_other',
           active: true,
           label: 'Other',
           commentRequested: true,

@@ -20,6 +20,7 @@ import type {
   IncidentTypeConfiguration as DpsIncidentTypeConfiguration,
   QuestionConfiguration as DpsQuestionConfiguration,
 } from '../server/data/incidentTypeConfiguration/types'
+import { getPrisonerInvolvementRoleDetails } from '../server/reportConfiguration/constants/prisonerInvolvementRoles'
 
 interface Arguments {
   scriptName: string
@@ -76,7 +77,7 @@ function toPrisonApiUpdatePayload({
     active,
     questions: questionsArray,
     prisonerRoles: dpsConfig.prisonerRoles.map(pr => ({
-      prisonerRole: pr.prisonerRole,
+      prisonerRole: getPrisonerInvolvementRoleDetails(pr.prisonerRole)?.nomisCode ?? pr.prisonerRole,
       singleRole: pr.onlyOneAllowed,
       active: pr.active,
     })),

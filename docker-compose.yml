@@ -20,7 +20,7 @@ services:
       - NOMIS_ENABLED=true
 
   nomis-user-roles-api:
-    image: quay.io/hmpps/nomis-user-roles-api:latest
+    image:  ghcr.io/ministryofjustice/nomis-user-roles-api:latest
     pull_policy: always
     container_name: nomis-user-roles-api
     networks:

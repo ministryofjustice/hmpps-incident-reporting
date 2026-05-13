@@ -45,6 +45,7 @@ export const typeFamilies = [
   { code: 'SELF_HARM', description: 'Self-harm' },
   { code: 'TEMPORARY_RELEASE_FAILURE', description: 'Temporary release failure' },
   { code: 'TOOL_LOSS', description: 'Tool or implement loss' },
+  { code: 'UNLAWFUL_DETENTION', description: 'Unlawful detention' },
 ] as const
 
 /** Incident type families */
@@ -95,6 +96,7 @@ export const typeFamiliesDescriptions: Record<TypeFamily, string> = {
   SELF_HARM: 'Self-harm',
   TEMPORARY_RELEASE_FAILURE: 'Temporary release failure',
   TOOL_LOSS: 'Tool or implement loss',
+  UNLAWFUL_DETENTION: 'Unlawful detention',
 }
 
 /** Lookup for incident type families */

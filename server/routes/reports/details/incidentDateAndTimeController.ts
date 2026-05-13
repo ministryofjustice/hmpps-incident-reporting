@@ -38,6 +38,10 @@ export abstract class BaseIncidentDateAndTimeController<
       req.form.options.fields.incidentDate.hint = incidentTypeHints[reportType].incidentDate
     }
 
+    if (incidentTypeHints[reportType]?.incidentTime) {
+      req.form.options.fields.incidentTime.hint = incidentTypeHints[reportType].incidentTime
+    }
+
     next()
   }
 

@@ -18,6 +18,7 @@ export const typeHints: Partial<Record<Type, string>> = {
   SELF_HARM_1:
     'Includes suspected and reported self-harm. Do not use to report a noose, unless it’s around the neck or applying pressure.',
   TOOL_LOSS_1: 'Do not use for key or lock compromises. They are separate incident types.',
+  UNLAWFUL_DETENTION_1: 'A person released from HMPPS custody later than intended.',
 }
 
 /**
@@ -63,6 +64,7 @@ const shortTypeTitles: Partial<Record<TypeFamily, string>> = {
   SELF_HARM: 'self-harm',
   TEMPORARY_RELEASE_FAILURE: 'temporary release failure',
   TOOL_LOSS: 'tool or implement loss',
+  UNLAWFUL_DETENTION: 'unlawful detention',
 }
 
 export function aboutTheType(typeOrFamily: Type | TypeFamily): string {

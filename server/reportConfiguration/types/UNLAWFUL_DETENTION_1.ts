@@ -117,6 +117,7 @@ export const UNLAWFUL_DETENTION_1: IncidentTypeConfiguration = {
           response: 'first_identified_how_other',
           active: true,
           label: 'Other',
+          commentLabel: 'For example, sentence adjustment or new information from court.',
           commentRequested: true,
           commentMandatory: true,
           dateMandatory: false,

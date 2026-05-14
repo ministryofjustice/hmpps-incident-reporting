@@ -43,7 +43,11 @@ describe('Middleware to redirect to report view depending on status', () => {
     await redirectIfStatusNot('DRAFT', 'NEEDS_UPDATING')(req, res, next)
 
     expect(next).toHaveBeenCalledWith(
-      expect.objectContaining({ message: 'redirectIfStatusNot() requires res.locals.report', status: 501 }),
+      expect.objectContaining({
+        message:
+          'Middleware configuration error: redirectIfStatusNot() requires res.locals.report: populateReport() was not executed first',
+        status: 500,
+      }),
     )
     expect(res.redirect).not.toHaveBeenCalled()
   })

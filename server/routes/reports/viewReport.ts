@@ -25,11 +25,11 @@ import {
 } from '../../middleware/permissions'
 import { populateReport } from '../../middleware/populateReport'
 import { populateReportConfiguration } from '../../middleware/populateReportConfiguration'
-import type {
-  AddCorrectionRequestRequest,
-  HistoricType,
-  ReportBasic,
-  ReportWithDetails,
+import {
+  type AddCorrectionRequestRequest,
+  type HistoricType,
+  type ReportBasic,
+  type ReportWithDetails,
 } from '../../data/incidentReportingApi'
 import { isPecsRegionCode } from '../../data/pecsRegions'
 import { validateReport } from '../../data/reportValidity'
@@ -40,6 +40,8 @@ import { findRequestDuplicate } from './actions/findRequestDuplicate'
 import { AgencyType } from '../../data/constants'
 import config from '../../config'
 import { errorResponseStatusMatches } from '../../utils/utils'
+import { missingLocalsError } from '../../errors'
+import { reportHasDetails } from '../../data/incidentReportingApiUtils'
 
 export function viewReportRouter(): Router {
   const router = Router({ mergeParams: true })
@@ -57,12 +59,41 @@ export function viewReportRouter(): Router {
     logoutUnless(hasPermissionTo('VIEW')),
     correctPecsReportStatus(),
     populateReportConfiguration(true),
-    async (req, res) => {
+    async (req, res, next) => {
       const { incidentReportingApi, prisonApi, userService } = res.locals.apis
+      const { report, permissions, allowedActions, possibleTransitions, reportConfig, reportUrl, questionProgress } =
+        res.locals
 
-      const report = res.locals.report as ReportWithDetails
+      if (!report) {
+        next(missingLocalsError('viewReportRouter()', 'res.locals.report'))
+        return
+      }
+      if (!reportHasDetails(report)) {
+        next(missingLocalsError('viewReportRouter()', 'res.locals.report (with details)'))
+        return
+      }
+      if (!reportUrl) {
+        next(missingLocalsError('viewReportRouter()', 'res.locals.reportUrl'))
+        return
+      }
+      if (!reportConfig) {
+        next(missingLocalsError('viewReportRouter()', 'res.locals.reportConfig'))
+        return
+      }
+      if (!questionProgress) {
+        next(missingLocalsError('viewReportRouter()', 'res.locals.questionProgress'))
+        return
+      }
+      if (!allowedActions) {
+        next(missingLocalsError('viewReportRouter()', 'res.locals.allowedActions'))
+        return
+      }
+      if (!possibleTransitions) {
+        next(missingLocalsError('viewReportRouter()', 'res.locals.possibleTransitions'))
+        return
+      }
+
       const isPecsReport = isPecsRegionCode(report.location)
-      const { permissions, allowedActions, reportConfig, reportUrl, questionProgress } = res.locals
       const { userType } = permissions
 
       const usernames = [report.reportedBy]
@@ -94,8 +125,6 @@ export function viewReportRouter(): Router {
         }
       }
 
-      const reportTransitions = res.locals.possibleTransitions
-
       let requestedOriginalReportReference: string | undefined
       if (allowedActions.has('MARK_DUPLICATE')) {
         requestedOriginalReportReference = findRequestDuplicate(report)?.originalReportReference
@@ -105,8 +134,8 @@ export function viewReportRouter(): Router {
       const errors: GovukErrorSummaryItem[] = []
       if (req.method === 'POST') {
         const { userAction } = req.body ?? {}
-        if (parseUserActionCode(userAction) && userAction in reportTransitions) {
-          const transition = reportTransitions[userAction]
+        if (parseUserActionCode(userAction) && userAction in possibleTransitions) {
+          const transition = possibleTransitions[userAction]
 
           if (
             userAction === 'RECALL' &&
@@ -288,7 +317,7 @@ export function viewReportRouter(): Router {
         !report.createdInNomis &&
         !isPecsReport &&
         allowedActionsNeedingForm.has('CLOSE') &&
-        reportTransitions.CLOSE?.mustBeValid
+        possibleTransitions.CLOSE?.mustBeValid
       ) {
         // check DPS prison report is valid and hide “Close” option otherwise (reports made in NOMIS do not get validated)
         // unfortunately, data wardens are provided no feedback as to why they cannot close the report; the option simply is absent
@@ -302,7 +331,7 @@ export function viewReportRouter(): Router {
       const banners = req.flash()
 
       // “About the [incident]”
-      res.locals.aboutTheType = aboutTheType(res.locals.report.type)
+      res.locals.aboutTheType = aboutTheType(report.type)
       const descriptionAppendOnly = !dwNotReviewed.includes(report.status)
 
       const incidentTypeHistory = cleanTypeHistory(report)
@@ -325,7 +354,7 @@ export function viewReportRouter(): Router {
         correctionRequestActionLabels,
         workListMapping,
         locationDescription,
-        reportTransitions,
+        reportTransitions: possibleTransitions,
         formValues,
         requestedOriginalReportReference,
       })

@@ -20,6 +20,7 @@ import { aboutTheType } from '../../../reportConfiguration/constants'
 import QuestionsToDelete from '../../../services/questionsToDelete'
 import { BaseController } from '../../../controllers'
 import { handleReportEdit } from '../actions/handleReportEdit'
+import { missingLocalsError } from '../../../errors'
 
 export class QuestionsController extends BaseController<FormWizard.MultiValues> {
   middlewareLocals(): void {
@@ -33,10 +34,20 @@ export class QuestionsController extends BaseController<FormWizard.MultiValues> 
     next: express.NextFunction,
   ): void {
     const { reportId } = req.params
+    const { report, questionProgress } = res.locals
+
+    if (!report) {
+      next(missingLocalsError('QuestionsController#checkQuestionProgress()', 'res.locals.report'))
+      return
+    }
+    if (!questionProgress) {
+      next(missingLocalsError('QuestionsController#checkQuestionProgress()', 'res.locals.questionProgress'))
+      return
+    }
 
     const stepPath = req.form.options.route
     let previousStep: string | null = null
-    for (const progressStep of res.locals.questionProgress) {
+    for (const progressStep of questionProgress) {
       if (progressStep.urlSuffix === stepPath) {
         res.locals.firstQuestionNumber = progressStep.questionNumber
         res.locals.questionPageNumber = progressStep.pageNumber
@@ -47,7 +58,7 @@ export class QuestionsController extends BaseController<FormWizard.MultiValues> 
     }
 
     if (!res.locals.questionPageNumber) {
-      logger.warn(`Cannot go to step ${stepPath} in report ${reportId} ${res.locals.report.type}`)
+      logger.warn(`Cannot go to step ${stepPath} in report ${reportId} ${report.type}`)
       // TODO: replace with last page instead of start?
       res.redirect(`${res.locals.reportSubUrlPrefix}/questions`)
       return
@@ -69,7 +80,7 @@ export class QuestionsController extends BaseController<FormWizard.MultiValues> 
     }
 
     // “About the [incident]”
-    res.locals.aboutTheType = aboutTheType(res.locals.report.type)
+    res.locals.aboutTheType = aboutTheType(report.type)
 
     next()
   }
@@ -216,8 +227,24 @@ export class QuestionsController extends BaseController<FormWizard.MultiValues> 
 
         const submittedValues = req.form.values
 
-        const { report } = res.locals
-        const { reportConfig, questionSteps, questionFields } = res.locals
+        const { report, reportConfig, questionSteps, questionFields } = res.locals
+
+        if (!report) {
+          next(missingLocalsError('QuestionsController#saveValues()', 'res.locals.report'))
+          return
+        }
+        if (!reportConfig) {
+          next(missingLocalsError('QuestionsController#saveValues()', 'res.locals.reportConfig'))
+          return
+        }
+        if (!questionSteps) {
+          next(missingLocalsError('QuestionsController#saveValues()', 'res.locals.questionSteps'))
+          return
+        }
+        if (!questionFields) {
+          next(missingLocalsError('QuestionsController#saveValues()', 'res.locals.questionFields'))
+          return
+        }
 
         // get step's fields in proper order (submittedValues is not properly ordered)
         const fieldNames = questionSteps[req.form.options.route].fields

@@ -84,7 +84,11 @@ describe('Middleware to load report configuration and progress', () => {
     expect(res.locals.questionSteps).toBeUndefined()
     expect(res.locals.questionProgress).toBeUndefined()
     expect(next).toHaveBeenCalledWith(
-      expect.objectContaining({ message: 'populateReportConfiguration() requires res.locals.report', status: 501 }),
+      expect.objectContaining({
+        message:
+          'Middleware configuration error: populateReportConfiguration() requires res.locals.report: populateReport() was not executed first',
+        status: 500,
+      }),
     )
   })
 })

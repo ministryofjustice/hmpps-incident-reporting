@@ -12,13 +12,13 @@ import {
 import { brixton, leeds, moorland, pecsNorth, pecsSouth, staffMary } from './testData/prisonApi'
 
 describe('prisonApi', () => {
-  const accessToken = 'token'
+  const systemToken = 'token'
   let fakeApiClient: nock.Scope
   let apiClient: PrisonApi
 
   beforeEach(() => {
     fakeApiClient = nock(config.apis.hmppsPrisonApi.url)
-    apiClient = new PrisonApi(accessToken)
+    apiClient = new PrisonApi(systemToken)
   })
 
   afterEach(() => {
@@ -34,7 +34,7 @@ describe('prisonApi', () => {
       fakeApiClient
         .get(`/api/agencies/${prisonId}`)
         .query({ activeOnly: 'false', agencyType: 'INST', skipFormatLocation: 'false' })
-        .matchHeader('authorization', `Bearer ${accessToken}`)
+        .matchHeader('authorization', `Bearer ${systemToken}`)
         .reply(200, moorland)
 
       const response = await apiClient.getAgency(prisonId, false, AgencyType.INST, false)
@@ -45,7 +45,7 @@ describe('prisonApi', () => {
       fakeApiClient
         .get(`/api/agencies/${pecsRegion}`)
         .query({ activeOnly: 'false', agencyType: 'PECS', skipFormatLocation: 'true' })
-        .matchHeader('authorization', `Bearer ${accessToken}`)
+        .matchHeader('authorization', `Bearer ${systemToken}`)
         .reply(200, pecsNorth)
 
       const response = await apiClient.getAgency(pecsRegion, false, AgencyType.PECS, true)
@@ -56,7 +56,7 @@ describe('prisonApi', () => {
       fakeApiClient
         .get(`/api/agencies/${prisonId}`)
         .query(true)
-        .matchHeader('authorization', `Bearer ${accessToken}`)
+        .matchHeader('authorization', `Bearer ${systemToken}`)
         .reply(404)
 
       const response = await apiClient.getAgency(prisonId)
@@ -67,7 +67,7 @@ describe('prisonApi', () => {
       fakeApiClient
         .get(`/api/agencies/${prisonId}`)
         .query(true)
-        .matchHeader('authorization', `Bearer ${accessToken}`)
+        .matchHeader('authorization', `Bearer ${systemToken}`)
         .thrice()
         .reply(500)
 
@@ -79,7 +79,7 @@ describe('prisonApi', () => {
     it('should create a map of prisons from api', async () => {
       fakeApiClient
         .get('/api/agencies/prisons')
-        .matchHeader('authorization', `Bearer ${accessToken}`)
+        .matchHeader('authorization', `Bearer ${systemToken}`)
         .reply(200, [moorland, leeds] satisfies Agency[])
 
       await expect(apiClient.getPrisons()).resolves.toEqual<Record<string, Agency>>({
@@ -99,7 +99,7 @@ describe('prisonApi', () => {
       // Mock API request **once**
       fakeApiClient
         .get('/api/agency-switches/INCIDENTS')
-        .matchHeader('authorization', `Bearer ${accessToken}`)
+        .matchHeader('authorization', `Bearer ${systemToken}`)
         .reply(200, expectedResponse satisfies ActiveAgency[])
 
       const activeAgencies = await apiClient.getAgenciesSwitchedOn()
@@ -110,7 +110,7 @@ describe('prisonApi', () => {
       // Mock API responding 404 NOT FOUND
       fakeApiClient
         .get('/api/agency-switches/INCIDENTS')
-        .matchHeader('authorization', `Bearer ${accessToken}`)
+        .matchHeader('authorization', `Bearer ${systemToken}`)
         .reply(404, {
           status: 404,
           userMessage: 'Service code INCIDENTS does not exist',
@@ -127,7 +127,7 @@ describe('prisonApi', () => {
       fakeApiClient
         .get('/api/agencies/type/PECS')
         .query({ activeOnly: 'true', skipFormatLocation: 'true' })
-        .matchHeader('authorization', `Bearer ${accessToken}`)
+        .matchHeader('authorization', `Bearer ${systemToken}`)
         .reply(200, [pecsNorth, pecsSouth] satisfies Agency[])
 
       await expect(apiClient.getPecsRegions()).resolves.toEqual<Record<string, Agency>>({
@@ -145,7 +145,7 @@ describe('prisonApi', () => {
       fakeApiClient
         .get(`/api/bookings/offenderNo/${prisonerNumber}/image/data`)
         .query({ fullSizeImage: 'false' })
-        .matchHeader('authorization', `Bearer ${accessToken}`)
+        .matchHeader('authorization', `Bearer ${systemToken}`)
         .reply(200, imageData, { 'Content-Type': 'image/jpeg' })
 
       const response = await apiClient.getPhoto(prisonerNumber)
@@ -156,7 +156,7 @@ describe('prisonApi', () => {
       fakeApiClient
         .get(`/api/bookings/offenderNo/${prisonerNumber}/image/data`)
         .query({ fullSizeImage: 'false' })
-        .matchHeader('authorization', `Bearer ${accessToken}`)
+        .matchHeader('authorization', `Bearer ${systemToken}`)
         .reply(404)
 
       const response = await apiClient.getPhoto(prisonerNumber)
@@ -167,7 +167,7 @@ describe('prisonApi', () => {
       fakeApiClient
         .get(`/api/bookings/offenderNo/${prisonerNumber}/image/data`)
         .query({ fullSizeImage: 'false' })
-        .matchHeader('authorization', `Bearer ${accessToken}`)
+        .matchHeader('authorization', `Bearer ${systemToken}`)
         .thrice()
         .reply(403)
 
@@ -179,7 +179,7 @@ describe('prisonApi', () => {
       fakeApiClient
         .get(`/api/bookings/offenderNo/${prisonerNumber}/image/data`)
         .query({ fullSizeImage: 'false' })
-        .matchHeader('authorization', `Bearer ${accessToken}`)
+        .matchHeader('authorization', `Bearer ${systemToken}`)
         .thrice()
         .reply(500)
 
@@ -193,7 +193,7 @@ describe('prisonApi', () => {
     it('should return an object', async () => {
       fakeApiClient
         .get(`/api/users/${username}`)
-        .matchHeader('authorization', `Bearer ${accessToken}`)
+        .matchHeader('authorization', `Bearer ${systemToken}`)
         .reply(200, staffMary)
 
       const response = await apiClient.getStaffDetails(username)
@@ -201,7 +201,7 @@ describe('prisonApi', () => {
     })
 
     it('should return null if not found', async () => {
-      fakeApiClient.get(`/api/users/${username}`).matchHeader('authorization', `Bearer ${accessToken}`).reply(404)
+      fakeApiClient.get(`/api/users/${username}`).matchHeader('authorization', `Bearer ${systemToken}`).reply(404)
 
       const response = await apiClient.getStaffDetails(username)
       expect(response).toBeNull()
@@ -210,7 +210,7 @@ describe('prisonApi', () => {
     it('should throw when it receives another error', async () => {
       fakeApiClient
         .get(`/api/users/${username}`)
-        .matchHeader('authorization', `Bearer ${accessToken}`)
+        .matchHeader('authorization', `Bearer ${systemToken}`)
         .thrice()
         .reply(500)
 
@@ -224,7 +224,7 @@ describe('prisonApi', () => {
         fakeApiClient
           .get('/api/incidents/configuration')
           .query(true)
-          .matchHeader('authorization', `Bearer ${accessToken}`)
+          .matchHeader('authorization', `Bearer ${systemToken}`)
           .reply(200, [
             {
               incidentType: 'ASSAULT',
@@ -283,7 +283,7 @@ describe('prisonApi', () => {
         fakeApiClient
           .get('/api/incidents/configuration')
           .query(true)
-          .matchHeader('authorization', `Bearer ${accessToken}`)
+          .matchHeader('authorization', `Bearer ${systemToken}`)
           .reply(200, [
             {
               incidentType: 'ASSAULT',
@@ -349,7 +349,7 @@ describe('prisonApi', () => {
       fakeApiClient
         .get('/api/reference-domains/domains/DOM1/codes')
         .query(true)
-        .matchHeader('authorization', `Bearer ${accessToken}`)
+        .matchHeader('authorization', `Bearer ${systemToken}`)
         .reply(200, [
           {
             domain: 'DOM1',
@@ -392,7 +392,7 @@ describe('prisonApi', () => {
       fakeApiClient
         .get(`/api/reference-domains/domains/${domain}/codes`)
         .query(true)
-        .matchHeader('authorization', `Bearer ${accessToken}`)
+        .matchHeader('authorization', `Bearer ${systemToken}`)
         .reply(200, [
           {
             domain,

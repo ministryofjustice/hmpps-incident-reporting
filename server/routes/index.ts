@@ -58,11 +58,9 @@ export default function routes(services: Services): Router {
 
   // Auxiliary routes
   router.get('/prisoner/:prisonerNumber/photo.jpeg', async (req, res) => {
-    const { user } = res.locals
     const { prisonerNumber } = req.params
 
-    const prisonApi = new PrisonApi(user.token)
-    const photoData = await prisonApi.getPhoto(prisonerNumber)
+    const photoData = await res.locals.apis.prisonApi.getPhoto(prisonerNumber)
 
     const oneDay = 86400 as const
     res.setHeader('Cache-Control', `private, max-age=${oneDay}`)

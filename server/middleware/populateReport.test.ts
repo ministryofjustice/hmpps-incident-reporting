@@ -133,7 +133,7 @@ describe('report-loading middleware', () => {
     expect(res.locals.allowedActions).toBeUndefined()
     expect(res.locals.possibleTransitions).toBeUndefined()
     expect(next).toHaveBeenCalledWith(
-      expect.objectContaining({ message: 'populateReport() requires req.params.reportId', status: 501 }),
+      expect.objectContaining({ message: 'populateReport() requires req.params.reportId', status: 500 }),
     )
   })
 
@@ -157,7 +157,11 @@ describe('report-loading middleware', () => {
     expect(res.locals.allowedActions).toBeUndefined()
     expect(res.locals.possibleTransitions).toBeUndefined()
     expect(next).toHaveBeenCalledWith(
-      expect.objectContaining({ message: 'populateReport() requires permissions middleware', status: 501 }),
+      expect.objectContaining({
+        message:
+          'Middleware configuration error: populateReport() requires res.locals.permissions: Permissions.middleware() was not executed first',
+        status: 500,
+      }),
     )
   })
 })

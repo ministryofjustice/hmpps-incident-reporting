@@ -3,7 +3,6 @@ import { Router } from 'express'
 import config from '../config'
 import { logoutUnless } from '../middleware/permissions'
 import type { Services } from '../services'
-import { PrisonApi } from '../data/prisonApi'
 import makeDownloadConfigRouter from './downloadReportConfig'
 import { createReportRouter } from './reports/createReportRouter'
 import { lookupReference } from './reports/lookupReference'
@@ -17,6 +16,7 @@ import { editReportRouter } from './reports/editReportRouter'
 import { reopenRouter } from './reports/actions/reopen'
 import { requestRemovalRouter } from './reports/actions/requestRemoval'
 import dashboard from './dashboard'
+import { PrisonApi } from '../data/prisonApi'
 
 export default function routes(services: Services): Router {
   const router = Router()
@@ -60,7 +60,9 @@ export default function routes(services: Services): Router {
   router.get('/prisoner/:prisonerNumber/photo.jpeg', async (req, res) => {
     const { prisonerNumber } = req.params
 
-    const photoData = await res.locals.apis.prisonApi.getPhoto(prisonerNumber)
+    const { systemToken } = res.locals
+    const prisonApi = new PrisonApi(systemToken)
+    const photoData = await prisonApi.getPhoto(prisonerNumber)
 
     const oneDay = 86400 as const
     res.setHeader('Cache-Control', `private, max-age=${oneDay}`)

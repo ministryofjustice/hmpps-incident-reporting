@@ -47,7 +47,9 @@ describe('report-loading middleware', () => {
     const next: NextFunction = jest.fn()
 
     await populateReport(withDetails)(req, res, next)
-
+    if (!res.locals.report) {
+      throw new Error('populateReport() did not set res.locals.report')
+    }
     expect(res.locals.report.reportReference).toEqual(report.reportReference)
     expect(res.locals.reportUrl).toEqual(`/reports/${report.id}`)
     expect(res.locals.reportSubUrlPrefix).toEqual(`/reports/${report.id}`)

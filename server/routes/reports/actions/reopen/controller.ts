@@ -7,6 +7,7 @@ import type { ApiUserType } from '../../../../middleware/permissions'
 import { workListMapping } from '../../../../reportConfiguration/constants'
 import { placeholderForCorrectionRequest } from '../correctionRequestPlaceholder'
 import type { Values } from './fields'
+import { missingLocalsError } from '../../../../errors'
 
 export class ReopenController extends BaseController<Values> {
   protected keyField = 'userAction' as const
@@ -21,14 +22,23 @@ export class ReopenController extends BaseController<Values> {
     res: express.Response,
     next: express.NextFunction,
   ) {
-    const { report } = res.locals
+    const { report, reportUrl } = res.locals
+
+    if (!report) {
+      next(missingLocalsError('ReopenController#redirectIfStatusIsNotDone()', 'res.locals.report'))
+      return
+    }
+    if (!reportUrl) {
+      next(missingLocalsError('ReopenController#redirectIfStatusIsNotDone()', 'res.locals.reportUrl'))
+      return
+    }
 
     if (workListMapping.completed.includes(report.status)) {
       // only “completed” reports can be reopened via special page
       next()
     } else {
       // otherwise, the action can be taken from report page (user does have permission to recall)
-      res.redirect(res.locals.reportUrl)
+      res.redirect(reportUrl)
     }
   }
 
@@ -58,13 +68,22 @@ export class ReopenController extends BaseController<Values> {
   }
 
   async saveValues(req: FormWizard.Request<Values>, res: express.Response, next: express.NextFunction): Promise<void> {
-    const { report, permissions } = res.locals
+    const { report, permissions, possibleTransitions } = res.locals
     const { incidentReportingApi } = res.locals.apis
     const { userType } = permissions
 
+    if (!report) {
+      next(missingLocalsError('ReopenController#saveValues()', 'res.locals.report'))
+      return
+    }
+    if (!possibleTransitions) {
+      next(missingLocalsError('ReopenController#saveValues()', 'res.locals.possibleTransitions'))
+      return
+    }
+
     const userAction = 'RECALL' as const
     // NB: transition is not being used for permissions check; middleware already ensured this is possible
-    const transition = res.locals.possibleTransitions[userAction]
+    const transition = possibleTransitions[userAction]
     const { newStatus, successBanner } = transition
 
     try {

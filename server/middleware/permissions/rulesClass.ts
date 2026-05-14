@@ -94,16 +94,10 @@ export class Permissions {
 
   /**
    * Returns the set of user actions allowed on this report.
-   * Actions that change a report are permitted either only on DPS or only in NOMIS.
-   * Set `where` to “nomis” to get actions that would have been allowed if the location were active in DPS –
-   * this indicates that users should go to NOMIS to complete their intended work.
    *
    * NB: this does NOT perform report validity checks!
    */
-  allowedActionsOnReport(
-    reportLike: Pick<ReportBasic, 'status' | 'location'>,
-    where: 'dps' | 'nomis' = 'dps',
-  ): ReadonlySet<UserAction> {
+  allowedActionsOnReport(reportLike: Pick<ReportBasic, 'status' | 'location'>): ReadonlySet<UserAction> {
     const isPecsReport = isPecsRegionCode(reportLike.location)
     const { canAccessService, hasPecsAccess } = this
     const canAccessLocation = isPecsReport ? hasPecsAccess : this.caseloadIds.has(reportLike.location)
@@ -114,11 +108,6 @@ export class Permissions {
     }
 
     const allowedActions = new Set<UserAction>(['VIEW'])
-
-    if (where === 'nomis') {
-      // only modifiable in nomis
-      return allowedActions
-    }
 
     const modifyingAllowedActions = this.possibleTransitions(reportLike)
     Object.keys(modifyingAllowedActions).forEach((action: UserAction) => allowedActions.add(action))

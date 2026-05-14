@@ -154,18 +154,14 @@ describe('Permissions class', () => {
       permissions: Permissions
       userActions: UserAction[]
       all: 'granted' | 'denied'
-      onlyInNomis?: true
     }
 
-    function expectActionsOnReports(
-      reports: ReportBasic[],
-      { permissions, userActions, all, onlyInNomis }: Expectation,
-    ) {
+    function expectActionsOnReports(reports: ReportBasic[], { permissions, userActions, all }: Expectation) {
       for (const report of reports) {
-        const allowedActions = permissions.allowedActionsOnReport(report, onlyInNomis ? 'nomis' : 'dps')
+        const allowedActions = permissions.allowedActionsOnReport(report)
         expect(userActions.every(userAction => allowedActions.has(userAction))).toBe(all === granted)
 
-        if (!onlyInNomis && all === 'granted') {
+        if (all === 'granted') {
           const transitions = permissions.possibleTransitions(report)
           userActions
             .filter(userAction => userAction !== 'VIEW')

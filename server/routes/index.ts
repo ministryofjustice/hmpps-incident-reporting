@@ -16,7 +16,6 @@ import { editReportRouter } from './reports/editReportRouter'
 import { reopenRouter } from './reports/actions/reopen'
 import { requestRemovalRouter } from './reports/actions/requestRemoval'
 import dashboard from './dashboard'
-import { PrisonApi } from '../data/prisonApi'
 
 export default function routes(services: Services): Router {
   const router = Router()

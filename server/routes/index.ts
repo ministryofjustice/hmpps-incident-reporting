@@ -60,8 +60,7 @@ export default function routes(services: Services): Router {
   router.get('/prisoner/:prisonerNumber/photo.jpeg', async (req, res) => {
     const { prisonerNumber } = req.params
 
-    const { systemToken } = res.locals
-    const prisonApi = new PrisonApi(systemToken)
+    const { prisonApi } = res.locals.apis
     const photoData = await prisonApi.getPhoto(prisonerNumber)
 
     const oneDay = 86400 as const

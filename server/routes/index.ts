@@ -3,7 +3,6 @@ import { Router } from 'express'
 import config from '../config'
 import { logoutUnless } from '../middleware/permissions'
 import type { Services } from '../services'
-import { PrisonApi } from '../data/prisonApi'
 import makeDownloadConfigRouter from './downloadReportConfig'
 import { createReportRouter } from './reports/createReportRouter'
 import { lookupReference } from './reports/lookupReference'
@@ -58,10 +57,9 @@ export default function routes(services: Services): Router {
 
   // Auxiliary routes
   router.get('/prisoner/:prisonerNumber/photo.jpeg', async (req, res) => {
-    const { user } = res.locals
     const { prisonerNumber } = req.params
 
-    const prisonApi = new PrisonApi(user.token)
+    const { prisonApi } = res.locals.apis
     const photoData = await prisonApi.getPhoto(prisonerNumber)
 
     const oneDay = 86400 as const

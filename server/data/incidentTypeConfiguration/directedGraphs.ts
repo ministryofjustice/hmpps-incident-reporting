@@ -29,12 +29,13 @@ export class Graph<T> {
    * @param to destination node
    */
   addEdge(from: T, to: T) {
-    if (!this.adjacency.get(from)) {
-      this.adjacency.set(from, new Set())
+    let adjacents = this.adjacency.get(from)
+    if (!adjacents) {
+      adjacents = new Set()
+      this.adjacency.set(from, adjacents)
     }
 
     if (to !== null && to !== undefined) {
-      const adjacents = this.adjacency.get(from)
       adjacents.add(to)
     }
   }

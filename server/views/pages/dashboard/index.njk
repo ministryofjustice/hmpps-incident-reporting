@@ -59,11 +59,6 @@
         preventDoubleClick: true,
         href: "/create-report"
       }) }}
-    {% elif permissions.canCreateReportInActiveCaseloadInNomisOnly %}
-      {{ govukWarningText({
-        text: "You must use NOMIS to create reports in this establishment",
-        iconFallbackText: "Warning"
-      }) }}
     {% endif %}
 
     {% if permissions.canCreatePecsReport %}
@@ -71,11 +66,6 @@
         text: "Create a PECS report",
         preventDoubleClick: true,
         href: "/create-report/pecs"
-      }) }}
-    {% elif permissions.canCreatePecsReportInNomisOnly %}
-      {{ govukWarningText({
-        text: "You must use NOMIS to create PECS reports",
-        iconFallbackText: "Warning"
       }) }}
     {% endif %}
   </div>

@@ -3,7 +3,6 @@ import type { Express, NextFunction, Request, Response } from 'express'
 import { roleReadOnly, roleReadWrite, roleApproveReject, rolePecs } from '../../data/constants'
 import type { ReportBasic } from '../../data/incidentReportingApi'
 import { isPecsRegionCode, pecsRegions } from '../../data/pecsRegions'
-import { isLocationActiveInService } from './locationActiveInService'
 import { type ReportTransitions, prisonReportTransitions, pecsReportTransitions } from './statusTransitions'
 import type { UserAction } from './userActions'
 import type { UserType } from './userType'
@@ -74,19 +73,9 @@ export class Permissions {
     return this.allowedActionsOnReport({ status: 'DRAFT', location }).has('EDIT')
   }
 
-  /** Could have created a new report in DPS if given prison was active or PECS regions are enabled */
-  canCreateReportInLocationInNomisOnly(location: string): boolean {
-    return this.allowedActionsOnReport({ status: 'DRAFT', location }, 'nomis').has('EDIT')
-  }
-
   /** Can create new report in active caseload prison */
   get canCreateReportInActiveCaseload(): boolean {
     return this.canCreateReportInLocation(this.activeCaseloadId)
-  }
-
-  /** Could have created new report in active caseload prison were it enabled */
-  get canCreateReportInActiveCaseloadInNomisOnly(): boolean {
-    return this.canCreateReportInLocationInNomisOnly(this.activeCaseloadId)
   }
 
   /** Can create a new PECS report - at least one PECS region is active and turned on in service */
@@ -103,38 +92,15 @@ export class Permissions {
     return false
   }
 
-  /** Could have created a new PECS report if it was enabled */
-  get canCreatePecsReportInNomisOnly(): boolean {
-    const activePecsRegions = pecsRegions.filter(pecsRegion => pecsRegion.active)
-
-    // Need to loop through all active PECS regions to check if any of them allow creating a report in NOMIS only
-    for (const activePecsRegion of activePecsRegions) {
-      const createNomisOnly = activePecsRegion?.code
-        ? this.canCreateReportInLocationInNomisOnly(activePecsRegion.code)
-        : false
-      if (!createNomisOnly) {
-        return false
-      }
-    }
-    return true
-  }
-
   /**
    * Returns the set of user actions allowed on this report.
-   * Actions that change a report are permitted either only on DPS or only in NOMIS.
-   * Set `where` to “nomis” to get actions that would have been allowed if the location were active in DPS –
-   * this indicates that users should go to NOMIS to complete their intended work.
    *
    * NB: this does NOT perform report validity checks!
    */
-  allowedActionsOnReport(
-    reportLike: Pick<ReportBasic, 'status' | 'location'>,
-    where: 'dps' | 'nomis' = 'dps',
-  ): ReadonlySet<UserAction> {
+  allowedActionsOnReport(reportLike: Pick<ReportBasic, 'status' | 'location'>): ReadonlySet<UserAction> {
     const isPecsReport = isPecsRegionCode(reportLike.location)
     const { canAccessService, hasPecsAccess } = this
     const canAccessLocation = isPecsReport ? hasPecsAccess : this.caseloadIds.has(reportLike.location)
-    const locationIsActive = isLocationActiveInService(reportLike.location)
 
     if (!canAccessService || !canAccessLocation) {
       // insufficient roles or caseloads
@@ -142,11 +108,6 @@ export class Permissions {
     }
 
     const allowedActions = new Set<UserAction>(['VIEW'])
-
-    if ((where === 'dps' && !locationIsActive) || (where === 'nomis' && locationIsActive)) {
-      // only modifiable in nomis
-      return allowedActions
-    }
 
     const modifyingAllowedActions = this.possibleTransitions(reportLike)
     Object.keys(modifyingAllowedActions).forEach((action: UserAction) => allowedActions.add(action))

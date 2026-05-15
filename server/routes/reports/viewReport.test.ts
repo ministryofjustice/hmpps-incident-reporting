@@ -6,7 +6,6 @@ import { appWithAllRoutes } from '../testutils/appSetup'
 import { now, dayLater } from '../../testutils/fakeClock'
 import UserService from '../../services/userService'
 import { type Status, statuses } from '../../reportConfiguration/constants'
-import { setActiveAgencies } from '../../data/activeAgencies'
 import { rolePecs } from '../../data/constants'
 import { IncidentReportingApi, type ReportWithDetails } from '../../data/incidentReportingApi'
 import { convertReportDates } from '../../data/incidentReportingApiUtils'
@@ -1046,18 +1045,6 @@ describe('View report page', () => {
         return testRequest.expect(res => {
           expect(res.redirects[0]).toContain('/sign-out')
         })
-      })
-
-      it(`should ${canEdit ? 'warn' : 'not warn'} that prison report is only editable in NOMIS`, () => {
-        const testApp = appWithAllRoutes({ services: { userService }, userSupplier: () => user })
-        setActiveAgencies(['LEI'])
-
-        return request(testApp)
-          .get(viewReportUrl)
-          .expect(res => {
-            const warningShows = res.text.includes('This report can only be amended in NOMIS')
-            expect(warningShows).toBe(canEdit)
-          })
       })
     })
   })

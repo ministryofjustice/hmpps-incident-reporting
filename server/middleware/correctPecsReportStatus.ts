@@ -3,7 +3,6 @@ import { NotImplemented } from 'http-errors'
 
 import { isPecsRegionCode } from '../data/pecsRegions'
 import { type Status, statuses } from '../reportConfiguration/constants'
-import { isLocationActiveInService } from './permissions'
 
 /**
  * When a PECS report is accessed by a data warden, and it is found to be in an unexpected status,
@@ -21,15 +20,9 @@ export function correctPecsReportStatus(): RequestHandler {
       return
     }
 
-    if (
-      permissions.isDataWarden &&
-      isPecsRegionCode(report.location) &&
-      isLocationActiveInService(report.location) && // NB: this is a PECS region check it's turned on in service otherwise will stop NOMIS syncing
-      report.status in pecsStatusCorrections
-    ) {
-      await res.locals.apis.incidentReportingApi.changeReportStatus(report.id, {
-        newStatus: pecsStatusCorrections[report.status],
-      })
+    const newStatus = pecsStatusCorrections[report.status]
+    if (permissions.isDataWarden && isPecsRegionCode(report.location) && newStatus) {
+      await res.locals.apis.incidentReportingApi.changeReportStatus(report.id, { newStatus })
       res.redirect(req.originalUrl) // NB: req.url is not right for some reason
       return
     }

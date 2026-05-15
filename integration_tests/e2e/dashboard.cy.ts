@@ -242,7 +242,6 @@ userScenarios.forEach(({ userType, user, createReport, dashboardUrl }) => {
           if (userType === 'data wardens') {
             expectedLocationOptions = [
               { label: 'All locations', value: '' },
-              { label: 'All active locations in Digital Prison Services (DPS)', value: '.ACTIVE' },
               { label: 'All PECS regions', value: '.PECS' },
               { label: 'Moorland (HMP & YOI)', value: 'MDI' },
               { label: 'Leeds (HMP)', value: 'LEI' },
@@ -252,7 +251,6 @@ userScenarios.forEach(({ userType, user, createReport, dashboardUrl }) => {
           } else {
             expectedLocationOptions = [
               { label: 'All locations', value: '' },
-              { label: 'All active locations in Digital Prison Services (DPS)', value: '.ACTIVE' },
               { label: 'Moorland (HMP & YOI)', value: 'MDI' },
               { label: 'Leeds (HMP)', value: 'LEI' },
             ]

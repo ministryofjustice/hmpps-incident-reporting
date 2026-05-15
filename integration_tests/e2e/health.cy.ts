@@ -10,7 +10,6 @@ context('Healthcheck', () => {
       cy.task('stubNomisUserRolesApiPing')
       cy.task('stubOffenderSearchApiPing')
       cy.task('stubTokenVerificationPing')
-      cy.task('stubPrisonApiMockAgencySwitches')
     })
 
     it('Health check page is visible and UP', () => {
@@ -19,10 +18,6 @@ context('Healthcheck', () => {
 
     it('Ping is visible and UP', () => {
       cy.request('/ping').its('body.status').should('equal', 'UP')
-    })
-
-    it('Info is visible and active agencies', () => {
-      cy.request('/info').its('body.activeAgencies').should('deep.equal', ['MDI', 'LEI', 'NORTH', 'SOUTH'])
     })
   })
 

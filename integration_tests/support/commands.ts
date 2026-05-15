@@ -13,6 +13,5 @@ Cypress.Commands.add('resetBasicStubs', ({ user = mockReportingOfficer }: { user
   cy.task('stubManageUserMe', { user })
   cy.task('stubFallbackHeaderAndFooter', { user })
   cy.task('stubPrisonApiMockPecsRegions')
-  cy.task('stubPrisonApiMockAgencySwitches')
   return cy.end()
 })

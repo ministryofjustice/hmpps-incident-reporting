@@ -13,9 +13,7 @@ import type { Services } from '../../services'
 import { mockReportingOfficer } from '../../data/testData/users'
 import { Permissions } from '../../middleware/permissions'
 import setApis from '../../middleware/setApis'
-import { setActiveAgencies } from '../../data/activeAgencies'
 
-export const defaultActiveAgencies = ['LEI', 'MDI', 'NORTH', 'SOUTH']
 export const testAppInfo: ApplicationInfo = {
   applicationName: 'hmpps-incident-reporting',
   productId: 'test-product-id',
@@ -24,16 +22,12 @@ export const testAppInfo: ApplicationInfo = {
   gitShortHash: '9fb9f70',
   branchName: 'main',
   assetsPath: './assets',
-  additionalFields: {
-    activeAgencies: defaultActiveAgencies,
-  },
 }
 
 function appSetup(services: Services, production: boolean, userSupplier: () => Express.User): Express {
   const app = express()
 
   const systemToken = 'test-system-token'
-  setActiveAgencies(defaultActiveAgencies)
 
   app.use(cookieSession({ keys: [''] }))
   app.use(flash())

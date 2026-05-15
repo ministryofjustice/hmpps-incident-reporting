@@ -1,4 +1,3 @@
-export * from './locationActiveInService'
 export * from './logoutUnless'
 export * from './rulesClass'
 export * from './statusTransitions'

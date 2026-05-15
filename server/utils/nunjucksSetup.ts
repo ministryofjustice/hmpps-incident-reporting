@@ -19,7 +19,6 @@ import {
   govukSelectSetSelected,
 } from './govukFrontend'
 import format from './format'
-import { isLocationActiveInService } from '../middleware/permissions'
 import { isCorrectionRequestPlaceholder } from '../routes/reports/actions/correctionRequestPlaceholder'
 import { sortCorrectionRequests } from './sortCorrectionRequests'
 import { prisonerLocation } from './prisonerLocationUtils'
@@ -68,7 +67,6 @@ export default function nunjucksSetup(app: express.Express): void {
   // misc utils
   njkEnv.addFilter('assetMap', (url: string) => assetManifest[url] || url)
   njkEnv.addGlobal('callAsMacro', callAsMacro)
-  njkEnv.addGlobal('isLocationActiveInService', isLocationActiveInService)
   njkEnv.addGlobal('mergeObjects', (...objects: object[]) => {
     const merged = {}
     for (const o of objects) {

@@ -13,9 +13,6 @@ export type ApplicationInfo = {
   productId: string
   branchName: string
   assetsPath: string
-  additionalFields: {
-    activeAgencies: string[]
-  }
 }
 
 export default (): ApplicationInfo => {
@@ -31,9 +28,5 @@ export default (): ApplicationInfo => {
     productId,
     branchName,
     assetsPath,
-    additionalFields: {
-      // NOTE: activeAgencies is kept up-to-date by `updateActiveAgencies` middleware
-      activeAgencies: [],
-    },
   }
 }

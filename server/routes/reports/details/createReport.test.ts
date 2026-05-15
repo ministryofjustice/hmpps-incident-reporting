@@ -3,7 +3,6 @@ import request, { type Agent, type Response } from 'supertest'
 
 import format from '../../../utils/format'
 import { appWithAllRoutes } from '../../testutils/appSetup'
-import { setActiveAgencies } from '../../../data/activeAgencies'
 import { IncidentReportingApi } from '../../../data/incidentReportingApi'
 import { convertReportDates } from '../../../data/incidentReportingApiUtils'
 import { mockErrorResponse, mockReport } from '../../../data/testData/incidentReporting'
@@ -56,7 +55,6 @@ describe.each([
   if (reportType === 'PECS') {
     describe('Step 1: selecting PECS region', () => {
       it('should list PECS regions that can be selected', () => {
-        setActiveAgencies(['NORTH'])
         return agent
           .get('/create-report/pecs')
           .expect(200)
@@ -64,12 +62,11 @@ describe.each([
             expectOnPecsRegionPage(res)
             expect(res.text).not.toContain('There is a problem')
 
-            // active region
+            // active regions
             expect(res.text).toContain('NORTH')
             expect(res.text).toContain('PECS North')
-            // inactive region
-            expect(res.text).not.toContain('SOUTH')
-            expect(res.text).not.toContain('PECS South')
+            expect(res.text).toContain('SOUTH')
+            expect(res.text).toContain('PECS South')
           })
       })
 
@@ -438,21 +435,5 @@ describe('Permissions', () => {
     return testRequest.expect(res => {
       expect(res.redirects[0]).toContain('/sign-out')
     })
-  })
-
-  it.each([
-    { userType: 'reporting officer', scenario: 'active caseload is not an active prison', user: mockReportingOfficer },
-    { userType: 'data warden', scenario: 'PECS is not active in the service', user: mockDataWarden },
-  ])('should be denied to $userType if $scenario', ({ user }) => {
-    const testApp = appWithAllRoutes({ userSupplier: () => user })
-    setActiveAgencies(['LEI'])
-
-    return request(testApp)
-      .get('/create-report')
-      .expect(302)
-      .expect(res => {
-        expect(res.redirect).toBe(true)
-        expect(res.header.location).toEqual('/sign-out')
-      })
   })
 })

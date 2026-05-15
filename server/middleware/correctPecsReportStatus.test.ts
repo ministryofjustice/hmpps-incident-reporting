@@ -8,19 +8,12 @@ import { now } from '../testutils/fakeClock'
 import type { Status } from '../reportConfiguration/constants'
 import { Permissions } from './permissions'
 import { correctPecsReportStatus } from './correctPecsReportStatus'
-import { setActiveAgencies } from '../data/activeAgencies'
-
-const pecsCodes = ['NORTH', 'SOUTH']
 
 describe('Middleware to auto-correct PECS report statuses', () => {
   const report = convertReportDates(mockReport({ reportReference: '6543', reportDateAndTime: now }))
 
   beforeAll(() => {
     mockPecsRegions()
-  })
-
-  beforeEach(() => {
-    setActiveAgencies([...pecsCodes])
   })
 
   function makeMockRequest(

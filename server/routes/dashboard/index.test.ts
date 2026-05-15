@@ -3,7 +3,6 @@ import request from 'supertest'
 
 import { appWithAllRoutes } from '../testutils/appSetup'
 import { now } from '../../testutils/fakeClock'
-import { setActiveAgencies } from '../../data/activeAgencies'
 import { rolePecs } from '../../data/constants'
 import { type GetReportsParams, IncidentReportingApi } from '../../data/incidentReportingApi'
 import { convertReportDates } from '../../data/incidentReportingApiUtils'
@@ -64,21 +63,6 @@ describe('Dashboard permissions', () => {
           expect(res.text).not.toContain('Create a report')
           expect(res.text).not.toContain('Create a PECS report')
         }
-      })
-  })
-
-  it('should hide report button for reporting officer when their active caseload in not active in the service', () => {
-    const testApp = appWithAllRoutes({
-      services: { userService },
-      userSupplier: () => mockReportingOfficer,
-    })
-    setActiveAgencies(['LEI'])
-
-    return request(testApp)
-      .get('/reports')
-      .expect(res => {
-        expect(res.text).not.toContain('Report an incident')
-        expect(res.text).toContain('You must use NOMIS to create reports in this establishment')
       })
   })
 })
@@ -286,36 +270,6 @@ describe('Dashboard', () => {
           expect(incidentReportingApi.getReports).toHaveBeenCalledWith(
             expect.objectContaining({
               location: ['SOUTH'],
-            }),
-          )
-        })
-    },
-  )
-
-  it.each([
-    // has access to only 1 prison (enabled in service)
-    { userType: 'reporting officer', user: mockReportingOfficer, expectedLocations: ['MDI'] },
-    // has access to 2 prisons (1 enabled) and all PECS regions (1 enabled)
-    { userType: 'data warden', user: mockDataWarden, expectedLocations: ['MDI', 'NORTH'] },
-    // has access to 2 prisons (1 enabled)
-    { userType: 'HQ view-only user', user: mockHqViewer, expectedLocations: ['MDI'] },
-  ])(
-    'should submit query values correctly to api for $userType when searching for all active locations',
-    ({ user, expectedLocations }) => {
-      const testApp = appWithAllRoutes({ services: { userService }, userSupplier: () => user })
-      setActiveAgencies(['MDI', 'NORTH']) // turns off LEI and SOUTH which some users could have accessed
-
-      return request(testApp)
-        .get('/reports')
-        .query({ location: '.ACTIVE' })
-        .expect('Content-Type', /html/)
-        .expect(200)
-        .expect(res => {
-          expect(res.text).not.toContain('There is a problem')
-          expect(res.text).toContain('Clear filters')
-          expect(incidentReportingApi.getReports).toHaveBeenCalledWith(
-            expect.objectContaining({
-              location: expectedLocations,
             }),
           )
         })

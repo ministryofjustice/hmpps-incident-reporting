@@ -61,6 +61,7 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
       active: true,
       question: 'DID SELF HARM METHOD INVOLVE SELF STRANGULATION',
       label: 'Did self-harm method involve self strangulation?',
+      questionHint: "This includes incidents where a ligature is found around the person's neck.",
       multipleAnswers: false,
       answers: [
         {
@@ -1264,6 +1265,8 @@ export const SELF_HARM_1: IncidentTypeConfiguration = {
           response: 'NOOSE LIGATURE MAKING',
           active: true,
           label: 'Noose ligature making',
+          responseHint:
+            'If the ligature was around the neck of the person, self-strangulation should be selected, otherwise, report it as a Find incident.',
           commentRequested: false,
           commentMandatory: false,
           dateMandatory: false,

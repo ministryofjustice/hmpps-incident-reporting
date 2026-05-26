@@ -351,8 +351,15 @@ export const incidentTypeHints: { [K in Type]?: Record<string, string> } = {
   },
   UNLAWFUL_DETENTION_1: {
     incidentDate: 'The date the person was meant to be released - for example, 17/5/2024',
-    incidentTime: "For example, 09 08. If you're unsure, enter 23 59",
   },
+}
+
+/**
+ * Default times (HH:MM) for incident types where time input is not shown to the user.
+ * When set, the time field is hidden and this value is submitted to the API automatically.
+ */
+export const incidentTypeDefaultTimes: Partial<Record<Type, string>> = {
+  UNLAWFUL_DETENTION_1: '23:59',
 }
 
 /**

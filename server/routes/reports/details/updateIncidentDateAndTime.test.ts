@@ -101,6 +101,57 @@ describe('Updating report incident date and time', () => {
       })
   })
 
+  describe('Incident types with a default time (time field hidden)', () => {
+    beforeEach(() => {
+      reportBasic.type = 'UNLAWFUL_DETENTION_1' as Type
+    })
+
+    afterAll(() => {
+      reportBasic.type = 'DISORDER_2' as Type
+    })
+
+    it('should hide the time field and render it as a hidden input with the default value', () => {
+      return agent
+        .get(updateIncidentDateAndTimeUrl)
+        .expect(200)
+        .expect(res => {
+          expect(res.text).not.toContain('Time of incident')
+          expect(res.text).toContain('name="incidentTime" value="23:59"')
+        })
+    })
+
+    it('should submit the default time to the API when no time fields are provided by the user', () => {
+      const expectedDateAndTime = new Date('2024-10-21T23:59:00+01:00')
+      incidentReportingApi.updateReport.mockResolvedValueOnce(reportBasic)
+
+      return agent
+        .post(updateIncidentDateAndTimeUrl)
+        .send({ incidentDate: '21/10/2024', incidentTime: '23:59' })
+        .redirects(0)
+        .expect(302)
+        .expect(() => {
+          expect(incidentReportingApi.updateReport).toHaveBeenCalledWith(reportBasic.id, {
+            incidentDateAndTime: expectedDateAndTime,
+          })
+          mockHandleReportEdit.expectCalled()
+        })
+    })
+
+    it('should not show a time-in-future error when today is selected (default time may be in future)', () => {
+      const today = format.shortDate(new Date())
+      incidentReportingApi.updateReport.mockResolvedValueOnce(reportBasic)
+
+      return agent
+        .post(updateIncidentDateAndTimeUrl)
+        .send({ incidentDate: today, incidentTime: '23:59' })
+        .redirects(0)
+        .expect(302)
+        .expect(res => {
+          expect(res.header.location).toEqual(`/reports/${reportBasic.id}`)
+        })
+    })
+  })
+
   it('should display form prefilled with existing incident date and time', () => {
     return agent
       .get(updateIncidentDateAndTimeUrl)

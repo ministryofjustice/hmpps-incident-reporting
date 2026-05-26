@@ -127,7 +127,7 @@ export class QuestionsController extends BaseController<FormWizard.MultiValues> 
 
     if (field.component === 'govukInput' || field.component === 'mojDatePicker') {
       const parsedField = parseFieldName(fieldName)
-      if ('questionCode' in parsedField) {
+      if (parsedField && 'questionCode' in parsedField) {
         const sourceField = req.form.options.fields[parsedField.questionCode]
         if (sourceField) {
           if (field.component === 'mojDatePicker') {
@@ -184,7 +184,7 @@ export class QuestionsController extends BaseController<FormWizard.MultiValues> 
         for (const response of question.responses) {
           const answerResponse = response.response
           const answerConfig = findAnswerConfigByResponse(answerResponse, questionConfig)
-          if (answerConfig === undefined) {
+          if (!answerConfig) {
             logger.error(
               `Report '${report.id}': Answer with response '${answerResponse}' not found in ${report.type}'s question '${questionConfig.code}' configuration.`,
             )
@@ -210,7 +210,7 @@ export class QuestionsController extends BaseController<FormWizard.MultiValues> 
         }
       }
 
-      callback(null, formValues)
+      callback(undefined, formValues)
     })
   }
 

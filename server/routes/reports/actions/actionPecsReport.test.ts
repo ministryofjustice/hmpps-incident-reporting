@@ -69,7 +69,7 @@ beforeEach(() => {
       {
         NORTH: pecsNorth,
         SOUTH: pecsSouth,
-      }[locationCode],
+      }[locationCode] ?? null,
     ),
   )
 

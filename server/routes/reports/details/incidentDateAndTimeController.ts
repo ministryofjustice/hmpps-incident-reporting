@@ -90,7 +90,7 @@ export abstract class BaseIncidentDateAndTimeController<
         }
       }
 
-      callback(null, values)
+      callback(undefined, values)
     })
   }
 

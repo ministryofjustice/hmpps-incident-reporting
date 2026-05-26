@@ -42,8 +42,10 @@ export function findAnswerConfigByResponse(
   response: string,
   questionConfig: QuestionConfiguration,
   mustBeActive = true,
-): AnswerConfiguration {
-  return questionConfig.answers.find(
+): AnswerConfiguration | null {
+  const foundConfig = questionConfig.answers.find(
     answerConfig => (answerConfig.active || !mustBeActive) && answerConfig.response === response.trim(),
   )
+
+  return foundConfig ?? null
 }

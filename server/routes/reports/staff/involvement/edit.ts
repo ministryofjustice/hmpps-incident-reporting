@@ -61,7 +61,7 @@ class EditStaffInvolvementController extends StaffInvolvementController {
         ...values,
       }
 
-      callback(null, formValues)
+      callback(undefined, formValues)
     })
   }
 

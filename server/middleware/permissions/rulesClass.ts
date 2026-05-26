@@ -125,6 +125,6 @@ export class Permissions {
     const { userType } = this
     const isPecsReport = isPecsRegionCode(reportLike.location)
     const transitions = isPecsReport ? pecsReportTransitions : prisonReportTransitions
-    return transitions[userType]?.[reportLike.status] ?? {}
+    return (userType && transitions[userType]?.[reportLike.status]) ?? {}
   }
 }

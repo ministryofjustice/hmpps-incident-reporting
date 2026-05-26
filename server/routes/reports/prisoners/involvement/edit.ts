@@ -9,6 +9,7 @@ import { handleReportEdit } from '../../actions/handleReportEdit'
 import { AllowedRoleCode, PrisonerInvolvementController } from './controller'
 import { fields, type Values } from './fields'
 import { steps } from './steps'
+import { missingLocalsError } from '../../../../errors'
 
 class EditPrisonerInvolvementController extends PrisonerInvolvementController {
   protected keyField = 'prisonerRole' as const
@@ -47,7 +48,7 @@ class EditPrisonerInvolvementController extends PrisonerInvolvementController {
 
     // set of codes allowed by incident type
     const allowedRoleCodes: Set<AllowedRoleCode> = new Set(
-      reportConfig.prisonerRoles
+      reportConfig?.prisonerRoles
         .filter(role => role.active)
         .map(role => ({
           prisonerRole: role.prisonerRole,
@@ -59,7 +60,7 @@ class EditPrisonerInvolvementController extends PrisonerInvolvementController {
       .filter((_involvement, i) => i !== index - 1)
       .map(involvement => involvement.prisonerRole)
       .forEach(role => {
-        const roleConfig = reportConfig.prisonerRoles.find(someRole => someRole.prisonerRole === role)
+        const roleConfig = reportConfig?.prisonerRoles.find(someRole => someRole.prisonerRole === role)
         if (roleConfig?.onlyOneAllowed) {
           // Find the actual object in the Set that matches this role string
           const codeToDelete = Array.from(allowedRoleCodes).find(code => code.prisonerRole === role)
@@ -90,13 +91,19 @@ class EditPrisonerInvolvementController extends PrisonerInvolvementController {
         ...values,
       }
 
-      callback(null, formValues)
+      callback(undefined, formValues)
     })
   }
 
   async saveValues(req: FormWizard.Request<Values>, res: express.Response, next: express.NextFunction): Promise<void> {
     const { incidentReportingApi } = res.locals.apis
     const { report } = res.locals
+
+    if (!report) {
+      next(missingLocalsError(`EditPrisonerInvolvementController#saveValues()`, 'res.locals.report'))
+      return
+    }
+
     const index = parseInt(req.params.index, 10)
     const allValues = this.getAllValues(req, false)
     try {
@@ -121,7 +128,7 @@ class EditPrisonerInvolvementController extends PrisonerInvolvementController {
 
       next()
     } catch (e) {
-      logger.error(e, `Report ${res.locals.report.reportReference} status could not be updated: %j`, e)
+      logger.error(e, `Report ${report.reportReference} status could not be updated: %j`, e)
       this.handleApiError(e, req, res, next)
     }
   }

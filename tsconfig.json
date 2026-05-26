@@ -6,6 +6,7 @@
     "strict": false,
     "strictBindCallApply": true,
     "strictBuiltinIteratorReturn": true,
+    "noImplicitAny": true,
     "noImplicitThis": true,
     "useUnknownInCatchVariables": true,
 
@@ -17,7 +18,6 @@
     "checkJs": true,
     "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,
-    "noImplicitAny": true,
     "typeRoots": [
       "./node_modules/@types",
       "./node_modules",

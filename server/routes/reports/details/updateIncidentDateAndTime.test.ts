@@ -101,6 +101,45 @@ describe('Updating report incident date and time', () => {
       })
   })
 
+  it.each([
+    { incidentType: 'FIND_6' },
+    { incidentType: 'ASSAULT_5' },
+    { incidentType: 'ATTEMPTED_ESCAPE_FROM_PRISON_1' },
+    { incidentType: 'DRONE_SIGHTING_3' },
+  ])('should show default label for incident type - $incidentType', ({ incidentType }) => {
+    reportBasic.type = incidentType as Type
+    return agent
+      .get(updateIncidentDateAndTimeUrl)
+      .expect(200)
+      .expect(res => {
+        expect(res.text).toContain('Date of incident')
+        expect(res.text).not.toContain('Date of release')
+        expect(res.text).not.toContain('Date meant for release')
+      })
+  })
+
+  it('should show bespoke label for release in error', () => {
+    reportBasic.type = 'RELEASE_IN_ERROR_1' as Type
+    return agent
+      .get(updateIncidentDateAndTimeUrl)
+      .expect(200)
+      .expect(res => {
+        expect(res.text).toContain('Date of release')
+        expect(res.text).not.toContain('Date of incident')
+      })
+  })
+
+  it('should show bespoke label for unlawful detention', () => {
+    reportBasic.type = 'UNLAWFUL_DETENTION_1' as Type
+    return agent
+      .get(updateIncidentDateAndTimeUrl)
+      .expect(200)
+      .expect(res => {
+        expect(res.text).toContain('Date meant for release')
+        expect(res.text).not.toContain('Date of incident')
+      })
+  })
+
   it('should display form prefilled with existing incident date and time', () => {
     return agent
       .get(updateIncidentDateAndTimeUrl)

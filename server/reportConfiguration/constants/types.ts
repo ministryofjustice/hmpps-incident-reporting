@@ -355,6 +355,16 @@ export const incidentTypeHints: { [K in Type]?: Record<string, string> } = {
   },
 }
 
+/** Overrides for form field labels for incident types */
+export const incidentTypeLabels: { [K in Type]?: Record<string, string> } = {
+  RELEASE_IN_ERROR_1: {
+    incidentDate: 'Date of release',
+  },
+  UNLAWFUL_DETENTION_1: {
+    incidentDate: 'Date meant for release',
+  },
+}
+
 /**
  * NOMIS codes for Types of reportable incidents
  * @deprecated

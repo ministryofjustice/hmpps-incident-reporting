@@ -97,7 +97,7 @@ export type Order = (typeof orderOptions)[number]
 export type PrisonerGender = 'ALL' | 'M' | 'F' | 'NK' | 'NS'
 export type PrisonerLocationStatus = 'ALL' | 'IN' | 'OUT'
 
-type GlobalSearchFilters = {
+export type GlobalSearchFilters = {
   andWords?: string
   fuzzyMatch: boolean
   prisonIds: string[]

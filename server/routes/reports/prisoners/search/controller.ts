@@ -6,6 +6,7 @@ import type FormWizard from 'hmpo-form-wizard'
 import logger from '../../../../../logger'
 import { GetBaseController } from '../../../../controllers'
 import {
+  GlobalSearchFilters,
   OffenderSearchApi,
   type OffenderSearchResults,
   PrisonerGender,
@@ -14,8 +15,6 @@ import {
 import { pagination } from '../../../../utils/pagination'
 import type { Values } from './fields'
 import { parseDateInput } from '../../../../utils/parseDateTime'
-
-type OffenderSearchFilters = Parameters<OffenderSearchApi['searchGlobally']>[0]
 
 export class PrisonerSearchController extends GetBaseController<Values> {
   protected keyField = 'q' as const
@@ -179,7 +178,7 @@ export class PrisonerSearchController extends GetBaseController<Values> {
     location: PrisonerLocationStatus,
     dateOfBirth: string,
     prisonIds: string[] = null,
-  ): OffenderSearchFilters {
+  ): GlobalSearchFilters {
     return {
       andWords: keywords,
       prisonIds,

@@ -350,7 +350,7 @@ export const incidentTypeHints: { [K in Type]?: Record<string, string> } = {
     incidentDate: 'This should be the date the person was released - for example, 17/5/2024',
   },
   UNLAWFUL_DETENTION_1: {
-    incidentDate: 'The date the person was meant to be released - for example, 17/5/2024',
+    incidentDate: 'For example, 17/5/2024',
     incidentTime: "For example, 09 08. If you're unsure, enter 23 59",
   },
 }
@@ -361,7 +361,7 @@ export const incidentTypeLabels: { [K in Type]?: Record<string, string> } = {
     incidentDate: 'Date of release',
   },
   UNLAWFUL_DETENTION_1: {
-    incidentDate: 'Date meant for release',
+    incidentDate: 'Date the person should have been released',
   },
 }
 

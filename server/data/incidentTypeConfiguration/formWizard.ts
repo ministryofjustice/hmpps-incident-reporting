@@ -270,9 +270,11 @@ function generateFields(config: IncidentTypeConfiguration): FormWizard.Fields {
           const dateFieldName = conditionalFieldName(question, singleAnswer, 'date')
           fields[dateFieldName] = {
             name: dateFieldName,
-            // Use the answer's descriptive label (e.g. "Enter date of first error identified")
-            // rather than the generic "Date", since the radio is not shown to provide context
-            label: singleAnswer.label,
+            // Only show a label when commentLabel is set — it signals that a descriptive label
+            // (e.g. "Enter date of first error identified") is meaningful. Without commentLabel
+            // the fieldset legend alone provides sufficient context, so we suppress the label
+            // to avoid showing a generic "Date:" above the picker.
+            label: singleAnswer.commentLabel ? singleAnswer.label : undefined,
             // When there is no comment field, commentLabel is used as the date hint
             // (e.g. "For example, 17/5/2026")
             hint: !singleAnswer.commentRequested ? singleAnswer.commentLabel : undefined,
@@ -287,8 +289,9 @@ function generateFields(config: IncidentTypeConfiguration): FormWizard.Fields {
 
         if (singleAnswer.commentRequested) {
           const commentFieldName = conditionalFieldName(question, singleAnswer, 'comment')
-          // commentLabel is the specific label for the comment input (e.g. "Provide your comment here")
-          const commentLabel = singleAnswer.commentLabel || 'Comment'
+          // Use commentLabel as the visible label (e.g. "Provide your comment here").
+          // When not set the fieldset legend provides context; suppress the generic "Comment" fallback.
+          const { commentLabel } = singleAnswer
           fields[commentFieldName] = {
             name: commentFieldName,
             label: commentLabel,

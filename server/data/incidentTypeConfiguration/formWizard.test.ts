@@ -544,6 +544,45 @@ describe('generateFields() for single-answer questions', () => {
           },
         ],
       },
+      // Questions with no commentLabel: sub-field labels should be suppressed
+      qdatenolabel: {
+        code: 'qdatenolabel',
+        question: 'ENTER THE DATE',
+        label: 'Enter the date',
+        active: true,
+        multipleAnswers: false,
+        answers: [
+          {
+            code: 'qdatenolabel-a1',
+            response: 'DATE_RESPONSE',
+            label: 'Date:',
+            active: true,
+            dateMandatory: true,
+            commentRequested: false,
+            commentMandatory: false,
+            nextQuestionCode: null,
+          },
+        ],
+      },
+      qcommentnolabel: {
+        code: 'qcommentnolabel',
+        question: 'ENTER DETAILS',
+        label: 'Enter details',
+        active: true,
+        multipleAnswers: false,
+        answers: [
+          {
+            code: 'qcommentnolabel-a1',
+            response: 'COMMENT_RESPONSE',
+            label: 'Enter details:',
+            active: true,
+            dateMandatory: false,
+            commentRequested: true,
+            commentMandatory: true,
+            nextQuestionCode: null,
+          },
+        ],
+      },
     },
   }
 
@@ -654,6 +693,43 @@ describe('generateFields() for single-answer questions', () => {
 
     expect(fields['qnone-qnone-a1-date']).toBeUndefined()
     expect(fields['qnone-qnone-a1-comment']).toBeUndefined()
+  })
+
+  it('single-answer date with no commentLabel: date sub-field has no visible label', () => {
+    const fields = generateFields(singleAnswerConfig)
+
+    // Hidden field is unaffected
+    expect(fields.qdatenolabel).toMatchObject({ component: 'hidden', singleAnswer: true, default: 'DATE_RESPONSE' })
+
+    // Date sub-field: label is undefined because commentLabel is not set
+    expect(fields['qdatenolabel-qdatenolabel-a1-date']).toEqual({
+      name: 'qdatenolabel-qdatenolabel-a1-date',
+      label: undefined,
+      hint: undefined,
+      component: 'mojDatePicker',
+      validate: ['required', 'ukDate'],
+      dependent: { field: 'qdatenolabel', value: 'DATE_RESPONSE' },
+    })
+  })
+
+  it('single-answer comment with no commentLabel: comment sub-field has no visible label', () => {
+    const fields = generateFields(singleAnswerConfig)
+
+    // Hidden field is unaffected
+    expect(fields.qcommentnolabel).toMatchObject({
+      component: 'hidden',
+      singleAnswer: true,
+      default: 'COMMENT_RESPONSE',
+    })
+
+    // Comment sub-field: label is undefined because commentLabel is not set
+    expect(fields['qcommentnolabel-qcommentnolabel-a1-comment']).toEqual({
+      name: 'qcommentnolabel-qcommentnolabel-a1-comment',
+      label: undefined,
+      component: 'govukInput',
+      validate: ['required'],
+      dependent: { field: 'qcommentnolabel', value: 'COMMENT_RESPONSE' },
+    })
   })
 })
 

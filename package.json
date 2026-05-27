@@ -35,7 +35,7 @@
     "node": "^24"
   },
   "dependencies": {
-    "@aws-sdk/client-sqs": "^3.1049.0",
+    "@aws-sdk/client-sqs": "^3.1050.0",
     "@ministryofjustice/frontend": "^9.0.0",
     "@ministryofjustice/hmpps-auth-clients": "^2.0.0",
     "@ministryofjustice/hmpps-monitoring": "^2.1.0",
@@ -67,7 +67,7 @@
     "@jgoz/esbuild-plugin-typecheck": "^4.0.4",
     "@ministryofjustice/eslint-config-hmpps": "^1.0.3",
     "@ministryofjustice/frontend-types": "2.0.0",
-    "@ministryofjustice/hmpps-npm-script-allowlist": "^0.0.5",
+    "@ministryofjustice/hmpps-npm-script-allowlist": "^0.0.6",
     "@ministryofjustice/hmpps-precommit-hooks": "^3.0.1",
     "@tsconfig/node24": "^24.0.4",
     "@types/bunyan": "^1.8.11",
@@ -109,7 +109,7 @@
     "patch-package": "8.0.1",
     "supertest": "^7.2.2",
     "ts-jest": "^29.4.10",
-    "tsx": "^4.22.2",
+    "tsx": "^4.22.3",
     "typescript": "^6.0.3",
     "yaml": "^2.9.0"
   },

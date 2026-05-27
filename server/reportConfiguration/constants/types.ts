@@ -347,11 +347,29 @@ export const typesDescriptions: Record<Type, string> = {
 /** Adding bespoke hint text for incident types */
 export const incidentTypeHints: { [K in Type]?: Record<string, string> } = {
   RELEASE_IN_ERROR_1: {
-    incidentDate: 'This should be the date the person was released - for example, 17/5/2024',
+    incidentDate: 'For example, 17/5/2024',
   },
   UNLAWFUL_DETENTION_1: {
-    incidentDate: 'The date the person was meant to be released - for example, 17/5/2024',
-    incidentTime: "For example, 09 08. If you're unsure, enter 23 59",
+    incidentDate: 'For example, 17/5/2024',
+  },
+}
+
+/**
+ * Override map for incident types where the time of incident is irrelevant.
+ * When set to false, the time field is hidden and 00:00 is submitted to the API automatically.
+ * Defaults to true (time required) for all types not listed here.
+ */
+export const incidentTypeRequiresTime: Partial<Record<Type, boolean>> = {
+  UNLAWFUL_DETENTION_1: false,
+}
+
+/** Overrides for form field labels for incident types */
+export const incidentTypeLabels: { [K in Type]?: Record<string, string> } = {
+  RELEASE_IN_ERROR_1: {
+    incidentDate: 'Date the person was released',
+  },
+  UNLAWFUL_DETENTION_1: {
+    incidentDate: 'Date the person should have been released',
   },
 }
 

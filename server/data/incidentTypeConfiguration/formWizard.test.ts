@@ -313,8 +313,7 @@ describe('generateFields()', () => {
       },
       'qsingledate-qsingledate-a1-date': {
         name: 'qsingledate-qsingledate-a1-date',
-        label: 'Date',
-        visuallyHiddenText: 'for Enter date',
+        label: 'Enter date',
         hint: 'For example, 17/5/2026',
         component: 'mojDatePicker',
         validate: ['required', 'ukDate'],
@@ -566,8 +565,7 @@ describe('generateFields() for single-answer questions', () => {
 
     expect(fields['qdateonly-qdateonly-a1-date']).toEqual({
       name: 'qdateonly-qdateonly-a1-date',
-      label: 'Date',
-      visuallyHiddenText: 'for Enter date',
+      label: 'Enter date',
       hint: 'For example, 17/5/2026',
       component: 'mojDatePicker',
       validate: ['required', 'ukDate'],
@@ -600,7 +598,6 @@ describe('generateFields() for single-answer questions', () => {
     expect(fields['qcommentonly-qcommentonly-a1-comment']).toEqual({
       name: 'qcommentonly-qcommentonly-a1-comment',
       label: 'Provide your comment here',
-      visuallyHiddenText: 'for Enter details',
       component: 'govukInput',
       validate: ['required'],
       dependent: { field: 'qcommentonly', value: 'COMMENT_RESPONSE' },
@@ -619,11 +616,10 @@ describe('generateFields() for single-answer questions', () => {
       default: 'DATE_AND_COMMENT_RESPONSE',
     })
 
-    // Date field has no hint (commentLabel belongs to the comment field, not the date)
+    // Date field uses the answer's descriptive label; no hint (commentLabel belongs to the comment field)
     expect(fields['qdatepluscomment-qdatepluscomment-a1-date']).toEqual({
       name: 'qdatepluscomment-qdatepluscomment-a1-date',
-      label: 'Date',
-      visuallyHiddenText: 'for Enter date and comment',
+      label: 'Enter date and comment',
       hint: undefined,
       component: 'mojDatePicker',
       validate: ['required', 'ukDate'],
@@ -634,7 +630,6 @@ describe('generateFields() for single-answer questions', () => {
     expect(fields['qdatepluscomment-qdatepluscomment-a1-comment']).toEqual({
       name: 'qdatepluscomment-qdatepluscomment-a1-comment',
       label: 'Describe the event',
-      visuallyHiddenText: 'for Enter date and comment',
       component: 'govukInput',
       validate: ['required'],
       dependent: { field: 'qdatepluscomment', value: 'DATE_AND_COMMENT_RESPONSE' },

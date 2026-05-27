@@ -270,8 +270,9 @@ function generateFields(config: IncidentTypeConfiguration): FormWizard.Fields {
           const dateFieldName = conditionalFieldName(question, singleAnswer, 'date')
           fields[dateFieldName] = {
             name: dateFieldName,
-            label: 'Date',
-            visuallyHiddenText: `for ${singleAnswer.label}`,
+            // Use the answer's descriptive label (e.g. "Enter date of first error identified")
+            // rather than the generic "Date", since the radio is not shown to provide context
+            label: singleAnswer.label,
             // When there is no comment field, commentLabel is used as the date hint
             // (e.g. "For example, 17/5/2026")
             hint: !singleAnswer.commentRequested ? singleAnswer.commentLabel : undefined,
@@ -286,11 +287,11 @@ function generateFields(config: IncidentTypeConfiguration): FormWizard.Fields {
 
         if (singleAnswer.commentRequested) {
           const commentFieldName = conditionalFieldName(question, singleAnswer, 'comment')
+          // commentLabel is the specific label for the comment input (e.g. "Provide your comment here")
           const commentLabel = singleAnswer.commentLabel || 'Comment'
           fields[commentFieldName] = {
             name: commentFieldName,
             label: commentLabel,
-            visuallyHiddenText: `for ${singleAnswer.label}`,
             component: 'govukInput',
             validate: ['required'],
             dependent: {

@@ -16,10 +16,36 @@
   {% for fieldName in questionSteps[options.route].fields %}
     {% set field = options.fields[fieldName] %}
 
-    {# NB:
-      - dependent fields are currently only used in conditionals so are rendered separately
-    #}
-    {% if not field.dependent %}
+    {% if field.singleAnswer %}
+      {# Single-answer question: the answer is auto-selected via a hidden input.
+         Date/comment sub-fields are rendered directly inside a fieldset, skipping
+         the unnecessary radio/checkbox selection step. #}
+      {% set numberedLabel = (firstQuestionNumber + index) + ". " + field.label %}
+      <div class="app-question-block">
+        <a id="question-{{ fieldName }}"></a>
+        <input type="hidden" name="{{ fieldName }}" value="{{ values[fieldName] | default(field.default) }}" />
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+              {{ numberedLabel }}
+            </legend>
+            {% if field.hint %}
+              <div class="govuk-hint">{{ field.hint }}</div>
+            {% endif %}
+            {% for subfieldName, subfield in options.fields %}
+              {% if subfield.dependent and subfield.dependent.field == fieldName %}
+                {{ renderField(subfieldName, subfield, options, values, errors) }}
+              {% endif %}
+            {% endfor %}
+          </fieldset>
+        </div>
+      </div>
+      {% set index = index + 1 %}
+
+    {% elif not field.dependent %}
+      {# NB:
+        - dependent fields are currently only used in conditionals so are rendered separately
+      #}
       {% set label = (firstQuestionNumber + index) + ". " + field.label %}
       {% set field = mergeObjects(field, {label: label}) %}
       <div class="app-question-block">

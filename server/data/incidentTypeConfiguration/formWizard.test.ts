@@ -12,8 +12,29 @@ const testConfig: IncidentTypeConfiguration = {
   incidentType: 'MISCELLANEOUS_1',
   active: true,
   prisonerRoles: [],
-  startingQuestionCode: 'qanimals',
+  startingQuestionCode: 'qsingledate',
   questions: {
+    // Single-answer question with a mandatory date (and a hint via commentLabel)
+    qsingledate: {
+      code: 'qsingledate',
+      question: 'WHEN WAS THE EVENT',
+      label: 'When was the event?',
+      active: true,
+      multipleAnswers: false,
+      answers: [
+        {
+          code: 'qsingledate-a1',
+          response: 'DATE ONLY',
+          label: 'Enter date',
+          active: true,
+          dateMandatory: true,
+          commentRequested: false,
+          commentMandatory: false,
+          commentLabel: 'For example, 17/5/2026',
+          nextQuestionCode: 'qanimals',
+        },
+      ],
+    },
     qanimals: {
       code: 'qanimals',
       question: 'WHICH ANIMALS DO YOU LIKE',
@@ -185,12 +206,14 @@ describe.each([
         reset: true,
         resetJourney: true,
         skip: true,
-        next: 'qanimals',
+        next: 'qsingledate',
         controller: EmptyController,
       },
-      '/qanimals': {
+      // Single-answer qsingledate is merged with the following non-branching qanimals step.
+      // qanimals is always reached only via qsingledate (single parent), so they are grouped.
+      '/qsingledate': {
         controller: QuestionsController,
-        fields: ['qanimals'],
+        fields: ['qsingledate', 'qsingledate-qsingledate-a1-date', 'qanimals'],
         next: [
           {
             field: 'qanimals',
@@ -269,6 +292,37 @@ describe('generateFields()', () => {
     const fields = generateFields(testConfig)
 
     expect(fields).toEqual({
+      // Single-answer question: hidden field + date sub-field with hint from commentLabel
+      qsingledate: {
+        name: 'qsingledate',
+        label: 'When was the event?',
+        validate: [],
+        multiple: false,
+        component: 'hidden',
+        singleAnswer: true,
+        default: 'DATE ONLY',
+        items: [
+          {
+            value: 'DATE ONLY',
+            label: 'Enter date',
+            hint: undefined,
+            dateRequired: true,
+            commentRequired: false,
+          },
+        ],
+      },
+      'qsingledate-qsingledate-a1-date': {
+        name: 'qsingledate-qsingledate-a1-date',
+        label: 'Date',
+        visuallyHiddenText: 'for Enter date',
+        hint: 'For example, 17/5/2026',
+        component: 'mojDatePicker',
+        validate: ['required', 'ukDate'],
+        dependent: {
+          field: 'qsingledate',
+          value: 'DATE ONLY',
+        },
+      },
       qanimals: {
         name: 'qanimals',
         label: 'Which animals do you like?',
@@ -402,6 +456,209 @@ describe('generateFields()', () => {
         ],
       },
     })
+  })
+})
+
+describe('generateFields() for single-answer questions', () => {
+  const singleAnswerConfig: IncidentTypeConfiguration = {
+    incidentType: 'MISCELLANEOUS_1',
+    active: true,
+    prisonerRoles: [],
+    startingQuestionCode: 'qdateonly',
+    questions: {
+      qdateonly: {
+        code: 'qdateonly',
+        question: 'WHEN WAS THE DATE',
+        label: 'When was the date?',
+        active: true,
+        multipleAnswers: false,
+        answers: [
+          {
+            code: 'qdateonly-a1',
+            response: 'DATE_RESPONSE',
+            label: 'Enter date',
+            active: true,
+            dateMandatory: true,
+            commentRequested: false,
+            commentMandatory: false,
+            commentLabel: 'For example, 17/5/2026',
+            nextQuestionCode: 'qcommentonly',
+          },
+        ],
+      },
+      qcommentonly: {
+        code: 'qcommentonly',
+        question: 'ENTER A COMMENT',
+        label: 'Enter a comment',
+        active: true,
+        multipleAnswers: false,
+        answers: [
+          {
+            code: 'qcommentonly-a1',
+            response: 'COMMENT_RESPONSE',
+            label: 'Enter details',
+            active: true,
+            dateMandatory: false,
+            commentRequested: true,
+            commentMandatory: true,
+            commentLabel: 'Provide your comment here',
+            nextQuestionCode: 'qdatepluscomment',
+          },
+        ],
+      },
+      qdatepluscomment: {
+        code: 'qdatepluscomment',
+        question: 'DATE AND COMMENT',
+        label: 'Date and comment',
+        active: true,
+        multipleAnswers: false,
+        answers: [
+          {
+            code: 'qdatepluscomment-a1',
+            response: 'DATE_AND_COMMENT_RESPONSE',
+            label: 'Enter date and comment',
+            active: true,
+            dateMandatory: true,
+            commentRequested: true,
+            commentMandatory: true,
+            commentLabel: 'Describe the event',
+            nextQuestionCode: null,
+          },
+        ],
+      },
+      qnone: {
+        code: 'qnone',
+        question: 'NO DATE OR COMMENT',
+        label: 'No date or comment',
+        active: true,
+        multipleAnswers: false,
+        answers: [
+          {
+            code: 'qnone-a1',
+            response: 'NONE_RESPONSE',
+            label: 'Auto answer',
+            active: true,
+            dateMandatory: false,
+            commentRequested: false,
+            commentMandatory: false,
+            nextQuestionCode: null,
+          },
+        ],
+      },
+    },
+  }
+
+  it('single-answer with date only: hidden field + date sub-field with commentLabel as hint', () => {
+    const fields = generateFields(singleAnswerConfig)
+
+    expect(fields.qdateonly).toEqual({
+      name: 'qdateonly',
+      label: 'When was the date?',
+      validate: [],
+      multiple: false,
+      component: 'hidden',
+      singleAnswer: true,
+      default: 'DATE_RESPONSE',
+      items: [
+        { value: 'DATE_RESPONSE', label: 'Enter date', hint: undefined, dateRequired: true, commentRequired: false },
+      ],
+    })
+
+    expect(fields['qdateonly-qdateonly-a1-date']).toEqual({
+      name: 'qdateonly-qdateonly-a1-date',
+      label: 'Date',
+      visuallyHiddenText: 'for Enter date',
+      hint: 'For example, 17/5/2026',
+      component: 'mojDatePicker',
+      validate: ['required', 'ukDate'],
+      dependent: { field: 'qdateonly', value: 'DATE_RESPONSE' },
+    })
+  })
+
+  it('single-answer with comment only: hidden field + comment sub-field', () => {
+    const fields = generateFields(singleAnswerConfig)
+
+    expect(fields.qcommentonly).toEqual({
+      name: 'qcommentonly',
+      label: 'Enter a comment',
+      validate: [],
+      multiple: false,
+      component: 'hidden',
+      singleAnswer: true,
+      default: 'COMMENT_RESPONSE',
+      items: [
+        {
+          value: 'COMMENT_RESPONSE',
+          label: 'Enter details',
+          hint: undefined,
+          dateRequired: false,
+          commentRequired: true,
+        },
+      ],
+    })
+
+    expect(fields['qcommentonly-qcommentonly-a1-comment']).toEqual({
+      name: 'qcommentonly-qcommentonly-a1-comment',
+      label: 'Provide your comment here',
+      visuallyHiddenText: 'for Enter details',
+      component: 'govukInput',
+      validate: ['required'],
+      dependent: { field: 'qcommentonly', value: 'COMMENT_RESPONSE' },
+    })
+
+    // No date sub-field generated
+    expect(fields['qcommentonly-qcommentonly-a1-date']).toBeUndefined()
+  })
+
+  it('single-answer with date + comment: commentLabel is the comment label (not the date hint)', () => {
+    const fields = generateFields(singleAnswerConfig)
+
+    expect(fields.qdatepluscomment).toMatchObject({
+      component: 'hidden',
+      singleAnswer: true,
+      default: 'DATE_AND_COMMENT_RESPONSE',
+    })
+
+    // Date field has no hint (commentLabel belongs to the comment field, not the date)
+    expect(fields['qdatepluscomment-qdatepluscomment-a1-date']).toEqual({
+      name: 'qdatepluscomment-qdatepluscomment-a1-date',
+      label: 'Date',
+      visuallyHiddenText: 'for Enter date and comment',
+      hint: undefined,
+      component: 'mojDatePicker',
+      validate: ['required', 'ukDate'],
+      dependent: { field: 'qdatepluscomment', value: 'DATE_AND_COMMENT_RESPONSE' },
+    })
+
+    // Comment field uses commentLabel as its label
+    expect(fields['qdatepluscomment-qdatepluscomment-a1-comment']).toEqual({
+      name: 'qdatepluscomment-qdatepluscomment-a1-comment',
+      label: 'Describe the event',
+      visuallyHiddenText: 'for Enter date and comment',
+      component: 'govukInput',
+      validate: ['required'],
+      dependent: { field: 'qdatepluscomment', value: 'DATE_AND_COMMENT_RESPONSE' },
+    })
+  })
+
+  it('single-answer with no date or comment: hidden field only, no sub-fields', () => {
+    const fields = generateFields(singleAnswerConfig)
+
+    expect(fields.qnone).toEqual({
+      name: 'qnone',
+      label: 'No date or comment',
+      validate: [],
+      multiple: false,
+      component: 'hidden',
+      singleAnswer: true,
+      default: 'NONE_RESPONSE',
+      items: [
+        { value: 'NONE_RESPONSE', label: 'Auto answer', hint: undefined, dateRequired: false, commentRequired: false },
+      ],
+    })
+
+    expect(fields['qnone-qnone-a1-date']).toBeUndefined()
+    expect(fields['qnone-qnone-a1-comment']).toBeUndefined()
   })
 })
 

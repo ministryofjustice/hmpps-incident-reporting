@@ -22,12 +22,12 @@ export abstract class BaseIncidentDateAndTimeController<
   V extends IncidentDateAndTimeControllerValues,
 > extends BaseController<V, IncidentDateAndTimeFieldNames> {
   middlewareLocals(): void {
-    this.use(this.customiseIncidentDateFields)
+    this.use(this.customiseIncidentDateAndTimeFields)
     super.middlewareLocals()
   }
 
   /** Rewrite hint text and hide time field for incident date/time if configured for this type */
-  private customiseIncidentDateFields(
+  private customiseIncidentDateAndTimeFields(
     req: FormWizard.Request<V, IncidentDateAndTimeFieldNames>,
     res: express.Response,
     next: express.NextFunction,

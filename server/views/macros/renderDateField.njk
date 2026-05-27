@@ -14,7 +14,7 @@
     name: fieldName,
     id: fieldName,
     label: {
-      html: field.label + visuallyHiddenText,
+      html: (field.label or "") + visuallyHiddenText,
       classes: "govuk-visually-hidden" if not (field.label or visuallyHiddenText),
       attributes: {
         id: fieldName + "__label"

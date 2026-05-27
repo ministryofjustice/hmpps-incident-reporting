@@ -290,8 +290,9 @@ function generateFields(config: IncidentTypeConfiguration): FormWizard.Fields {
         if (singleAnswer.commentRequested) {
           const commentFieldName = conditionalFieldName(question, singleAnswer, 'comment')
           // Use commentLabel as the visible label (e.g. "Provide your comment here").
-          // When not set the fieldset legend provides context; suppress the generic "Comment" fallback.
-          const { commentLabel } = singleAnswer
+          // Fall back to the answer's own label (e.g. "Specify location") when commentLabel is absent.
+          // Never show the generic word "Comment".
+          const commentLabel = singleAnswer.commentLabel || singleAnswer.label
           fields[commentFieldName] = {
             name: commentFieldName,
             label: commentLabel,

@@ -712,7 +712,7 @@ describe('generateFields() for single-answer questions', () => {
     })
   })
 
-  it('single-answer comment with no commentLabel: comment sub-field has no visible label', () => {
+  it('single-answer comment with no commentLabel: answer label is used instead (e.g. "Specify location")', () => {
     const fields = generateFields(singleAnswerConfig)
 
     // Hidden field is unaffected
@@ -722,10 +722,10 @@ describe('generateFields() for single-answer questions', () => {
       default: 'COMMENT_RESPONSE',
     })
 
-    // Comment sub-field: label is undefined because commentLabel is not set
+    // Comment sub-field: falls back to singleAnswer.label when commentLabel is absent
     expect(fields['qcommentnolabel-qcommentnolabel-a1-comment']).toEqual({
       name: 'qcommentnolabel-qcommentnolabel-a1-comment',
-      label: undefined,
+      label: 'Enter details:',
       component: 'govukInput',
       validate: ['required'],
       dependent: { field: 'qcommentnolabel', value: 'COMMENT_RESPONSE' },

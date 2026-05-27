@@ -10,7 +10,7 @@ import {
   hoursFieldName,
   minutesFieldName,
 } from './incidentDateAndTimeFields'
-import { incidentTypeDefaultTimes, incidentTypeHints, Type } from '../../../reportConfiguration/constants'
+import { incidentTypeHints, incidentTypeRequiresTime, Type } from '../../../reportConfiguration/constants'
 
 type IncidentDateAndTimeControllerValues = IncidentDateAndTimeValues & { type?: Type }
 /**
@@ -42,11 +42,11 @@ export abstract class BaseIncidentDateAndTimeController<
       req.form.options.fields.incidentTime.hint = incidentTypeHints[reportType].incidentTime
     }
 
-    const defaultTime = incidentTypeDefaultTimes[reportType]
-    if (defaultTime) {
+    const timeRequired = incidentTypeRequiresTime[reportType] ?? true
+    if (!timeRequired) {
       req.form.options.fields.incidentTime.component = 'hidden'
       req.form.options.fields.incidentTime.validate = []
-      res.locals.defaultIncidentTime = defaultTime
+      res.locals.incidentTimeRequired = false
     }
 
     next()
@@ -64,11 +64,11 @@ export abstract class BaseIncidentDateAndTimeController<
       }
 
       const reportType: Type = (req.sessionModel.get('type') as Type) ?? res.locals.report?.type
-      const defaultTime = incidentTypeDefaultTimes[reportType]
+      const timeRequired = incidentTypeRequiresTime[reportType] ?? true
 
-      if (defaultTime) {
+      if (!timeRequired) {
         // eslint-disable-next-line no-param-reassign
-        values.incidentTime = defaultTime as V['incidentTime']
+        values.incidentTime = '00:00' as V['incidentTime']
       } else {
         const errorValues = req.sessionModel.get('errorValues')
         const incidentTimeValue = errorValues?.incidentTime ?? values?.incidentTime
@@ -91,10 +91,10 @@ export abstract class BaseIncidentDateAndTimeController<
     next: express.NextFunction,
   ): void {
     const reportType: Type = (req.sessionModel.get('type') as Type) ?? res.locals.report?.type
-    const defaultTime = incidentTypeDefaultTimes[reportType]
+    const timeRequired = incidentTypeRequiresTime[reportType] ?? true
 
-    if (defaultTime) {
-      req.form.values.incidentTime = defaultTime as V['incidentTime']
+    if (!timeRequired) {
+      req.form.values.incidentTime = '00:00' as V['incidentTime']
     } else {
       const hours = req.form.values[hoursFieldName]
       const minutes = req.form.values[minutesFieldName]
@@ -114,7 +114,7 @@ export abstract class BaseIncidentDateAndTimeController<
   ): void {
     // if (and only if) incidentDate and incidentTime are valid, ensure that the combined date & time is in the past
     const { incidentDate, incidentTime } = req.form.values
-    const usingDefaultTime = Boolean(res.locals.defaultIncidentTime)
+    const timeRequired = res.locals.incidentTimeRequired ?? true
     try {
       const incidentDateAndTime = this.buildIncidentDateAndTime(incidentDate, incidentTime)
       const now = new Date()
@@ -127,8 +127,8 @@ export abstract class BaseIncidentDateAndTimeController<
           next({ incidentDate: error })
           return
         }
-        // Skip the time-in-future error when the time is a type-level default, not user-entered
-        if (!usingDefaultTime) {
+        // Skip the time-in-future error when the time field is not shown to the user
+        if (timeRequired) {
           const error = new this.Error('incidentTime', {
             field: hoursFieldName,
             key: 'incidentTime',

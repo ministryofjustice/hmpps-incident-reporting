@@ -101,7 +101,7 @@ describe('Updating report incident date and time', () => {
       })
   })
 
-  describe('Incident types with a default time (time field hidden)', () => {
+  describe('Incident types where time is not required (time field hidden)', () => {
     beforeEach(() => {
       reportBasic.type = 'UNLAWFUL_DETENTION_1' as Type
     })
@@ -110,7 +110,7 @@ describe('Updating report incident date and time', () => {
       reportBasic.type = 'DISORDER_2' as Type
     })
 
-    it('should hide the time field and render it as a hidden input with the default value', () => {
+    it('should hide the time field and render it as a hidden input with 00:00', () => {
       return agent
         .get(updateIncidentDateAndTimeUrl)
         .expect(200)
@@ -120,7 +120,7 @@ describe('Updating report incident date and time', () => {
         })
     })
 
-    it('should submit the default time to the API when no time fields are provided by the user', () => {
+    it('should submit 00:00 to the API when the time field is not shown', () => {
       const expectedDateAndTime = new Date('2024-10-21T00:00:00+01:00')
       incidentReportingApi.updateReport.mockResolvedValueOnce(reportBasic)
 
@@ -137,7 +137,7 @@ describe('Updating report incident date and time', () => {
         })
     })
 
-    it('should not show a time-in-future error when today is selected (default time may be in future)', () => {
+    it('should not show a time-in-future error when today is selected (00:00 may be in future)', () => {
       const today = format.shortDate(new Date())
       incidentReportingApi.updateReport.mockResolvedValueOnce(reportBasic)
 

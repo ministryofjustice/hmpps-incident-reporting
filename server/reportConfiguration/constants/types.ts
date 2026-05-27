@@ -359,7 +359,7 @@ export const incidentTypeHints: { [K in Type]?: Record<string, string> } = {
  * When set, the time field is hidden and this value is submitted to the API automatically.
  */
 export const incidentTypeDefaultTimes: Partial<Record<Type, string>> = {
-  UNLAWFUL_DETENTION_1: '23:59',
+  UNLAWFUL_DETENTION_1: '00:00',
 }
 
 /**

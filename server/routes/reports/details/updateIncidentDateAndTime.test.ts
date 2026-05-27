@@ -116,17 +116,17 @@ describe('Updating report incident date and time', () => {
         .expect(200)
         .expect(res => {
           expect(res.text).not.toContain('Time of incident')
-          expect(res.text).toContain('name="incidentTime" value="23:59"')
+          expect(res.text).toContain('name="incidentTime" value="00:00"')
         })
     })
 
     it('should submit the default time to the API when no time fields are provided by the user', () => {
-      const expectedDateAndTime = new Date('2024-10-21T23:59:00+01:00')
+      const expectedDateAndTime = new Date('2024-10-21T00:00:00+01:00')
       incidentReportingApi.updateReport.mockResolvedValueOnce(reportBasic)
 
       return agent
         .post(updateIncidentDateAndTimeUrl)
-        .send({ incidentDate: '21/10/2024', incidentTime: '23:59' })
+        .send({ incidentDate: '21/10/2024', incidentTime: '00:00' })
         .redirects(0)
         .expect(302)
         .expect(() => {
@@ -143,7 +143,7 @@ describe('Updating report incident date and time', () => {
 
       return agent
         .post(updateIncidentDateAndTimeUrl)
-        .send({ incidentDate: today, incidentTime: '23:59' })
+        .send({ incidentDate: today, incidentTime: '00:00' })
         .redirects(0)
         .expect(302)
         .expect(res => {

@@ -5,6 +5,7 @@ import { now } from '../../../../server/testutils/fakeClock'
 import Page from '../../../pages/page'
 import { PrisonerInvolvementsPage, PrisonerSearchPage } from '../../../pages/reports/involvements/prisoners'
 import { ReportPage } from '../../../pages/reports/report'
+import type { PrisonerInvolvement } from '../../../../server/data/incidentReportingApi'
 
 context('Prisoner involvements page', () => {
   const reportWithDetails = mockReport({
@@ -17,6 +18,16 @@ context('Prisoner involvements page', () => {
   reportWithDetails.staffInvolvementDone = false
   reportWithDetails.questions = []
   reportWithDetails.correctionRequests = []
+
+  // A prisoner involvement with the sole role for ABSCOND_1
+  const absconderInvolvement: PrisonerInvolvement = {
+    prisonerNumber: andrew.prisonerNumber,
+    firstName: andrew.firstName,
+    lastName: andrew.lastName,
+    prisonerRole: 'ABSCONDER',
+    outcome: null,
+    comment: '',
+  }
 
   let prisonerInvolvementsPage: PrisonerInvolvementsPage
 
@@ -137,6 +148,56 @@ context('Prisoner involvements page', () => {
 
     it('should not show a table', () => {
       prisonerInvolvementsPage.showsNoTable()
+    })
+  })
+
+  context('when all prisoner role slots are exhausted (onlyOneAllowed)', () => {
+    // ABSCOND_1 has a single active role (ABSCONDER, onlyOneAllowed: true).
+    // Once that role is filled no further prisoners can be added, so the radio
+    // question should be hidden and Continue/Save and exit act as implicit "No".
+    const reportAbscond = mockReport({
+      type: 'ABSCOND_1',
+      reportReference: '6545',
+      reportDateAndTime: now,
+      withDetails: true,
+    })
+    reportAbscond.staffInvolved = []
+    reportAbscond.staffInvolvementDone = false
+    reportAbscond.questions = []
+    reportAbscond.correctionRequests = []
+
+    beforeEach(() => {
+      reportAbscond.prisonersInvolved = [absconderInvolvement]
+      reportAbscond.prisonerInvolvementDone = true
+
+      cy.task('stubIncidentReportingApiGetReportWithDetailsById', { report: reportAbscond })
+      cy.visit(`/reports/${reportAbscond.id}/prisoners`)
+      Page.verifyOnPage(PrisonerInvolvementsPage)
+    })
+
+    it('should not show the "add another prisoner?" radio', () => {
+      const page = new PrisonerInvolvementsPage()
+      page.showsNoRadio()
+    })
+
+    it('should still show Continue and Save and exit buttons', () => {
+      cy.contains('button', 'Continue').should('exist')
+      cy.contains('button', 'Save and exit').should('exist')
+    })
+
+    it('should navigate to the report page when Continue is clicked (implicit No)', () => {
+      cy.task('stubIncidentReportingApiGetReportById', { report: reportAbscond })
+      cy.task('stubPrisonApiMockPrison', moorland)
+      cy.task('stubManageKnownUsers')
+
+      cy.contains('button', 'Continue').click()
+
+      Page.verifyOnPage(ReportPage, reportAbscond.reportReference, true)
+    })
+
+    it('should show the table of existing prisoners', () => {
+      const page = new PrisonerInvolvementsPage()
+      page.tableRows.should('have.length', 1)
     })
   })
 

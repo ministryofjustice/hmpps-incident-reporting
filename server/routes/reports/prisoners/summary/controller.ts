@@ -2,6 +2,9 @@ import type express from 'express'
 import type FormWizard from 'hmpo-form-wizard'
 
 import { InvolvementSummary } from '../../../../controllers/involvements/summary'
+import type { ReportWithDetails } from '../../../../data/incidentReportingApi'
+import type { IncidentTypeConfiguration } from '../../../../data/incidentTypeConfiguration/types'
+import { populateReportConfiguration } from '../../../../middleware/populateReportConfiguration'
 import {
   prisonerInvolvementOutcomesDescriptions,
   prisonerInvolvementRolesDescriptions,
@@ -9,6 +12,28 @@ import {
 import type { Values } from './fields'
 
 export default class PrisonerSummary extends InvolvementSummary {
+  middlewareLocals(): void {
+    // Load reportConfig (without generating question steps) so canAddMoreInvolvements()
+    // can inspect prisonerRoles.  Mirrors the pattern in PrisonerInvolvementController.
+    this.router.use(populateReportConfiguration(false))
+    super.middlewareLocals()
+  }
+
+  protected canAddMoreInvolvements(res: express.Response): boolean {
+    const reportConfig = res.locals.reportConfig as IncidentTypeConfiguration | undefined
+    if (!reportConfig) return true // safe default when config unavailable
+
+    const report = res.locals.report as ReportWithDetails
+    const usedRoles = new Set(report.prisonersInvolved.map(p => p.prisonerRole))
+
+    // There is room for another prisoner if ANY active role can still be filled:
+    // • unlimited roles (onlyOneAllowed: false) are always available, or
+    // • single-use roles (onlyOneAllowed: true) that haven't been used yet.
+    return reportConfig.prisonerRoles.some(
+      role => role.active && (!role.onlyOneAllowed || !usedRoles.has(role.prisonerRole)),
+    )
+  }
+
   protected type = 'prisoners' as const
 
   protected involvementField = 'prisonersInvolved' as const

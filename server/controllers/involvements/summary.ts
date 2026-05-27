@@ -35,6 +35,14 @@ export abstract class InvolvementSummary extends BaseController<Values> {
     super.middlewareLocals()
   }
 
+  // Override in subclasses to prevent the "add another?" radio from showing when
+  // no further involvements can be added (e.g. all prisoner roles with onlyOneAllowed
+  // are already used).  Default returns true so staff summary is unaffected.
+
+  protected canAddMoreInvolvements(_res: express.Response): boolean {
+    return true
+  }
+
   private customiseFields(req: FormWizard.Request<Values>, res: express.Response, next: express.NextFunction): void {
     const report = res.locals.report as ReportWithDetails
 
@@ -53,10 +61,19 @@ export abstract class InvolvementSummary extends BaseController<Values> {
     if (involvementsExist) {
       customisedFields.confirmAdd.label = this.labelOnceInvolvementsExist
     }
+
+    const canAddMore = this.canAddMoreInvolvements(res)
+    if (involvementsExist && !canAddMore) {
+      // Remove required validation: the radio will be hidden in the template and
+      // an empty submission is treated as an implicit "No" in successHandler.
+      customisedFields.confirmAdd = { ...customisedFields.confirmAdd, validate: [] }
+    }
+
     req.form.options.fields = customisedFields
 
     res.locals.involvementDone = involvementDone
     res.locals.involvementsExist = involvementsExist
+    res.locals.noMoreCanBeAdded = involvementsExist && !canAddMore
 
     next()
   }

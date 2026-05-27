@@ -97,7 +97,7 @@ describe('Updating report incident date and time', () => {
       .get(updateIncidentDateAndTimeUrl)
       .expect(200)
       .expect(res => {
-        expect(res.text).toContain('This should be the date the person was released - for example, 17/5/2024')
+        expect(res.text).toContain('For example, 17/5/2024')
       })
   })
 
@@ -124,7 +124,7 @@ describe('Updating report incident date and time', () => {
       .get(updateIncidentDateAndTimeUrl)
       .expect(200)
       .expect(res => {
-        expect(res.text).toContain('Date of release')
+        expect(res.text).toContain('Date the person was released')
         expect(res.text).not.toContain('Date of incident')
       })
   })
@@ -135,7 +135,7 @@ describe('Updating report incident date and time', () => {
       .get(updateIncidentDateAndTimeUrl)
       .expect(200)
       .expect(res => {
-        expect(res.text).toContain('Date meant for release')
+        expect(res.text).toContain('Date the person should have been released')
         expect(res.text).not.toContain('Date of incident')
       })
   })

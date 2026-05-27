@@ -113,8 +113,8 @@ describe('Updating report incident date and time', () => {
       .expect(200)
       .expect(res => {
         expect(res.text).toContain('Date of incident')
-        expect(res.text).not.toContain('Date of release')
-        expect(res.text).not.toContain('Date meant for release')
+        expect(res.text).not.toContain('Date the person was released')
+        expect(res.text).not.toContain('Date the person should have been released')
       })
   })
 
@@ -138,6 +138,57 @@ describe('Updating report incident date and time', () => {
         expect(res.text).toContain('Date meant for release')
         expect(res.text).not.toContain('Date of incident')
       })
+  })
+
+  describe('Incident types where time is not required (time field hidden)', () => {
+    beforeEach(() => {
+      reportBasic.type = 'UNLAWFUL_DETENTION_1' as Type
+    })
+
+    afterAll(() => {
+      reportBasic.type = 'DISORDER_2' as Type
+    })
+
+    it('should hide the time field and render it as a hidden input with 00:00', () => {
+      return agent
+        .get(updateIncidentDateAndTimeUrl)
+        .expect(200)
+        .expect(res => {
+          expect(res.text).not.toContain('Time of incident')
+          expect(res.text).toContain('name="incidentTime" value="00:00"')
+        })
+    })
+
+    it('should submit 00:00 to the API when the time field is not shown', () => {
+      const expectedDateAndTime = new Date('2024-10-21T00:00:00+01:00')
+      incidentReportingApi.updateReport.mockResolvedValueOnce(reportBasic)
+
+      return agent
+        .post(updateIncidentDateAndTimeUrl)
+        .send({ incidentDate: '21/10/2024', incidentTime: '00:00' })
+        .redirects(0)
+        .expect(302)
+        .expect(() => {
+          expect(incidentReportingApi.updateReport).toHaveBeenCalledWith(reportBasic.id, {
+            incidentDateAndTime: expectedDateAndTime,
+          })
+          mockHandleReportEdit.expectCalled()
+        })
+    })
+
+    it('should not show a time-in-future error when today is selected (00:00 may be in future)', () => {
+      const today = format.shortDate(new Date())
+      incidentReportingApi.updateReport.mockResolvedValueOnce(reportBasic)
+
+      return agent
+        .post(updateIncidentDateAndTimeUrl)
+        .send({ incidentDate: today, incidentTime: '00:00' })
+        .redirects(0)
+        .expect(302)
+        .expect(res => {
+          expect(res.header.location).toEqual(`/reports/${reportBasic.id}`)
+        })
+    })
   })
 
   it('should display form prefilled with existing incident date and time', () => {

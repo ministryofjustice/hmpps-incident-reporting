@@ -3,7 +3,6 @@ import type FormWizard from 'hmpo-form-wizard'
 
 import { InvolvementSummary } from '../../../../controllers/involvements/summary'
 import type { ReportWithDetails } from '../../../../data/incidentReportingApi'
-import type { IncidentTypeConfiguration } from '../../../../data/incidentTypeConfiguration/types'
 import { populateReportConfiguration } from '../../../../middleware/populateReportConfiguration'
 import {
   prisonerInvolvementOutcomesDescriptions,
@@ -20,7 +19,7 @@ export default class PrisonerSummary extends InvolvementSummary {
   }
 
   protected canAddMoreInvolvements(res: express.Response): boolean {
-    const reportConfig = res.locals.reportConfig as IncidentTypeConfiguration | undefined
+    const { reportConfig } = res.locals
     if (!reportConfig) return true // safe default when config unavailable
 
     const report = res.locals.report as ReportWithDetails

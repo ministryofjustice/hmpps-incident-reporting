@@ -63,7 +63,8 @@ export abstract class InvolvementSummary extends BaseController<Values> {
     }
 
     const canAddMore = this.canAddMoreInvolvements(res)
-    if (involvementsExist && !canAddMore) {
+    const noMoreCanBeAdded = involvementsExist && !canAddMore
+    if (noMoreCanBeAdded) {
       // Remove required validation: the radio will be hidden in the template and
       // an empty submission is treated as an implicit "No" in successHandler.
       customisedFields.confirmAdd = { ...customisedFields.confirmAdd, validate: [] }
@@ -73,7 +74,7 @@ export abstract class InvolvementSummary extends BaseController<Values> {
 
     res.locals.involvementDone = involvementDone
     res.locals.involvementsExist = involvementsExist
-    res.locals.noMoreCanBeAdded = involvementsExist && !canAddMore
+    res.locals.noMoreCanBeAdded = noMoreCanBeAdded
 
     next()
   }

@@ -34,35 +34,37 @@
     <input type="hidden" name="_csrf" value="{{ csrfToken }}" />
     <input type="hidden" name="x-csrf-token" value="{{ csrfToken }}" />
 
-    {% set fieldName = "confirmAdd" %}
-    {% set field = options.fields[fieldName] %}
-    {% set items = [] %}
-    {% for item in field.items %}
-      {% set _ = items.push({
-        value: item.value,
-        text: item.label,
-        hint: {text: item.hint} if item.hint else undefined,
-        attributes: { 'data-test': item.label }
-      }) %}
-    {% endfor %}
-    {{ govukRadios({
-      name: fieldName,
-      attributes: { id: fieldName },
-      classes: "govuk-radios--inline",
-      formGroup: {
-        attributes: { id: fieldName + "__form-group" }
-      },
-      fieldset: {
-        legend: {
-          text: field.label,
-          classes: "govuk-fieldset__legend--m"
-        }
-      },
-      idPrefix: fieldName + "-item",
-      items: items,
-      hint: { text: field.hint } if field.hint else undefined,
-      errorMessage: { text: errors[fieldName].message } if errors[fieldName] else undefined
-    }) }}
+    {% if not noMoreCanBeAdded %}
+      {% set fieldName = "confirmAdd" %}
+      {% set field = options.fields[fieldName] %}
+      {% set items = [] %}
+      {% for item in field.items %}
+        {% set _ = items.push({
+          value: item.value,
+          text: item.label,
+          hint: {text: item.hint} if item.hint else undefined,
+          attributes: { 'data-test': item.label }
+        }) %}
+      {% endfor %}
+      {{ govukRadios({
+        name: fieldName,
+        attributes: { id: fieldName },
+        classes: "govuk-radios--inline",
+        formGroup: {
+          attributes: { id: fieldName + "__form-group" }
+        },
+        fieldset: {
+          legend: {
+            text: field.label,
+            classes: "govuk-fieldset__legend--m"
+          }
+        },
+        idPrefix: fieldName + "-item",
+        items: items,
+        hint: { text: field.hint } if field.hint else undefined,
+        errorMessage: { text: errors[fieldName].message } if errors[fieldName] else undefined
+      }) }}
+    {% endif %}
 
     <div class="govuk-button-group">
       {{ govukButton({

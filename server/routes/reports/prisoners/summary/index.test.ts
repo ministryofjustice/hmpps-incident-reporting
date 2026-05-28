@@ -395,6 +395,88 @@ describe('Prisoner involvement summary for report', () => {
     })
   })
 
+  describe('…when all prisoner role slots are exhausted (onlyOneAllowed)', () => {
+    // ABSCOND_1 has exactly one active prisoner role: ABSCONDER with onlyOneAllowed: true.
+    // Once that role is used no further prisoners can be added, so the radio should be hidden.
+    beforeEach(() => {
+      mockedReport = convertReportDates(
+        mockReport({ type: 'ABSCOND_1', reportReference: '6543', reportDateAndTime: now, withDetails: true }),
+      )
+      mockedReport.prisonersInvolved = [
+        {
+          prisonerNumber: 'A1111AA',
+          firstName: 'Andrew',
+          lastName: 'Arnold',
+          prisonerRole: 'ABSCONDER',
+          outcome: null,
+          comment: '',
+        },
+      ]
+      mockedReport.prisonerInvolvementDone = true
+      // Reset any queued mock from the outer beforeEach so ABSCOND_1 is always returned
+      incidentReportingApi.getReportWithDetailsById.mockReset()
+      incidentReportingApi.getReportWithDetailsById.mockResolvedValue(mockedReport)
+    })
+
+    it.each([
+      { scenario: 'during create journey', createJourney: true },
+      { scenario: 'normally', createJourney: false },
+    ])('should not render the "add another?" radio ($scenario)', ({ createJourney }) => {
+      return request(app)
+        .get(summaryUrl(createJourney))
+        .expect(200)
+        .expect(res => {
+          expect(res.text).toContain('app-prisoner-summary')
+
+          expect(res.text).not.toContain('Do you want to add another prisoner?')
+          expect(res.text).not.toContain('Do you want to add a prisoner?')
+          expect(res.text).toContain('Continue')
+          expect(res.text).toContain('Save and exit')
+
+          expect(incidentReportingApi.getReportWithDetailsById).toHaveBeenCalledTimes(1)
+          expect(incidentReportingApi.updateReport).not.toHaveBeenCalled()
+          mockHandleReportEdit.expectNotCalled()
+        })
+    })
+
+    it.each([
+      { scenario: 'redirect to adding staff (when continuing create journey)', createJourney: true },
+      {
+        scenario: 'redirect to report page (when exiting create journey)',
+        createJourney: true,
+        formAction: 'exit' as const,
+      },
+      { scenario: 'redirect to report page (normally)', createJourney: false },
+    ])('should $scenario when form is submitted without the radio (implicit No)', ({ createJourney, formAction }) => {
+      return request(app)
+        .post(summaryUrl(createJourney))
+        .send(formAction ? { formAction } : {})
+        .expect(302)
+        .expect(res => {
+          if (createJourney && formAction !== 'exit') {
+            expect(res.headers.location).toEqual(`/create-report/${mockedReport.id}/staff`)
+          } else {
+            expect(res.headers.location).toEqual(`/reports/${mockedReport.id}`)
+          }
+          // Prisoners already exist so prisonerInvolvementDone must NOT be updated
+          expect(incidentReportingApi.updateReport).not.toHaveBeenCalled()
+          mockHandleReportEdit.expectNotCalled()
+        })
+    })
+
+    it('should not block submission with a validation error when radio is absent', () => {
+      // Empty POST body → no confirmAdd in form → must not return 422/error page
+      return request
+        .agent(app)
+        .post(summaryUrl())
+        .send({})
+        .expect(302) // redirect, not a form-error re-render
+        .expect(res => {
+          expect(res.headers.location).toEqual(`/reports/${mockedReport.id}`)
+        })
+    })
+  })
+
   describe('Permissions', () => {
     // NB: these test cases are simplified because the permissions class methods are thoroughly tested elsewhere
 

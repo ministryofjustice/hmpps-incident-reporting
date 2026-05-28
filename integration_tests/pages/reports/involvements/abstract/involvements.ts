@@ -14,6 +14,10 @@ export abstract class InvolvementsPage extends FormWizardPage {
     return cy.get<HTMLTableRowElement>('.app-involvement-table').should('not.exist').end()
   }
 
+  showsNoRadio(): Cypress.Chainable<void> {
+    return cy.get('#confirmAdd').should('not.exist').end()
+  }
+
   get tableRows(): PageElement<HTMLTableRowElement> {
     return cy.get<HTMLTableRowElement>('table.app-involvement-table tbody tr.govuk-table__row')
   }

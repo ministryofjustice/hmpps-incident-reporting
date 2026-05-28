@@ -35,7 +35,7 @@
     "node": "^24"
   },
   "dependencies": {
-    "@aws-sdk/client-sqs": "^3.1050.0",
+    "@aws-sdk/client-sqs": "^3.1051.0",
     "@ministryofjustice/frontend": "^9.0.0",
     "@ministryofjustice/hmpps-auth-clients": "^2.0.0",
     "@ministryofjustice/hmpps-monitoring": "^2.1.0",
@@ -114,6 +114,9 @@
     "yaml": "^2.9.0"
   },
   "overrides": {
+    "@cypress/request": {
+      "qs": "~6.15.2"
+    },
     "mocha": {
       "diff": ">=9.0.0",
       "serialize-javascript": "^7.0.5"

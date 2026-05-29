@@ -240,61 +240,128 @@ function generateFields(config: IncidentTypeConfiguration): FormWizard.Fields {
       const activeAnswers = question.answers.filter(answer => answer.active)
 
       const fieldName = question.code
-      fields[fieldName] = {
-        name: fieldName,
-        label: question.label,
-        hint: question.questionHint,
-        validate: ['required'],
-        multiple: question.multipleAnswers,
-        component: question.multipleAnswers ? 'govukCheckboxes' : 'govukRadios',
-        items: activeAnswers.map(answer => {
-          const fieldItem: FormWizard.FieldItem = {
-            value: answer.response,
-            label: answer.label,
-            hint: answer.responseHint,
-            dateRequired: answer.dateMandatory,
-            commentRequired: answer.commentRequested,
-          }
 
-          if (answer.commentMandatory) {
-            fieldItem.visuallyHiddenText = 'If selected, provide details'
-          }
+      if (activeAnswers.length === 1) {
+        // Single active answer: auto-select it and show date/comment fields directly,
+        // skipping the unnecessary radio/checkbox step
+        const singleAnswer = activeAnswers[0]
 
-          return fieldItem
-        }),
-      } satisfies FormWizard.Field
+        fields[fieldName] = {
+          name: fieldName,
+          label: question.label,
+          hint: question.questionHint,
+          validate: [],
+          multiple: question.multipleAnswers,
+          component: 'hidden',
+          singleAnswer: true,
+          default: singleAnswer.response,
+          items: [
+            {
+              value: singleAnswer.response,
+              label: singleAnswer.label,
+              hint: singleAnswer.responseHint,
+              dateRequired: singleAnswer.dateMandatory,
+              commentRequired: singleAnswer.commentRequested,
+            },
+          ],
+        } satisfies FormWizard.Field
 
-      // Add conditional comment/date fields
-      for (const answer of activeAnswers) {
-        if (answer.dateMandatory) {
-          const dateFieldName = conditionalFieldName(question, answer, 'date')
+        if (singleAnswer.dateMandatory) {
+          const dateFieldName = conditionalFieldName(question, singleAnswer, 'date')
           fields[dateFieldName] = {
             name: dateFieldName,
-            label: 'Date',
-            visuallyHiddenText: `for ${answer.label}`,
+            // Only show a label when commentLabel is set — it signals that a descriptive label
+            // (e.g. "Enter date of first error identified") is meaningful. Without commentLabel
+            // the fieldset legend alone provides sufficient context, so we suppress the label
+            // to avoid showing a generic "Date:" above the picker.
+            label: singleAnswer.commentLabel ? singleAnswer.label : undefined,
+            // When there is no comment field, commentLabel is used as the date hint
+            // (e.g. "For example, 17/5/2026")
+            hint: !singleAnswer.commentRequested ? singleAnswer.commentLabel : undefined,
             component: 'mojDatePicker',
             validate: ['required', 'ukDate'],
             dependent: {
               field: fieldName,
-              value: answer.response,
+              value: singleAnswer.response,
             },
           } satisfies FormWizard.Field
         }
 
-        if (answer.commentRequested) {
-          const commentFieldName = conditionalFieldName(question, answer, 'comment')
-          const commentLabel = answer.commentLabel || 'Comment'
+        if (singleAnswer.commentRequested) {
+          const commentFieldName = conditionalFieldName(question, singleAnswer, 'comment')
+          // Use commentLabel as the visible label (e.g. "Provide your comment here").
+          // Fall back to the answer's own label (e.g. "Specify location") when commentLabel is absent.
+          // Never show the generic word "Comment".
+          const commentLabel = singleAnswer.commentLabel || singleAnswer.label
           fields[commentFieldName] = {
             name: commentFieldName,
             label: commentLabel,
-            visuallyHiddenText: `for ${answer.label}`,
             component: 'govukInput',
             validate: ['required'],
             dependent: {
               field: fieldName,
-              value: answer.response,
+              value: singleAnswer.response,
             },
           } satisfies FormWizard.Field
+        }
+      } else {
+        // Multiple active answers: render as radio buttons or checkboxes
+        fields[fieldName] = {
+          name: fieldName,
+          label: question.label,
+          hint: question.questionHint,
+          validate: ['required'],
+          multiple: question.multipleAnswers,
+          component: question.multipleAnswers ? 'govukCheckboxes' : 'govukRadios',
+          items: activeAnswers.map(answer => {
+            const fieldItem: FormWizard.FieldItem = {
+              value: answer.response,
+              label: answer.label,
+              hint: answer.responseHint,
+              dateRequired: answer.dateMandatory,
+              commentRequired: answer.commentRequested,
+            }
+
+            if (answer.commentMandatory) {
+              fieldItem.visuallyHiddenText = 'If selected, provide details'
+            }
+
+            return fieldItem
+          }),
+        } satisfies FormWizard.Field
+
+        // Add conditional comment/date fields
+        for (const answer of activeAnswers) {
+          if (answer.dateMandatory) {
+            const dateFieldName = conditionalFieldName(question, answer, 'date')
+            fields[dateFieldName] = {
+              name: dateFieldName,
+              label: 'Date',
+              visuallyHiddenText: `for ${answer.label}`,
+              component: 'mojDatePicker',
+              validate: ['required', 'ukDate'],
+              dependent: {
+                field: fieldName,
+                value: answer.response,
+              },
+            } satisfies FormWizard.Field
+          }
+
+          if (answer.commentRequested) {
+            const commentFieldName = conditionalFieldName(question, answer, 'comment')
+            const commentLabel = answer.commentLabel || 'Comment'
+            fields[commentFieldName] = {
+              name: commentFieldName,
+              label: commentLabel,
+              visuallyHiddenText: `for ${answer.label}`,
+              component: 'govukInput',
+              validate: ['required'],
+              dependent: {
+                field: fieldName,
+                value: answer.response,
+              },
+            } satisfies FormWizard.Field
+          }
         }
       }
     })

@@ -320,6 +320,123 @@ describe('Displaying questions and responses', () => {
       })
     })
 
+    describe('Single-answer questions', () => {
+      /**
+       * RELEASE_IN_ERROR_1 questions 45184 ("What date was the error identified?")
+       * and 45185 ("What was the category of the person?") each have exactly one active answer.
+       *
+       * After groupSteps merging, questions 45182+45183+45184+45185 end up on the same
+       * form wizard step at URL /45182 (7+8+1+1 = 17 answers ≤ MAX_ANSWERS_PER_PAGE=20).
+       * Questions 45179+45180+45181 are on the prior step at URL /45179.
+       *
+       * Pre-requisite: provide answers for step /45179 (questions 45179→45181) so that
+       * the form wizard allows access to step /45182.
+       */
+      function answeredQuestionsOnStep45179(): Question[] {
+        return [
+          makeSimpleQuestion('45179', 'HOW WAS THIS PERSON RELEASED', ['Bail', '183020']),
+          {
+            code: '45180',
+            question: 'WHERE DID THE RELEASE OCCUR FROM',
+            label: 'Where did the release occur from?',
+            additionalInformation: null,
+            responses: [
+              {
+                code: '183026',
+                response: 'Establishment : Enter name',
+                label: 'Establishment : enter name',
+                responseDate: null,
+                additionalInformation: 'Test prison',
+                recordedBy: 'USER1',
+                recordedAt: now,
+              },
+            ],
+          },
+          makeSimpleQuestion('45181', 'WHAT WAS THE NATURE OF THE INCIDENT', ['Wrong person released', '183029']),
+        ]
+      }
+
+      it('single-answer date/comment questions are rendered directly without radio buttons', () => {
+        reportWithDetails.type = 'RELEASE_IN_ERROR_1'
+        reportWithDetails.questions = answeredQuestionsOnStep45179()
+
+        // Step /45182 is the merged step containing questions 45182, 45183, 45184, 45185
+        return agent
+          .get(`${reportQuestionsUrl(createJourney)}/45182`)
+          .redirects(1)
+          .expect(200)
+          .expect(res => {
+            // Single-answer main fields must NOT render radio buttons
+            expect(res.text).not.toContain('name="45184" type="radio"')
+            expect(res.text).not.toContain('name="45185" type="radio"')
+            // The date and comment sub-fields must be rendered directly (no conditional wrapper)
+            expect(res.text).toContain('name="45184-183055-date"')
+            expect(res.text).toContain('name="45185-183056-comment"')
+            // Question labels are shown as fieldset legends
+            expect(res.text).toContain('What date was the error identified?')
+            expect(res.text).toContain('What was the category of the person?')
+          })
+      })
+
+      it('single-answer questions are prefilled from existing report answers', () => {
+        reportWithDetails.type = 'RELEASE_IN_ERROR_1'
+        reportWithDetails.questions = [
+          ...answeredQuestionsOnStep45179(),
+          makeSimpleQuestion(
+            '45182',
+            'WHAT ACTION IS BEING TAKEN TO RETURN THE PERSON TO CUSTODY BY THE ESTABLISHMENT',
+            ['Recall procedures', '183040'],
+          ),
+          makeSimpleQuestion('45183', 'HOW WAS THE ERROR IDENTIFIED', ['Contact from courts', '183048']),
+          {
+            code: '45184',
+            question: 'WHAT DATE WAS THE ERROR IDENTIFIED',
+            label: 'What date was the error identified?',
+            additionalInformation: null,
+            responses: [
+              {
+                code: '183055',
+                response: 'Date:',
+                label: 'Date:',
+                responseDate: now,
+                additionalInformation: null,
+                recordedBy: 'USER1',
+                recordedAt: now,
+              },
+            ],
+          },
+          {
+            code: '45185',
+            question: 'WHAT WAS THE CATEGORY OF THE PERSON',
+            label: 'What was the category of the person?',
+            additionalInformation: null,
+            responses: [
+              {
+                code: '183056',
+                response: 'Enter details:',
+                label: 'Enter details:',
+                responseDate: null,
+                additionalInformation: 'Category A',
+                recordedBy: 'USER1',
+                recordedAt: now,
+              },
+            ],
+          },
+        ]
+
+        // Step /45182 is the merged step containing questions 45182, 45183, 45184, 45185
+        return agent
+          .get(`${reportQuestionsUrl(createJourney)}/45182`)
+          .redirects(1)
+          .expect(200)
+          .expect(res => {
+            // The date and comment are pre-filled from saved answers
+            expect(res.text).toContain('name="45184-183055-date" type="text" value="5/12/2023"')
+            expect(res.text).toContain('value="Category A"')
+          })
+      })
+    })
+
     describe('Moving between question pages', () => {
       it.each([
         { scenario: 'no responses so far', someResponses: false },

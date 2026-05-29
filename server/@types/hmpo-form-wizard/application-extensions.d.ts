@@ -17,6 +17,8 @@ declare module 'hmpo-form-wizard' {
         | 'govukTextarea'
         | 'mojDatePicker'
         | 'appTime'
+      /** True when this field has only one active answer and is auto-selected (rendered as a hidden input) */
+      singleAnswer?: boolean
     }
 
     interface FieldItem {

@@ -2,7 +2,7 @@ import type { IncidentTypeConfiguration } from '../../data/incidentTypeConfigura
 
 export const UNLAWFUL_DETENTION_1: IncidentTypeConfiguration = {
   incidentType: 'UNLAWFUL_DETENTION_1',
-  active: false,
+  active: true,
   startingQuestionCode: '100100',
   questions: {
     '100100': {

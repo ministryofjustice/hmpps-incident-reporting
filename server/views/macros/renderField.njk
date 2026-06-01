@@ -29,7 +29,7 @@
 
   {% elif field.component === "hidden" %}
 
-    <input type="hidden" name="{{ fieldName }}" value="{{ values[fieldName] | default("") }}" />
+    <input type="hidden" name="{{ fieldName }}" value="{{ values[fieldName] | default(field.default) | default("") }}" />
 
   {% elif field.component === "govukInput" %}
 

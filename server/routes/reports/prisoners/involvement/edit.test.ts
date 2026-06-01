@@ -524,6 +524,69 @@ describe('Editing an existing prisoner in a report', () => {
     })
   })
 
+  describe('when the incident type allows only one prisoner role', () => {
+    // UNLAWFUL_DETENTION_1 has a single active prisoner role (UNLAWFULLY_DETAINED)
+    beforeEach(() => {
+      report.type = 'UNLAWFUL_DETENTION_1'
+      report.createdInNomis = false
+      report.prisonersInvolved = [
+        {
+          prisonerNumber: andrew.prisonerNumber,
+          firstName: andrew.firstName,
+          lastName: andrew.lastName,
+          prisonerRole: 'UNLAWFULLY_DETAINED',
+          outcome: null,
+          comment: 'Original details',
+        },
+      ]
+    })
+
+    it('should skip the role radio, keep the role hidden and prefill the existing details', () => {
+      return request(app)
+        .get(editPageUrl(1))
+        .expect(200)
+        .expect(res => {
+          // no role question is asked…
+          expect(res.text).not.toContain('What was Andrew’s role?')
+          expect(res.text).not.toContain('Unlawfully detained')
+          // …the existing role is carried as a hidden field instead
+          expect(res.text).toContain('name="prisonerRole"')
+          expect(res.text).toContain('value="UNLAWFULLY_DETAINED"')
+          expect(res.text).toContain('type="hidden"')
+          // and the existing details are prefilled in the optional box
+          expect(res.text).toContain('Details of Andrew’s involvement')
+          expect(res.text).toContain('Original details')
+        })
+    })
+
+    it('should update the involvement keeping the role and saving the new details', () => {
+      incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(report)
+      incidentReportingRelatedObjects.updateForReport.mockResolvedValueOnce([]) // NB: response is ignored
+      incidentReportingApi.updateReport.mockResolvedValueOnce(report) // NB: response is ignored
+
+      return request(app)
+        .post(editPageUrl(1))
+        .send({
+          // the browser submits the unchanged role via the hidden field plus the edited details
+          prisonerRole: 'UNLAWFULLY_DETAINED',
+          comment: 'Updated details',
+        })
+        .redirects(1)
+        .expect(200)
+        .expect(res => {
+          expect(res.text).not.toContain('There is a problem')
+          expect(res.redirects[0]).toMatch(`/reports/${report.id}/prisoners`)
+
+          expect(incidentReportingRelatedObjects.updateForReport).toHaveBeenCalledWith(report.id, 1, {
+            prisonerRole: 'UNLAWFULLY_DETAINED',
+            outcome: null,
+            comment: 'Updated details',
+          })
+          mockHandleReportEdit.expectCalled()
+        })
+    })
+  })
+
   describe('Permissions', () => {
     // NB: these test cases are simplified because the permissions class methods are thoroughly tested elsewhere
 

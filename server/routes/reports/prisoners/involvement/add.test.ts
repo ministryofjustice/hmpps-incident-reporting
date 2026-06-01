@@ -544,4 +544,61 @@ describe('Adding a new prisoner to a report', () => {
       })
     })
   })
+
+  describe('when the incident type allows only one prisoner role', () => {
+    // UNLAWFUL_DETENTION_1 has a single active prisoner role (UNLAWFULLY_DETAINED)
+    beforeEach(() => {
+      report.type = 'UNLAWFUL_DETENTION_1'
+      report.createdInNomis = false
+      report.prisonersInvolved = []
+    })
+
+    it('should skip the role radio and submit the sole role as a hidden field', () => {
+      return request(app)
+        .get(addPageUrl(andrew.prisonerNumber))
+        .expect(200)
+        .expect(res => {
+          // no role question is asked…
+          expect(res.text).not.toContain('What was Andrew’s role?')
+          expect(res.text).not.toContain('Unlawfully detained')
+          // …the role is carried as a hidden field instead
+          expect(res.text).toContain('name="prisonerRole"')
+          expect(res.text).toContain('value="UNLAWFULLY_DETAINED"')
+          expect(res.text).toContain('type="hidden"')
+          // and only the optional details box remains
+          expect(res.text).toContain('Details of Andrew’s involvement')
+        })
+    })
+
+    it('should add the involvement with the auto-selected role and go to the summary page', () => {
+      incidentReportingApi.getReportWithDetailsById.mockResolvedValueOnce(report)
+      incidentReportingRelatedObjects.addToReport.mockResolvedValueOnce([]) // NB: response is ignored
+      incidentReportingApi.updateReport.mockResolvedValueOnce(report) // NB: response is ignored
+      offenderSearchApi.getPrisoner.mockResolvedValueOnce(andrew)
+
+      return request(app)
+        .post(addPageUrl(andrew.prisonerNumber))
+        .send({
+          // the browser submits the role via the hidden field along with the optional details
+          prisonerRole: 'UNLAWFULLY_DETAINED',
+          comment: 'Held past release date',
+        })
+        .redirects(1)
+        .expect(200)
+        .expect(res => {
+          expect(res.text).not.toContain('There is a problem')
+          expect(res.redirects[0]).toMatch(`/reports/${report.id}/prisoners`)
+
+          expect(incidentReportingRelatedObjects.addToReport).toHaveBeenCalledWith(report.id, {
+            prisonerNumber: 'A1111AA',
+            firstName: 'ANDREW',
+            lastName: 'ARNOLD',
+            prisonerRole: 'UNLAWFULLY_DETAINED',
+            outcome: null,
+            comment: 'Held past release date',
+          })
+          mockHandleReportEdit.expectCalled()
+        })
+    })
+  })
 })

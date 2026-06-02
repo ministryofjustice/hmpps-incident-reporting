@@ -15,7 +15,7 @@ export const config: IncidentTypeConfiguration = {
       code: '67179',
       active: true,
       question: 'DESCRIBE HOW THE ITEM WAS FOUND (SELECT ALL THAT APPLY)',
-      label: 'Describe how the item was found (select all that apply)',
+      label: 'Describe how the item was found',
       multipleAnswers: true,
       answers: [
         {

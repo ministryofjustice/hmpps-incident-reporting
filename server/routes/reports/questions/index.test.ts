@@ -802,7 +802,7 @@ describe('Submitting questions’ responses', () => {
         {
           code: '67179',
           question: 'DESCRIBE HOW THE ITEM WAS FOUND (SELECT ALL THAT APPLY)',
-          label: 'Describe how the item was found (select all that apply)',
+          label: 'Describe how the item was found',
           additionalInformation: null,
           responses: [
             {

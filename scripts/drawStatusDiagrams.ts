@@ -32,12 +32,12 @@ function main(): void {
       }))
       .filter(({ actions }) => actions)
       .forEach(({ userType, userDescription, actions }) => {
-        const transitionEdges = Object.entries(actions)
+        const transitionEdges = Object.entries(actions!)
           .map(([originStatus, allowedActions]) => {
             return Object.entries(allowedActions)
               .map(([action, { newStatus }]) => {
                 const targetStatus = newStatus ?? originStatus
-                const actionDescription = userActions.find(a => a.code === action).description
+                const actionDescription = userActions.find(a => a.code === action)?.description ?? action
                 let colour: string
                 if (action === 'close' || action === 'requestReview') {
                   colour = 'forestgreen'
@@ -85,10 +85,11 @@ function drawWorkListNodes(): string {
   return workLists
     .map((workList, index) => {
       const statuses = workList.statuses
-        .map(getStatusDetails)
-        .map(status => {
+        .map(statusCode => {
+          const status = getStatusDetails(statusCode)
+          const statusDescription = status?.description ?? statusCode
           return `
-          ${status.code} [label = "${status.description}"]
+          ${statusCode} [label = "${statusDescription}"]
           `
         })
         .join('')

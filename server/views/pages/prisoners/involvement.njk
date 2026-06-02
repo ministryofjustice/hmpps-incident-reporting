@@ -2,3 +2,23 @@
 {% set allowSaveAndExit = true %}
 
 {% extends "partials/formWizardLayout.njk" %}
+
+{% block formFields %}
+  {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+  {% from "macros/renderFields.njk" import renderFields %}
+
+  {% if options.fields.prisonerRole.component === "hidden" %}
+    {# Only one role can be assigned, so it is selected automatically and submitted via a
+       hidden input (rendered by renderFields below). Show it read-only here so staff can
+       see which role will be recorded against the prisoner. #}
+    {{ govukSummaryList({
+      classes: "govuk-summary-list--no-border app-prisoner-involvement__assigned-role",
+      rows: [{
+        key: { text: "Role" },
+        value: { text: options.fields.prisonerRole.items[0].label }
+      }]
+    }) }}
+  {% endif %}
+
+  {{ renderFields(options, values, errors) }}
+{% endblock %}

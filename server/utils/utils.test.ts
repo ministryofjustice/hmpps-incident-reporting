@@ -14,6 +14,7 @@ import { mockThrownError } from '../data/testData/thrownErrors'
 
 describe('convert to title case', () => {
   it.each([
+    [undefined, undefined, ''],
     [null, null, ''],
     ['empty string', '', ''],
     ['Lower case', 'robert', 'Robert'],

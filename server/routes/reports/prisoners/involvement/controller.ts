@@ -73,13 +73,24 @@ export abstract class PrisonerInvolvementController extends BaseController<Value
     }
     customisedFields.prisonerRole.items = newItems
 
-    if (customisedFields.prisonerRole.items.length === 0) {
+    if (newItems.length === 0) {
       req.flash('error', {
         title: 'No more prisoner roles can be added',
         content: 'You may need to remove an existing person.',
       })
       res.redirect(this.getBackLink(req, res))
       return
+    }
+
+    if (newItems.length === 1) {
+      // Only one selectable role: there is nothing to choose, so skip the radio
+      // and submit the role automatically as a hidden field. The page then only
+      // asks for the optional involvement details.
+      customisedFields.prisonerRole = {
+        ...customisedFields.prisonerRole,
+        component: 'hidden',
+        default: newItems[0].value,
+      }
     }
 
     next()

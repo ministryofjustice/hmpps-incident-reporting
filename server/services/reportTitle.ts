@@ -7,6 +7,7 @@ import { getTypeDetails, type Type } from '../reportConfiguration/constants'
 import { convertToTitleCase } from '../utils/utils'
 import { isPecsRegionCode } from '../data/pecsRegions'
 import { AgencyType } from '../data/constants'
+import { missingLocalsError } from '../errors'
 
 // NB: Report titles are never displayed in this service, but they are saved for downstream services’ compatibility
 
@@ -16,7 +17,8 @@ import { AgencyType } from '../data/constants'
  */
 export function newReportTitle(type: Type, locationDescription: string): string {
   const typeDetails = getTypeDetails(type)
-  return `${typeDetails.description} (${locationDescription})`
+  const description = typeDetails?.description ?? 'Incident'
+  return `${description} (${locationDescription})`
 }
 
 /**
@@ -25,10 +27,11 @@ export function newReportTitle(type: Type, locationDescription: string): string 
  */
 export function regenerateTitleForReport(report: ReportWithDetails, locationDescription: string): string {
   const typeDetails = getTypeDetails(report.type)
+  const description = typeDetails?.description ?? 'Incident'
   const prisonerInvolvement = report.prisonersInvolved.length
     ? `: ${report.prisonersInvolved.map(prisoner => `${convertToTitleCase(prisoner.lastName)} ${prisoner.prisonerNumber}`).join(', ')}`
     : ''
-  return `${typeDetails.description}${prisonerInvolvement} (${locationDescription})`
+  return `${description}${prisonerInvolvement} (${locationDescription})`
 }
 
 /** Updates report title */
@@ -36,8 +39,11 @@ export async function updateReportTitle(res: express.Response): Promise<void> {
   const { incidentReportingApi, prisonApi } = res.locals.apis
   const { report } = res.locals
 
+  if (!report) {
+    throw missingLocalsError('updateReportTitle()', 'res.locals.report')
+  }
   if (!reportHasDetails(report)) {
-    throw new Error('implementation error: regenerateTitleForReport should only be used on report with details')
+    throw missingLocalsError('updateReportTitle()', 'res.locals.report (with details)')
   }
 
   const isPecsReport = isPecsRegionCode(report.location)
@@ -61,9 +67,8 @@ export async function updateReportTitle(res: express.Response): Promise<void> {
  * The title will again be regenerated on submission of the report, when such errors are not ignored.
  */
 export function fallibleUpdateReportTitle(res: express.Response): void {
-  const {
-    report: { id: reportId },
-  } = res.locals
+  const { report } = res.locals
+  const reportId = report?.id ?? 'unknown'
 
   updateReportTitle(res).catch(e => {
     // NB: errors are logged but ignored!

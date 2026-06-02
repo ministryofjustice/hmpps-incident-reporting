@@ -42,6 +42,12 @@
 
   {% if field.multiple %}
 
+    {% if not field.hint %}
+      {% set fieldHint = 'Select all that apply' %}
+    {% else %}
+      {% set fieldHint = field.hint %}
+    {% endif %}
+
     {{ govukCheckboxes({
       name: fieldName,
       attributes: {
@@ -58,7 +64,7 @@
           classes: "govuk-fieldset__legend--m"
         }
       },
-      hint: { text: field.hint } if field.hint else undefined,
+      hint: { text: fieldHint },
       idPrefix: fieldName + "-item",
       items: items | govukMultipleCheckedItems(values[fieldName]),
       errorMessage: { text: errors[fieldName].message } if errors[fieldName] else undefined

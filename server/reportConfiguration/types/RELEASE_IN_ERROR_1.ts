@@ -1443,28 +1443,28 @@ export const RELEASE_IN_ERROR_1: IncidentTypeConfiguration = {
   prisonerRoles: [
     {
       prisonerRole: 'PERPETRATOR',
-      onlyOneAllowed: false,
+      onlyOneAllowed: true,
       active: true,
     },
     {
       prisonerRole: 'ACTIVE_INVOLVEMENT',
       onlyOneAllowed: false,
-      active: true,
+      active: false,
     },
     {
       prisonerRole: 'IMPEDED_STAFF',
       onlyOneAllowed: false,
-      active: true,
+      active: false,
     },
     {
       prisonerRole: 'ASSISTED_STAFF',
       onlyOneAllowed: false,
-      active: true,
+      active: false,
     },
     {
       prisonerRole: 'SUSPECTED_INVOLVED',
       onlyOneAllowed: false,
-      active: true,
+      active: false,
     },
   ],
   requiresPrisoners: true,

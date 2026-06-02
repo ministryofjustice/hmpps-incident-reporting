@@ -43,6 +43,6 @@ export function logoutUnless(accessCondition: AccessCondition): RequestHandler {
 export function hasPermissionTo(userAction: UserAction): AccessCondition {
   return (_permissions, res) => {
     const { allowedActions } = res.locals
-    return allowedActions.has(userAction)
+    return allowedActions?.has(userAction) ?? false
   }
 }

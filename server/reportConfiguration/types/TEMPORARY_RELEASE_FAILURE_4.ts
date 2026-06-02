@@ -1268,6 +1268,11 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
   },
   prisonerRoles: [
     {
+      prisonerRole: 'TEMPORARY_RELEASE_FAILURE',
+      onlyOneAllowed: true,
+      active: true,
+    },
+    {
       prisonerRole: 'ABSCONDER',
       onlyOneAllowed: false,
       active: false,
@@ -1277,11 +1282,6 @@ export const TEMPORARY_RELEASE_FAILURE_4: IncidentTypeConfiguration = {
       prisonerRole: 'LICENSE_FAILURE',
       onlyOneAllowed: false,
       active: false,
-    },
-    {
-      prisonerRole: 'TEMPORARY_RELEASE_FAILURE',
-      onlyOneAllowed: false,
-      active: true,
     },
   ],
   requiresPrisoners: true,

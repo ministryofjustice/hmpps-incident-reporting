@@ -548,11 +548,12 @@ describe('Editing an existing prisoner in a report', () => {
         .expect(res => {
           // no role question is asked…
           expect(res.text).not.toContain('What was Andrew’s role?')
-          expect(res.text).not.toContain('Unlawfully detained')
           // …the existing role is carried as a hidden field instead
           expect(res.text).toContain('name="prisonerRole"')
           expect(res.text).toContain('value="UNLAWFULLY_DETAINED"')
           expect(res.text).toContain('type="hidden"')
+          // …and the assigned role is shown read-only for clarity
+          expect(res.text).toContain('Unlawfully Detained')
           // and the existing details are prefilled in the optional box
           expect(res.text).toContain('Details of Andrew’s involvement')
           expect(res.text).toContain('Original details')

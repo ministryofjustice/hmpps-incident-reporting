@@ -227,12 +227,12 @@ export class PrisonApi extends RestClient {
             question =>
               ({
                 ...question,
-                questionExpiryDate: question.questionExpiryDate && new Date(question.questionExpiryDate),
+                questionExpiryDate: question.questionExpiryDate ? new Date(question.questionExpiryDate) : undefined,
                 answers: question.answers.map(
                   answer =>
                     ({
                       ...answer,
-                      answerExpiryDate: answer.answerExpiryDate && new Date(answer.answerExpiryDate),
+                      answerExpiryDate: answer.answerExpiryDate ? new Date(answer.answerExpiryDate) : undefined,
                     }) satisfies AnswerConfiguration,
                 ),
               }) satisfies QuestionConfiguration,
@@ -241,10 +241,10 @@ export class PrisonApi extends RestClient {
             prisonerRole =>
               ({
                 ...prisonerRole,
-                expiryDate: prisonerRole.expiryDate && new Date(prisonerRole.expiryDate),
+                expiryDate: prisonerRole.expiryDate ? new Date(prisonerRole.expiryDate) : undefined,
               }) satisfies PrisonerRoleConfiguration,
           ),
-          expiryDate: incidentType.expiryDate && new Date(incidentType.expiryDate),
+          expiryDate: incidentType.expiryDate ? new Date(incidentType.expiryDate) : undefined,
         }) satisfies IncidentTypeConfiguration,
     )
   }
@@ -254,7 +254,7 @@ export class PrisonApi extends RestClient {
     function parseDates(referenceCode: DatesAsStrings<ReferenceCode>): ReferenceCode {
       return {
         ...referenceCode,
-        expiredDate: referenceCode.expiredDate && new Date(referenceCode.expiredDate),
+        expiredDate: referenceCode.expiredDate ? new Date(referenceCode.expiredDate) : undefined,
         subCodes: (referenceCode.subCodes ?? []).map(parseDates),
       }
     }

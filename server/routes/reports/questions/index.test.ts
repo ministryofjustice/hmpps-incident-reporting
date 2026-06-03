@@ -95,6 +95,40 @@ describe('Displaying questions and responses', () => {
         })
     })
 
+    it('multiple choices questions display "Select all that apply" hint text if no hint text provided', () => {
+      return agent
+        .get(reportQuestionsUrl(createJourney))
+        .redirects(1)
+        .expect(200)
+        .expect(res => {
+          expect(fieldNames(res.text)).toEqual(['67179'])
+          expect(res.text).toContain('Select all that apply')
+        })
+    })
+
+    describe('multiple choices questions, when hint text is defined', () => {
+      beforeEach(() => {
+        reportWithDetails.type = 'FIND_6'
+        FIND_6.questions['67179'].questionHint = 'Bespoke hint text'
+      })
+
+      afterEach(() => {
+        FIND_6.questions['67179'].questionHint = undefined
+      })
+
+      it('display bespoke hint text instead of "Select all that apply"', () => {
+        return agent
+          .get(reportQuestionsUrl(createJourney))
+          .redirects(1)
+          .expect(200)
+          .expect(res => {
+            expect(fieldNames(res.text)).toEqual(['67179'])
+            expect(res.text).not.toContain('Select all that apply')
+            expect(res.text).toContain('Bespoke hint text')
+          })
+      })
+    })
+
     it('form is prefilled with report answers, including date', () => {
       reportWithDetails.type = 'DEATH_OTHER_1'
       reportWithDetails.questions = [
@@ -802,7 +836,7 @@ describe('Submitting questions’ responses', () => {
         {
           code: '67179',
           question: 'DESCRIBE HOW THE ITEM WAS FOUND (SELECT ALL THAT APPLY)',
-          label: 'Describe how the item was found (select all that apply)',
+          label: 'Describe how the item was found',
           additionalInformation: null,
           responses: [
             {

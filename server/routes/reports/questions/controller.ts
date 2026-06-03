@@ -114,7 +114,7 @@ export class QuestionsController extends BaseController<FormWizard.MultiValues> 
     const fieldName = error.key ?? error.field
 
     const field = req.form.options.fields[fieldName]
-    if (field?.items?.length > 0 && error.type === 'required') {
+    if (field?.items && field.items.length > 0 && error.type === 'required') {
       // eslint-disable-next-line no-param-reassign
       error.field = `${fieldName}-item`
       if (field.multiple) {
@@ -247,7 +247,8 @@ export class QuestionsController extends BaseController<FormWizard.MultiValues> 
         }
 
         // get step's fields in proper order (submittedValues is not properly ordered)
-        const fieldNames = questionSteps[req.form.options.route].fields
+        const fields = questionSteps[req.form.options.route].fields ?? []
+        const fieldNames = fields
           // ignore date & comment fields
           .filter(fieldName => /^\d+$/.test(fieldName))
 
@@ -281,7 +282,7 @@ export class QuestionsController extends BaseController<FormWizard.MultiValues> 
             code: fieldName,
             question: questionConfig.question,
             label: questionConfig.label,
-            additionalInformation: null,
+            additionalInformation: undefined,
             responses: [],
           }
 
@@ -304,8 +305,8 @@ export class QuestionsController extends BaseController<FormWizard.MultiValues> 
               code: answerConfig.code,
               response: answerResponse,
               label: answerConfig.label,
-              responseDate: null,
-              additionalInformation: null,
+              responseDate: undefined,
+              additionalInformation: undefined,
             }
 
             if (answerConfig.commentRequested) {

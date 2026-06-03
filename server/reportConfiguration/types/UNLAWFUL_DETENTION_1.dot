@@ -1,0 +1,22 @@
+digraph UNLAWFUL_DETENTION_1 {
+  rankdir=LR;
+  node [shape = circle];
+
+  START_NODE [label="", shape=none];
+  START_NODE -> 100100 [label = "start"];
+  END_NODE [label="END", shape="doublecircle"];
+    100100 [label=< <FONT COLOR="royalblue">100100 </FONT> When was the error first identified? >];
+      100100 -> 100110 [label=< <FONT COLOR="royalblue">100101 </FONT> Enter date of first error identified >];
+    100110 [label=< <FONT COLOR="royalblue">100110 </FONT> Who identified the error? >];
+      100110 -> 100120 [label=< <FONT COLOR="royalblue">100111 </FONT> Court >];
+      100110 -> 100120 [label=< <FONT COLOR="royalblue">100112 </FONT> Prison >];
+      100110 -> 100120 [label=< <FONT COLOR="royalblue">100113 </FONT> Specialist Support Team (SST) >];
+      100110 -> 100120 [label=< <FONT COLOR="royalblue">100114 </FONT> Other >];
+    100120 [label=< <FONT COLOR="royalblue">100120 </FONT> How was the error first identified? >];
+      100120 -> 100130 [label=< <FONT COLOR="royalblue">100121 </FONT> Transfer check >];
+      100120 -> 100130 [label=< <FONT COLOR="royalblue">100122 </FONT> 2 day check >];
+      100120 -> 100130 [label=< <FONT COLOR="royalblue">100123 </FONT> 14 day check >];
+      100120 -> 100130 [label=< <FONT COLOR="royalblue">100124 </FONT> Other >];
+    100130 [label=< <FONT COLOR="royalblue">100130 </FONT> When was this person released from custody? >];
+      100130 -> END_NODE [label=< <FONT COLOR="royalblue">100131 </FONT> Enter date when released from custody >];
+}

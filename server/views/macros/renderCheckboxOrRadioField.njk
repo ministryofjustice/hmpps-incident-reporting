@@ -42,10 +42,10 @@
 
   {% if field.multiple %}
 
-    {% if not field.hint %}
-      {% set fieldHint = 'Select all that apply' %}
-    {% else %}
+    {% if field.hint %}
       {% set fieldHint = field.hint %}
+    {% else %}
+      {% set fieldHint = 'Select all that apply' %}
     {% endif %}
 
     {{ govukCheckboxes({

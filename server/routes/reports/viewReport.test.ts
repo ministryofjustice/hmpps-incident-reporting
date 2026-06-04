@@ -48,7 +48,7 @@ beforeEach(() => {
       {
         LEI: leeds,
         MDI: moorland,
-      }[locationCode],
+      }[locationCode] ?? null,
     ),
   )
 

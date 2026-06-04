@@ -2,12 +2,13 @@ import type express from 'express'
 import FormWizard from 'hmpo-form-wizard'
 
 import logger from '../../../../../logger'
-import type { AddStaffInvolvementRequest, ReportWithDetails } from '../../../../data/incidentReportingApi'
+import type { AddStaffInvolvementRequest } from '../../../../data/incidentReportingApi'
 import type { PrisonUser } from '../../../../data/manageUsersApiClient'
 import { handleReportEdit } from '../../actions/handleReportEdit'
 import { StaffInvolvementController } from './controller'
 import { fields, type Values } from './fields'
 import { steps } from './steps'
+import { missingLocalsError } from '../../../../errors'
 
 export class AddStaffInvolvementController<V extends Values = Values> extends StaffInvolvementController<V> {
   protected keyField = 'staffRole' as const
@@ -20,10 +21,17 @@ export class AddStaffInvolvementController<V extends Values = Values> extends St
   }
 
   async saveValues(req: FormWizard.Request<V>, res: express.Response, next: express.NextFunction): Promise<void> {
-    const report = res.locals.report as ReportWithDetails
+    const { incidentReportingApi } = res.locals.apis
+    const { report } = res.locals
+
+    if (!report) {
+      next(missingLocalsError('AddStaffInvolvementController#saveValues()', 'res.locals.report'))
+      return
+    }
+
     const allValues = this.getAllValues(req, false)
     try {
-      await res.locals.apis.incidentReportingApi.staffInvolved.addToReport(report.id, {
+      await incidentReportingApi.staffInvolved.addToReport(report.id, {
         ...this.staffMemberPayload(req, res),
         staffRole: this.coerceStaffRole(allValues.staffRole),
         comment: allValues.comment ?? '',
@@ -43,7 +51,7 @@ export class AddStaffInvolvementController<V extends Values = Values> extends St
 
       next()
     } catch (e) {
-      logger.error(e, `Report ${res.locals.report.reportReference} status could not be updated: %j`, e)
+      logger.error(e, `Report ${report.reportReference} status could not be updated: %j`, e)
       this.handleApiError(e, req, res, next)
     }
   }

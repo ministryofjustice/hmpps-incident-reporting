@@ -226,7 +226,11 @@ export function govukCheckedItemsDivider<I extends GovukRadiosItem>(
   divider: string = 'or',
 ): GovukRadiosItem[] {
   if (items.length >= minItems) {
-    return [...items.slice(0, -1), { divider }, items.at(-1)]
+    const firstItems = items.slice(0, -1)
+    const lastItem = items.at(-1)
+    if (firstItems.length > 0 && lastItem) {
+      return [...firstItems, { divider }, lastItem]
+    }
   }
   return items
 }

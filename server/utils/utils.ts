@@ -1,7 +1,7 @@
 const properCase = (word: string): string =>
   word.length >= 1 ? word[0].toUpperCase() + word.toLowerCase().slice(1) : word
 
-const isBlank = (str: string): boolean => !str || /^\s*$/.test(str)
+const isBlank = (str: string): boolean => /^\s*$/.test(str)
 
 /**
  * Converts a name (first name, last name, middle name, etc.) to proper case equivalent, handling double-barreled names
@@ -9,10 +9,21 @@ const isBlank = (str: string): boolean => !str || /^\s*$/.test(str)
  * @param name name to be converted.
  * @returns name converted to proper case.
  */
-const properCaseName = (name: string): string => (isBlank(name) ? '' : name.split('-').map(properCase).join('-'))
+function properCaseName(name: string | undefined | null): string {
+  if (!name || isBlank(name)) {
+    return ''
+  }
 
-export const convertToTitleCase = (sentence: string): string =>
-  isBlank(sentence) ? '' : sentence.split(' ').map(properCaseName).join(' ')
+  return name.split('-').map(properCase).join('-')
+}
+
+export function convertToTitleCase(sentence: string | undefined | null): string {
+  if (!sentence || isBlank(sentence)) {
+    return ''
+  }
+
+  return sentence.split(' ').map(properCaseName).join(' ')
+}
 
 /**
  * Normal display form of a person’s name (often a prisoner)
@@ -20,20 +31,6 @@ export const convertToTitleCase = (sentence: string): string =>
  */
 export const nameOfPerson = (prisoner: { firstName: string; lastName: string }): string =>
   `${convertToTitleCase(prisoner.firstName)} ${convertToTitleCase(prisoner.lastName)}`.trim()
-
-/**
- * Display form of a person’s name (often a prisoner) for lists and tables
- * { "firstName": "DAVID", "lastName": "JONES", … } → "Jones, David"
- */
-export const reversedNameOfPerson = (prisoner: { firstName: string; lastName: string }): string => {
-  if (!prisoner.lastName) {
-    return convertToTitleCase(prisoner.firstName)
-  }
-  if (!prisoner.firstName) {
-    return convertToTitleCase(prisoner.lastName)
-  }
-  return `${convertToTitleCase(prisoner.lastName)}, ${convertToTitleCase(prisoner.firstName)}`
-}
 
 export const initialiseName = (fullName?: string): string | null => {
   // this check is for the authError page
@@ -43,27 +40,12 @@ export const initialiseName = (fullName?: string): string | null => {
   return `${array[0][0]}. ${array.reverse()[0]}`
 }
 
-export const possessive = (word: string): string => {
+export const possessive = (word: string | undefined | null): string => {
   const wordStr = word?.trim() ?? ''
   if (!wordStr) {
     return ''
   }
   return wordStr.toLowerCase().endsWith('s') ? `${wordStr}’` : `${wordStr}’s`
-}
-
-/** Years since a given string date (parseable using `new Date()`) or null */
-export function yearsSince(dateString: string): number | null {
-  if (!dateString) {
-    return null
-  }
-  const date = new Date(dateString)
-  if (!date || !date.getDate()) {
-    return null
-  }
-  const now = new Date()
-  const years = now.getFullYear() - date.getFullYear()
-  date.setFullYear(now.getFullYear())
-  return date > now ? years - 1 : years
 }
 
 /** Make an array of given length with a builder function */
@@ -101,14 +83,6 @@ export function datesAsStrings<T>(obj: T): DatesAsStrings<T> {
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
   return Object.fromEntries(Object.entries(obj).map(([property, value]) => [property, datesAsStrings(value)]))
-}
-
-/** Convert camelCase or PascalCase into kebab-case */
-export function kebabCase(str: string): string {
-  return str
-    ?.replace(/([A-Z])/g, '-$1')
-    ?.replace(/^-/, '')
-    ?.toLowerCase()
 }
 
 /**
@@ -258,6 +232,10 @@ export function convertToSentenceCase(str: string): string {
   // match words or non-words
   const regex = /(\w+|[^\w\s]+|\s)/g
   const parts = input.match(regex)
+  if (!parts) {
+    return input
+  }
+
   const mapped = parts.map((part, index) => {
     if (/\w+/.test(part)) {
       const word = part
@@ -319,4 +297,20 @@ export function hasInvalidValues(input: string | string[], validValues: string[]
     return input.some(value => !validValues.includes(value))
   }
   return !validValues.includes(input)
+}
+
+/**
+ * Checks if the error has a `responseStatus` property and its value matches `statusCode`
+ *
+ * @param error anything, but possibly an object with `responseStatus` property
+ * @param statusCode expected status code, e.g. 404
+ *
+ * @returns true if the error status code matches `statusCode`
+ */
+export function errorResponseStatusMatches(error: unknown, statusCode: number): boolean {
+  if (error && typeof error === 'object' && 'responseStatus' in error && error?.responseStatus === statusCode) {
+    return true
+  }
+
+  return false
 }

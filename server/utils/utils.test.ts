@@ -7,15 +7,14 @@ import {
   datesAsStrings,
   initialiseName,
   possessive,
-  kebabCase,
   nameOfPerson,
-  reversedNameOfPerson,
-  yearsSince,
+  errorResponseStatusMatches,
 } from './utils'
-import { fakeClock } from '../testutils/fakeJestClock'
+import { mockThrownError } from '../data/testData/thrownErrors'
 
 describe('convert to title case', () => {
   it.each([
+    [undefined, undefined, ''],
     [null, null, ''],
     ['empty string', '', ''],
     ['Lower case', 'robert', 'Robert'],
@@ -40,22 +39,12 @@ describe('display of prisoner names', () => {
     expect(nameOfPerson(prisoner)).toEqual('David Jones')
   })
 
-  it('reversed', () => {
-    expect(reversedNameOfPerson(prisoner)).toEqual('Jones, David')
-  })
-
   describe.each([
     { scenario: 'only first name', firstName: 'DAVID', expected: 'David' },
     { scenario: 'only surname', lastName: 'JONES', expected: 'Jones' },
   ])('trimming whitespace if $scenario is present', person => {
     it('normal', () => {
       expect(nameOfPerson(person as unknown as { firstName: string; lastName: string })).toEqual(person.expected)
-    })
-
-    it('reversed', () => {
-      expect(reversedNameOfPerson(person as unknown as { firstName: string; lastName: string })).toEqual(
-        person.expected,
-      )
     })
   })
 })
@@ -86,28 +75,6 @@ describe('possessive', () => {
     [' Fred ', 'Fred’s'],
   ])('of %s is %s', (input, expected) => {
     expect(possessive(input)).toEqual(expected)
-  })
-})
-
-describe('yearsSince', () => {
-  beforeEach(() => {
-    // set "now" to 2023-12-05T12:34:56.000Z
-    fakeClock()
-  })
-
-  it.each([undefined, null, '', 'today'])('should return null for %p', input => {
-    expect(yearsSince(input)).toBeNull()
-  })
-
-  it.each([
-    ['2023-12-05', 0],
-    ['2023-01-05', 0],
-    ['2020-01-05', 3],
-    ['2020-12-05', 3],
-    ['2020-12-06', 2],
-    ['1987-01-01', 36],
-  ])('should say years since %p is %d', (input, expectedYears) => {
-    expect(yearsSince(input)).toEqual(expectedYears)
   })
 })
 
@@ -165,22 +132,6 @@ describe('datesAsStrings()', () => {
       expected: { str: 'abc', array: [dateString], nested: { dates: [dateString] } },
     } satisfies Scenario<{ str: string; array: [Date]; nested: { dates: [Date] } }>,
   ])('should work on $scenario', ({ input, expected }) => expect(datesAsStrings(input)).toEqual(expected))
-})
-
-describe('kebab-case', () => {
-  it.each([
-    { input: undefined, expected: undefined },
-    { input: null, expected: undefined },
-    { input: 'ATestValue', expected: 'a-test-value' },
-    { input: 'aTestValue', expected: 'a-test-value' },
-    { input: 'aTestvalue', expected: 'a-testvalue' },
-    { input: 'atestvalue', expected: 'atestvalue' },
-    { input: 'a-test-value', expected: 'a-test-value' },
-    { input: 'govukCheckboxes', expected: 'govuk-checkboxes' },
-    { input: 'HTML', expected: 'h-t-m-l' },
-  ])('should convert $input to $expected', ({ input, expected }) => {
-    expect(kebabCase(input)).toEqual(expected)
-  })
 })
 
 describe('adds question mark to questions', () => {
@@ -256,4 +207,29 @@ describe('hasInvalidValues()', () => {
       expect(hasInvalidValues(a, b)).toEqual(expected)
     },
   )
+})
+
+describe('errorResponseStatusMatches()', () => {
+  describe('for values without response status', () => {
+    it.each([
+      ['undefined', undefined],
+      ['null', null],
+      ['[empty string]', ''],
+      ['[an Error instance]', new Error('Some error')],
+    ])('for (%s, 404) returns false', (_scenario, error) => {
+      expect(errorResponseStatusMatches(error, 404)).toEqual(false)
+    })
+  })
+
+  describe('for values with a response status', () => {
+    it.each([
+      ['[an object with undefined responseStatus]', false, { responseStatus: undefined }],
+      ['[an object with responseStatus=400]', false, { responseStatus: 400 }],
+      ['[an object with responseStatus=404]', true, { responseStatus: 404 }],
+      ['[a 400 SanitisedError]', false, mockThrownError('400 API error', 400)],
+      ['[a 404 SanitisedError]', true, mockThrownError('404 API error', 404)],
+    ])('for (%s, 404) returns %s', (_scenario, expected, error) => {
+      expect(errorResponseStatusMatches(error, 404)).toEqual(expected)
+    })
+  })
 })

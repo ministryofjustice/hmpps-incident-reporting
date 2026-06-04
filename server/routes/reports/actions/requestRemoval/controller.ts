@@ -6,6 +6,7 @@ import { BaseController } from '../../../../controllers'
 import type { ApiUserType } from '../../../../middleware/permissions'
 import { placeholderForCorrectionRequest } from '../correctionRequestPlaceholder'
 import type { Values } from './fields'
+import { errorResponseStatusMatches } from '../../../../utils/utils'
 
 export class RequestRemovalController extends BaseController<Values> {
   protected keyField = 'userAction' as const
@@ -28,7 +29,7 @@ export class RequestRemovalController extends BaseController<Values> {
         logger.debug(`Original report incident number ${originalReportReference} does belong to a valid report`)
       } catch (e) {
         let errorMessage = 'Incident number could not be looked up, please try again'
-        if ('responseStatus' in e && e.responseStatus === 404) {
+        if (errorResponseStatusMatches(e, 404)) {
           logger.debug(`Original report incident number ${originalReportReference} does NOT belong to a valid report`)
           errorMessage = 'Enter a valid incident report number'
         }

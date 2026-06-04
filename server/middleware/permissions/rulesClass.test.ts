@@ -26,7 +26,7 @@ interface Scenario {
   description: string
   /** Some tests use this description since they are not affected by caseloads */
   descriptionIgnoringCaseload?: string
-  user: Express.User
+  user: Express.User | undefined
 }
 
 const notLoggedIn: Scenario = {

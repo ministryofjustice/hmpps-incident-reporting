@@ -1,6 +1,5 @@
 import type express from 'express'
 import FormWizard from 'hmpo-form-wizard'
-import { SanitisedError } from '@ministryofjustice/hmpps-rest-client'
 
 import { parseDateInput, parseTimeInput } from '../utils/parseDateTime'
 
@@ -84,7 +83,7 @@ export abstract class BaseController<
   /**
    * Convert an API error into a FormWizard.Error so that a message can be presented to users in an error summary
    */
-  convertIntoValidationError(_error: SanitisedError, keyField?: K | undefined): FormWizard.Error {
+  convertIntoValidationError(_error: unknown, keyField?: K | undefined): FormWizard.Error {
     // TODO: also handle other error types too?
     const fieldName = (keyField ?? this.keyField) as string
     return new this.Error(fieldName, {
@@ -98,7 +97,7 @@ export abstract class BaseController<
    * Requires `keyField` to be specified to which the error is attached.
    */
   handleApiError(
-    error: SanitisedError,
+    error: unknown,
     req: FormWizard.Request<V, K>,
     res: express.Response,
     next: express.NextFunction,
@@ -172,11 +171,12 @@ export abstract class BaseController<
     // so _here_ is too early to clear the session and the `next` function is never called
     if (res.locals.clearSessionOnSuccess) {
       const actualRedirect = res.redirect.bind(res)
-      res.redirect = (...args: unknown[]) => {
+      const newRedirect = (...args: Parameters<typeof res.redirect>) => {
         // clear the session just before redirecting
         req.journeyModel.reset()
         actualRedirect(...args)
       }
+      res.redirect = newRedirect as unknown as typeof res.redirect
     }
 
     super.successHandler(req, res, next)

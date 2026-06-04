@@ -458,11 +458,15 @@ function nextSteps(question: QuestionConfiguration, answers: AnswerConfiguration
  * @returns true if any of the submitted values is contained in `condition.value`
  */
 export function checkMultipleValues(
-  submittedValues: string[],
+  submittedValues: FormWizard.Value | FormWizard.MultiValue,
   _req: FormWizard.Request,
   _res: express.Response,
   condition: { value: string[] },
 ): boolean {
+  if (typeof submittedValues === 'string') {
+    throw new Error('implementation error: checkMultipleValues() called on a question with single answer')
+  }
+
   // Don't check values if nothing has been submitted
   if (!submittedValues) {
     return false

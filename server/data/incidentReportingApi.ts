@@ -36,11 +36,6 @@ export interface ErrorResponse {
   moreInfo?: string
 }
 
-export function isErrorResponse(obj: unknown): obj is ErrorResponse {
-  // TODO: would be nice to make userMessage & developerMessage non-nullable in the api
-  return typeof obj === 'object' && 'status' in obj && typeof obj.status === 'number' && 'userMessage' in obj
-}
-
 export const defaultPageSize = 20
 
 export interface Page<T> {
@@ -273,19 +268,19 @@ export class IncidentReportingApi extends RestClient {
       size,
       sort,
     }: Partial<GetReportsParams> = {
-      reference: null,
-      location: null,
-      source: null,
-      status: null,
-      type: null,
-      incidentDateFrom: null,
-      incidentDateUntil: null,
-      reportedDateFrom: null,
-      reportedDateUntil: null,
-      reportedByUsername: null,
-      involvingStaffUsername: null,
-      involvingPrisonerNumber: null,
-      userAction: null,
+      reference: undefined,
+      location: undefined,
+      source: undefined,
+      status: undefined,
+      type: undefined,
+      incidentDateFrom: undefined,
+      incidentDateUntil: undefined,
+      reportedDateFrom: undefined,
+      reportedDateUntil: undefined,
+      reportedByUsername: undefined,
+      involvingStaffUsername: undefined,
+      involvingPrisonerNumber: undefined,
+      userAction: undefined,
       page: 0,
       size: defaultPageSize,
       sort: ['incidentDateAndTime,DESC'],

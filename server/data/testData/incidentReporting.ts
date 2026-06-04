@@ -54,13 +54,19 @@ export function mockReport({
   incidentDateAndTime.setSeconds(0)
   incidentDateAndTime.setMilliseconds(0)
 
+  const typeDetails = getTypeDetails(type)
+  if (!typeDetails) {
+    throw new Error(`Couldn't get details for type '${type}'`)
+  }
+  const title = `${typeDetails.description} (${location})`
+
   const basicReport: DatesAsStrings<ReportBasic> = {
     id: crypto.randomUUID(),
     reportReference,
     type,
     incidentDateAndTime: format.isoDateTime(incidentDateAndTime),
     location,
-    title: `${getTypeDetails(type).description} (${location})`,
+    title,
     description: `A new incident created in the new service of type ${type}`,
     reportedBy: reportingUsername,
     reportedAt: format.isoDateTime(reportDateAndTime),

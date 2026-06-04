@@ -7,7 +7,7 @@ export function jsonDownload<T>(res: Response, fileName: string, data: T): void 
   res.end()
 }
 
-export type CsvCellValue = string | number | boolean | null
+export type CsvCellValue = string | number | boolean | null | undefined
 
 export function streamCsvDownload(res: Response, fileName: string, lines: Generator<CsvCellValue[]>): void {
   res.header('Content-Type', 'text/csv')

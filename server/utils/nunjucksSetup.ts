@@ -8,7 +8,7 @@ import mojFrontendFilters from '@ministryofjustice/frontend/moj/filters/all'
 
 import logger from '../../logger'
 import config from '../config'
-import { convertToTitleCase, initialiseName, nameOfPerson, reversedNameOfPerson, possessive, yearsSince } from './utils'
+import { convertToTitleCase, initialiseName, nameOfPerson, possessive } from './utils'
 import {
   findFieldInGovukErrorSummary,
   govukCheckedItems,
@@ -45,7 +45,8 @@ export default function nunjucksSetup(app: express.Express): void {
     assetManifest = JSON.parse(fs.readFileSync(assetMetadataPath, 'utf8'))
   } catch (e) {
     if (process.env.NODE_ENV !== 'test') {
-      logger.error(`Could not read asset manifest file: ${e.message}`)
+      const errorMessage = e instanceof Error ? e.message : e
+      logger.error(`Could not read asset manifest file: ${errorMessage}`)
     }
   }
 
@@ -66,7 +67,6 @@ export default function nunjucksSetup(app: express.Express): void {
 
   // misc utils
   njkEnv.addFilter('assetMap', (url: string) => assetManifest[url] || url)
-  njkEnv.addGlobal('callAsMacro', callAsMacro)
   njkEnv.addGlobal('mergeObjects', (...objects: object[]) => {
     const merged = {}
     for (const o of objects) {
@@ -83,7 +83,6 @@ export default function nunjucksSetup(app: express.Express): void {
   njkEnv.addFilter('convertToTitleCase', convertToTitleCase)
   njkEnv.addFilter('initialiseName', initialiseName)
   njkEnv.addFilter('nameOfPerson', nameOfPerson)
-  njkEnv.addFilter('reversedNameOfPerson', reversedNameOfPerson)
   njkEnv.addFilter('possessive', possessive)
 
   // date/datetime handling
@@ -92,7 +91,6 @@ export default function nunjucksSetup(app: express.Express): void {
   njkEnv.addFilter('shortDateAndTime', format.shortDateAndTime.bind(format))
   njkEnv.addFilter('shortDate', format.shortDate.bind(format))
   njkEnv.addFilter('time', format.time.bind(format))
-  njkEnv.addFilter('yearsSince', yearsSince)
 
   // prisoner utils
   njkEnv.addFilter('prisonerLocation', prisonerLocation)
@@ -127,14 +125,4 @@ class PanicExtension implements nunjucks.Extension {
     error.name = 'Panic'
     throw error
   }
-}
-
-function callAsMacro(name: string): (...args: unknown[]) => unknown {
-  const macro = this.ctx[name]
-
-  if (typeof macro !== 'function') {
-    throw Error(`Macro ${name} not found`)
-  }
-
-  return macro
 }

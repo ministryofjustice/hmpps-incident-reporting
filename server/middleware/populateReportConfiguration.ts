@@ -1,5 +1,4 @@
 import type { RequestHandler } from 'express'
-import { NotImplemented } from 'http-errors'
 
 import logger from '../../logger'
 import { getIncidentTypeConfiguration } from '../reportConfiguration/types'
@@ -7,6 +6,7 @@ import { reportHasDetails } from '../data/incidentReportingApiUtils'
 import generateFields, { generateSteps } from '../data/incidentTypeConfiguration/formWizard'
 import { QuestionProgress } from '../data/incidentTypeConfiguration/questionProgress'
 import config from '../config'
+import { missingLocalsError } from '../errors'
 
 /**
  * Loads report configuration for a report in `res.locals.report`.
@@ -16,8 +16,7 @@ export function populateReportConfiguration(generateQuestionSteps = true): Reque
   return async (_req, res, next): Promise<void> => {
     const { report } = res.locals
     if (!report) {
-      // expect to always be used after populateReport() middleware
-      next(new NotImplemented('populateReportConfiguration() requires res.locals.report'))
+      next(missingLocalsError('populateReportConfiguration()', 'res.locals.report'))
       return
     }
 
@@ -40,7 +39,7 @@ export function populateReportConfiguration(generateQuestionSteps = true): Reque
 
       next()
     } catch (error) {
-      logger.error(error, `Failed to load configuration for report ${res.locals.report.id} (${res.locals.report.type})`)
+      logger.error(error, `Failed to load configuration for report ${report.id} (${report.type})`)
       next(error)
     }
   }

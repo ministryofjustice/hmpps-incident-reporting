@@ -4,6 +4,7 @@ import logger from '../../logger'
 import config from '../config'
 import type { NomisPrisonerInvolvementRole, NomisType } from '../reportConfiguration/constants'
 import { AgencyType } from './constants'
+import { errorResponseStatusMatches } from '../utils/utils'
 
 export type Agency = {
   agencyId: string
@@ -128,8 +129,7 @@ export class PrisonApi extends RestClient {
         asSystem(),
       )
     } catch (error) {
-      const status = error?.responseStatus
-      if (status === 404) {
+      if (errorResponseStatusMatches(error, 404)) {
         // return null if not found
         return null
       }
@@ -182,8 +182,7 @@ export class PrisonApi extends RestClient {
         asSystem(),
       )
     } catch (error) {
-      const status = error?.responseStatus
-      if (status === 403 || status === 404) {
+      if (errorResponseStatusMatches(error, 403) || errorResponseStatusMatches(error, 404)) {
         // return null if unauthorised or not found
         return null
       }
@@ -200,8 +199,7 @@ export class PrisonApi extends RestClient {
         asSystem(),
       )
     } catch (error) {
-      const status = error?.responseStatus
-      if (status === 404) {
+      if (errorResponseStatusMatches(error, 404)) {
         // return null if not found
         return null
       }
@@ -229,12 +227,12 @@ export class PrisonApi extends RestClient {
             question =>
               ({
                 ...question,
-                questionExpiryDate: question.questionExpiryDate && new Date(question.questionExpiryDate),
+                questionExpiryDate: question.questionExpiryDate ? new Date(question.questionExpiryDate) : undefined,
                 answers: question.answers.map(
                   answer =>
                     ({
                       ...answer,
-                      answerExpiryDate: answer.answerExpiryDate && new Date(answer.answerExpiryDate),
+                      answerExpiryDate: answer.answerExpiryDate ? new Date(answer.answerExpiryDate) : undefined,
                     }) satisfies AnswerConfiguration,
                 ),
               }) satisfies QuestionConfiguration,
@@ -243,10 +241,10 @@ export class PrisonApi extends RestClient {
             prisonerRole =>
               ({
                 ...prisonerRole,
-                expiryDate: prisonerRole.expiryDate && new Date(prisonerRole.expiryDate),
+                expiryDate: prisonerRole.expiryDate ? new Date(prisonerRole.expiryDate) : undefined,
               }) satisfies PrisonerRoleConfiguration,
           ),
-          expiryDate: incidentType.expiryDate && new Date(incidentType.expiryDate),
+          expiryDate: incidentType.expiryDate ? new Date(incidentType.expiryDate) : undefined,
         }) satisfies IncidentTypeConfiguration,
     )
   }
@@ -256,7 +254,7 @@ export class PrisonApi extends RestClient {
     function parseDates(referenceCode: DatesAsStrings<ReferenceCode>): ReferenceCode {
       return {
         ...referenceCode,
-        expiredDate: referenceCode.expiredDate && new Date(referenceCode.expiredDate),
+        expiredDate: referenceCode.expiredDate ? new Date(referenceCode.expiredDate) : undefined,
         subCodes: (referenceCode.subCodes ?? []).map(parseDates),
       }
     }

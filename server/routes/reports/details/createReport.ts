@@ -68,7 +68,7 @@ class DetailsController extends BaseDetailsController<CreateReportValues> {
     if (res.locals.permissions.canCreatePecsReport) {
       location = pecsRegion
       locationDescription =
-        pecsRegions.find(somePecsRegion => somePecsRegion.code === pecsRegion).description ?? pecsRegion
+        pecsRegions.find(somePecsRegion => somePecsRegion.code === pecsRegion)?.description ?? pecsRegion
     } else {
       location = res.locals.user.activeCaseLoad.caseLoadId
       locationDescription = res.locals.user.activeCaseLoad.description

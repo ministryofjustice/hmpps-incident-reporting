@@ -1,7 +1,8 @@
 import type { RequestHandler } from 'express'
-import { NotImplemented } from 'http-errors'
+import { InternalServerError } from 'http-errors'
 
 import logger from '../../logger'
+import { missingLocalsError } from '../errors'
 
 /**
  * Loads a report by id from `req.params.reportId`
@@ -11,11 +12,11 @@ export function populateReport(withDetails: boolean): RequestHandler {
     const { reportId } = req.params
     const { permissions } = res.locals
     if (!reportId) {
-      next(new NotImplemented('populateReport() requires req.params.reportId'))
+      next(new InternalServerError('populateReport() requires req.params.reportId'))
       return
     }
     if (!permissions) {
-      next(new NotImplemented('populateReport() requires permissions middleware'))
+      next(missingLocalsError('populateReport()', 'res.locals.permissions'))
       return
     }
 
@@ -36,7 +37,7 @@ export function populateReport(withDetails: boolean): RequestHandler {
       next()
     } catch (error) {
       logger.error(error, `Failed to load report ${reportId}`)
-      if (error.responseStatus === 400) {
+      if (error && typeof error === 'object' && 'responseStatus' in error && error?.responseStatus === 400) {
         // if a mistyped UUID is looked up, the api response is 400, but for the purpose of this app the report simply can't be found
         error.responseStatus = 404
       }

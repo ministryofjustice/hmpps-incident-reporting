@@ -4,20 +4,35 @@ import { NotFound } from 'http-errors'
 
 import { populateReportConfiguration } from '../../../middleware/populateReportConfiguration'
 import config from '../../../config'
+import { missingLocalsError } from '../../../errors'
 
 export const questionsRouter = express.Router({ mergeParams: true })
 // NB: questionsRouter is unprotected with permissions checks
 
 questionsRouter.use(populateReportConfiguration(), (req, res, next) => {
   const { reportId } = req.params
+  const { reportConfig, questionSteps, questionFields } = res.locals
 
-  if (!(res.locals.reportConfig.active || config.incidentTypesOverride.has(res.locals.reportConfig.incidentType))) {
+  if (!reportConfig) {
+    next(missingLocalsError('questionsRouter()', 'res.locals.reportConfig'))
+    return
+  }
+  if (!questionSteps) {
+    next(missingLocalsError('questionsRouter()', 'res.locals.questionSteps'))
+    return
+  }
+  if (!questionFields) {
+    next(missingLocalsError('questionsRouter()', 'res.locals.questionFields'))
+    return
+  }
+
+  if (!(reportConfig.active || config.incidentTypesOverride.has(reportConfig.incidentType))) {
     // forbid editing questions for reports of inactive incident types
     next(new NotFound())
     return
   }
 
-  const wizardRouter = wizard(res.locals.questionSteps, res.locals.questionFields, {
+  const wizardRouter = wizard(questionSteps, questionFields, {
     name: `${reportId}-questions`,
     journeyName: `${reportId}-questions`,
     template: 'pages/reports/questions',

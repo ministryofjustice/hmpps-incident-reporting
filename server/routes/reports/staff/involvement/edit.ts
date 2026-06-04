@@ -8,6 +8,7 @@ import { handleReportEdit } from '../../actions/handleReportEdit'
 import { StaffInvolvementController } from './controller'
 import { fields, type Values } from './fields'
 import { steps } from './steps'
+import { missingLocalsError } from '../../../../errors'
 
 class EditStaffInvolvementController extends StaffInvolvementController {
   protected keyField = 'staffRole' as const
@@ -60,16 +61,23 @@ class EditStaffInvolvementController extends StaffInvolvementController {
         ...values,
       }
 
-      callback(null, formValues)
+      callback(undefined, formValues)
     })
   }
 
   async saveValues(req: FormWizard.Request<Values>, res: express.Response, next: express.NextFunction): Promise<void> {
-    const report = res.locals.report as ReportWithDetails
+    const { incidentReportingApi } = res.locals.apis
+    const { report } = res.locals
+
+    if (!report) {
+      next(missingLocalsError('EditStaffInvolvementController#saveValues()', 'res.locals.report'))
+      return
+    }
+
     const index = parseInt(req.params.index, 10)
     const allValues = this.getAllValues(req, false)
     try {
-      await res.locals.apis.incidentReportingApi.staffInvolved.updateForReport(report.id, index, {
+      await incidentReportingApi.staffInvolved.updateForReport(report.id, index, {
         staffRole: this.coerceStaffRole(allValues.staffRole),
         comment: allValues.comment ?? '',
       })
@@ -88,7 +96,7 @@ class EditStaffInvolvementController extends StaffInvolvementController {
 
       next()
     } catch (e) {
-      logger.error(e, `Report ${res.locals.report.reportReference} status could not be updated: %j`, e)
+      logger.error(e, `Report ${report.reportReference} status could not be updated: %j`, e)
       this.handleApiError(e, req, res, next)
     }
   }

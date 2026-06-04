@@ -3,6 +3,7 @@ import { NotImplemented } from 'http-errors'
 
 import logger from '../../logger'
 import type { Status } from '../reportConfiguration/constants'
+import { missingLocalsError } from '../errors'
 
 export function redirectIfStatusNot(...statuses: Status[]): RequestHandler {
   if (!statuses.length) {
@@ -10,10 +11,14 @@ export function redirectIfStatusNot(...statuses: Status[]): RequestHandler {
   }
 
   return (_req, res, next): void => {
-    const { report } = res.locals
+    const { report, reportUrl } = res.locals
+
     if (!report) {
-      // expect to always be used after populateReport() middleware
-      next(new NotImplemented('redirectIfStatusNot() requires res.locals.report'))
+      next(missingLocalsError('redirectIfStatusNot()', 'res.locals.report'))
+      return
+    }
+    if (!reportUrl) {
+      next(missingLocalsError('redirectIfStatusNot()', 'res.locals.reportUrl'))
       return
     }
 
@@ -21,7 +26,7 @@ export function redirectIfStatusNot(...statuses: Status[]): RequestHandler {
       logger.info('Report %s status is %s but route requires %j', report.id, report.status, statuses)
       next()
     } else {
-      res.redirect(res.locals.reportUrl)
+      res.redirect(reportUrl)
     }
   }
 }

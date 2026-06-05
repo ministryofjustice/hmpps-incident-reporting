@@ -12,7 +12,7 @@ describe('Conditional logout', () => {
     })
 
     const req = {} as Request
-    const res = { locals: { user: undefined } } as Response
+    const res = { locals: { user: {} } } as Response
     const next: NextFunction = jest.fn()
 
     Permissions.middleware(req, res, next)
@@ -28,7 +28,7 @@ describe('Conditional logout', () => {
     })
 
     const req = {} as Request
-    const res = { locals: { user: undefined } } as Response
+    const res = { locals: { user: {} } } as Response
     const next: NextFunction = jest.fn()
 
     Permissions.middleware(req, res, next)
@@ -41,7 +41,7 @@ describe('Conditional logout', () => {
     const middleware = logoutUnless(() => true)
 
     const req = {} as Request
-    const res = { locals: { user: undefined } } as Response
+    const res = { locals: { user: {} } } as Response
     const next: NextFunction = jest.fn()
 
     // pretend that Permissions.middleware was forgotten

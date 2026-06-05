@@ -12,6 +12,7 @@ import {
   type CorrectionRequest,
   type AddCorrectionRequestRequest,
   type UpdateCorrectionRequestRequest,
+  type ReportWithDetails,
 } from '../../../../data/incidentReportingApi'
 import { convertReportDates } from '../../../../data/incidentReportingApiUtils'
 import { mockErrorResponse, mockReport } from '../../../../data/testData/incidentReporting'
@@ -91,7 +92,7 @@ describe('Reopening a report', () => {
     })
 
     it(`should be allowed resulting in a new status of ${newStatus}`, () => {
-      incidentReportingApi.changeReportStatus.mockResolvedValueOnce(undefined) // NB: response is ignored
+      incidentReportingApi.changeReportStatus.mockResolvedValueOnce({} as ReportWithDetails) // NB: response is ignored
 
       return request(app)
         .post(reopenReportUrl)

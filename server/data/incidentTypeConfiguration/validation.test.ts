@@ -502,7 +502,7 @@ function buildQuestion({
     question: label.toUpperCase(),
     label,
     multipleAnswers,
-    answers: answers ?? yesNoAnswers(nextQuestionCode),
+    answers: answers ?? yesNoAnswers(nextQuestionCode ?? null),
   }
 }
 

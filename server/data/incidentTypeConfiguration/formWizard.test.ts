@@ -741,7 +741,7 @@ describe('checkMultipleValues()', () => {
   ])('returns $expected when $desc', ({ submittedValues, expected }) => {
     const condition = { value: ['dog', 'turtle'] }
 
-    const result = checkMultipleValues(submittedValues, null as FormWizard.Request, null as express.Response, condition)
+    const result = checkMultipleValues(submittedValues, {} as FormWizard.Request, {} as express.Response, condition)
     expect(result).toEqual(expected)
   })
 })

@@ -691,8 +691,8 @@ describe('Date validation', () => {
           throw new Error(`getReports not invoked`)
         }
         const [args] = lastCall
-        expect(args?.incidentDateFrom ?? null).toBeNull()
-        expect(args?.incidentDateUntil ?? null).toBeNull()
+        expect(args?.incidentDateFrom).toBeUndefined()
+        expect(args?.incidentDateUntil).toBeUndefined()
       })
   })
 
@@ -711,8 +711,8 @@ describe('Date validation', () => {
           throw new Error(`getReports not invoked`)
         }
         const [args] = lastCall
-        expect(args?.incidentDateFrom).toBeNull()
-        expect(args?.incidentDateUntil).toBeNull()
+        expect(args?.incidentDateFrom).toBeUndefined()
+        expect(args?.incidentDateUntil).toBeUndefined()
       })
   })
 })

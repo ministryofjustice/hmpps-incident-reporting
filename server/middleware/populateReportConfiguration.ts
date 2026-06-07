@@ -2,6 +2,7 @@ import type { RequestHandler } from 'express'
 
 import logger from '../../logger'
 import { getIncidentTypeConfiguration } from '../reportConfiguration/types'
+import { isTypeActive } from '../reportConfiguration/constants'
 import { reportHasDetails } from '../data/incidentReportingApiUtils'
 import generateFields, { generateSteps } from '../data/incidentTypeConfiguration/formWizard'
 import { QuestionProgress } from '../data/incidentTypeConfiguration/questionProgress'
@@ -24,7 +25,7 @@ export function populateReportConfiguration(generateQuestionSteps = true): Reque
       res.locals.reportConfig = await getIncidentTypeConfiguration(report.type)
 
       if (generateQuestionSteps) {
-        if (res.locals.reportConfig.active || config.incidentTypesOverride.has(report.type)) {
+        if (isTypeActive(report.type) || config.incidentTypesOverride.has(report.type)) {
           res.locals.questionSteps = generateSteps(res.locals.reportConfig)
           res.locals.questionFields = generateFields(res.locals.reportConfig)
         } else {

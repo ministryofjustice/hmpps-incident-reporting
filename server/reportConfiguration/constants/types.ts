@@ -182,6 +182,13 @@ export const types = [
     active: true,
     nomisCode: 'FOOD_REF',
   },
+  {
+    familyCode: 'FOOD_REFUSAL',
+    code: 'FOOD_REFUSAL_2',
+    description: 'Food or liquid refusal',
+    active: true,
+    nomisCode: 'FOOD_REF2',
+  },
   { familyCode: 'HOSTAGE', code: 'HOSTAGE_1', description: 'Hostage incident', active: false, nomisCode: 'HOSTAGE' },
   {
     familyCode: 'INCIDENT_AT_HEIGHT',
@@ -327,6 +334,7 @@ export const typesDescriptions: Record<Type, string> = {
   FIRE_1: 'Fire',
   FIREARM_1: 'Firearm, ammunition or chemical incapacitant',
   FOOD_REFUSAL_1: 'Food or liquid refusal',
+  FOOD_REFUSAL_2: 'Food or liquid refusal',
   HOSTAGE_1: 'Hostage incident',
   INCIDENT_AT_HEIGHT_1: 'Incident at height',
   KEY_OR_LOCK_1: 'Key or lock compromise',

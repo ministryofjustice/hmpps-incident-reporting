@@ -3,6 +3,7 @@ import wizard from 'hmpo-form-wizard'
 import { NotFound } from 'http-errors'
 
 import { populateReportConfiguration } from '../../../middleware/populateReportConfiguration'
+import { isTypeActive } from '../../../reportConfiguration/constants'
 import config from '../../../config'
 import { missingLocalsError } from '../../../errors'
 
@@ -26,7 +27,7 @@ questionsRouter.use(populateReportConfiguration(), (req, res, next) => {
     return
   }
 
-  if (!(reportConfig.active || config.incidentTypesOverride.has(reportConfig.incidentType))) {
+  if (!(isTypeActive(reportConfig.incidentType) || config.incidentTypesOverride.has(reportConfig.incidentType))) {
     // forbid editing questions for reports of inactive incident types
     next(new NotFound())
     return

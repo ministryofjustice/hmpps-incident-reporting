@@ -13,13 +13,13 @@ export const FOOD_REFUSAL_2: IncidentTypeConfiguration = {
     '900001': {
       code: '900001',
       active: true,
-      question: 'WHICH TYPE OF REFUSAL OCCURRED',
+      question: 'Which type of refusal occurred?',
       label: 'Which type of refusal occurred?',
       multipleAnswers: false,
       answers: [
         {
           code: '950001',
-          response: 'FOOD',
+          response: 'Food',
           active: true,
           label: 'Food',
           commentRequested: false,
@@ -29,7 +29,7 @@ export const FOOD_REFUSAL_2: IncidentTypeConfiguration = {
         },
         {
           code: '950002',
-          response: 'LIQUID',
+          response: 'Liquid',
           active: true,
           label: 'Liquid',
           commentRequested: false,
@@ -39,7 +39,7 @@ export const FOOD_REFUSAL_2: IncidentTypeConfiguration = {
         },
         {
           code: '950003',
-          response: 'FOOD AND LIQUID',
+          response: 'Food and liquid',
           active: true,
           label: 'Food and liquid',
           commentRequested: false,
@@ -52,13 +52,13 @@ export const FOOD_REFUSAL_2: IncidentTypeConfiguration = {
     '900002': {
       code: '900002',
       active: true,
-      question: 'WHERE IS THE PRISONER CURRENTLY LOCATED',
+      question: 'Where is the prisoner currently located?',
       label: 'Where is the prisoner currently located?',
       multipleAnswers: false,
       answers: [
         {
           code: '950004',
-          response: 'NORMAL LOCATION',
+          response: 'Normal location',
           active: true,
           label: 'Normal location',
           commentRequested: false,
@@ -68,7 +68,7 @@ export const FOOD_REFUSAL_2: IncidentTypeConfiguration = {
         },
         {
           code: '950005',
-          response: 'SEGREGATION UNIT',
+          response: 'Segregation unit',
           active: true,
           label: 'Segregation unit',
           commentRequested: false,
@@ -78,7 +78,7 @@ export const FOOD_REFUSAL_2: IncidentTypeConfiguration = {
         },
         {
           code: '950006',
-          response: 'CONSTANT SUPERVISION CELL',
+          response: 'Constant supervision cell',
           active: true,
           label: 'Constant supervision cell',
           commentRequested: false,
@@ -88,7 +88,7 @@ export const FOOD_REFUSAL_2: IncidentTypeConfiguration = {
         },
         {
           code: '950007',
-          response: 'HEALTH CARE CENTRE',
+          response: 'Health care centre',
           active: true,
           label: 'Health care centre',
           commentRequested: false,
@@ -98,7 +98,7 @@ export const FOOD_REFUSAL_2: IncidentTypeConfiguration = {
         },
         {
           code: '950008',
-          response: 'OUTSIDE HOSPITAL',
+          response: 'Outside hospital',
           active: true,
           label: 'Outside hospital',
           commentRequested: false,
@@ -108,7 +108,7 @@ export const FOOD_REFUSAL_2: IncidentTypeConfiguration = {
         },
         {
           code: '950009',
-          response: 'OTHER',
+          response: 'Other',
           active: true,
           label: 'Other',
           commentRequested: true,

@@ -31,18 +31,16 @@ interface ActivePeriod {
  * dates that are not monotonic by version number.
  */
 export const typeActivePeriods: Partial<Record<Type, ActivePeriod>> = {
-  // Family switch-over for 1 July 2026: Food refusal v1 retires as v2 begins.
-  FOOD_REFUSAL_1: { activeTo: '2026-07-01' },
-  FOOD_REFUSAL_2: { activeFrom: '2026-07-01' },
-  // Close down search is decommissioned (no replacement) from 1 July 2026.
-  CLOSE_DOWN_SEARCH_1: { activeTo: '2026-07-01' },
-
-  // Historical end dates for already-retired NOMIS types (metadata only; boolean is already false).
+  // Entries are sorted alphabetically by type code. Most carry historical end dates for
+  // already-retired NOMIS types (metadata only; boolean is already false); the forward-looking
+  // switch-overs are noted inline.
   ASSAULT_1: { activeTo: '2017-04-13' },
   ASSAULT_2: { activeTo: '2017-04-13' },
   ASSAULT_3: { activeTo: '2017-04-13' },
   ASSAULT_4: { activeTo: '2017-04-27' },
   BARRICADE_1: { activeTo: '2015-01-10' },
+  // Close down search is decommissioned (no replacement) from 1 July 2026.
+  CLOSE_DOWN_SEARCH_1: { activeTo: '2026-07-01' },
   CONCERTED_INDISCIPLINE_1: { activeTo: '2015-01-10' },
   DAMAGE_1: { activeTo: '2024-11-11' },
   DISORDER_1: { activeTo: '2018-04-23' },
@@ -55,6 +53,9 @@ export const typeActivePeriods: Partial<Record<Type, ActivePeriod>> = {
   FIND_4: { activeTo: '2022-03-29' },
   FIND_5: { activeTo: '2022-04-20' },
   FIREARM_1: { activeTo: '2015-01-10' },
+  // Family switch-over for 1 July 2026: Food refusal v1 retires as v2 begins.
+  FOOD_REFUSAL_1: { activeTo: '2026-07-01' },
+  FOOD_REFUSAL_2: { activeFrom: '2026-07-01' },
   HOSTAGE_1: { activeTo: '2015-01-10' },
   INCIDENT_AT_HEIGHT_1: { activeTo: '2015-01-10' },
   KEY_OR_LOCK_1: { activeTo: '2013-08-03' },

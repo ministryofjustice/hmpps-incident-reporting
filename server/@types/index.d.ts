@@ -5,10 +5,10 @@ export declare global {
    * Replaces nested Date types with string (preserving nullability).
    * Needed because api responses over-the-wire are JSON and therefore encode dates as plain strings.
    */
-  type DatesAsStrings<T> = T extends Date | null
-    ? string | null
-    : T extends Date
-      ? string
+  type DatesAsStrings<T> = T extends Date
+    ? string
+    : T extends Date | null
+      ? string | null
       : T extends Array<infer U>
         ? Array<DatesAsStrings<U>>
         : T extends object

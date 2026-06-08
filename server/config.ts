@@ -152,4 +152,10 @@ export default {
       .map(s => s.trim())
       .filter(Boolean),
   ),
+  /**
+   * Overrides the date used to decide whether an incident type is active (see typeActivePeriods).
+   * Set to an ISO `YYYY-MM-DD` date in non-production environments to preview a future state
+   * (e.g. `2026-07-01` to see the Food refusal v2 switch-over before it goes live). Empty = today.
+   */
+  incidentTypeActiveDate: get('INCIDENT_TYPE_ACTIVE_DATE', ''),
 }

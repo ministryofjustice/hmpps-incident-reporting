@@ -27,7 +27,11 @@ questionsRouter.use(populateReportConfiguration(), (req, res, next) => {
   }
 
   if (!(reportConfig.active || config.incidentTypesOverride.has(reportConfig.incidentType))) {
-    // forbid editing questions for reports of inactive incident types
+    // Forbid editing questions only when the type's config itself is inactive (its questions or
+    // response options have been deactivated, so steps cannot be generated properly). This is
+    // independent of date-based retirement: a date-retired but still-active type (e.g.
+    // FOOD_REFUSAL_1, CLOSE_DOWN_SEARCH_1) keeps a complete config and its existing reports
+    // remain editable — only the new-report/change-type picker hides it (see typeFields.ts).
     next(new NotFound())
     return
   }

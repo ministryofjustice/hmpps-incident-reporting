@@ -13,6 +13,8 @@ generic-service:
   env:
     ENVIRONMENT: dev
 
+    # Preview the 1 July 2026 incident-type state early in dev (Food refusal v2 on, v1 & Close down search off)
+    INCIDENT_TYPE_ACTIVE_DATE: "2026-07-01"
     INGRESS_URL: "https://incident-reporting-dev.hmpps.service.justice.gov.uk"
     DPS_URL: "https://digital-dev.prison.service.justice.gov.uk"
     NEW_DPS_URL: "https://dps-dev.prison.service.justice.gov.uk"

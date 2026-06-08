@@ -17,6 +17,46 @@ describe('Active incident type configurations', () => {
   })
 })
 
+describe('Question and answer codes are globally unique', () => {
+  // NOMIS stores question/answer codes as primary keys, so a code must never be shared between two
+  // type configs (e.g. a new version must use brand-new codes, not reuse the previous version's).
+  const allConfigs = getAllIncidentTypeConfigurations()
+
+  it('has no question code used by more than one incident type', () => {
+    const owners = new Map<string, string>()
+    const clashes: string[] = []
+    allConfigs.forEach(config => {
+      Object.values(config.questions).forEach(question => {
+        const existing = owners.get(question.code)
+        if (existing) {
+          clashes.push(`question code ${question.code} in both ${existing} and ${config.incidentType}`)
+        } else {
+          owners.set(question.code, config.incidentType)
+        }
+      })
+    })
+    expect(clashes).toEqual([])
+  })
+
+  it('has no answer code used by more than one incident type', () => {
+    const owners = new Map<string, string>()
+    const clashes: string[] = []
+    allConfigs.forEach(config => {
+      Object.values(config.questions).forEach(question => {
+        question.answers.forEach(answer => {
+          const existing = owners.get(answer.code)
+          if (existing) {
+            clashes.push(`answer code ${answer.code} in both ${existing} and ${config.incidentType}`)
+          } else {
+            owners.set(answer.code, config.incidentType)
+          }
+        })
+      })
+    })
+    expect(clashes).toEqual([])
+  })
+})
+
 describe('DPS config validation', () => {
   describe('when config has no known issues', () => {
     it('returns no errors', () => {

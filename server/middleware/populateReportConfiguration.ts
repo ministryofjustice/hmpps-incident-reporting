@@ -28,7 +28,10 @@ export function populateReportConfiguration(generateQuestionSteps = true): Reque
           res.locals.questionSteps = generateSteps(res.locals.reportConfig)
           res.locals.questionFields = generateFields(res.locals.reportConfig)
         } else {
-          // steps cannot properly be generated because questions or response options will often have been made inactive
+          // The type's config is inactive: its questions or response options have often been made
+          // inactive, so steps cannot be generated properly. NB: this is the registry `active`
+          // boolean, not date-based activation — a date-retired but still-active type keeps a
+          // complete, editable config (see questions/index.ts and typeFields.ts).
           res.locals.questionSteps = generateSteps(res.locals.reportConfig, true)
           res.locals.questionFields = {} // ignore fields as they will not be used
         }

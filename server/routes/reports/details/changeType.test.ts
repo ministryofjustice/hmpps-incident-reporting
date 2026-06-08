@@ -9,7 +9,7 @@ import { mockErrorResponse, mockReport } from '../../../data/testData/incidentRe
 import { moorland } from '../../../data/testData/prisonApi'
 import { mockThrownError } from '../../../data/testData/thrownErrors'
 import { mockDataWarden, mockReportingOfficer, mockHqViewer, mockUnauthorisedUser } from '../../../data/testData/users'
-import { types } from '../../../reportConfiguration/constants'
+import { types, isTypeActive } from '../../../reportConfiguration/constants'
 import { now } from '../../../testutils/fakeClock'
 
 jest.mock('../../../data/incidentReportingApi')
@@ -122,7 +122,7 @@ describe('Changing incident type', () => {
 
           expect(res.text).toContain('Select the incident type')
           types.forEach(type => {
-            if (type.code === mockedReport.type || !type.active) {
+            if (type.code === mockedReport.type || !isTypeActive(type.code)) {
               expect(res.text).not.toContain(type.code)
               // TODO: there is overlap with active types
               // expect(res.text).not.toContain(type.description)

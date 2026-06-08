@@ -2,6 +2,7 @@ import type { Express } from 'express'
 import request, { type Agent } from 'supertest'
 
 import { parseDateInput } from '../../../utils/parseDateTime'
+import config from '../../../config'
 import { appWithAllRoutes } from '../../testutils/appSetup'
 import { now } from '../../../testutils/fakeClock'
 import { mockHandleReportEdit } from '../../testutils/handleReportEdit'
@@ -554,6 +555,58 @@ describe('Displaying questions and responses', () => {
           })
       })
     })
+  })
+})
+
+describe('Editing reports of date-retired incident types', () => {
+  // Regression: a type that is only *date*-retired (its registry `active` boolean is still true,
+  // e.g. FOOD_REFUSAL_1 / CLOSE_DOWN_SEARCH_1 after the 2026-07-01 switch-over) must keep its
+  // existing reports editable. Only genuinely inactive types (boolean false, e.g. DAMAGE_1) 404.
+  let agent: Agent
+  let reportWithDetails: ReportWithDetails
+
+  const originalActiveDate = config.incidentTypeActiveDate
+
+  beforeEach(() => {
+    // Preview the post-switch-over state so the date window would consider v1 retired
+    config.incidentTypeActiveDate = '2026-07-01'
+
+    app = appWithAllRoutes()
+    agent = request.agent(app)
+
+    reportWithDetails = convertReportDates(
+      mockReport({
+        type: 'FOOD_REFUSAL_1',
+        reportReference: '6544',
+        reportDateAndTime: now,
+        withDetails: true,
+      }),
+    )
+    reportWithDetails.questions = []
+    incidentReportingApi.getReportWithDetailsById.mockResolvedValue(reportWithDetails)
+  })
+
+  afterEach(() => {
+    config.incidentTypeActiveDate = originalActiveDate
+  })
+
+  it.each(['FOOD_REFUSAL_1', 'CLOSE_DOWN_SEARCH_1'] as const)(
+    'still allows editing questions of date-retired type %s',
+    type => {
+      reportWithDetails.type = type
+      return agent.get(`/reports/${reportWithDetails.id}/questions`).redirects(1).expect(200)
+    },
+  )
+
+  it('still 404s for a genuinely inactive type', () => {
+    reportWithDetails.type = 'DAMAGE_1'
+    return agent
+      .get(`/reports/${reportWithDetails.id}/questions`)
+      .redirects(1)
+      .expect(404)
+      .expect(res => {
+        expect(res.text).toContain('Page not found')
+      })
   })
 })
 

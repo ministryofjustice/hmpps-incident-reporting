@@ -2,7 +2,6 @@ import type { RequestHandler } from 'express'
 
 import logger from '../../logger'
 import { getIncidentTypeConfiguration } from '../reportConfiguration/types'
-import { isTypeActive } from '../reportConfiguration/constants'
 import { reportHasDetails } from '../data/incidentReportingApiUtils'
 import generateFields, { generateSteps } from '../data/incidentTypeConfiguration/formWizard'
 import { QuestionProgress } from '../data/incidentTypeConfiguration/questionProgress'
@@ -25,11 +24,14 @@ export function populateReportConfiguration(generateQuestionSteps = true): Reque
       res.locals.reportConfig = await getIncidentTypeConfiguration(report.type)
 
       if (generateQuestionSteps) {
-        if (isTypeActive(report.type) || config.incidentTypesOverride.has(report.type)) {
+        if (res.locals.reportConfig.active || config.incidentTypesOverride.has(report.type)) {
           res.locals.questionSteps = generateSteps(res.locals.reportConfig)
           res.locals.questionFields = generateFields(res.locals.reportConfig)
         } else {
-          // steps cannot properly be generated because questions or response options will often have been made inactive
+          // The type's config is inactive: its questions or response options have often been made
+          // inactive, so steps cannot be generated properly. NB: this is the registry `active`
+          // boolean, not date-based activation — a date-retired but still-active type keeps a
+          // complete, editable config (see questions/index.ts and typeFields.ts).
           res.locals.questionSteps = generateSteps(res.locals.reportConfig, true)
           res.locals.questionFields = {} // ignore fields as they will not be used
         }

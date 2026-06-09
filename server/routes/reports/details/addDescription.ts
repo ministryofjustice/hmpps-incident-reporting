@@ -8,6 +8,7 @@ import { populateReport } from '../../../middleware/populateReport'
 import { dwNotReviewed } from '../../../reportConfiguration/constants'
 import { handleReportEdit } from '../actions/handleReportEdit'
 import { type AddDescriptionValues, addDescriptionFields } from './addDescriptionFields'
+import { missingLocalsError } from '../../../errors'
 
 class AddDescriptionAddendumController extends BaseController<AddDescriptionValues> {
   protected keyField = 'descriptionAddendum' as const
@@ -25,6 +26,12 @@ class AddDescriptionAddendumController extends BaseController<AddDescriptionValu
   ): void {
     /** Check status of report. If DW has not seen report yet, redirect to update details page */
     const { report } = res.locals
+
+    if (!report) {
+      next(missingLocalsError('AddDescriptionAddendumController#checkReportStatus()', 'res.locals.report'))
+      return
+    }
+
     if (dwNotReviewed.includes(report.status)) {
       res.redirect(`/reports/${report.id}/update-details`)
     } else {
@@ -37,8 +44,15 @@ class AddDescriptionAddendumController extends BaseController<AddDescriptionValu
     res: express.Response,
     next: express.NextFunction,
   ): Promise<void> {
-    const { report } = res.locals
-    res.locals.usersLookup = await res.locals.apis.userService.getUsers(res.locals.systemToken, [report.reportedBy])
+    const { userService } = res.locals.apis
+    const { report, systemToken } = res.locals
+
+    if (!report) {
+      next(missingLocalsError('AddDescriptionAddendumController#lookupUsers()', 'res.locals.report'))
+      return
+    }
+
+    res.locals.usersLookup = await userService.getUsers(systemToken, [report.reportedBy])
     next()
   }
 
@@ -58,13 +72,20 @@ class AddDescriptionAddendumController extends BaseController<AddDescriptionValu
     res: express.Response,
     next: express.NextFunction,
   ): Promise<void> {
-    const { report } = res.locals
+    const { incidentReportingApi } = res.locals.apis
+    const { report, user } = res.locals
+
+    if (!report) {
+      next(missingLocalsError('AddDescriptionAddendumController#successHandler()', 'res.locals.report'))
+      return
+    }
+
     const allValues = this.getAllValues(req, false)
-    const [firstName, ...lastNames] = res.locals.user.name.split(/\s+/)
+    const [firstName, ...lastNames] = (user.name ?? '').split(/\s+/)
     const lastName = lastNames.join(' ')
 
     try {
-      await res.locals.apis.incidentReportingApi.descriptionAddendums.addToReport(report.id, {
+      await incidentReportingApi.descriptionAddendums.addToReport(report.id, {
         firstName: firstName || 'not specified',
         lastName: lastName || 'not specified',
         text: allValues.descriptionAddendum,

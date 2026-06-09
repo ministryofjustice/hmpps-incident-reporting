@@ -5,7 +5,7 @@ import type { CaseLoad } from '../../data/frontendComponentsClient'
 import type { IncidentReportingApi, ReportBasic, ReportWithDetails } from '../../data/incidentReportingApi'
 import type { QuestionProgress } from '../../data/incidentTypeConfiguration/questionProgress'
 import type { IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
-import type { OffenderSearchApi } from '../../data/offenderSearchApi'
+import type { OffenderSearchApi, OffenderSearchResult } from '../../data/offenderSearchApi'
 import type { PrisonApi } from '../../data/prisonApi'
 import type { Permissions, UserAction, ReportTransitions } from '../../middleware/permissions'
 import type { TypeFamily } from '../../reportConfiguration/constants'
@@ -74,6 +74,8 @@ export declare global {
         prisonApi: PrisonApi
         offenderSearchApi: OffenderSearchApi
       }
+      /** Some routes load a prisoner into locals (via populatePrisoner) */
+      prisoner?: OffenderSearchResult
       /** Many routes load a report into locals */
       report?: ReportBasic | ReportWithDetails
       /** URL of current report (if loaded) */

@@ -16,6 +16,7 @@ import { editReportRouter } from './reports/editReportRouter'
 import { reopenRouter } from './reports/actions/reopen'
 import { requestRemovalRouter } from './reports/actions/requestRemoval'
 import dashboard from './dashboard'
+import prisonerIncidentSummaryRouter from './prisonerIncidentSummary'
 
 export default function routes(services: Services): Router {
   const router = Router()
@@ -56,6 +57,8 @@ export default function routes(services: Services): Router {
   router.use('/reports/:reportId', editReportRouter)
 
   // Auxiliary routes
+  router.use('/prisoner/:prisonerNumber/incident-summary', prisonerIncidentSummaryRouter())
+
   router.get('/prisoner/:prisonerNumber/photo.jpeg', async (req, res) => {
     const { prisonerNumber } = req.params
 

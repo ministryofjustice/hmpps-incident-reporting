@@ -165,7 +165,9 @@ export class PrisonerSearchController extends GetBaseController<Values> {
         totalResultCount,
         OffenderSearchApi.PAGE_SIZE,
       )
-      paginationParams.results.text = 'prisoners'
+      if (paginationParams.results) {
+        paginationParams.results.text = 'prisoners'
+      }
       res.locals.paginationParams = paginationParams
     }
 

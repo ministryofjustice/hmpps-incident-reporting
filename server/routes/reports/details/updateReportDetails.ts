@@ -10,6 +10,7 @@ import { handleReportEdit } from '../actions/handleReportEdit'
 import { BaseDetailsController } from './detailsController'
 import { hoursFieldName, minutesFieldName } from './incidentDateAndTimeFields'
 import { type DetailsValues, detailsFields, detailsFieldNames } from './detailsFields'
+import { missingLocalsError } from '../../../errors'
 
 class DetailsController extends BaseDetailsController<DetailsValues> {
   // TODO: wizard namespace identifier is shared. consider generating it per request somehow?
@@ -28,6 +29,12 @@ class DetailsController extends BaseDetailsController<DetailsValues> {
   ): void {
     /** Check status of report. If DW has seen report, redirect to update incident date and time page */
     const { report } = res.locals
+
+    if (!report) {
+      next(missingLocalsError('DetailsController#checkReportStatus()', 'res.locals.report'))
+      return
+    }
+
     if (!dwNotReviewed.includes(report.status)) {
       res.redirect(`/reports/${report.id}/update-date-and-time`)
     } else {
@@ -41,6 +48,11 @@ class DetailsController extends BaseDetailsController<DetailsValues> {
     next: express.NextFunction,
   ): void {
     const { report } = res.locals
+
+    if (!report) {
+      next(missingLocalsError('DetailsController#loadReportIntoSession()', 'res.locals.report'))
+      return
+    }
 
     // load existing report details into session model to prefill inputs
     req.sessionModel.set('incidentDate', format.shortDate(report.incidentDateAndTime))
@@ -58,8 +70,13 @@ class DetailsController extends BaseDetailsController<DetailsValues> {
     next: express.NextFunction,
   ): Promise<void> {
     const { report } = res.locals
-    const allValues = this.getAllValues(req)
 
+    if (!report) {
+      next(missingLocalsError('DetailsController#successHandler()', 'res.locals.report'))
+      return
+    }
+
+    const allValues = this.getAllValues(req)
     const { description, incidentDate, incidentTime } = allValues
     const incidentDateAndTime = this.buildIncidentDateAndTime(incidentDate, incidentTime)
 

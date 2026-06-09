@@ -6,6 +6,7 @@ import { BaseController } from '../../../../controllers'
 import { convertToTitleCase, nameOfPerson, possessive } from '../../../../utils/utils'
 import { populateReportConfiguration } from '../../../../middleware/populateReportConfiguration'
 import type { Values } from './fields'
+import { missingLocalsError } from '../../../../errors'
 
 export interface AllowedRoleCode {
   prisonerRole: string
@@ -23,6 +24,11 @@ export abstract class PrisonerInvolvementController extends BaseController<Value
   private customiseFields(req: FormWizard.Request<Values>, res: express.Response, next: express.NextFunction): void {
     const { fields } = req.form.options
     const { report } = res.locals
+
+    if (!report) {
+      next(missingLocalsError('PrisonerInvolvementController#customiseFields()', 'res.locals.report'))
+      return
+    }
 
     const { firstName } = this.getPrisonerName(res)
     const possessiveFirstName = possessive(convertToTitleCase(firstName))

@@ -84,7 +84,8 @@ export class ReopenController extends BaseController<Values> {
     const userAction = 'RECALL' as const
     // NB: transition is not being used for permissions check; middleware already ensured this is possible
     const transition = possibleTransitions[userAction]
-    const { newStatus, successBanner } = transition
+    const newStatus = transition?.newStatus
+    const successBanner = transition?.successBanner
 
     try {
       if (newStatus && newStatus !== report.status) {

@@ -124,8 +124,8 @@ function checkUnreachableQuestions<Q>(configGraph: Graph<Q>, dfsResult: DfsResul
   }
 }
 
-function buildConfigGraph(config: IncidentTypeConfiguration): Graph<string> {
-  const graph = new Graph<string>()
+function buildConfigGraph(config: IncidentTypeConfiguration): Graph<string | null> {
+  const graph = new Graph<string | null>()
 
   const activeQuestions = Object.values(config.questions).filter(q => q.active === true)
   for (const question of activeQuestions) {

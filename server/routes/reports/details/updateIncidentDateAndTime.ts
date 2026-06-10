@@ -106,13 +106,25 @@ class UpdateIncidentDateAndTimeController extends BaseIncidentDateAndTimeControl
   }
 
   getBackLink(_req: FormWizard.Request<IncidentDateAndTimeValues>, res: express.Response): string {
-    res.locals.cancelUrl = res.locals.reportUrl
-    return res.locals.reportUrl
+    const { reportUrl } = res.locals
+
+    if (!reportUrl) {
+      throw missingLocalsError('UpdateIncidentDateAndTimeController#getBackLink()', 'res.locals.reportUrl')
+    }
+
+    res.locals.cancelUrl = reportUrl
+    return reportUrl
   }
 
   getNextStep(_req: FormWizard.Request<IncidentDateAndTimeValues>, res: express.Response): string {
     // TODO: does this page have 2 save buttons? where do they both lead?
-    return res.locals.reportUrl
+    const { reportUrl } = res.locals
+
+    if (!reportUrl) {
+      throw missingLocalsError('UpdateIncidentDateAndTimeController#getNextStep()', 'res.locals.reportUrl')
+    }
+
+    return reportUrl
   }
 }
 

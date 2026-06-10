@@ -126,16 +126,31 @@ export abstract class PrisonerInvolvementController extends BaseController<Value
   }
 
   getBackLink(_req: FormWizard.Request<Values>, res: express.Response): string {
-    return `${res.locals.reportSubUrlPrefix}/prisoners`
+    const { reportSubUrlPrefix } = res.locals
+
+    if (!reportSubUrlPrefix) {
+      throw missingLocalsError('PrisonerInvolvementController#getBackLink()', 'res.locals.reportSubUrlPrefix')
+    }
+
+    return `${reportSubUrlPrefix}/prisoners`
   }
 
   getNextStep(req: FormWizard.Request<Values>, res: express.Response): string {
+    const { reportUrl, reportSubUrlPrefix } = res.locals
+
+    if (!reportUrl) {
+      throw missingLocalsError('PrisonerInvolvementController#getNextStep()', 'res.locals.reportUrl')
+    }
+    if (!reportSubUrlPrefix) {
+      throw missingLocalsError('PrisonerInvolvementController#getNextStep()', 'res.locals.reportSubUrlPrefix')
+    }
+
     // go to report view if user chose to exit
     if (req.body?.formAction === 'exit') {
-      return res.locals.reportUrl
+      return reportUrl
     }
     // …or return to involvements summary
-    return `${res.locals.reportSubUrlPrefix}/prisoners`
+    return `${reportSubUrlPrefix}/prisoners`
   }
 
   protected abstract getPrisonerName(res: express.Response): { firstName: string; lastName: string }

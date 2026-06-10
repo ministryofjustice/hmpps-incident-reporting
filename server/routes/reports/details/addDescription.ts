@@ -113,12 +113,24 @@ class AddDescriptionAddendumController extends BaseController<AddDescriptionValu
   }
 
   getBackLink(_req: FormWizard.Request<AddDescriptionValues>, res: express.Response): string {
-    res.locals.cancelUrl = res.locals.reportUrl
-    return res.locals.reportUrl
+    const { reportUrl } = res.locals
+
+    if (!reportUrl) {
+      throw missingLocalsError('AddDescriptionAddendumController#getBackLink()', 'res.locals.reportUrl')
+    }
+
+    res.locals.cancelUrl = reportUrl
+    return reportUrl
   }
 
   getNextStep(_req: FormWizard.Request<AddDescriptionValues>, res: express.Response): string {
-    return res.locals.reportUrl
+    const { reportUrl } = res.locals
+
+    if (!reportUrl) {
+      throw missingLocalsError('AddDescriptionAddendumController#getNextStep()', 'res.locals.reportUrl')
+    }
+
+    return reportUrl
   }
 }
 

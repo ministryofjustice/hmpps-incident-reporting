@@ -7,6 +7,7 @@ import { handleReportEdit } from '../../routes/reports/actions/handleReportEdit'
 import { Values as PrisonersValues } from '../../routes/reports/prisoners/summary/fields'
 import { Values as StaffValues } from '../../routes/reports/staff/summary/fields'
 import { BaseController } from '../base'
+import { missingLocalsError } from '../../errors'
 
 type Values = PrisonersValues | StaffValues
 
@@ -98,11 +99,23 @@ export abstract class InvolvementSummary extends BaseController<Values> {
   protected abstract localsForLookups(): Record<string, unknown>
 
   getBackLink(_req: FormWizard.Request<Values>, res: express.Response): string {
-    return res.locals.reportUrl
+    const { reportUrl } = res.locals
+
+    if (!reportUrl) {
+      throw missingLocalsError('InvolvementSummary#getBackLink()', 'res.locals.report')
+    }
+
+    return reportUrl
   }
 
   getNextStep(_req: FormWizard.Request<Values>, res: express.Response): string {
-    return res.locals.reportUrl
+    const { reportUrl } = res.locals
+
+    if (!reportUrl) {
+      throw missingLocalsError('InvolvementSummary#getNextStep()', 'res.locals.report')
+    }
+
+    return reportUrl
   }
 
   protected errorMessage(error: FormWizard.Error, req: FormWizard.Request<Values>, res: express.Response): string {

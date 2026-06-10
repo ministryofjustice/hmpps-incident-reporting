@@ -15,6 +15,7 @@ import {
 import { pagination } from '../../../../utils/pagination'
 import type { Values } from './fields'
 import { parseDateInput } from '../../../../utils/parseDateTime'
+import { missingLocalsError } from '../../../../errors'
 
 export class PrisonerSearchController extends GetBaseController<Values> {
   protected keyField = 'q' as const
@@ -64,7 +65,13 @@ export class PrisonerSearchController extends GetBaseController<Values> {
   }
 
   getBackLink(_req: FormWizard.Request<Values>, res: express.Response): string {
-    return `${res.locals.reportSubUrlPrefix}/prisoners`
+    const { reportSubUrlPrefix } = res.locals
+
+    if (!reportSubUrlPrefix) {
+      throw missingLocalsError('PrisonerSearchController#getBackLink()', 'res.locals.reportSubUrlPrefix')
+    }
+
+    return `${reportSubUrlPrefix}/prisoners`
   }
 
   render(req: FormWizard.Request<Values, keyof Values>, res: express.Response, next: express.NextFunction) {

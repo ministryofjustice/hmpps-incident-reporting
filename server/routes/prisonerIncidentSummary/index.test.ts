@@ -62,7 +62,7 @@ describe('GET /prisoner/:prisonerNumber/incident-summary', () => {
       .get(`/prisoner/${andrew.prisonerNumber}/incident-summary`)
       .expect(200)
       .expect(res => {
-        expect(res.text).toContain('No incidents have been recorded')
+        expect(res.text).toContain('been involved in any recorded incident')
       })
   })
 

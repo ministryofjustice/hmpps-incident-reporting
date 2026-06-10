@@ -41,18 +41,18 @@ function runRules(reportsQuestions: Question[][], rules: BreakdownRule[]): Break
 
 // --- helpers operating on a single report's questions ---
 
-function findQuestion(questions: Question[], code: string): Question | undefined {
-  return questions.find(question => question.code === code)
+function findQuestion(questions: Question[], questionCode: string): Question | undefined {
+  return questions.find(question => question.code === questionCode)
 }
 
-/** Uppercase response *values* (the `response` field) given to a question, or [] if unanswered. */
-function responseValues(questions: Question[], code: string): string[] {
-  return findQuestion(questions, code)?.responses.map(response => response.response) ?? []
+/** Uppercase responses (the `response` field) given to a question, or [] if unanswered. */
+function responses(questions: Question[], questionCode: string): string[] {
+  return findQuestion(questions, questionCode)?.responses.map(response => response.response) ?? []
 }
 
 /** True if the question has any response whose *code* is in `responseCodes`. */
-function hasAnyResponseCode(questions: Question[], code: string, responseCodes: string[]): boolean {
-  const question = findQuestion(questions, code)
+function hasAnyResponseCode(questions: Question[], questionCode: string, responseCodes: string[]): boolean {
+  const question = findQuestion(questions, questionCode)
   if (!question) {
     return false
   }
@@ -61,19 +61,19 @@ function hasAnyResponseCode(questions: Question[], code: string, responseCodes: 
 }
 
 /** True if the question was answered "YES" (used for the many yes/no questions). */
-function answeredYes(questions: Question[], code: string): boolean {
-  return responseValues(questions, code).some(value => value === 'YES')
+function answeredYes(questions: Question[], questionCode: string): boolean {
+  return responses(questions, questionCode).some(response => response === 'YES')
 }
 
-/** True if the question has any response value starting with `prefix` (e.g. "YES - BLUNT..."). */
-function hasResponseValueStartingWith(questions: Question[], code: string, prefix: string): boolean {
-  return responseValues(questions, code).some(value => value.startsWith(prefix))
+/** True if the question has any response starting with `prefix` (e.g. "YES - BLUNT..."). */
+function hasResponseStartingWith(questions: Question[], questionCode: string, prefix: string): boolean {
+  return responses(questions, questionCode).some(response => response.startsWith(prefix))
 }
 
-/** True if the question has any response value outside `excluded` (e.g. a non-NIL quantity). */
-function hasResponseValueNotIn(questions: Question[], code: string, excluded: string[]): boolean {
+/** True if the question has any response outside `excluded` (e.g. a non-NIL quantity). */
+function hasResponseNotIn(questions: Question[], questionCode: string, excluded: string[]): boolean {
   const exclude = new Set(excluded)
-  return responseValues(questions, code).some(value => !exclude.has(value))
+  return responses(questions, questionCode).some(response => !exclude.has(response))
 }
 
 // --- ASSAULT_5 ---
@@ -136,18 +136,18 @@ const SELF_HARM_RULES: BreakdownRule[] = [
 
 // "DESCRIBE THE DRUG FOUND" appears twice: single-select path (67190) and multiple-types path (67208).
 const DRUG_QUESTION_CODES = ['67190', '67208'] as const
-const NO_DRUG_VALUES = ['NONE FOUND', 'NIL'] as const
+const NO_DRUG_RESPONSES = ['NONE FOUND', 'NIL'] as const
 
-function drugValues(questions: Question[]): string[] {
-  return DRUG_QUESTION_CODES.flatMap(code => responseValues(questions, code))
+function drugResponses(questions: Question[]): string[] {
+  return DRUG_QUESTION_CODES.flatMap(questionCode => responses(questions, questionCode))
 }
 
 function findInvolvesAlcohol(questions: Question[]): boolean {
   return (
     hasAnyResponseCode(questions, '67187', ['218784']) || // category = ALCOHOL / HOOCH / DISTILLING EQUIPMENT
-    hasResponseValueNotIn(questions, '67188', ['NIL']) || // single-path alcohol quantity
-    hasResponseValueNotIn(questions, '67205', ['NIL']) || // multiple-types alcohol quantity
-    hasResponseValueStartingWith(questions, '67206', 'YES') // distilling equipment found
+    hasResponseNotIn(questions, '67188', ['NIL']) || // single-path alcohol quantity
+    hasResponseNotIn(questions, '67205', ['NIL']) || // multiple-types alcohol quantity
+    hasResponseStartingWith(questions, '67206', 'YES') // distilling equipment found
   )
 }
 
@@ -155,15 +155,15 @@ function findInvolvesDrugs(questions: Question[]): boolean {
   return (
     hasAnyResponseCode(questions, '67187', ['218785']) || // category = DRUG / DRUG EQUIPMENT
     answeredYes(questions, '67207') || // multiple-types "WERE ANY DRUGS FOUND"
-    drugValues(questions).some(value => !(NO_DRUG_VALUES as readonly string[]).includes(value))
+    drugResponses(questions).some(response => !(NO_DRUG_RESPONSES as readonly string[]).includes(response))
   )
 }
 
 function findInvolvesWeapons(questions: Question[]): boolean {
   return (
     hasAnyResponseCode(questions, '67187', ['218789']) || // category = WEAPON
-    hasResponseValueStartingWith(questions, '67203', 'YES') || // single-path "WHAT WEAPON WAS FOUND?"
-    hasResponseValueStartingWith(questions, '67224', 'YES') // multiple-types "WHAT WEAPON WAS FOUND?"
+    hasResponseStartingWith(questions, '67203', 'YES') || // single-path "WHAT WEAPON WAS FOUND?"
+    hasResponseStartingWith(questions, '67224', 'YES') // multiple-types "WHAT WEAPON WAS FOUND?"
   )
 }
 
@@ -173,35 +173,35 @@ const FIND_CATEGORY_RULES: BreakdownRule[] = [
   { id: 'weapons', label: 'Weapons', matches: findInvolvesWeapons },
 ]
 
-// Drug sub-types are matched on the response value text because the codes differ between the two
+// Drug sub-types are matched on the response text because the codes differ between the two
 // "DESCRIBE THE DRUG FOUND" questions.
-const CANNABIS_VALUES = ['CANNABIS', 'CANNABIS PLANT']
-const COCAINE_VALUES = ['COCAINE', 'CRACK']
-const NPS_VALUES = ['NPS (NEW PSYCHOACTIVE SUBSTANCES)']
-const UNKNOWN_DRUG_VALUES = ['UNKNOWN']
+const CANNABIS_RESPONSES = ['CANNABIS', 'CANNABIS PLANT']
+const COCAINE_RESPONSES = ['COCAINE', 'CRACK']
+const NPS_RESPONSES = ['NPS (NEW PSYCHOACTIVE SUBSTANCES)']
+const UNKNOWN_DRUG_RESPONSES = ['UNKNOWN']
 
-function drugMatches(questions: Question[], values: string[]): boolean {
-  const present = new Set(drugValues(questions))
-  return values.some(value => present.has(value))
+function drugMatches(questions: Question[], wantedResponses: string[]): boolean {
+  const present = new Set(drugResponses(questions))
+  return wantedResponses.some(response => present.has(response))
 }
 
 function drugMatchesOther(questions: Question[]): boolean {
   const accountedFor = new Set<string>([
-    ...CANNABIS_VALUES,
-    ...COCAINE_VALUES,
-    ...NPS_VALUES,
-    ...UNKNOWN_DRUG_VALUES,
-    ...NO_DRUG_VALUES,
+    ...CANNABIS_RESPONSES,
+    ...COCAINE_RESPONSES,
+    ...NPS_RESPONSES,
+    ...UNKNOWN_DRUG_RESPONSES,
+    ...NO_DRUG_RESPONSES,
   ])
-  return drugValues(questions).some(value => !accountedFor.has(value))
+  return drugResponses(questions).some(response => !accountedFor.has(response))
 }
 
 const FIND_DRUG_RULES: BreakdownRule[] = [
-  { id: 'cannabis', label: 'Cannabis', matches: q => drugMatches(q, CANNABIS_VALUES) },
-  { id: 'cocaine', label: 'Cocaine', matches: q => drugMatches(q, COCAINE_VALUES) },
-  { id: 'nps', label: 'NPS (new psychoactive substances)', matches: q => drugMatches(q, NPS_VALUES) },
+  { id: 'cannabis', label: 'Cannabis', matches: q => drugMatches(q, CANNABIS_RESPONSES) },
+  { id: 'cocaine', label: 'Cocaine', matches: q => drugMatches(q, COCAINE_RESPONSES) },
+  { id: 'nps', label: 'NPS (new psychoactive substances)', matches: q => drugMatches(q, NPS_RESPONSES) },
   { id: 'other', label: 'Other drug', matches: drugMatchesOther },
-  { id: 'unknown', label: 'Unknown drug', matches: q => drugMatches(q, UNKNOWN_DRUG_VALUES) },
+  { id: 'unknown', label: 'Unknown drug', matches: q => drugMatches(q, UNKNOWN_DRUG_RESPONSES) },
 ]
 
 // --- public extractors ---

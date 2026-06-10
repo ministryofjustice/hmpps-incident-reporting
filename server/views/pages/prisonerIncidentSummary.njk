@@ -9,7 +9,7 @@
 {#
   Render a list of { label, count } breakdown rows as a two-column table.
 #}
-{% macro breakdownTable(caption, rows) %}
+{% macro breakdownTable(caption, rows, firstColumnHeader = "Detail") %}
   {% set tableRows = [] %}
   {% for row in rows %}
     {% set tableRows = (tableRows.push([
@@ -22,7 +22,7 @@
     captionClasses: "govuk-table__caption--m",
     firstCellIsHeader: true,
     head: [
-      { text: "Detail" },
+      { text: firstColumnHeader },
       { text: "Number of reports", format: "numeric" }
     ],
     rows: tableRows
@@ -43,27 +43,15 @@
 
       {% if summary.totalReports == 0 %}
 
-        <p class="govuk-body">No incidents have been recorded for this person in the last 12 months.</p>
+        <p class="govuk-body">This person hasn't been involved in any recorded incident in the last 12 months.</p>
 
       {% else %}
 
         {% set overallRows = [] %}
         {% for family in summary.overall %}
-          {% set overallRows = (overallRows.push([
-            { text: family.description },
-            { text: family.count, format: "numeric" }
-          ]), overallRows) %}
+          {% set overallRows = (overallRows.push({ label: family.description, count: family.count }), overallRows) %}
         {% endfor %}
-        {{ govukTable({
-          caption: "All incidents by type",
-          captionClasses: "govuk-table__caption--m",
-          firstCellIsHeader: true,
-          head: [
-            { text: "Incident type" },
-            { text: "Number of reports", format: "numeric" }
-          ],
-          rows: overallRows
-        }) }}
+        {{ breakdownTable("All incidents by type", overallRows, "Incident type") }}
 
         {% if summary.assault %}
           <h2 class="govuk-heading-m">Assault detail</h2>

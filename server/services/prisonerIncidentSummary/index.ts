@@ -1,4 +1,4 @@
-import type { IncidentReportingApi, ReportBasic } from '../../data/incidentReportingApi'
+import type { IncidentReportingApi, Question, ReportBasic } from '../../data/incidentReportingApi'
 import type { Status, TypeFamily } from '../../reportConfiguration/constants'
 import { getTypeDetails, statuses, typeFamiliesDescriptions } from '../../reportConfiguration/constants'
 import {
@@ -66,7 +66,6 @@ async function fetchAllReports(
       status: INCLUDED_STATUSES,
       page,
       size: PAGE_SIZE,
-      sort: ['incidentDateAndTime,DESC'],
     })
     reports.push(...response.content)
     totalPages = response.totalPages
@@ -97,7 +96,7 @@ async function activeVersionQuestions(
   api: IncidentReportingApi,
   reports: ReportBasic[],
   activeType: string,
-): Promise<Array<Awaited<ReturnType<IncidentReportingApi['getReportWithDetailsById']>>['questions']>> {
+): Promise<Question[][]> {
   const matching = reports.filter(report => report.type === activeType)
   const detailed = await Promise.all(matching.map(report => api.getReportWithDetailsById(report.id)))
   return detailed.map(report => report.questions)

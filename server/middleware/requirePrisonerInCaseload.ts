@@ -1,7 +1,8 @@
 import type { RequestHandler } from 'express'
-import { InternalServerError, NotFound } from 'http-errors'
+import { NotFound } from 'http-errors'
 
 import logger from '../../logger'
+import { missingLocalsError } from '../errors'
 
 /**
  * Guards a route so that it can only be accessed when the loaded prisoner is held in one of the
@@ -18,7 +19,7 @@ export function requirePrisonerInCaseload(): RequestHandler {
   return (_req, res, next): void => {
     const { prisoner, user } = res.locals
     if (!prisoner) {
-      next(new InternalServerError('requirePrisonerInCaseload() requires populatePrisoner() to run first'))
+      next(missingLocalsError('requirePrisonerInCaseload()', 'res.locals.prisoner'))
       return
     }
 

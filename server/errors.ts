@@ -2,6 +2,7 @@ import { InternalServerError } from 'http-errors'
 
 const middlewareMapping = {
   'res.locals.permissions': 'Permissions.middleware()',
+  'res.locals.prisoner': 'populatePrisoner()',
   'res.locals.report': 'populateReport()',
   'res.locals.report (with details)': 'populateReport(withDetails=true)',
   'res.locals.reportUrl': 'populateReport()',

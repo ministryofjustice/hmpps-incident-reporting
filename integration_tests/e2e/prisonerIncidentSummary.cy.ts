@@ -1,20 +1,24 @@
 import type { ReportWithDetails } from '../../server/data/incidentReportingApi'
+import { convertReportWithDetailsDates } from '../../server/data/incidentReportingApiUtils'
 import { mockReport } from '../../server/data/testData/incidentReporting'
 import { makeSimpleQuestion } from '../../server/data/testData/incidentReportingJest'
 import { andrew } from '../../server/data/testData/offenderSearch'
 import { mockReportingOfficer } from '../../server/data/testData/users'
+import type { Type } from '../../server/reportConfiguration/constants'
 import { now } from '../../server/testutils/fakeClock'
 
 /** Build a closed report of the given type with crafted questions, all within the last 12 months. */
-function reportOfType(reference: string, type: string, questions: ReportWithDetails['questions']): ReportWithDetails {
-  const report = mockReport({
-    reportReference: reference,
-    reportDateAndTime: now,
-    type: type as ReportWithDetails['type'],
-    status: 'CLOSED',
-    location: andrew.prisonId,
-    withDetails: true,
-  }) as unknown as ReportWithDetails
+function reportOfType(reference: string, type: Type, questions: ReportWithDetails['questions']): ReportWithDetails {
+  const report = convertReportWithDetailsDates(
+    mockReport({
+      reportReference: reference,
+      reportDateAndTime: now,
+      type,
+      status: 'CLOSED',
+      location: andrew.prisonId,
+      withDetails: true,
+    }),
+  )
   report.questions = questions
   return report
 }

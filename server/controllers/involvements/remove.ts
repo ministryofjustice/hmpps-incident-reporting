@@ -8,6 +8,7 @@ import { handleReportEdit } from '../../routes/reports/actions/handleReportEdit'
 import { Values as PrisonersValues } from '../../routes/reports/prisoners/remove/fields'
 import { Values as StaffValues } from '../../routes/reports/staff/remove/fields'
 import { BaseController } from '../base'
+import { missingLocalsError } from '../../errors'
 
 type Values = PrisonersValues | StaffValues
 
@@ -49,16 +50,31 @@ export abstract class RemoveInvolvement<
   protected abstract getInvolvementName(involvement: I): string
 
   getBackLink(_req: FormWizard.Request<Values>, res: express.Response): string {
-    return `${res.locals.reportSubUrlPrefix}/${this.type}`
+    const { reportSubUrlPrefix } = res.locals
+
+    if (!reportSubUrlPrefix) {
+      throw missingLocalsError('RemoveInvolvement#getBackLink()', 'res.locals.reportSubUrlPrefix')
+    }
+
+    return `${reportSubUrlPrefix}/${this.type}`
   }
 
   getNextStep(req: FormWizard.Request<Values>, res: express.Response): string {
+    const { reportUrl, reportSubUrlPrefix } = res.locals
+
+    if (!reportUrl) {
+      throw missingLocalsError('RemoveInvolvement#getNextStep()', 'res.locals.reportUrl')
+    }
+    if (!reportSubUrlPrefix) {
+      throw missingLocalsError('RemoveInvolvement#getNextStep()', 'res.locals.reportSubUrlPrefix')
+    }
+
     // go to report view if user chose to exit
     if (req.body?.formAction === 'exit') {
-      return res.locals.reportUrl
+      return reportUrl
     }
     // …or return to involvements summary
-    return `${res.locals.reportSubUrlPrefix}/${this.type}`
+    return `${reportSubUrlPrefix}/${this.type}`
   }
 
   async saveValues(req: FormWizard.Request<Values>, res: express.Response, next: express.NextFunction): Promise<void> {

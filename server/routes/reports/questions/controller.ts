@@ -98,9 +98,15 @@ export class QuestionsController extends BaseController<FormWizard.MultiValues> 
   }
 
   getNextStep(req: FormWizard.Request<FormWizard.MultiValues>, res: express.Response): string {
+    const { reportUrl } = res.locals
+
+    if (!reportUrl) {
+      throw missingLocalsError('QuestionsController#getNextStep()', 'res.locals.reportUrl')
+    }
+
     // go to report view if user chose to exit
     if (req.body?.formAction === 'exit') {
-      return res.locals.reportUrl
+      return reportUrl
     }
     // …or continue with question pages
     return super.getNextStep(req, res)

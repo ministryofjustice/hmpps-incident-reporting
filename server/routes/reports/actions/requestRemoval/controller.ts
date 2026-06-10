@@ -7,6 +7,7 @@ import type { ApiUserType } from '../../../../middleware/permissions'
 import { placeholderForCorrectionRequest } from '../correctionRequestPlaceholder'
 import type { Values } from './fields'
 import { errorResponseStatusMatches } from '../../../../utils/utils'
+import { missingLocalsError } from '../../../../errors'
 
 export class RequestRemovalController extends BaseController<Values> {
   protected keyField = 'userAction' as const
@@ -69,8 +70,14 @@ export class RequestRemovalController extends BaseController<Values> {
   }
 
   getBackLink(_req: FormWizard.Request<Values>, res: express.Response): string {
-    res.locals.cancelUrl = res.locals.reportUrl
-    return res.locals.reportUrl
+    const { reportUrl } = res.locals
+
+    if (!reportUrl) {
+      throw missingLocalsError('RequestRemovalController#getBackLink()', 'res.locals.reportUrl')
+    }
+
+    res.locals.cancelUrl = reportUrl
+    return reportUrl
   }
 
   getNextStep(_req: FormWizard.Request<Values>, _res: express.Response): string {

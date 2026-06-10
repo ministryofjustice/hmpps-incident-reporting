@@ -104,12 +104,24 @@ class DetailsController extends BaseDetailsController<DetailsValues> {
   }
 
   getBackLink(_req: FormWizard.Request<DetailsValues>, res: express.Response): string {
-    return res.locals.reportUrl
+    const { reportUrl } = res.locals
+
+    if (!reportUrl) {
+      throw missingLocalsError('DetailsController#getBackLink()', 'res.locals.reportUrl')
+    }
+
+    return reportUrl
   }
 
   getNextStep(_req: FormWizard.Request<DetailsValues>, res: express.Response): string {
     // TODO: does this page have 2 save buttons? where do they both lead?
-    return res.locals.reportUrl
+    const { reportUrl } = res.locals
+
+    if (!reportUrl) {
+      throw missingLocalsError('DetailsController#getNextStep()', 'res.locals.reportUrl')
+    }
+
+    return reportUrl
   }
 }
 

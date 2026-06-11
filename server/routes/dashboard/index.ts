@@ -16,8 +16,8 @@ import {
   types,
   typesDescriptions,
   typeFamilies,
-  familyIsInactiveForAll,
   familyExpiryDates,
+  familyInactiveStatus,
 } from '../../reportConfiguration/constants'
 import type { PaginatedBasicReports } from '../../data/incidentReportingApi'
 import { type Order, orderOptions } from '../../data/offenderSearchApi'
@@ -308,14 +308,14 @@ export default function dashboard(): Router {
     const usersLookup = await userService.getUsers(res.locals.systemToken, usernames)
 
     const activeTypeFamilyItems: GovukSelectItem[] = typeFamilies
-      .filter(({ code: someFamilyCode }) => !familyIsInactiveForAll[someFamilyCode])
+      .filter(({ code: someFamilyCode }) => !familyInactiveStatus[someFamilyCode])
       .map(family => ({
         value: family.code,
         text: family.description,
       }))
 
     const expiredTypeFamilyItems: GovukSelectItem[] = typeFamilies
-      .filter(({ code: someFamilyCode }) => familyIsInactiveForAll[someFamilyCode])
+      .filter(({ code: someFamilyCode }) => familyInactiveStatus[someFamilyCode])
       .map(family => ({
         value: family.code,
         text: `${family.description} (inactive since ${familyExpiryDates[family.code]})`,

@@ -290,6 +290,9 @@ export type TypeDetails = (typeof types)[number]
 /** Codes for types of reportable incidents */
 export type Type = TypeDetails['code']
 
+/** Codes for types families of reportable incidents */
+export type FamilyCode = TypeDetails['familyCode']
+
 /** Code to description mapping for types of reportable incidents */
 export const typesDescriptions: Record<Type, string> = {
   ABSCOND_1: 'Abscond',

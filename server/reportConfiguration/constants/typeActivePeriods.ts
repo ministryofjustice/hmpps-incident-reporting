@@ -2,7 +2,8 @@
 
 import config from '../../config'
 import format from '../../utils/format'
-import { getTypeDetails, type Type } from './types'
+import { getTypeDetails, types, type Type, type TypeDetails } from './types'
+import { typeFamilies } from './typeFamilies'
 
 /**
  * An activation window for an incident type, expressed as Europe/London calendar dates
@@ -101,3 +102,31 @@ export function isTypeActive(code: string, at: Date = effectiveNow()): boolean {
   }
   return !(period.activeTo && on >= period.activeTo)
 }
+
+type FamilyCode = TypeDetails['familyCode']
+// true only if every item in a family has an activeTo property present
+export const familyIsInactiveForAll: Record<FamilyCode, boolean> = types.reduce(
+  (acc, item) => {
+    acc[item.familyCode] = (acc[item.familyCode] ?? true) && !isTypeActive(item.code)
+    return acc
+  },
+  {} as Record<FamilyCode, boolean>,
+)
+
+export const familyExpiryDates = Object.fromEntries(
+  Object.values(typeFamilies).map(({ code: familyCode }) => {
+    const expiryDates = Object.values(types)
+      .filter(({ familyCode: someFamilyCode }) => someFamilyCode === familyCode)
+      .map(({ code }) => (typeActivePeriods[code]?.activeTo ? new Date(typeActivePeriods[code]?.activeTo) : null))
+      .filter((date): date is Date => date !== null) // Remove nulls for comparison
+
+    const latestDate = expiryDates.length > 0 ? new Date(Math.max(...expiryDates.map(d => d.getTime()))) : null
+
+    return [
+      familyCode,
+      latestDate
+        ? `${new Intl.DateTimeFormat('en-US', { month: 'long' }).format(latestDate)} ${latestDate.getFullYear()}`
+        : null,
+    ]
+  }),
+)

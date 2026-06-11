@@ -285,7 +285,7 @@ export const types = [
 ] as const
 
 /** Types of reportable incidents */
-type TypeDetails = (typeof types)[number]
+export type TypeDetails = (typeof types)[number]
 
 /** Codes for types of reportable incidents */
 export type Type = TypeDetails['code']

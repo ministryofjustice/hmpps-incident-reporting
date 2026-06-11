@@ -230,21 +230,24 @@ export function viewReportRouter(): Router {
               const newStatus = transition?.newStatus
               const apiUserAction = userAction as ApiUserAction // transitions config ensures this is possible
               if (!comment) {
-                if (apiUserAction === 'MARK_DUPLICATE') {
-                  // NOTE: `MARK_DUPLICATE` has `originalReportReferenceRequired` set to `true`
-                  // If `originalReportReference` were undefined there would be an error in errors
-                  // and as a result request wouldn't get into this branch.
-                  // TypeScript can't follow along, hence the use of the null assertion.
-                  comment = placeholderForCorrectionRequest(apiUserAction, originalReportReference!)
-                }
-                if (
-                  apiUserAction === 'MARK_NOT_REPORTABLE' ||
-                  apiUserAction === 'REQUEST_NOT_REPORTABLE' ||
-                  apiUserAction === 'RECALL' ||
-                  apiUserAction === 'REQUEST_REVIEW' ||
-                  apiUserAction === 'CLOSE'
-                ) {
-                  comment = placeholderForCorrectionRequest(apiUserAction)
+                switch (apiUserAction) {
+                  case 'MARK_DUPLICATE':
+                    // NOTE: `MARK_DUPLICATE` has `originalReportReferenceRequired` set to `true`
+                    // If `originalReportReference` were undefined there would be an error in errors
+                    // and as a result request wouldn't get into this branch.
+                    // TypeScript can't follow along, hence the use of the null assertion.
+                    comment = placeholderForCorrectionRequest(apiUserAction, originalReportReference!)
+                    break
+                  case 'MARK_NOT_REPORTABLE':
+                  case 'REQUEST_NOT_REPORTABLE':
+                  case 'RECALL':
+                  case 'REQUEST_REVIEW':
+                  case 'CLOSE':
+                    comment = placeholderForCorrectionRequest(apiUserAction)
+                    break
+                  default:
+                    next(new Error(`Unexpected apiUserAction '${apiUserAction}' for report ${report.reportReference}`))
+                    return
                 }
               }
               const addCorrectionRequest: AddCorrectionRequestRequest = {

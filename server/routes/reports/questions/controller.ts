@@ -89,10 +89,16 @@ export class QuestionsController extends BaseController<FormWizard.MultiValues> 
     req: FormWizard.Request<FormWizard.MultiValues>,
     res: express.Response,
   ): ReturnType<BaseController['decodeConditions']> {
+    const { reportUrl } = res.locals
+
+    if (!reportUrl) {
+      throw missingLocalsError('QuestionsController#getNextStepObject()', 'res.locals.reportUrl')
+    }
+
     const nextStepObject = super.getNextStepObject(req, res)
     if (!nextStepObject.url) {
       // reached the end so the next step is report summary
-      nextStepObject.url = res.locals.reportUrl
+      nextStepObject.url = reportUrl
     }
     return nextStepObject
   }

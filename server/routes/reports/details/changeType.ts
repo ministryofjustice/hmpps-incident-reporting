@@ -60,6 +60,11 @@ class TypeController extends BaseTypeController<TypeValues> {
   ): Promise<void> {
     const { incidentReportingApi } = res.locals.apis
     const { report } = res.locals
+
+    if (!report) {
+      throw missingLocalsError('TypeController#successHandler()', 'res.locals.report')
+    }
+
     const { type } = req.form.values
 
     try {

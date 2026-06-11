@@ -48,7 +48,11 @@ describe('Conditional logout', () => {
     middleware(req, res, next)
 
     expect(next).toHaveBeenCalledWith(
-      expect.objectContaining({ message: 'logoutUnless() requires res.locals.permissions', status: 501 }),
+      expect.objectContaining({
+        message:
+          'Middleware configuration error: logoutUnless() requires res.locals.permissions: Permissions.middleware() was not executed first',
+        status: 500,
+      }),
     )
   })
 })

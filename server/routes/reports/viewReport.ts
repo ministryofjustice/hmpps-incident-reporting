@@ -127,7 +127,7 @@ export function viewReportRouter(): Router {
 
       let requestedOriginalReportReference: string | undefined
       if (allowedActions.has('MARK_DUPLICATE')) {
-        requestedOriginalReportReference = findRequestDuplicate(report)?.originalReportReference
+        requestedOriginalReportReference = findRequestDuplicate(report)?.originalReportReference ?? undefined
       }
 
       let formValues: object = {}
@@ -151,7 +151,7 @@ export function viewReportRouter(): Router {
           }
 
           // check DPS report is valid if required; reports made in NOMIS do not get validated
-          if (!report.createdInNomis && transition.mustBeValid) {
+          if (!report.createdInNomis && transition?.mustBeValid) {
             for (const error of validateReport(report, reportConfig, questionProgressSteps, reportUrl)) {
               errors.push(error)
             }
@@ -167,7 +167,7 @@ export function viewReportRouter(): Router {
           }
 
           // check comment if required
-          if (transition.comment === 'required') {
+          if (transition?.comment === 'required') {
             const nonWhitespace = /\S+/
             if (!comment || !nonWhitespace.test(comment)) {
               const commentMissingError =
@@ -183,7 +183,7 @@ export function viewReportRouter(): Router {
 
           // check original incident number if required
           let originalReport: ReportBasic | undefined
-          if (transition.originalReportReferenceRequired) {
+          if (transition?.originalReportReferenceRequired) {
             const numbersOnly = /\d+/
             if (!originalReportReference || !numbersOnly.test(originalReportReference)) {
               errors.push({
@@ -227,11 +227,15 @@ export function viewReportRouter(): Router {
                 await updateReportTitle(res)
               }
 
-              const { newStatus } = transition
+              const newStatus = transition?.newStatus
               const apiUserAction = userAction as ApiUserAction // transitions config ensures this is possible
               if (!comment) {
                 if (apiUserAction === 'MARK_DUPLICATE') {
-                  comment = placeholderForCorrectionRequest(apiUserAction, originalReportReference)
+                  // NOTE: `MARK_DUPLICATE` has `originalReportReferenceRequired` set to `true`
+                  // If `originalReportReference` were undefined there would be an error in errors
+                  // and as a result request wouldn't get into this branch.
+                  // TypeScript can't follow along, hence the use of the null assertion.
+                  comment = placeholderForCorrectionRequest(apiUserAction, originalReportReference!)
                 }
                 if (
                   apiUserAction === 'MARK_NOT_REPORTABLE' ||
@@ -269,7 +273,7 @@ export function viewReportRouter(): Router {
               logger.info(
                 `Report ${report.reportReference} actioned: “${userActionMapping[userAction].description}” (${userAction}), and changed status from ${report.status} to ${newStatus}`,
               )
-              const { successBanner } = transition
+              const successBanner = transition?.successBanner
               if (successBanner) {
                 req.flash('success', { title: successBanner.replace('$reportReference', report.reportReference) })
               }

@@ -57,7 +57,7 @@ export abstract class InvolvementSummary extends BaseController<Values> {
       ...customisedFields.confirmAdd,
     }
     if (involvementDone) {
-      customisedFields.confirmAdd.items = customisedFields.confirmAdd.items.filter(item => item.value !== 'skip')
+      customisedFields.confirmAdd.items = customisedFields.confirmAdd.items?.filter(item => item.value !== 'skip')
     }
     if (involvementsExist) {
       customisedFields.confirmAdd.label = this.labelOnceInvolvementsExist

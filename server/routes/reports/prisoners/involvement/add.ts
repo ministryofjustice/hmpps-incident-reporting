@@ -2,20 +2,33 @@ import type express from 'express'
 import FormWizard from 'hmpo-form-wizard'
 
 import logger from '../../../../../logger'
-import type { ReportWithDetails } from '../../../../data/incidentReportingApi'
 import type { OffenderSearchResult } from '../../../../data/offenderSearchApi'
 import { fallibleUpdateReportTitle } from '../../../../services/reportTitle'
 import { handleReportEdit } from '../../actions/handleReportEdit'
 import { AllowedRoleCode, PrisonerInvolvementController } from './controller'
 import { fields, type Values } from './fields'
 import { steps } from './steps'
+import { missingLocalsError } from '../../../../errors'
+import { reportHasDetails } from '../../../../data/incidentReportingApiUtils'
 
 class AddPrisonerInvolvementController extends PrisonerInvolvementController {
   protected keyField = 'prisonerRole' as const
 
   protected getAllowedPrisonerRoles(_req: FormWizard.Request<Values>, res: express.Response): Set<AllowedRoleCode> {
-    const report = res.locals.report as ReportWithDetails
-    const { reportConfig } = res.locals
+    const { report, reportConfig } = res.locals
+
+    if (!report) {
+      throw missingLocalsError('AddPrisonerInvolvementController#getAllowedPrisonerRoles()', 'res.locals.report')
+    }
+    if (!reportHasDetails(report)) {
+      throw missingLocalsError(
+        'AddPrisonerInvolvementController#getAllowedPrisonerRoles()',
+        'res.locals.report (with details)',
+      )
+    }
+    if (!reportConfig) {
+      throw missingLocalsError('AddPrisonerInvolvementController#getAllowedPrisonerRoles()', 'res.locals.reportConfig')
+    }
 
     // set of codes allowed by incident type
     const allowedRoleCodes: Set<AllowedRoleCode> = new Set(
@@ -49,8 +62,17 @@ class AddPrisonerInvolvementController extends PrisonerInvolvementController {
 
   async saveValues(req: FormWizard.Request<Values>, res: express.Response, next: express.NextFunction): Promise<void> {
     const { incidentReportingApi } = res.locals.apis
-    const { report } = res.locals
-    const prisoner = res.locals.prisoner as OffenderSearchResult
+    const { report, prisoner } = res.locals
+
+    if (!report) {
+      next(missingLocalsError('AddPrisonerInvolvementController#saveValues()', 'res.locals.report'))
+      return
+    }
+    if (!prisoner) {
+      next(missingLocalsError('AddPrisonerInvolvementController#saveValues()', 'res.locals.prisoner'))
+      return
+    }
+
     const allValues = this.getAllValues(req, false)
     try {
       await incidentReportingApi.prisonersInvolved.addToReport(report.id, {
@@ -77,7 +99,7 @@ class AddPrisonerInvolvementController extends PrisonerInvolvementController {
 
       next()
     } catch (e) {
-      logger.error(e, `Report ${res.locals.report.reportReference} status could not be updated: %j`, e)
+      logger.error(e, `Report ${report.reportReference} status could not be updated: %j`, e)
       this.handleApiError(e, req, res, next)
     }
   }

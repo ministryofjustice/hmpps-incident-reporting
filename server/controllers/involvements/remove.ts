@@ -78,6 +78,13 @@ export abstract class RemoveInvolvement<
   }
 
   async saveValues(req: FormWizard.Request<Values>, res: express.Response, next: express.NextFunction): Promise<void> {
+    const { report } = res.locals
+
+    if (!report) {
+      next(missingLocalsError('RemoveInvolvement#saveValues()', 'res.locals.report'))
+      return
+    }
+
     const { confirmRemove } = req.form.values
 
     if (confirmRemove === 'yes') {
@@ -92,7 +99,7 @@ export abstract class RemoveInvolvement<
       try {
         await handleReportEdit(res)
       } catch (e) {
-        logger.error(e, `Report ${res.locals.report.reportReference} status could not be updated: %j`, e)
+        logger.error(e, `Report ${report.reportReference} status could not be updated: %j`, e)
         this.handleApiError(e, req, res, next)
         return
       }

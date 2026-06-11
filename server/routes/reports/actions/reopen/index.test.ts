@@ -162,7 +162,7 @@ describe('Reopening a report', () => {
           userAction: 'RECALL',
           userType: 'REPORTING_OFFICER',
           descriptionOfChange: '(Reopened)',
-          originalReportReference: null,
+          originalReportReference: undefined,
         },
       },
       {
@@ -172,7 +172,7 @@ describe('Reopening a report', () => {
           userAction: 'RECALL',
           userType: 'REPORTING_OFFICER',
           descriptionOfChange: '(Reopened)',
-          originalReportReference: null,
+          originalReportReference: undefined,
         },
       },
       {
@@ -182,7 +182,7 @@ describe('Reopening a report', () => {
           userAction: 'RECALL',
           userType: 'REPORTING_OFFICER',
           descriptionOfChange: '(Reopened)',
-          originalReportReference: null,
+          originalReportReference: undefined,
         },
       },
     ] as const)('if the status is $currentStatus', ({ currentStatus, newStatus, correctionRequest }) => {
@@ -228,7 +228,7 @@ describe('Reopening a report', () => {
         userAction: 'RECALL',
         userType: 'DATA_WARDEN',
         descriptionOfChange: '(Reopened)',
-        originalReportReference: null,
+        originalReportReference: undefined,
       })
     })
 

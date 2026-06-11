@@ -107,13 +107,13 @@ export class ReopenController extends BaseController<Values> {
             userType: userType as ApiUserType, // HQ viewer can’t get here
             userAction,
             descriptionOfChange: placeholderForCorrectionRequest(userAction),
-            originalReportReference: null,
+            originalReportReference: undefined,
           },
         })
       }
 
       logger.info(`Report ${report.reportReference} reopened to ${newStatus}`)
-      if (successBanner) {
+      if (successBanner && newStatus) {
         req.flash('success', {
           title: successBanner.replace('$reportReference', report.reportReference).replace('$newStatus', newStatus),
         })

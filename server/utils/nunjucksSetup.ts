@@ -8,7 +8,7 @@ import mojFrontendFilters from '@ministryofjustice/frontend/moj/filters/all'
 
 import logger from '../../logger'
 import config from '../config'
-import { convertToTitleCase, initialiseName, nameOfPerson, possessive } from './utils'
+import { convertToTitleCase, initialiseName, nameOfPerson, possessive, reversedNameOfPerson } from './utils'
 import {
   findFieldInGovukErrorSummary,
   govukCheckedItems,
@@ -83,6 +83,7 @@ export default function nunjucksSetup(app: express.Express): void {
   njkEnv.addFilter('convertToTitleCase', convertToTitleCase)
   njkEnv.addFilter('initialiseName', initialiseName)
   njkEnv.addFilter('nameOfPerson', nameOfPerson)
+  njkEnv.addFilter('reversedNameOfPerson', reversedNameOfPerson)
   njkEnv.addFilter('possessive', possessive)
 
   // date/datetime handling

@@ -8,6 +8,7 @@ import {
   initialiseName,
   possessive,
   nameOfPerson,
+  reversedNameOfPerson,
   errorResponseStatusMatches,
 } from './utils'
 import { mockThrownError } from '../data/testData/thrownErrors'
@@ -45,6 +46,21 @@ describe('display of prisoner names', () => {
   ])('trimming whitespace if $scenario is present', person => {
     it('normal', () => {
       expect(nameOfPerson(person as unknown as { firstName: string; lastName: string })).toEqual(person.expected)
+    })
+  })
+
+  it('reversed (surname first)', () => {
+    expect(reversedNameOfPerson(prisoner)).toEqual('Jones, David')
+  })
+
+  describe.each([
+    { scenario: 'only first name', firstName: 'DAVID', expected: 'David' },
+    { scenario: 'only surname', lastName: 'JONES', expected: 'Jones' },
+  ])('reversed name without comma if $scenario is present', person => {
+    it('normal', () => {
+      expect(reversedNameOfPerson(person as unknown as { firstName: string; lastName: string })).toEqual(
+        person.expected,
+      )
     })
   })
 })

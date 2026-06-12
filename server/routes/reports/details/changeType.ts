@@ -41,11 +41,16 @@ class TypeController extends BaseTypeController<TypeValues> {
     const { fields } = req.form.options
     const { report } = res.locals
 
+    if (!report) {
+      next(missingLocalsError('TypeController#customisedFields()', 'res.locals.report'))
+      return
+    }
+
     const customisedFields = { ...fields }
 
     customisedFields.type = {
       ...customisedFields.type,
-      items: customisedFields.type.items.filter(type => type.value !== report.type),
+      items: customisedFields.type.items?.filter(type => type.value !== report.type),
     }
 
     req.form.options.fields = customisedFields
@@ -62,10 +67,15 @@ class TypeController extends BaseTypeController<TypeValues> {
     const { report } = res.locals
 
     if (!report) {
-      throw missingLocalsError('TypeController#successHandler()', 'res.locals.report')
+      next(missingLocalsError('TypeController#successHandler()', 'res.locals.report'))
+      return
     }
 
     const { type } = req.form.values
+    if (!type) {
+      next(new Error('Missing type value'))
+      return
+    }
 
     try {
       await Promise.all([incidentReportingApi.changeReportType(report.id, { newType: type }), handleReportEdit(res)])

@@ -1,6 +1,13 @@
-import { isTypeActive, typeActivePeriods } from './typeActivePeriods'
-import { types, getTypeDetails, type Type } from './types'
+import {
+  ActivePeriod,
+  areTypeFamiliesInactive,
+  getTypeFamilyExpiryDates,
+  isTypeActive,
+  typeActivePeriods,
+} from './typeActivePeriods'
+import { types, getTypeDetails, type Type, IncidentType, type FamilyCode } from './types'
 import config from '../../config'
+import { IncidentTypeFamily } from './typeFamilies'
 
 /** Local London-midnight date helper for fixed test instants. */
 function on(isoDate: string): Date {
@@ -118,5 +125,76 @@ describe('one active version per family invariant', () => {
         throw new Error(`On ${date}, family ${familyCode} has multiple active types: ${activeCodes.join(', ')}`)
       }
     })
+  })
+})
+
+describe('areTypeFamiliesInactive()', () => {
+  it('returns the correct values for type families in correct format', () => {
+    const testTypes: IncidentType[] = [
+      { familyCode: 'ABSCOND', code: 'ABSCOND_1', description: 'Abscond', active: true, nomisCode: 'ABSCOND' },
+      { familyCode: 'ASSAULT', code: 'ASSAULT_1', description: 'Assault', active: false, nomisCode: 'ASSAULT' },
+      { familyCode: 'ASSAULT', code: 'ASSAULT_2', description: 'Assault', active: false, nomisCode: 'ASSAULTS' },
+      { familyCode: 'ASSAULT', code: 'ASSAULT_3', description: 'Assault', active: false, nomisCode: 'ASSAULTS1' },
+      { familyCode: 'ASSAULT', code: 'ASSAULT_4', description: 'Assault', active: false, nomisCode: 'ASSAULTS2' },
+      { familyCode: 'ASSAULT', code: 'ASSAULT_5', description: 'Assault', active: true, nomisCode: 'ASSAULTS3' },
+      { familyCode: 'BARRICADE', code: 'BARRICADE_1', description: 'Barricade', active: false, nomisCode: 'BARRICADE' },
+      {
+        familyCode: 'CLOSE_DOWN_SEARCH',
+        code: 'CLOSE_DOWN_SEARCH_1',
+        description: 'Close down search',
+        active: true,
+        nomisCode: 'CLOSE_DOWN',
+      },
+    ]
+    const expected = {
+      ABSCOND: false, // No activeTo dates
+      ASSAULT: false, // Most have activeTo dates but not all
+      BARRICADE: true, // Inactive as of 2026-06-30
+      CLOSE_DOWN_SEARCH: false, // Has activeTo date, but still active as of 2026-06-30
+    }
+    expect(areTypeFamiliesInactive(testTypes, on('2026-06-30'))).toEqual(expected)
+  })
+})
+
+describe('getTypeFamilyExpiryDates()', () => {
+  it('returns the correct dates for type families in the correct format', () => {
+    const testTypes: IncidentType[] = [
+      { familyCode: 'ABSCOND', code: 'ABSCOND_1', description: 'Abscond', active: true, nomisCode: 'ABSCOND' },
+      { familyCode: 'ASSAULT', code: 'ASSAULT_1', description: 'Assault', active: false, nomisCode: 'ASSAULT' },
+      { familyCode: 'ASSAULT', code: 'ASSAULT_2', description: 'Assault', active: false, nomisCode: 'ASSAULTS' },
+      { familyCode: 'ASSAULT', code: 'ASSAULT_3', description: 'Assault', active: false, nomisCode: 'ASSAULTS1' },
+      { familyCode: 'ASSAULT', code: 'ASSAULT_4', description: 'Assault', active: false, nomisCode: 'ASSAULTS2' },
+      { familyCode: 'ASSAULT', code: 'ASSAULT_5', description: 'Assault', active: true, nomisCode: 'ASSAULTS3' },
+      { familyCode: 'BARRICADE', code: 'BARRICADE_1', description: 'Barricade', active: false, nomisCode: 'BARRICADE' },
+      {
+        familyCode: 'CLOSE_DOWN_SEARCH',
+        code: 'CLOSE_DOWN_SEARCH_1',
+        description: 'Close down search',
+        active: true,
+        nomisCode: 'CLOSE_DOWN',
+      },
+    ]
+    const testFamilyDetails: IncidentTypeFamily[] = [
+      { code: 'ABSCOND', description: 'Abscond' },
+      { code: 'ASSAULT', description: 'Assault' },
+      { code: 'BARRICADE', description: 'Barricade' },
+      { code: 'CLOSE_DOWN_SEARCH', description: 'Close down search' },
+    ]
+    const testActivePeriods: Partial<Record<Type, ActivePeriod>> = {
+      ASSAULT_1: { activeTo: '2017-04-13' },
+      ASSAULT_2: { activeTo: '2017-04-13' },
+      ASSAULT_3: { activeTo: '2017-04-13' },
+      ASSAULT_4: { activeTo: '2017-04-27' },
+      BARRICADE_1: { activeTo: '2015-01-10' },
+      CLOSE_DOWN_SEARCH_1: { activeTo: '2026-07-01' },
+    }
+
+    const expected: Record<FamilyCode, string | null> = {
+      ABSCOND: null, // No activeTo dates
+      ASSAULT: 'Apr 2017', // Most have activeTo dates but not all
+      BARRICADE: 'Jan 2015', // Inactive
+      CLOSE_DOWN_SEARCH: 'Jul 2026', // Has activeTo date, but still active as of 2026-06-30
+    }
+    expect(getTypeFamilyExpiryDates(testTypes, testFamilyDetails, testActivePeriods)).toEqual(expected)
   })
 })

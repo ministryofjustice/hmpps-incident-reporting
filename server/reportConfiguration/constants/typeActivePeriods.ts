@@ -2,7 +2,8 @@
 
 import config from '../../config'
 import format from '../../utils/format'
-import { getTypeDetails, type Type } from './types'
+import { getTypeDetails, types, type Type, type FamilyCode, IncidentType } from './types'
+import { typeFamilies, IncidentTypeFamily } from './typeFamilies'
 
 /**
  * An activation window for an incident type, expressed as Europe/London calendar dates
@@ -10,7 +11,7 @@ import { getTypeDetails, type Type } from './types'
  * `activeTo` is exclusive. This lets one version's `activeTo` equal its successor's
  * `activeFrom` with no overlap and no gap (e.g. v1 ends and v2 starts on the same day).
  */
-interface ActivePeriod {
+export interface ActivePeriod {
   /** Inclusive first day the type is active (London date). Omit if always active up to `activeTo`. */
   activeFrom?: string
   /** Exclusive first day the type is no longer active (London date). Omit if open-ended. */
@@ -101,3 +102,53 @@ export function isTypeActive(code: string, at: Date = effectiveNow()): boolean {
   }
   return !(period.activeTo && on >= period.activeTo)
 }
+
+/**
+ * Produces an object with each type family as the key with a corresponding indicator that will be true if all types
+ * belonging to that family are inactive.
+ */
+export function areTypeFamiliesInactive(
+  typeDetails: IncidentType[],
+  at: Date = effectiveNow(),
+): Record<FamilyCode, boolean> {
+  return typeDetails.reduce(
+    (acc, item) => {
+      acc[item.familyCode] = (acc[item.familyCode] ?? true) && !isTypeActive(item.code, at)
+      return acc
+    },
+    {} as Record<FamilyCode, boolean>,
+  )
+}
+
+export const familyInactiveStatus = areTypeFamiliesInactive(types)
+
+/**
+ * In preparation for the incident type autocomplete items on the dashboard, this generates an object with
+ * the incident type families as a key, and then the corresponding value is either null if the type family has no
+ * expired dates associated with any of the types belonging to that family, or it will have the date as a string in
+ * the format 'MMM YYYY' of the most recent expiration date within that family.
+ */
+export function getTypeFamilyExpiryDates(
+  typeDetails: IncidentType[],
+  typeFamilyDetails: IncidentTypeFamily[],
+  typeActiveDates: Partial<Record<Type, ActivePeriod>>,
+): Record<FamilyCode, string | null> {
+  return Object.fromEntries(
+    Object.values(typeFamilyDetails).map(({ code: familyCode }) => {
+      const expiryDates = Object.values(typeDetails)
+        .filter(({ familyCode: someFamilyCode }) => someFamilyCode === familyCode)
+        .map(({ code }) => (typeActiveDates[code]?.activeTo ? new Date(typeActiveDates[code]?.activeTo) : null))
+        .filter((date): date is Date => date !== null) // Remove nulls for comparison
+
+      const latestDate = expiryDates.length > 0 ? new Date(Math.max(...expiryDates.map(d => d.getTime()))) : null
+
+      return [
+        familyCode,
+        latestDate
+          ? `${new Intl.DateTimeFormat('en-US', { month: 'short' }).format(latestDate)} ${latestDate.getFullYear()}`
+          : null,
+      ]
+    }),
+  ) as Record<FamilyCode, string | null>
+}
+export const familyExpiryDates = getTypeFamilyExpiryDates(types, typeFamilies, typeActivePeriods)

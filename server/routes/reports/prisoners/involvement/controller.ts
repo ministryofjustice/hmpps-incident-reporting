@@ -63,7 +63,7 @@ export abstract class PrisonerInvolvementController extends BaseController<Value
     const { fields: customisedFields } = req.form.options
     const allowedRoleCodes = this.getAllowedPrisonerRoles(req, res)
 
-    const existingItemsMap = new Map(customisedFields.prisonerRole.items.map(item => [item.value, item]))
+    const existingItemsMap = new Map(customisedFields.prisonerRole.items?.map(item => [item.value, item]))
     const newItems = []
 
     for (const code of allowedRoleCodes) {

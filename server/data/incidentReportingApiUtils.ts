@@ -68,7 +68,7 @@ export function convertQuestionDates(question: DatesAsStrings<Question>): Questi
 function convertResponseDates(response: DatesAsStrings<Response>): Response {
   return {
     ...response,
-    responseDate: response.responseDate && new Date(response.responseDate),
+    responseDate: response.responseDate ? new Date(response.responseDate) : null,
     recordedAt: new Date(response.recordedAt),
   }
 }

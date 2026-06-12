@@ -108,7 +108,7 @@ export abstract class BaseIncidentDateAndTimeController<
       const hours = req.form.values[hoursFieldName]
       const minutes = req.form.values[minutesFieldName]
       const digits = /^\d{1,2}$/
-      if (digits.test(hours) && digits.test(minutes)) {
+      if (hours && digits.test(hours) && minutes && digits.test(minutes)) {
         req.form.values.incidentTime = `${hours.padStart(2, '0')}:${minutes.padStart(2, '0')}`
       }
     }
@@ -159,7 +159,7 @@ export abstract class BaseIncidentDateAndTimeController<
    * Combine date and time strings into a Date
    * @throws {Error} when either date or time cannot be parsed
    */
-  protected buildIncidentDateAndTime(incidentDate: string, incidentTime: string): Date {
+  protected buildIncidentDateAndTime(incidentDate: string | undefined, incidentTime: string | undefined): Date {
     const incidentDateAndTime = parseDateInput(incidentDate)
     const time = parseTimeInput(incidentTime)
     incidentDateAndTime.setHours(time.hours)

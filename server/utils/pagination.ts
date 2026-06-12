@@ -84,8 +84,8 @@ export function pagination(
   pageCount: number,
   hrefPrefix: string,
   component: 'govuk' | 'moj' = 'govuk',
-  resultCount: number = undefined,
-  resultsPerPage: number = undefined,
+  resultCount?: number,
+  resultsPerPage?: number,
 ): Pagination | LegacyPagination {
   const params: Pagination = {}
 

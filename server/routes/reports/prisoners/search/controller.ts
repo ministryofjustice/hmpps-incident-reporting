@@ -88,6 +88,15 @@ export class PrisonerSearchController extends GetBaseController<Values> {
     res: express.Response,
     next: express.NextFunction,
   ): Promise<void> {
+    const { offenderSearchApi } = res.locals.apis
+    const { user } = res.locals
+    const { activeCaseLoad } = user
+
+    if (!activeCaseLoad) {
+      next(new Error(`User ${user.username} has no active case load`))
+      return
+    }
+
     const {
       q,
       prisonerLocationStatus,
@@ -96,16 +105,12 @@ export class PrisonerSearchController extends GetBaseController<Values> {
       global,
       page: pageStr,
     } = this.getAllValues(req)
-    let dateOfBirth: string | null = null
+    let dateOfBirth: string | undefined
     if (prisonerDateOfBirth) {
       dateOfBirth = parseDateInput(prisonerDateOfBirth).toLocaleDateString('en-CA')
     }
     const page = parseInt(pageStr, 10) || 1
-
-    const { offenderSearchApi } = res.locals.apis
     let searchResults: OffenderSearchResults
-    // label local search with active caseload
-    const { activeCaseLoad: activeCaseload } = res.locals.user
 
     try {
       if (global === 'yes') {
@@ -119,13 +124,14 @@ export class PrisonerSearchController extends GetBaseController<Values> {
           page - 1,
         )
       } else {
+        // label local search with active caseload
         searchResults = await offenderSearchApi.searchGlobally(
           this.globalSearchFilters(
             q,
             prisonerGender as PrisonerGender,
             prisonerLocationStatus as PrisonerLocationStatus,
             dateOfBirth,
-            [activeCaseload.caseLoadId],
+            [activeCaseLoad.caseLoadId],
           ),
           page - 1,
         )
@@ -185,8 +191,8 @@ export class PrisonerSearchController extends GetBaseController<Values> {
     keywords: string,
     gender: PrisonerGender,
     location: PrisonerLocationStatus,
-    dateOfBirth: string,
-    prisonIds: string[] = null,
+    dateOfBirth?: string,
+    prisonIds?: string[],
   ): GlobalSearchFilters {
     return {
       andWords: keywords,

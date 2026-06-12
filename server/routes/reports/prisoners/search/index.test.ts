@@ -154,7 +154,7 @@ describe('Searching for a prisoner to add to a report', () => {
         {
           andWords: 'John',
           fuzzyMatch: true,
-          dateOfBirth: null,
+          dateOfBirth: undefined,
           gender: undefined,
           location: undefined,
           prisonIds: ['MDI'],
@@ -169,7 +169,7 @@ describe('Searching for a prisoner to add to a report', () => {
         {
           andWords: 'Smith',
           fuzzyMatch: true,
-          dateOfBirth: null,
+          dateOfBirth: undefined,
           gender: undefined,
           location: undefined,
           prisonIds: ['MDI'],
@@ -184,7 +184,7 @@ describe('Searching for a prisoner to add to a report', () => {
         {
           andWords: 'A1234AA',
           fuzzyMatch: true,
-          dateOfBirth: null,
+          dateOfBirth: undefined,
           gender: undefined,
           location: undefined,
           prisonIds: ['MDI'],
@@ -199,7 +199,7 @@ describe('Searching for a prisoner to add to a report', () => {
         {
           andWords: 'Barry',
           fuzzyMatch: true,
-          dateOfBirth: null,
+          dateOfBirth: undefined,
           gender: undefined,
           location: undefined,
           prisonIds: ['MDI'],
@@ -236,8 +236,8 @@ describe('Searching for a prisoner to add to a report', () => {
         {
           andWords: 'Smith',
           fuzzyMatch: true,
-          prisonIds: null,
-          dateOfBirth: null,
+          prisonIds: undefined,
+          dateOfBirth: undefined,
           gender: undefined,
           location: undefined,
         },
@@ -251,8 +251,8 @@ describe('Searching for a prisoner to add to a report', () => {
         {
           andWords: 'Smith',
           fuzzyMatch: true,
-          prisonIds: null,
-          dateOfBirth: null,
+          prisonIds: undefined,
+          dateOfBirth: undefined,
           gender: undefined,
           location: undefined,
         },
@@ -266,8 +266,8 @@ describe('Searching for a prisoner to add to a report', () => {
         {
           andWords: 'Smith',
           fuzzyMatch: true,
-          prisonIds: null,
-          dateOfBirth: null,
+          prisonIds: undefined,
+          dateOfBirth: undefined,
           gender: undefined,
           location: undefined,
         },
@@ -282,8 +282,8 @@ describe('Searching for a prisoner to add to a report', () => {
         {
           andWords: 'a1234ab',
           fuzzyMatch: true,
-          prisonIds: null,
-          dateOfBirth: null,
+          prisonIds: undefined,
+          dateOfBirth: undefined,
           gender: undefined,
           location: undefined,
         },
@@ -298,8 +298,8 @@ describe('Searching for a prisoner to add to a report', () => {
         {
           andWords: 'Smith John',
           fuzzyMatch: true,
-          prisonIds: null,
-          dateOfBirth: null,
+          prisonIds: undefined,
+          dateOfBirth: undefined,
           gender: undefined,
           location: undefined,
         },
@@ -313,8 +313,8 @@ describe('Searching for a prisoner to add to a report', () => {
         {
           andWords: 'Arnold Andrew Moorland',
           fuzzyMatch: true,
-          prisonIds: null,
-          dateOfBirth: null,
+          prisonIds: undefined,
+          dateOfBirth: undefined,
           gender: undefined,
           location: undefined,
         },
@@ -328,8 +328,8 @@ describe('Searching for a prisoner to add to a report', () => {
         {
           andWords: 'Arnold a1111aa',
           fuzzyMatch: true,
-          prisonIds: null,
-          dateOfBirth: null,
+          prisonIds: undefined,
+          dateOfBirth: undefined,
           gender: undefined,
           location: undefined,
         },
@@ -350,7 +350,7 @@ describe('Searching for a prisoner to add to a report', () => {
         {
           andWords: 'Smith',
           fuzzyMatch: true,
-          prisonIds: null,
+          prisonIds: undefined,
           dateOfBirth: '1990-01-08',
           gender: 'M',
           location: 'IN',
@@ -392,7 +392,7 @@ describe('Searching for a prisoner to add to a report', () => {
         global: global ? 'yes' : 'no',
         prisonerLocationStatus: 'ALL',
         prisonerGender: 'ALL',
-        prisonerDateOfBirth: null,
+        prisonerDateOfBirth: undefined,
         page: '1',
       }
       results = {

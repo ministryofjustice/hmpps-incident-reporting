@@ -113,29 +113,18 @@ export class PrisonerSearchController extends GetBaseController<Values> {
     let searchResults: OffenderSearchResults
 
     try {
-      if (global === 'yes') {
-        searchResults = await offenderSearchApi.searchGlobally(
-          this.globalSearchFilters(
-            q,
-            prisonerGender as PrisonerGender,
-            prisonerLocationStatus as PrisonerLocationStatus,
-            dateOfBirth,
-          ),
-          page - 1,
-        )
-      } else {
-        // label local search with active caseload
-        searchResults = await offenderSearchApi.searchGlobally(
-          this.globalSearchFilters(
-            q,
-            prisonerGender as PrisonerGender,
-            prisonerLocationStatus as PrisonerLocationStatus,
-            dateOfBirth,
-            [activeCaseLoad.caseLoadId],
-          ),
-          page - 1,
-        )
-      }
+      // if local search, only search in active caseload
+      const prisonIds = global === 'yes' ? undefined : [activeCaseLoad.caseLoadId]
+      searchResults = await offenderSearchApi.searchGlobally(
+        this.globalSearchFilters(
+          q,
+          prisonerGender as PrisonerGender,
+          prisonerLocationStatus as PrisonerLocationStatus,
+          dateOfBirth,
+          prisonIds,
+        ),
+        page - 1,
+      )
       res.locals.searchResults = searchResults
     } catch (e) {
       logger.error(e, 'Prisoner search failed: %j', e)

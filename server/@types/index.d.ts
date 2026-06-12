@@ -14,4 +14,7 @@ export declare global {
         : T extends object
           ? { [k in keyof T]: DatesAsStrings<T[k]> }
           : T
+
+  /** Type helper to make one property optional */
+  type MakePropertyOptional<T, K extends keyof T> = Omit<T, K> & Partial<Pick<T, K>>
 }

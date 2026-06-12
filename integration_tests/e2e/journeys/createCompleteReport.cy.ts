@@ -142,7 +142,7 @@ for (const { scenario, user, reportType } of scenarios) {
         andWords: 'Andrew Arnold',
         location: 'ALL',
         gender: 'ALL',
-        dateOfBirth: null,
+        dateOfBirth: undefined,
         results: [andrew],
       })
       cy.task('stubPrisonApiMockPrisonerPhoto', andrew.prisonerNumber)

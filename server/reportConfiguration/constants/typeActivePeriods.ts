@@ -103,7 +103,10 @@ export function isTypeActive(code: string, at: Date = effectiveNow()): boolean {
   return !(period.activeTo && on >= period.activeTo)
 }
 
-// true only if every item in a family has an activeTo property present
+/**
+ * Produces an object with each type family as the key with a corresponding indicator that will be true if all types
+ * belonging to that family are inactive.
+ */
 function areTypeFamiliesInactive(typeDetails: typeof types): Record<FamilyCode, boolean> {
   return typeDetails.reduce(
     (acc, item) => {
@@ -116,6 +119,12 @@ function areTypeFamiliesInactive(typeDetails: typeof types): Record<FamilyCode, 
 
 export const familyInactiveStatus = areTypeFamiliesInactive(types)
 
+/**
+ * In preparation for the incident type autocomplete items on the dashboard, this generates an object with
+ * the incident type families as a key, and then the corresponding value is either null if the type family has no
+ * expired dates associated with any of the types belonging to that family, or it will have the date as a string in
+ * the format 'MMM YYYY' of the most recent expiration date within that family.
+ */
 function getTypeFamilyExpiryDates(
   typeDetails: typeof types,
   typeFamilyDetails: typeof typeFamilies,
@@ -133,7 +142,7 @@ function getTypeFamilyExpiryDates(
       return [
         familyCode,
         latestDate
-          ? `${new Intl.DateTimeFormat('en-US', { month: 'long' }).format(latestDate)} ${latestDate.getFullYear()}`
+          ? `${new Intl.DateTimeFormat('en-US', { month: 'short' }).format(latestDate)} ${latestDate.getFullYear()}`
           : null,
       ]
     }),

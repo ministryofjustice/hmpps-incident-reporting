@@ -1,7 +1,13 @@
 // Generated with ./scripts/importDpsConstants.ts at 2025-08-19T16:38:55.854Z
+import { FamilyCode } from './types'
+
+export type IncidentTypeFamily = {
+  code: FamilyCode
+  description: string
+}
 
 /** Incident type families */
-export const typeFamilies = [
+export const typeFamilies: IncidentTypeFamily[] = [
   { code: 'ABSCOND', description: 'Abscond' },
   { code: 'ASSAULT', description: 'Assault' },
   { code: 'ATTEMPTED_ESCAPE_FROM_PRISON', description: 'Attempted escape from establishment' },
@@ -51,11 +57,8 @@ export const typeFamilies = [
 /** Incident type families */
 type TypeFamilyDetails = (typeof typeFamilies)[number]
 
-/** Codes for incident type families */
-export type TypeFamily = TypeFamilyDetails['code']
-
 /** Code to description mapping for incident type families */
-export const typeFamiliesDescriptions: Record<TypeFamily, string> = {
+export const typeFamiliesDescriptions: Record<FamilyCode, string> = {
   ABSCOND: 'Abscond',
   ASSAULT: 'Assault',
   ATTEMPTED_ESCAPE_FROM_PRISON: 'Attempted escape from establishment',

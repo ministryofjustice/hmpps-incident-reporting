@@ -1,7 +1,15 @@
 // Generated with ./scripts/importDpsConstants.ts at 2025-08-19T16:38:54.769Z
 
+export type IncidentType = {
+  familyCode: string
+  code: string
+  description: string
+  active: boolean
+  nomisCode: string
+}
+
 /** Types of reportable incidents */
-export const types = [
+export const types: IncidentType[] = [
   { familyCode: 'ABSCOND', code: 'ABSCOND_1', description: 'Abscond', active: true, nomisCode: 'ABSCOND' },
   { familyCode: 'ASSAULT', code: 'ASSAULT_1', description: 'Assault', active: false, nomisCode: 'ASSAULT' },
   { familyCode: 'ASSAULT', code: 'ASSAULT_2', description: 'Assault', active: false, nomisCode: 'ASSAULTS' },

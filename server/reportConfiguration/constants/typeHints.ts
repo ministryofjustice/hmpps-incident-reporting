@@ -1,5 +1,4 @@
-import { getTypeDetails, type Type } from './types'
-import type { TypeFamily } from './typeFamilies'
+import { getTypeDetails, type Type, type FamilyCode } from './types'
 
 /**
  * Additional info to display when users select an incident *type* for a report (not *family*)
@@ -25,7 +24,7 @@ export const typeHints: Partial<Record<Type, string>> = {
  * Short titles displayed when generating titles in the form “About the incident”, eg. “About the assault”.
  * A *family* of types shares one title.
  */
-const shortTypeTitles: Partial<Record<TypeFamily, string>> = {
+const shortTypeTitles: Partial<Record<FamilyCode, string>> = {
   ABSCOND: 'abscond',
   ASSAULT: 'assault',
   ATTEMPTED_ESCAPE_FROM_ESCORT: 'attempted escape from escort',
@@ -67,12 +66,12 @@ const shortTypeTitles: Partial<Record<TypeFamily, string>> = {
   UNLAWFUL_DETENTION: 'unlawful detention',
 }
 
-export function aboutTheType(typeOrFamily: Type | TypeFamily): string {
+export function aboutTheType(typeOrFamily: Type | FamilyCode): string {
   let familyCode: string | undefined = typeOrFamily
   if (/\d$/.test(typeOrFamily)) {
     // type code
     familyCode = getTypeDetails(typeOrFamily)?.familyCode
   }
-  const title: string = (familyCode && shortTypeTitles[familyCode as TypeFamily]) || 'incident'
+  const title: string = (familyCode && shortTypeTitles[familyCode as FamilyCode]) || 'incident'
   return `About the ${title}`
 }

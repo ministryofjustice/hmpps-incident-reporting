@@ -90,7 +90,8 @@ export function pagination(
   const params: Pagination = {}
 
   if (!pageCount || pageCount <= 1) {
-    return component === 'moj' ? { items: [], results: legacyResults(page, resultCount, resultsPerPage) } : {}
+    // When 'moj' component is used `resultCount`/`resultsPerPage` are mandatory
+    return component === 'moj' ? { items: [], results: legacyResults(page, resultCount!, resultsPerPage!) } : {}
   }
 
   if (page !== 1) {
@@ -110,7 +111,7 @@ export function pagination(
   } else {
     pages = [1, 2, 3, 4].slice(0, page)
   }
-  const maxPage = Math.max(page, pages.at(-1))
+  const maxPage = Math.max(page, pages.at(-1) ?? 1)
   if (maxPage === pageCount - 1) {
     pages.push(pageCount)
   } else if (maxPage === pageCount - 2) {
@@ -148,12 +149,13 @@ export function pagination(
           selected: link.current === true,
         }
       }),
-      results: legacyResults(page, resultCount, resultsPerPage),
+      // When 'moj' component is used `resultCount`/`resultsPerPage` are mandatory
+      results: legacyResults(page, resultCount!, resultsPerPage!),
     }
-    if ('previous' in params) {
+    if ('previous' in params && params.previous?.href) {
       legacyPagination.previous = { ...params.previous, text: 'Previous' }
     }
-    if ('next' in params) {
+    if ('next' in params && params.next?.href) {
       legacyPagination.next = { ...params.next, text: 'Next' }
     }
     return legacyPagination

@@ -8,7 +8,6 @@ import type {
   AddOrUpdateQuestionResponseRequest,
   AddOrUpdateQuestionWithResponsesRequest,
   Question,
-  ReportWithDetails,
 } from '../../../data/incidentReportingApi'
 import type { QuestionConfiguration } from '../../../data/incidentTypeConfiguration/types'
 import {
@@ -21,6 +20,7 @@ import QuestionsToDelete from '../../../services/questionsToDelete'
 import { BaseController } from '../../../controllers'
 import { handleReportEdit } from '../actions/handleReportEdit'
 import { missingLocalsError } from '../../../errors'
+import { reportHasDetails } from '../../../data/incidentReportingApiUtils'
 
 export class QuestionsController extends BaseController<FormWizard.MultiValues> {
   middlewareLocals(): void {
@@ -96,14 +96,14 @@ export class QuestionsController extends BaseController<FormWizard.MultiValues> 
     }
 
     const nextStepObject = super.getNextStepObject(req, res)
-    if (!nextStepObject.url) {
+    if (nextStepObject && !nextStepObject.url) {
       // reached the end so the next step is report summary
       nextStepObject.url = reportUrl
     }
     return nextStepObject
   }
 
-  getNextStep(req: FormWizard.Request<FormWizard.MultiValues>, res: express.Response): string {
+  getNextStep(req: FormWizard.Request<FormWizard.MultiValues>, res: express.Response): string | undefined {
     const { reportUrl } = res.locals
 
     if (!reportUrl) {
@@ -169,10 +169,34 @@ export class QuestionsController extends BaseController<FormWizard.MultiValues> 
         return
       }
 
-      const formValues = { ...values }
+      const { report, reportConfig } = res.locals
 
-      const report = res.locals.report as ReportWithDetails
-      const { reportConfig } = res.locals
+      if (!report) {
+        callback(
+          new this.Error(undefined, {
+            message: missingLocalsError('QuestionsController#getValues()', 'res.locals.report').message,
+          }),
+        )
+        return
+      }
+      if (!reportHasDetails(report)) {
+        callback(
+          new this.Error(undefined, {
+            message: missingLocalsError('QuestionsController#getValues()', 'res.locals.report (with details)').message,
+          }),
+        )
+        return
+      }
+      if (!reportConfig) {
+        callback(
+          new this.Error(undefined, {
+            message: missingLocalsError('QuestionsController#getValues()', 'res.locals.reportConfig').message,
+          }),
+        )
+        return
+      }
+
+      const formValues = { ...values }
 
       for (const question of report.questions) {
         const fieldName = question.code
@@ -208,7 +232,7 @@ export class QuestionsController extends BaseController<FormWizard.MultiValues> 
           if (answerConfig.commentRequested) {
             const commentFieldName = conditionalFieldName(questionConfig, answerConfig, 'comment')
             if (formValues[commentFieldName] === undefined) {
-              formValues[commentFieldName] = response.additionalInformation
+              formValues[commentFieldName] = response.additionalInformation ?? undefined
             }
           }
 

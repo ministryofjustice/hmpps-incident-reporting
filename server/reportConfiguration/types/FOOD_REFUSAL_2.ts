@@ -41,7 +41,7 @@ export const FOOD_REFUSAL_2: IncidentTypeConfiguration = {
           code: '950003',
           response: 'Food and liquid',
           active: true,
-          label: 'Food and liquid (for 24 hours or more)',
+          label: 'Liquid and food (for 24 hours or more)',
           commentRequested: false,
           commentMandatory: false,
           dateMandatory: false,

@@ -15,6 +15,7 @@ export const FOOD_REFUSAL_2: IncidentTypeConfiguration = {
       active: true,
       question: 'Which type of refusal occurred?',
       label: 'Which type of refusal occurred?',
+      questionHint: 'Only select an option if the refusal lasted for at least the minimum time',
       multipleAnswers: false,
       answers: [
         {

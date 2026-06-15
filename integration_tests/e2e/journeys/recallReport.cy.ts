@@ -130,7 +130,6 @@ context('Reopen or recall a report', () => {
               userType: 'REPORTING_OFFICER',
               userAction: 'RECALL',
               descriptionOfChange: '(Reopened)',
-              originalReportReference: null,
             },
           },
           report: {

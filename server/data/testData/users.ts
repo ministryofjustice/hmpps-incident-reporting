@@ -7,7 +7,12 @@ import { leeds, moorland } from './prisonApi'
 // manage-users and frontend micro-components apis and the user token
 
 /** Makes a mock users as seen in application once all middleware has completed */
-export function mockUser(caseloads: CaseLoad[], roles: string[] = []): Express.User {
+export function mockUser(
+  caseloads: CaseLoad[],
+  roles: string[] = [],
+): Express.User & {
+  roles: string[]
+} {
   const activeCaseload = { ...caseloads[0], currentlyActive: true }
   return {
     name: 'JOHN SMITH',

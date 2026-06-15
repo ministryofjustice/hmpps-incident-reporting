@@ -593,10 +593,10 @@ describe('Question progress', () => {
         expect(progressStep.responses).toHaveLength(responses.length)
         if (responses.length === 1) {
           // most tests check individual response validity
-          expect(progressStep.responses[0].isComplete).toBe(expectValid)
+          expect(progressStep.responses![0].isComplete).toBe(expectValid)
         } else {
           // multi-response test is only invalid because this is a single-choice question
-          expect(progressStep.responses.every(response => response.isComplete)).toBe(true)
+          expect(progressStep.responses!.every(response => response.isComplete)).toBe(true)
         }
       }
 

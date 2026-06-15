@@ -5,6 +5,7 @@ import type { StaffInvolvementRole } from '../../../../reportConfiguration/const
 import { BaseController } from '../../../../controllers'
 import { convertToTitleCase, nameOfPerson, possessive } from '../../../../utils/utils'
 import type { Values } from './fields'
+import { missingLocalsError } from '../../../../errors'
 
 export abstract class StaffInvolvementController<V extends Values = Values> extends BaseController<V> {
   middlewareLocals(): void {
@@ -52,16 +53,31 @@ export abstract class StaffInvolvementController<V extends Values = Values> exte
   }
 
   getBackLink(_req: FormWizard.Request<V>, res: express.Response): string {
-    return `${res.locals.reportSubUrlPrefix}/staff`
+    const { reportSubUrlPrefix } = res.locals
+
+    if (!reportSubUrlPrefix) {
+      throw missingLocalsError('StaffInvolvementController#getBackLink()', 'res.locals.reportSubUrlPrefix')
+    }
+
+    return `${reportSubUrlPrefix}/staff`
   }
 
   getNextStep(req: FormWizard.Request<V>, res: express.Response): string {
+    const { reportUrl, reportSubUrlPrefix } = res.locals
+
+    if (!reportUrl) {
+      throw missingLocalsError('StaffInvolvementController#getNextStep()', 'res.locals.reportUrl')
+    }
+    if (!reportSubUrlPrefix) {
+      throw missingLocalsError('StaffInvolvementController#getNextStep()', 'res.locals.reportSubUrlPrefix')
+    }
+
     // go to report view if user chose to exit
     if (req.body?.formAction === 'exit') {
-      return res.locals.reportUrl
+      return reportUrl
     }
     // …or return to involvements summary
-    return `${res.locals.reportSubUrlPrefix}/staff`
+    return `${reportSubUrlPrefix}/staff`
   }
 
   protected abstract getStaffMemberName(

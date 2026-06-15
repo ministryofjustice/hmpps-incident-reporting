@@ -41,14 +41,16 @@ class ResponseItem {
     /** A response as returned by IRS api */
     readonly response: Response,
     /** Corresponding response config as found in this application */
-    readonly answerConfig: AnswerConfiguration | undefined,
+    readonly answerConfig: AnswerConfiguration | null,
   ) {}
 
   /** Response choice is valid for question and comment, and/or date is present if required */
   get isComplete(): boolean {
+    const additionalInfo = this.response.additionalInformation
+    const additionalInfoComplete = additionalInfo !== null && additionalInfo.length > 0
     return (
-      this.answerConfig &&
-      (!this.answerConfig.commentMandatory || this.response.additionalInformation?.length > 0) &&
+      this.answerConfig !== null &&
+      (!this.answerConfig.commentMandatory || additionalInfoComplete) &&
       (!this.answerConfig.dateMandatory || Boolean(this.response.responseDate))
     )
   }
@@ -82,7 +84,8 @@ export class QuestionProgress {
       // ignore empty start step
       .filter(([_stepPath, step]) => 'fields' in step)
       .forEach(([stepPath, step]) => {
-        step.fields
+        const fields = step.fields ?? []
+        fields
           // ignore date & comment fields
           .filter(field => /^\d+$/.test(field))
           .forEach(field => {
@@ -90,7 +93,7 @@ export class QuestionProgress {
           })
       })
 
-    let nextQuestionCode = this.config.startingQuestionCode
+    let nextQuestionCode: string | null = this.config.startingQuestionCode
     let questionNumber = 0
     let pageNumber = 0
     let lastUrlSuffix = ''
@@ -104,7 +107,7 @@ export class QuestionProgress {
           nextQuestionCode,
         )
       }
-      const urlSuffix = reportSteps.get(nextQuestionCode)
+      const urlSuffix = reportSteps.get(nextQuestionCode) ?? ''
       if (urlSuffix !== lastUrlSuffix) {
         pageNumber += 1
         lastUrlSuffix = urlSuffix
@@ -128,7 +131,7 @@ export class QuestionProgress {
         return new ResponseItem(response, answerConfig)
       })
       yield new QuestionProgressStep(questionConfig, responseItems, urlSuffix, questionNumber, pageNumber)
-      nextQuestionCode = responseItems?.[0]?.answerConfig?.nextQuestionCode
+      nextQuestionCode = responseItems?.[0]?.answerConfig?.nextQuestionCode ?? null
       if (!nextQuestionCode) {
         break
       }

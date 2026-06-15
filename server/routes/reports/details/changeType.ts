@@ -10,10 +10,17 @@ import { fallibleUpdateReportTitle } from '../../../services/reportTitle'
 import { handleReportEdit } from '../actions/handleReportEdit'
 import { BaseTypeController } from './typeController'
 import { type TypeValues, typeFields, typeFieldNames } from './typeFields'
+import { missingLocalsError } from '../../../errors'
 
 class ConfirmTypeChangeController extends BaseController<TypeValues> {
   getBackLink(_req: FormWizard.Request<TypeValues>, res: express.Response): string {
-    return res.locals.reportUrl
+    const { reportUrl } = res.locals
+
+    if (!reportUrl) {
+      throw missingLocalsError('ConfirmTypeChangeController#getBackLink()', 'res.locals.reportUrl')
+    }
+
+    return reportUrl
   }
 }
 
@@ -34,11 +41,16 @@ class TypeController extends BaseTypeController<TypeValues> {
     const { fields } = req.form.options
     const { report } = res.locals
 
+    if (!report) {
+      next(missingLocalsError('TypeController#customisedFields()', 'res.locals.report'))
+      return
+    }
+
     const customisedFields = { ...fields }
 
     customisedFields.type = {
       ...customisedFields.type,
-      items: customisedFields.type.items.filter(type => type.value !== report.type),
+      items: customisedFields.type.items?.filter(type => type.value !== report.type),
     }
 
     req.form.options.fields = customisedFields
@@ -53,7 +65,17 @@ class TypeController extends BaseTypeController<TypeValues> {
   ): Promise<void> {
     const { incidentReportingApi } = res.locals.apis
     const { report } = res.locals
+
+    if (!report) {
+      next(missingLocalsError('TypeController#successHandler()', 'res.locals.report'))
+      return
+    }
+
     const { type } = req.form.values
+    if (!type) {
+      next(new Error('Missing type value'))
+      return
+    }
 
     try {
       await Promise.all([incidentReportingApi.changeReportType(report.id, { newType: type }), handleReportEdit(res)])
@@ -72,12 +94,24 @@ class TypeController extends BaseTypeController<TypeValues> {
   }
 
   getBackLink(_req: FormWizard.Request<TypeValues>, res: express.Response): string {
-    return res.locals.reportUrl
+    const { reportUrl } = res.locals
+
+    if (!reportUrl) {
+      throw missingLocalsError('TypeController#getBackLink()', 'res.locals.reportUrl')
+    }
+
+    return reportUrl
   }
 
   getNextStep(_req: FormWizard.Request<TypeValues>, res: express.Response): string {
+    const { report } = res.locals
+
+    if (!report) {
+      throw missingLocalsError('TypeController#getNextStep()', 'res.locals.report')
+    }
+
     // proceed with re-adding prisoners if they chose to continue
-    return `/create-report/${res.locals.report.id}/prisoners`
+    return `/create-report/${report.id}/prisoners`
   }
 }
 

@@ -100,7 +100,7 @@ export type PrisonerLocationStatus = 'ALL' | 'IN' | 'OUT'
 export type GlobalSearchFilters = {
   andWords?: string
   fuzzyMatch: boolean
-  prisonIds: string[]
+  prisonIds?: string[]
   gender?: PrisonerGender
   location?: PrisonerLocationStatus
   dateOfBirth?: string

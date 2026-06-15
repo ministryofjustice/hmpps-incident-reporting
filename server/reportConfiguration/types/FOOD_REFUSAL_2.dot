@@ -6,9 +6,9 @@ digraph FOOD_REFUSAL_2 {
   START_NODE -> 900001 [label = "start"];
   END_NODE [label="END", shape="doublecircle"];
     900001 [label=< <FONT COLOR="royalblue">900001 </FONT> Which type of refusal occurred? >];
-      900001 -> 900002 [label=< <FONT COLOR="royalblue">950001 </FONT> Food >];
-      900001 -> 900002 [label=< <FONT COLOR="royalblue">950002 </FONT> Liquid >];
-      900001 -> 900002 [label=< <FONT COLOR="royalblue">950003 </FONT> Food and liquid >];
+      900001 -> 900002 [label=< <FONT COLOR="royalblue">950001 </FONT> Food (for 72 hours or more) >];
+      900001 -> 900002 [label=< <FONT COLOR="royalblue">950002 </FONT> Liquid (for 24 hours or more) >];
+      900001 -> 900002 [label=< <FONT COLOR="royalblue">950003 </FONT> Food and liquid (for 24 hours or more) >];
     900002 [label=< <FONT COLOR="royalblue">900002 </FONT> Where is the prisoner currently located? >];
       900002 -> END_NODE [label=< <FONT COLOR="royalblue">950004 </FONT> Normal location >];
       900002 -> END_NODE [label=< <FONT COLOR="royalblue">950005 </FONT> Segregation unit >];

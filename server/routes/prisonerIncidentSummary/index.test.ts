@@ -54,6 +54,20 @@ describe('GET /prisoner/:prisonerNumber/incident-summary', () => {
       })
   })
 
+  it('renders a breadcrumb linking back to the prisoner’s DPS profile', () => {
+    offenderSearchApi.getPrisoner.mockResolvedValue(andrew)
+    incidentReportingApi.getReports.mockResolvedValue(page([]))
+
+    return request(app)
+      .get(`/prisoner/${andrew.prisonerNumber}/incident-summary`)
+      .expect(200)
+      .expect(res => {
+        expect(res.text).toContain('govuk-breadcrumbs')
+        expect(res.text).toContain('Arnold, Andrew')
+        expect(res.text).toContain(`/prisoner/${andrew.prisonerNumber}`)
+      })
+  })
+
   it('renders an empty state when there are no incidents', () => {
     offenderSearchApi.getPrisoner.mockResolvedValue(andrew)
     incidentReportingApi.getReports.mockResolvedValue(page([]))

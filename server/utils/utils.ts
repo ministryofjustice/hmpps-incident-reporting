@@ -32,6 +32,18 @@ export function convertToTitleCase(sentence: string | undefined | null): string 
 export const nameOfPerson = (prisoner: { firstName: string; lastName: string }): string =>
   `${convertToTitleCase(prisoner.firstName)} ${convertToTitleCase(prisoner.lastName)}`.trim()
 
+/**
+ * Surname-first display form of a person’s name, matching the Digital Prison Services convention
+ * used in breadcrumbs (e.g. linking back to a prisoner’s profile).
+ * { "firstName": "DAVID", "lastName": "JONES", … } → "Jones, David"
+ */
+export const reversedNameOfPerson = (prisoner: { firstName: string; lastName: string }): string => {
+  const firstName = convertToTitleCase(prisoner.firstName)
+  const lastName = convertToTitleCase(prisoner.lastName)
+  if (firstName && lastName) return `${lastName}, ${firstName}`
+  return `${lastName}${firstName}`.trim()
+}
+
 export const initialiseName = (fullName?: string): string | null => {
   // this check is for the authError page
   if (!fullName) return null

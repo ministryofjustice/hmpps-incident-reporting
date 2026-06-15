@@ -38,7 +38,7 @@ export default class UserService {
       .map(promise => (promise.status === 'fulfilled' ? promise.value : null))
       .filter(user => user)
 
-    return users.reduce((prev, user) => ({ ...prev, [user.username]: user }), {})
+    return users.reduce((prev, user) => ({ ...prev, [user!.username]: user }), {})
   }
 
   /**

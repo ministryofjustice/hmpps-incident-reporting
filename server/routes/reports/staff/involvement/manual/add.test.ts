@@ -157,7 +157,7 @@ describe('Adding a new staff member to a report who does not have a DPS/NOMIS ac
           comment: 'See duty log',
         },
         expectedCall: {
-          staffUsername: null,
+          staffUsername: undefined,
           firstName: 'John',
           lastName: 'Smith',
           staffRole: 'NEGOTIATOR',
@@ -170,7 +170,7 @@ describe('Adding a new staff member to a report who does not have a DPS/NOMIS ac
           staffRole: 'NEGOTIATOR',
         },
         expectedCall: {
-          staffUsername: null,
+          staffUsername: undefined,
           firstName: 'John',
           lastName: 'Smith',
           staffRole: 'NEGOTIATOR',

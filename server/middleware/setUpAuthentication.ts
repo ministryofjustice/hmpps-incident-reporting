@@ -7,6 +7,7 @@ import { AuthenticatedRequest, VerificationClient } from '@ministryofjustice/hmp
 import config from '../config'
 import generateOauthClientToken from '../authentication/clientCredentials'
 import logger from '../../logger'
+import type { HmppsUser } from '../interfaces/hmppsUser'
 
 passport.serializeUser((user, done) => {
   // Not used but required for Passport
@@ -82,7 +83,7 @@ export default function setUpAuthentication(): Router {
   })
 
   router.use((req, res, next) => {
-    res.locals.user = req.user
+    res.locals.user = req.user as HmppsUser
     next()
   })
 

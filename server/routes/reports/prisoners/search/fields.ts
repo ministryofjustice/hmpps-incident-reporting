@@ -83,4 +83,4 @@ export const fields = {
   },
 } satisfies FormWizard.Fields
 
-export type Values = FormWizard.ValuesFromFields<typeof fields>
+export type Values = MakePropertyOptional<FormWizard.ValuesFromFields<typeof fields>, 'prisonerDateOfBirth'>

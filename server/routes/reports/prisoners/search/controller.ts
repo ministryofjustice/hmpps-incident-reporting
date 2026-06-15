@@ -15,6 +15,7 @@ import {
 import { pagination } from '../../../../utils/pagination'
 import type { Values } from './fields'
 import { parseDateInput } from '../../../../utils/parseDateTime'
+import { missingLocalsError } from '../../../../errors'
 
 export class PrisonerSearchController extends GetBaseController<Values> {
   protected keyField = 'q' as const
@@ -64,7 +65,13 @@ export class PrisonerSearchController extends GetBaseController<Values> {
   }
 
   getBackLink(_req: FormWizard.Request<Values>, res: express.Response): string {
-    return `${res.locals.reportSubUrlPrefix}/prisoners`
+    const { reportSubUrlPrefix } = res.locals
+
+    if (!reportSubUrlPrefix) {
+      throw missingLocalsError('PrisonerSearchController#getBackLink()', 'res.locals.reportSubUrlPrefix')
+    }
+
+    return `${reportSubUrlPrefix}/prisoners`
   }
 
   render(req: FormWizard.Request<Values, keyof Values>, res: express.Response, next: express.NextFunction) {
@@ -81,6 +88,15 @@ export class PrisonerSearchController extends GetBaseController<Values> {
     res: express.Response,
     next: express.NextFunction,
   ): Promise<void> {
+    const { offenderSearchApi } = res.locals.apis
+    const { user } = res.locals
+    const { activeCaseLoad } = user
+
+    if (!activeCaseLoad) {
+      next(new Error(`User ${user.username} has no active case load`))
+      return
+    }
+
     const {
       q,
       prisonerLocationStatus,
@@ -89,40 +105,26 @@ export class PrisonerSearchController extends GetBaseController<Values> {
       global,
       page: pageStr,
     } = this.getAllValues(req)
-    let dateOfBirth: string | null = null
+    let dateOfBirth: string | undefined
     if (prisonerDateOfBirth) {
       dateOfBirth = parseDateInput(prisonerDateOfBirth).toLocaleDateString('en-CA')
     }
     const page = parseInt(pageStr, 10) || 1
-
-    const { offenderSearchApi } = res.locals.apis
     let searchResults: OffenderSearchResults
-    // label local search with active caseload
-    const { activeCaseLoad: activeCaseload } = res.locals.user
 
     try {
-      if (global === 'yes') {
-        searchResults = await offenderSearchApi.searchGlobally(
-          this.globalSearchFilters(
-            q,
-            prisonerGender as PrisonerGender,
-            prisonerLocationStatus as PrisonerLocationStatus,
-            dateOfBirth,
-          ),
-          page - 1,
-        )
-      } else {
-        searchResults = await offenderSearchApi.searchGlobally(
-          this.globalSearchFilters(
-            q,
-            prisonerGender as PrisonerGender,
-            prisonerLocationStatus as PrisonerLocationStatus,
-            dateOfBirth,
-            [activeCaseload.caseLoadId],
-          ),
-          page - 1,
-        )
-      }
+      // if local search, only search in active caseload
+      const prisonIds = global === 'yes' ? undefined : [activeCaseLoad.caseLoadId]
+      searchResults = await offenderSearchApi.searchGlobally(
+        this.globalSearchFilters(
+          q,
+          prisonerGender as PrisonerGender,
+          prisonerLocationStatus as PrisonerLocationStatus,
+          dateOfBirth,
+          prisonIds,
+        ),
+        page - 1,
+      )
       res.locals.searchResults = searchResults
     } catch (e) {
       logger.error(e, 'Prisoner search failed: %j', e)
@@ -165,7 +167,9 @@ export class PrisonerSearchController extends GetBaseController<Values> {
         totalResultCount,
         OffenderSearchApi.PAGE_SIZE,
       )
-      paginationParams.results.text = 'prisoners'
+      if (paginationParams.results) {
+        paginationParams.results.text = 'prisoners'
+      }
       res.locals.paginationParams = paginationParams
     }
 
@@ -176,8 +180,8 @@ export class PrisonerSearchController extends GetBaseController<Values> {
     keywords: string,
     gender: PrisonerGender,
     location: PrisonerLocationStatus,
-    dateOfBirth: string,
-    prisonIds: string[] = null,
+    dateOfBirth?: string,
+    prisonIds?: string[],
   ): GlobalSearchFilters {
     return {
       andWords: keywords,

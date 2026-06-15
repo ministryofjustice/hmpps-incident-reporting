@@ -111,13 +111,10 @@ export function areTypeFamiliesInactive(
   typeDetails: IncidentType[],
   at: Date = effectiveNow(),
 ): Record<FamilyCode, boolean> {
-  return typeDetails.reduce(
-    (acc, item) => {
-      acc[item.familyCode] = (acc[item.familyCode] ?? true) && !isTypeActive(item.code, at)
-      return acc
-    },
-    {} as Record<FamilyCode, boolean>,
-  )
+  return typeDetails.reduce((acc: Record<FamilyCode, boolean>, item: IncidentType) => {
+    acc[item.familyCode] = (acc[item.familyCode] ?? true) && !isTypeActive(item.code, at)
+    return acc
+  }, {})
 }
 
 export const familyInactiveStatus = areTypeFamiliesInactive(types)
@@ -149,6 +146,6 @@ export function getTypeFamilyExpiryDates(
           : null,
       ]
     }),
-  ) as Record<FamilyCode, string | null>
+  )
 }
 export const familyExpiryDates = getTypeFamilyExpiryDates(types, typeFamilies, typeActivePeriods)

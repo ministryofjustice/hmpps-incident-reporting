@@ -1,6 +1,27 @@
-import type { IncidentReportingApi, Question, ReportWithDetails, Response } from '../../data/incidentReportingApi'
-import type { PrisonApi } from '../../data/prisonApi'
+import {
+  IncidentReportingApi,
+  type Page,
+  type Question,
+  type ReportBasic,
+  type ReportWithDetails,
+  type Response,
+} from '../../data/incidentReportingApi'
+import { PrisonApi } from '../../data/prisonApi'
+import { AgencyType } from '../../data/constants'
+import { convertReportDates } from '../../data/incidentReportingApiUtils'
+import { mockReport } from '../../data/testData/incidentReporting'
+import type { PrisonerInvolvementRole, Status, Type } from '../../reportConfiguration/constants'
 import { getPrisonerIncidentList } from './list'
+
+jest.mock('../../data/incidentReportingApi')
+jest.mock('../../data/prisonApi')
+
+const incidentReportingApi = IncidentReportingApi.prototype as jest.Mocked<IncidentReportingApi>
+const prisonApi = PrisonApi.prototype as jest.Mocked<PrisonApi>
+
+afterEach(() => {
+  jest.resetAllMocks()
+})
 
 const PRISONER_NUMBER = 'A1111AA'
 
@@ -28,12 +49,12 @@ function question(code: string, responses: Response[]): Question {
 interface ReportConfig {
   id: string
   reference: string
-  type: string
-  status?: string
+  type: Type
+  status?: Status
   location?: string
   date: string
   questions?: Question[]
-  role?: string
+  role?: PrisonerInvolvementRole
 }
 
 function report({
@@ -46,49 +67,60 @@ function report({
   questions = [],
   role = 'PERPETRATOR',
 }: ReportConfig): ReportWithDetails {
-  return {
-    id,
-    reportReference: reference,
-    type,
-    status,
-    location,
-    incidentDateAndTime: new Date(date),
-    questions,
-    prisonersInvolved: [
-      {
-        prisonerNumber: PRISONER_NUMBER,
-        firstName: 'ANDREW',
-        lastName: 'ARNOLD',
-        prisonerRole: role,
-        outcome: null,
-        comment: null,
-      },
-      // an unrelated prisoner who must not produce a row
-      {
-        prisonerNumber: 'B2222BB',
-        firstName: 'BARRY',
-        lastName: 'BENCH',
-        prisonerRole: 'VICTIM',
-        outcome: null,
-        comment: null,
-      },
-    ],
-  } as unknown as ReportWithDetails
+  const built = convertReportDates(
+    mockReport({
+      reportReference: reference,
+      type,
+      status,
+      location,
+      reportDateAndTime: new Date(date),
+      withDetails: true,
+    }),
+  )
+  built.id = id
+  built.incidentDateAndTime = new Date(date)
+  built.questions = questions
+  built.prisonersInvolved = [
+    {
+      prisonerNumber: PRISONER_NUMBER,
+      firstName: 'ANDREW',
+      lastName: 'ARNOLD',
+      prisonerRole: role,
+      outcome: null,
+      comment: null,
+    },
+    // an unrelated prisoner who must not produce a row
+    {
+      prisonerNumber: 'B2222BB',
+      firstName: 'BARRY',
+      lastName: 'BENCH',
+      prisonerRole: 'VICTIM',
+      outcome: null,
+      comment: null,
+    },
+  ]
+  return built
 }
 
-function mockApis(reports: ReportWithDetails[]): { api: IncidentReportingApi; prisonApi: PrisonApi } {
+function page(reports: ReportWithDetails[]): Page<ReportBasic> {
+  return {
+    content: reports,
+    number: 0,
+    size: reports.length,
+    numberOfElements: reports.length,
+    totalElements: reports.length,
+    totalPages: 1,
+    sort: [],
+  }
+}
+
+function mockApis(reports: ReportWithDetails[]): void {
   const byId = new Map(reports.map(r => [r.id, r]))
-  const api = {
-    getReports: jest.fn().mockResolvedValue({
-      content: reports.map(r => ({ id: r.id })),
-      totalPages: 1,
-    }),
-    getReportWithDetailsById: jest.fn((id: string) => Promise.resolve(byId.get(id))),
-  } as unknown as IncidentReportingApi
-  const prisonApi = {
-    getAgency: jest.fn((agencyId: string) => Promise.resolve({ description: `${agencyId} prison` })),
-  } as unknown as PrisonApi
-  return { api, prisonApi }
+  incidentReportingApi.getReports.mockResolvedValue(page(reports))
+  incidentReportingApi.getReportWithDetailsById.mockImplementation((id: string) => Promise.resolve(byId.get(id)!))
+  prisonApi.getAgency.mockImplementation((agencyId: string) =>
+    Promise.resolve({ agencyId, description: `${agencyId} prison`, agencyType: AgencyType.INST, active: true }),
+  )
 }
 
 describe('getPrisonerIncidentList', () => {
@@ -108,9 +140,9 @@ describe('getPrisonerIncidentList', () => {
         question('61284', [response('213083', 'GYM', null, 'Gym')]), // location
       ],
     })
-    const { api, prisonApi } = mockApis([assault])
+    mockApis([assault])
 
-    const { rows } = await getPrisonerIncidentList(api, prisonApi, PRISONER_NUMBER)
+    const { rows } = await getPrisonerIncidentList(incidentReportingApi, prisonApi, PRISONER_NUMBER)
 
     expect(rows).toHaveLength(1) // only this prisoner, not the unrelated involvement
     expect(rows[0]).toMatchObject({
@@ -140,9 +172,9 @@ describe('getPrisonerIncidentList', () => {
         question('45051', [response('182179', 'ORDINARY', 'A-1-2-34', 'Ordinary')]), // location with comment
       ],
     })
-    const { api, prisonApi } = mockApis([selfHarm])
+    mockApis([selfHarm])
 
-    const { rows } = await getPrisonerIncidentList(api, prisonApi, PRISONER_NUMBER)
+    const { rows } = await getPrisonerIncidentList(incidentReportingApi, prisonApi, PRISONER_NUMBER)
 
     expect(rows[0].extraInformation).toBe('Cutting, Burning')
     expect(rows[0].location).toBe('Ordinary (A-1-2-34)')
@@ -162,9 +194,9 @@ describe('getPrisonerIncidentList', () => {
         question('67215', [response('219040', 'ONE SIM')]), // sim card (not the "none" code)
       ],
     })
-    const { api, prisonApi } = mockApis([find])
+    mockApis([find])
 
-    const { rows } = await getPrisonerIncidentList(api, prisonApi, PRISONER_NUMBER)
+    const { rows } = await getPrisonerIncidentList(incidentReportingApi, prisonApi, PRISONER_NUMBER)
 
     expect(rows[0].subtype).toBe('Multiple types')
     expect(rows[0].role).toBe('In possession')
@@ -179,9 +211,9 @@ describe('getPrisonerIncidentList', () => {
       date: '2025-03-01T09:15:00Z',
       questions: [question('44367', [response('179730', 'PRISONER ON PRISONER')])],
     })
-    const { api, prisonApi } = mockApis([oldAssault])
+    mockApis([oldAssault])
 
-    const { rows } = await getPrisonerIncidentList(api, prisonApi, PRISONER_NUMBER)
+    const { rows } = await getPrisonerIncidentList(incidentReportingApi, prisonApi, PRISONER_NUMBER)
 
     expect(rows[0]).toMatchObject({ reportReference: '6004', role: 'Perpetrator', establishment: 'MDI prison' })
     expect(rows[0].subtype).toBeUndefined()
@@ -195,9 +227,9 @@ describe('getPrisonerIncidentList', () => {
       report({ id: '2', reference: 'NEW', type: 'FIRE_1', date: '2025-06-01T09:00:00Z' }),
       report({ id: '3', reference: 'MID', type: 'FIRE_1', date: '2025-03-01T09:00:00Z' }),
     ]
-    const { api, prisonApi } = mockApis(reports)
+    mockApis(reports)
 
-    const { rows } = await getPrisonerIncidentList(api, prisonApi, PRISONER_NUMBER)
+    const { rows } = await getPrisonerIncidentList(incidentReportingApi, prisonApi, PRISONER_NUMBER)
 
     expect(rows.map(row => row.reportReference)).toEqual(['NEW', 'MID', 'OLD'])
   })

@@ -10,6 +10,8 @@ import {
 } from '../../data/incidentReportingApi'
 import { OffenderSearchApi } from '../../data/offenderSearchApi'
 import { PrisonApi } from '../../data/prisonApi'
+import { convertReportDates } from '../../data/incidentReportingApiUtils'
+import { mockReport } from '../../data/testData/incidentReporting'
 import type { Type } from '../../reportConfiguration/constants'
 import { andrew, ernie } from '../../data/testData/offenderSearch'
 
@@ -103,25 +105,34 @@ describe('GET /prisoner/:prisonerNumber/incident-summary', () => {
 })
 
 describe('GET /prisoner/:prisonerNumber/incident-summary/incidents', () => {
-  function reportWithDetails(id: string, type: Type): ReportWithDetails {
-    return {
-      id,
-      reportReference: `600${id}`,
-      type,
-      status: 'AWAITING_REVIEW',
-      location: 'MDI',
-      incidentDateAndTime: new Date('2025-06-01T09:15:00Z'),
-      questions: [],
-      prisonersInvolved: [
-        { prisonerNumber: andrew.prisonerNumber, prisonerRole: 'PERPETRATOR', outcome: null, comment: null },
-      ],
-    } as unknown as ReportWithDetails
+  function reportWithDetails(reportReference: string, type: Type): ReportWithDetails {
+    const report = convertReportDates(
+      mockReport({
+        reportReference,
+        type,
+        status: 'AWAITING_REVIEW',
+        reportDateAndTime: new Date('2025-06-01T10:15:00Z'),
+        withDetails: true,
+      }),
+    )
+    report.prisonersInvolved = [
+      {
+        prisonerNumber: andrew.prisonerNumber,
+        firstName: 'ANDREW',
+        lastName: 'ARNOLD',
+        prisonerRole: 'PERPETRATOR',
+        outcome: null,
+        comment: null,
+      },
+    ]
+    report.questions = []
+    return report
   }
 
   it('renders the incident list with a breadcrumb back to the summary', () => {
     offenderSearchApi.getPrisoner.mockResolvedValue(andrew)
     incidentReportingApi.getReports.mockResolvedValue(page([basicReport('1', 'FIRE_1')]))
-    incidentReportingApi.getReportWithDetailsById.mockResolvedValue(reportWithDetails('1', 'FIRE_1'))
+    incidentReportingApi.getReportWithDetailsById.mockResolvedValue(reportWithDetails('6001', 'FIRE_1'))
     prisonApi.getAgency.mockResolvedValue({ agencyId: 'MDI', description: 'Moorland (HMP)' } as never)
 
     return request(app)

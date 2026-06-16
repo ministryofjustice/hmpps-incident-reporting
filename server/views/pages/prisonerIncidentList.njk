@@ -36,18 +36,18 @@
       <h1 class="govuk-heading-l">Incidents</h1>
 
       <p class="govuk-body">
-        Incidents involving this person in the 12 months since {{ list.fromDate | longDate }}, most recent first.
+        Incidents involving this person in the 12 months since {{ prisonerIncidentList.fromDate | longDate }}, most recent first.
         Draft, duplicate and not-reportable reports are excluded.
       </p>
 
-      {% if list.rows.length == 0 %}
+      {% if prisonerIncidentList.rows.length == 0 %}
 
         <p class="govuk-body">This person hasn't been involved in any recorded incident in the last 12 months.</p>
 
       {% else %}
 
         {% set rows = [] %}
-        {% for row in list.rows %}
+        {% for row in prisonerIncidentList.rows %}
           {% set linkHtml %}
             <a href="/reports/{{ row.reportId }}">
               <span class="govuk-visually-hidden">Incident report</span>

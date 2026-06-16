@@ -19,7 +19,7 @@ context('Edit prisoner involvement page', () => {
       firstName: barry.firstName,
       lastName: barry.lastName,
       prisonerRole: 'ASSISTED_STAFF',
-      outcome: null,
+      outcome: undefined,
       comment: 'See IR781897613',
     },
   ]
@@ -94,7 +94,7 @@ context('Edit prisoner involvement page', () => {
       index: 1,
       request: {
         prisonerRole: 'ACTIVE_INVOLVEMENT',
-        outcome: null,
+        outcome: undefined,
         comment: 'Was there',
       },
       response: reportWithDetails.prisonersInvolved, // technically, missing update
@@ -117,7 +117,7 @@ context('Edit prisoner involvement page', () => {
       index: 1,
       request: {
         prisonerRole: 'SUSPECTED_INVOLVED',
-        outcome: null,
+        outcome: undefined,
         comment: '',
       },
       response: reportWithDetails.prisonersInvolved, // technically, missing update

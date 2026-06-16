@@ -250,7 +250,7 @@ describe('Editing an existing prisoner in a report', () => {
             },
             expectedCall: {
               prisonerRole: 'SUSPECTED_INVOLVED',
-              outcome: null,
+              outcome: undefined,
               comment: 'See case notes',
             },
           },
@@ -274,7 +274,7 @@ describe('Editing an existing prisoner in a report', () => {
             },
             expectedCall: {
               prisonerRole: 'SUSPECTED_INVOLVED',
-              outcome: null,
+              outcome: undefined,
               comment: '',
             },
           },
@@ -288,7 +288,7 @@ describe('Editing an existing prisoner in a report', () => {
             },
             expectedCall: {
               prisonerRole: 'SUSPECTED_INVOLVED',
-              outcome: null,
+              outcome: undefined,
               comment: 'See case notes',
             },
           },
@@ -300,7 +300,7 @@ describe('Editing an existing prisoner in a report', () => {
             },
             expectedCall: {
               prisonerRole: 'SUSPECTED_INVOLVED',
-              outcome: null,
+              outcome: undefined,
               comment: '',
             },
           },
@@ -580,7 +580,7 @@ describe('Editing an existing prisoner in a report', () => {
 
           expect(incidentReportingRelatedObjects.updateForReport).toHaveBeenCalledWith(report.id, 1, {
             prisonerRole: 'UNLAWFULLY_DETAINED',
-            outcome: null,
+            outcome: undefined,
             comment: 'Updated details',
           })
           mockHandleReportEdit.expectCalled()

@@ -100,11 +100,11 @@ function groupSteps(steps: FormWizard.Steps<FormWizard.MultiValues>) {
   /**
    * Get the current number of answers for a given stepId
    */
-  function getAnswersCountForStep(stepId: string) {
+  function getAnswersCountForStep(stepId: string): number {
     if (!answersCounts.has(stepId)) {
       answersCounts.set(stepId, countStepAnswers(stepId))
     }
-    return answersCounts.get(stepId)
+    return answersCounts.get(stepId) || 0
   }
 
   /**
@@ -112,7 +112,7 @@ function groupSteps(steps: FormWizard.Steps<FormWizard.MultiValues>) {
    */
   function countStepAnswers(stepId: string): number {
     const step = steps[`/${stepId}`]
-    if (step === undefined) {
+    if (step === undefined || !step.next) {
       return 0
     }
 
@@ -172,7 +172,7 @@ function groupSteps(steps: FormWizard.Steps<FormWizard.MultiValues>) {
         // 1. replace current conditions with child conditions
         step.next = childStep.next
         // 2. add child's fields to this step
-        step.fields = [...step.fields, ...childStep.fields]
+        step.fields = [...(step.fields || []), ...(childStep.fields || [])]
         // 3. update answers count
         answersCounts.set(stepId, newAnswersCount)
         // 4. remove child step from steps
@@ -200,13 +200,13 @@ function groupSteps(steps: FormWizard.Steps<FormWizard.MultiValues>) {
     // count number of parents of each step
     const stepsParentCount: Map<string | null, number> = new Map()
     for (const step of Object.values(steps)) {
-      for (const nextStepCondition of Object.values(step.next)) {
+      for (const nextStepCondition of Object.values(step.next ?? [])) {
         const nextQuestionCode = nextStepCondition.next
         if (!stepsParentCount.has(nextQuestionCode)) {
           stepsParentCount.set(nextQuestionCode, 0)
         }
 
-        const currentCount = stepsParentCount.get(nextQuestionCode)
+        const currentCount = stepsParentCount.get(nextQuestionCode) || 0
         stepsParentCount.set(nextQuestionCode, currentCount + 1)
       }
     }
@@ -384,11 +384,13 @@ function nextSteps(question: QuestionConfiguration, answers: AnswerConfiguration
   // Group answers by next question code
   const groupedByNextQuestion: Map<string | null, AnswerConfiguration[]> = new Map()
   answers.forEach(answer => {
-    if (!groupedByNextQuestion.has(answer.nextQuestionCode)) {
-      groupedByNextQuestion.set(answer.nextQuestionCode, [])
+    let group = groupedByNextQuestion.get(answer.nextQuestionCode)
+    if (!group) {
+      group = []
+      groupedByNextQuestion.set(answer.nextQuestionCode, group)
     }
 
-    groupedByNextQuestion.get(answer.nextQuestionCode).push(answer)
+    group.push(answer)
   })
 
   const next: FormWizard.NextStepCondition[] = []

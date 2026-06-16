@@ -68,7 +68,7 @@ context('Prisoner search page', () => {
           andWords: 'AR',
           location: 'ALL',
           gender: 'ALL',
-          dateOfBirth: null,
+          dateOfBirth: undefined,
           results: [andrew, barry],
         })
         cy.task('stubPrisonApiMockPrisonerPhoto', andrew.prisonerNumber)
@@ -133,10 +133,10 @@ context('Prisoner search page', () => {
       beforeEach(() => {
         cy.task('stubOffenderSearchGlobally', {
           andWords: 'A1111',
-          prisonIds: null,
+          prisonIds: undefined,
           location: 'ALL',
           gender: 'ALL',
-          dateOfBirth: null,
+          dateOfBirth: undefined,
           results: [andrew],
         })
         cy.task('stubPrisonApiMockPrisonerPhoto', andrew.prisonerNumber)

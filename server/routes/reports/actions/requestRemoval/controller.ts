@@ -7,12 +7,18 @@ import type { ApiUserType } from '../../../../middleware/permissions'
 import { placeholderForCorrectionRequest } from '../correctionRequestPlaceholder'
 import type { Values } from './fields'
 import { errorResponseStatusMatches } from '../../../../utils/utils'
+import { missingLocalsError } from '../../../../errors'
 
 export class RequestRemovalController extends BaseController<Values> {
   protected keyField = 'userAction' as const
 
   async validate(req: FormWizard.Request<Values>, res: express.Response, next: express.NextFunction): Promise<void> {
     const { report } = res.locals
+
+    if (!report) {
+      next(missingLocalsError('RequestRemovalController#validate()', 'res.locals.report'))
+      return
+    }
 
     const { originalReportReference } = req.form.values
     if (originalReportReference) {
@@ -69,8 +75,14 @@ export class RequestRemovalController extends BaseController<Values> {
   }
 
   getBackLink(_req: FormWizard.Request<Values>, res: express.Response): string {
-    res.locals.cancelUrl = res.locals.reportUrl
-    return res.locals.reportUrl
+    const { reportUrl } = res.locals
+
+    if (!reportUrl) {
+      throw missingLocalsError('RequestRemovalController#getBackLink()', 'res.locals.reportUrl')
+    }
+
+    res.locals.cancelUrl = reportUrl
+    return reportUrl
   }
 
   getNextStep(_req: FormWizard.Request<Values>, _res: express.Response): string {
@@ -78,17 +90,27 @@ export class RequestRemovalController extends BaseController<Values> {
   }
 
   async saveValues(req: FormWizard.Request<Values>, res: express.Response, next: express.NextFunction): Promise<void> {
-    const { report, permissions } = res.locals
     const { incidentReportingApi } = res.locals.apis
+    const { report, permissions, possibleTransitions } = res.locals
     const { userType } = permissions
+
+    if (!report) {
+      next(missingLocalsError('RequestRemovalController#saveValues()', 'res.locals.report'))
+      return
+    }
+    if (!possibleTransitions) {
+      next(missingLocalsError('RequestRemovalController#saveValues()', 'res.locals.possibleTransitions'))
+      return
+    }
 
     const formValues = this.getAllValues(req, false)
     const { userAction, originalReportReference, duplicateComment, notReportableComment } = formValues
     const apiUserAction = userAction as 'REQUEST_DUPLICATE' | 'REQUEST_NOT_REPORTABLE' // form validation ensures this is possible
 
     // NB: transition is not being used for permissions check; middleware already ensured this is possible
-    const transition = res.locals.possibleTransitions.REQUEST_REMOVAL
-    const { newStatus, successBanner } = transition
+    const transition = possibleTransitions.REQUEST_REMOVAL
+    const newStatus = transition?.newStatus
+    const successBanner = transition?.successBanner
 
     try {
       let comment = apiUserAction === 'REQUEST_DUPLICATE' ? duplicateComment : notReportableComment

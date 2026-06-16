@@ -38,7 +38,7 @@ export class AddManualStaffInvolvementController extends AddStaffInvolvementCont
   ): Pick<AddStaffInvolvementRequest, 'staffUsername' | 'firstName' | 'lastName'> {
     const { firstName, lastName } = this.getAllValues(req, true)
     return {
-      staffUsername: null,
+      staffUsername: undefined,
       firstName,
       lastName,
     }

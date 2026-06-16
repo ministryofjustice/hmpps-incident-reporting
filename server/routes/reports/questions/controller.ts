@@ -8,7 +8,6 @@ import type {
   AddOrUpdateQuestionResponseRequest,
   AddOrUpdateQuestionWithResponsesRequest,
   Question,
-  ReportWithDetails,
 } from '../../../data/incidentReportingApi'
 import type { QuestionConfiguration } from '../../../data/incidentTypeConfiguration/types'
 import {
@@ -21,6 +20,7 @@ import QuestionsToDelete from '../../../services/questionsToDelete'
 import { BaseController } from '../../../controllers'
 import { handleReportEdit } from '../actions/handleReportEdit'
 import { missingLocalsError } from '../../../errors'
+import { reportHasDetails } from '../../../data/incidentReportingApiUtils'
 
 export class QuestionsController extends BaseController<FormWizard.MultiValues> {
   middlewareLocals(): void {
@@ -89,18 +89,30 @@ export class QuestionsController extends BaseController<FormWizard.MultiValues> 
     req: FormWizard.Request<FormWizard.MultiValues>,
     res: express.Response,
   ): ReturnType<BaseController['decodeConditions']> {
+    const { reportUrl } = res.locals
+
+    if (!reportUrl) {
+      throw missingLocalsError('QuestionsController#getNextStepObject()', 'res.locals.reportUrl')
+    }
+
     const nextStepObject = super.getNextStepObject(req, res)
-    if (!nextStepObject.url) {
+    if (nextStepObject && !nextStepObject.url) {
       // reached the end so the next step is report summary
-      nextStepObject.url = res.locals.reportUrl
+      nextStepObject.url = reportUrl
     }
     return nextStepObject
   }
 
-  getNextStep(req: FormWizard.Request<FormWizard.MultiValues>, res: express.Response): string {
+  getNextStep(req: FormWizard.Request<FormWizard.MultiValues>, res: express.Response): string | undefined {
+    const { reportUrl } = res.locals
+
+    if (!reportUrl) {
+      throw missingLocalsError('QuestionsController#getNextStep()', 'res.locals.reportUrl')
+    }
+
     // go to report view if user chose to exit
     if (req.body?.formAction === 'exit') {
-      return res.locals.reportUrl
+      return reportUrl
     }
     // …or continue with question pages
     return super.getNextStep(req, res)
@@ -114,7 +126,7 @@ export class QuestionsController extends BaseController<FormWizard.MultiValues> 
     const fieldName = error.key ?? error.field
 
     const field = req.form.options.fields[fieldName]
-    if (field?.items?.length > 0 && error.type === 'required') {
+    if (field?.items && field.items.length > 0 && error.type === 'required') {
       // eslint-disable-next-line no-param-reassign
       error.field = `${fieldName}-item`
       if (field.multiple) {
@@ -157,10 +169,34 @@ export class QuestionsController extends BaseController<FormWizard.MultiValues> 
         return
       }
 
-      const formValues = { ...values }
+      const { report, reportConfig } = res.locals
 
-      const report = res.locals.report as ReportWithDetails
-      const { reportConfig } = res.locals
+      if (!report) {
+        callback(
+          new this.Error(undefined, {
+            message: missingLocalsError('QuestionsController#getValues()', 'res.locals.report').message,
+          }),
+        )
+        return
+      }
+      if (!reportHasDetails(report)) {
+        callback(
+          new this.Error(undefined, {
+            message: missingLocalsError('QuestionsController#getValues()', 'res.locals.report (with details)').message,
+          }),
+        )
+        return
+      }
+      if (!reportConfig) {
+        callback(
+          new this.Error(undefined, {
+            message: missingLocalsError('QuestionsController#getValues()', 'res.locals.reportConfig').message,
+          }),
+        )
+        return
+      }
+
+      const formValues = { ...values }
 
       for (const question of report.questions) {
         const fieldName = question.code
@@ -196,7 +232,7 @@ export class QuestionsController extends BaseController<FormWizard.MultiValues> 
           if (answerConfig.commentRequested) {
             const commentFieldName = conditionalFieldName(questionConfig, answerConfig, 'comment')
             if (formValues[commentFieldName] === undefined) {
-              formValues[commentFieldName] = response.additionalInformation
+              formValues[commentFieldName] = response.additionalInformation ?? undefined
             }
           }
 
@@ -247,7 +283,8 @@ export class QuestionsController extends BaseController<FormWizard.MultiValues> 
         }
 
         // get step's fields in proper order (submittedValues is not properly ordered)
-        const fieldNames = questionSteps[req.form.options.route].fields
+        const fields = questionSteps[req.form.options.route].fields ?? []
+        const fieldNames = fields
           // ignore date & comment fields
           .filter(fieldName => /^\d+$/.test(fieldName))
 
@@ -281,7 +318,7 @@ export class QuestionsController extends BaseController<FormWizard.MultiValues> 
             code: fieldName,
             question: questionConfig.question,
             label: questionConfig.label,
-            additionalInformation: null,
+            additionalInformation: undefined,
             responses: [],
           }
 
@@ -304,8 +341,8 @@ export class QuestionsController extends BaseController<FormWizard.MultiValues> 
               code: answerConfig.code,
               response: answerResponse,
               label: answerConfig.label,
-              responseDate: null,
-              additionalInformation: null,
+              responseDate: undefined,
+              additionalInformation: undefined,
             }
 
             if (answerConfig.commentRequested) {

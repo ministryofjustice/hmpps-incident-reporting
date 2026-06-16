@@ -95,7 +95,9 @@ export class StaffSearchController extends GetBaseController<Values> {
         totalResultCount,
         ManageUsersApiClient.PAGE_SIZE,
       )
-      paginationParams.results.text = 'members of staff'
+      if (paginationParams.results) {
+        paginationParams.results.text = 'members of staff'
+      }
       res.locals.paginationParams = paginationParams
     }
 

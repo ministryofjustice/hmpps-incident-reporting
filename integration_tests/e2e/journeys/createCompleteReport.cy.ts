@@ -142,7 +142,7 @@ for (const { scenario, user, reportType } of scenarios) {
         andWords: 'Andrew Arnold',
         location: 'ALL',
         gender: 'ALL',
-        dateOfBirth: null,
+        dateOfBirth: undefined,
         results: [andrew],
       })
       cy.task('stubPrisonApiMockPrisonerPhoto', andrew.prisonerNumber)
@@ -581,9 +581,12 @@ for (const { scenario, user, reportType } of scenarios) {
 /** Question as submitted to API */
 const putQuestionRequest = (question: DatesAsStrings<Question>): unknown => ({
   ...question,
+  additionalInformation: question.additionalInformation ?? undefined,
   responses: question.responses.map(response => {
     const payload = {
       ...response,
+      additionalInformation: response.additionalInformation ?? undefined,
+      responseDate: response.responseDate ?? undefined,
     }
     delete payload.recordedAt
     delete payload.recordedBy

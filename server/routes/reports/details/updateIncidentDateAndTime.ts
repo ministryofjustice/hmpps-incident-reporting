@@ -15,6 +15,7 @@ import {
   incidentDateAndTimeFields,
 } from './incidentDateAndTimeFields'
 import { BaseIncidentDateAndTimeController } from './incidentDateAndTimeController'
+import { missingLocalsError } from '../../../errors'
 
 class UpdateIncidentDateAndTimeController extends BaseIncidentDateAndTimeController<IncidentDateAndTimeValues> {
   protected keyField = 'incidentDate' as const
@@ -32,6 +33,12 @@ class UpdateIncidentDateAndTimeController extends BaseIncidentDateAndTimeControl
   ): void {
     /** Check status of report. If DW has not seen report yet, redirect to update details page */
     const { report } = res.locals
+
+    if (!report) {
+      next(missingLocalsError('UpdateIncidentDateAndTimeController#checkReportStatus()', 'res.locals.report'))
+      return
+    }
+
     if (dwNotReviewed.includes(report.status)) {
       res.redirect(`/reports/${report.id}/update-details`)
     } else {
@@ -45,6 +52,11 @@ class UpdateIncidentDateAndTimeController extends BaseIncidentDateAndTimeControl
     next: express.NextFunction,
   ): void {
     const { report } = res.locals
+
+    if (!report) {
+      next(missingLocalsError('UpdateIncidentDateAndTimeController#loadReportIntoSession()', 'res.locals.report'))
+      return
+    }
 
     // load existing report details into session model to prefill inputs
     req.sessionModel.set('incidentDate', format.shortDate(report.incidentDateAndTime))
@@ -61,8 +73,13 @@ class UpdateIncidentDateAndTimeController extends BaseIncidentDateAndTimeControl
     next: express.NextFunction,
   ): Promise<void> {
     const { report } = res.locals
-    const allValues = this.getAllValues(req)
 
+    if (!report) {
+      next(missingLocalsError('UpdateIncidentDateAndTimeController#successHandler()', 'res.locals.report'))
+      return
+    }
+
+    const allValues = this.getAllValues(req)
     const { incidentDate, incidentTime } = allValues
     const incidentDateAndTime = this.buildIncidentDateAndTime(incidentDate, incidentTime)
 
@@ -89,13 +106,25 @@ class UpdateIncidentDateAndTimeController extends BaseIncidentDateAndTimeControl
   }
 
   getBackLink(_req: FormWizard.Request<IncidentDateAndTimeValues>, res: express.Response): string {
-    res.locals.cancelUrl = res.locals.reportUrl
-    return res.locals.reportUrl
+    const { reportUrl } = res.locals
+
+    if (!reportUrl) {
+      throw missingLocalsError('UpdateIncidentDateAndTimeController#getBackLink()', 'res.locals.reportUrl')
+    }
+
+    res.locals.cancelUrl = reportUrl
+    return reportUrl
   }
 
   getNextStep(_req: FormWizard.Request<IncidentDateAndTimeValues>, res: express.Response): string {
     // TODO: does this page have 2 save buttons? where do they both lead?
-    return res.locals.reportUrl
+    const { reportUrl } = res.locals
+
+    if (!reportUrl) {
+      throw missingLocalsError('UpdateIncidentDateAndTimeController#getNextStep()', 'res.locals.reportUrl')
+    }
+
+    return reportUrl
   }
 }
 

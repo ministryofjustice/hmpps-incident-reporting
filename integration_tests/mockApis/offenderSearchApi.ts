@@ -55,7 +55,7 @@ export default {
     prisonIds,
     location,
     gender,
-    dateOfBirth = null,
+    dateOfBirth = undefined,
     fuzzyMatch = true,
     results,
     page = 0,
@@ -63,13 +63,13 @@ export default {
   }: {
     andWords: string
     fuzzyMatch: boolean
-    prisonIds: string[]
+    prisonIds?: string[]
     location: PrisonerLocationStatus
     gender: PrisonerGender
-    dateOfBirth: string | null
+    dateOfBirth?: string
     results: OffenderSearchResult[]
     page: number
-    totalElements: number | undefined
+    totalElements?: number
   }): SuperAgentRequest =>
     stubFor({
       request: {

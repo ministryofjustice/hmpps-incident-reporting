@@ -685,9 +685,14 @@ describe('Date validation', () => {
         expect(res.text).toContain('There is a problem')
         expect(res.text).toContain(`Enter a valid ${name}`)
         expect(res.text).toContain('Clear filters')
-        const [args] = incidentReportingApi.getReports.mock.lastCall
-        expect(args.incidentDateFrom ?? null).toBeNull()
-        expect(args.incidentDateUntil ?? null).toBeNull()
+
+        const { lastCall } = incidentReportingApi.getReports.mock
+        if (!lastCall) {
+          throw new Error(`getReports not invoked`)
+        }
+        const [args] = lastCall
+        expect(args?.incidentDateFrom).toBeUndefined()
+        expect(args?.incidentDateUntil).toBeUndefined()
       })
   })
 
@@ -700,9 +705,14 @@ describe('Date validation', () => {
         expect(res.text).toContain('There is a problem')
         expect(res.text).toContain('Enter a date after from date')
         expect(res.text).toContain('Clear filters')
-        const [args] = incidentReportingApi.getReports.mock.lastCall
-        expect(args.incidentDateFrom).toBeNull()
-        expect(args.incidentDateUntil).toBeNull()
+
+        const { lastCall } = incidentReportingApi.getReports.mock
+        if (!lastCall) {
+          throw new Error(`getReports not invoked`)
+        }
+        const [args] = lastCall
+        expect(args?.incidentDateFrom).toBeUndefined()
+        expect(args?.incidentDateUntil).toBeUndefined()
       })
   })
 })
@@ -854,8 +864,13 @@ describe('Type family filter validation', () => {
       .expect(res => {
         expect(res.text).toContain('There is a problem')
         expect(res.text).toContain('Select a valid incident type')
-        const [args] = incidentReportingApi.getReports.mock.lastCall
-        expect(args.type).toBeUndefined()
+
+        const { lastCall } = incidentReportingApi.getReports.mock
+        if (!lastCall) {
+          throw new Error(`getReports not invoked`)
+        }
+        const [args] = lastCall
+        expect(args?.type).toBeUndefined()
       })
   })
 })

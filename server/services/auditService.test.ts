@@ -8,7 +8,13 @@ describe('Audit service', () => {
   let auditService: AuditService
 
   beforeEach(() => {
-    hmppsAuditClient = new HmppsAuditClient(null) as jest.Mocked<HmppsAuditClient>
+    const testConfig = {
+      queueUrl: 'http://localhost:4566/000000000000/mainQueue',
+      region: 'eu-west-2',
+      serviceName: 'hmpps-service',
+      enabled: true,
+    }
+    hmppsAuditClient = new HmppsAuditClient(testConfig) as jest.Mocked<HmppsAuditClient>
     auditService = new AuditService(hmppsAuditClient)
   })
 

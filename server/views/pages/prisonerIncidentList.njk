@@ -1,0 +1,95 @@
+{% extends "partials/layout.njk" %}
+
+{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+
+{% set prisonerName = prisoner | nameOfPerson %}
+{% set pageTitle = "Incidents for " + prisoner.prisonerNumber %}
+{% set bodyClasses = "app-prisoner-incident-list" %}
+
+{% block containerStart %}
+  {{ super() }}
+
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Digital Prison Services",
+        href: dpsUrl
+      },
+      {
+        text: prisoner | reversedNameOfPerson,
+        href: dpsUrl + "/prisoner/" + prisoner.prisonerNumber
+      },
+      {
+        text: "Incident summary",
+        href: "/prisoner/" + prisoner.prisonerNumber + "/incident-summary"
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <span class="govuk-caption-l">{{ prisonerName }} ({{ prisoner.prisonerNumber }})</span>
+      <h1 class="govuk-heading-l">Incidents</h1>
+
+      <p class="govuk-body">
+        Incidents involving this person in the 12 months since {{ prisonerIncidentList.fromDate | longDate }}, most recent first.
+        Draft, duplicate and not-reportable reports are excluded.
+      </p>
+
+      {% if prisonerIncidentList.rows.length == 0 %}
+
+        <p class="govuk-body">This person hasn't been involved in any recorded incident in the last 12 months.</p>
+
+      {% else %}
+
+        {% set rows = [] %}
+        {% for row in prisonerIncidentList.rows %}
+          {% set linkHtml %}
+            <a href="/reports/{{ row.reportId }}">
+              <span class="govuk-visually-hidden">Incident report</span>
+              {{ row.reportReference }}
+            </a>
+          {% endset %}
+          {% set rows = (rows.push([
+            { html: linkHtml },
+            { text: row.incidentDateAndTime | shortDateAndTime },
+            { text: row.typeDescription },
+            { text: row.subtype or "" },
+            { text: row.role },
+            { text: row.extraInformation or "" },
+            { text: row.reason or "" },
+            { text: row.location or "" },
+            { text: row.establishment },
+            { text: row.status }
+          ]), rows) %}
+        {% endfor %}
+
+        <div class="moj-scrollable-pane govuk-!-margin-top-4">
+          {{ govukTable({
+            caption: "Incidents involving " + prisonerName,
+            captionClasses: "govuk-visually-hidden",
+            head: [
+              { text: "Incident ID" },
+              { text: "Date and time" },
+              { text: "Type" },
+              { text: "Sub type" },
+              { text: "Role" },
+              { text: "Extra information" },
+              { text: "Reason" },
+              { text: "Location" },
+              { text: "Establishment" },
+              { text: "Status" }
+            ],
+            rows: rows
+          }) }}
+        </div>
+
+      {% endif %}
+
+    </div>
+  </div>
+{% endblock %}

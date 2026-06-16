@@ -65,6 +65,13 @@
 
       {% else %}
 
+        <p class="govuk-body">
+          <a class="govuk-link" href="/prisoner/{{ prisoner.prisonerNumber }}/incident-summary/incidents" data-qa="view-all-incidents">
+            View all incidents
+          </a>
+        </p>
+
+
         {% set overallRows = [] %}
         {% for family in summary.overall %}
           {% set overallRows = (overallRows.push({ label: family.description, count: family.count }), overallRows) %}

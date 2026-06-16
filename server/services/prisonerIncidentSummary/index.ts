@@ -1,6 +1,6 @@
 import type { IncidentReportingApi, Question, ReportBasic } from '../../data/incidentReportingApi'
-import type { FamilyCode, Status } from '../../reportConfiguration/constants'
-import { getTypeDetails, statuses, typeFamiliesDescriptions } from '../../reportConfiguration/constants'
+import type { FamilyCode } from '../../reportConfiguration/constants'
+import { getTypeDetails, typeFamiliesDescriptions } from '../../reportConfiguration/constants'
 import {
   ACTIVE_DETAIL_TYPES,
   assaultBreakdown,
@@ -10,15 +10,7 @@ import {
   type BreakdownRow,
   type FindBreakdown,
 } from './breakdowns'
-
-/** Statuses that are excluded from the prisoner incident summary. */
-const EXCLUDED_STATUSES: ReadonlySet<Status> = new Set<Status>(['DRAFT', 'DUPLICATE', 'NOT_REPORTABLE'])
-
-/** All other statuses are included when querying the API. */
-const INCLUDED_STATUSES: Status[] = statuses.map(status => status.code).filter(code => !EXCLUDED_STATUSES.has(code))
-
-/** Page size used when paging through a prisoner's reports (small volumes expected per prisoner). */
-const PAGE_SIZE = 100
+import { fetchAllReports, twelveMonthsAgo } from './prisonerReports'
 
 /** A count of reports for one incident-type family. */
 export interface FamilyCount {
@@ -40,38 +32,6 @@ export interface PrisonerIncidentSummary {
   disorder?: BreakdownRow[]
   selfHarm?: BreakdownRow[]
   find?: FindBreakdown
-}
-
-/** today minus 12 months, used as the inclusive incidentDateFrom filter. */
-function twelveMonthsAgo(): Date {
-  const date = new Date()
-  date.setFullYear(date.getFullYear() - 1)
-  return date
-}
-
-/** Fetch every (non-excluded) report involving the prisoner since fromDate, following pagination. */
-async function fetchAllReports(
-  api: IncidentReportingApi,
-  prisonerNumber: string,
-  fromDate: Date,
-): Promise<ReportBasic[]> {
-  const reports: ReportBasic[] = []
-  let page = 0
-  let totalPages = 1
-  do {
-    // eslint-disable-next-line no-await-in-loop -- pages must be fetched sequentially
-    const response = await api.getReports({
-      involvingPrisonerNumber: prisonerNumber,
-      incidentDateFrom: fromDate,
-      status: INCLUDED_STATUSES,
-      page,
-      size: PAGE_SIZE,
-    })
-    reports.push(...response.content)
-    totalPages = response.totalPages
-    page += 1
-  } while (page < totalPages)
-  return reports
 }
 
 /** Group reports by family code, returning counts ordered by family description. */

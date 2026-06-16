@@ -30,12 +30,12 @@ export class PrisonerSearchController extends GetBaseController<Values> {
 
     fields.global = {
       ...fields.global,
-      items: [...fields.global.items],
+      items: [...(fields.global.items ?? [])],
     }
 
     // label local search with active caseload
     const activeCaseload = res.locals.user?.activeCaseLoad
-    if (activeCaseload) {
+    if (activeCaseload && fields.global.items && fields.global.items?.length > 0) {
       fields.global.items[0] = {
         ...fields.global.items[0],
         label: `In ${activeCaseload.description}`,

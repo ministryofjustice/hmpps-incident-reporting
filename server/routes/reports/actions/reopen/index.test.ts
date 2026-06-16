@@ -12,6 +12,7 @@ import {
   type CorrectionRequest,
   type AddCorrectionRequestRequest,
   type UpdateCorrectionRequestRequest,
+  type ReportWithDetails,
 } from '../../../../data/incidentReportingApi'
 import { convertReportDates } from '../../../../data/incidentReportingApiUtils'
 import { mockErrorResponse, mockReport } from '../../../../data/testData/incidentReporting'
@@ -91,7 +92,7 @@ describe('Reopening a report', () => {
     })
 
     it(`should be allowed resulting in a new status of ${newStatus}`, () => {
-      incidentReportingApi.changeReportStatus.mockResolvedValueOnce(undefined) // NB: response is ignored
+      incidentReportingApi.changeReportStatus.mockResolvedValueOnce({} as ReportWithDetails) // NB: response is ignored
 
       return request(app)
         .post(reopenReportUrl)
@@ -161,7 +162,7 @@ describe('Reopening a report', () => {
           userAction: 'RECALL',
           userType: 'REPORTING_OFFICER',
           descriptionOfChange: '(Reopened)',
-          originalReportReference: null,
+          originalReportReference: undefined,
         },
       },
       {
@@ -171,7 +172,7 @@ describe('Reopening a report', () => {
           userAction: 'RECALL',
           userType: 'REPORTING_OFFICER',
           descriptionOfChange: '(Reopened)',
-          originalReportReference: null,
+          originalReportReference: undefined,
         },
       },
       {
@@ -181,7 +182,7 @@ describe('Reopening a report', () => {
           userAction: 'RECALL',
           userType: 'REPORTING_OFFICER',
           descriptionOfChange: '(Reopened)',
-          originalReportReference: null,
+          originalReportReference: undefined,
         },
       },
     ] as const)('if the status is $currentStatus', ({ currentStatus, newStatus, correctionRequest }) => {
@@ -227,7 +228,7 @@ describe('Reopening a report', () => {
         userAction: 'RECALL',
         userType: 'DATA_WARDEN',
         descriptionOfChange: '(Reopened)',
-        originalReportReference: null,
+        originalReportReference: undefined,
       })
     })
 

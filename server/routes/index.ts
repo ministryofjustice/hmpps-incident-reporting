@@ -24,10 +24,17 @@ export default function routes(services: Services): Router {
   // require user to have necessary role for *all* routes
   router.use(logoutUnless(permissions => permissions.canAccessService))
 
-  router.get('/', (_req, res) => {
+  router.get('/', (_req, res, next) => {
     const { dprUrl } = config
-    const { permissions } = res.locals
-    const prisonId = res.locals.user.activeCaseLoad.caseLoadId
+    const { user, permissions } = res.locals
+    const { activeCaseLoad } = user
+
+    if (!activeCaseLoad) {
+      next(new Error(`User ${user.username} has no active case load`))
+      return
+    }
+
+    const prisonId = activeCaseLoad.caseLoadId
     res.render('pages/index', { isRO: permissions.isReportingOfficer, prisonId, dprUrl })
   })
 

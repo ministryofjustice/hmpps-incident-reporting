@@ -1,8 +1,9 @@
 import type { RequestHandler, Response } from 'express'
-import { Forbidden, NotImplemented } from 'http-errors'
+import { Forbidden } from 'http-errors'
 
 import { Permissions } from './rulesClass'
 import type { UserAction } from './userActions'
+import { missingLocalsError } from '../../errors'
 
 /**
  * A condition function to check whether user is allowed to access a route using `logoutUnless` middleware.
@@ -23,7 +24,7 @@ export function logoutUnless(accessCondition: AccessCondition): RequestHandler {
     const { permissions } = res.locals
 
     if (!(permissions instanceof Permissions)) {
-      next(new NotImplemented('logoutUnless() requires res.locals.permissions'))
+      next(missingLocalsError('logoutUnless()', 'res.locals.permissions'))
       return
     }
 
@@ -43,6 +44,11 @@ export function logoutUnless(accessCondition: AccessCondition): RequestHandler {
 export function hasPermissionTo(userAction: UserAction): AccessCondition {
   return (_permissions, res) => {
     const { allowedActions } = res.locals
-    return allowedActions?.has(userAction) ?? false
+
+    if (!allowedActions) {
+      throw missingLocalsError('hasPermissionTo()', 'res.locals.allowedActions')
+    }
+
+    return allowedActions.has(userAction) ?? false
   }
 }

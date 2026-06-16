@@ -27,7 +27,7 @@ import type { GovukErrorSummaryItem, GovukSelectItem } from '../../utils/govukFr
 import { parseDateInput } from '../../utils/parseDateTime'
 import { hasInvalidValues } from '../../utils/utils'
 import { sortableTableHead } from '../../utils/sortableTable'
-import { type LegacyPagination, pagination } from '../../utils/pagination'
+import { pagination } from '../../utils/pagination'
 import { multiCaseloadColumns, singleCaseloadColumns } from './tableColumns'
 
 export type IncidentStatuses = Status | WorkList
@@ -58,7 +58,8 @@ export default function dashboard(): Router {
     const { incidentReportingApi, userService } = res.locals.apis
 
     const { permissions } = res.locals
-    const { activeCaseLoad, caseLoads: userCaseloads } = res.locals.user
+    const { activeCaseLoad, caseLoads } = res.locals.user
+    const userCaseloads = caseLoads ?? []
     const userCaseloadIds = userCaseloads.map(caseload => caseload.caseLoadId)
     const pecsRegionCodes = pecsRegions.map(pecsRegion => pecsRegion.code)
 
@@ -75,7 +76,7 @@ export default function dashboard(): Router {
       order,
     }: ListFormData = req.query
 
-    if (['All', 'ToDo'].includes(clearFilters)) {
+    if (clearFilters && ['All', 'ToDo'].includes(clearFilters)) {
       req.session.dashboardFilters = {}
     }
 
@@ -85,7 +86,7 @@ export default function dashboard(): Router {
     if (!sort || !sortOptions.includes(sort)) {
       sort = 'incidentDateAndTime'
     }
-    if (!orderOptions.includes(order)) {
+    if (!order || !orderOptions.includes(order)) {
       order = 'DESC'
     }
 
@@ -107,14 +108,14 @@ export default function dashboard(): Router {
 
     // Parse params
     const todayAsShortDate = format.shortDate(new Date())
-    let fromDate: Date | null
-    let toDate: Date | null
+    let fromDate: Date | undefined
+    let toDate: Date | undefined
     try {
       if (fromDateInput) {
         fromDate = parseDateInput(fromDateInput)
       }
     } catch {
-      fromDate = null
+      fromDate = undefined
       errors.push({ href: '#fromDate', text: `Enter a valid from date, for example ${todayAsShortDate}` })
     }
     try {
@@ -122,12 +123,12 @@ export default function dashboard(): Router {
         toDate = parseDateInput(toDateInput)
       }
     } catch {
-      toDate = null
+      toDate = undefined
       errors.push({ href: '#toDate', text: `Enter a valid to date, for example ${todayAsShortDate}` })
     }
     if (fromDate && toDate && toDate < fromDate) {
-      fromDate = null
-      toDate = null
+      fromDate = undefined
+      toDate = undefined
       errors.push({ href: '#toDate', text: 'Enter a date after from date' })
     }
     if (typeFamily && !(typeFamily in familyToType)) {
@@ -163,7 +164,7 @@ export default function dashboard(): Router {
       } catch (err) {
         latestUserActions = undefined
         userActionFilter = undefined
-        const errorMessage = err instanceof Error ? err.message : err.toString()
+        const errorMessage = err instanceof Error ? err.message : err!.toString()
         errors.push({ href: '#latestUserActions-item', text: errorMessage })
       }
     }
@@ -178,12 +179,12 @@ export default function dashboard(): Router {
       searchStatuses = statusesFromParam(incidentStatuses as IncidentStatuses[], useWorklists)
     } catch (err) {
       incidentStatuses = undefined
-      const errorMessage = err instanceof Error ? err.message : err.toString()
+      const errorMessage = err instanceof Error ? err.message : err!.toString()
       errors.push({ href: '#incidentStatuses-item', text: errorMessage })
     }
 
-    let prisonerId: string
-    let referenceNumber: string
+    let prisonerId: string | undefined
+    let referenceNumber: string | undefined
     if (searchID) {
       // Test if search is for a prisoner ID and use if so
       if (searchID.match(/^[a-zA-Z][0-9]{4}[a-zA-Z]{2}$/)) {
@@ -227,7 +228,7 @@ export default function dashboard(): Router {
     }
 
     // Get reports from API
-    let reportsResponse: PaginatedBasicReports
+    let reportsResponse: PaginatedBasicReports | undefined
     // TODO: should probably not search if there are errors, because what’ll show will not match apparent filters
     try {
       reportsResponse = await incidentReportingApi.getReports({
@@ -253,7 +254,7 @@ export default function dashboard(): Router {
       fromDate: fromDateInput,
       toDate: toDateInput,
       typeFamily,
-      incidentStatuses: incidentStatuses as IncidentStatuses,
+      incidentStatuses,
       latestUserActions,
       sort,
       order,
@@ -339,26 +340,24 @@ export default function dashboard(): Router {
 
     const showLocationFilter = allLocations.length > 1
 
-    let tableHead: HeaderCell[] | undefined
-    let paginationParams: LegacyPagination
-    if (reportsResponse) {
-      const columns = showLocationFilter ? multiCaseloadColumns : singleCaseloadColumns
-      tableHead = sortableTableHead({
-        columns,
-        sortColumn: sort,
-        order,
-        urlPrefix: tableHeadUrlPrefix,
-        destinationFocusId: 'results-table',
-      })
-      paginationParams = pagination(
-        pageNumber,
-        reportsResponse.totalPages,
-        urlPrefix,
-        'moj',
-        reportsResponse.totalElements,
-        reportsResponse.size,
-      )
-    }
+    const columns = showLocationFilter ? multiCaseloadColumns : singleCaseloadColumns
+    const tableHead: HeaderCell[] = sortableTableHead({
+      columns,
+      sortColumn: sort,
+      order,
+      urlPrefix: tableHeadUrlPrefix,
+      destinationFocusId: 'results-table',
+    })
+    const paginationParams = reportsResponse
+      ? pagination(
+          pageNumber,
+          reportsResponse.totalPages,
+          urlPrefix,
+          'moj',
+          reportsResponse.totalElements,
+          reportsResponse.size,
+        )
+      : undefined
 
     // Gather notification banner entries if they exist
     const banners = req.flash()

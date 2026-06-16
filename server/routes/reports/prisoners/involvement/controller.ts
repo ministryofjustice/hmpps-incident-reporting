@@ -6,6 +6,7 @@ import { BaseController } from '../../../../controllers'
 import { convertToTitleCase, nameOfPerson, possessive } from '../../../../utils/utils'
 import { populateReportConfiguration } from '../../../../middleware/populateReportConfiguration'
 import type { Values } from './fields'
+import { missingLocalsError } from '../../../../errors'
 
 export interface AllowedRoleCode {
   prisonerRole: string
@@ -23,6 +24,11 @@ export abstract class PrisonerInvolvementController extends BaseController<Value
   private customiseFields(req: FormWizard.Request<Values>, res: express.Response, next: express.NextFunction): void {
     const { fields } = req.form.options
     const { report } = res.locals
+
+    if (!report) {
+      next(missingLocalsError('PrisonerInvolvementController#customiseFields()', 'res.locals.report'))
+      return
+    }
 
     const { firstName } = this.getPrisonerName(res)
     const possessiveFirstName = possessive(convertToTitleCase(firstName))
@@ -57,7 +63,7 @@ export abstract class PrisonerInvolvementController extends BaseController<Value
     const { fields: customisedFields } = req.form.options
     const allowedRoleCodes = this.getAllowedPrisonerRoles(req, res)
 
-    const existingItemsMap = new Map(customisedFields.prisonerRole.items.map(item => [item.value, item]))
+    const existingItemsMap = new Map(customisedFields.prisonerRole.items?.map(item => [item.value, item]))
     const newItems = []
 
     for (const code of allowedRoleCodes) {
@@ -120,16 +126,31 @@ export abstract class PrisonerInvolvementController extends BaseController<Value
   }
 
   getBackLink(_req: FormWizard.Request<Values>, res: express.Response): string {
-    return `${res.locals.reportSubUrlPrefix}/prisoners`
+    const { reportSubUrlPrefix } = res.locals
+
+    if (!reportSubUrlPrefix) {
+      throw missingLocalsError('PrisonerInvolvementController#getBackLink()', 'res.locals.reportSubUrlPrefix')
+    }
+
+    return `${reportSubUrlPrefix}/prisoners`
   }
 
   getNextStep(req: FormWizard.Request<Values>, res: express.Response): string {
+    const { reportUrl, reportSubUrlPrefix } = res.locals
+
+    if (!reportUrl) {
+      throw missingLocalsError('PrisonerInvolvementController#getNextStep()', 'res.locals.reportUrl')
+    }
+    if (!reportSubUrlPrefix) {
+      throw missingLocalsError('PrisonerInvolvementController#getNextStep()', 'res.locals.reportSubUrlPrefix')
+    }
+
     // go to report view if user chose to exit
     if (req.body?.formAction === 'exit') {
-      return res.locals.reportUrl
+      return reportUrl
     }
     // …or return to involvements summary
-    return `${res.locals.reportSubUrlPrefix}/prisoners`
+    return `${reportSubUrlPrefix}/prisoners`
   }
 
   protected abstract getPrisonerName(res: express.Response): { firstName: string; lastName: string }

@@ -8,6 +8,7 @@ import {
   IncidentReportingApi,
   RelatedObjects,
   type ReportBasic,
+  type ReportWithDetails,
   type CorrectionRequest,
   type AddCorrectionRequestRequest,
   type UpdateCorrectionRequestRequest,
@@ -164,7 +165,7 @@ describe('Requesting removal of a report', () => {
 
       it(`should allow requesting removal of a duplicate report changing the status to ${newStatus}`, () => {
         incidentReportingApi.getReportByReference.mockResolvedValueOnce(mockedDuplicateReport)
-        incidentReportingApi.changeReportStatus.mockResolvedValueOnce(undefined) // NB: response is ignored
+        incidentReportingApi.changeReportStatus.mockResolvedValueOnce({} as ReportWithDetails) // NB: response is ignored
 
         return request(app)
           .post(requestRemoveReportUrl)
@@ -187,7 +188,7 @@ describe('Requesting removal of a report', () => {
 
       it('should still allow requesting removal of a duplicate report if comment is left empty', () => {
         incidentReportingApi.getReportByReference.mockResolvedValueOnce(mockedDuplicateReport)
-        incidentReportingApi.changeReportStatus.mockResolvedValueOnce(undefined) // NB: response is ignored
+        incidentReportingApi.changeReportStatus.mockResolvedValueOnce({} as ReportWithDetails) // NB: response is ignored
 
         return request(app)
           .post(requestRemoveReportUrl)
@@ -329,7 +330,7 @@ describe('Requesting removal of a report', () => {
       })
 
       it(`should allow requesting removal of a non-reportable report changing the status to ${newStatus}`, () => {
-        incidentReportingApi.changeReportStatus.mockResolvedValueOnce(undefined) // NB: response is ignored
+        incidentReportingApi.changeReportStatus.mockResolvedValueOnce({} as ReportWithDetails) // NB: response is ignored
 
         return request(app)
           .post(requestRemoveReportUrl)

@@ -51,7 +51,7 @@ export function* validateReport(
   }
 
   const lastQuestion = questionProgressSteps.at(-1)
-  if (!lastQuestion.isComplete) {
+  if (lastQuestion && !lastQuestion.isComplete) {
     // last question is incomplete
     yield {
       text: `You must answer question ${lastQuestion.questionNumber}`,

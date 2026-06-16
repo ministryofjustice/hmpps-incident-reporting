@@ -60,22 +60,30 @@ class DetailsController extends BaseDetailsController<CreateReportValues> {
   ): Promise<void> {
     const allValues = this.getAllValues(req)
 
+    const { incidentReportingApi } = res.locals.apis
+    const { user, permissions } = res.locals
+    const { activeCaseLoad } = user
     const { pecsRegion, type, description, incidentDate, incidentTime } = allValues
     const incidentDateAndTime = this.buildIncidentDateAndTime(incidentDate, incidentTime)
 
+    if (!activeCaseLoad) {
+      next(new Error(`User ${user.username} has no active case load`))
+      return
+    }
+
     let location: string
     let locationDescription: string
-    if (res.locals.permissions.canCreatePecsReport) {
+    if (permissions.canCreatePecsReport) {
       location = pecsRegion
       locationDescription =
         pecsRegions.find(somePecsRegion => somePecsRegion.code === pecsRegion)?.description ?? pecsRegion
     } else {
-      location = res.locals.user.activeCaseLoad.caseLoadId
-      locationDescription = res.locals.user.activeCaseLoad.description
+      location = activeCaseLoad.caseLoadId
+      locationDescription = activeCaseLoad.description
     }
 
     try {
-      const report = await res.locals.apis.incidentReportingApi.createReport({
+      const report = await incidentReportingApi.createReport({
         type,
         incidentDateAndTime,
         title: newReportTitle(type, locationDescription),

@@ -5,6 +5,7 @@ import type {
   ReportWithDetails,
 } from '../../data/incidentReportingApi'
 import type { PrisonApi } from '../../data/prisonApi'
+import type { Permissions } from '../../middleware/permissions'
 import { AgencyType } from '../../data/constants'
 import { isPecsRegionCode } from '../../data/pecsRegions'
 import {
@@ -46,6 +47,8 @@ export interface PrisonerIncidentListRow {
   location?: string
   establishment: string
   status: string
+  /** Whether the current user is permitted to view this report (gates the link to /reports/:id). */
+  canView: boolean
 }
 
 export interface PrisonerIncidentList {
@@ -181,10 +184,14 @@ function rowsForReport(
   report: ReportWithDetails,
   prisonerNumber: string,
   establishment: string,
+  permissions: Permissions,
 ): PrisonerIncidentListRow[] {
   const involvements = report.prisonersInvolved.filter(
     (prisoner: PrisonerInvolvement) => prisoner.prisonerNumber === prisonerNumber,
   )
+  // Use the raw, untranslated status/location (NOT the display-translated values) so this matches
+  // the VIEW check enforced by the /reports/:id route.
+  const canView = permissions.allowedActionsOnReport({ status: report.status, location: report.location }).has('VIEW')
   return involvements.map(involvement => ({
     reportId: report.id,
     reportReference: report.reportReference,
@@ -197,6 +204,7 @@ function rowsForReport(
     location: location(report),
     establishment,
     status: statusesDescriptions[report.status] ?? report.status,
+    canView,
   }))
 }
 
@@ -218,6 +226,7 @@ export async function getPrisonerIncidentList(
   api: IncidentReportingApi,
   prisonApi: PrisonApi,
   prisonerNumber: string,
+  permissions: Permissions,
 ): Promise<PrisonerIncidentList> {
   const fromDate = twelveMonthsAgo()
   const basicReports = await fetchAllReports(api, prisonerNumber, fromDate)
@@ -229,7 +238,9 @@ export async function getPrisonerIncidentList(
   )
 
   const rows = reports
-    .flatMap(report => rowsForReport(report, prisonerNumber, establishments.get(report.location) ?? report.location))
+    .flatMap(report =>
+      rowsForReport(report, prisonerNumber, establishments.get(report.location) ?? report.location, permissions),
+    )
     .sort((a, b) => b.incidentDateAndTime.getTime() - a.incidentDateAndTime.getTime())
 
   return { fromDate, rows }

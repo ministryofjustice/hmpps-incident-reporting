@@ -32,7 +32,12 @@ export default function prisonerIncidentSummaryRouter(): Router {
     const { prisonerNumber } = req.params
     const { incidentReportingApi, prisonApi } = res.locals.apis
 
-    const prisonerIncidentList = await getPrisonerIncidentList(incidentReportingApi, prisonApi, prisonerNumber)
+    const prisonerIncidentList = await getPrisonerIncidentList(
+      incidentReportingApi,
+      prisonApi,
+      prisonerNumber,
+      res.locals.permissions,
+    )
 
     res.render('pages/prisonerIncidentList', {
       prisoner: res.locals.prisoner,

@@ -11,8 +11,6 @@ import { AgencyType } from '../../data/constants'
 import { convertReportDates } from '../../data/incidentReportingApiUtils'
 import { mockReport } from '../../data/testData/incidentReporting'
 import type { PrisonerInvolvementRole, Status, Type } from '../../reportConfiguration/constants'
-import { Permissions } from '../../middleware/permissions'
-import { mockReportingOfficer } from '../../data/testData/users'
 import { getPrisonerIncidentList } from './list'
 
 jest.mock('../../data/incidentReportingApi')
@@ -26,9 +24,6 @@ afterEach(() => {
 })
 
 const PRISONER_NUMBER = 'A1111AA'
-
-// reporting officer with the Moorland (MDI) caseload only
-const permissions = new Permissions(mockReportingOfficer)
 
 function response(
   code: string,
@@ -147,7 +142,7 @@ describe('getPrisonerIncidentList', () => {
     })
     mockApis([assault])
 
-    const { rows } = await getPrisonerIncidentList(incidentReportingApi, prisonApi, PRISONER_NUMBER, permissions)
+    const { rows } = await getPrisonerIncidentList(incidentReportingApi, prisonApi, PRISONER_NUMBER)
 
     expect(rows).toHaveLength(1) // only this prisoner, not the unrelated involvement
     expect(rows[0]).toMatchObject({
@@ -179,7 +174,7 @@ describe('getPrisonerIncidentList', () => {
     })
     mockApis([selfHarm])
 
-    const { rows } = await getPrisonerIncidentList(incidentReportingApi, prisonApi, PRISONER_NUMBER, permissions)
+    const { rows } = await getPrisonerIncidentList(incidentReportingApi, prisonApi, PRISONER_NUMBER)
 
     expect(rows[0].extraInformation).toBe('Cutting, Burning')
     expect(rows[0].location).toBe('Ordinary (A-1-2-34)')
@@ -201,7 +196,7 @@ describe('getPrisonerIncidentList', () => {
     })
     mockApis([find])
 
-    const { rows } = await getPrisonerIncidentList(incidentReportingApi, prisonApi, PRISONER_NUMBER, permissions)
+    const { rows } = await getPrisonerIncidentList(incidentReportingApi, prisonApi, PRISONER_NUMBER)
 
     expect(rows[0].subtype).toBe('Multiple types')
     expect(rows[0].role).toBe('In possession')
@@ -218,7 +213,7 @@ describe('getPrisonerIncidentList', () => {
     })
     mockApis([oldAssault])
 
-    const { rows } = await getPrisonerIncidentList(incidentReportingApi, prisonApi, PRISONER_NUMBER, permissions)
+    const { rows } = await getPrisonerIncidentList(incidentReportingApi, prisonApi, PRISONER_NUMBER)
 
     expect(rows[0]).toMatchObject({ reportReference: '6004', role: 'Perpetrator', establishment: 'MDI prison' })
     expect(rows[0].subtype).toBeUndefined()
@@ -234,22 +229,38 @@ describe('getPrisonerIncidentList', () => {
     ]
     mockApis(reports)
 
-    const { rows } = await getPrisonerIncidentList(incidentReportingApi, prisonApi, PRISONER_NUMBER, permissions)
+    const { rows } = await getPrisonerIncidentList(incidentReportingApi, prisonApi, PRISONER_NUMBER)
 
     expect(rows.map(row => row.reportReference)).toEqual(['NEW', 'MID', 'OLD'])
   })
 
-  it('sets canView per report based on whether its location is in the user’s caseloads', async () => {
+  it('exposes the raw report status and location on each row for the template’s VIEW check', async () => {
     const reports = [
-      report({ id: '1', reference: 'MDI-REPORT', type: 'FIRE_1', location: 'MDI', date: '2025-06-01T09:00:00Z' }),
-      report({ id: '2', reference: 'LEI-REPORT', type: 'FIRE_1', location: 'LEI', date: '2025-05-01T09:00:00Z' }),
+      report({
+        id: '1',
+        reference: 'MDI-REPORT',
+        type: 'FIRE_1',
+        status: 'AWAITING_REVIEW',
+        location: 'MDI',
+        date: '2025-06-01T09:00:00Z',
+      }),
+      report({
+        id: '2',
+        reference: 'LEI-REPORT',
+        type: 'FIRE_1',
+        status: 'CLOSED',
+        location: 'LEI',
+        date: '2025-05-01T09:00:00Z',
+      }),
     ]
     mockApis(reports)
 
-    const { rows } = await getPrisonerIncidentList(incidentReportingApi, prisonApi, PRISONER_NUMBER, permissions)
+    const { rows } = await getPrisonerIncidentList(incidentReportingApi, prisonApi, PRISONER_NUMBER)
 
-    const byReference = Object.fromEntries(rows.map(row => [row.reportReference, row.canView]))
-    expect(byReference['MDI-REPORT']).toBe(true) // in the reporting officer’s caseload
-    expect(byReference['LEI-REPORT']).toBe(false) // establishment outside the caseload
+    const byReference = Object.fromEntries(
+      rows.map(row => [row.reportReference, { status: row.reportStatus, location: row.reportLocation }]),
+    )
+    expect(byReference['MDI-REPORT']).toEqual({ status: 'AWAITING_REVIEW', location: 'MDI' })
+    expect(byReference['LEI-REPORT']).toEqual({ status: 'CLOSED', location: 'LEI' })
   })
 })

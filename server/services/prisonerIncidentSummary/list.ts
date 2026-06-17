@@ -5,13 +5,13 @@ import type {
   ReportWithDetails,
 } from '../../data/incidentReportingApi'
 import type { PrisonApi } from '../../data/prisonApi'
-import type { Permissions } from '../../middleware/permissions'
 import { AgencyType } from '../../data/constants'
 import { isPecsRegionCode } from '../../data/pecsRegions'
 import {
   getTypeDetails,
   prisonerInvolvementRolesDescriptions,
   statusesDescriptions,
+  type Status,
 } from '../../reportConfiguration/constants'
 import { ACTIVE_DETAIL_TYPES } from './breakdowns'
 import { fetchAllReports, twelveMonthsAgo } from './prisonerReports'
@@ -47,8 +47,9 @@ export interface PrisonerIncidentListRow {
   location?: string
   establishment: string
   status: string
-  /** Whether the current user is permitted to view this report (gates the link to /reports/:id). */
-  canView: boolean
+  /** Raw report status/location, used by the template's VIEW check to gate the link to /reports/:id. */
+  reportStatus: Status
+  reportLocation: string
 }
 
 export interface PrisonerIncidentList {
@@ -184,14 +185,10 @@ function rowsForReport(
   report: ReportWithDetails,
   prisonerNumber: string,
   establishment: string,
-  permissions: Permissions,
 ): PrisonerIncidentListRow[] {
   const involvements = report.prisonersInvolved.filter(
     (prisoner: PrisonerInvolvement) => prisoner.prisonerNumber === prisonerNumber,
   )
-  // Use the raw, untranslated status/location (NOT the display-translated values) so this matches
-  // the VIEW check enforced by the /reports/:id route.
-  const canView = permissions.allowedActionsOnReport({ status: report.status, location: report.location }).has('VIEW')
   return involvements.map(involvement => ({
     reportId: report.id,
     reportReference: report.reportReference,
@@ -204,7 +201,10 @@ function rowsForReport(
     location: location(report),
     establishment,
     status: statusesDescriptions[report.status] ?? report.status,
-    canView,
+    // Raw values (NOT the display-translated status/location above) so the template's VIEW check
+    // matches the gate enforced by the /reports/:id route.
+    reportStatus: report.status,
+    reportLocation: report.location,
   }))
 }
 
@@ -226,7 +226,6 @@ export async function getPrisonerIncidentList(
   api: IncidentReportingApi,
   prisonApi: PrisonApi,
   prisonerNumber: string,
-  permissions: Permissions,
 ): Promise<PrisonerIncidentList> {
   const fromDate = twelveMonthsAgo()
   const basicReports = await fetchAllReports(api, prisonerNumber, fromDate)
@@ -238,9 +237,7 @@ export async function getPrisonerIncidentList(
   )
 
   const rows = reports
-    .flatMap(report =>
-      rowsForReport(report, prisonerNumber, establishments.get(report.location) ?? report.location, permissions),
-    )
+    .flatMap(report => rowsForReport(report, prisonerNumber, establishments.get(report.location) ?? report.location))
     .sort((a, b) => b.incidentDateAndTime.getTime() - a.incidentDateAndTime.getTime())
 
   return { fromDate, rows }

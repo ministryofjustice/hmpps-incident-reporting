@@ -22,6 +22,8 @@ import format from './format'
 import { isCorrectionRequestPlaceholder } from '../routes/reports/actions/correctionRequestPlaceholder'
 import { sortCorrectionRequests } from './sortCorrectionRequests'
 import { prisonerLocation } from './prisonerLocationUtils'
+import type { Permissions } from '../middleware/permissions'
+import type { ReportBasic } from '../data/incidentReportingApi'
 
 export default function nunjucksSetup(app: express.Express): void {
   app.set('view engine', 'njk')
@@ -78,6 +80,13 @@ export default function nunjucksSetup(app: express.Express): void {
   njkEnv.addExtension('panic', new PanicExtension())
   njkEnv.addFilter('isCorrectionRequestPlaceholder', isCorrectionRequestPlaceholder)
   njkEnv.addFilter('sortCorrectionRequests', sortCorrectionRequests)
+
+  // whether the current user is permitted to view a report (gates links to /reports/:id)
+  njkEnv.addGlobal(
+    'canViewReport',
+    (reportLike: Pick<ReportBasic, 'status' | 'location'>, permissions: Permissions): boolean =>
+      permissions.allowedActionsOnReport(reportLike).has('VIEW'),
+  )
 
   // name formatting
   njkEnv.addFilter('convertToTitleCase', convertToTitleCase)

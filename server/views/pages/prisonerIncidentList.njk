@@ -49,7 +49,7 @@
         {% set rows = [] %}
         {% for row in prisonerIncidentList.rows %}
           {% set linkHtml %}
-            {% if canViewReport({ status: row.reportStatus, location: row.reportLocation }, permissions) %}
+            {% if canViewReport(row.report, permissions) %}
               <a href="/reports/{{ row.reportId }}">
                 <span class="govuk-visually-hidden">Incident report</span>
                 {{ row.reportReference }}

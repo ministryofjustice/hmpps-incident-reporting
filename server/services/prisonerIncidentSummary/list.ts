@@ -2,6 +2,7 @@ import type {
   IncidentReportingApi,
   PrisonerInvolvement,
   Question,
+  ReportBasic,
   ReportWithDetails,
 } from '../../data/incidentReportingApi'
 import type { PrisonApi } from '../../data/prisonApi'
@@ -11,7 +12,6 @@ import {
   getTypeDetails,
   prisonerInvolvementRolesDescriptions,
   statusesDescriptions,
-  type Status,
 } from '../../reportConfiguration/constants'
 import { ACTIVE_DETAIL_TYPES } from './breakdowns'
 import { fetchAllReports, twelveMonthsAgo } from './prisonerReports'
@@ -47,9 +47,12 @@ export interface PrisonerIncidentListRow {
   location?: string
   establishment: string
   status: string
-  /** Raw report status/location, used by the template's VIEW check to gate the link to /reports/:id. */
-  reportStatus: Status
-  reportLocation: string
+  /**
+   * Raw report status/location — used by the template's VIEW check to gate the link to /reports/:id.
+   * NB the row's own `status`/`location` above are display-translated / free-text and must NOT be
+   * used for that check; the establishment code lives here in `report.location`.
+   */
+  report: Pick<ReportBasic, 'status' | 'location'>
 }
 
 export interface PrisonerIncidentList {
@@ -203,8 +206,7 @@ function rowsForReport(
     status: statusesDescriptions[report.status] ?? report.status,
     // Raw values (NOT the display-translated status/location above) so the template's VIEW check
     // matches the gate enforced by the /reports/:id route.
-    reportStatus: report.status,
-    reportLocation: report.location,
+    report: { status: report.status, location: report.location },
   }))
 }
 

@@ -257,9 +257,7 @@ describe('getPrisonerIncidentList', () => {
 
     const { rows } = await getPrisonerIncidentList(incidentReportingApi, prisonApi, PRISONER_NUMBER)
 
-    const byReference = Object.fromEntries(
-      rows.map(row => [row.reportReference, { status: row.reportStatus, location: row.reportLocation }]),
-    )
+    const byReference = Object.fromEntries(rows.map(row => [row.reportReference, row.report]))
     expect(byReference['MDI-REPORT']).toEqual({ status: 'AWAITING_REVIEW', location: 'MDI' })
     expect(byReference['LEI-REPORT']).toEqual({ status: 'CLOSED', location: 'LEI' })
   })

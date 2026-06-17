@@ -10,12 +10,7 @@ import {
   hoursFieldName,
   minutesFieldName,
 } from './incidentDateAndTimeFields'
-import {
-  incidentTypeHints,
-  incidentTypeLabels,
-  incidentTypeRequiresTime,
-  Type,
-} from '../../../reportConfiguration/constants'
+import { Type } from '../../../reportConfiguration/constants'
 
 type IncidentDateAndTimeControllerValues = IncidentDateAndTimeValues & { type?: Type }
 /**
@@ -185,4 +180,34 @@ export abstract class BaseIncidentDateAndTimeController<
     }
     return super.errorMessage(error, req, res)
   }
+}
+
+// TODO: move these to a more centralised appropriate place for future maintenance
+/** Adding bespoke hint text for incident types */
+const incidentTypeHints: { [K in Type]?: Record<string, string> } = {
+  RELEASE_IN_ERROR_1: {
+    incidentDate: 'For example, 17/5/2024',
+  },
+  UNLAWFUL_DETENTION_1: {
+    incidentDate: 'For example, 17/5/2024',
+  },
+}
+
+/**
+ * Override map for incident types where the time of incident is irrelevant.
+ * When set to false, the time field is hidden and 00:00 is submitted to the API automatically.
+ * Defaults to true (time required) for all types not listed here.
+ */
+const incidentTypeRequiresTime: Partial<Record<Type, boolean>> = {
+  UNLAWFUL_DETENTION_1: false,
+}
+
+/** Overrides for form field labels for incident types */
+const incidentTypeLabels: { [K in Type]?: Record<string, string> } = {
+  RELEASE_IN_ERROR_1: {
+    incidentDate: 'Date the person was released',
+  },
+  UNLAWFUL_DETENTION_1: {
+    incidentDate: 'Date the person should have been released',
+  },
 }

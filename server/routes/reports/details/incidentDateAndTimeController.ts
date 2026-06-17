@@ -67,12 +67,18 @@ export abstract class BaseIncidentDateAndTimeController<
         return
       }
 
+      if (!values) {
+        // TODO: Is there a way to avoid the type assertion?
+        // eslint-disable-next-line no-param-reassign
+        values = {} as V
+      }
+
       const reportType: Type = (req.sessionModel.get('type') as Type) ?? res.locals.report?.type
       const timeRequired = incidentTypeRequiresTime[reportType] ?? true
 
       if (!timeRequired) {
         // eslint-disable-next-line no-param-reassign
-        values.incidentTime = '00:00' as V['incidentTime']
+        values.incidentTime = '00:00'
       } else {
         const errorValues = req.sessionModel.get('errorValues')
         const incidentTimeValue = errorValues?.incidentTime ?? values?.incidentTime

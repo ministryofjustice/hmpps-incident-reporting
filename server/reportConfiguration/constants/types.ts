@@ -1,15 +1,7 @@
 // Generated with ./scripts/importDpsConstants.ts at 2025-08-19T16:38:54.769Z
 
-export type IncidentType = {
-  familyCode: string
-  code: string
-  description: string
-  active: boolean
-  nomisCode: string
-}
-
 /** Types of reportable incidents */
-export const types: IncidentType[] = [
+export const types = [
   { familyCode: 'ABSCOND', code: 'ABSCOND_1', description: 'Abscond', active: true, nomisCode: 'ABSCOND' },
   { familyCode: 'ASSAULT', code: 'ASSAULT_1', description: 'Assault', active: false, nomisCode: 'ASSAULT' },
   { familyCode: 'ASSAULT', code: 'ASSAULT_2', description: 'Assault', active: false, nomisCode: 'ASSAULTS' },
@@ -293,13 +285,10 @@ export const types: IncidentType[] = [
 ] as const
 
 /** Types of reportable incidents */
-export type TypeDetails = (typeof types)[number]
+type TypeDetails = (typeof types)[number]
 
 /** Codes for types of reportable incidents */
 export type Type = TypeDetails['code']
-
-/** Codes for types families of reportable incidents */
-export type FamilyCode = TypeDetails['familyCode']
 
 /** Code to description mapping for types of reportable incidents */
 export const typesDescriptions: Record<Type, string> = {

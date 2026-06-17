@@ -5,7 +5,7 @@ import { Router } from 'express'
 import logger from '../../../logger'
 import {
   type Status,
-  type FamilyCode,
+  type TypeFamily,
   type WorkList,
   workLists,
   workListCodes,
@@ -42,7 +42,7 @@ interface ListFormData {
   location?: string
   fromDate?: string
   toDate?: string
-  typeFamily?: FamilyCode
+  typeFamily?: TypeFamily
   incidentStatuses?: IncidentStatuses | IncidentStatuses[]
   latestUserActions?: ApiUserAction | ApiUserAction[] | 'REQUEST_REMOVAL'
   sort?: string

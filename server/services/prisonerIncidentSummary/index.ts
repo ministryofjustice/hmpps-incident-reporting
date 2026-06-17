@@ -1,5 +1,5 @@
 import type { IncidentReportingApi, Question, ReportBasic } from '../../data/incidentReportingApi'
-import type { FamilyCode } from '../../reportConfiguration/constants'
+import type { TypeFamily } from '../../reportConfiguration/constants'
 import { getTypeDetails, typeFamiliesDescriptions } from '../../reportConfiguration/constants'
 import {
   ACTIVE_DETAIL_TYPES,
@@ -14,7 +14,7 @@ import { fetchAllReports, twelveMonthsAgo } from './prisonerReports'
 
 /** A count of reports for one incident-type family. */
 export interface FamilyCount {
-  familyCode: FamilyCode
+  familyCode: TypeFamily
   description: string
   count: number
 }
@@ -36,7 +36,7 @@ export interface PrisonerIncidentSummary {
 
 /** Group reports by family code, returning counts ordered by family description. */
 function countByFamily(reports: ReportBasic[]): FamilyCount[] {
-  const counts = new Map<FamilyCode, number>()
+  const counts = new Map<TypeFamily, number>()
   for (const report of reports) {
     const family = getTypeDetails(report.type)?.familyCode
     if (family) {

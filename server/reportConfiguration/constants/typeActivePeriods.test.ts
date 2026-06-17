@@ -4,10 +4,12 @@ import {
   getTypeFamilyExpiryDates,
   isTypeActive,
   typeActivePeriods,
+  TypeDetails,
+  TypeFamilyDetails,
 } from './typeActivePeriods'
-import { types, getTypeDetails, type Type, IncidentType, type FamilyCode } from './types'
+import { types, getTypeDetails, type Type } from './types'
 import config from '../../config'
-import { IncidentTypeFamily } from './typeFamilies'
+import type { TypeFamily } from './typeFamilies'
 
 /** Local London-midnight date helper for fixed test instants. */
 function on(isoDate: string): Date {
@@ -130,7 +132,7 @@ describe('one active version per family invariant', () => {
 
 describe('areTypeFamiliesInactive()', () => {
   it('returns the correct values for type families in correct format', () => {
-    const testTypes: IncidentType[] = [
+    const testTypes: TypeDetails[] = [
       { familyCode: 'ABSCOND', code: 'ABSCOND_1', description: 'Abscond', active: true, nomisCode: 'ABSCOND' },
       { familyCode: 'ASSAULT', code: 'ASSAULT_1', description: 'Assault', active: false, nomisCode: 'ASSAULT' },
       { familyCode: 'ASSAULT', code: 'ASSAULT_2', description: 'Assault', active: false, nomisCode: 'ASSAULTS' },
@@ -158,7 +160,7 @@ describe('areTypeFamiliesInactive()', () => {
 
 describe('getTypeFamilyExpiryDates()', () => {
   it('returns the correct dates for type families in the correct format', () => {
-    const testTypes: IncidentType[] = [
+    const testTypes: TypeDetails[] = [
       { familyCode: 'ABSCOND', code: 'ABSCOND_1', description: 'Abscond', active: true, nomisCode: 'ABSCOND' },
       { familyCode: 'ASSAULT', code: 'ASSAULT_1', description: 'Assault', active: false, nomisCode: 'ASSAULT' },
       { familyCode: 'ASSAULT', code: 'ASSAULT_2', description: 'Assault', active: false, nomisCode: 'ASSAULTS' },
@@ -174,7 +176,7 @@ describe('getTypeFamilyExpiryDates()', () => {
         nomisCode: 'CLOSE_DOWN',
       },
     ]
-    const testFamilyDetails: IncidentTypeFamily[] = [
+    const testFamilyDetails: TypeFamilyDetails[] = [
       { code: 'ABSCOND', description: 'Abscond' },
       { code: 'ASSAULT', description: 'Assault' },
       { code: 'BARRICADE', description: 'Barricade' },
@@ -189,7 +191,7 @@ describe('getTypeFamilyExpiryDates()', () => {
       CLOSE_DOWN_SEARCH_1: { activeTo: '2026-07-01' },
     }
 
-    const expected: Record<FamilyCode, string | null> = {
+    const expected: Partial<Record<TypeFamily, string | null>> = {
       ABSCOND: null, // No activeTo dates
       ASSAULT: 'Apr 2017', // Most have activeTo dates but not all
       BARRICADE: 'Jan 2015', // Inactive

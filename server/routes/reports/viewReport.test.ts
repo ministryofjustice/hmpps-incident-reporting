@@ -628,7 +628,7 @@ describe('View report page', () => {
     {
       userType: 'data wardens',
       user: mockDataWarden,
-      prisonStatuses: [],
+      prisonStatuses: [] as string[],
       pecsStatuses: ['DRAFT', 'REOPENED'],
     },
     {

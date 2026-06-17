@@ -56,7 +56,7 @@ describe('getPrisonerIncidentSummary', () => {
 
     await getPrisonerIncidentSummary(api, 'A1111AA')
 
-    const query = api.getReports.mock.calls[0][0]
+    const query = api.getReports.mock.calls[0][0]!
     expect(query.involvingPrisonerNumber).toBe('A1111AA')
     expect(query.incidentDateFrom).toBeInstanceOf(Date)
     const excluded: Status[] = ['DRAFT', 'DUPLICATE', 'NOT_REPORTABLE']

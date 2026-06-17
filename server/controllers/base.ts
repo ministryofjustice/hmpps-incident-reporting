@@ -39,6 +39,9 @@ export abstract class BaseController<
       requestHandler.bind(this),
     )
     const boundRouterMethod: (typeof this.router)[typeof method] = this.router[method].bind(this.router)
+    // @ts-expect-error - Type 'RequestHandler<V, K>' is not assignable to type 'RequestHandler<ParamsDictionary, any, any, ParsedQs, Record<string, any>>'.
+    //                    Types of parameters 'req' and 'req' are incompatible.
+    //                    Type 'Request<ParamsDictionary, ...>' is missing the following properties from type 'Request<V, K>': isEditing, journeyModel, sessionModel, form
     boundRouterMethod('{*allPaths}', ...boundRequestHandlers)
   }
 

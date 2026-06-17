@@ -2,6 +2,10 @@
   "$schema": "https://json.schemastore.org/tsconfig",
   "extends": "../tsconfig.json",
   "compilerOptions": {
+    "strict": true,
+    "strictNullChecks": false,
+    "strictFunctionTypes": false,
+
     "target": "es2024",
     "lib": ["dom", "es2024"],
     "types": ["cypress", "express", "express-session"],

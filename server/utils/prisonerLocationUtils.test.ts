@@ -52,6 +52,7 @@ describe('prisonerLocation()', () => {
     })
 
     it(`when location is undefined, returns 'Not known'`, () => {
+      // @ts-expect-error - Fred test user has some undefined values
       expect(prisonerLocation(fred)).toEqual('Not known')
     })
   })

@@ -396,6 +396,7 @@ describe('Searching for a prisoner to add to a report', () => {
         page: '1',
       }
       results = {
+        // @ts-expect-error - Fred test user has some undefined properties
         content: [andrew, barry, chris, donald, ernie, fred],
         totalElements: 6,
       }

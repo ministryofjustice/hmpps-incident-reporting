@@ -105,12 +105,13 @@ describe('GET /prisoner/:prisonerNumber/incident-summary', () => {
 })
 
 describe('GET /prisoner/:prisonerNumber/incident-summary/incidents', () => {
-  function reportWithDetails(reportReference: string, type: Type): ReportWithDetails {
+  function reportWithDetails(reportReference: string, type: Type, location = 'MDI'): ReportWithDetails {
     const report = convertReportDates(
       mockReport({
         reportReference,
         type,
         status: 'AWAITING_REVIEW',
+        location,
         reportDateAndTime: new Date('2025-06-01T10:15:00Z'),
         withDetails: true,
       }),
@@ -145,6 +146,23 @@ describe('GET /prisoner/:prisonerNumber/incident-summary/incidents', () => {
         expect(res.text).toContain('6001') // report reference
         expect(res.text).toContain('Perpetrator')
         expect(res.text).toContain('Moorland (HMP)')
+        expect(res.text).toContain('href="/reports/') // viewable report is linked
+      })
+  })
+
+  it('renders the report reference as plain text when the user cannot view the report', () => {
+    offenderSearchApi.getPrisoner.mockResolvedValue(andrew)
+    incidentReportingApi.getReports.mockResolvedValue(page([basicReport('1', 'FIRE_1')]))
+    // report at Leeds, outside the reporting officer’s (MDI-only) caseload
+    incidentReportingApi.getReportWithDetailsById.mockResolvedValue(reportWithDetails('6002', 'FIRE_1', 'LEI'))
+    prisonApi.getAgency.mockResolvedValue({ agencyId: 'LEI', description: 'Leeds (HMP)' } as never)
+
+    return request(app)
+      .get(`/prisoner/${andrew.prisonerNumber}/incident-summary/incidents`)
+      .expect(200)
+      .expect(res => {
+        expect(res.text).toContain('6002') // report reference still shown
+        expect(res.text).not.toContain('href="/reports/') // but no link to the un-viewable report
       })
   })
 

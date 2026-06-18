@@ -2,6 +2,7 @@ import type {
   IncidentReportingApi,
   PrisonerInvolvement,
   Question,
+  ReportBasic,
   ReportWithDetails,
 } from '../../data/incidentReportingApi'
 import type { PrisonApi } from '../../data/prisonApi'
@@ -46,6 +47,12 @@ export interface PrisonerIncidentListRow {
   location?: string
   establishment: string
   status: string
+  /**
+   * Raw report status/location — used by the template's VIEW check to gate the link to /reports/:id.
+   * NB the row's own `status`/`location` above are display-translated / free-text and must NOT be
+   * used for that check; the establishment code lives here in `report.location`.
+   */
+  report: Pick<ReportBasic, 'status' | 'location'>
 }
 
 export interface PrisonerIncidentList {
@@ -197,6 +204,9 @@ function rowsForReport(
     location: location(report),
     establishment,
     status: statusesDescriptions[report.status] ?? report.status,
+    // Raw values (NOT the display-translated status/location above) so the template's VIEW check
+    // matches the gate enforced by the /reports/:id route.
+    report: { status: report.status, location: report.location },
   }))
 }
 

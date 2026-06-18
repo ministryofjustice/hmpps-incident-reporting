@@ -233,4 +233,32 @@ describe('getPrisonerIncidentList', () => {
 
     expect(rows.map(row => row.reportReference)).toEqual(['NEW', 'MID', 'OLD'])
   })
+
+  it('exposes the raw report status and location on each row for the template’s VIEW check', async () => {
+    const reports = [
+      report({
+        id: '1',
+        reference: 'MDI-REPORT',
+        type: 'FIRE_1',
+        status: 'AWAITING_REVIEW',
+        location: 'MDI',
+        date: '2025-06-01T09:00:00Z',
+      }),
+      report({
+        id: '2',
+        reference: 'LEI-REPORT',
+        type: 'FIRE_1',
+        status: 'CLOSED',
+        location: 'LEI',
+        date: '2025-05-01T09:00:00Z',
+      }),
+    ]
+    mockApis(reports)
+
+    const { rows } = await getPrisonerIncidentList(incidentReportingApi, prisonApi, PRISONER_NUMBER)
+
+    const byReference = Object.fromEntries(rows.map(row => [row.reportReference, row.report]))
+    expect(byReference['MDI-REPORT']).toEqual({ status: 'AWAITING_REVIEW', location: 'MDI' })
+    expect(byReference['LEI-REPORT']).toEqual({ status: 'CLOSED', location: 'LEI' })
+  })
 })

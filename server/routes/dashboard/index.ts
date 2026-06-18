@@ -16,6 +16,8 @@ import {
   types,
   typesDescriptions,
   typeFamilies,
+  familyExpiryDates,
+  familyInactiveStatus,
 } from '../../reportConfiguration/constants'
 import type { PaginatedBasicReports } from '../../data/incidentReportingApi'
 import { type Order, orderOptions } from '../../data/offenderSearchApi'
@@ -306,10 +308,21 @@ export default function dashboard(): Router {
     const usernames = reports.map(report => report.reportedBy)
     const usersLookup = await userService.getUsers(res.locals.systemToken, usernames)
 
-    const typeFamilyItems: GovukSelectItem[] = typeFamilies.map(family => ({
-      value: family.code,
-      text: family.description,
-    }))
+    const activeTypeFamilyItems: GovukSelectItem[] = typeFamilies
+      .filter(({ code: someFamilyCode }) => !familyInactiveStatus[someFamilyCode])
+      .map(family => ({
+        value: family.code,
+        text: family.description,
+      }))
+
+    const expiredTypeFamilyItems: GovukSelectItem[] = typeFamilies
+      .filter(({ code: someFamilyCode }) => familyInactiveStatus[someFamilyCode])
+      .map(family => ({
+        value: family.code,
+        text: `${family.description} (inactive since ${familyExpiryDates[family.code]})`,
+      }))
+
+    const typeFamilyItems: GovukSelectItem[] = [...activeTypeFamilyItems, ...expiredTypeFamilyItems]
 
     const showWorkListFilters = permissions.isReportingOfficer
 

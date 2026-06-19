@@ -19,7 +19,7 @@ context('Add prisoner involvement page', () => {
       firstName: barry.firstName,
       lastName: barry.lastName,
       prisonerRole: 'ASSISTED_STAFF',
-      outcome: null,
+      outcome: undefined,
       comment: '',
     },
   ]
@@ -92,7 +92,7 @@ context('Add prisoner involvement page', () => {
         firstName: 'ANDREW',
         lastName: 'ARNOLD',
         prisonerRole: 'ACTIVE_INVOLVEMENT',
-        outcome: null,
+        outcome: undefined,
         comment: 'Was there',
       },
       response: reportWithDetails.prisonersInvolved, // technically, missing new person
@@ -117,7 +117,7 @@ context('Add prisoner involvement page', () => {
         firstName: 'ANDREW',
         lastName: 'ARNOLD',
         prisonerRole: 'SUSPECTED_INVOLVED',
-        outcome: null,
+        outcome: undefined,
         comment: '',
       },
       response: reportWithDetails.prisonersInvolved, // technically, missing new person

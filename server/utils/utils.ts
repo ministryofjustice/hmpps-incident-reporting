@@ -44,7 +44,7 @@ export const reversedNameOfPerson = (prisoner: { firstName: string; lastName: st
   return `${lastName}${firstName}`.trim()
 }
 
-export const initialiseName = (fullName?: string): string | null => {
+export const initialiseName = (fullName: string | undefined | null): string | null => {
   // this check is for the authError page
   if (!fullName) return null
 

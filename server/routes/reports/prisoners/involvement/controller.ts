@@ -47,6 +47,8 @@ export abstract class PrisonerInvolvementController extends BaseController<Value
 
     // outcome only exists for reports originally made in NOMIS
     if (!report.createdInNomis) {
+      // @ts-expect-error - NOMIS involvement has `outcome` field, but not DPS
+      // can't quite model the type to work with both formats
       delete customisedFields.outcome
     }
 
@@ -161,9 +163,9 @@ export abstract class PrisonerInvolvementController extends BaseController<Value
   }
 
   /** Turns a *prevalidated* outcome string into a typed outcome */
-  protected coerceOutcome(outcome: string): PrisonerInvolvementOutcome | null {
+  protected coerceOutcome(outcome: string): PrisonerInvolvementOutcome | undefined {
     if (!outcome?.trim()) {
-      return null
+      return undefined
     }
     return outcome as PrisonerInvolvementOutcome
   }

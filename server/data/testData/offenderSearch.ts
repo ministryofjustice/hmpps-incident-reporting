@@ -63,7 +63,7 @@ export const ernie: OffenderSearchResultOut = {
 }
 
 /** A6666FF in unknown location */
-export const fred: OffenderSearchResult = {
+export const fred: Partial<OffenderSearchResult> = {
   prisonerNumber: 'A6666FF',
   firstName: 'FRED',
   lastName: 'FOGG',

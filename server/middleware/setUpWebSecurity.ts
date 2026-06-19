@@ -1,4 +1,5 @@
 import crypto from 'node:crypto'
+import type { IncomingMessage, ServerResponse } from 'node:http'
 
 import express, { type Router, type Request, type Response, type NextFunction } from 'express'
 import helmet from 'helmet'
@@ -31,13 +32,13 @@ export default function setUpWebSecurity(): Router {
             frontendComponentsHost,
             '*.google-analytics.com',
             '*.googletagmanager.com',
-            (_req: Request, res: Response) => `'nonce-${res.locals.cspNonce}'`,
+            (_req: IncomingMessage, res: ServerResponse) => `'nonce-${(res as Response).locals.cspNonce}'`,
           ],
           styleSrc: [
             "'self'",
             'fonts.googleapis.com',
             frontendComponentsHost,
-            (_req: Request, res: Response) => `'nonce-${res.locals.cspNonce}'`,
+            (_req: IncomingMessage, res: ServerResponse) => `'nonce-${(res as Response).locals.cspNonce}'`,
           ],
           imgSrc: [
             "'self'",

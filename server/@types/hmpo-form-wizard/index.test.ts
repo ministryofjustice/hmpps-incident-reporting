@@ -20,6 +20,7 @@ it('Deriving controller values type', () => {
     saveValues(req: FormWizard.Request<Values, 'name'>, res: express.Response, next: express.NextFunction): void {
       // `name` exists in this step as derived by FormWizard.ValuesFromFields
       // `name` must be a string value otherwise the next line would fail type checking
+      // @ts-expect-error - name is `string | undefined` - why? Does `FormWizard.Request` need tweaking?
       mustBeString(req.form.values.name)
 
       // `emails` cannot exist on this step so expect an error
@@ -35,6 +36,7 @@ it('Deriving controller values type', () => {
     saveValues(req: FormWizard.Request<Values, 'emails'>, res: express.Response, next: express.NextFunction): void {
       // `emails` exists in this step as derived by FormWizard.ValuesFromFields
       // `emails` must be a string array value otherwise the next line would fail type checking
+      // @ts-expect-error - email is `string | undefined` - why? Does `FormWizard.Request` need tweaking?
       mustBeStringArray(req.form.values.emails)
 
       // `name` cannot exist on this step so expect an error

@@ -17,7 +17,13 @@ class DetailsController extends BaseDetailsController<DetailsValues> {
   //       otherwise cannot edit 2 pages at once in different windows
 
   middlewareLocals(): void {
+    // @ts-expect-error - Types of parameters '_req' and 'req' are incompatible.
+    //                    The types of 'form.options.fields' are incompatible between these types.
+    //                    Property 'description' is missing in type 'Fields<Pick<...>
     this.use(this.checkReportStatus)
+    // @ts-expect-error - Types of parameters '_req' and 'req' are incompatible.
+    //                    The types of 'form.options.fields' are incompatible between these types.
+    //                    Property 'description' is missing in type 'Fields<Pick<...>
     this.use(this.loadReportIntoSession)
     super.middlewareLocals()
   }

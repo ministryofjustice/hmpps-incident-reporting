@@ -110,7 +110,9 @@ export class Permissions {
     const allowedActions = new Set<UserAction>(['VIEW'])
 
     const modifyingAllowedActions = this.possibleTransitions(reportLike)
-    Object.keys(modifyingAllowedActions).forEach((action: UserAction) => allowedActions.add(action))
+    // TODO: `Object.keys()` unfortunately widens the `UserAction` into `string`.
+    //       Is there a way to avoid the type assertion?
+    ;(Object.keys(modifyingAllowedActions) as UserAction[]).forEach(action => allowedActions.add(action))
 
     return allowedActions
   }

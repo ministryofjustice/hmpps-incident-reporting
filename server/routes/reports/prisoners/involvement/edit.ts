@@ -109,7 +109,7 @@ class EditPrisonerInvolvementController extends PrisonerInvolvementController {
     try {
       await incidentReportingApi.prisonersInvolved.updateForReport(report.id, index, {
         prisonerRole: this.coercePrisonerRole(allValues.prisonerRole),
-        outcome: report.createdInNomis ? this.coerceOutcome(allValues.outcome) : null,
+        outcome: report.createdInNomis ? this.coerceOutcome(allValues.outcome) : undefined,
         comment: allValues.comment ?? '',
       })
       logger.info('Prisoner involvement %d updated in report %s', index, report.id)

@@ -14,6 +14,7 @@ import { buildArray } from './utils'
 
 describe('findFieldInGovukErrorSummary', () => {
   it.each([undefined, null])('should return null if error list is %p', list => {
+    // @ts-expect-error - invalid test input
     expect(findFieldInGovukErrorSummary(list, 'field')).toBeNull()
   })
 
@@ -175,6 +176,7 @@ describe('govukCheckedItemsDivider', () => {
 
 describe('govukSelectInsertDefault', () => {
   it.each([undefined, null])('should ignore item list %p', list => {
+    // @ts-expect-error - test with invalid input
     expect(govukSelectInsertDefault(list, 'Select an option…')).toStrictEqual(list)
   })
 
@@ -195,6 +197,7 @@ describe('govukSelectInsertDefault', () => {
 
 describe('govukSelectSetSelected', () => {
   it.each([undefined, null])('should ignore item list %p', list => {
+    // @ts-expect-error - test with invalid input
     expect(govukSelectSetSelected(list, 'red')).toStrictEqual(list)
   })
 
@@ -223,6 +226,7 @@ describe('govukSelectSetSelected', () => {
       { text: 'Red', value: 'red' },
       { text: 'Blue', value: 'blue' },
     ]
+    // @ts-expect-error - test with invalid input
     const newList = govukSelectSetSelected(list, undefined)
     expect(newList).toHaveLength(2)
     expect(newList.map(item => item.selected)).toStrictEqual([undefined, undefined])

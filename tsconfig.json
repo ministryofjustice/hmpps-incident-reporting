@@ -3,13 +3,7 @@
   "extends": "@tsconfig/node24/tsconfig.json",
   "compileOnSave": true,
   "compilerOptions": {
-    "strict": false,
-    "strictBindCallApply": true,
-    "strictBuiltinIteratorReturn": true,
-    "noImplicitAny": true,
-    "noImplicitThis": true,
-    "useUnknownInCatchVariables": true,
-
+    "strict": true,
     "isolatedModules": true,
     "outDir": "./dist",
     "sourceMap": true,

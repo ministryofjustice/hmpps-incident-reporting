@@ -368,6 +368,7 @@ describe('prisonApi', () => {
             domain,
             code: 'SAMPL3',
             description: 'Sample 3',
+            // @ts-expect-error - invalid test input
             listSeq: undefined,
             activeFlag: 'Y',
             systemDataFlag: 'N',

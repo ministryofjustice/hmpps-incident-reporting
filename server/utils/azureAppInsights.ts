@@ -43,8 +43,10 @@ export function buildAppInsightsClient(
   return null
 }
 
-function parameterisePaths(envelope: EnvelopeTelemetry, contextObjects: ContextObject): boolean {
-  const operationNameOverride = contextObjects.correlationContext?.customProperties?.getProperty('operationName')
+function parameterisePaths(envelope: EnvelopeTelemetry, contextObjects: Record<string, unknown> | undefined): boolean {
+  const operationNameOverride = (
+    contextObjects?.correlationContext as CorrelationContext
+  )?.customProperties?.getProperty('operationName')
   if (operationNameOverride) {
     /*  eslint-disable no-param-reassign */
     envelope.tags['ai.operation.name'] = operationNameOverride

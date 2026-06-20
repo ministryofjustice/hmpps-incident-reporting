@@ -35,7 +35,7 @@
     "node": "^24"
   },
   "dependencies": {
-    "@aws-sdk/client-sqs": "^3.1067.0",
+    "@aws-sdk/client-sqs": "^3.1068.0",
     "@ministryofjustice/frontend": "^9.0.0",
     "@ministryofjustice/hmpps-auth-clients": "^2.0.0",
     "@ministryofjustice/hmpps-monitoring": "^2.1.0",
@@ -95,7 +95,7 @@
     "cypress": "^15.17.0",
     "cypress-multi-reporters": "^2.0.5",
     "del": "8.0.1",
-    "esbuild": "^0.28.0",
+    "esbuild": "^0.28.1",
     "esbuild-plugin-copy": "^2.1.1",
     "esbuild-plugin-manifest": "^1.0.5",
     "esbuild-sass-plugin": "^3.7.0",

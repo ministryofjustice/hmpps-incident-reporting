@@ -1,4 +1,11 @@
 import type { Question } from '../../data/incidentReportingApi'
+import {
+  answeredYes,
+  hasAnyResponseCode,
+  hasResponseNotIn,
+  hasResponseStartingWith,
+  responses,
+} from './questionHelpers'
 
 /**
  * Detail breakdowns for the prisoner incident summary page.
@@ -37,43 +44,6 @@ function runRules(reportsQuestions: Question[][], rules: BreakdownRule[]): Break
     label,
     count: reportsQuestions.filter(questions => matches(questions)).length,
   }))
-}
-
-// --- helpers operating on a single report's questions ---
-
-function findQuestion(questions: Question[], questionCode: string): Question | undefined {
-  return questions.find(question => question.code === questionCode)
-}
-
-/** Uppercase responses (the `response` field) given to a question, or [] if unanswered. */
-function responses(questions: Question[], questionCode: string): string[] {
-  return findQuestion(questions, questionCode)?.responses.map(response => response.response) ?? []
-}
-
-/** True if the question has any response whose *code* is in `responseCodes`. */
-function hasAnyResponseCode(questions: Question[], questionCode: string, responseCodes: string[]): boolean {
-  const question = findQuestion(questions, questionCode)
-  if (!question) {
-    return false
-  }
-  const wanted = new Set(responseCodes)
-  return question.responses.some(response => wanted.has(response.code))
-}
-
-/** True if the question was answered "YES" (used for the many yes/no questions). */
-function answeredYes(questions: Question[], questionCode: string): boolean {
-  return responses(questions, questionCode).some(response => response === 'YES')
-}
-
-/** True if the question has any response starting with `prefix` (e.g. "YES - BLUNT..."). */
-function hasResponseStartingWith(questions: Question[], questionCode: string, prefix: string): boolean {
-  return responses(questions, questionCode).some(response => response.startsWith(prefix))
-}
-
-/** True if the question has any response outside `excluded` (e.g. a non-NIL quantity). */
-function hasResponseNotIn(questions: Question[], questionCode: string, excluded: string[]): boolean {
-  const exclude = new Set(excluded)
-  return responses(questions, questionCode).some(response => !exclude.has(response))
 }
 
 // --- ASSAULT_5 ---

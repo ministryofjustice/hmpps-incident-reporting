@@ -10,12 +10,7 @@ import {
   hoursFieldName,
   minutesFieldName,
 } from './incidentDateAndTimeFields'
-import {
-  incidentTypeHints,
-  incidentTypeLabels,
-  incidentTypeRequiresTime,
-  Type,
-} from '../../../reportConfiguration/constants'
+import { Type } from '../../../reportConfiguration/constants'
 
 type IncidentDateAndTimeControllerValues = IncidentDateAndTimeValues & { type?: Type }
 /**
@@ -72,12 +67,18 @@ export abstract class BaseIncidentDateAndTimeController<
         return
       }
 
+      if (!values) {
+        // TODO: Is there a way to avoid the type assertion?
+        // eslint-disable-next-line no-param-reassign
+        values = {} as V
+      }
+
       const reportType: Type = (req.sessionModel.get('type') as Type) ?? res.locals.report?.type
       const timeRequired = incidentTypeRequiresTime[reportType] ?? true
 
       if (!timeRequired) {
         // eslint-disable-next-line no-param-reassign
-        values.incidentTime = '00:00' as V['incidentTime']
+        values.incidentTime = '00:00'
       } else {
         const errorValues = req.sessionModel.get('errorValues')
         const incidentTimeValue = errorValues?.incidentTime ?? values?.incidentTime
@@ -108,7 +109,7 @@ export abstract class BaseIncidentDateAndTimeController<
       const hours = req.form.values[hoursFieldName]
       const minutes = req.form.values[minutesFieldName]
       const digits = /^\d{1,2}$/
-      if (digits.test(hours) && digits.test(minutes)) {
+      if (hours && digits.test(hours) && minutes && digits.test(minutes)) {
         req.form.values.incidentTime = `${hours.padStart(2, '0')}:${minutes.padStart(2, '0')}`
       }
     }
@@ -159,7 +160,7 @@ export abstract class BaseIncidentDateAndTimeController<
    * Combine date and time strings into a Date
    * @throws {Error} when either date or time cannot be parsed
    */
-  protected buildIncidentDateAndTime(incidentDate: string, incidentTime: string): Date {
+  protected buildIncidentDateAndTime(incidentDate: string | undefined, incidentTime: string | undefined): Date {
     const incidentDateAndTime = parseDateInput(incidentDate)
     const time = parseTimeInput(incidentTime)
     incidentDateAndTime.setHours(time.hours)
@@ -185,4 +186,34 @@ export abstract class BaseIncidentDateAndTimeController<
     }
     return super.errorMessage(error, req, res)
   }
+}
+
+// TODO: move these to a more centralised appropriate place for future maintenance
+/** Adding bespoke hint text for incident types */
+const incidentTypeHints: { [K in Type]?: Record<string, string> } = {
+  RELEASE_IN_ERROR_1: {
+    incidentDate: 'For example, 17/5/2024',
+  },
+  UNLAWFUL_DETENTION_1: {
+    incidentDate: 'For example, 17/5/2024',
+  },
+}
+
+/**
+ * Override map for incident types where the time of incident is irrelevant.
+ * When set to false, the time field is hidden and 00:00 is submitted to the API automatically.
+ * Defaults to true (time required) for all types not listed here.
+ */
+const incidentTypeRequiresTime: Partial<Record<Type, boolean>> = {
+  UNLAWFUL_DETENTION_1: false,
+}
+
+/** Overrides for form field labels for incident types */
+const incidentTypeLabels: { [K in Type]?: Record<string, string> } = {
+  RELEASE_IN_ERROR_1: {
+    incidentDate: 'Date the person was released',
+  },
+  UNLAWFUL_DETENTION_1: {
+    incidentDate: 'Date the person should have been released',
+  },
 }

@@ -41,7 +41,12 @@ export function getHelmEnvironments(): HelmEnvironment[] {
         fs.readFileSync(helmValuesPath, { encoding: 'utf8' }),
       )
 
-      const { environment } = /^values-(?<environment>.*?).yaml$/.exec(p).groups
+      const match = /^values-(?<environment>.*?).yaml$/.exec(p)
+      if (!match?.groups) {
+        // NOTE: This should never happen because of the `filter()` above
+        throw new Error(`Invalid path to Helm values file`)
+      }
+      const { environment } = match.groups
       const baseUrl = `https://${helmValues['generic-service'].ingress.host}`
       return { environment, baseUrl }
     })

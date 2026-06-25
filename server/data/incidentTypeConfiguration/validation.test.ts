@@ -76,6 +76,7 @@ describe('DPS config validation', () => {
   describe('when config has invalid starting question code', () => {
     it('returns an error', () => {
       const config: IncidentTypeConfiguration = buildValidConfig()
+      // @ts-expect-error - simulating invalid config
       config.startingQuestionCode = null
 
       const errors = validateConfig(config).map(err => err.message)
@@ -502,7 +503,7 @@ function buildQuestion({
     question: label.toUpperCase(),
     label,
     multipleAnswers,
-    answers: answers ?? yesNoAnswers(nextQuestionCode),
+    answers: answers ?? yesNoAnswers(nextQuestionCode ?? null),
   }
 }
 

@@ -1,9 +1,11 @@
+import { type ApiUserType } from '../middleware/permissions'
 import type {
   CorrectionRequest,
   DescriptionAddendum,
   HistoricReport,
   HistoricStatus,
   HistoricType,
+  PrisonerInvolvement,
   Question,
   ReportBasic,
   ReportWithDetails,
@@ -28,6 +30,8 @@ export function convertReportWithDetailsDates(report: DatesAsStrings<ReportWithD
   return {
     ...report,
     ...convertBasicReportDates(report),
+    // TODO: Remove type assertion: `DateAsString<T>` turns `prisonersInvolved`'s `outcome`'s type into `string`
+    prisonersInvolved: report.prisonersInvolved as PrisonerInvolvement[],
     descriptionAddendums: report.descriptionAddendums.map(convertDescriptionAddendumDates),
     questions: report.questions.map(convertQuestionDates),
     history: report.history.map(convertHistoricReportDates),
@@ -68,7 +72,7 @@ export function convertQuestionDates(question: DatesAsStrings<Question>): Questi
 function convertResponseDates(response: DatesAsStrings<Response>): Response {
   return {
     ...response,
-    responseDate: response.responseDate && new Date(response.responseDate),
+    responseDate: response.responseDate ? new Date(response.responseDate) : null,
     recordedAt: new Date(response.recordedAt),
   }
 }
@@ -98,6 +102,8 @@ function convertHistoricTypeDates(historicType: DatesAsStrings<HistoricType>): H
 export function convertCorrectionRequestDates(correctionRequest: DatesAsStrings<CorrectionRequest>): CorrectionRequest {
   return {
     ...correctionRequest,
+    // TODO: Remove type assertion: `DateAsString<T>` turns `userType`'s type into `string`
+    userType: correctionRequest.userType as ApiUserType | null,
     correctionRequestedAt: new Date(correctionRequest.correctionRequestedAt),
   }
 }

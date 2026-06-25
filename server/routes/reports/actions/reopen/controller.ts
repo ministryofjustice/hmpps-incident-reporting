@@ -59,12 +59,24 @@ export class ReopenController extends BaseController<Values> {
   }
 
   getBackLink(_req: FormWizard.Request<Values>, res: express.Response): string {
-    res.locals.cancelUrl = res.locals.reportUrl
-    return res.locals.reportUrl
+    const { reportUrl } = res.locals
+
+    if (!reportUrl) {
+      throw missingLocalsError('ReopenController#getBackLink()', 'res.locals.reportUrl')
+    }
+
+    res.locals.cancelUrl = reportUrl
+    return reportUrl
   }
 
   getNextStep(_req: FormWizard.Request<Values>, res: express.Response): string {
-    return res.locals.reportUrl
+    const { reportUrl } = res.locals
+
+    if (!reportUrl) {
+      throw missingLocalsError('ReopenController#getNextStep()', 'res.locals.reportUrl')
+    }
+
+    return reportUrl
   }
 
   async saveValues(req: FormWizard.Request<Values>, res: express.Response, next: express.NextFunction): Promise<void> {
@@ -84,7 +96,8 @@ export class ReopenController extends BaseController<Values> {
     const userAction = 'RECALL' as const
     // NB: transition is not being used for permissions check; middleware already ensured this is possible
     const transition = possibleTransitions[userAction]
-    const { newStatus, successBanner } = transition
+    const newStatus = transition?.newStatus
+    const successBanner = transition?.successBanner
 
     try {
       if (newStatus && newStatus !== report.status) {
@@ -94,13 +107,13 @@ export class ReopenController extends BaseController<Values> {
             userType: userType as ApiUserType, // HQ viewer can’t get here
             userAction,
             descriptionOfChange: placeholderForCorrectionRequest(userAction),
-            originalReportReference: null,
+            originalReportReference: undefined,
           },
         })
       }
 
       logger.info(`Report ${report.reportReference} reopened to ${newStatus}`)
-      if (successBanner) {
+      if (successBanner && newStatus) {
         req.flash('success', {
           title: successBanner.replace('$reportReference', report.reportReference).replace('$newStatus', newStatus),
         })

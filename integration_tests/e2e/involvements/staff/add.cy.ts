@@ -241,7 +241,6 @@ context('Add staff involvement page', () => {
         urlSlug: RelatedObjectUrlSlug.staffInvolved,
         reportId: reportWithDetails.id,
         request: {
-          staffUsername: null,
           firstName: 'Mary',
           lastName: 'Johnson',
           staffRole: 'PRESENT_AT_SCENE',

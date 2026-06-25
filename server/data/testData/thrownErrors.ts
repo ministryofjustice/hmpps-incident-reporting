@@ -6,7 +6,10 @@ import { SanitisedError } from '@ministryofjustice/hmpps-rest-client'
  *
  * NB: some fields are omitted, in reality these are built out of superagent.ResponseError
  */
-export function mockThrownError<T>(responseBody: T, status: number = 400): SanitisedError<T> {
+export function mockThrownError<T extends NonNullable<unknown>>(
+  responseBody: T,
+  status: number = 400,
+): SanitisedError<T> {
   const error = new SanitisedError<T>(`Error: ${status}`)
   error.responseStatus = status
   error.headers = {}

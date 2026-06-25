@@ -1,5 +1,5 @@
 import { getTypeDetails, type Type } from './types'
-import type { TypeFamily } from './typeFamilies'
+import { type TypeFamily } from './typeFamilies'
 
 /**
  * Additional info to display when users select an incident *type* for a report (not *family*)

@@ -125,8 +125,6 @@ export function areTypeFamiliesInactive(
   )
 }
 
-export const familyInactiveStatus = areTypeFamiliesInactive(types)
-
 /**
  * In preparation for the incident type autocomplete items on the dashboard, this generates an object with
  * the incident type families as a key, and then the corresponding value is either null if the type family has no

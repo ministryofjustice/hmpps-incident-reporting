@@ -82,11 +82,6 @@ context('Change incident type', () => {
         { label: 'Business Continuity - Staff shortages', value: 'BC_STAFF_SHORTAGES_1', checked: false },
         { label: 'Business Continuity - Widespread illness', value: 'BC_WIDESPREAD_ILLNESS_1', checked: false },
         {
-          label: 'Close down search',
-          value: 'CLOSE_DOWN_SEARCH_1',
-          checked: false,
-        },
-        {
           label: 'Death of other person',
           value: 'DEATH_OTHER_1',
           checked: false,
@@ -128,7 +123,7 @@ context('Change incident type', () => {
         },
         {
           label: 'Food or liquid refusal',
-          value: 'FOOD_REFUSAL_1',
+          value: 'FOOD_REFUSAL_2',
           checked: false,
         },
         {

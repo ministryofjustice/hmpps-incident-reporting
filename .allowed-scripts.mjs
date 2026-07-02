@@ -12,5 +12,7 @@ export default configureAllowedScripts({
     'node_modules/esbuild@0.28.1': 'ALLOW',
     // Native solution to quickly resolve module paths, used by jest and eslint
     'node_modules/unrs-resolver@1.11.1': 'ALLOW',
+    // Only checks dependency version prefix compatibility
+    'node_modules/protobufjs@7.6.4': 'FORBID',
   },
 })

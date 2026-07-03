@@ -26,8 +26,8 @@ declare module 'express-session' {
 type DashboardFilters = {
   searchID?: string
   location?: string
-  fromDateInput?: string
-  toDateInput?: string
+  fromDate?: string
+  toDate?: string
   typeFamily?: TypeFamily
   incidentStatuses?: IncidentStatuses | IncidentStatuses[]
   latestUserActions?: ApiUserAction | ApiUserAction[] | 'REQUEST_REMOVAL'

@@ -31,6 +31,7 @@ import { hasInvalidValues } from '../../utils/utils'
 import { sortableTableHead } from '../../utils/sortableTable'
 import { pagination } from '../../utils/pagination'
 import { multiCaseloadColumns, singleCaseloadColumns } from './tableColumns'
+import { readUiFilters } from './filters'
 
 export type IncidentStatuses = Status | WorkList
 
@@ -65,26 +66,15 @@ export default function dashboard(): Router {
     const userCaseloadIds = userCaseloads.map(caseload => caseload.caseLoadId)
     const pecsRegionCodes = pecsRegions.map(pecsRegion => pecsRegion.code)
 
+    const uiFilters = readUiFilters(req)
+
     const { page, clearFilters }: ListFormData = req.query
-    let {
-      fromDate: fromDateInput,
-      toDate: toDateInput,
-      location,
-      searchID,
-      typeFamily,
-      incidentStatuses,
-      latestUserActions,
-      sort,
-      order,
-    }: ListFormData = req.query
+    let { location, typeFamily, incidentStatuses, latestUserActions, sort, order }: ListFormData = req.query
 
     if (clearFilters && ['All', 'ToDo'].includes(clearFilters)) {
       req.session.dashboardFilters = {}
     }
 
-    if (searchID) {
-      searchID = searchID.trim()
-    }
     if (!sort || !sortOptions.includes(sort)) {
       sort = 'incidentDateAndTime'
     }
@@ -96,11 +86,8 @@ export default function dashboard(): Router {
     const errors: GovukErrorSummaryItem[] = []
 
     // If no filters are supplied from query and no errors generated, check for filters in session
-    if (errors.length === 0 && req.url === '/' && req.session.dashboardFilters) {
+    if (req.url === '/' && req.session.dashboardFilters) {
       location = req.session.dashboardFilters?.location
-      fromDateInput = req.session.dashboardFilters?.fromDateInput
-      toDateInput = req.session.dashboardFilters?.toDateInput
-      searchID = req.session.dashboardFilters?.searchID
       typeFamily = req.session.dashboardFilters?.typeFamily
       incidentStatuses = req.session.dashboardFilters?.incidentStatuses
       latestUserActions = req.session.dashboardFilters?.latestUserActions
@@ -113,16 +100,16 @@ export default function dashboard(): Router {
     let fromDate: Date | undefined
     let toDate: Date | undefined
     try {
-      if (fromDateInput) {
-        fromDate = parseDateInput(fromDateInput)
+      if (uiFilters.fromDate) {
+        fromDate = parseDateInput(uiFilters.fromDate)
       }
     } catch {
       fromDate = undefined
       errors.push({ href: '#fromDate', text: `Enter a valid from date, for example ${todayAsShortDate}` })
     }
     try {
-      if (toDateInput) {
-        toDate = parseDateInput(toDateInput)
+      if (uiFilters.toDate) {
+        toDate = parseDateInput(uiFilters.toDate)
       }
     } catch {
       toDate = undefined
@@ -140,7 +127,13 @@ export default function dashboard(): Router {
 
     // Check for supplied filters from session
     let noFiltersSupplied = Boolean(
-      !searchID && !location && !fromDate && !toDate && !typeFamily && !incidentStatuses && !latestUserActions,
+      !uiFilters.searchID &&
+      !location &&
+      !fromDate &&
+      !toDate &&
+      !typeFamily &&
+      !incidentStatuses &&
+      !latestUserActions,
     )
 
     // RO: Default work list to 'To do' for an RO when no other filters are applied and when the user arrives on page
@@ -187,14 +180,14 @@ export default function dashboard(): Router {
 
     let prisonerId: string | undefined
     let referenceNumber: string | undefined
-    if (searchID) {
+    if (uiFilters.searchID) {
       // Test if search is for a prisoner ID and use if so
-      if (searchID.match(/^[a-zA-Z][0-9]{4}[a-zA-Z]{2}$/)) {
-        prisonerId = searchID
+      if (uiFilters.searchID.match(/^[a-zA-Z][0-9]{4}[a-zA-Z]{2}$/)) {
+        prisonerId = uiFilters.searchID
       }
       // Test if search is for an incident reference number and use if so
-      else if (searchID.match(/^[0-9]+$/)) {
-        referenceNumber = searchID
+      else if (uiFilters.searchID.match(/^[0-9]+$/)) {
+        referenceNumber = uiFilters.searchID
       } else {
         errors.push({
           href: '#searchID',
@@ -251,10 +244,10 @@ export default function dashboard(): Router {
     }
 
     const formValues: ListFormData = {
-      searchID,
+      searchID: uiFilters.searchID,
       location,
-      fromDate: fromDateInput,
-      toDate: toDateInput,
+      fromDate: uiFilters.fromDate,
+      toDate: uiFilters.toDate,
       typeFamily,
       incidentStatuses,
       latestUserActions,
@@ -264,17 +257,17 @@ export default function dashboard(): Router {
     }
 
     const queryString = new URLSearchParams()
-    if (searchID) {
-      queryString.append('searchID', searchID)
+    if (uiFilters.searchID) {
+      queryString.append('searchID', uiFilters.searchID)
     }
     if (location) {
       queryString.append('location', location)
     }
-    if (fromDateInput) {
-      queryString.append('fromDate', fromDateInput)
+    if (uiFilters.fromDate) {
+      queryString.append('fromDate', uiFilters.fromDate)
     }
-    if (toDateInput) {
-      queryString.append('toDate', toDateInput)
+    if (uiFilters.toDate) {
+      queryString.append('toDate', uiFilters.toDate)
     }
     if (typeFamily) {
       queryString.append('typeFamily', typeFamily)
@@ -376,13 +369,14 @@ export default function dashboard(): Router {
     // Gather notification banner entries if they exist
     const banners = req.flash()
 
+    // TODO: Move logic into helper once all filters are in uiFilters
     // Set dashboard filters stored in the session if no errors present
     if (errors.length === 0) {
       req.session.dashboardFilters = {
-        searchID,
+        searchID: uiFilters.searchID,
         location,
-        fromDateInput,
-        toDateInput,
+        fromDate: uiFilters.fromDate,
+        toDate: uiFilters.toDate,
         typeFamily,
         incidentStatuses,
         latestUserActions,

@@ -31,7 +31,7 @@ import { hasInvalidValues } from '../../utils/utils'
 import { sortableTableHead } from '../../utils/sortableTable'
 import { pagination } from '../../utils/pagination'
 import { multiCaseloadColumns, singleCaseloadColumns } from './tableColumns'
-import { readUiFilters } from './filters'
+import { familyToType, readUiFilters, validateUiFilters } from './filters'
 
 export type IncidentStatuses = Status | WorkList
 
@@ -69,7 +69,7 @@ export default function dashboard(): Router {
     const uiFilters = readUiFilters(req)
 
     const { page, clearFilters }: ListFormData = req.query
-    let { location, typeFamily, incidentStatuses, latestUserActions, sort, order }: ListFormData = req.query
+    let { incidentStatuses, latestUserActions, sort, order }: ListFormData = req.query
 
     if (clearFilters && ['All', 'ToDo'].includes(clearFilters)) {
       req.session.dashboardFilters = {}
@@ -83,12 +83,10 @@ export default function dashboard(): Router {
     }
 
     // Collect errors
-    const errors: GovukErrorSummaryItem[] = []
+    const errors: GovukErrorSummaryItem[] = validateUiFilters(uiFilters)
 
     // If no filters are supplied from query and no errors generated, check for filters in session
     if (req.url === '/' && req.session.dashboardFilters) {
-      location = req.session.dashboardFilters?.location
-      typeFamily = req.session.dashboardFilters?.typeFamily
       incidentStatuses = req.session.dashboardFilters?.incidentStatuses
       latestUserActions = req.session.dashboardFilters?.latestUserActions
       sort = req.session.dashboardFilters?.sort ?? 'incidentDateAndTime'
@@ -120,18 +118,14 @@ export default function dashboard(): Router {
       toDate = undefined
       errors.push({ href: '#toDate', text: 'Enter a date after from date' })
     }
-    if (typeFamily && !(typeFamily in familyToType)) {
-      typeFamily = undefined
-      errors.push({ href: '#typeFamily', text: 'Select a valid incident type' })
-    }
 
     // Check for supplied filters from session
     let noFiltersSupplied = Boolean(
       !uiFilters.searchID &&
-      !location &&
+      !uiFilters.location &&
       !fromDate &&
       !toDate &&
-      !typeFamily &&
+      !uiFilters.typeFamily &&
       !incidentStatuses &&
       !latestUserActions,
     )
@@ -207,12 +201,12 @@ export default function dashboard(): Router {
     if (permissions.hasPecsAccess) {
       searchLocations.push(...pecsRegionCodes)
     }
-    if (location) {
-      if (userCaseloadIds.includes(location)) {
-        searchLocations = [location]
-      } else if (permissions.hasPecsAccess && pecsRegionCodes.includes(location)) {
-        searchLocations = [location]
-      } else if (permissions.hasPecsAccess && location === allPecsRegionsFlag) {
+    if (uiFilters.location) {
+      if (userCaseloadIds.includes(uiFilters.location)) {
+        searchLocations = [uiFilters.location]
+      } else if (permissions.hasPecsAccess && pecsRegionCodes.includes(uiFilters.location)) {
+        searchLocations = [uiFilters.location]
+      } else if (permissions.hasPecsAccess && uiFilters.location === allPecsRegionsFlag) {
         searchLocations = pecsRegionCodes
       } else {
         errors.push({
@@ -231,7 +225,7 @@ export default function dashboard(): Router {
         location: searchLocations,
         incidentDateFrom: fromDate,
         incidentDateUntil: toDate,
-        type: typeFamily && familyToType[typeFamily],
+        type: uiFilters.typeFamily && familyToType[uiFilters.typeFamily],
         status: searchStatuses,
         involvingPrisonerNumber: prisonerId,
         userAction: userActionFilter,
@@ -245,10 +239,10 @@ export default function dashboard(): Router {
 
     const formValues: ListFormData = {
       searchID: uiFilters.searchID,
-      location,
+      location: uiFilters.location,
       fromDate: uiFilters.fromDate,
       toDate: uiFilters.toDate,
-      typeFamily,
+      typeFamily: uiFilters.typeFamily,
       incidentStatuses,
       latestUserActions,
       sort,
@@ -260,8 +254,8 @@ export default function dashboard(): Router {
     if (uiFilters.searchID) {
       queryString.append('searchID', uiFilters.searchID)
     }
-    if (location) {
-      queryString.append('location', location)
+    if (uiFilters.location) {
+      queryString.append('location', uiFilters.location)
     }
     if (uiFilters.fromDate) {
       queryString.append('fromDate', uiFilters.fromDate)
@@ -269,8 +263,8 @@ export default function dashboard(): Router {
     if (uiFilters.toDate) {
       queryString.append('toDate', uiFilters.toDate)
     }
-    if (typeFamily) {
-      queryString.append('typeFamily', typeFamily)
+    if (uiFilters.typeFamily) {
+      queryString.append('typeFamily', uiFilters.typeFamily)
     }
     if (incidentStatuses) {
       if (Array.isArray(incidentStatuses)) {
@@ -374,10 +368,10 @@ export default function dashboard(): Router {
     if (errors.length === 0) {
       req.session.dashboardFilters = {
         searchID: uiFilters.searchID,
-        location,
+        location: uiFilters.location,
         fromDate: uiFilters.fromDate,
         toDate: uiFilters.toDate,
-        typeFamily,
+        typeFamily: uiFilters.typeFamily,
         incidentStatuses,
         latestUserActions,
         sort,
@@ -411,16 +405,6 @@ export default function dashboard(): Router {
 
   return router
 }
-
-/** Given a family code, list type codes belonging to the family */
-const familyToType = Object.fromEntries(
-  Object.values(typeFamilies).map(({ code: familyCode }) => [
-    familyCode,
-    Object.values(types)
-      .filter(({ familyCode: someFamilyCode }) => someFamilyCode === familyCode)
-      .map(({ code }) => code),
-  ]),
-)
 
 /** Converts the `incidentStatuses` query param into a list of statuses */
 function statusesFromParam(statusesParam: IncidentStatuses[] | undefined, useWorklists: boolean): Status[] | undefined {

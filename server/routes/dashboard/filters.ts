@@ -10,6 +10,11 @@ interface UiFilters {
   fromDate?: string
   toDate?: string
   typeFamily?: TypeFamily
+  page?: string
+}
+
+interface Filters {
+  page: number
 }
 
 export function readUiFilters({
@@ -27,6 +32,7 @@ export function readUiFilters({
     fromDate: typeof query.fromDate === 'string' ? query.fromDate : undefined,
     toDate: typeof query.toDate === 'string' ? query.toDate : undefined,
     typeFamily: query.typeFamily as TypeFamily | undefined,
+    page: typeof query.page === 'string' ? query.page : undefined,
   }
 
   // If no filters are supplied from query, check for filters in session
@@ -50,6 +56,19 @@ export function validateUiFilters(uiFilters: UiFilters): GovukErrorSummaryItem[]
   }
 
   return errors
+}
+
+export function filtersFromUiFilters(uiFilters: UiFilters): Filters {
+  let page = (uiFilters.page && parseInt(uiFilters.page, 10)) || 1
+  if (page < 1) {
+    page = 1
+  }
+
+  const filters = {
+    page,
+  }
+
+  return filters
 }
 
 /** Given a family code, list type codes belonging to the family */

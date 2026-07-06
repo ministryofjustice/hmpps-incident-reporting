@@ -31,7 +31,7 @@ import { hasInvalidValues } from '../../utils/utils'
 import { sortableTableHead } from '../../utils/sortableTable'
 import { pagination } from '../../utils/pagination'
 import { multiCaseloadColumns, singleCaseloadColumns } from './tableColumns'
-import { familyToType, readUiFilters, validateUiFilters } from './filters'
+import { familyToType, filtersFromUiFilters, readUiFilters, validateUiFilters } from './filters'
 
 export type IncidentStatuses = Status | WorkList
 
@@ -68,7 +68,7 @@ export default function dashboard(): Router {
 
     const uiFilters = readUiFilters(req)
 
-    const { page, clearFilters }: ListFormData = req.query
+    const { clearFilters }: ListFormData = req.query
     let { incidentStatuses, latestUserActions, sort, order }: ListFormData = req.query
 
     if (clearFilters && ['All', 'ToDo'].includes(clearFilters)) {
@@ -190,12 +190,6 @@ export default function dashboard(): Router {
       }
     }
 
-    // Parse page number
-    let pageNumber = (page && typeof page === 'string' && parseInt(page, 10)) || 1
-    if (pageNumber < 1) {
-      pageNumber = 1
-    }
-
     // Set locations to user’s caseloads by default and PECS regions if allowed
     let searchLocations: string[] = userCaseloadIds
     if (permissions.hasPecsAccess) {
@@ -216,6 +210,8 @@ export default function dashboard(): Router {
       }
     }
 
+    const filters = filtersFromUiFilters(uiFilters)
+
     // Get reports from API
     let reportsResponse: PaginatedBasicReports | undefined
     // TODO: should probably not search if there are errors, because what’ll show will not match apparent filters
@@ -229,7 +225,7 @@ export default function dashboard(): Router {
         status: searchStatuses,
         involvingPrisonerNumber: prisonerId,
         userAction: userActionFilter,
-        page: pageNumber - 1,
+        page: filters.page - 1,
         sort: [`${sort},${order}`],
       })
     } catch (e) {
@@ -247,7 +243,7 @@ export default function dashboard(): Router {
       latestUserActions,
       sort,
       order,
-      page,
+      page: uiFilters.page,
     }
 
     const queryString = new URLSearchParams()
@@ -351,7 +347,7 @@ export default function dashboard(): Router {
     })
     const paginationParams = reportsResponse
       ? pagination(
-          pageNumber,
+          filters.page,
           reportsResponse.totalPages,
           urlPrefix,
           'moj',

@@ -26,7 +26,6 @@ import { ApiUserAction, apiUserActions } from '../../middleware/permissions'
 import type { HeaderCell } from '../../utils/sortableTable'
 import format from '../../utils/format'
 import type { GovukErrorSummaryItem, GovukSelectItem } from '../../utils/govukFrontend'
-import { parseDateInput } from '../../utils/parseDateTime'
 import { hasInvalidValues } from '../../utils/utils'
 import { sortableTableHead } from '../../utils/sortableTable'
 import { pagination } from '../../utils/pagination'
@@ -93,38 +92,14 @@ export default function dashboard(): Router {
       order = req.session.dashboardFilters?.order ?? 'DESC'
     }
 
-    // Parse params
-    const todayAsShortDate = format.shortDate(new Date())
-    let fromDate: Date | undefined
-    let toDate: Date | undefined
-    try {
-      if (uiFilters.fromDate) {
-        fromDate = parseDateInput(uiFilters.fromDate)
-      }
-    } catch {
-      fromDate = undefined
-      errors.push({ href: '#fromDate', text: `Enter a valid from date, for example ${todayAsShortDate}` })
-    }
-    try {
-      if (uiFilters.toDate) {
-        toDate = parseDateInput(uiFilters.toDate)
-      }
-    } catch {
-      toDate = undefined
-      errors.push({ href: '#toDate', text: `Enter a valid to date, for example ${todayAsShortDate}` })
-    }
-    if (fromDate && toDate && toDate < fromDate) {
-      fromDate = undefined
-      toDate = undefined
-      errors.push({ href: '#toDate', text: 'Enter a date after from date' })
-    }
+    const filters = filtersFromUiFilters(uiFilters)
 
     // Check for supplied filters from session
     let noFiltersSupplied = Boolean(
       !uiFilters.searchID &&
       !uiFilters.location &&
-      !fromDate &&
-      !toDate &&
+      !filters.fromDate &&
+      !filters.toDate &&
       !uiFilters.typeFamily &&
       !incidentStatuses &&
       !latestUserActions,
@@ -210,8 +185,6 @@ export default function dashboard(): Router {
       }
     }
 
-    const filters = filtersFromUiFilters(uiFilters)
-
     // Get reports from API
     let reportsResponse: PaginatedBasicReports | undefined
     // TODO: should probably not search if there are errors, because what’ll show will not match apparent filters
@@ -219,8 +192,8 @@ export default function dashboard(): Router {
       reportsResponse = await incidentReportingApi.getReports({
         reference: referenceNumber,
         location: searchLocations,
-        incidentDateFrom: fromDate,
-        incidentDateUntil: toDate,
+        incidentDateFrom: filters.fromDate,
+        incidentDateUntil: filters.toDate,
         type: uiFilters.typeFamily && familyToType[uiFilters.typeFamily],
         status: searchStatuses,
         involvingPrisonerNumber: prisonerId,
@@ -374,6 +347,8 @@ export default function dashboard(): Router {
         order,
       }
     }
+
+    const todayAsShortDate = format.shortDate(new Date())
 
     res.render('pages/dashboard/index', {
       activeCaseLoad,

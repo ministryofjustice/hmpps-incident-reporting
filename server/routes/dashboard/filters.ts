@@ -3,6 +3,8 @@ import { type ParsedQs } from 'qs'
 
 import { type GovukErrorSummaryItem } from '../../utils/govukFrontend'
 import { typeFamilies, TypeFamily, types } from '../../reportConfiguration/constants'
+import { parseDateInput } from '../../utils/parseDateTime'
+import format from '../../utils/format'
 
 interface UiFilters {
   searchID?: string
@@ -14,6 +16,8 @@ interface UiFilters {
 }
 
 interface Filters {
+  fromDate?: Date
+  toDate?: Date
   page: number
 }
 
@@ -51,6 +55,8 @@ export function readUiFilters({
 export function validateUiFilters(uiFilters: UiFilters): GovukErrorSummaryItem[] {
   const errors: GovukErrorSummaryItem[] = []
 
+  validateDateRanges(uiFilters, errors)
+
   if (uiFilters.typeFamily && !(uiFilters.typeFamily in familyToType)) {
     errors.push({ href: '#typeFamily', text: 'Select a valid incident type' })
   }
@@ -64,7 +70,14 @@ export function filtersFromUiFilters(uiFilters: UiFilters): Filters {
     page = 1
   }
 
+  const fromDate = parseDate(uiFilters.fromDate)
+  const toDate = parseDate(uiFilters.toDate)
+  const validDates = fromDate !== undefined && toDate !== undefined
+  const validDateOrder = validDates && toDate >= fromDate
+
   const filters = {
+    fromDate: validDateOrder ? fromDate : undefined,
+    toDate: validDateOrder ? toDate : undefined,
     page,
   }
 
@@ -80,3 +93,33 @@ export const familyToType = Object.fromEntries(
       .map(({ code }) => code),
   ]),
 )
+
+function validateDateRanges(uiFilters: UiFilters, errors: GovukErrorSummaryItem[]): void {
+  const todayAsShortDate = format.shortDate(new Date())
+
+  const fromDate = parseDate(uiFilters.fromDate)
+  const toDate = parseDate(uiFilters.toDate)
+
+  if (uiFilters.fromDate && !fromDate) {
+    errors.push({ href: '#fromDate', text: `Enter a valid from date, for example ${todayAsShortDate}` })
+  }
+  if (uiFilters.toDate && !toDate) {
+    errors.push({ href: '#toDate', text: `Enter a valid to date, for example ${todayAsShortDate}` })
+  }
+
+  if (fromDate && toDate && toDate < fromDate) {
+    errors.push({ href: '#toDate', text: 'Enter a date after from date' })
+  }
+}
+
+function parseDate(date: string | undefined): Date | undefined {
+  if (date) {
+    try {
+      return parseDateInput(date)
+    } catch {
+      //
+    }
+  }
+
+  return undefined
+}

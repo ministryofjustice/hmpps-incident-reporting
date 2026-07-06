@@ -5,6 +5,7 @@ import { type GovukErrorSummaryItem } from '../../utils/govukFrontend'
 import { type Type, type TypeFamily, types, typeFamilies } from '../../reportConfiguration/constants'
 import { parseDateInput } from '../../utils/parseDateTime'
 import format from '../../utils/format'
+import { type Order } from '../../data/offenderSearchApi'
 
 interface UiFilters {
   searchID?: string
@@ -12,6 +13,8 @@ interface UiFilters {
   fromDate?: string
   toDate?: string
   typeFamily?: TypeFamily
+  sort: string
+  order: Order
   page?: string
 }
 
@@ -21,6 +24,7 @@ interface Filters {
   fromDate?: Date
   toDate?: Date
   type?: Type[]
+  sort: string[]
   page: number
 }
 
@@ -33,12 +37,15 @@ export function readUiFilters({
   session: Session & Partial<SessionData>
   url: string
 }): UiFilters {
-  const uiFilters = {
+  const uiFilters: UiFilters = {
     searchID: typeof query.searchID === 'string' ? query.searchID.trim() : undefined,
     location: typeof query.location === 'string' ? query.location : undefined,
     fromDate: typeof query.fromDate === 'string' ? query.fromDate : undefined,
     toDate: typeof query.toDate === 'string' ? query.toDate : undefined,
     typeFamily: query.typeFamily as TypeFamily | undefined,
+    sort: typeof query.sort === 'string' ? query.sort : '',
+    // @ts-expect-error - order is updated with default if invalid
+    order: typeof query.order === 'string' ? query.order : '',
     page: typeof query.page === 'string' ? query.page : undefined,
   }
 
@@ -50,9 +57,27 @@ export function readUiFilters({
     uiFilters.fromDate = sessionFilters?.fromDate
     uiFilters.toDate = sessionFilters?.toDate
     uiFilters.typeFamily = sessionFilters?.typeFamily
+    uiFilters.sort = sessionFilters?.sort ?? ''
+    // @ts-expect-error - order is updated with default if invalid
+    uiFilters.order = sessionFilters?.order ?? ''
   }
 
   return uiFilters
+}
+
+export function fillInDefaults(uiFilters: UiFilters): void {
+  const sortOptions = ['incidentDateAndTime', 'reportReference', 'location', 'type', 'status', 'reportedBy']
+  const orderOptions = ['ASC', 'DESC']
+
+  if (!sortOptions.includes(uiFilters.sort)) {
+    // eslint-disable-next-line no-param-reassign
+    uiFilters.sort = 'incidentDateAndTime'
+  }
+
+  if (!orderOptions.includes(uiFilters.order)) {
+    // eslint-disable-next-line no-param-reassign
+    uiFilters.order = 'DESC'
+  }
 }
 
 export function validateUiFilters(uiFilters: UiFilters): GovukErrorSummaryItem[] {
@@ -95,6 +120,7 @@ export function filtersFromUiFilters(uiFilters: UiFilters): Filters {
     fromDate: validDateOrder ? fromDate : undefined,
     toDate: validDateOrder ? toDate : undefined,
     type: uiFilters.typeFamily && familyToType[uiFilters.typeFamily],
+    sort: [`${uiFilters.sort},${uiFilters.order}`],
     page,
   }
 

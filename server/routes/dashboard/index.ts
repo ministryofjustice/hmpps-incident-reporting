@@ -147,24 +147,6 @@ export default function dashboard(): Router {
       errors.push({ href: '#incidentStatuses-item', text: errorMessage })
     }
 
-    let prisonerId: string | undefined
-    let referenceNumber: string | undefined
-    if (uiFilters.searchID) {
-      // Test if search is for a prisoner ID and use if so
-      if (uiFilters.searchID.match(/^[a-zA-Z][0-9]{4}[a-zA-Z]{2}$/)) {
-        prisonerId = uiFilters.searchID
-      }
-      // Test if search is for an incident reference number and use if so
-      else if (uiFilters.searchID.match(/^[0-9]+$/)) {
-        referenceNumber = uiFilters.searchID
-      } else {
-        errors.push({
-          href: '#searchID',
-          text: `Enter a valid incident number or offender ID. For example, 12345678 or A0011BB`,
-        })
-      }
-    }
-
     // Set locations to user’s caseloads by default and PECS regions if allowed
     let searchLocations: string[] = userCaseloadIds
     if (permissions.hasPecsAccess) {
@@ -190,13 +172,13 @@ export default function dashboard(): Router {
     // TODO: should probably not search if there are errors, because what’ll show will not match apparent filters
     try {
       reportsResponse = await incidentReportingApi.getReports({
-        reference: referenceNumber,
+        reference: filters.referenceNumber,
         location: searchLocations,
         incidentDateFrom: filters.fromDate,
         incidentDateUntil: filters.toDate,
         type: uiFilters.typeFamily && familyToType[uiFilters.typeFamily],
         status: searchStatuses,
-        involvingPrisonerNumber: prisonerId,
+        involvingPrisonerNumber: filters.prisonerNumber,
         userAction: userActionFilter,
         page: filters.page - 1,
         sort: [`${sort},${order}`],

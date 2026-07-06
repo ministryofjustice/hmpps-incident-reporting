@@ -16,6 +16,8 @@ interface UiFilters {
 }
 
 interface Filters {
+  prisonerNumber?: string
+  referenceNumber?: string
   fromDate?: Date
   toDate?: Date
   page: number
@@ -55,6 +57,7 @@ export function readUiFilters({
 export function validateUiFilters(uiFilters: UiFilters): GovukErrorSummaryItem[] {
   const errors: GovukErrorSummaryItem[] = []
 
+  validateSearchId(uiFilters, errors)
   validateDateRanges(uiFilters, errors)
 
   if (uiFilters.typeFamily && !(uiFilters.typeFamily in familyToType)) {
@@ -70,12 +73,24 @@ export function filtersFromUiFilters(uiFilters: UiFilters): Filters {
     page = 1
   }
 
+  let prisonerNumber
+  let referenceNumber
+  if (uiFilters.searchID) {
+    if (isPrisonerNumber(uiFilters.searchID)) {
+      prisonerNumber = uiFilters.searchID
+    } else if (isReferenceNumber(uiFilters.searchID)) {
+      referenceNumber = uiFilters.searchID
+    }
+  }
+
   const fromDate = parseDate(uiFilters.fromDate)
   const toDate = parseDate(uiFilters.toDate)
   const validDates = fromDate !== undefined && toDate !== undefined
   const validDateOrder = validDates && toDate >= fromDate
 
   const filters = {
+    prisonerNumber,
+    referenceNumber,
     fromDate: validDateOrder ? fromDate : undefined,
     toDate: validDateOrder ? toDate : undefined,
     page,
@@ -93,6 +108,27 @@ export const familyToType = Object.fromEntries(
       .map(({ code }) => code),
   ]),
 )
+
+function validateSearchId(uiFilters: UiFilters, errors: GovukErrorSummaryItem[]): void {
+  if (!uiFilters.searchID) {
+    return
+  }
+
+  if (!isPrisonerNumber(uiFilters.searchID) && !isReferenceNumber(uiFilters.searchID)) {
+    errors.push({
+      href: '#searchID',
+      text: `Enter a valid incident number or offender ID. For example, 12345678 or A0011BB`,
+    })
+  }
+}
+
+function isPrisonerNumber(searchID: string): boolean {
+  return searchID.match(/^[a-zA-Z][0-9]{4}[a-zA-Z]{2}$/) !== null
+}
+
+function isReferenceNumber(searchID: string): boolean {
+  return searchID.match(/^[0-9]+$/) !== null
+}
 
 function validateDateRanges(uiFilters: UiFilters, errors: GovukErrorSummaryItem[]): void {
   const todayAsShortDate = format.shortDate(new Date())

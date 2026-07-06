@@ -20,7 +20,7 @@ import {
   areTypeFamiliesInactive,
 } from '../../reportConfiguration/constants'
 import type { PaginatedBasicReports } from '../../data/incidentReportingApi'
-import { type Order, orderOptions } from '../../data/offenderSearchApi'
+import { type Order } from '../../data/offenderSearchApi'
 import { pecsRegions } from '../../data/pecsRegions'
 import { ApiUserAction, apiUserActions } from '../../middleware/permissions'
 import type { HeaderCell } from '../../utils/sortableTable'
@@ -30,11 +30,9 @@ import { hasInvalidValues } from '../../utils/utils'
 import { sortableTableHead } from '../../utils/sortableTable'
 import { pagination } from '../../utils/pagination'
 import { multiCaseloadColumns, singleCaseloadColumns } from './tableColumns'
-import { filtersFromUiFilters, readUiFilters, validateUiFilters } from './filters'
+import { fillInDefaults, filtersFromUiFilters, readUiFilters, validateUiFilters } from './filters'
 
 export type IncidentStatuses = Status | WorkList
-
-const sortOptions = ['incidentDateAndTime', 'reportReference', 'location', 'type', 'status', 'reportedBy']
 
 interface ListFormData {
   clearFilters?: string
@@ -66,29 +64,21 @@ export default function dashboard(): Router {
     const pecsRegionCodes = pecsRegions.map(pecsRegion => pecsRegion.code)
 
     const uiFilters = readUiFilters(req)
+    fillInDefaults(uiFilters)
     const errors = validateUiFilters(uiFilters)
     const filters = filtersFromUiFilters(uiFilters)
 
     const { clearFilters }: ListFormData = req.query
-    let { incidentStatuses, latestUserActions, sort, order }: ListFormData = req.query
+    let { incidentStatuses, latestUserActions }: ListFormData = req.query
 
     if (clearFilters && ['All', 'ToDo'].includes(clearFilters)) {
       req.session.dashboardFilters = {}
-    }
-
-    if (!sort || !sortOptions.includes(sort)) {
-      sort = 'incidentDateAndTime'
-    }
-    if (!order || !orderOptions.includes(order)) {
-      order = 'DESC'
     }
 
     // If no filters are supplied from query and no errors generated, check for filters in session
     if (req.url === '/' && req.session.dashboardFilters) {
       incidentStatuses = req.session.dashboardFilters?.incidentStatuses
       latestUserActions = req.session.dashboardFilters?.latestUserActions
-      sort = req.session.dashboardFilters?.sort ?? 'incidentDateAndTime'
-      order = req.session.dashboardFilters?.order ?? 'DESC'
     }
 
     // RO: Default work list to 'To do' for an RO when no other filters are applied and when the user arrives on page
@@ -166,7 +156,7 @@ export default function dashboard(): Router {
         involvingPrisonerNumber: filters.prisonerNumber,
         userAction: userActionFilter,
         page: filters.page - 1,
-        sort: [`${sort},${order}`],
+        sort: filters.sort,
       })
     } catch (e) {
       logger.error(e, 'Search failed: %j', e)
@@ -181,8 +171,8 @@ export default function dashboard(): Router {
       typeFamily: uiFilters.typeFamily,
       incidentStatuses,
       latestUserActions,
-      sort,
-      order,
+      sort: uiFilters.sort,
+      order: uiFilters.order,
       page: uiFilters.page,
     }
 
@@ -217,11 +207,11 @@ export default function dashboard(): Router {
       }
     }
     const tableHeadUrlPrefix = `/reports?${queryString}&`
-    if (sort) {
-      queryString.append('sort', sort)
+    if (uiFilters.sort) {
+      queryString.append('sort', uiFilters.sort)
     }
-    if (order) {
-      queryString.append('order', order)
+    if (uiFilters.order) {
+      queryString.append('order', uiFilters.order)
     }
 
     const urlPrefix = `/reports?${queryString}&`
@@ -280,8 +270,8 @@ export default function dashboard(): Router {
     const columns = showLocationFilter ? multiCaseloadColumns : singleCaseloadColumns
     const tableHead: HeaderCell[] = sortableTableHead({
       columns,
-      sortColumn: sort,
-      order,
+      sortColumn: uiFilters.sort,
+      order: uiFilters.order,
       urlPrefix: tableHeadUrlPrefix,
       destinationFocusId: 'results-table',
     })
@@ -310,8 +300,8 @@ export default function dashboard(): Router {
         typeFamily: uiFilters.typeFamily,
         incidentStatuses,
         latestUserActions,
-        sort,
-        order,
+        sort: uiFilters.sort,
+        order: uiFilters.order,
       }
     }
 

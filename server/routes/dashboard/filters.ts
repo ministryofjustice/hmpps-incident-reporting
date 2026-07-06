@@ -2,7 +2,7 @@ import { type Session, type SessionData } from 'express-session'
 import { type ParsedQs } from 'qs'
 
 import { type GovukErrorSummaryItem } from '../../utils/govukFrontend'
-import { typeFamilies, TypeFamily, types } from '../../reportConfiguration/constants'
+import { type Type, type TypeFamily, types, typeFamilies } from '../../reportConfiguration/constants'
 import { parseDateInput } from '../../utils/parseDateTime'
 import format from '../../utils/format'
 
@@ -20,6 +20,7 @@ interface Filters {
   referenceNumber?: string
   fromDate?: Date
   toDate?: Date
+  type?: Type[]
   page: number
 }
 
@@ -93,21 +94,12 @@ export function filtersFromUiFilters(uiFilters: UiFilters): Filters {
     referenceNumber,
     fromDate: validDateOrder ? fromDate : undefined,
     toDate: validDateOrder ? toDate : undefined,
+    type: uiFilters.typeFamily && familyToType[uiFilters.typeFamily],
     page,
   }
 
   return filters
 }
-
-/** Given a family code, list type codes belonging to the family */
-export const familyToType = Object.fromEntries(
-  Object.values(typeFamilies).map(({ code: familyCode }) => [
-    familyCode,
-    Object.values(types)
-      .filter(({ familyCode: someFamilyCode }) => someFamilyCode === familyCode)
-      .map(({ code }) => code),
-  ]),
-)
 
 function validateSearchId(uiFilters: UiFilters, errors: GovukErrorSummaryItem[]): void {
   if (!uiFilters.searchID) {
@@ -159,3 +151,13 @@ function parseDate(date: string | undefined): Date | undefined {
 
   return undefined
 }
+
+/** Given a family code, list type codes belonging to the family */
+const familyToType = Object.fromEntries(
+  Object.values(typeFamilies).map(({ code: familyCode }) => [
+    familyCode,
+    Object.values(types)
+      .filter(({ familyCode: someFamilyCode }) => someFamilyCode === familyCode)
+      .map(({ code }) => code),
+  ]),
+)

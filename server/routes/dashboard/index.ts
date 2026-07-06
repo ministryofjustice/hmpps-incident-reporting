@@ -30,7 +30,7 @@ import { hasInvalidValues } from '../../utils/utils'
 import { sortableTableHead } from '../../utils/sortableTable'
 import { pagination } from '../../utils/pagination'
 import { multiCaseloadColumns, singleCaseloadColumns } from './tableColumns'
-import { familyToType, filtersFromUiFilters, readUiFilters, validateUiFilters } from './filters'
+import { filtersFromUiFilters, readUiFilters, validateUiFilters } from './filters'
 
 export type IncidentStatuses = Status | WorkList
 
@@ -176,7 +176,7 @@ export default function dashboard(): Router {
         location: searchLocations,
         incidentDateFrom: filters.fromDate,
         incidentDateUntil: filters.toDate,
-        type: uiFilters.typeFamily && familyToType[uiFilters.typeFamily],
+        type: filters.type,
         status: searchStatuses,
         involvingPrisonerNumber: filters.prisonerNumber,
         userAction: userActionFilter,

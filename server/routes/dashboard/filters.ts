@@ -99,15 +99,7 @@ export function filtersFromUiFilters(uiFilters: UiFilters): Filters {
     page = 1
   }
 
-  let prisonerNumber
-  let referenceNumber
-  if (uiFilters.searchID) {
-    if (isPrisonerNumber(uiFilters.searchID)) {
-      prisonerNumber = uiFilters.searchID
-    } else if (isReferenceNumber(uiFilters.searchID)) {
-      referenceNumber = uiFilters.searchID
-    }
-  }
+  const { prisonerNumber, referenceNumber } = processSearchId(uiFilters.searchID)
 
   const fromDate = parseDate(uiFilters.fromDate)
   const toDate = parseDate(uiFilters.toDate)
@@ -125,6 +117,24 @@ export function filtersFromUiFilters(uiFilters: UiFilters): Filters {
   }
 
   return filters
+}
+
+function processSearchId(searchID: string | undefined): { prisonerNumber?: string; referenceNumber?: string } {
+  let prisonerNumber
+  let referenceNumber
+
+  if (searchID) {
+    if (isPrisonerNumber(searchID)) {
+      prisonerNumber = searchID
+    } else if (isReferenceNumber(searchID)) {
+      referenceNumber = searchID
+    }
+  }
+
+  return {
+    prisonerNumber,
+    referenceNumber,
+  }
 }
 
 function validateSearchId(uiFilters: UiFilters, errors: GovukErrorSummaryItem[]): void {

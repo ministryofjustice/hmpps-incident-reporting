@@ -25,7 +25,7 @@ import { pecsRegions } from '../../data/pecsRegions'
 import { ApiUserAction, apiUserActions } from '../../middleware/permissions'
 import type { HeaderCell } from '../../utils/sortableTable'
 import format from '../../utils/format'
-import type { GovukErrorSummaryItem, GovukSelectItem } from '../../utils/govukFrontend'
+import type { GovukSelectItem } from '../../utils/govukFrontend'
 import { hasInvalidValues } from '../../utils/utils'
 import { sortableTableHead } from '../../utils/sortableTable'
 import { pagination } from '../../utils/pagination'
@@ -66,6 +66,8 @@ export default function dashboard(): Router {
     const pecsRegionCodes = pecsRegions.map(pecsRegion => pecsRegion.code)
 
     const uiFilters = readUiFilters(req)
+    const errors = validateUiFilters(uiFilters)
+    const filters = filtersFromUiFilters(uiFilters)
 
     const { clearFilters }: ListFormData = req.query
     let { incidentStatuses, latestUserActions, sort, order }: ListFormData = req.query
@@ -81,9 +83,6 @@ export default function dashboard(): Router {
       order = 'DESC'
     }
 
-    // Collect errors
-    const errors: GovukErrorSummaryItem[] = validateUiFilters(uiFilters)
-
     // If no filters are supplied from query and no errors generated, check for filters in session
     if (req.url === '/' && req.session.dashboardFilters) {
       incidentStatuses = req.session.dashboardFilters?.incidentStatuses
@@ -92,23 +91,9 @@ export default function dashboard(): Router {
       order = req.session.dashboardFilters?.order ?? 'DESC'
     }
 
-    const filters = filtersFromUiFilters(uiFilters)
-
-    // Check for supplied filters from session
-    let noFiltersSupplied = Boolean(
-      !uiFilters.searchID &&
-      !uiFilters.location &&
-      !filters.fromDate &&
-      !filters.toDate &&
-      !uiFilters.typeFamily &&
-      !incidentStatuses &&
-      !latestUserActions,
-    )
-
     // RO: Default work list to 'To do' for an RO when no other filters are applied and when the user arrives on page
     if (permissions.isReportingOfficer && clearFilters === 'ToDo') {
       incidentStatuses = ['toDo']
-      noFiltersSupplied = false
     }
 
     // Ensure incidentStatuses is an array when provided
@@ -350,7 +335,6 @@ export default function dashboard(): Router {
       formValues,
       errors,
       todayAsShortDate,
-      noFiltersSupplied,
       tableHead,
       paginationParams,
     })

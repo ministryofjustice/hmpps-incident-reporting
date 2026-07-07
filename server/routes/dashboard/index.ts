@@ -44,8 +44,8 @@ export default function dashboard(): Router {
 
     const uiFilters = readUiFilters(req)
     fillInDefaults(uiFilters, useWorklists)
-    const errors = validateUiFilters(uiFilters, useWorklists)
-    const filters = filtersFromUiFilters(uiFilters, useWorklists, permissions)
+    const errors = validateUiFilters({ uiFilters, useWorklists })
+    const filters = filtersFromUiFilters({ uiFilters, useWorklists, permissions })
 
     if (uiFilters.clearFilters && ['All', 'ToDo'].includes(uiFilters.clearFilters)) {
       req.session.dashboardFilters = {}

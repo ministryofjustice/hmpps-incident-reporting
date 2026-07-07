@@ -16,7 +16,6 @@ import {
 } from '../../reportConfiguration/constants'
 import type { PaginatedBasicReports } from '../../data/incidentReportingApi'
 import { pecsRegions } from '../../data/pecsRegions'
-import { type ApiUserAction } from '../../middleware/permissions'
 import type { HeaderCell } from '../../utils/sortableTable'
 import format from '../../utils/format'
 import type { GovukSelectItem } from '../../utils/govukFrontend'
@@ -45,20 +44,10 @@ export default function dashboard(): Router {
     const uiFilters = readUiFilters(req)
     fillInDefaults(uiFilters, useWorklists)
     const errors = validateUiFilters(uiFilters, useWorklists)
-    const filters = filtersFromUiFilters(uiFilters, useWorklists)
+    const filters = filtersFromUiFilters(uiFilters, useWorklists, permissions)
 
     if (uiFilters.clearFilters && ['All', 'ToDo'].includes(uiFilters.clearFilters)) {
       req.session.dashboardFilters = {}
-    }
-
-    // Validate and process user action filter
-    let userActionFilter: ApiUserAction[] | undefined
-    if (uiFilters.latestUserActions) {
-      userActionFilter = processUserAction(uiFilters.latestUserActions)
-    }
-    // If an RO opens a link containing filter, remove filter
-    if (permissions.isReportingOfficer) {
-      userActionFilter = undefined
     }
 
     // Set locations to user’s caseloads by default and PECS regions if allowed
@@ -93,7 +82,7 @@ export default function dashboard(): Router {
         type: filters.type,
         status: filters.status,
         involvingPrisonerNumber: filters.prisonerNumber,
-        userAction: userActionFilter,
+        userAction: filters.userAction,
         page: filters.page - 1,
         sort: filters.sort,
       })
@@ -235,16 +224,4 @@ export default function dashboard(): Router {
   })
 
   return router
-}
-
-function processUserAction(userActions: string[]): ApiUserAction[] {
-  if (userActions.includes('REQUEST_REMOVAL')) {
-    return [
-      ...userActions.filter(action => action !== 'REQUEST_REMOVAL'),
-      'REQUEST_NOT_REPORTABLE',
-      'REQUEST_DUPLICATE',
-    ] as ApiUserAction[]
-  }
-
-  return userActions as ApiUserAction[]
 }

@@ -17,7 +17,7 @@ import { parseDateInput } from '../../utils/parseDateTime'
 import format from '../../utils/format'
 import { type Order } from '../../data/offenderSearchApi'
 import { hasInvalidValues } from '../../utils/utils'
-import { type ApiUserAction, apiUserActions } from '../../middleware/permissions'
+import { type ApiUserAction, type Permissions, type UserAction, apiUserActions } from '../../middleware/permissions'
 
 // `latestUserActions` can include 'REQUEST_REMOVAL' (not a valid `ApiUserAction`)
 // which maps/is replaced with 'REQUEST_NOT_REPORTABLE' and 'REQUEST_DUPLICATE'
@@ -46,6 +46,7 @@ interface Filters {
   toDate?: Date
   type?: Type[]
   status?: Status[]
+  userAction?: ApiUserAction[]
   sort: string[]
   page: number
 }
@@ -143,7 +144,7 @@ export function validateUiFilters(uiFilters: UiFilters, useWorklists: boolean): 
   return errors
 }
 
-export function filtersFromUiFilters(uiFilters: UiFilters, useWorklists: boolean): Filters {
+export function filtersFromUiFilters(uiFilters: UiFilters, useWorklists: boolean, permissions: Permissions): Filters {
   let page = (uiFilters.page && parseInt(uiFilters.page, 10)) || 1
   if (page < 1) {
     page = 1
@@ -163,6 +164,7 @@ export function filtersFromUiFilters(uiFilters: UiFilters, useWorklists: boolean
     toDate: validDateOrder ? toDate : undefined,
     type: uiFilters.typeFamily && familyToType[uiFilters.typeFamily],
     status: processStatus(uiFilters.incidentStatuses, useWorklists),
+    userAction: processUserAction(uiFilters.latestUserActions, permissions),
     sort: [`${uiFilters.sort},${uiFilters.order}`],
     page,
   }
@@ -178,12 +180,42 @@ function processStatus(incidentStatuses: IncidentStatuses[] | undefined, useWork
   if (useWorklists) {
     if (validWorkListCodes(incidentStatuses)) {
       // eslint-disable-next-line consistent-return
-      return incidentStatuses.map(worklist => workListMapping[worklist as WorkList]).flat(1)
+      return incidentStatuses.map(worklist => workListMapping[worklist]).flat(1)
     }
   } else if (validReportStatusCodes(incidentStatuses)) {
-    // @ts-expect-error - incidentStatuses only contains Status
     // eslint-disable-next-line consistent-return
     return incidentStatuses
+  }
+}
+
+function processUserAction(
+  latestUserActions: LatestUserActions[] | undefined,
+  permissions: Permissions,
+): UserAction[] | undefined {
+  if (!latestUserActions) {
+    return
+  }
+
+  // If an RO opens a link containing filter, remove filter
+  if (permissions.isReportingOfficer) {
+    return
+  }
+
+  if (validUserAction(latestUserActions)) {
+    // Convert 'REQUEST_REMOVAL' into corresponding API user actions
+    if (latestUserActions.includes('REQUEST_REMOVAL')) {
+      // @ts-expect-error - latestUserActions has valid API user actions
+      // eslint-disable-next-line consistent-return
+      return [
+        ...latestUserActions.filter(action => action !== 'REQUEST_REMOVAL'),
+        'REQUEST_NOT_REPORTABLE',
+        'REQUEST_DUPLICATE',
+      ] as ApiUserAction[]
+    }
+
+    // @ts-expect-error - latestUserActions has valid API user actions
+    // eslint-disable-next-line consistent-return
+    return latestUserActions
   }
 }
 
@@ -240,15 +272,15 @@ function validateLatestUserActions(uiFilters: UiFilters, errors: GovukErrorSumma
   }
 }
 
-function validUserAction(latestUserActions: string[]): boolean {
+function validUserAction(latestUserActions: LatestUserActions[]): latestUserActions is LatestUserActions[] {
   return !hasInvalidValues(latestUserActions, [...apiUserActions, 'REQUEST_REMOVAL'])
 }
 
-function validWorkListCodes(incidentStatuses: IncidentStatuses[]): boolean {
+function validWorkListCodes(incidentStatuses: IncidentStatuses[]): incidentStatuses is WorkList[] {
   return !hasInvalidValues(incidentStatuses, workListCodes)
 }
 
-function validReportStatusCodes(incidentStatuses: IncidentStatuses[]): boolean {
+function validReportStatusCodes(incidentStatuses: IncidentStatuses[]): incidentStatuses is Status[] {
   const reportStatusCodes = statuses.map(status => status.code)
   return !hasInvalidValues(incidentStatuses, reportStatusCodes)
 }

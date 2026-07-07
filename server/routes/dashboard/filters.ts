@@ -17,7 +17,7 @@ import { parseDateInput } from '../../utils/parseDateTime'
 import format from '../../utils/format'
 import { type Order } from '../../data/offenderSearchApi'
 import { hasInvalidValues } from '../../utils/utils'
-import { type ApiUserAction } from '../../middleware/permissions'
+import { type ApiUserAction, apiUserActions } from '../../middleware/permissions'
 
 export type IncidentStatuses = Status | WorkList
 
@@ -131,6 +131,7 @@ export function validateUiFilters(uiFilters: UiFilters, useWorklists: boolean): 
   validateSearchId(uiFilters, errors)
   validateDateRanges(uiFilters, errors)
   validateIncidentStatuses(uiFilters, errors, useWorklists)
+  validateLatestUserActions(uiFilters, errors)
 
   if (uiFilters.typeFamily && !(uiFilters.typeFamily in familyToType)) {
     errors.push({ href: '#typeFamily', text: 'Select a valid incident type' })
@@ -221,6 +222,23 @@ function validateIncidentStatuses(uiFilters: UiFilters, errors: GovukErrorSummar
       text: errorMessage,
     })
   }
+}
+
+function validateLatestUserActions(uiFilters: UiFilters, errors: GovukErrorSummaryItem[]): void {
+  if (!uiFilters.latestUserActions) {
+    return
+  }
+
+  if (!validUserAction(uiFilters.latestUserActions)) {
+    errors.push({
+      href: '#latestUserActions-item',
+      text: 'Enter a valid user action',
+    })
+  }
+}
+
+function validUserAction(latestUserActions: string[]): boolean {
+  return !hasInvalidValues(latestUserActions, [...apiUserActions, 'REQUEST_REMOVAL'])
 }
 
 function validWorkListCodes(incidentStatuses: IncidentStatuses[]): boolean {

@@ -129,7 +129,13 @@ export function fillInDefaults(uiFilters: UiFilters, useWorklists: boolean): voi
   }
 }
 
-export function validateUiFilters(uiFilters: UiFilters, useWorklists: boolean): GovukErrorSummaryItem[] {
+export function validateUiFilters({
+  uiFilters,
+  useWorklists,
+}: {
+  uiFilters: UiFilters
+  useWorklists: boolean
+}): GovukErrorSummaryItem[] {
   const errors: GovukErrorSummaryItem[] = []
 
   validateSearchId(uiFilters, errors)
@@ -144,7 +150,15 @@ export function validateUiFilters(uiFilters: UiFilters, useWorklists: boolean): 
   return errors
 }
 
-export function filtersFromUiFilters(uiFilters: UiFilters, useWorklists: boolean, permissions: Permissions): Filters {
+export function filtersFromUiFilters({
+  uiFilters,
+  useWorklists,
+  permissions,
+}: {
+  uiFilters: UiFilters
+  useWorklists: boolean
+  permissions: Permissions
+}): Filters {
   let page = (uiFilters.page && parseInt(uiFilters.page, 10)) || 1
   if (page < 1) {
     page = 1

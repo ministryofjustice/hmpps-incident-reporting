@@ -19,6 +19,9 @@ import { type Order } from '../../data/offenderSearchApi'
 import { hasInvalidValues } from '../../utils/utils'
 import { type ApiUserAction, type Permissions, type UserAction, apiUserActions } from '../../middleware/permissions'
 
+/** Location search filter which is replaced by all PECS regions when performing search */
+export const ALL_PECS_REGIONS_FLAG = '.PECS' as const
+
 // `latestUserActions` can include 'REQUEST_REMOVAL' (not a valid `ApiUserAction`)
 // which maps/is replaced with 'REQUEST_NOT_REPORTABLE' and 'REQUEST_DUPLICATE'
 export type LatestUserActions = ApiUserAction | 'REQUEST_REMOVAL'
@@ -132,13 +135,20 @@ export function fillInDefaults(uiFilters: UiFilters, useWorklists: boolean): voi
 export function validateUiFilters({
   uiFilters,
   useWorklists,
+  permissions,
+  userCaseloadIds,
+  pecsRegionCodes,
 }: {
   uiFilters: UiFilters
   useWorklists: boolean
+  permissions: Permissions
+  userCaseloadIds: string[]
+  pecsRegionCodes: string[]
 }): GovukErrorSummaryItem[] {
   const errors: GovukErrorSummaryItem[] = []
 
   validateSearchId(uiFilters, errors)
+  validateLocation({ uiFilters, errors, permissions, userCaseloadIds, pecsRegionCodes })
   validateDateRanges(uiFilters, errors)
   validateIncidentStatuses(uiFilters, errors, useWorklists)
   validateLatestUserActions(uiFilters, errors)
@@ -249,6 +259,51 @@ function processSearchId(searchID: string | undefined): { prisonerNumber?: strin
     prisonerNumber,
     referenceNumber,
   }
+}
+
+function validateLocation({
+  uiFilters,
+  errors,
+  permissions,
+  userCaseloadIds,
+  pecsRegionCodes,
+}: {
+  uiFilters: UiFilters
+  errors: GovukErrorSummaryItem[]
+  permissions: Permissions
+  userCaseloadIds: string[]
+  pecsRegionCodes: string[]
+}) {
+  if (!uiFilters.location) {
+    return
+  }
+  if (!validLocation({ location: uiFilters.location, permissions, userCaseloadIds, pecsRegionCodes })) {
+    errors.push({
+      href: '#location',
+      text: 'Select a location to search',
+    })
+  }
+}
+
+function validLocation({
+  location,
+  permissions,
+  userCaseloadIds,
+  pecsRegionCodes,
+}: {
+  location: string
+  permissions: Permissions
+  userCaseloadIds: string[]
+  pecsRegionCodes: string[]
+}): boolean {
+  if (userCaseloadIds.includes(location)) {
+    return true
+  }
+  if (permissions.hasPecsAccess) {
+    return location === ALL_PECS_REGIONS_FLAG || pecsRegionCodes.includes(location)
+  }
+
+  return false
 }
 
 function validateIncidentStatuses(uiFilters: UiFilters, errors: GovukErrorSummaryItem[], useWorklists: boolean): void {

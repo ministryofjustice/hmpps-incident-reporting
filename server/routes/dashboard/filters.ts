@@ -2,17 +2,32 @@ import { type Session, type SessionData } from 'express-session'
 import { type ParsedQs } from 'qs'
 
 import { type GovukErrorSummaryItem } from '../../utils/govukFrontend'
-import { type Type, type TypeFamily, types, typeFamilies } from '../../reportConfiguration/constants'
+import {
+  type Type,
+  type TypeFamily,
+  type Status,
+  type WorkList,
+  types,
+  typeFamilies,
+  workListCodes,
+  statuses,
+  workListMapping,
+} from '../../reportConfiguration/constants'
 import { parseDateInput } from '../../utils/parseDateTime'
 import format from '../../utils/format'
 import { type Order } from '../../data/offenderSearchApi'
+import { hasInvalidValues } from '../../utils/utils'
+
+export type IncidentStatuses = Status | WorkList
 
 interface UiFilters {
+  clearFilters?: string
   searchID?: string
   location?: string
   fromDate?: string
   toDate?: string
   typeFamily?: TypeFamily
+  incidentStatuses?: IncidentStatuses[]
   sort: string
   order: Order
   page?: string
@@ -24,6 +39,7 @@ interface Filters {
   fromDate?: Date
   toDate?: Date
   type?: Type[]
+  status?: Status[]
   sort: string[]
   page: number
 }
@@ -37,12 +53,22 @@ export function readUiFilters({
   session: Session & Partial<SessionData>
   url: string
 }): UiFilters {
+  let incidentStatuses
+  if (typeof query.incidentStatuses === 'string') {
+    incidentStatuses = [query.incidentStatuses]
+  } else if (Array.isArray(query.incidentStatuses)) {
+    incidentStatuses = query.incidentStatuses
+  }
+
   const uiFilters: UiFilters = {
+    clearFilters: typeof query.clearFilters === 'string' ? query.clearFilters : undefined,
     searchID: typeof query.searchID === 'string' ? query.searchID.trim() : undefined,
     location: typeof query.location === 'string' ? query.location : undefined,
     fromDate: typeof query.fromDate === 'string' ? query.fromDate : undefined,
     toDate: typeof query.toDate === 'string' ? query.toDate : undefined,
     typeFamily: query.typeFamily as TypeFamily | undefined,
+    // @ts-expect-error - provided incidentStatuses could be invalid
+    incidentStatuses,
     sort: typeof query.sort === 'string' ? query.sort : '',
     // @ts-expect-error - order is updated with default if invalid
     order: typeof query.order === 'string' ? query.order : '',
@@ -57,6 +83,7 @@ export function readUiFilters({
     uiFilters.fromDate = sessionFilters?.fromDate
     uiFilters.toDate = sessionFilters?.toDate
     uiFilters.typeFamily = sessionFilters?.typeFamily
+    uiFilters.incidentStatuses = sessionFilters?.incidentStatuses
     uiFilters.sort = sessionFilters?.sort ?? ''
     // @ts-expect-error - order is updated with default if invalid
     uiFilters.order = sessionFilters?.order ?? ''
@@ -65,7 +92,7 @@ export function readUiFilters({
   return uiFilters
 }
 
-export function fillInDefaults(uiFilters: UiFilters): void {
+export function fillInDefaults(uiFilters: UiFilters, useWorklists: boolean): void {
   const sortOptions = ['incidentDateAndTime', 'reportReference', 'location', 'type', 'status', 'reportedBy']
   const orderOptions = ['ASC', 'DESC']
 
@@ -78,13 +105,19 @@ export function fillInDefaults(uiFilters: UiFilters): void {
     // eslint-disable-next-line no-param-reassign
     uiFilters.order = 'DESC'
   }
+
+  if (useWorklists && uiFilters.clearFilters === 'ToDo') {
+    // eslint-disable-next-line no-param-reassign
+    uiFilters.incidentStatuses = ['toDo']
+  }
 }
 
-export function validateUiFilters(uiFilters: UiFilters): GovukErrorSummaryItem[] {
+export function validateUiFilters(uiFilters: UiFilters, useWorklists: boolean): GovukErrorSummaryItem[] {
   const errors: GovukErrorSummaryItem[] = []
 
   validateSearchId(uiFilters, errors)
   validateDateRanges(uiFilters, errors)
+  validateIncidentStatuses(uiFilters, errors, useWorklists)
 
   if (uiFilters.typeFamily && !(uiFilters.typeFamily in familyToType)) {
     errors.push({ href: '#typeFamily', text: 'Select a valid incident type' })
@@ -93,7 +126,7 @@ export function validateUiFilters(uiFilters: UiFilters): GovukErrorSummaryItem[]
   return errors
 }
 
-export function filtersFromUiFilters(uiFilters: UiFilters): Filters {
+export function filtersFromUiFilters(uiFilters: UiFilters, useWorklists: boolean): Filters {
   let page = (uiFilters.page && parseInt(uiFilters.page, 10)) || 1
   if (page < 1) {
     page = 1
@@ -112,11 +145,29 @@ export function filtersFromUiFilters(uiFilters: UiFilters): Filters {
     fromDate: validDateOrder ? fromDate : undefined,
     toDate: validDateOrder ? toDate : undefined,
     type: uiFilters.typeFamily && familyToType[uiFilters.typeFamily],
+    status: processStatus(uiFilters.incidentStatuses, useWorklists),
     sort: [`${uiFilters.sort},${uiFilters.order}`],
     page,
   }
 
   return filters
+}
+
+function processStatus(incidentStatuses: IncidentStatuses[] | undefined, useWorklists: boolean): Status[] | undefined {
+  if (!incidentStatuses) {
+    return
+  }
+
+  if (useWorklists) {
+    if (validWorkListCodes(incidentStatuses)) {
+      // eslint-disable-next-line consistent-return
+      return incidentStatuses.map(worklist => workListMapping[worklist as WorkList]).flat(1)
+    }
+  } else if (validReportStatusCodes(incidentStatuses)) {
+    // @ts-expect-error - incidentStatuses only contains Status
+    // eslint-disable-next-line consistent-return
+    return incidentStatuses
+  }
 }
 
 function processSearchId(searchID: string | undefined): { prisonerNumber?: string; referenceNumber?: string } {
@@ -135,6 +186,37 @@ function processSearchId(searchID: string | undefined): { prisonerNumber?: strin
     prisonerNumber,
     referenceNumber,
   }
+}
+
+function validateIncidentStatuses(uiFilters: UiFilters, errors: GovukErrorSummaryItem[], useWorklists: boolean): void {
+  if (!uiFilters.incidentStatuses) {
+    return
+  }
+
+  let errorMessage
+  if (useWorklists) {
+    if (!validWorkListCodes(uiFilters.incidentStatuses)) {
+      errorMessage = 'Select a valid work list'
+    }
+  } else if (!validReportStatusCodes(uiFilters.incidentStatuses)) {
+    errorMessage = 'Select a valid status'
+  }
+
+  if (errorMessage) {
+    errors.push({
+      href: '#incidentStatuses-item',
+      text: errorMessage,
+    })
+  }
+}
+
+function validWorkListCodes(incidentStatuses: IncidentStatuses[]): boolean {
+  return !hasInvalidValues(incidentStatuses, workListCodes)
+}
+
+function validReportStatusCodes(incidentStatuses: IncidentStatuses[]): boolean {
+  const reportStatusCodes = statuses.map(status => status.code)
+  return !hasInvalidValues(incidentStatuses, reportStatusCodes)
 }
 
 function validateSearchId(uiFilters: UiFilters, errors: GovukErrorSummaryItem[]): void {

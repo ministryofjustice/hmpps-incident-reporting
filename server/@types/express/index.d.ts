@@ -29,7 +29,7 @@ type DashboardFilters = {
   fromDate?: string
   toDate?: string
   typeFamily?: TypeFamily
-  incidentStatuses?: IncidentStatuses | IncidentStatuses[]
+  incidentStatuses?: IncidentStatuses[]
   latestUserActions?: ApiUserAction | ApiUserAction[] | 'REQUEST_REMOVAL'
   sort?: string
   order?: 'DESC' | 'ASC'

@@ -4,13 +4,9 @@ import { Router } from 'express'
 
 import logger from '../../../logger'
 import {
-  type Status,
   type TypeFamily,
-  type WorkList,
   workLists,
-  workListCodes,
   workListMapping,
-  statuses,
   statusesDescriptions,
   statusHints,
   types,
@@ -30,9 +26,13 @@ import { hasInvalidValues } from '../../utils/utils'
 import { sortableTableHead } from '../../utils/sortableTable'
 import { pagination } from '../../utils/pagination'
 import { multiCaseloadColumns, singleCaseloadColumns } from './tableColumns'
-import { fillInDefaults, filtersFromUiFilters, readUiFilters, validateUiFilters } from './filters'
-
-export type IncidentStatuses = Status | WorkList
+import {
+  type IncidentStatuses,
+  fillInDefaults,
+  filtersFromUiFilters,
+  readUiFilters,
+  validateUiFilters,
+} from './filters'
 
 interface ListFormData {
   clearFilters?: string
@@ -41,7 +41,7 @@ interface ListFormData {
   fromDate?: string
   toDate?: string
   typeFamily?: TypeFamily
-  incidentStatuses?: IncidentStatuses | IncidentStatuses[]
+  incidentStatuses?: IncidentStatuses[]
   latestUserActions?: ApiUserAction | ApiUserAction[] | 'REQUEST_REMOVAL'
   sort?: string
   order?: Order
@@ -63,35 +63,25 @@ export default function dashboard(): Router {
     const userCaseloadIds = userCaseloads.map(caseload => caseload.caseLoadId)
     const pecsRegionCodes = pecsRegions.map(pecsRegion => pecsRegion.code)
 
+    const useWorklists = permissions.isReportingOfficer
+
     const uiFilters = readUiFilters(req)
-    fillInDefaults(uiFilters)
-    const errors = validateUiFilters(uiFilters)
-    const filters = filtersFromUiFilters(uiFilters)
+    fillInDefaults(uiFilters, useWorklists)
+    const errors = validateUiFilters(uiFilters, useWorklists)
+    const filters = filtersFromUiFilters(uiFilters, useWorklists)
 
-    const { clearFilters }: ListFormData = req.query
-    let { incidentStatuses, latestUserActions }: ListFormData = req.query
+    let { latestUserActions }: ListFormData = req.query
 
-    if (clearFilters && ['All', 'ToDo'].includes(clearFilters)) {
+    if (uiFilters.clearFilters && ['All', 'ToDo'].includes(uiFilters.clearFilters)) {
       req.session.dashboardFilters = {}
     }
 
     // If no filters are supplied from query and no errors generated, check for filters in session
     if (req.url === '/' && req.session.dashboardFilters) {
-      incidentStatuses = req.session.dashboardFilters?.incidentStatuses
       latestUserActions = req.session.dashboardFilters?.latestUserActions
     }
 
-    // RO: Default work list to 'To do' for an RO when no other filters are applied and when the user arrives on page
-    if (permissions.isReportingOfficer && clearFilters === 'ToDo') {
-      incidentStatuses = ['toDo']
-    }
-
-    // Ensure incidentStatuses is an array when provided
-    if (incidentStatuses && !Array.isArray(incidentStatuses)) {
-      incidentStatuses = [incidentStatuses]
-    }
-
-    // Ensure incidentStatuses is an array when provided
+    // Ensure latestUserActions is an array when provided
     if (latestUserActions && !Array.isArray(latestUserActions)) {
       latestUserActions = [latestUserActions]
     }
@@ -110,16 +100,6 @@ export default function dashboard(): Router {
     // If an RO opens a link containing filter, remove filter
     if (permissions.isReportingOfficer) {
       userActionFilter = undefined
-    }
-
-    let searchStatuses: Status[] | undefined
-    try {
-      const useWorklists = permissions.isReportingOfficer
-      searchStatuses = statusesFromParam(incidentStatuses as IncidentStatuses[], useWorklists)
-    } catch (err) {
-      incidentStatuses = undefined
-      const errorMessage = err instanceof Error ? err.message : err!.toString()
-      errors.push({ href: '#incidentStatuses-item', text: errorMessage })
     }
 
     // Set locations to user’s caseloads by default and PECS regions if allowed
@@ -152,7 +132,7 @@ export default function dashboard(): Router {
         incidentDateFrom: filters.fromDate,
         incidentDateUntil: filters.toDate,
         type: filters.type,
-        status: searchStatuses,
+        status: filters.status,
         involvingPrisonerNumber: filters.prisonerNumber,
         userAction: userActionFilter,
         page: filters.page - 1,
@@ -169,7 +149,7 @@ export default function dashboard(): Router {
       fromDate: uiFilters.fromDate,
       toDate: uiFilters.toDate,
       typeFamily: uiFilters.typeFamily,
-      incidentStatuses,
+      incidentStatuses: uiFilters.incidentStatuses,
       latestUserActions,
       sort: uiFilters.sort,
       order: uiFilters.order,
@@ -192,12 +172,8 @@ export default function dashboard(): Router {
     if (uiFilters.typeFamily) {
       queryString.append('typeFamily', uiFilters.typeFamily)
     }
-    if (incidentStatuses) {
-      if (Array.isArray(incidentStatuses)) {
-        incidentStatuses.forEach(status => queryString.append('incidentStatuses', status))
-      } else {
-        queryString.append('incidentStatuses', incidentStatuses)
-      }
+    if (uiFilters.incidentStatuses) {
+      uiFilters.incidentStatuses.forEach(status => queryString.append('incidentStatuses', status))
     }
     if (latestUserActions) {
       if (Array.isArray(latestUserActions)) {
@@ -298,7 +274,7 @@ export default function dashboard(): Router {
         fromDate: uiFilters.fromDate,
         toDate: uiFilters.toDate,
         typeFamily: uiFilters.typeFamily,
-        incidentStatuses,
+        incidentStatuses: uiFilters.incidentStatuses,
         latestUserActions,
         sort: uiFilters.sort,
         order: uiFilters.order,
@@ -331,36 +307,6 @@ export default function dashboard(): Router {
   })
 
   return router
-}
-
-/** Converts the `incidentStatuses` query param into a list of statuses */
-function statusesFromParam(statusesParam: IncidentStatuses[] | undefined, useWorklists: boolean): Status[] | undefined {
-  if (!statusesParam) {
-    return undefined
-  }
-
-  // TODO: consider converting between work lists and statuses so that links with filters can be shared between user types
-
-  // Reporting Officer
-  if (useWorklists) {
-    const hasInvalidWorklist = hasInvalidValues(statusesParam, workListCodes)
-    if (hasInvalidWorklist) {
-      throw new Error('Select a valid work list')
-    }
-
-    const worklists = statusesParam as WorkList[]
-    // Map RO worklists to list of statuses
-    return worklists.map(worklist => workListMapping[worklist]).flat(1)
-  }
-
-  // Data Warden
-  const statusCodes = statuses.map(status => status.code)
-  const hasInvalidStatus = hasInvalidValues(statusesParam, statusCodes)
-  if (hasInvalidStatus) {
-    throw new Error('Select a valid status')
-  }
-
-  return statusesParam as Status[]
 }
 
 function processUserAction(userActions: string[]): ApiUserAction[] {

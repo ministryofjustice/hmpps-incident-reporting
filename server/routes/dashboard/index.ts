@@ -23,6 +23,7 @@ import { sortableTableHead } from '../../utils/sortableTable'
 import { pagination } from '../../utils/pagination'
 import { multiCaseloadColumns, singleCaseloadColumns } from './tableColumns'
 import { type UiFilters, fillInDefaults, filtersFromUiFilters, readUiFilters, validateUiFilters } from './filters'
+import { type CaseLoad } from '../../data/frontendComponentsClient'
 
 /** Location search filter which is replaced by all PECS regions when performing search */
 const allPecsRegionsFlag = '.PECS' as const
@@ -97,30 +98,7 @@ export default function dashboard(): Router {
     const usersLookup = await userService.getUsers(res.locals.systemToken, usernames)
 
     /** location choices for auto-complete */
-    const allLocations: GovukSelectItem[] = userCaseloads.map(caseload => ({
-      value: caseload.caseLoadId,
-      text: caseload.description,
-    }))
-    /** location map for code-to-description display */
-    const locationLookup = Object.fromEntries(
-      userCaseloads.map(caseload => [caseload.caseLoadId, caseload.description]),
-    )
-    if (permissions.hasPecsAccess) {
-      allLocations.unshift({
-        value: allPecsRegionsFlag,
-        text: 'All PECS regions',
-      })
-      allLocations.push(
-        ...pecsRegions.map(pecsRegion => ({
-          value: pecsRegion.code,
-          text: pecsRegion.description,
-        })),
-      )
-      pecsRegions.forEach(pecsRegion => {
-        locationLookup[pecsRegion.code] = pecsRegion.description
-      })
-    }
-
+    const allLocations = allLocationsItems(userCaseloads, permissions.hasPecsAccess)
     const showLocationFilter = allLocations.length > 1
 
     const { paginationUrlPrefix, tableHeadUrlPrefix } = urlPrefixes(uiFilters)
@@ -154,7 +132,7 @@ export default function dashboard(): Router {
       reports,
       showLocationFilter,
       allLocations,
-      locationLookup,
+      locationLookup: locationLookupFromCaseloads(userCaseloads, permissions.hasPecsAccess),
       usersLookup,
       typeFamilyItems: typeFamilyItems(),
       workLists,
@@ -172,6 +150,40 @@ export default function dashboard(): Router {
   })
 
   return router
+}
+
+function locationLookupFromCaseloads(userCaseloads: CaseLoad[], hasPecsAccess: boolean): Record<string, string> {
+  const locationLookup = Object.fromEntries(userCaseloads.map(caseload => [caseload.caseLoadId, caseload.description]))
+
+  if (hasPecsAccess) {
+    pecsRegions.forEach(pecsRegion => {
+      locationLookup[pecsRegion.code] = pecsRegion.description
+    })
+  }
+
+  return locationLookup
+}
+
+function allLocationsItems(userCaseloads: CaseLoad[], hasPecsAccess: boolean): GovukSelectItem[] {
+  const allLocations: GovukSelectItem[] = userCaseloads.map(caseload => ({
+    value: caseload.caseLoadId,
+    text: caseload.description,
+  }))
+
+  if (hasPecsAccess) {
+    allLocations.unshift({
+      value: allPecsRegionsFlag,
+      text: 'All PECS regions',
+    })
+    allLocations.push(
+      ...pecsRegions.map(pecsRegion => ({
+        value: pecsRegion.code,
+        text: pecsRegion.description,
+      })),
+    )
+  }
+
+  return allLocations
 }
 
 /**

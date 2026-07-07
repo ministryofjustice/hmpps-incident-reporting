@@ -19,7 +19,11 @@ import { type Order } from '../../data/offenderSearchApi'
 import { hasInvalidValues } from '../../utils/utils'
 import { type ApiUserAction, apiUserActions } from '../../middleware/permissions'
 
-export type IncidentStatuses = Status | WorkList
+// `latestUserActions` can include 'REQUEST_REMOVAL' (not a valid `ApiUserAction`)
+// which maps/is replaced with 'REQUEST_NOT_REPORTABLE' and 'REQUEST_DUPLICATE'
+export type LatestUserActions = ApiUserAction | 'REQUEST_REMOVAL'
+
+type IncidentStatuses = Status | WorkList
 
 interface UiFilters {
   clearFilters?: string
@@ -29,8 +33,7 @@ interface UiFilters {
   toDate?: string
   typeFamily?: TypeFamily
   incidentStatuses?: IncidentStatuses[]
-  // TODO: Why was dashboard adding 'REQUEST_REMOVAL'??
-  latestUserActions?: ApiUserAction[]
+  latestUserActions?: LatestUserActions[]
   sort: string
   order: Order
   page?: string

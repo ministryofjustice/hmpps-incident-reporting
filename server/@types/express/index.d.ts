@@ -10,7 +10,7 @@ import type { PrisonApi } from '../../data/prisonApi'
 import type { Permissions, UserAction, ReportTransitions } from '../../middleware/permissions'
 import type { TypeFamily } from '../../reportConfiguration/constants'
 import { IncidentStatuses } from '../../routes/dashboard'
-import { ApiUserAction } from '../../middleware/permissions'
+import { LatestUserActions } from '../../routes/dashboard/filters'
 
 export default {}
 
@@ -30,8 +30,7 @@ type DashboardFilters = {
   toDate?: string
   typeFamily?: TypeFamily
   incidentStatuses?: IncidentStatuses[]
-  // TODO: Why is dashboard adding 'REQUEST_REMOVAL'??
-  latestUserActions?: (ApiUserAction | 'REQUEST_REMOVAL')[]
+  latestUserActions?: LatestUserActions[]
   sort?: string
   order?: 'DESC' | 'ASC'
 }

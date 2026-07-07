@@ -25,7 +25,7 @@ export type LatestUserActions = ApiUserAction | 'REQUEST_REMOVAL'
 
 type IncidentStatuses = Status | WorkList
 
-interface UiFilters {
+export interface UiFilters {
   clearFilters?: string
   searchID?: string
   location?: string

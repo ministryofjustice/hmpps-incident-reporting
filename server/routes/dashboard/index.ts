@@ -22,7 +22,7 @@ import type { GovukSelectItem } from '../../utils/govukFrontend'
 import { sortableTableHead } from '../../utils/sortableTable'
 import { pagination } from '../../utils/pagination'
 import { multiCaseloadColumns, singleCaseloadColumns } from './tableColumns'
-import { fillInDefaults, filtersFromUiFilters, readUiFilters, validateUiFilters } from './filters'
+import { type UiFilters, fillInDefaults, filtersFromUiFilters, readUiFilters, validateUiFilters } from './filters'
 
 /** Location search filter which is replaced by all PECS regions when performing search */
 const allPecsRegionsFlag = '.PECS' as const
@@ -91,35 +91,6 @@ export default function dashboard(): Router {
       errors.push({ href: '#searchID', text: 'Sorry, there was a problem with your request' })
     }
 
-    const queryString = new URLSearchParams()
-    if (uiFilters.searchID) {
-      queryString.append('searchID', uiFilters.searchID)
-    }
-    if (uiFilters.location) {
-      queryString.append('location', uiFilters.location)
-    }
-    if (uiFilters.fromDate) {
-      queryString.append('fromDate', uiFilters.fromDate)
-    }
-    if (uiFilters.toDate) {
-      queryString.append('toDate', uiFilters.toDate)
-    }
-    if (uiFilters.typeFamily) {
-      queryString.append('typeFamily', uiFilters.typeFamily)
-    }
-    uiFilters.incidentStatuses?.forEach(status => queryString.append('incidentStatuses', status))
-    uiFilters.latestUserActions?.forEach(userAction => queryString.append('latestUserActions', userAction))
-
-    const tableHeadUrlPrefix = `/reports?${queryString}&`
-    if (uiFilters.sort) {
-      queryString.append('sort', uiFilters.sort)
-    }
-    if (uiFilters.order) {
-      queryString.append('order', uiFilters.order)
-    }
-
-    const urlPrefix = `/reports?${queryString}&`
-
     const reports = reportsResponse?.content ?? []
 
     const usernames = reports.map(report => report.reportedBy)
@@ -171,6 +142,7 @@ export default function dashboard(): Router {
 
     const showLocationFilter = allLocations.length > 1
 
+    const { paginationUrlPrefix, tableHeadUrlPrefix } = urlPrefixes(uiFilters)
     const columns = showLocationFilter ? multiCaseloadColumns : singleCaseloadColumns
     const tableHead: HeaderCell[] = sortableTableHead({
       columns,
@@ -183,7 +155,7 @@ export default function dashboard(): Router {
       ? pagination(
           filters.page,
           reportsResponse.totalPages,
-          urlPrefix,
+          paginationUrlPrefix,
           'moj',
           reportsResponse.totalElements,
           reportsResponse.size,
@@ -224,4 +196,41 @@ export default function dashboard(): Router {
   })
 
   return router
+}
+
+function urlPrefixes(uiFilters: UiFilters): { paginationUrlPrefix: string; tableHeadUrlPrefix: string } {
+  const queryString = new URLSearchParams()
+
+  if (uiFilters.searchID) {
+    queryString.append('searchID', uiFilters.searchID)
+  }
+  if (uiFilters.location) {
+    queryString.append('location', uiFilters.location)
+  }
+  if (uiFilters.fromDate) {
+    queryString.append('fromDate', uiFilters.fromDate)
+  }
+  if (uiFilters.toDate) {
+    queryString.append('toDate', uiFilters.toDate)
+  }
+  if (uiFilters.typeFamily) {
+    queryString.append('typeFamily', uiFilters.typeFamily)
+  }
+  uiFilters.incidentStatuses?.forEach(status => queryString.append('incidentStatuses', status))
+  uiFilters.latestUserActions?.forEach(userAction => queryString.append('latestUserActions', userAction))
+
+  // sort/order *not* in query string, they're added by `sortableTableHead()`
+  const tableHeadUrlPrefix = `/reports?${queryString}&`
+
+  if (uiFilters.sort) {
+    queryString.append('sort', uiFilters.sort)
+  }
+  if (uiFilters.order) {
+    queryString.append('order', uiFilters.order)
+  }
+
+  // `paginationUrlPrefix` also include sort/order query params
+  const paginationUrlPrefix = `/reports?${queryString}&`
+
+  return { tableHeadUrlPrefix, paginationUrlPrefix }
 }

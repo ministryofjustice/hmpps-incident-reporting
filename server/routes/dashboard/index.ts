@@ -22,11 +22,15 @@ import type { GovukSelectItem } from '../../utils/govukFrontend'
 import { sortableTableHead } from '../../utils/sortableTable'
 import { pagination } from '../../utils/pagination'
 import { multiCaseloadColumns, singleCaseloadColumns } from './tableColumns'
-import { type UiFilters, fillInDefaults, filtersFromUiFilters, readUiFilters, validateUiFilters } from './filters'
+import {
+  type UiFilters,
+  ALL_PECS_REGIONS_FLAG,
+  fillInDefaults,
+  filtersFromUiFilters,
+  readUiFilters,
+  validateUiFilters,
+} from './filters'
 import { type CaseLoad } from '../../data/frontendComponentsClient'
-
-/** Location search filter which is replaced by all PECS regions when performing search */
-const allPecsRegionsFlag = '.PECS' as const
 
 export default function dashboard(): Router {
   const router = Router({ mergeParams: true })
@@ -44,7 +48,7 @@ export default function dashboard(): Router {
 
     const uiFilters = readUiFilters(req)
     fillInDefaults(uiFilters, useWorklists)
-    const errors = validateUiFilters({ uiFilters, useWorklists })
+    const errors = validateUiFilters({ uiFilters, useWorklists, permissions, userCaseloadIds, pecsRegionCodes })
     const filters = filtersFromUiFilters({ uiFilters, useWorklists, permissions })
 
     if (uiFilters.clearFilters && ['All', 'ToDo'].includes(uiFilters.clearFilters)) {
@@ -61,13 +65,8 @@ export default function dashboard(): Router {
         searchLocations = [uiFilters.location]
       } else if (permissions.hasPecsAccess && pecsRegionCodes.includes(uiFilters.location)) {
         searchLocations = [uiFilters.location]
-      } else if (permissions.hasPecsAccess && uiFilters.location === allPecsRegionsFlag) {
+      } else if (permissions.hasPecsAccess && uiFilters.location === ALL_PECS_REGIONS_FLAG) {
         searchLocations = pecsRegionCodes
-      } else {
-        errors.push({
-          href: '#location',
-          text: 'Select a location to search',
-        })
       }
     }
 
@@ -172,7 +171,7 @@ function allLocationsItems(userCaseloads: CaseLoad[], hasPecsAccess: boolean): G
 
   if (hasPecsAccess) {
     allLocations.unshift({
-      value: allPecsRegionsFlag,
+      value: ALL_PECS_REGIONS_FLAG,
       text: 'All PECS regions',
     })
     allLocations.push(

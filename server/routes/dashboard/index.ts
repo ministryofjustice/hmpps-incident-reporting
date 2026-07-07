@@ -113,8 +113,6 @@ export default function dashboard(): Router {
 
     const typeFamilyItems: GovukSelectItem[] = [...activeTypeFamilyItems, ...expiredTypeFamilyItems]
 
-    const showWorkListFilters = permissions.isReportingOfficer
-
     /** location choices for auto-complete */
     const allLocations: GovukSelectItem[] = userCaseloads.map(caseload => ({
       value: caseload.caseLoadId,
@@ -162,19 +160,14 @@ export default function dashboard(): Router {
         )
       : undefined
 
-    // Gather notification banner entries if they exist
-    const banners = req.flash()
-
     // Set dashboard filters stored in the session if no errors present
     if (errors.length === 0) {
       req.session.dashboardFilters = uiFilters
     }
 
-    const todayAsShortDate = format.shortDate(new Date())
-
     res.render('pages/dashboard/index', {
       activeCaseLoad,
-      banners,
+      banners: req.flash,
       reports,
       showLocationFilter,
       allLocations,
@@ -183,13 +176,13 @@ export default function dashboard(): Router {
       typeFamilyItems,
       workLists,
       workListMapping,
-      showWorkListFilters,
+      showWorkListFilters: permissions.isReportingOfficer,
       statusesDescriptions,
       statusHints,
       typesDescriptions,
       formValues: uiFilters,
       errors,
-      todayAsShortDate,
+      todayAsShortDate: format.shortDate(new Date()),
       tableHead,
       paginationParams,
     })

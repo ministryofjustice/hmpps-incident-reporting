@@ -96,23 +96,6 @@ export default function dashboard(): Router {
     const usernames = reports.map(report => report.reportedBy)
     const usersLookup = await userService.getUsers(res.locals.systemToken, usernames)
 
-    const familyInactiveStatus = areTypeFamiliesInactive(types)
-    const activeTypeFamilyItems: GovukSelectItem[] = typeFamilies
-      .filter(({ code: someFamilyCode }) => !familyInactiveStatus[someFamilyCode])
-      .map(family => ({
-        value: family.code,
-        text: family.description,
-      }))
-
-    const expiredTypeFamilyItems: GovukSelectItem[] = typeFamilies
-      .filter(({ code: someFamilyCode }) => familyInactiveStatus[someFamilyCode])
-      .map(family => ({
-        value: family.code,
-        text: `${family.description} (inactive since ${familyExpiryDates[family.code]})`,
-      }))
-
-    const typeFamilyItems: GovukSelectItem[] = [...activeTypeFamilyItems, ...expiredTypeFamilyItems]
-
     /** location choices for auto-complete */
     const allLocations: GovukSelectItem[] = userCaseloads.map(caseload => ({
       value: caseload.caseLoadId,
@@ -173,7 +156,7 @@ export default function dashboard(): Router {
       allLocations,
       locationLookup,
       usersLookup,
-      typeFamilyItems,
+      typeFamilyItems: typeFamilyItems(),
       workLists,
       workListMapping,
       showWorkListFilters: permissions.isReportingOfficer,
@@ -189,6 +172,28 @@ export default function dashboard(): Router {
   })
 
   return router
+}
+
+/**
+ * List of type families. Sorted alphabeticaly. Inactive ones at the end and display inactive date
+ */
+function typeFamilyItems(): GovukSelectItem[] {
+  const familyInactiveStatus = areTypeFamiliesInactive(types)
+  const activeTypeFamilyItems: GovukSelectItem[] = typeFamilies
+    .filter(({ code: someFamilyCode }) => !familyInactiveStatus[someFamilyCode])
+    .map(family => ({
+      value: family.code,
+      text: family.description,
+    }))
+
+  const expiredTypeFamilyItems: GovukSelectItem[] = typeFamilies
+    .filter(({ code: someFamilyCode }) => familyInactiveStatus[someFamilyCode])
+    .map(family => ({
+      value: family.code,
+      text: `${family.description} (inactive since ${familyExpiryDates[family.code]})`,
+    }))
+
+  return [...activeTypeFamilyItems, ...expiredTypeFamilyItems]
 }
 
 function urlPrefixes(uiFilters: UiFilters): { paginationUrlPrefix: string; tableHeadUrlPrefix: string } {

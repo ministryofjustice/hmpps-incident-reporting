@@ -17,6 +17,7 @@ import { parseDateInput } from '../../utils/parseDateTime'
 import format from '../../utils/format'
 import { type Order } from '../../data/offenderSearchApi'
 import { hasInvalidValues } from '../../utils/utils'
+import { type ApiUserAction } from '../../middleware/permissions'
 
 export type IncidentStatuses = Status | WorkList
 
@@ -28,6 +29,8 @@ interface UiFilters {
   toDate?: string
   typeFamily?: TypeFamily
   incidentStatuses?: IncidentStatuses[]
+  // TODO: Why was dashboard adding 'REQUEST_REMOVAL'??
+  latestUserActions?: ApiUserAction[]
   sort: string
   order: Order
   page?: string
@@ -60,6 +63,13 @@ export function readUiFilters({
     incidentStatuses = query.incidentStatuses
   }
 
+  let latestUserActions
+  if (typeof query.latestUserActions === 'string') {
+    latestUserActions = [query.latestUserActions]
+  } else if (Array.isArray(query.latestUserActions)) {
+    latestUserActions = query.latestUserActions
+  }
+
   const uiFilters: UiFilters = {
     clearFilters: typeof query.clearFilters === 'string' ? query.clearFilters : undefined,
     searchID: typeof query.searchID === 'string' ? query.searchID.trim() : undefined,
@@ -69,6 +79,8 @@ export function readUiFilters({
     typeFamily: query.typeFamily as TypeFamily | undefined,
     // @ts-expect-error - provided incidentStatuses could be invalid
     incidentStatuses,
+    // @ts-expect-error - provided latestUserActions could be invalid
+    latestUserActions,
     sort: typeof query.sort === 'string' ? query.sort : '',
     // @ts-expect-error - order is updated with default if invalid
     order: typeof query.order === 'string' ? query.order : '',
@@ -84,6 +96,7 @@ export function readUiFilters({
     uiFilters.toDate = sessionFilters?.toDate
     uiFilters.typeFamily = sessionFilters?.typeFamily
     uiFilters.incidentStatuses = sessionFilters?.incidentStatuses
+    uiFilters.latestUserActions = sessionFilters?.latestUserActions
     uiFilters.sort = sessionFilters?.sort ?? ''
     // @ts-expect-error - order is updated with default if invalid
     uiFilters.order = sessionFilters?.order ?? ''

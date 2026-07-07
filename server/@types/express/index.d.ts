@@ -30,7 +30,8 @@ type DashboardFilters = {
   toDate?: string
   typeFamily?: TypeFamily
   incidentStatuses?: IncidentStatuses[]
-  latestUserActions?: ApiUserAction | ApiUserAction[] | 'REQUEST_REMOVAL'
+  // TODO: Why is dashboard adding 'REQUEST_REMOVAL'??
+  latestUserActions?: (ApiUserAction | 'REQUEST_REMOVAL')[]
   sort?: string
   order?: 'DESC' | 'ASC'
 }

@@ -4,7 +4,6 @@ import { Router } from 'express'
 
 import logger from '../../../logger'
 import {
-  type TypeFamily,
   workLists,
   workListMapping,
   statusesDescriptions,
@@ -16,7 +15,6 @@ import {
   areTypeFamiliesInactive,
 } from '../../reportConfiguration/constants'
 import type { PaginatedBasicReports } from '../../data/incidentReportingApi'
-import { type Order } from '../../data/offenderSearchApi'
 import { pecsRegions } from '../../data/pecsRegions'
 import { ApiUserAction, apiUserActions } from '../../middleware/permissions'
 import type { HeaderCell } from '../../utils/sortableTable'
@@ -26,27 +24,7 @@ import { hasInvalidValues } from '../../utils/utils'
 import { sortableTableHead } from '../../utils/sortableTable'
 import { pagination } from '../../utils/pagination'
 import { multiCaseloadColumns, singleCaseloadColumns } from './tableColumns'
-import {
-  type IncidentStatuses,
-  fillInDefaults,
-  filtersFromUiFilters,
-  readUiFilters,
-  validateUiFilters,
-} from './filters'
-
-interface ListFormData {
-  clearFilters?: string
-  searchID?: string
-  location?: string
-  fromDate?: string
-  toDate?: string
-  typeFamily?: TypeFamily
-  incidentStatuses?: IncidentStatuses[]
-  latestUserActions?: ApiUserAction | ApiUserAction[] | 'REQUEST_REMOVAL'
-  sort?: string
-  order?: Order
-  page?: string
-}
+import { fillInDefaults, filtersFromUiFilters, readUiFilters, validateUiFilters } from './filters'
 
 /** Location search filter which is replaced by all PECS regions when performing search */
 const allPecsRegionsFlag = '.PECS' as const
@@ -70,28 +48,16 @@ export default function dashboard(): Router {
     const errors = validateUiFilters(uiFilters, useWorklists)
     const filters = filtersFromUiFilters(uiFilters, useWorklists)
 
-    let { latestUserActions }: ListFormData = req.query
-
     if (uiFilters.clearFilters && ['All', 'ToDo'].includes(uiFilters.clearFilters)) {
       req.session.dashboardFilters = {}
     }
 
-    // If no filters are supplied from query and no errors generated, check for filters in session
-    if (req.url === '/' && req.session.dashboardFilters) {
-      latestUserActions = req.session.dashboardFilters?.latestUserActions
-    }
-
-    // Ensure latestUserActions is an array when provided
-    if (latestUserActions && !Array.isArray(latestUserActions)) {
-      latestUserActions = [latestUserActions]
-    }
     // Validate and process user action filter
     let userActionFilter: ApiUserAction[] | undefined
-    if (latestUserActions) {
+    if (uiFilters.latestUserActions) {
       try {
-        userActionFilter = processUserAction(latestUserActions as string[])
+        userActionFilter = processUserAction(uiFilters.latestUserActions)
       } catch (err) {
-        latestUserActions = undefined
         userActionFilter = undefined
         const errorMessage = err instanceof Error ? err.message : err!.toString()
         errors.push({ href: '#latestUserActions-item', text: errorMessage })
@@ -143,19 +109,6 @@ export default function dashboard(): Router {
       errors.push({ href: '#searchID', text: 'Sorry, there was a problem with your request' })
     }
 
-    const formValues: ListFormData = {
-      searchID: uiFilters.searchID,
-      location: uiFilters.location,
-      fromDate: uiFilters.fromDate,
-      toDate: uiFilters.toDate,
-      typeFamily: uiFilters.typeFamily,
-      incidentStatuses: uiFilters.incidentStatuses,
-      latestUserActions,
-      sort: uiFilters.sort,
-      order: uiFilters.order,
-      page: uiFilters.page,
-    }
-
     const queryString = new URLSearchParams()
     if (uiFilters.searchID) {
       queryString.append('searchID', uiFilters.searchID)
@@ -172,16 +125,9 @@ export default function dashboard(): Router {
     if (uiFilters.typeFamily) {
       queryString.append('typeFamily', uiFilters.typeFamily)
     }
-    if (uiFilters.incidentStatuses) {
-      uiFilters.incidentStatuses.forEach(status => queryString.append('incidentStatuses', status))
-    }
-    if (latestUserActions) {
-      if (Array.isArray(latestUserActions)) {
-        latestUserActions.forEach(userAction => queryString.append('latestUserActions', userAction))
-      } else {
-        queryString.append('latestUserActions', latestUserActions)
-      }
-    }
+    uiFilters.incidentStatuses?.forEach(status => queryString.append('incidentStatuses', status))
+    uiFilters.latestUserActions?.forEach(userAction => queryString.append('latestUserActions', userAction))
+
     const tableHeadUrlPrefix = `/reports?${queryString}&`
     if (uiFilters.sort) {
       queryString.append('sort', uiFilters.sort)
@@ -265,20 +211,9 @@ export default function dashboard(): Router {
     // Gather notification banner entries if they exist
     const banners = req.flash()
 
-    // TODO: Move logic into helper once all filters are in uiFilters
     // Set dashboard filters stored in the session if no errors present
     if (errors.length === 0) {
-      req.session.dashboardFilters = {
-        searchID: uiFilters.searchID,
-        location: uiFilters.location,
-        fromDate: uiFilters.fromDate,
-        toDate: uiFilters.toDate,
-        typeFamily: uiFilters.typeFamily,
-        incidentStatuses: uiFilters.incidentStatuses,
-        latestUserActions,
-        sort: uiFilters.sort,
-        order: uiFilters.order,
-      }
+      req.session.dashboardFilters = uiFilters
     }
 
     const todayAsShortDate = format.shortDate(new Date())
@@ -298,7 +233,7 @@ export default function dashboard(): Router {
       statusesDescriptions,
       statusHints,
       typesDescriptions,
-      formValues,
+      formValues: uiFilters,
       errors,
       todayAsShortDate,
       tableHead,

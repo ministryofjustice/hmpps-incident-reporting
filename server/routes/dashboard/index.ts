@@ -16,11 +16,10 @@ import {
 } from '../../reportConfiguration/constants'
 import type { PaginatedBasicReports } from '../../data/incidentReportingApi'
 import { pecsRegions } from '../../data/pecsRegions'
-import { ApiUserAction, apiUserActions } from '../../middleware/permissions'
+import { type ApiUserAction } from '../../middleware/permissions'
 import type { HeaderCell } from '../../utils/sortableTable'
 import format from '../../utils/format'
 import type { GovukSelectItem } from '../../utils/govukFrontend'
-import { hasInvalidValues } from '../../utils/utils'
 import { sortableTableHead } from '../../utils/sortableTable'
 import { pagination } from '../../utils/pagination'
 import { multiCaseloadColumns, singleCaseloadColumns } from './tableColumns'
@@ -55,13 +54,7 @@ export default function dashboard(): Router {
     // Validate and process user action filter
     let userActionFilter: ApiUserAction[] | undefined
     if (uiFilters.latestUserActions) {
-      try {
-        userActionFilter = processUserAction(uiFilters.latestUserActions)
-      } catch (err) {
-        userActionFilter = undefined
-        const errorMessage = err instanceof Error ? err.message : err!.toString()
-        errors.push({ href: '#latestUserActions-item', text: errorMessage })
-      }
+      userActionFilter = processUserAction(uiFilters.latestUserActions)
     }
     // If an RO opens a link containing filter, remove filter
     if (permissions.isReportingOfficer) {
@@ -245,15 +238,13 @@ export default function dashboard(): Router {
 }
 
 function processUserAction(userActions: string[]): ApiUserAction[] {
-  if (hasInvalidValues(userActions, [...apiUserActions, 'REQUEST_REMOVAL'])) {
-    throw new Error('Enter a valid user action')
-  } else if (userActions.includes('REQUEST_REMOVAL')) {
+  if (userActions.includes('REQUEST_REMOVAL')) {
     return [
       ...userActions.filter(action => action !== 'REQUEST_REMOVAL'),
       'REQUEST_NOT_REPORTABLE',
       'REQUEST_DUPLICATE',
     ] as ApiUserAction[]
-  } else {
-    return userActions as ApiUserAction[]
   }
+
+  return userActions as ApiUserAction[]
 }

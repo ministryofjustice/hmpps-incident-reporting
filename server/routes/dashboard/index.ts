@@ -59,13 +59,13 @@ export default function dashboard(): Router {
     // TODO: should probably not search if there are errors, because what’ll show will not match apparent filters
     try {
       reportsResponse = await incidentReportingApi.getReports({
-        reference: filters.referenceNumber,
+        reference: filters.reference,
         location: filters.location,
-        incidentDateFrom: filters.fromDate,
-        incidentDateUntil: filters.toDate,
+        incidentDateFrom: filters.incidentDateFrom,
+        incidentDateUntil: filters.incidentDateUntil,
         type: filters.type,
         status: filters.status,
-        involvingPrisonerNumber: filters.prisonerNumber,
+        involvingPrisonerNumber: filters.involvingPrisonerNumber,
         userAction: filters.userAction,
         // API page starts at 0
         page: filters.page - 1,

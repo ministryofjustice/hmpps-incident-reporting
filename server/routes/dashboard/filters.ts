@@ -7,8 +7,6 @@ import {
   type TypeFamily,
   type Status,
   type WorkList,
-  types,
-  typeFamilies,
   workListCodes,
   statuses,
   workListMapping,
@@ -19,6 +17,7 @@ import { type Order } from '../../data/offenderSearchApi'
 import { hasInvalidValues } from '../../utils/utils'
 import { type ApiUserAction, type Permissions, type UserAction, apiUserActions } from '../../middleware/permissions'
 import { pecsRegions } from '../../data/pecsRegions'
+import { typesForFamily } from '../../reportConfiguration/constants/familyToTypesMapping'
 
 /** Location search filter which is replaced by all PECS regions when performing search */
 export const ALL_PECS_REGIONS_FLAG = '.PECS' as const
@@ -159,7 +158,7 @@ export function validateUiFilters({
   validateIncidentStatuses(uiFilters, errors, useWorkLists)
   validateLatestUserActions(uiFilters, errors)
 
-  if (uiFilters.typeFamily && !(uiFilters.typeFamily in familyToType)) {
+  if (uiFilters.typeFamily && !validTypeFamily(uiFilters.typeFamily)) {
     errors.push({ href: '#typeFamily', text: 'Select a valid incident type' })
   }
 
@@ -195,7 +194,7 @@ export function filtersFromUiFilters({
     location: processLocation(uiFilters.location, permissions, userCaseloadIds),
     incidentDateFrom: validDateOrder ? incidentDateFrom : undefined,
     incidentDateUntil: validDateOrder ? incidentDateUntil : undefined,
-    type: uiFilters.typeFamily && familyToType[uiFilters.typeFamily],
+    type: uiFilters.typeFamily && typesForFamily(uiFilters.typeFamily),
     status: processStatus(uiFilters.incidentStatuses, useWorkLists),
     userAction: processUserAction(uiFilters.latestUserActions, permissions),
     sort: [`${uiFilters.sort},${uiFilters.order}`],
@@ -399,6 +398,10 @@ function validateSearchId(uiFilters: UiFilters, errors: GovukErrorSummaryItem[])
   }
 }
 
+export function validTypeFamily(typeFamily: string): typeFamily is TypeFamily {
+  return typesForFamily(typeFamily) !== undefined
+}
+
 function isPrisonerNumber(searchID: string): boolean {
   return searchID.match(/^[a-zA-Z][0-9]{4}[a-zA-Z]{2}$/) !== null
 }
@@ -436,13 +439,3 @@ function parseDate(date: string | undefined): Date | undefined {
 
   return undefined
 }
-
-/** Given a family code, list type codes belonging to the family */
-const familyToType = Object.fromEntries(
-  Object.values(typeFamilies).map(({ code: familyCode }) => [
-    familyCode,
-    Object.values(types)
-      .filter(({ familyCode: someFamilyCode }) => someFamilyCode === familyCode)
-      .map(({ code }) => code),
-  ]),
-)

@@ -183,17 +183,14 @@ export function filtersFromUiFilters({
 
   const { prisonerNumber, referenceNumber } = processSearchId(uiFilters.searchID)
 
-  const incidentDateFrom = parseDate(uiFilters.fromDate)
-  const incidentDateUntil = parseDate(uiFilters.toDate)
-  const validDates = incidentDateFrom !== undefined && incidentDateUntil !== undefined
-  const validDateOrder = validDates && incidentDateUntil >= incidentDateFrom
+  const { incidentDateFrom, incidentDateUntil } = processDateRange(uiFilters)
 
   const filters = {
     involvingPrisonerNumber: prisonerNumber,
     reference: referenceNumber,
     location: processLocation(uiFilters.location, permissions, userCaseloadIds),
-    incidentDateFrom: validDateOrder ? incidentDateFrom : undefined,
-    incidentDateUntil: validDateOrder ? incidentDateUntil : undefined,
+    incidentDateFrom,
+    incidentDateUntil,
     type: uiFilters.typeFamily && typesForFamily(uiFilters.typeFamily),
     status: processStatus(uiFilters.incidentStatuses, useWorkLists),
     userAction: processUserAction(uiFilters.latestUserActions, permissions),
@@ -202,6 +199,18 @@ export function filtersFromUiFilters({
   }
 
   return filters
+}
+
+function processDateRange(uiFilters: UiFilters): { incidentDateFrom?: Date; incidentDateUntil?: Date } {
+  const incidentDateFrom = parseDate(uiFilters.fromDate)
+  const incidentDateUntil = parseDate(uiFilters.toDate)
+  const validDates = incidentDateFrom !== undefined && incidentDateUntil !== undefined
+  const validDateOrder = validDates && incidentDateUntil >= incidentDateFrom
+
+  return {
+    incidentDateFrom: validDateOrder ? incidentDateFrom : undefined,
+    incidentDateUntil: validDateOrder ? incidentDateUntil : undefined,
+  }
 }
 
 function processLocation(location: string | undefined, permissions: Permissions, userCaseloadIds: string[]): string[] {

@@ -99,7 +99,7 @@ export default function dashboard(): Router {
 
     res.render('pages/dashboard/index', {
       activeCaseLoad,
-      banners: req.flash,
+      banners: req.flash(),
       reports,
       showLocationFilter,
       allLocations,

@@ -18,6 +18,7 @@ import format from '../../utils/format'
 import { type Order } from '../../data/offenderSearchApi'
 import { hasInvalidValues } from '../../utils/utils'
 import { type ApiUserAction, type Permissions, type UserAction, apiUserActions } from '../../middleware/permissions'
+import { pecsRegions } from '../../data/pecsRegions'
 
 /** Location search filter which is replaced by all PECS regions when performing search */
 export const ALL_PECS_REGIONS_FLAG = '.PECS' as const
@@ -45,6 +46,7 @@ export interface UiFilters {
 interface Filters {
   prisonerNumber?: string
   referenceNumber?: string
+  location: string[]
   fromDate?: Date
   toDate?: Date
   type?: Type[]
@@ -137,18 +139,16 @@ export function validateUiFilters({
   useWorkLists,
   permissions,
   userCaseloadIds,
-  pecsRegionCodes,
 }: {
   uiFilters: UiFilters
   useWorkLists: boolean
   permissions: Permissions
   userCaseloadIds: string[]
-  pecsRegionCodes: string[]
 }): GovukErrorSummaryItem[] {
   const errors: GovukErrorSummaryItem[] = []
 
   validateSearchId(uiFilters, errors)
-  validateLocation({ uiFilters, errors, permissions, userCaseloadIds, pecsRegionCodes })
+  validateLocation({ uiFilters, errors, permissions, userCaseloadIds })
   validateDateRanges(uiFilters, errors)
   validateIncidentStatuses(uiFilters, errors, useWorkLists)
   validateLatestUserActions(uiFilters, errors)
@@ -164,10 +164,12 @@ export function filtersFromUiFilters({
   uiFilters,
   useWorkLists,
   permissions,
+  userCaseloadIds,
 }: {
   uiFilters: UiFilters
   useWorkLists: boolean
   permissions: Permissions
+  userCaseloadIds: string[]
 }): Filters {
   let page = (uiFilters.page && parseInt(uiFilters.page, 10)) || 1
   if (page < 1) {
@@ -184,6 +186,7 @@ export function filtersFromUiFilters({
   const filters = {
     prisonerNumber,
     referenceNumber,
+    location: processLocation(uiFilters.location, permissions, userCaseloadIds),
     fromDate: validDateOrder ? fromDate : undefined,
     toDate: validDateOrder ? toDate : undefined,
     type: uiFilters.typeFamily && familyToType[uiFilters.typeFamily],
@@ -194,6 +197,31 @@ export function filtersFromUiFilters({
   }
 
   return filters
+}
+
+function processLocation(location: string | undefined, permissions: Permissions, userCaseloadIds: string[]): string[] {
+  const pecsRegionCodes = pecsRegions.map(pecsRegion => pecsRegion.code)
+
+  // Set locations to user’s caseloads by default and PECS regions if allowed
+  const allUserLocations = userCaseloadIds
+  if (permissions.hasPecsAccess) {
+    allUserLocations.push(...pecsRegionCodes)
+  }
+
+  let locations = allUserLocations
+  if (location) {
+    const isInCaseLoads = userCaseloadIds.includes(location)
+    const isPecsRegion = pecsRegionCodes.includes(location)
+    const isAllPecsRegions = location === ALL_PECS_REGIONS_FLAG
+
+    if (isInCaseLoads || (permissions.hasPecsAccess && isPecsRegion)) {
+      locations = [location]
+    } else if (permissions.hasPecsAccess && isAllPecsRegions) {
+      locations = pecsRegionCodes
+    }
+  }
+
+  return locations
 }
 
 function processStatus(incidentStatuses: StatusOrWorkList[] | undefined, useWorkLists: boolean): Status[] | undefined {
@@ -266,18 +294,17 @@ function validateLocation({
   errors,
   permissions,
   userCaseloadIds,
-  pecsRegionCodes,
 }: {
   uiFilters: UiFilters
   errors: GovukErrorSummaryItem[]
   permissions: Permissions
   userCaseloadIds: string[]
-  pecsRegionCodes: string[]
 }) {
   if (!uiFilters.location) {
     return
   }
-  if (!validLocation({ location: uiFilters.location, permissions, userCaseloadIds, pecsRegionCodes })) {
+
+  if (!validLocation({ location: uiFilters.location, permissions, userCaseloadIds })) {
     errors.push({
       href: '#location',
       text: 'Select a location to search',
@@ -289,17 +316,16 @@ function validLocation({
   location,
   permissions,
   userCaseloadIds,
-  pecsRegionCodes,
 }: {
   location: string
   permissions: Permissions
   userCaseloadIds: string[]
-  pecsRegionCodes: string[]
 }): boolean {
   if (userCaseloadIds.includes(location)) {
     return true
   }
   if (permissions.hasPecsAccess) {
+    const pecsRegionCodes = pecsRegions.map(pecsRegion => pecsRegion.code)
     return location === ALL_PECS_REGIONS_FLAG || pecsRegionCodes.includes(location)
   }
 

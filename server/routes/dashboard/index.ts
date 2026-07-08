@@ -42,32 +42,16 @@ export default function dashboard(): Router {
     const { activeCaseLoad, caseLoads } = res.locals.user
     const userCaseloads = caseLoads ?? []
     const userCaseloadIds = userCaseloads.map(caseload => caseload.caseLoadId)
-    const pecsRegionCodes = pecsRegions.map(pecsRegion => pecsRegion.code)
 
     const useWorkLists = permissions.isReportingOfficer
 
     const uiFilters = readUiFilters(req)
     fillInDefaults(uiFilters, useWorkLists)
-    const errors = validateUiFilters({ uiFilters, useWorkLists, permissions, userCaseloadIds, pecsRegionCodes })
-    const filters = filtersFromUiFilters({ uiFilters, useWorkLists, permissions })
+    const errors = validateUiFilters({ uiFilters, useWorkLists, permissions, userCaseloadIds })
+    const filters = filtersFromUiFilters({ uiFilters, useWorkLists, permissions, userCaseloadIds })
 
     if (uiFilters.clearFilters && ['All', 'ToDo'].includes(uiFilters.clearFilters)) {
       req.session.dashboardFilters = {}
-    }
-
-    // Set locations to user’s caseloads by default and PECS regions if allowed
-    let searchLocations: string[] = userCaseloadIds
-    if (permissions.hasPecsAccess) {
-      searchLocations.push(...pecsRegionCodes)
-    }
-    if (uiFilters.location) {
-      if (userCaseloadIds.includes(uiFilters.location)) {
-        searchLocations = [uiFilters.location]
-      } else if (permissions.hasPecsAccess && pecsRegionCodes.includes(uiFilters.location)) {
-        searchLocations = [uiFilters.location]
-      } else if (permissions.hasPecsAccess && uiFilters.location === ALL_PECS_REGIONS_FLAG) {
-        searchLocations = pecsRegionCodes
-      }
     }
 
     // Get reports from API
@@ -76,7 +60,7 @@ export default function dashboard(): Router {
     try {
       reportsResponse = await incidentReportingApi.getReports({
         reference: filters.referenceNumber,
-        location: searchLocations,
+        location: filters.location,
         incidentDateFrom: filters.fromDate,
         incidentDateUntil: filters.toDate,
         type: filters.type,

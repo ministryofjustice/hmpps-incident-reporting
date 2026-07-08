@@ -112,7 +112,7 @@ export function readUiFilters({
   return uiFilters
 }
 
-export function fillInDefaults(uiFilters: UiFilters, useWorklists: boolean): void {
+export function fillInDefaults(uiFilters: UiFilters, useWorkLists: boolean): void {
   const sortOptions = ['incidentDateAndTime', 'reportReference', 'location', 'type', 'status', 'reportedBy']
   const orderOptions = ['ASC', 'DESC']
 
@@ -126,7 +126,7 @@ export function fillInDefaults(uiFilters: UiFilters, useWorklists: boolean): voi
     uiFilters.order = 'DESC'
   }
 
-  if (useWorklists && uiFilters.clearFilters === 'ToDo') {
+  if (useWorkLists && uiFilters.clearFilters === 'ToDo') {
     // eslint-disable-next-line no-param-reassign
     uiFilters.incidentStatuses = ['toDo']
   }
@@ -134,13 +134,13 @@ export function fillInDefaults(uiFilters: UiFilters, useWorklists: boolean): voi
 
 export function validateUiFilters({
   uiFilters,
-  useWorklists,
+  useWorkLists,
   permissions,
   userCaseloadIds,
   pecsRegionCodes,
 }: {
   uiFilters: UiFilters
-  useWorklists: boolean
+  useWorkLists: boolean
   permissions: Permissions
   userCaseloadIds: string[]
   pecsRegionCodes: string[]
@@ -150,7 +150,7 @@ export function validateUiFilters({
   validateSearchId(uiFilters, errors)
   validateLocation({ uiFilters, errors, permissions, userCaseloadIds, pecsRegionCodes })
   validateDateRanges(uiFilters, errors)
-  validateIncidentStatuses(uiFilters, errors, useWorklists)
+  validateIncidentStatuses(uiFilters, errors, useWorkLists)
   validateLatestUserActions(uiFilters, errors)
 
   if (uiFilters.typeFamily && !(uiFilters.typeFamily in familyToType)) {
@@ -162,11 +162,11 @@ export function validateUiFilters({
 
 export function filtersFromUiFilters({
   uiFilters,
-  useWorklists,
+  useWorkLists,
   permissions,
 }: {
   uiFilters: UiFilters
-  useWorklists: boolean
+  useWorkLists: boolean
   permissions: Permissions
 }): Filters {
   let page = (uiFilters.page && parseInt(uiFilters.page, 10)) || 1
@@ -187,7 +187,7 @@ export function filtersFromUiFilters({
     fromDate: validDateOrder ? fromDate : undefined,
     toDate: validDateOrder ? toDate : undefined,
     type: uiFilters.typeFamily && familyToType[uiFilters.typeFamily],
-    status: processStatus(uiFilters.incidentStatuses, useWorklists),
+    status: processStatus(uiFilters.incidentStatuses, useWorkLists),
     userAction: processUserAction(uiFilters.latestUserActions, permissions),
     sort: [`${uiFilters.sort},${uiFilters.order}`],
     page,
@@ -196,12 +196,12 @@ export function filtersFromUiFilters({
   return filters
 }
 
-function processStatus(incidentStatuses: StatusOrWorkList[] | undefined, useWorklists: boolean): Status[] | undefined {
+function processStatus(incidentStatuses: StatusOrWorkList[] | undefined, useWorkLists: boolean): Status[] | undefined {
   if (!incidentStatuses) {
     return
   }
 
-  if (useWorklists) {
+  if (useWorkLists) {
     if (validWorkListCodes(incidentStatuses)) {
       // eslint-disable-next-line consistent-return
       return incidentStatuses.map(worklist => workListMapping[worklist]).flat(1)
@@ -306,13 +306,13 @@ function validLocation({
   return false
 }
 
-function validateIncidentStatuses(uiFilters: UiFilters, errors: GovukErrorSummaryItem[], useWorklists: boolean): void {
+function validateIncidentStatuses(uiFilters: UiFilters, errors: GovukErrorSummaryItem[], useWorkLists: boolean): void {
   if (!uiFilters.incidentStatuses) {
     return
   }
 
   let errorMessage
-  if (useWorklists) {
+  if (useWorkLists) {
     if (!validWorkListCodes(uiFilters.incidentStatuses)) {
       errorMessage = 'Select a valid work list'
     }

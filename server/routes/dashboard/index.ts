@@ -44,12 +44,12 @@ export default function dashboard(): Router {
     const userCaseloadIds = userCaseloads.map(caseload => caseload.caseLoadId)
     const pecsRegionCodes = pecsRegions.map(pecsRegion => pecsRegion.code)
 
-    const useWorklists = permissions.isReportingOfficer
+    const useWorkLists = permissions.isReportingOfficer
 
     const uiFilters = readUiFilters(req)
-    fillInDefaults(uiFilters, useWorklists)
-    const errors = validateUiFilters({ uiFilters, useWorklists, permissions, userCaseloadIds, pecsRegionCodes })
-    const filters = filtersFromUiFilters({ uiFilters, useWorklists, permissions })
+    fillInDefaults(uiFilters, useWorkLists)
+    const errors = validateUiFilters({ uiFilters, useWorkLists, permissions, userCaseloadIds, pecsRegionCodes })
+    const filters = filtersFromUiFilters({ uiFilters, useWorkLists, permissions })
 
     if (uiFilters.clearFilters && ['All', 'ToDo'].includes(uiFilters.clearFilters)) {
       req.session.dashboardFilters = {}

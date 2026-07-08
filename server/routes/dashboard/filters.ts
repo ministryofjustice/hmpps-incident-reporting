@@ -44,11 +44,11 @@ export interface UiFilters {
 }
 
 interface Filters {
-  prisonerNumber?: string
-  referenceNumber?: string
+  involvingPrisonerNumber?: string
+  reference?: string
   location: string[]
-  fromDate?: Date
-  toDate?: Date
+  incidentDateFrom?: Date
+  incidentDateUntil?: Date
   type?: Type[]
   status?: Status[]
   userAction?: ApiUserAction[]
@@ -178,17 +178,17 @@ export function filtersFromUiFilters({
 
   const { prisonerNumber, referenceNumber } = processSearchId(uiFilters.searchID)
 
-  const fromDate = parseDate(uiFilters.fromDate)
-  const toDate = parseDate(uiFilters.toDate)
-  const validDates = fromDate !== undefined && toDate !== undefined
-  const validDateOrder = validDates && toDate >= fromDate
+  const incidentDateFrom = parseDate(uiFilters.fromDate)
+  const incidentDateUntil = parseDate(uiFilters.toDate)
+  const validDates = incidentDateFrom !== undefined && incidentDateUntil !== undefined
+  const validDateOrder = validDates && incidentDateUntil >= incidentDateFrom
 
   const filters = {
-    prisonerNumber,
-    referenceNumber,
+    involvingPrisonerNumber: prisonerNumber,
+    reference: referenceNumber,
     location: processLocation(uiFilters.location, permissions, userCaseloadIds),
-    fromDate: validDateOrder ? fromDate : undefined,
-    toDate: validDateOrder ? toDate : undefined,
+    incidentDateFrom: validDateOrder ? incidentDateFrom : undefined,
+    incidentDateUntil: validDateOrder ? incidentDateUntil : undefined,
     type: uiFilters.typeFamily && familyToType[uiFilters.typeFamily],
     status: processStatus(uiFilters.incidentStatuses, useWorkLists),
     userAction: processUserAction(uiFilters.latestUserActions, permissions),

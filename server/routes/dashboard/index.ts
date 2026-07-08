@@ -25,7 +25,6 @@ import { multiCaseloadColumns, singleCaseloadColumns } from './tableColumns'
 import {
   type UiFilters,
   ALL_PECS_REGIONS_FLAG,
-  fillInDefaults,
   filtersFromUiFilters,
   readUiFilters,
   validateUiFilters,
@@ -45,8 +44,7 @@ export default function dashboard(): Router {
 
     const useWorkLists = permissions.isReportingOfficer
 
-    const uiFilters = readUiFilters(req)
-    fillInDefaults(uiFilters, useWorkLists)
+    const uiFilters = readUiFilters({ query: req.query, session: req.session, url: req.url, useWorkLists })
     const errors = validateUiFilters({ uiFilters, useWorkLists, permissions, userCaseloadIds })
     const filters = filtersFromUiFilters({ uiFilters, useWorkLists, permissions, userCaseloadIds })
 

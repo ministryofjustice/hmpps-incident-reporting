@@ -40,6 +40,7 @@ export interface UiFilters {
   latestUserActions?: LatestUserAction[]
   sort: string
   order: Order
+  // UI page starts at 1
   page?: string
 }
 
@@ -53,6 +54,7 @@ interface Filters {
   status?: Status[]
   userAction?: ApiUserAction[]
   sort: string[]
+  // API page starts at 0
   page: number
 }
 
@@ -171,9 +173,9 @@ export function filtersFromUiFilters({
   permissions: Permissions
   userCaseloadIds: string[]
 }): Filters {
-  let page = (uiFilters.page && parseInt(uiFilters.page, 10)) || 1
-  if (page < 1) {
-    page = 1
+  let uiPage = (uiFilters.page && parseInt(uiFilters.page, 10)) || 1
+  if (uiPage < 1) {
+    uiPage = 1
   }
 
   const { prisonerNumber, referenceNumber } = processSearchId(uiFilters.searchID)
@@ -193,7 +195,7 @@ export function filtersFromUiFilters({
     status: processStatus(uiFilters.incidentStatuses, useWorkLists),
     userAction: processUserAction(uiFilters.latestUserActions, permissions),
     sort: [`${uiFilters.sort},${uiFilters.order}`],
-    page,
+    page: uiPage - 1,
   }
 
   return filters

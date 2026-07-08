@@ -67,8 +67,7 @@ export default function dashboard(): Router {
         status: filters.status,
         involvingPrisonerNumber: filters.involvingPrisonerNumber,
         userAction: filters.userAction,
-        // API page starts at 0
-        page: filters.page - 1,
+        page: filters.page,
         sort: filters.sort,
       })
     } catch (e) {
@@ -97,7 +96,7 @@ export default function dashboard(): Router {
     const paginationParams = reportsResponse
       ? pagination(
           // UI page starts at 1
-          filters.page,
+          filters.page + 1,
           reportsResponse.totalPages,
           paginationUrlPrefix,
           'moj',

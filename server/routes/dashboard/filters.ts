@@ -62,10 +62,12 @@ export function readUiFilters({
   query,
   session,
   url,
+  useWorkLists,
 }: {
   query: ParsedQs
   session: Session & Partial<SessionData>
   url: string
+  useWorkLists: boolean
 }): UiFilters {
   let incidentStatuses
   if (typeof query.incidentStatuses === 'string') {
@@ -113,10 +115,12 @@ export function readUiFilters({
     uiFilters.order = sessionFilters?.order ?? ''
   }
 
+  fillInDefaults(uiFilters, useWorkLists)
+
   return uiFilters
 }
 
-export function fillInDefaults(uiFilters: UiFilters, useWorkLists: boolean): void {
+function fillInDefaults(uiFilters: UiFilters, useWorkLists: boolean): void {
   const sortOptions = ['incidentDateAndTime', 'reportReference', 'location', 'type', 'status', 'reportedBy']
   const orderOptions = ['ASC', 'DESC']
 

@@ -281,9 +281,9 @@ function processSearchId(searchID: string | undefined): { prisonerNumber?: strin
   let referenceNumber
 
   if (searchID) {
-    if (isPrisonerNumber(searchID)) {
+    if (validPrisonerNumber(searchID)) {
       prisonerNumber = searchID
-    } else if (isReferenceNumber(searchID)) {
+    } else if (validReferenceNumber(searchID)) {
       referenceNumber = searchID
     }
   }
@@ -390,7 +390,7 @@ function validateSearchId(uiFilters: UiFilters, errors: GovukErrorSummaryItem[])
     return
   }
 
-  if (!isPrisonerNumber(uiFilters.searchID) && !isReferenceNumber(uiFilters.searchID)) {
+  if (!validPrisonerNumber(uiFilters.searchID) && !validReferenceNumber(uiFilters.searchID)) {
     errors.push({
       href: '#searchID',
       text: `Enter a valid incident number or offender ID. For example, 12345678 or A0011BB`,
@@ -402,11 +402,11 @@ export function validTypeFamily(typeFamily: string): typeFamily is TypeFamily {
   return typesForFamily(typeFamily) !== undefined
 }
 
-function isPrisonerNumber(searchID: string): boolean {
+function validPrisonerNumber(searchID: string): boolean {
   return searchID.match(/^[a-zA-Z][0-9]{4}[a-zA-Z]{2}$/) !== null
 }
 
-function isReferenceNumber(searchID: string): boolean {
+function validReferenceNumber(searchID: string): boolean {
   return searchID.match(/^[0-9]+$/) !== null
 }
 

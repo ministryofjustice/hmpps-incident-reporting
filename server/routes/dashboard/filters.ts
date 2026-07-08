@@ -157,10 +157,7 @@ export function validateUiFilters({
   validateDateRanges(uiFilters, errors)
   validateIncidentStatuses(uiFilters, errors, useWorkLists)
   validateLatestUserActions(uiFilters, errors)
-
-  if (uiFilters.typeFamily && !validTypeFamily(uiFilters.typeFamily)) {
-    errors.push({ href: '#typeFamily', text: 'Select a valid incident type' })
-  }
+  validateTypeFamily(uiFilters, errors)
 
   return errors
 }
@@ -378,6 +375,16 @@ function validateLatestUserActions(uiFilters: UiFilters, errors: GovukErrorSumma
       href: '#latestUserActions-item',
       text: 'Enter a valid user action',
     })
+  }
+}
+
+function validateTypeFamily(uiFilters: UiFilters, errors: GovukErrorSummaryItem[]): void {
+  if (!uiFilters.typeFamily) {
+    return
+  }
+
+  if (!validTypeFamily(uiFilters.typeFamily)) {
+    errors.push({ href: '#typeFamily', text: 'Select a valid incident type' })
   }
 }
 

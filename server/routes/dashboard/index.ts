@@ -58,18 +58,7 @@ export default function dashboard(): Router {
     let reportsResponse: PaginatedBasicReports | undefined
     // TODO: should probably not search if there are errors, because what’ll show will not match apparent filters
     try {
-      reportsResponse = await incidentReportingApi.getReports({
-        reference: filters.reference,
-        location: filters.location,
-        incidentDateFrom: filters.incidentDateFrom,
-        incidentDateUntil: filters.incidentDateUntil,
-        type: filters.type,
-        status: filters.status,
-        involvingPrisonerNumber: filters.involvingPrisonerNumber,
-        userAction: filters.userAction,
-        page: filters.page,
-        sort: filters.sort,
-      })
+      reportsResponse = await incidentReportingApi.getReports(filters)
     } catch (e) {
       logger.error(e, 'Search failed: %j', e)
       errors.push({ href: '#searchID', text: 'Sorry, there was a problem with your request' })

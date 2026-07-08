@@ -10,7 +10,7 @@ import type { PrisonApi } from '../../data/prisonApi'
 import type { Permissions, UserAction, ReportTransitions } from '../../middleware/permissions'
 import type { TypeFamily } from '../../reportConfiguration/constants'
 import { IncidentStatuses } from '../../routes/dashboard'
-import { LatestUserActions } from '../../routes/dashboard/filters'
+import { LatestUserAction } from '../../routes/dashboard/filters'
 
 export default {}
 
@@ -30,7 +30,7 @@ type DashboardFilters = {
   toDate?: string
   typeFamily?: TypeFamily
   incidentStatuses?: IncidentStatuses[]
-  latestUserActions?: LatestUserActions[]
+  latestUserActions?: LatestUserAction[]
   sort?: string
   order?: 'DESC' | 'ASC'
 }

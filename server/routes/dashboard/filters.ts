@@ -24,9 +24,9 @@ export const ALL_PECS_REGIONS_FLAG = '.PECS' as const
 
 // `latestUserActions` can include 'REQUEST_REMOVAL' (not a valid `ApiUserAction`)
 // which maps/is replaced with 'REQUEST_NOT_REPORTABLE' and 'REQUEST_DUPLICATE'
-export type LatestUserActions = ApiUserAction | 'REQUEST_REMOVAL'
+export type LatestUserAction = ApiUserAction | 'REQUEST_REMOVAL'
 
-type IncidentStatuses = Status | WorkList
+type StatusOrWorkList = Status | WorkList
 
 export interface UiFilters {
   clearFilters?: string
@@ -35,8 +35,8 @@ export interface UiFilters {
   fromDate?: string
   toDate?: string
   typeFamily?: TypeFamily
-  incidentStatuses?: IncidentStatuses[]
-  latestUserActions?: LatestUserActions[]
+  incidentStatuses?: StatusOrWorkList[]
+  latestUserActions?: LatestUserAction[]
   sort: string
   order: Order
   page?: string
@@ -196,7 +196,7 @@ export function filtersFromUiFilters({
   return filters
 }
 
-function processStatus(incidentStatuses: IncidentStatuses[] | undefined, useWorklists: boolean): Status[] | undefined {
+function processStatus(incidentStatuses: StatusOrWorkList[] | undefined, useWorklists: boolean): Status[] | undefined {
   if (!incidentStatuses) {
     return
   }
@@ -213,7 +213,7 @@ function processStatus(incidentStatuses: IncidentStatuses[] | undefined, useWork
 }
 
 function processUserAction(
-  latestUserActions: LatestUserActions[] | undefined,
+  latestUserActions: LatestUserAction[] | undefined,
   permissions: Permissions,
 ): UserAction[] | undefined {
   if (!latestUserActions) {
@@ -341,15 +341,15 @@ function validateLatestUserActions(uiFilters: UiFilters, errors: GovukErrorSumma
   }
 }
 
-function validUserAction(latestUserActions: LatestUserActions[]): latestUserActions is LatestUserActions[] {
+function validUserAction(latestUserActions: LatestUserAction[]): latestUserActions is LatestUserAction[] {
   return !hasInvalidValues(latestUserActions, [...apiUserActions, 'REQUEST_REMOVAL'])
 }
 
-function validWorkListCodes(incidentStatuses: IncidentStatuses[]): incidentStatuses is WorkList[] {
+function validWorkListCodes(incidentStatuses: StatusOrWorkList[]): incidentStatuses is WorkList[] {
   return !hasInvalidValues(incidentStatuses, workListCodes)
 }
 
-function validReportStatusCodes(incidentStatuses: IncidentStatuses[]): incidentStatuses is Status[] {
+function validReportStatusCodes(incidentStatuses: StatusOrWorkList[]): incidentStatuses is Status[] {
   const reportStatusCodes = statuses.map(status => status.code)
   return !hasInvalidValues(incidentStatuses, reportStatusCodes)
 }

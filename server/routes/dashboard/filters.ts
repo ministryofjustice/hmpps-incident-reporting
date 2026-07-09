@@ -336,8 +336,8 @@ function validLocation({
     return true
   }
   if (permissions.hasPecsAccess) {
-    const pecsRegionCodes = pecsRegions.map(pecsRegion => pecsRegion.code)
-    return location === ALL_PECS_REGIONS_FLAG || pecsRegionCodes.includes(location)
+    const isPecsRegion = pecsRegions.some(pecsRegion => pecsRegion.code === location)
+    return isPecsRegion || location === ALL_PECS_REGIONS_FLAG
   }
 
   return false

@@ -65,6 +65,9 @@ export const typeActivePeriods: Partial<Record<Type, ActivePeriod>> = {
   TEMPORARY_RELEASE_FAILURE_1: { activeTo: '2017-01-04' },
   TEMPORARY_RELEASE_FAILURE_2: { activeTo: '2017-01-04' },
   TEMPORARY_RELEASE_FAILURE_3: { activeTo: '2017-03-16' },
+  // Tool loss switch-over for 1 August 2026: Tool loss v1 retires as v2 begins.
+  TOOL_LOSS_1: { activeTo: '2026-08-01' },
+  TOOL_LOSS_2: { activeFrom: '2026-08-01' },
 }
 
 /**

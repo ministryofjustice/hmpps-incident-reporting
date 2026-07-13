@@ -10,7 +10,7 @@ import type { PrisonApi } from '../../data/prisonApi'
 import type { Permissions, UserAction, ReportTransitions } from '../../middleware/permissions'
 import type { TypeFamily } from '../../reportConfiguration/constants'
 import { IncidentStatuses } from '../../routes/dashboard'
-import { ApiUserAction } from '../../middleware/permissions'
+import { LatestUserAction } from '../../routes/dashboard/filters'
 
 export default {}
 
@@ -26,11 +26,11 @@ declare module 'express-session' {
 type DashboardFilters = {
   searchID?: string
   location?: string
-  fromDateInput?: string
-  toDateInput?: string
+  fromDate?: string
+  toDate?: string
   typeFamily?: TypeFamily
-  incidentStatuses?: IncidentStatuses | IncidentStatuses[]
-  latestUserActions?: ApiUserAction | ApiUserAction[] | 'REQUEST_REMOVAL'
+  incidentStatuses?: IncidentStatuses[]
+  latestUserActions?: LatestUserAction[]
   sort?: string
   order?: 'DESC' | 'ASC'
 }

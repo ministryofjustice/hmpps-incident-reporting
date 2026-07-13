@@ -4,13 +4,8 @@ import { Router } from 'express'
 
 import logger from '../../../logger'
 import {
-  type Status,
-  type TypeFamily,
-  type WorkList,
   workLists,
-  workListCodes,
   workListMapping,
-  statuses,
   statusesDescriptions,
   statusHints,
   types,
@@ -20,38 +15,21 @@ import {
   areTypeFamiliesInactive,
 } from '../../reportConfiguration/constants'
 import type { PaginatedBasicReports } from '../../data/incidentReportingApi'
-import { type Order, orderOptions } from '../../data/offenderSearchApi'
 import { pecsRegions } from '../../data/pecsRegions'
-import { ApiUserAction, apiUserActions } from '../../middleware/permissions'
 import type { HeaderCell } from '../../utils/sortableTable'
 import format from '../../utils/format'
-import type { GovukErrorSummaryItem, GovukSelectItem } from '../../utils/govukFrontend'
-import { parseDateInput } from '../../utils/parseDateTime'
-import { hasInvalidValues } from '../../utils/utils'
+import type { GovukSelectItem } from '../../utils/govukFrontend'
 import { sortableTableHead } from '../../utils/sortableTable'
 import { pagination } from '../../utils/pagination'
 import { multiCaseloadColumns, singleCaseloadColumns } from './tableColumns'
-
-export type IncidentStatuses = Status | WorkList
-
-const sortOptions = ['incidentDateAndTime', 'reportReference', 'location', 'type', 'status', 'reportedBy']
-
-interface ListFormData {
-  clearFilters?: string
-  searchID?: string
-  location?: string
-  fromDate?: string
-  toDate?: string
-  typeFamily?: TypeFamily
-  incidentStatuses?: IncidentStatuses | IncidentStatuses[]
-  latestUserActions?: ApiUserAction | ApiUserAction[] | 'REQUEST_REMOVAL'
-  sort?: string
-  order?: Order
-  page?: string
-}
-
-/** Location search filter which is replaced by all PECS regions when performing search */
-const allPecsRegionsFlag = '.PECS' as const
+import {
+  type UiFilters,
+  ALL_PECS_REGIONS_FLAG,
+  filtersFromUiFilters,
+  readUiFilters,
+  validateUiFilters,
+} from './filters'
+import { type CaseLoad } from '../../data/frontendComponentsClient'
 
 export default function dashboard(): Router {
   const router = Router({ mergeParams: true })
@@ -63,353 +41,80 @@ export default function dashboard(): Router {
     const { activeCaseLoad, caseLoads } = res.locals.user
     const userCaseloads = caseLoads ?? []
     const userCaseloadIds = userCaseloads.map(caseload => caseload.caseLoadId)
-    const pecsRegionCodes = pecsRegions.map(pecsRegion => pecsRegion.code)
 
-    const { page, clearFilters }: ListFormData = req.query
-    let {
-      fromDate: fromDateInput,
-      toDate: toDateInput,
-      location,
-      searchID,
-      typeFamily,
-      incidentStatuses,
-      latestUserActions,
-      sort,
-      order,
-    }: ListFormData = req.query
+    const useWorkLists = permissions.isReportingOfficer
 
-    if (clearFilters && ['All', 'ToDo'].includes(clearFilters)) {
+    const uiFilters = readUiFilters({ query: req.query, session: req.session, url: req.url, useWorkLists })
+    const errors = validateUiFilters({ uiFilters, useWorkLists, permissions, userCaseloadIds })
+    const filters = filtersFromUiFilters({ uiFilters, useWorkLists, permissions, userCaseloadIds })
+
+    if (uiFilters.clearFilters && ['All', 'ToDo'].includes(uiFilters.clearFilters)) {
       req.session.dashboardFilters = {}
-    }
-
-    if (searchID) {
-      searchID = searchID.trim()
-    }
-    if (!sort || !sortOptions.includes(sort)) {
-      sort = 'incidentDateAndTime'
-    }
-    if (!order || !orderOptions.includes(order)) {
-      order = 'DESC'
-    }
-
-    // Collect errors
-    const errors: GovukErrorSummaryItem[] = []
-
-    // If no filters are supplied from query and no errors generated, check for filters in session
-    if (errors.length === 0 && req.url === '/' && req.session.dashboardFilters) {
-      location = req.session.dashboardFilters?.location
-      fromDateInput = req.session.dashboardFilters?.fromDateInput
-      toDateInput = req.session.dashboardFilters?.toDateInput
-      searchID = req.session.dashboardFilters?.searchID
-      typeFamily = req.session.dashboardFilters?.typeFamily
-      incidentStatuses = req.session.dashboardFilters?.incidentStatuses
-      latestUserActions = req.session.dashboardFilters?.latestUserActions
-      sort = req.session.dashboardFilters?.sort ?? 'incidentDateAndTime'
-      order = req.session.dashboardFilters?.order ?? 'DESC'
-    }
-
-    // Parse params
-    const todayAsShortDate = format.shortDate(new Date())
-    let fromDate: Date | undefined
-    let toDate: Date | undefined
-    try {
-      if (fromDateInput) {
-        fromDate = parseDateInput(fromDateInput)
-      }
-    } catch {
-      fromDate = undefined
-      errors.push({ href: '#fromDate', text: `Enter a valid from date, for example ${todayAsShortDate}` })
-    }
-    try {
-      if (toDateInput) {
-        toDate = parseDateInput(toDateInput)
-      }
-    } catch {
-      toDate = undefined
-      errors.push({ href: '#toDate', text: `Enter a valid to date, for example ${todayAsShortDate}` })
-    }
-    if (fromDate && toDate && toDate < fromDate) {
-      fromDate = undefined
-      toDate = undefined
-      errors.push({ href: '#toDate', text: 'Enter a date after from date' })
-    }
-    if (typeFamily && !(typeFamily in familyToType)) {
-      typeFamily = undefined
-      errors.push({ href: '#typeFamily', text: 'Select a valid incident type' })
-    }
-
-    // Check for supplied filters from session
-    let noFiltersSupplied = Boolean(
-      !searchID && !location && !fromDate && !toDate && !typeFamily && !incidentStatuses && !latestUserActions,
-    )
-
-    // RO: Default work list to 'To do' for an RO when no other filters are applied and when the user arrives on page
-    if (permissions.isReportingOfficer && clearFilters === 'ToDo') {
-      incidentStatuses = ['toDo']
-      noFiltersSupplied = false
-    }
-
-    // Ensure incidentStatuses is an array when provided
-    if (incidentStatuses && !Array.isArray(incidentStatuses)) {
-      incidentStatuses = [incidentStatuses]
-    }
-
-    // Ensure incidentStatuses is an array when provided
-    if (latestUserActions && !Array.isArray(latestUserActions)) {
-      latestUserActions = [latestUserActions]
-    }
-    // Validate and process user action filter
-    let userActionFilter: ApiUserAction[] | undefined
-    if (latestUserActions) {
-      try {
-        userActionFilter = processUserAction(latestUserActions as string[])
-      } catch (err) {
-        latestUserActions = undefined
-        userActionFilter = undefined
-        const errorMessage = err instanceof Error ? err.message : err!.toString()
-        errors.push({ href: '#latestUserActions-item', text: errorMessage })
-      }
-    }
-    // If an RO opens a link containing filter, remove filter
-    if (permissions.isReportingOfficer) {
-      userActionFilter = undefined
-    }
-
-    let searchStatuses: Status[] | undefined
-    try {
-      const useWorklists = permissions.isReportingOfficer
-      searchStatuses = statusesFromParam(incidentStatuses as IncidentStatuses[], useWorklists)
-    } catch (err) {
-      incidentStatuses = undefined
-      const errorMessage = err instanceof Error ? err.message : err!.toString()
-      errors.push({ href: '#incidentStatuses-item', text: errorMessage })
-    }
-
-    let prisonerId: string | undefined
-    let referenceNumber: string | undefined
-    if (searchID) {
-      // Test if search is for a prisoner ID and use if so
-      if (searchID.match(/^[a-zA-Z][0-9]{4}[a-zA-Z]{2}$/)) {
-        prisonerId = searchID
-      }
-      // Test if search is for an incident reference number and use if so
-      else if (searchID.match(/^[0-9]+$/)) {
-        referenceNumber = searchID
-      } else {
-        errors.push({
-          href: '#searchID',
-          text: `Enter a valid incident number or offender ID. For example, 12345678 or A0011BB`,
-        })
-      }
-    }
-
-    // Parse page number
-    let pageNumber = (page && typeof page === 'string' && parseInt(page, 10)) || 1
-    if (pageNumber < 1) {
-      pageNumber = 1
-    }
-
-    // Set locations to user’s caseloads by default and PECS regions if allowed
-    let searchLocations: string[] = userCaseloadIds
-    if (permissions.hasPecsAccess) {
-      searchLocations.push(...pecsRegionCodes)
-    }
-    if (location) {
-      if (userCaseloadIds.includes(location)) {
-        searchLocations = [location]
-      } else if (permissions.hasPecsAccess && pecsRegionCodes.includes(location)) {
-        searchLocations = [location]
-      } else if (permissions.hasPecsAccess && location === allPecsRegionsFlag) {
-        searchLocations = pecsRegionCodes
-      } else {
-        errors.push({
-          href: '#location',
-          text: 'Select a location to search',
-        })
-      }
     }
 
     // Get reports from API
     let reportsResponse: PaginatedBasicReports | undefined
     // TODO: should probably not search if there are errors, because what’ll show will not match apparent filters
     try {
-      reportsResponse = await incidentReportingApi.getReports({
-        reference: referenceNumber,
-        location: searchLocations,
-        incidentDateFrom: fromDate,
-        incidentDateUntil: toDate,
-        type: typeFamily && familyToType[typeFamily],
-        status: searchStatuses,
-        involvingPrisonerNumber: prisonerId,
-        userAction: userActionFilter,
-        page: pageNumber - 1,
-        sort: [`${sort},${order}`],
-      })
+      reportsResponse = await incidentReportingApi.getReports(filters)
     } catch (e) {
       logger.error(e, 'Search failed: %j', e)
       errors.push({ href: '#searchID', text: 'Sorry, there was a problem with your request' })
     }
-
-    const formValues: ListFormData = {
-      searchID,
-      location,
-      fromDate: fromDateInput,
-      toDate: toDateInput,
-      typeFamily,
-      incidentStatuses,
-      latestUserActions,
-      sort,
-      order,
-      page,
-    }
-
-    const queryString = new URLSearchParams()
-    if (searchID) {
-      queryString.append('searchID', searchID)
-    }
-    if (location) {
-      queryString.append('location', location)
-    }
-    if (fromDateInput) {
-      queryString.append('fromDate', fromDateInput)
-    }
-    if (toDateInput) {
-      queryString.append('toDate', toDateInput)
-    }
-    if (typeFamily) {
-      queryString.append('typeFamily', typeFamily)
-    }
-    if (incidentStatuses) {
-      if (Array.isArray(incidentStatuses)) {
-        incidentStatuses.forEach(status => queryString.append('incidentStatuses', status))
-      } else {
-        queryString.append('incidentStatuses', incidentStatuses)
-      }
-    }
-    if (latestUserActions) {
-      if (Array.isArray(latestUserActions)) {
-        latestUserActions.forEach(userAction => queryString.append('latestUserActions', userAction))
-      } else {
-        queryString.append('latestUserActions', latestUserActions)
-      }
-    }
-    const tableHeadUrlPrefix = `/reports?${queryString}&`
-    if (sort) {
-      queryString.append('sort', sort)
-    }
-    if (order) {
-      queryString.append('order', order)
-    }
-
-    const urlPrefix = `/reports?${queryString}&`
 
     const reports = reportsResponse?.content ?? []
 
     const usernames = reports.map(report => report.reportedBy)
     const usersLookup = await userService.getUsers(res.locals.systemToken, usernames)
 
-    const familyInactiveStatus = areTypeFamiliesInactive(types)
-    const activeTypeFamilyItems: GovukSelectItem[] = typeFamilies
-      .filter(({ code: someFamilyCode }) => !familyInactiveStatus[someFamilyCode])
-      .map(family => ({
-        value: family.code,
-        text: family.description,
-      }))
-
-    const expiredTypeFamilyItems: GovukSelectItem[] = typeFamilies
-      .filter(({ code: someFamilyCode }) => familyInactiveStatus[someFamilyCode])
-      .map(family => ({
-        value: family.code,
-        text: `${family.description} (inactive since ${familyExpiryDates[family.code]})`,
-      }))
-
-    const typeFamilyItems: GovukSelectItem[] = [...activeTypeFamilyItems, ...expiredTypeFamilyItems]
-
-    const showWorkListFilters = permissions.isReportingOfficer
-
     /** location choices for auto-complete */
-    const allLocations: GovukSelectItem[] = userCaseloads.map(caseload => ({
-      value: caseload.caseLoadId,
-      text: caseload.description,
-    }))
-    /** location map for code-to-description display */
-    const locationLookup = Object.fromEntries(
-      userCaseloads.map(caseload => [caseload.caseLoadId, caseload.description]),
-    )
-    if (permissions.hasPecsAccess) {
-      allLocations.unshift({
-        value: allPecsRegionsFlag,
-        text: 'All PECS regions',
-      })
-      allLocations.push(
-        ...pecsRegions.map(pecsRegion => ({
-          value: pecsRegion.code,
-          text: pecsRegion.description,
-        })),
-      )
-      pecsRegions.forEach(pecsRegion => {
-        locationLookup[pecsRegion.code] = pecsRegion.description
-      })
-    }
-
+    const allLocations = allLocationsItems(userCaseloads, permissions.hasPecsAccess)
     const showLocationFilter = allLocations.length > 1
 
+    const { paginationUrlPrefix, tableHeadUrlPrefix } = urlPrefixes(uiFilters)
     const columns = showLocationFilter ? multiCaseloadColumns : singleCaseloadColumns
     const tableHead: HeaderCell[] = sortableTableHead({
       columns,
-      sortColumn: sort,
-      order,
+      sortColumn: uiFilters.sort,
+      order: uiFilters.order,
       urlPrefix: tableHeadUrlPrefix,
       destinationFocusId: 'results-table',
     })
     const paginationParams = reportsResponse
       ? pagination(
-          pageNumber,
+          // UI page starts at 1
+          filters.page + 1,
           reportsResponse.totalPages,
-          urlPrefix,
+          paginationUrlPrefix,
           'moj',
           reportsResponse.totalElements,
           reportsResponse.size,
         )
       : undefined
 
-    // Gather notification banner entries if they exist
-    const banners = req.flash()
-
     // Set dashboard filters stored in the session if no errors present
     if (errors.length === 0) {
-      req.session.dashboardFilters = {
-        searchID,
-        location,
-        fromDateInput,
-        toDateInput,
-        typeFamily,
-        incidentStatuses,
-        latestUserActions,
-        sort,
-        order,
-      }
+      req.session.dashboardFilters = uiFilters
     }
 
     res.render('pages/dashboard/index', {
       activeCaseLoad,
-      banners,
+      banners: req.flash(),
       reports,
       showLocationFilter,
       allLocations,
-      locationLookup,
+      locationLookup: locationLookupFromCaseloads(userCaseloads, permissions.hasPecsAccess),
       usersLookup,
-      typeFamilyItems,
+      typeFamilyItems: typeFamilyItems(),
       workLists,
       workListMapping,
-      showWorkListFilters,
+      showWorkListFilters: permissions.isReportingOfficer,
       statusesDescriptions,
       statusHints,
       typesDescriptions,
-      formValues,
+      formValues: uiFilters,
       errors,
-      todayAsShortDate,
-      noFiltersSupplied,
+      todayAsShortDate: format.shortDate(new Date()),
       tableHead,
       paginationParams,
     })
@@ -418,56 +123,95 @@ export default function dashboard(): Router {
   return router
 }
 
-/** Given a family code, list type codes belonging to the family */
-const familyToType = Object.fromEntries(
-  Object.values(typeFamilies).map(({ code: familyCode }) => [
-    familyCode,
-    Object.values(types)
-      .filter(({ familyCode: someFamilyCode }) => someFamilyCode === familyCode)
-      .map(({ code }) => code),
-  ]),
-)
+function locationLookupFromCaseloads(userCaseloads: CaseLoad[], hasPecsAccess: boolean): Record<string, string> {
+  const locationLookup = Object.fromEntries(userCaseloads.map(caseload => [caseload.caseLoadId, caseload.description]))
 
-/** Converts the `incidentStatuses` query param into a list of statuses */
-function statusesFromParam(statusesParam: IncidentStatuses[] | undefined, useWorklists: boolean): Status[] | undefined {
-  if (!statusesParam) {
-    return undefined
+  if (hasPecsAccess) {
+    pecsRegions.forEach(pecsRegion => {
+      locationLookup[pecsRegion.code] = pecsRegion.description
+    })
   }
 
-  // TODO: consider converting between work lists and statuses so that links with filters can be shared between user types
-
-  // Reporting Officer
-  if (useWorklists) {
-    const hasInvalidWorklist = hasInvalidValues(statusesParam, workListCodes)
-    if (hasInvalidWorklist) {
-      throw new Error('Select a valid work list')
-    }
-
-    const worklists = statusesParam as WorkList[]
-    // Map RO worklists to list of statuses
-    return worklists.map(worklist => workListMapping[worklist]).flat(1)
-  }
-
-  // Data Warden
-  const statusCodes = statuses.map(status => status.code)
-  const hasInvalidStatus = hasInvalidValues(statusesParam, statusCodes)
-  if (hasInvalidStatus) {
-    throw new Error('Select a valid status')
-  }
-
-  return statusesParam as Status[]
+  return locationLookup
 }
 
-function processUserAction(userActions: string[]): ApiUserAction[] {
-  if (hasInvalidValues(userActions, [...apiUserActions, 'REQUEST_REMOVAL'])) {
-    throw new Error('Enter a valid user action')
-  } else if (userActions.includes('REQUEST_REMOVAL')) {
-    return [
-      ...userActions.filter(action => action !== 'REQUEST_REMOVAL'),
-      'REQUEST_NOT_REPORTABLE',
-      'REQUEST_DUPLICATE',
-    ] as ApiUserAction[]
-  } else {
-    return userActions as ApiUserAction[]
+function allLocationsItems(userCaseloads: CaseLoad[], hasPecsAccess: boolean): GovukSelectItem[] {
+  const allLocations: GovukSelectItem[] = userCaseloads.map(caseload => ({
+    value: caseload.caseLoadId,
+    text: caseload.description,
+  }))
+
+  if (hasPecsAccess) {
+    allLocations.unshift({
+      value: ALL_PECS_REGIONS_FLAG,
+      text: 'All PECS regions',
+    })
+    allLocations.push(
+      ...pecsRegions.map(pecsRegion => ({
+        value: pecsRegion.code,
+        text: pecsRegion.description,
+      })),
+    )
   }
+
+  return allLocations
+}
+
+/**
+ * List of type families. Sorted alphabeticaly. Inactive ones at the end and display inactive date
+ */
+function typeFamilyItems(): GovukSelectItem[] {
+  const familyInactiveStatus = areTypeFamiliesInactive(types)
+  const activeTypeFamilyItems: GovukSelectItem[] = typeFamilies
+    .filter(({ code: someFamilyCode }) => !familyInactiveStatus[someFamilyCode])
+    .map(family => ({
+      value: family.code,
+      text: family.description,
+    }))
+
+  const expiredTypeFamilyItems: GovukSelectItem[] = typeFamilies
+    .filter(({ code: someFamilyCode }) => familyInactiveStatus[someFamilyCode])
+    .map(family => ({
+      value: family.code,
+      text: `${family.description} (inactive since ${familyExpiryDates[family.code]})`,
+    }))
+
+  return [...activeTypeFamilyItems, ...expiredTypeFamilyItems]
+}
+
+function urlPrefixes(uiFilters: UiFilters): { paginationUrlPrefix: string; tableHeadUrlPrefix: string } {
+  const queryString = new URLSearchParams()
+
+  if (uiFilters.searchID) {
+    queryString.append('searchID', uiFilters.searchID)
+  }
+  if (uiFilters.location) {
+    queryString.append('location', uiFilters.location)
+  }
+  if (uiFilters.fromDate) {
+    queryString.append('fromDate', uiFilters.fromDate)
+  }
+  if (uiFilters.toDate) {
+    queryString.append('toDate', uiFilters.toDate)
+  }
+  if (uiFilters.typeFamily) {
+    queryString.append('typeFamily', uiFilters.typeFamily)
+  }
+  uiFilters.incidentStatuses?.forEach(status => queryString.append('incidentStatuses', status))
+  uiFilters.latestUserActions?.forEach(userAction => queryString.append('latestUserActions', userAction))
+
+  // sort/order *not* in query string, they're added by `sortableTableHead()`
+  const tableHeadUrlPrefix = `/reports?${queryString}&`
+
+  if (uiFilters.sort) {
+    queryString.append('sort', uiFilters.sort)
+  }
+  if (uiFilters.order) {
+    queryString.append('order', uiFilters.order)
+  }
+
+  // `paginationUrlPrefix` also include sort/order query params
+  const paginationUrlPrefix = `/reports?${queryString}&`
+
+  return { tableHeadUrlPrefix, paginationUrlPrefix }
 }

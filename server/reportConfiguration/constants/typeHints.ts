@@ -18,6 +18,7 @@ export const typeHints: Partial<Record<Type, string>> = {
   SELF_HARM_1:
     'Includes suspected and reported self-harm. Do not use to report a noose, unless it’s around the neck or applying pressure.',
   TOOL_LOSS_1: 'Do not use for key or lock compromises. They are separate incident types.',
+  TOOL_LOSS_2: 'Do not use for key or lock compromises. They are separate incident types.',
   UNLAWFUL_DETENTION_1: 'A person released from HMPPS custody later than intended.',
 }
 

@@ -3,22 +3,27 @@ import { NotFound } from 'http-errors'
 
 import { buildCreateRequest, buildUpdateRequest } from '../../../data/incidentTypeConfiguration/nomisPayload'
 import { compareConfigs } from '../../../data/incidentTypeConfiguration/nomisCompare'
-import { types, isTypeActive } from '../../../reportConfiguration/constants'
+import { types, isTypeActive, type TypeDetails } from '../../../reportConfiguration/constants'
 import { getIncidentTypeConfiguration } from '../../../reportConfiguration/types'
 import { errorResponseStatusMatches } from '../../../utils/utils'
 
-/** Active incident types offered for syncing, in display order */
-function activeTypes() {
+/**
+ * Active incident types offered for syncing, in display order.
+ *
+ * Only active types are selectable, so `active` on a type reaching the payload builders is always
+ * `true`. Retiring a type in NOMIS is therefore out of this screen's reach.
+ */
+function activeTypes(): TypeDetails[] {
   return types.filter(type => isTypeActive(type.code))
 }
 
 /** Look up an active type by its DPS code or throw NotFound */
-function findActiveType(dpsCode: string) {
-  const typeMeta = activeTypes().find(type => type.code === dpsCode)
-  if (!typeMeta) {
+function findActiveType(dpsCode: string): TypeDetails {
+  const typeInfo = activeTypes().find(type => type.code === dpsCode)
+  if (!typeInfo) {
     throw new NotFound(`Unknown or inactive incident type “${dpsCode}”`)
   }
-  return typeMeta
+  return typeInfo
 }
 
 async function renderSelect(_req: Request, res: Response): Promise<void> {
@@ -39,15 +44,15 @@ function selectType(req: Request, res: Response): void {
 }
 
 async function renderConfirm(req: Request, res: Response): Promise<void> {
-  const typeMeta = findActiveType(req.params.dpsCode)
+  const typeInfo = findActiveType(req.params.dpsCode)
   const { prisonApi } = res.locals.apis
 
-  const dpsConfig = await getIncidentTypeConfiguration(typeMeta.code)
-  const exists = await prisonApi.incidentTypeConfigurationExists(typeMeta.nomisCode)
-  const request = buildUpdateRequest(dpsConfig, { description: typeMeta.description, active: typeMeta.active })
+  const dpsConfig = await getIncidentTypeConfiguration(typeInfo.code)
+  const exists = await prisonApi.incidentTypeConfigurationExists(typeInfo.nomisCode)
+  const request = buildUpdateRequest(dpsConfig, typeInfo)
 
   res.render('pages/admin/syncNomis/confirm', {
-    type: typeMeta,
+    type: typeInfo,
     action: exists ? 'update' : 'create',
     questionCount: request.questions.length,
     prisonerRoleCount: request.prisonerRoles.length,
@@ -55,36 +60,36 @@ async function renderConfirm(req: Request, res: Response): Promise<void> {
 }
 
 async function performSync(req: Request, res: Response): Promise<void> {
-  const typeMeta = findActiveType(req.params.dpsCode)
+  const typeInfo = findActiveType(req.params.dpsCode)
   const { prisonApi } = res.locals.apis
 
-  const dpsConfig = await getIncidentTypeConfiguration(typeMeta.code)
-  const exists = await prisonApi.incidentTypeConfigurationExists(typeMeta.nomisCode)
-  const meta = { nomisCode: typeMeta.nomisCode, description: typeMeta.description, active: typeMeta.active }
+  const dpsConfig = await getIncidentTypeConfiguration(typeInfo.code)
+  const exists = await prisonApi.incidentTypeConfigurationExists(typeInfo.nomisCode)
 
   try {
     if (exists) {
-      const request = buildUpdateRequest(dpsConfig, meta)
-      const stored = await prisonApi.updateIncidentTypeConfiguration(typeMeta.nomisCode, request)
+      const request = buildUpdateRequest(dpsConfig, typeInfo)
+      const stored = await prisonApi.updateIncidentTypeConfiguration(typeInfo.nomisCode, request)
       res.render('pages/admin/syncNomis/result', {
-        type: typeMeta,
+        type: typeInfo,
         action: 'updated',
         comparison: compareConfigs(request, stored),
       })
     } else {
-      const request = buildCreateRequest(dpsConfig, meta)
+      const request = buildCreateRequest(dpsConfig, typeInfo)
       const stored = await prisonApi.createIncidentTypeConfiguration(request)
       res.render('pages/admin/syncNomis/result', {
-        type: typeMeta,
+        type: typeInfo,
         action: 'created',
         comparison: compareConfigs(request, stored),
       })
     }
   } catch (error) {
-    // A missing system-client role surfaces as 401/403 from Prison API
-    if (errorResponseStatusMatches(error, 403) || errorResponseStatusMatches(error, 401)) {
+    // Prison API answers 403 when the system client lacks the write role; a 401 means the token
+    // itself is missing or expired, which is a different fault and must not be reported as one
+    if (errorResponseStatusMatches(error, 403)) {
       res.render('pages/admin/syncNomis/result', {
-        type: typeMeta,
+        type: typeInfo,
         action: exists ? 'update' : 'create',
         roleError: true,
       })

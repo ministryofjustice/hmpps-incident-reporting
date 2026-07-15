@@ -144,5 +144,15 @@ describe('Sync NOMIS admin screen', () => {
         .expect(200)
         .expect(res => expect(res.text).toContain('PRISON_API__INCIDENT_TYPE_CONFIGURATION_RW'))
     })
+
+    it('does not blame the role when Prison API rejects the token itself (401)', () => {
+      // Prison API only answers 403 for a missing role; a 401 means the system token is absent or
+      // expired, so it must not surface as a role problem. It falls through to the error handler,
+      // which signs the user out like any other upstream 401.
+      prisonApi.incidentTypeConfigurationExists.mockResolvedValueOnce(false)
+      prisonApi.createIncidentTypeConfiguration.mockRejectedValueOnce(forbiddenError(401))
+
+      return request(appAsAdmin()).post(`/admin/sync-nomis/${dpsCode}`).expect(302).expect('Location', '/sign-out')
+    })
   })
 })

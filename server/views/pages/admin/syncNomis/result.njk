@@ -11,39 +11,27 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      {% if roleError %}
+      {{ govukPanel({
+        titleText: "Sync complete",
+        html: type.description + " (" + type.nomisCode + ") was " + action + " in NOMIS"
+      }) }}
 
-        <h1 class="govuk-heading-l">Could not sync to NOMIS</h1>
+      {% if comparison.inSync %}
         {{ govukNotificationBanner({
-          titleText: "There is a problem",
-          html: "<p class=\"govuk-body\">The service’s system client is not allowed to write incident-type configuration to NOMIS. It needs the <code>PRISON_API__INCIDENT_TYPE_CONFIGURATION_RW</code> role in HMPPS Auth. No changes were made.</p>"
+          type: "success",
+          titleText: "Success",
+          html: "<p class=\"govuk-body\">NOMIS now matches the configuration held in this service.</p>"
         }) }}
-
       {% else %}
-
-        {{ govukPanel({
-          titleText: "Sync complete",
-          html: type.description + " (" + type.nomisCode + ") was " + action + " in NOMIS"
+        {{ govukNotificationBanner({
+          titleText: "NOMIS does not fully match this service",
+          html: "<p class=\"govuk-body\">The write succeeded, but the stored configuration differs from what was sent:</p>"
         }) }}
-
-        {% if comparison.inSync %}
-          {{ govukNotificationBanner({
-            type: "success",
-            titleText: "Success",
-            html: "<p class=\"govuk-body\">NOMIS now matches the configuration held in this service.</p>"
-          }) }}
-        {% else %}
-          {{ govukNotificationBanner({
-            titleText: "NOMIS does not fully match this service",
-            html: "<p class=\"govuk-body\">The write succeeded, but the stored configuration differs from what was sent:</p>"
-          }) }}
-          <ul class="govuk-list govuk-list--bullet">
-            {% for difference in comparison.differences %}
-              <li>{{ difference }}</li>
-            {% endfor %}
-          </ul>
-        {% endif %}
-
+        <ul class="govuk-list govuk-list--bullet">
+          {% for difference in comparison.differences %}
+            <li>{{ difference }}</li>
+          {% endfor %}
+        </ul>
       {% endif %}
 
       <p class="govuk-body">

@@ -7,6 +7,7 @@ import { mockUser } from '../../../data/testData/users'
 import { makeMockCaseload } from '../../../data/testData/frontendComponents'
 import { moorland } from '../../../data/testData/prisonApi'
 import { roleReadWrite, roleAdmin } from '../../../data/constants'
+import config from '../../../config'
 
 jest.mock('../../../data/prisonApi')
 
@@ -34,8 +35,8 @@ function nomisResponse(): DatesAsStrings<IncidentTypeConfiguration> {
   }
 }
 
-function forbiddenError(responseStatus: number): Error {
-  return Object.assign(new Error('Forbidden'), { responseStatus })
+function apiError(responseStatus: number): Error {
+  return Object.assign(new Error('Prison API error'), { responseStatus })
 }
 
 afterEach(() => {
@@ -135,24 +136,67 @@ describe('Sync NOMIS admin screen', () => {
         })
     })
 
-    it('explains when the system client lacks the required role (403)', () => {
+    it('lets a Prison API failure propagate to the error handler', () => {
+      // The write role is granted in every environment, so a failure here is a genuine error rather
+      // than an expected state; it is not swallowed but surfaced through the standard error handler.
       prisonApi.incidentTypeConfigurationExists.mockResolvedValueOnce(false)
-      prisonApi.createIncidentTypeConfiguration.mockRejectedValueOnce(forbiddenError(403))
+      prisonApi.createIncidentTypeConfiguration.mockRejectedValueOnce(apiError(500))
 
-      return request(appAsAdmin())
-        .post(`/admin/sync-nomis/${dpsCode}`)
-        .expect(200)
-        .expect(res => expect(res.text).toContain('PRISON_API__INCIDENT_TYPE_CONFIGURATION_RW'))
+      return request(appAsAdmin()).post(`/admin/sync-nomis/${dpsCode}`).expect(500)
+    })
+  })
+
+  describe('upcoming types (not yet live)', () => {
+    const originalActiveDate = config.incidentTypeActiveDate
+
+    afterEach(() => {
+      config.incidentTypeActiveDate = originalActiveDate
     })
 
-    it('does not blame the role when Prison API rejects the token itself (401)', () => {
-      // Prison API only answers 403 for a missing role; a 401 means the system token is absent or
-      // expired, so it must not surface as a role problem. It falls through to the error handler,
-      // which signs the user out like any other upstream 401.
-      prisonApi.incidentTypeConfigurationExists.mockResolvedValueOnce(false)
-      prisonApi.createIncidentTypeConfiguration.mockRejectedValueOnce(forbiddenError(401))
+    it('offers an upcoming type with its go-live date before the switch-over', () => {
+      // On 2026-07-16 Tool loss v2 is not yet active (activeFrom 2026-08-01) but must be syncable
+      config.incidentTypeActiveDate = '2026-07-16'
 
-      return request(appAsAdmin()).post(`/admin/sync-nomis/${dpsCode}`).expect(302).expect('Location', '/sign-out')
+      return request(appAsAdmin())
+        .get('/admin/sync-nomis')
+        .expect(200)
+        .expect(res => {
+          expect(res.text).toContain('TOOL_LOSS_2')
+          expect(res.text).toContain('live from 1 August 2026')
+        })
+    })
+
+    it('accepts selecting an upcoming type', () => {
+      config.incidentTypeActiveDate = '2026-07-16'
+
+      return request(appAsAdmin())
+        .post('/admin/sync-nomis')
+        .send({ dpsCode: 'TOOL_LOSS_2' })
+        .expect(302)
+        .expect('Location', '/admin/sync-nomis/TOOL_LOSS_2')
+    })
+
+    it('shows the go-live date on the confirm page for an upcoming type', () => {
+      config.incidentTypeActiveDate = '2026-07-16'
+      prisonApi.incidentTypeConfigurationExists.mockResolvedValueOnce(false)
+
+      return request(appAsAdmin())
+        .get('/admin/sync-nomis/TOOL_LOSS_2')
+        .expect(200)
+        .expect(res => {
+          expect(res.text).toContain('Goes live')
+          expect(res.text).toContain('1 August 2026')
+        })
+    })
+
+    it('no longer offers a type once it has retired', () => {
+      // The day after the switch-over, Tool loss v1 (activeTo 2026-08-01) is retired and drops off
+      config.incidentTypeActiveDate = '2026-08-02'
+
+      return request(appAsAdmin())
+        .get('/admin/sync-nomis')
+        .expect(200)
+        .expect(res => expect(res.text).not.toContain('TOOL_LOSS_1'))
     })
   })
 })

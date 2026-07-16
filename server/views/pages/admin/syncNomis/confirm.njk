@@ -32,15 +32,18 @@
         {% endif %}
       </p>
 
-      {{ govukSummaryList({
-        rows: [
-          { key: { text: "Incident type" }, value: { text: type.description } },
-          { key: { text: "DPS code" }, value: { text: type.code } },
-          { key: { text: "NOMIS code" }, value: { text: type.nomisCode } },
-          { key: { text: "Questions" }, value: { text: questionCount } },
-          { key: { text: "Prisoner roles" }, value: { text: prisonerRoleCount } }
-        ]
-      }) }}
+      {% set summaryRows = [
+        { key: { text: "Incident type" }, value: { text: type.description } },
+        { key: { text: "DPS code" }, value: { text: type.code } },
+        { key: { text: "NOMIS code" }, value: { text: type.nomisCode } },
+        { key: { text: "Questions" }, value: { text: questionCount } },
+        { key: { text: "Prisoner roles" }, value: { text: prisonerRoleCount } }
+      ] %}
+      {% if liveFrom %}
+        {% set summaryRows = (summaryRows.push({ key: { text: "Goes live" }, value: { text: liveFrom } }), summaryRows) %}
+      {% endif %}
+
+      {{ govukSummaryList({ rows: summaryRows }) }}
 
       <form method="post" novalidate>
         <input type="hidden" name="_csrf" value="{{ csrfToken }}" />

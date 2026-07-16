@@ -7,9 +7,13 @@
 
 {% set typeItems = [] %}
 {% for type in types %}
+  {% set typeLabel = type.description + " (" + type.code + " → " + type.nomisCode + ")" %}
+  {% if type.liveFrom %}
+    {% set typeLabel = typeLabel + " — live from " + type.liveFrom %}
+  {% endif %}
   {% set typeItems = (typeItems.push({
     value: type.code,
-    text: type.description + " (" + type.code + " → " + type.nomisCode + ")"
+    text: typeLabel
   }), typeItems) %}
 {% endfor %}
 
@@ -23,8 +27,10 @@
       <h1 class="govuk-heading-l">Sync an incident type to NOMIS</h1>
 
       <p class="govuk-body">
-        Select an active incident type. On the next screen you can review whether it will be created
-        in or updated in NOMIS, then confirm the sync.
+        Select an incident type that is active now or due to go live. On the next screen you can
+        review whether it will be created in or updated in NOMIS, then confirm the sync. Types that
+        are not yet live are shown with their go-live date, so their configuration can be prepared in
+        NOMIS ahead of the switch-over.
       </p>
 
       <form method="post" novalidate>

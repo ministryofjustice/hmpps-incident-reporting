@@ -119,14 +119,17 @@ NOMIS still needs incident-type configuration so reports raised in this service 
 This page replaces the old `scripts/buildNomisIncidentTypePayload.ts` script (which required a prod
 token almost no developer can hold).
 
-Select an active incident type, review whether it will be **created** (not yet in NOMIS) or
-**updated** (already there), then confirm. After writing, the page re-checks NOMIS and reports
-whether it now matches the configuration held in this service.
+Select an incident type, review whether it will be **created** (not yet in NOMIS) or **updated**
+(already there), then confirm. After writing, the page re-checks NOMIS and reports whether it now
+matches the configuration held in this service.
 
-The service's **system client** must be granted the Prison API role
-`PRISON_API__INCIDENT_TYPE_CONFIGURATION_RW` in HMPPS Auth (per environment) for the write to
-succeed — otherwise the page reports that the role is missing and makes no changes. Ask the HMPPS
-Auth team to add it if needed.
+The list offers types that are **active now or due to go live**. Upcoming versions are shown with
+their go-live date so a new version's configuration can be prepared in NOMIS **before** the
+switch-over — it is written with `active: true`, so the data is ready to use on day one with no
+further action. (Retiring the previous version in NOMIS on its end date is not done here.)
+
+The write relies on the service's **system client** holding the Prison API role
+`PRISON_API__INCIDENT_TYPE_CONFIGURATION_RW` in HMPPS Auth, which is granted in every environment.
 
 ### Updating dependencies
 

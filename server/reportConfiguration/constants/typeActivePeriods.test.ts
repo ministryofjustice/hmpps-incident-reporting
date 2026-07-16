@@ -3,9 +3,11 @@ import {
   areTypeFamiliesInactive,
   getTypeFamilyExpiryDates,
   isTypeActive,
+  isTypeActiveOrUpcoming,
   typeActivePeriods,
   TypeDetails,
   TypeFamilyDetails,
+  upcomingActivationDate,
 } from './typeActivePeriods'
 import { types, getTypeDetails, type Type } from './types'
 import config from '../../config'
@@ -78,6 +80,56 @@ describe('isTypeActive()', () => {
       expect(isTypeActive('FOOD_REFUSAL_1', on('2026-07-01'))).toBe(false)
       expect(isTypeActive('FOOD_REFUSAL_1', on('2026-06-30'))).toBe(true)
     })
+  })
+})
+
+describe('isTypeActiveOrUpcoming()', () => {
+  // Tool loss switches over on 2026-08-01: v1 retires, v2 begins
+  it('includes a type that is active now', () => {
+    expect(isTypeActiveOrUpcoming('TOOL_LOSS_1', on('2026-07-16'))).toBe(true)
+  })
+
+  it('includes an upcoming type whose activeFrom is still in the future', () => {
+    // The distinction from isTypeActive: an upcoming type is not yet active, but is still syncable
+    expect(isTypeActive('TOOL_LOSS_2', on('2026-07-16'))).toBe(false)
+    expect(isTypeActiveOrUpcoming('TOOL_LOSS_2', on('2026-07-16'))).toBe(true)
+  })
+
+  it('excludes a type once it has retired', () => {
+    expect(isTypeActiveOrUpcoming('TOOL_LOSS_1', on('2026-08-02'))).toBe(false)
+  })
+
+  it('excludes a boolean-inactive type', () => {
+    expect(getTypeDetails('FIND_3')?.active).toBe(false)
+    expect(isTypeActiveOrUpcoming('FIND_3', on('2020-01-01'))).toBe(false)
+  })
+
+  it('returns false for an unknown type code', () => {
+    expect(isTypeActiveOrUpcoming('NOT_A_TYPE')).toBe(false)
+  })
+
+  it('treats a type as active (not upcoming) from its activeFrom day onwards', () => {
+    expect(isTypeActive('TOOL_LOSS_2', on('2026-08-01'))).toBe(true)
+    expect(isTypeActiveOrUpcoming('TOOL_LOSS_2', on('2026-08-01'))).toBe(true)
+  })
+})
+
+describe('upcomingActivationDate()', () => {
+  it('returns the go-live date while the type is still upcoming', () => {
+    expect(upcomingActivationDate('TOOL_LOSS_2', on('2026-07-16'))).toBe('2026-08-01')
+  })
+
+  it('returns undefined on and after the go-live date', () => {
+    expect(upcomingActivationDate('TOOL_LOSS_2', on('2026-08-01'))).toBeUndefined()
+    expect(upcomingActivationDate('TOOL_LOSS_2', on('2026-08-02'))).toBeUndefined()
+  })
+
+  it('returns undefined for a type that is already live with no future activeFrom', () => {
+    expect(upcomingActivationDate('TOOL_LOSS_1', on('2026-07-16'))).toBeUndefined()
+  })
+
+  it('returns undefined for a type with no activation window', () => {
+    expect(upcomingActivationDate('ABSCOND_1', on('2026-07-16'))).toBeUndefined()
   })
 })
 

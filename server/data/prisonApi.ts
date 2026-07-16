@@ -93,6 +93,60 @@ interface PrisonerRoleConfiguration {
   expiryDate?: Date
 }
 
+/**
+ * Request shapes for writing an incident-type configuration back into NOMIS.
+ *
+ * NB: these use the Prison API *request* field names, which differ from the *response* interfaces
+ * above (e.g. request `question`/`response`/`code` vs response `questionDesc`/`answerDesc`/`questionnaireQueId`).
+ * Codes are sent as strings; Prison API coerces them to its numeric identifiers.
+ */
+
+// NB: these are `type` aliases (not interfaces) so they satisfy the RestClient `data` body constraint.
+
+/** A single answer in a create/update incident-type request */
+export type NomisAnswerRequest = {
+  code: string
+  response: string
+  active: boolean
+  /** Whether the answer prompts for a comment */
+  commentRequired: boolean
+  /** Whether the answer prompts for a date */
+  dateRequired: boolean
+  /** Code of the question to ask next, or null to end */
+  nextQuestionCode: string | null
+}
+
+/** A single question in a create/update incident-type request */
+export type NomisQuestionRequest = {
+  code: string
+  question: string
+  active: boolean
+  multipleAnswers: boolean
+  answers: NomisAnswerRequest[]
+}
+
+/** A prisoner role in a create/update incident-type request */
+export type NomisPrisonerRoleRequest = {
+  /** NOMIS prisoner-role reference code (domain IR_OFF_PART) */
+  prisonerRole: string
+  singleRole: boolean
+  active: boolean
+}
+
+/** Body for `PUT /api/incidents/configuration/{incidentTypeCode}` */
+export type UpdateIncidentTypeConfigurationRequest = {
+  incidentTypeDescription: string
+  active: boolean
+  questions: NomisQuestionRequest[]
+  prisonerRoles: NomisPrisonerRoleRequest[]
+}
+
+/** Body for `POST /api/incidents/configuration` */
+export type CreateIncidentTypeConfigurationRequest = UpdateIncidentTypeConfigurationRequest & {
+  /** NOMIS incident-type code (max 12 chars) */
+  incidentType: string
+}
+
 export interface ReferenceCode {
   domain: string
   code: string
@@ -246,6 +300,55 @@ export class PrisonApi extends RestClient {
           ),
           expiryDate: incidentType.expiryDate ? new Date(incidentType.expiryDate) : undefined,
         }) satisfies IncidentTypeConfiguration,
+    )
+  }
+
+  /**
+   * Whether NOMIS already holds a configuration for the given incident type.
+   * Prison API returns 404 for an unknown type, which we treat as "does not exist".
+   */
+  async incidentTypeConfigurationExists(nomisCode: string): Promise<boolean> {
+    try {
+      await this.getIncidentTypeConfiguration(nomisCode)
+      return true
+    } catch (error) {
+      if (errorResponseStatusMatches(error, 404)) {
+        return false
+      }
+      throw error
+    }
+  }
+
+  /**
+   * Create a new incident-type configuration in NOMIS.
+   * Returns the freshly-persisted config (same shape as GET, dates as strings).
+   */
+  async createIncidentTypeConfiguration(
+    request: CreateIncidentTypeConfigurationRequest,
+  ): Promise<DatesAsStrings<IncidentTypeConfiguration>> {
+    return this.post<DatesAsStrings<IncidentTypeConfiguration>>(
+      {
+        path: '/api/incidents/configuration',
+        data: request,
+      },
+      asSystem(),
+    )
+  }
+
+  /**
+   * Update an existing incident-type configuration in NOMIS.
+   * Returns the freshly-persisted config (same shape as GET, dates as strings).
+   */
+  async updateIncidentTypeConfiguration(
+    nomisCode: string,
+    request: UpdateIncidentTypeConfigurationRequest,
+  ): Promise<DatesAsStrings<IncidentTypeConfiguration>> {
+    return this.put<DatesAsStrings<IncidentTypeConfiguration>>(
+      {
+        path: `/api/incidents/configuration/${encodeURIComponent(nomisCode)}`,
+        data: request,
+      },
+      asSystem(),
     )
   }
 

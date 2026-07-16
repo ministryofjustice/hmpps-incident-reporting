@@ -1,0 +1,66 @@
+{% extends "partials/layout.njk" %}
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+{% set pageTitle = "Confirm sync to NOMIS" %}
+
+{% block containerStart %}
+  {{ super() }}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "/admin/sync-nomis"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {% if action == "create" %}Create in NOMIS{% else %}Update in NOMIS{% endif %}
+      </h1>
+
+      <p class="govuk-body">
+        {% if action == "create" %}
+          <strong>{{ type.nomisCode }}</strong> does not yet exist in NOMIS and will be created.
+        {% else %}
+          <strong>{{ type.nomisCode }}</strong> already exists in NOMIS and will be updated to match this service.
+        {% endif %}
+      </p>
+
+      {% set summaryRows = [
+        { key: { text: "Incident type" }, value: { text: type.description } },
+        { key: { text: "DPS code" }, value: { text: type.code } },
+        { key: { text: "NOMIS code" }, value: { text: type.nomisCode } },
+        { key: { text: "Questions" }, value: { text: questionCount } },
+        { key: { text: "Prisoner roles" }, value: { text: prisonerRoleCount } }
+      ] %}
+      {% if liveFrom %}
+        {% set summaryRows = (summaryRows.push({ key: { text: "Goes live" }, value: { text: liveFrom } }), summaryRows) %}
+      {% endif %}
+
+      {{ govukSummaryList({ rows: summaryRows }) }}
+
+      <form method="post" novalidate>
+        <input type="hidden" name="_csrf" value="{{ csrfToken }}" />
+        <input type="hidden" name="x-csrf-token" value="{{ csrfToken }}" />
+
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Create in NOMIS" if action == "create" else "Update in NOMIS",
+            preventDoubleClick: true,
+            type: "submit"
+          }) }}
+
+          <a class="govuk-link" href="/admin/sync-nomis">Cancel</a>
+        </div>
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

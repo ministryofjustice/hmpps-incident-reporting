@@ -106,6 +106,44 @@ export function isTypeActive(code: string, at: Date = effectiveNow()): boolean {
   return !(period.activeTo && on >= period.activeTo)
 }
 
+/**
+ * Whether an incident type is active now or is due to become active in the future.
+ *
+ * This is {@link isTypeActive} without the "not started yet" exclusion: a type whose `activeFrom`
+ * is still in the future counts as upcoming and returns `true`. Retired types (`activeTo` reached)
+ * and registry-inactive types (`active` boolean `false`) still return `false`.
+ *
+ * Used by the NOMIS sync screen so a new version can be pushed into NOMIS *before* its go-live date,
+ * leaving the data ready to be used the moment the switch-over happens.
+ */
+export function isTypeActiveOrUpcoming(code: string, at: Date = effectiveNow()): boolean {
+  const details = getTypeDetails(code)
+  if (!details?.active) {
+    return false
+  }
+
+  const period = typeActivePeriods[code as Type]
+  if (!period) {
+    return true
+  }
+
+  // Only exclude once retired; a still-future activeFrom is upcoming, not inactive.
+  return !(period.activeTo && format.isoDate(at) >= period.activeTo)
+}
+
+/**
+ * The go-live date of an upcoming type, or `undefined` if the type is already live (or has no
+ * `activeFrom`). Returns the ISO `YYYY-MM-DD` string only while `activeFrom` is still in the future,
+ * so callers can label a type as "live from …" without re-deriving the window.
+ */
+export function upcomingActivationDate(code: string, at: Date = effectiveNow()): string | undefined {
+  const period = typeActivePeriods[code as Type]
+  if (period?.activeFrom && format.isoDate(at) < period.activeFrom) {
+    return period.activeFrom
+  }
+  return undefined
+}
+
 // Recreate these for now here as not exported in original place
 // TODO: Add export to original scripts
 export type TypeDetails = (typeof types)[number]

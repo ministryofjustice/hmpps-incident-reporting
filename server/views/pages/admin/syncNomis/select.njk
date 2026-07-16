@@ -1,0 +1,61 @@
+{% extends "partials/layout.njk" %}
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/select/macro.njk" import govukSelect %}
+
+{% set pageTitle = "Sync incident type to NOMIS" %}
+
+{% set typeItems = [] %}
+{% for type in types %}
+  {% set typeLabel = type.description + " (" + type.code + " → " + type.nomisCode + ")" %}
+  {% if type.liveFrom %}
+    {% set typeLabel = typeLabel + " — live from " + type.liveFrom %}
+  {% endif %}
+  {% set typeItems = (typeItems.push({
+    value: type.code,
+    text: typeLabel
+  }), typeItems) %}
+{% endfor %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {% include "partials/errorSummary.njk" %}
+
+      <h1 class="govuk-heading-l">Sync an incident type to NOMIS</h1>
+
+      <p class="govuk-body">
+        Select an incident type that is active now or due to go live. On the next screen you can
+        review whether it will be created in or updated in NOMIS, then confirm the sync. Types that
+        are not yet live are shown with their go-live date, so their configuration can be prepared in
+        NOMIS ahead of the switch-over.
+      </p>
+
+      <form method="post" novalidate>
+        <input type="hidden" name="_csrf" value="{{ csrfToken }}" />
+        <input type="hidden" name="x-csrf-token" value="{{ csrfToken }}" />
+
+        {{ govukSelect({
+          id: "dpsCode",
+          name: "dpsCode",
+          label: {
+            text: "Incident type",
+            classes: "govuk-label--s"
+          },
+          items: typeItems | govukSelectInsertDefault("Choose an incident type"),
+          errorMessage: { text: errors.dpsCode.message } if errors.dpsCode else undefined
+        }) }}
+
+        {{ govukButton({
+          text: "Continue",
+          preventDoubleClick: true,
+          type: "submit"
+        }) }}
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -8,8 +8,6 @@ generic-service:
     host: incident-reporting-dev.hmpps.service.justice.gov.uk
     modsecurity_audit_enabled: true
 
-  allowlist: null
-
   env:
     ENVIRONMENT: dev
     LOG_LEVEL: 'debug'

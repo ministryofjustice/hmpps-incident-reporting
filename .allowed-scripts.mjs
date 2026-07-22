@@ -11,8 +11,6 @@ export default configureAllowedScripts({
     // ESBuild is written in GoLang - this is needed to download prebuilt binaries for the specific platform
     'node_modules/esbuild@0.28.1': 'ALLOW',
     // Native solution to quickly resolve module paths, used by jest and eslint
-    'node_modules/unrs-resolver@1.11.1': 'ALLOW',
-    // required for open telemetry for app insights
-    'node_modules/protobufjs@7.6.5': 'ALLOW',
+    'node_modules/unrs-resolver@1.12.2': 'ALLOW',
   },
 })

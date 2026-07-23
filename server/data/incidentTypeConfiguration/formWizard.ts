@@ -296,7 +296,7 @@ function generateFields(config: IncidentTypeConfiguration): FormWizard.Fields {
           fields[commentFieldName] = {
             name: commentFieldName,
             label: commentLabel,
-            component: 'govukInput',
+            component: singleAnswer.commentMultiline ? 'govukTextarea' : 'govukInput',
             validate: ['required'],
             dependent: {
               field: fieldName,
@@ -354,7 +354,7 @@ function generateFields(config: IncidentTypeConfiguration): FormWizard.Fields {
               name: commentFieldName,
               label: commentLabel,
               visuallyHiddenText: `for ${answer.label}`,
-              component: 'govukInput',
+              component: answer.commentMultiline ? 'govukTextarea' : 'govukInput',
               validate: ['required'],
               dependent: {
                 field: fieldName,

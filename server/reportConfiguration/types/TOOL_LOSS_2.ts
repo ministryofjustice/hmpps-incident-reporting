@@ -1,4 +1,4 @@
-// Tool or implement loss v2 (live from 2026-08-01): a short five-question flow defined by the
+// Tool or equipment loss v2 (live from 2026-08-01): a short five-question flow defined by the
 // Safety team that separates "lost" from "mislaid" and drops the legacy NOMIS questions. Every
 // question/answer code is freshly allocated (globally unique) so the config can be back-synced to
 // NOMIS without PK clashes.
@@ -13,8 +13,8 @@ export const TOOL_LOSS_2: IncidentTypeConfiguration = {
     '900003': {
       code: '900003',
       active: true,
-      question: 'WHAT TOOLS OR IMPLEMENT IS MISSING',
-      label: 'What tools or implement is missing?',
+      question: 'tools_missing',
+      label: 'What tools or equipment are missing?',
       multipleAnswers: true,
       answers: [
         {
@@ -95,6 +95,7 @@ export const TOOL_LOSS_2: IncidentTypeConfiguration = {
           commentRequested: true,
           commentMandatory: true,
           dateMandatory: false,
+          commentLabel: 'Please provide details',
           nextQuestionCode: '900004',
         },
         {
@@ -103,6 +104,7 @@ export const TOOL_LOSS_2: IncidentTypeConfiguration = {
           active: true,
           label: 'Garden equipment',
           commentRequested: true,
+          commentLabel: 'Please provide details',
           commentMandatory: true,
           dateMandatory: false,
           nextQuestionCode: '900004',
@@ -113,6 +115,7 @@ export const TOOL_LOSS_2: IncidentTypeConfiguration = {
           active: true,
           label: 'Workshop equipment',
           commentRequested: true,
+          commentLabel: 'Please provide details',
           commentMandatory: true,
           dateMandatory: false,
           nextQuestionCode: '900004',
@@ -123,6 +126,7 @@ export const TOOL_LOSS_2: IncidentTypeConfiguration = {
           active: true,
           label: 'Other',
           commentRequested: true,
+          commentLabel: 'Please provide details',
           commentMandatory: true,
           dateMandatory: false,
           nextQuestionCode: '900004',
@@ -132,8 +136,8 @@ export const TOOL_LOSS_2: IncidentTypeConfiguration = {
     '900004': {
       code: '900004',
       active: true,
-      question: 'WHERE WERE THE TOOLS LOST FROM',
-      label: 'Where were the tools lost from?',
+      question: 'area_missing_from',
+      label: 'Which area were they missing from?',
       multipleAnswers: true,
       answers: [
         {
@@ -178,9 +182,9 @@ export const TOOL_LOSS_2: IncidentTypeConfiguration = {
         },
         {
           code: '950025',
-          response: 'Gymnasium/sportsfield',
+          response: 'Gym or sports field',
           active: true,
-          label: 'Gymnasium/sportsfield',
+          label: 'Gym or sports field',
           commentRequested: false,
           commentMandatory: false,
           dateMandatory: false,
@@ -242,6 +246,7 @@ export const TOOL_LOSS_2: IncidentTypeConfiguration = {
           active: true,
           label: 'Other',
           commentRequested: true,
+          commentLabel: 'Please provide details',
           commentMandatory: true,
           dateMandatory: false,
           nextQuestionCode: '900005',
@@ -251,15 +256,15 @@ export const TOOL_LOSS_2: IncidentTypeConfiguration = {
     '900005': {
       code: '900005',
       active: true,
-      question: 'HOW IS THE ITEM THOUGHT TO HAVE BEEN MISPLACED',
-      label: 'How is the item thought to have been misplaced?',
+      question: 'what_happened_to_missing_items',
+      label: 'What is thought to have happened to them?',
       multipleAnswers: false,
       answers: [
         {
           code: '950032',
-          response: 'Lost/missing',
+          response: 'Lost or missing',
           active: true,
-          label: 'Lost/missing',
+          label: 'Lost or missing',
           commentRequested: false,
           commentMandatory: false,
           dateMandatory: false,
@@ -267,9 +272,9 @@ export const TOOL_LOSS_2: IncidentTypeConfiguration = {
         },
         {
           code: '950033',
-          response: 'Mislaid/found in wrong location',
+          response: 'Mislaid or found in wrong location',
           active: true,
-          label: 'Mislaid/found in wrong location',
+          label: 'Mislaid or found in wrong location',
           commentRequested: false,
           commentMandatory: false,
           dateMandatory: false,
@@ -277,9 +282,9 @@ export const TOOL_LOSS_2: IncidentTypeConfiguration = {
         },
         {
           code: '950034',
-          response: 'In prisoner possession',
+          response: "In prisoner's possession",
           active: true,
-          label: 'In prisoner possession',
+          label: "In prisoner's possession",
           commentRequested: false,
           commentMandatory: false,
           dateMandatory: false,
@@ -291,6 +296,7 @@ export const TOOL_LOSS_2: IncidentTypeConfiguration = {
           active: true,
           label: 'Other',
           commentRequested: true,
+          commentLabel: 'Please provide details',
           commentMandatory: true,
           dateMandatory: false,
           nextQuestionCode: '900006',
@@ -300,8 +306,8 @@ export const TOOL_LOSS_2: IncidentTypeConfiguration = {
     '900006': {
       code: '900006',
       active: true,
-      question: 'HAS THE TOOL OR IMPLEMENT BEEN FOUND',
-      label: 'Has the tool or implement been found?',
+      question: 'tool_found_yes_no',
+      label: 'Have the tools or equipment been found?',
       multipleAnswers: false,
       answers: [
         {
@@ -329,8 +335,8 @@ export const TOOL_LOSS_2: IncidentTypeConfiguration = {
     '900007': {
       code: '900007',
       active: true,
-      question: 'WHERE WAS IT FOUND',
-      label: 'Where was it found?',
+      question: 'where_found',
+      label: 'Where were the tools or equipment found?',
       multipleAnswers: false,
       answers: [
         {
@@ -355,9 +361,9 @@ export const TOOL_LOSS_2: IncidentTypeConfiguration = {
         },
         {
           code: '950040',
-          response: 'Prisoners possession',
+          response: "In prisoner's possession",
           active: true,
-          label: 'Prisoners possession',
+          label: "In prisoner's possession",
           commentRequested: false,
           commentMandatory: false,
           dateMandatory: false,
@@ -369,6 +375,7 @@ export const TOOL_LOSS_2: IncidentTypeConfiguration = {
           active: true,
           label: 'Other',
           commentRequested: true,
+          commentLabel: 'Please provide details',
           commentMandatory: true,
           dateMandatory: false,
           nextQuestionCode: null,

@@ -38,10 +38,10 @@
     "@aws-sdk/client-sqs": "^3.1080.0",
     "@ministryofjustice/frontend": "^9.0.0",
     "@ministryofjustice/hmpps-auth-clients": "^2.0.0",
+    "@ministryofjustice/hmpps-azure-telemetry": "^1.0.2",
     "@ministryofjustice/hmpps-monitoring": "^2.1.0",
     "@ministryofjustice/hmpps-rest-client": "^2.2.0",
     "accessible-autocomplete": "^3.0.1",
-    "applicationinsights": "^2.9.8",
     "bunyan": "^1.8.15",
     "bunyan-format": "^0.2.1",
     "compression": "^1.8.1",
@@ -113,7 +113,7 @@
     "typescript": "^6.0.3",
     "yaml": "^2.9.0"
   },
-  "overrides": {
+"overrides": {
     "@cypress/request": {
       "qs": "~6.15.3"
     },
@@ -121,5 +121,5 @@
       "diff": ">=9.0.0",
       "serialize-javascript": "^7.0.7"
     }
-  }
+}
 }

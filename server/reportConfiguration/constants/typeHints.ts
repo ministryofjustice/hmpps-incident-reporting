@@ -64,7 +64,7 @@ const shortTypeTitles: Partial<Record<TypeFamily, string>> = {
   RELEASE_IN_ERROR: 'release in error',
   SELF_HARM: 'self-harm',
   TEMPORARY_RELEASE_FAILURE: 'temporary release failure',
-  TOOL_LOSS: 'tool or implement loss',
+  TOOL_LOSS: 'tool or equipment loss',
   UNLAWFUL_DETENTION: 'unlawful detention',
 }
 

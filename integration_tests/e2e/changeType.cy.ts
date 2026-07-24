@@ -147,7 +147,7 @@ context('Change incident type', () => {
           checked: false,
         },
         {
-          label: 'Tool or implement loss',
+          label: 'Tool or equipment loss',
           value: 'TOOL_LOSS_1',
           checked: false,
         },

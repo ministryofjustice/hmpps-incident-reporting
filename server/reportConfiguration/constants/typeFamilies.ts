@@ -44,7 +44,7 @@ export const typeFamilies = [
   { code: 'RELEASE_IN_ERROR', description: 'Release in error' },
   { code: 'SELF_HARM', description: 'Self-harm' },
   { code: 'TEMPORARY_RELEASE_FAILURE', description: 'Temporary release failure' },
-  { code: 'TOOL_LOSS', description: 'Tool or implement loss' },
+  { code: 'TOOL_LOSS', description: 'Tool or equipment loss' },
   { code: 'UNLAWFUL_DETENTION', description: 'Unlawful detention' },
 ] as const
 
@@ -95,7 +95,7 @@ export const typeFamiliesDescriptions: Record<TypeFamily, string> = {
   RELEASE_IN_ERROR: 'Release in error',
   SELF_HARM: 'Self-harm',
   TEMPORARY_RELEASE_FAILURE: 'Temporary release failure',
-  TOOL_LOSS: 'Tool or implement loss',
+  TOOL_LOSS: 'Tool or equipment loss',
   UNLAWFUL_DETENTION: 'Unlawful detention',
 }
 

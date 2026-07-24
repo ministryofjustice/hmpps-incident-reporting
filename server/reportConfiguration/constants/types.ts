@@ -278,14 +278,14 @@ export const types = [
   {
     familyCode: 'TOOL_LOSS',
     code: 'TOOL_LOSS_1',
-    description: 'Tool or implement loss',
+    description: 'Tool or equipment loss',
     active: true,
     nomisCode: 'TOOL_LOSS',
   },
   {
     familyCode: 'TOOL_LOSS',
     code: 'TOOL_LOSS_2',
-    description: 'Tool or implement loss',
+    description: 'Tool or equipment loss',
     active: true,
     nomisCode: 'TOOL_LOSS2',
   },
@@ -363,8 +363,8 @@ export const typesDescriptions: Record<Type, string> = {
   TEMPORARY_RELEASE_FAILURE_2: 'Temporary release failure',
   TEMPORARY_RELEASE_FAILURE_3: 'Temporary release failure',
   TEMPORARY_RELEASE_FAILURE_4: 'Temporary release failure',
-  TOOL_LOSS_1: 'Tool or implement loss',
-  TOOL_LOSS_2: 'Tool or implement loss',
+  TOOL_LOSS_1: 'Tool or equipment loss',
+  TOOL_LOSS_2: 'Tool or equipment loss',
   UNLAWFUL_DETENTION_1: 'Unlawful detention',
 }
 

@@ -60,6 +60,9 @@ export const typeActivePeriods: Partial<Record<Type, ActivePeriod>> = {
   HOSTAGE_1: { activeTo: '2015-01-10' },
   INCIDENT_AT_HEIGHT_1: { activeTo: '2015-01-10' },
   KEY_OR_LOCK_1: { activeTo: '2013-08-03' },
+  // Key or lock switch-over for 1 August 2026: Key or lock v2 retires as v3 begins.
+  KEY_OR_LOCK_2: { activeTo: '2026-08-01' },
+  KEY_OR_LOCK_3: { activeFrom: '2026-08-01' },
   MOBILE_PHONE_1: { activeTo: '2015-01-10' },
   RADIO_COMPROMISE_1: { activeTo: '2026-02-03' },
   TEMPORARY_RELEASE_FAILURE_1: { activeTo: '2017-01-04' },

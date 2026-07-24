@@ -212,6 +212,13 @@ export const types = [
     nomisCode: 'KEY_LOCKNEW',
   },
   {
+    familyCode: 'KEY_OR_LOCK',
+    code: 'KEY_OR_LOCK_3',
+    description: 'Key or lock compromise',
+    active: true,
+    nomisCode: 'KEY_LOCK3',
+  },
+  {
     familyCode: 'MISCELLANEOUS',
     code: 'MISCELLANEOUS_1',
     description: 'Miscellaneous',
@@ -346,6 +353,7 @@ export const typesDescriptions: Record<Type, string> = {
   INCIDENT_AT_HEIGHT_1: 'Incident at height',
   KEY_OR_LOCK_1: 'Key or lock compromise',
   KEY_OR_LOCK_2: 'Key or lock compromise',
+  KEY_OR_LOCK_3: 'Key or lock compromise',
   MISCELLANEOUS_1: 'Miscellaneous',
   MOBILE_PHONE_1: 'Mobile phone',
   RADIO_COMPROMISE_1: 'Radio compromise',

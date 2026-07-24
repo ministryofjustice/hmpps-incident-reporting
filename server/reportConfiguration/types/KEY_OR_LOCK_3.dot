@@ -24,12 +24,12 @@ digraph KEY_OR_LOCK_3 {
       900009 -> 900010 [label=< <FONT COLOR="royalblue">950056 </FONT> Transport vehicle key >];
       900009 -> 900010 [label=< <FONT COLOR="royalblue">950057 </FONT> Other >];
     900010 [label=< <FONT COLOR="royalblue">900010 </FONT> How was key compromised? >];
-      900010 -> 900019 [label=< <FONT COLOR="royalblue">950058 </FONT> Attempted key snatch >];
       900010 -> 900019 [label=< <FONT COLOR="royalblue">950059 </FONT> Damaged >];
+      900010 -> 900019 [label=< <FONT COLOR="royalblue">950058 </FONT> Attempted key snatch >];
       900010 -> 900019 [label=< <FONT COLOR="royalblue">950060 </FONT> Details of the key recorded by the media or other unauthorised organisation >];
       900010 -> 900019 [label=< <FONT COLOR="royalblue">950061 </FONT> Evidence of creating or attempting to make a duplicate of key >];
       900010 -> 900019 [label=< <FONT COLOR="royalblue">950062 </FONT> Key issued to wrong person >];
-      900010 -> 900019 [label=< <FONT COLOR="royalblue">950063 </FONT> Keys snatched (or attempted to be snatched) >];
+      900010 -> 900019 [label=< <FONT COLOR="royalblue">950063 </FONT> Key(s) snatched >];
       900010 -> 900019 [label=< <FONT COLOR="royalblue">950064 </FONT> Key taken out of establishment >];
       900010 -> 900019 [label=< <FONT COLOR="royalblue">950065 </FONT> Lost or missing >];
       900010 -> 900019 [label=< <FONT COLOR="royalblue">950066 </FONT> Replica key found >];
@@ -44,11 +44,11 @@ digraph KEY_OR_LOCK_3 {
       900011 -> 900012 [label=< <FONT COLOR="royalblue">950074 </FONT> Padlock >];
       900011 -> 900012 [label=< <FONT COLOR="royalblue">950075 </FONT> Other >];
     900012 [label=< <FONT COLOR="royalblue">900012 </FONT> How was lock compromised? >];
+      900012 -> 900019 [label=< <FONT COLOR="royalblue">950080 </FONT> Malicious damage >];
       900012 -> 900019 [label=< <FONT COLOR="royalblue">950076 </FONT> Evidence of tampering >];
       900012 -> 900019 [label=< <FONT COLOR="royalblue">950077 </FONT> Lock completely removed >];
       900012 -> 900019 [label=< <FONT COLOR="royalblue">950078 </FONT> Lock partially removed >];
       900012 -> 900019 [label=< <FONT COLOR="royalblue">950079 </FONT> Lock picked >];
-      900012 -> 900019 [label=< <FONT COLOR="royalblue">950080 </FONT> Malicious damage >];
       900012 -> 900019 [label=< <FONT COLOR="royalblue">950081 </FONT> Padlock missing >];
       900012 -> 900019 [label=< <FONT COLOR="royalblue">950082 </FONT> Worn lock (not malicious) >];
       900012 -> 900019 [label=< <FONT COLOR="royalblue">950083 </FONT> Other >];
@@ -57,9 +57,9 @@ digraph KEY_OR_LOCK_3 {
       900013 -> 900014 [label=< <FONT COLOR="royalblue">950085 </FONT> Outer gate >];
       900013 -> 900014 [label=< <FONT COLOR="royalblue">950086 </FONT> Other door or gate >];
     900014 [label=< <FONT COLOR="royalblue">900014 </FONT> How was door or gate compromised? >];
+      900014 -> 900019 [label=< <FONT COLOR="royalblue">950089 </FONT> Damaged >];
       900014 -> 900019 [label=< <FONT COLOR="royalblue">950087 </FONT> Access blocked >];
       900014 -> 900019 [label=< <FONT COLOR="royalblue">950088 </FONT> Blockage preventing closure >];
-      900014 -> 900019 [label=< <FONT COLOR="royalblue">950089 </FONT> Damaged >];
       900014 -> 900019 [label=< <FONT COLOR="royalblue">950090 </FONT> Left open >];
       900014 -> 900019 [label=< <FONT COLOR="royalblue">950091 </FONT> Removed or missing >];
     900015 [label=< <FONT COLOR="royalblue">900015 </FONT> What type of handcuffs were compromised? >];

@@ -733,6 +733,70 @@ describe('generateFields() for single-answer questions', () => {
   })
 })
 
+describe('generateFields() for multiline comments', () => {
+  function configWithMultilineAnswer(multipleAnswers: boolean): IncidentTypeConfiguration {
+    return {
+      incidentType: 'MISCELLANEOUS_1',
+      active: true,
+      prisonerRoles: [],
+      startingQuestionCode: 'qprose',
+      questions: {
+        qprose: {
+          code: 'qprose',
+          question: 'DESCRIBE WHAT HAPPENED',
+          label: 'Describe what happened',
+          active: true,
+          multipleAnswers,
+          answers: [
+            {
+              code: 'qprose-a1',
+              response: 'PROSE_RESPONSE',
+              label: 'Describe it',
+              active: true,
+              dateMandatory: false,
+              commentRequested: true,
+              commentMandatory: true,
+              commentLabel: 'Provide details',
+              commentMultiline: true,
+              nextQuestionCode: null,
+            },
+            // Only present so `multipleAnswers: true` renders as checkboxes rather than
+            // collapsing down the single-answer path
+            {
+              code: 'qprose-a2',
+              response: 'SHORT_RESPONSE',
+              label: 'Short answer',
+              active: multipleAnswers,
+              dateMandatory: false,
+              commentRequested: true,
+              commentMandatory: true,
+              nextQuestionCode: null,
+            },
+          ],
+        },
+      },
+    }
+  }
+
+  it('renders a textarea on the single-answer path', () => {
+    const fields = generateFields(configWithMultilineAnswer(false))
+
+    expect(fields['qprose-qprose-a1-comment']).toMatchObject({
+      label: 'Provide details',
+      component: 'govukTextarea',
+      validate: ['required'],
+    })
+  })
+
+  it('renders a textarea on the multiple-answer path, leaving other answers as inputs', () => {
+    const fields = generateFields(configWithMultilineAnswer(true))
+
+    expect(fields['qprose-qprose-a1-comment']).toMatchObject({ component: 'govukTextarea' })
+    // commentMultiline is per-answer, so the sibling answer keeps the single-line input
+    expect(fields['qprose-qprose-a2-comment']).toMatchObject({ component: 'govukInput' })
+  })
+})
+
 describe('checkMultipleValues()', () => {
   it.each([
     { desc: 'no values submitted yet', submittedValues: undefined, expected: false },

@@ -52,6 +52,10 @@ export interface AnswerConfiguration {
   label: string
   /** Override the comment text label */
   commentLabel?: string
+  /** Render the comment as a multi-line textarea rather than a single-line input.
+   *
+   * Use for questions whose whole answer is prose, e.g. 'How was this device compromised?' */
+  commentMultiline?: boolean
   /** Indicates that user must enter a date */
   dateMandatory: boolean
   /** Indicates that user can enter a comment */

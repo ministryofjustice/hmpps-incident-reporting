@@ -44,10 +44,18 @@ export interface NomisSyncMeta {
  * sorts by `LIST_SEQ` on read. The array order therefore becomes the questionnaire order in NOMIS.
  * The same holds for answers within a question, and for prisoner roles.
  *
- * Inactive answers are skipped when following the flow — a retired answer should not route the
- * ordering — but every question and answer still reaches the payload; see {@link buildNomisQuestions}.
- * Appending unreachable questions last also keeps them on the high sequence numbers, clear of the
- * live flow.
+ * The active-flag is applied on two different axes here, which is deliberate and not an
+ * inconsistency: answers are the *edges* the walk follows, questions are the *nodes* it emits.
+ *   - Inactive answers are skipped while following the flow — a retired answer is a dead route no
+ *     user can pick, so it must not drive the ordering.
+ *   - Questions are never filtered by active state. Every question must reach the payload regardless
+ *     (see {@link buildNomisQuestions}: the update replaces the questionnaire under `orphanRemoval`,
+ *     so omitting an inactive question would delete it and orphan historic reports). A question's
+ *     active flag is simply irrelevant to whether the walk records it.
+ * Walking into an inactive question that a live answer still points at is also the better ordering:
+ * it sits next to the question that references it, rather than being dumped in the tail. Anything the
+ * walk never reaches is appended last, in a stable numeric-aware order, keeping it on the high
+ * sequence numbers clear of the live flow.
  */
 export function orderQuestionsByFlow(dpsConfig: IncidentTypeConfiguration): QuestionConfiguration[] {
   const questionsByCode = dpsConfig.questions

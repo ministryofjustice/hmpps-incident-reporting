@@ -94,6 +94,48 @@ export default {
     ),
 
   /**
+   * Stub looking up a NOMIS incident-type configuration that does not exist (used to force a "create")
+   */
+  stubPrisonApiIncidentTypeConfigurationNotFound: (nomisCode: string): SuperAgentRequest =>
+    stubFor({
+      request: {
+        method: 'GET',
+        urlPath: '/prisonApi/api/incidents/configuration',
+        queryParameters: {
+          'incident-type': { equalTo: nomisCode },
+        },
+      },
+      response: {
+        status: 404,
+        headers: { 'Content-Type': 'application/json;charset=UTF-8' },
+        jsonBody: { status: 404, userMessage: `Incident type ${nomisCode} not found` },
+      },
+    }),
+
+  /**
+   * Stub creating a NOMIS incident-type configuration; echoes back a minimal persisted config
+   */
+  stubPrisonApiCreateIncidentTypeConfiguration: (nomisCode: string): SuperAgentRequest =>
+    stubFor({
+      request: {
+        method: 'POST',
+        urlPath: '/prisonApi/api/incidents/configuration',
+      },
+      response: {
+        status: 201,
+        headers: { 'Content-Type': 'application/json;charset=UTF-8' },
+        jsonBody: {
+          incidentType: nomisCode,
+          incidentTypeDescription: 'Abscond',
+          questionnaireId: 1,
+          questions: [],
+          prisonerRoles: [],
+          active: true,
+        },
+      },
+    }),
+
+  /**
    * Health check
    */
   stubPrisonApiPing: (): SuperAgentRequest =>

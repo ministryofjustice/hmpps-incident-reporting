@@ -1,0 +1,44 @@
+{% extends "partials/layout.njk" %}
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
+{% from "govuk/components/panel/macro.njk" import govukPanel %}
+
+{% set pageTitle = "Sync result" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ govukPanel({
+        titleText: "Sync complete",
+        html: type.description + " (" + type.nomisCode + ") was " + action + " in NOMIS"
+      }) }}
+
+      {% if comparison.inSync %}
+        {{ govukNotificationBanner({
+          type: "success",
+          titleText: "Success",
+          html: "<p class=\"govuk-body\">NOMIS now matches the configuration held in this service.</p>"
+        }) }}
+      {% else %}
+        {{ govukNotificationBanner({
+          titleText: "NOMIS does not fully match this service",
+          html: "<p class=\"govuk-body\">The write succeeded, but the stored configuration differs from what was sent:</p>"
+        }) }}
+        <ul class="govuk-list govuk-list--bullet">
+          {% for difference in comparison.differences %}
+            <li>{{ difference }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+
+      <p class="govuk-body">
+        <a class="govuk-link" href="/admin/sync-nomis">Sync another incident type</a>
+      </p>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -212,6 +212,13 @@ export const types = [
     nomisCode: 'KEY_LOCKNEW',
   },
   {
+    familyCode: 'KEY_OR_LOCK',
+    code: 'KEY_OR_LOCK_3',
+    description: 'Key or lock compromise',
+    active: true,
+    nomisCode: 'KEY_LOCK3',
+  },
+  {
     familyCode: 'MISCELLANEOUS',
     code: 'MISCELLANEOUS_1',
     description: 'Miscellaneous',
@@ -271,9 +278,16 @@ export const types = [
   {
     familyCode: 'TOOL_LOSS',
     code: 'TOOL_LOSS_1',
-    description: 'Tool or implement loss',
+    description: 'Tool or equipment loss',
     active: true,
     nomisCode: 'TOOL_LOSS',
+  },
+  {
+    familyCode: 'TOOL_LOSS',
+    code: 'TOOL_LOSS_2',
+    description: 'Tool or equipment loss',
+    active: true,
+    nomisCode: 'TOOL_LOSS2',
   },
   {
     familyCode: 'UNLAWFUL_DETENTION',
@@ -339,6 +353,7 @@ export const typesDescriptions: Record<Type, string> = {
   INCIDENT_AT_HEIGHT_1: 'Incident at height',
   KEY_OR_LOCK_1: 'Key or lock compromise',
   KEY_OR_LOCK_2: 'Key or lock compromise',
+  KEY_OR_LOCK_3: 'Key or lock compromise',
   MISCELLANEOUS_1: 'Miscellaneous',
   MOBILE_PHONE_1: 'Mobile phone',
   RADIO_COMPROMISE_1: 'Radio compromise',
@@ -348,7 +363,8 @@ export const typesDescriptions: Record<Type, string> = {
   TEMPORARY_RELEASE_FAILURE_2: 'Temporary release failure',
   TEMPORARY_RELEASE_FAILURE_3: 'Temporary release failure',
   TEMPORARY_RELEASE_FAILURE_4: 'Temporary release failure',
-  TOOL_LOSS_1: 'Tool or implement loss',
+  TOOL_LOSS_1: 'Tool or equipment loss',
+  TOOL_LOSS_2: 'Tool or equipment loss',
   UNLAWFUL_DETENTION_1: 'Unlawful detention',
 }
 

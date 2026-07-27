@@ -17,6 +17,7 @@ import { reopenRouter } from './reports/actions/reopen'
 import { requestRemovalRouter } from './reports/actions/requestRemoval'
 import dashboard from './dashboard'
 import prisonerIncidentSummaryRouter from './prisonerIncidentSummary'
+import makeAdminRouter from './admin'
 
 export default function routes(services: Services): Router {
   const router = Router()
@@ -85,6 +86,9 @@ export default function routes(services: Services): Router {
 
   // NOMIS data dumps used for updating constants in this repository
   router.use('/download-report-config', makeDownloadConfigRouter())
+
+  // Admin-only screens (unlinked; gated on the admin role)
+  router.use('/admin', makeAdminRouter())
 
   return router
 }

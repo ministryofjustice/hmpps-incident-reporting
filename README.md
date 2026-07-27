@@ -104,6 +104,33 @@ Import the NOMIS JSON incident types file downloaded above with:
 This will create typescript configuration for every known incident type in NOMIS including inactive ones.
 NB: Make sure to check diffs for previous customisations (which do exist!) before checking into git repository.
 
+### Admin screens
+
+Some developer/admin-only pages are not linked from anywhere in the UI — you reach them by knowing
+the URL. They are gated on the `INCIDENT_REPORTS__ADMIN` role (held _in addition_ to a normal
+service role), so your account needs both.
+
+#### Sync an incident type into NOMIS
+
+`/admin/sync-nomis`
+
+NOMIS still needs incident-type configuration so reports raised in this service sync back correctly
+(the data feeds reporting and the data-science teams), even though NOMIS screens are switched off.
+This page replaces the old `scripts/buildNomisIncidentTypePayload.ts` script (which required a prod
+token almost no developer can hold).
+
+Select an incident type, review whether it will be **created** (not yet in NOMIS) or **updated**
+(already there), then confirm. After writing, the page re-checks NOMIS and reports whether it now
+matches the configuration held in this service.
+
+The list offers types that are **active now or due to go live**. Upcoming versions are shown with
+their go-live date so a new version's configuration can be prepared in NOMIS **before** the
+switch-over — it is written with `active: true`, so the data is ready to use on day one with no
+further action. (Retiring the previous version in NOMIS on its end date is not done here.)
+
+The write relies on the service's **system client** holding the Prison API role
+`PRISON_API__INCIDENT_TYPE_CONFIGURATION_RW` in HMPPS Auth, which is granted in every environment.
+
 ### Updating dependencies
 
 It’s prudent to periodically update npm dependencies; continuous integration will occasionally warn when it’s needed.

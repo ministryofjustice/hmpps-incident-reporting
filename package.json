@@ -120,6 +120,8 @@
     "mocha": {
       "diff": ">=9.0.0",
       "serialize-javascript": "^7.0.7"
-    }
+    },
+  "@opentelemetry/core": "^2.9.0",
+  "js-yaml": "^4.3.0"
 }
 }

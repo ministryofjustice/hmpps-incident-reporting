@@ -121,6 +121,7 @@
       "diff": ">=9.0.0",
       "serialize-javascript": "^7.0.7"
     },
-  "@opentelemetry/core": "^2.10.0"
+  "@opentelemetry/core": "^2.10.0",
+  "brace-expansion": "^5.0.8"
 }
 }

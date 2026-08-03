@@ -201,12 +201,14 @@ export function filtersFromUiFilters({
 function processDateRange(uiFilters: UiFilters): { incidentDateFrom?: Date; incidentDateUntil?: Date } {
   const incidentDateFrom = parseDate(uiFilters.fromDate)
   const incidentDateUntil = parseDate(uiFilters.toDate)
-  const validDates = incidentDateFrom !== undefined && incidentDateUntil !== undefined
-  const validDateOrder = validDates && incidentDateUntil >= incidentDateFrom
+  const validDateFrom = incidentDateFrom !== undefined
+  const validDateUntil = incidentDateUntil !== undefined
+  const bothValidDates = validDateFrom && validDateUntil
+  const validDateOrder = bothValidDates && incidentDateUntil >= incidentDateFrom
 
   return {
-    incidentDateFrom: validDateOrder ? incidentDateFrom : undefined,
-    incidentDateUntil: validDateOrder ? incidentDateUntil : undefined,
+    incidentDateFrom: validDateFrom && (validDateOrder || !validDateUntil) ? incidentDateFrom : undefined,
+    incidentDateUntil: validDateUntil && (validDateOrder || !validDateFrom) ? incidentDateUntil : undefined,
   }
 }
 

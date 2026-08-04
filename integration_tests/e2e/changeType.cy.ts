@@ -128,7 +128,7 @@ context('Change incident type', () => {
         },
         {
           label: 'Key or lock compromise',
-          value: 'KEY_OR_LOCK_2',
+          value: 'KEY_OR_LOCK_3',
           checked: false,
         },
         {
@@ -148,7 +148,7 @@ context('Change incident type', () => {
         },
         {
           label: 'Tool or equipment loss',
-          value: 'TOOL_LOSS_1',
+          value: 'TOOL_LOSS_2',
           checked: false,
         },
         {

@@ -41,10 +41,6 @@
   {% endif %}
 {% endblock %}
 
-{% block containerStart %}
-  {% include "./feedbackBanner.njk" %}
-{% endblock %}
-
 {% block footer %}
   {% if feComponents.footer %}
     {{ feComponents.footer | safe }}

@@ -5,6 +5,7 @@ import { PrisonApi } from '../data/prisonApi'
 import { mockPecsRegions } from '../data/testData/pecsRegions'
 import { mockDataWarden, mockReportingOfficer, mockHqViewer, mockUnauthorisedUser } from '../data/testData/users'
 import { appWithAllRoutes } from './testutils/appSetup'
+import config from '../config'
 
 jest.mock('../data/prisonApi')
 
@@ -52,6 +53,19 @@ describe('Home page', () => {
         expectedText.forEach(text => {
           expect(res.text).toContain(text)
         })
+      })
+  })
+
+  it('shows the feedback banner', () => {
+    const feedbackUrl = 'https://www.example.com/feedback'
+    config.feedbackUrl = feedbackUrl
+
+    return request(appWithAllRoutes({ userSupplier: () => mockHqViewer }))
+      .get('/')
+      .expect('Content-Type', /html/)
+      .expect(res => {
+        expect(res.text).toContain('Give feedback on this service (opens in a new tab)')
+        expect(res.text).toContain(feedbackUrl)
       })
   })
 

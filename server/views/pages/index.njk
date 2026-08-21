@@ -77,3 +77,9 @@
   {% endif %}
 
 {% endblock %}
+
+{% block containerEnd %}
+  {{ super() }}
+
+  {% include "../partials/feedbackBanner.njk" %}
+{% endblock %}

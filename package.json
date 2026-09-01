@@ -123,7 +123,7 @@
   },
   "allowScripts": {
     "@parcel/watcher@2.5.6": true,
-    "cypress@15.20.1": true,
+    "cypress@15.21.0": true,
     "dtrace-provider@0.8.8": false,
     "esbuild@0.28.2": true,
     "unrs-resolver@1.12.2": true

@@ -1,5 +1,3 @@
-// Generated with ./scripts/importDpsConstants.ts at 2025-08-19T16:38:54.769Z
-
 /** Types of reportable incidents */
 export const types = [
   { familyCode: 'ABSCOND', code: 'ABSCOND_1', description: 'Abscond', active: true, nomisCode: 'ABSCOND' },
@@ -305,68 +303,9 @@ type TypeDetails = (typeof types)[number]
 export type Type = TypeDetails['code']
 
 /** Code to description mapping for types of reportable incidents */
-export const typesDescriptions: Record<Type, string> = {
-  ABSCOND_1: 'Abscond',
-  ASSAULT_1: 'Assault',
-  ASSAULT_2: 'Assault',
-  ASSAULT_3: 'Assault',
-  ASSAULT_4: 'Assault',
-  ASSAULT_5: 'Assault',
-  ATTEMPTED_ESCAPE_FROM_PRISON_1: 'Attempted escape from establishment',
-  ATTEMPTED_ESCAPE_FROM_ESCORT_1: 'Attempted escape from escort',
-  BARRICADE_1: 'Barricade',
-  BOMB_1: 'Bomb explosion or threat',
-  BREACH_OF_SECURITY_1: 'Breach or attempted breach of security',
-  BC_DISRUPT_3RD_PTY_1: 'Business Continuity - Disruption to 3rd party supplier',
-  BC_FUEL_SHORTAGE_1: 'Business Continuity - Fuel shortage',
-  BC_LOSS_ACCESS_EGRESS_1: 'Business Continuity - Loss of access / egress',
-  BC_LOSS_COMMS_1: 'Business Continuity - Loss of communications & digital systems',
-  BC_LOSS_UTILS_1: 'Business Continuity - Loss of utilities',
-  BC_SERV_WEATHER_1: 'Business Continuity - Severe weather',
-  BC_STAFF_SHORTAGES_1: 'Business Continuity - Staff shortages',
-  BC_WIDESPREAD_ILLNESS_1: 'Business Continuity - Widespread illness',
-  CLOSE_DOWN_SEARCH_1: 'Close down search',
-  CONCERTED_INDISCIPLINE_1: 'Incident involving 2 or more prisioners acting together',
-  DAMAGE_1: 'Deliberate damage',
-  DEATH_PRISONER_1: 'Death of prisoner',
-  DEATH_OTHER_1: 'Death of other person',
-  DIRTY_PROTEST_1: 'Dirty protest',
-  DISORDER_1: 'Disorder',
-  DISORDER_2: 'Disorder',
-  DRONE_SIGHTING_1: 'Drone sighting',
-  DRONE_SIGHTING_2: 'Drone sighting',
-  DRONE_SIGHTING_3: 'Drone sighting',
-  DRUGS_1: 'Drugs',
-  ESCAPE_FROM_PRISON_1: 'Escape from establishment',
-  ESCAPE_FROM_ESCORT_1: 'Escape from escort',
-  FIND_1: 'Find of illicit items',
-  FIND_2: 'Find of illicit items',
-  FIND_3: 'Find of illicit items',
-  FIND_4: 'Find of illicit items',
-  FIND_5: 'Find of illicit items',
-  FIND_6: 'Find of illicit items',
-  FIRE_1: 'Fire',
-  FIREARM_1: 'Firearm, ammunition or chemical incapacitant',
-  FOOD_REFUSAL_1: 'Food or liquid refusal',
-  FOOD_REFUSAL_2: 'Food or liquid refusal',
-  HOSTAGE_1: 'Hostage incident',
-  INCIDENT_AT_HEIGHT_1: 'Incident at height',
-  KEY_OR_LOCK_1: 'Key or lock compromise',
-  KEY_OR_LOCK_2: 'Key or lock compromise',
-  KEY_OR_LOCK_3: 'Key or lock compromise',
-  MISCELLANEOUS_1: 'Miscellaneous',
-  MOBILE_PHONE_1: 'Mobile phone',
-  RADIO_COMPROMISE_1: 'Radio compromise',
-  RELEASE_IN_ERROR_1: 'Release in error',
-  SELF_HARM_1: 'Self-harm',
-  TEMPORARY_RELEASE_FAILURE_1: 'Temporary release failure',
-  TEMPORARY_RELEASE_FAILURE_2: 'Temporary release failure',
-  TEMPORARY_RELEASE_FAILURE_3: 'Temporary release failure',
-  TEMPORARY_RELEASE_FAILURE_4: 'Temporary release failure',
-  TOOL_LOSS_1: 'Tool or equipment loss',
-  TOOL_LOSS_2: 'Tool or equipment loss',
-  UNLAWFUL_DETENTION_1: 'Unlawful detention',
-}
+export const typesDescriptions: Record<Type, string> = Object.fromEntries(
+  types.map(type => [type.code, type.description]),
+) as Record<Type, string>
 
 /**
  * NOMIS codes for Types of reportable incidents

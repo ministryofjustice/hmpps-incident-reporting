@@ -5,6 +5,7 @@ export type TypeDetails = {
   description: string
   active: boolean
   nomisCode: string
+  hint?: string
 }
 
 /** Types of reportable incidents */
@@ -19,6 +20,7 @@ export const types = {
     description: 'Assault',
     active: true,
     nomisCode: 'ASSAULTS3',
+    hint: 'Includes fights and suspected assaults.',
   },
   ATTEMPTED_ESCAPE_FROM_PRISON_1: {
     familyCode: 'ATTEMPTED_ESCAPE_FROM_PRISON',
@@ -39,6 +41,7 @@ export const types = {
     description: 'Breach or attempted breach of security',
     active: true,
     nomisCode: 'BREACH',
+    hint: 'A person who breaches, or who attempts to breach, the secure perimeter of the establishment.',
   },
   BC_DISRUPT_3RD_PTY_1: {
     familyCode: 'BC_DISRUPT_3RD_PTY',
@@ -93,6 +96,7 @@ export const types = {
     description: 'Close down search',
     active: true,
     nomisCode: 'CLOSE_DOWN',
+    hint: 'Any finds must be reported using the Find type.',
   },
   CONCERTED_INDISCIPLINE_1: {
     familyCode: 'CONCERTED_INDISCIPLINE',
@@ -118,6 +122,7 @@ export const types = {
     description: 'Dirty protest',
     active: true,
     nomisCode: 'DIRTYPROTEST',
+    hint: 'Deliberately defecating or urinating without a toilet or, throwing or smearing urine and/or faeces. An ongoing dirty protest is one incident.',
   },
   DISORDER_1: { familyCode: 'DISORDER', description: 'Disorder', active: false, nomisCode: 'DISORDER' },
   DISORDER_2: {
@@ -125,6 +130,7 @@ export const types = {
     description: 'Disorder',
     active: true,
     nomisCode: 'DISORDER1',
+    hint: 'Includes barricade, concerted indiscipline, hostage, and incident at height.',
   },
   DRONE_SIGHTING_1: {
     familyCode: 'DRONE_SIGHTING',
@@ -143,6 +149,7 @@ export const types = {
     description: 'Drone sighting',
     active: true,
     nomisCode: 'DRONE2',
+    hint: 'Drones must have been seen by staff.',
   },
   DRUGS_1: { familyCode: 'DRUGS', description: 'Drugs', active: false, nomisCode: 'DRUGS' },
   ESCAPE_FROM_PRISON_1: {
@@ -167,6 +174,7 @@ export const types = {
     description: 'Find of illicit items',
     active: true,
     nomisCode: 'FIND0422',
+    hint: 'Items must be recovered, not just seen.',
   },
   FIRE_1: { familyCode: 'FIRE', description: 'Fire', active: true, nomisCode: 'FIRE' },
   FIREARM_1: {
@@ -217,6 +225,7 @@ export const types = {
     description: 'Miscellaneous',
     active: true,
     nomisCode: 'MISC',
+    hint: 'Includes any other incident type not listed.',
   },
   MOBILE_PHONE_1: {
     familyCode: 'MOBILE_PHONE',
@@ -235,12 +244,14 @@ export const types = {
     description: 'Release in error',
     active: true,
     nomisCode: 'REL_ERROR',
+    hint: 'A person released from HMPPS custody earlier than intended.',
   },
   SELF_HARM_1: {
     familyCode: 'SELF_HARM',
     description: 'Self-harm',
     active: true,
     nomisCode: 'SELF_HARM',
+    hint: 'Includes suspected and reported self-harm. Do not use to report a noose, unless it’s around the neck or applying pressure.',
   },
   TEMPORARY_RELEASE_FAILURE_1: {
     familyCode: 'TEMPORARY_RELEASE_FAILURE',
@@ -271,18 +282,21 @@ export const types = {
     description: 'Tool or equipment loss',
     active: true,
     nomisCode: 'TOOL_LOSS',
+    hint: 'Do not use for key or lock compromises. They are separate incident types.',
   },
   TOOL_LOSS_2: {
     familyCode: 'TOOL_LOSS',
     description: 'Tool or equipment loss',
     active: true,
     nomisCode: 'TOOL_LOSS2',
+    hint: 'Do not use for key or lock compromises. They are separate incident types.',
   },
   UNLAWFUL_DETENTION_1: {
     familyCode: 'UNLAWFUL_DETENTION',
     description: 'Unlawful detention',
     active: true,
     nomisCode: 'UNLAW_DET',
+    hint: 'A person released from HMPPS custody later than intended.',
   },
 } as const satisfies Record<string, TypeDetails>
 
@@ -305,3 +319,12 @@ export type NomisType = (typeof nomisCodes)[number]
 export function getTypeDetails(code: Type): TypeDetails | null {
   return types[code] ?? null
 }
+
+/**
+ * Additional info to display when users select an incident *type* for a report (not *family*)
+ */
+export const typeHints: Partial<Record<Type, string>> = Object.fromEntries(
+  Object.entries(types)
+    .filter(([, details]) => details.hint)
+    .map(([typeCode, details]) => [typeCode, details.hint]),
+)

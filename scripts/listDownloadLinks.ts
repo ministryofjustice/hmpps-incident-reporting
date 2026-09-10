@@ -42,7 +42,7 @@ function main() {
   printText('\nNOMIS configuration JSON downloads:')
   nomisUrlSlugs.forEach(urlSlug => {
     if (verbose && urlSlug.includes('<nomisType>')) {
-      types.forEach(({ nomisCode }) => {
+      Object.entries(types).forEach(([, { nomisCode }]) => {
         if (nomisCode) {
           printText(`  - ${baseUrl}/download-report-config/nomis/${urlSlug.replace('<nomisType>', nomisCode)}.json`)
         }
@@ -55,7 +55,7 @@ function main() {
   printText('\nNOMIS configuration CSV downloads:')
   nomisUrlSlugs.forEach(urlSlug => {
     if (verbose && urlSlug.includes('<nomisType>')) {
-      types.forEach(({ nomisCode }) => {
+      Object.entries(types).forEach(([, { nomisCode }]) => {
         if (nomisCode) {
           printText(`  - ${baseUrl}/download-report-config/nomis/${urlSlug.replace('<nomisType>', nomisCode)}.csv`)
         }
@@ -68,8 +68,9 @@ function main() {
   if (verbose) {
     printText('\nNB: Download links are only listed with known NOMIS types, it’s possible that newer types may exist.')
   } else {
+    const exampleNomisType = Object.values(types)[0]?.nomisCode ?? 'ABSCOND'
     printText(
-      `\nWhere <nomisType> is the NOMIS incident report type code, such as ${types[0].nomisCode}. Use --verbose flag to list known types.`,
+      `\nWhere <nomisType> is the NOMIS incident report type code, such as ${exampleNomisType}. Use --verbose flag to list known types.`,
     )
   }
 }

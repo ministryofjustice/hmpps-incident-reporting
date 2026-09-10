@@ -12,7 +12,7 @@ describe('Type family', () => {
   it('should have the same description for each type within a family', () => {
     const typeFamilyDescriptions = Object.fromEntries(typeFamilies.map(({ code, description }) => [code, description]))
     Object.entries(types).forEach(([typeCode, typeDetails]) => {
-      expect(typeDetails.description).toEqual(typeFamilyDescriptions[typeCode])
+      expect(typeDetails.description).toEqual(typeFamilyDescriptions[typeDetails.familyCode])
     })
   })
 })
@@ -21,9 +21,9 @@ describe('getTypeDetails()', () => {
   it('should find active codes', () => {
     expect(getTypeDetails('ASSAULT_5')).toStrictEqual({
       familyCode: 'ASSAULT',
-      code: 'ASSAULT_5',
       description: 'Assault',
       active: true,
+      hint: 'Includes fights and suspected assaults.',
       nomisCode: 'ASSAULTS3',
     })
   })
@@ -31,10 +31,10 @@ describe('getTypeDetails()', () => {
   it('should find inactive codes', () => {
     expect(getTypeDetails('ASSAULT_1')).toStrictEqual({
       familyCode: 'ASSAULT',
-      code: 'ASSAULT_1',
       description: 'Assault',
       active: false,
       nomisCode: 'ASSAULT',
+      activeTo: '2017-04-13',
     })
   })
 

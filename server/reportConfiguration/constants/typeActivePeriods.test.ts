@@ -1,15 +1,12 @@
 import {
-  ActivePeriod,
   areTypeFamiliesInactive,
   getTypeFamilyExpiryDates,
   isTypeActive,
   isTypeActiveOrUpcoming,
-  typeActivePeriods,
-  TypeDetails,
-  TypeFamilyDetails,
   upcomingActivationDate,
 } from './typeActivePeriods'
-import { types, getTypeDetails, type Type } from './types'
+import { types, getTypeDetails, type Type, type TypeDetails } from './types'
+import { type TypeFamilyDetails} from "./typeFamilies";
 import config from '../../config'
 import type { TypeFamily } from './typeFamilies'
 
@@ -20,13 +17,13 @@ function on(isoDate: string): Date {
 
 describe('typeActivePeriods table', () => {
   it('only references real incident types', () => {
-    Object.keys(typeActivePeriods).forEach(code => {
-      expect(getTypeDetails(code)).not.toBeNull()
+    Object.keys(types).forEach(code => {
+      expect(getTypeDetails(code as Type)).not.toBeNull()
     })
   })
 
   it('uses valid ISO YYYY-MM-DD dates', () => {
-    Object.values(typeActivePeriods).forEach(period => {
+    Object.values(types).forEach(period => {
       ;[period.activeFrom, period.activeTo].forEach(date => {
         if (date !== undefined) {
           expect(date).toMatch(/^\d{4}-\d{2}-\d{2}$/)
@@ -156,7 +153,7 @@ describe('INCIDENT_TYPE_ACTIVE_DATE override (default "now")', () => {
 
 describe('one active version per family invariant', () => {
   // Evaluate at "now", at every window boundary, and a day either side of each boundary.
-  const boundaries = Object.values(typeActivePeriods).flatMap(period =>
+  const boundaries = Object.values(types).flatMap(period =>
     [period.activeFrom, period.activeTo].filter((date): date is string => date !== undefined),
   )
   const dayBefore = (date: string): string => {
@@ -168,14 +165,14 @@ describe('one active version per family invariant', () => {
     new Set([new Date().toISOString().slice(0, 10), ...boundaries, ...boundaries.map(dayBefore)]),
   )
 
-  const families = Array.from(new Set(types.map(type => type.familyCode)))
+  const families = Array.from(new Set(Object.entries(types).map(([, details]) => details.familyCode)))
 
   it.each(families)('family %s never has more than one active type at any sampled date', familyCode => {
-    const familyTypes = types.filter(type => type.familyCode === familyCode)
+    const familyTypes = Object.entries(types).filter(([, details]) => details.familyCode === familyCode)
     sampleDates.forEach(date => {
-      const activeCount = familyTypes.filter(type => isTypeActive(type.code, on(date))).length
+      const activeCount = familyTypes.filter(([typeCode,]) => isTypeActive(typeCode as Type, on(date))).length
       if (activeCount > 1) {
-        const activeCodes = familyTypes.filter(type => isTypeActive(type.code, on(date))).map(type => type.code)
+        const activeCodes = familyTypes.filter(([typeCode,]) => isTypeActive(typeCode as Type, on(date))).map(([typeCode,]) => typeCode)
         throw new Error(`On ${date}, family ${familyCode} has multiple active types: ${activeCodes.join(', ')}`)
       }
     })
@@ -184,22 +181,57 @@ describe('one active version per family invariant', () => {
 
 describe('areTypeFamiliesInactive()', () => {
   it('returns the correct values for type families in correct format', () => {
-    const testTypes: TypeDetails[] = [
-      { familyCode: 'ABSCOND', code: 'ABSCOND_1', description: 'Abscond', active: true, nomisCode: 'ABSCOND' },
-      { familyCode: 'ASSAULT', code: 'ASSAULT_1', description: 'Assault', active: false, nomisCode: 'ASSAULT' },
-      { familyCode: 'ASSAULT', code: 'ASSAULT_2', description: 'Assault', active: false, nomisCode: 'ASSAULTS' },
-      { familyCode: 'ASSAULT', code: 'ASSAULT_3', description: 'Assault', active: false, nomisCode: 'ASSAULTS1' },
-      { familyCode: 'ASSAULT', code: 'ASSAULT_4', description: 'Assault', active: false, nomisCode: 'ASSAULTS2' },
-      { familyCode: 'ASSAULT', code: 'ASSAULT_5', description: 'Assault', active: true, nomisCode: 'ASSAULTS3' },
-      { familyCode: 'BARRICADE', code: 'BARRICADE_1', description: 'Barricade', active: false, nomisCode: 'BARRICADE' },
-      {
+    const testTypes: Record<string, TypeDetails> = {
+      ABSCOND_1: {familyCode: 'ABSCOND', description: 'Abscond', active: true, nomisCode: 'ABSCOND'},
+      ASSAULT_1: {
+        familyCode: 'ASSAULT',
+        description: 'Assault',
+        active: false,
+        nomisCode: 'ASSAULT',
+        activeTo: '2017-04-13',
+      },
+      ASSAULT_2: {
+        familyCode: 'ASSAULT',
+        description: 'Assault',
+        active: false,
+        nomisCode: 'ASSAULTS',
+        activeTo: '2017-04-13',
+      },
+      ASSAULT_3: {
+        familyCode: 'ASSAULT',
+        description: 'Assault',
+        active: false,
+        nomisCode: 'ASSAULTS1',
+        activeTo: '2017-04-13',
+      },
+      ASSAULT_4: {
+        familyCode: 'ASSAULT',
+        description: 'Assault',
+        active: false,
+        nomisCode: 'ASSAULTS2',
+        activeTo: '2017-04-27',
+      },
+      ASSAULT_5: {
+        familyCode: 'ASSAULT',
+        description: 'Assault',
+        active: true,
+        nomisCode: 'ASSAULTS3'
+      },
+      BARRICADE_1: {
+        familyCode: 'BARRICADE',
+        description: 'Barricade',
+        active: false,
+        nomisCode: 'BARRICADE',
+        activeTo: '2015-01-10',
+      },
+      CLOSE_DOWN_SEARCH_1: {
         familyCode: 'CLOSE_DOWN_SEARCH',
-        code: 'CLOSE_DOWN_SEARCH_1',
         description: 'Close down search',
         active: true,
         nomisCode: 'CLOSE_DOWN',
+        activeTo: '2026-07-01',
       },
-    ]
+    }
     const expected = {
       ABSCOND: false, // No activeTo dates
       ASSAULT: false, // Most have activeTo dates but not all
@@ -212,36 +244,64 @@ describe('areTypeFamiliesInactive()', () => {
 
 describe('getTypeFamilyExpiryDates()', () => {
   it('returns the correct dates for type families in the correct format', () => {
-    const testTypes: TypeDetails[] = [
-      { familyCode: 'ABSCOND', code: 'ABSCOND_1', description: 'Abscond', active: true, nomisCode: 'ABSCOND' },
-      { familyCode: 'ASSAULT', code: 'ASSAULT_1', description: 'Assault', active: false, nomisCode: 'ASSAULT' },
-      { familyCode: 'ASSAULT', code: 'ASSAULT_2', description: 'Assault', active: false, nomisCode: 'ASSAULTS' },
-      { familyCode: 'ASSAULT', code: 'ASSAULT_3', description: 'Assault', active: false, nomisCode: 'ASSAULTS1' },
-      { familyCode: 'ASSAULT', code: 'ASSAULT_4', description: 'Assault', active: false, nomisCode: 'ASSAULTS2' },
-      { familyCode: 'ASSAULT', code: 'ASSAULT_5', description: 'Assault', active: true, nomisCode: 'ASSAULTS3' },
-      { familyCode: 'BARRICADE', code: 'BARRICADE_1', description: 'Barricade', active: false, nomisCode: 'BARRICADE' },
-      {
+    const testTypes: Record<string, TypeDetails> = {
+      ABSCOND_1: {familyCode: 'ABSCOND', description: 'Abscond', active: true, nomisCode: 'ABSCOND'},
+      ASSAULT_1: {
+        familyCode: 'ASSAULT',
+        description: 'Assault',
+        active: false,
+        nomisCode: 'ASSAULT',
+        activeTo: '2017-04-13',
+      },
+      ASSAULT_2: {
+        familyCode: 'ASSAULT',
+        description: 'Assault',
+        active: false,
+        nomisCode: 'ASSAULTS',
+        activeTo: '2017-04-13',
+      },
+      ASSAULT_3: {
+        familyCode: 'ASSAULT',
+        description: 'Assault',
+        active: false,
+        nomisCode: 'ASSAULTS1',
+        activeTo: '2017-04-13',
+      },
+      ASSAULT_4: {
+        familyCode: 'ASSAULT',
+        description: 'Assault',
+        active: false,
+        nomisCode: 'ASSAULTS2',
+        activeTo: '2017-04-27',
+      },
+      ASSAULT_5: {
+        familyCode: 'ASSAULT',
+        description: 'Assault',
+        active: true,
+        nomisCode: 'ASSAULTS3'
+      },
+      BARRICADE_1: {
+        familyCode: 'BARRICADE',
+        description: 'Barricade',
+        active: false,
+        nomisCode: 'BARRICADE',
+        activeTo: '2015-01-10',
+      },
+      CLOSE_DOWN_SEARCH_1: {
         familyCode: 'CLOSE_DOWN_SEARCH',
-        code: 'CLOSE_DOWN_SEARCH_1',
         description: 'Close down search',
         active: true,
         nomisCode: 'CLOSE_DOWN',
+        activeTo: '2026-07-01',
       },
-    ]
+    }
+
     const testFamilyDetails: TypeFamilyDetails[] = [
       { code: 'ABSCOND', description: 'Abscond' },
       { code: 'ASSAULT', description: 'Assault' },
       { code: 'BARRICADE', description: 'Barricade' },
       { code: 'CLOSE_DOWN_SEARCH', description: 'Close down search' },
     ]
-    const testActivePeriods: Partial<Record<Type, ActivePeriod>> = {
-      ASSAULT_1: { activeTo: '2017-04-13' },
-      ASSAULT_2: { activeTo: '2017-04-13' },
-      ASSAULT_3: { activeTo: '2017-04-13' },
-      ASSAULT_4: { activeTo: '2017-04-27' },
-      BARRICADE_1: { activeTo: '2015-01-10' },
-      CLOSE_DOWN_SEARCH_1: { activeTo: '2026-07-01' },
-    }
 
     const expected: Partial<Record<TypeFamily, string | null>> = {
       ABSCOND: null, // No activeTo dates
@@ -249,6 +309,6 @@ describe('getTypeFamilyExpiryDates()', () => {
       BARRICADE: 'Jan 2015', // Inactive
       CLOSE_DOWN_SEARCH: 'Jul 2026', // Has activeTo date, but still active as of 2026-06-30
     }
-    expect(getTypeFamilyExpiryDates(testTypes, testFamilyDetails, testActivePeriods)).toEqual(expected)
+    expect(getTypeFamilyExpiryDates(testTypes, testFamilyDetails)).toEqual(expected)
   })
 })

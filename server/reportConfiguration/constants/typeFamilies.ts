@@ -47,7 +47,7 @@ export const typeFamilies = [
 ] as const
 
 /** Incident type families */
-type TypeFamilyDetails = (typeof typeFamilies)[number]
+export type TypeFamilyDetails = (typeof typeFamilies)[number]
 
 /** Codes for incident type families */
 export type TypeFamily = TypeFamilyDetails['code']

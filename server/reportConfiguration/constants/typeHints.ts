@@ -51,7 +51,7 @@ export function aboutTheType(typeOrFamily: Type | TypeFamily): string {
   let familyCode: string | undefined = typeOrFamily
   if (/\d$/.test(typeOrFamily)) {
     // type code
-    familyCode = getTypeDetails(typeOrFamily)?.familyCode
+    familyCode = getTypeDetails(typeOrFamily as Type)?.familyCode
   }
   const title: string = (familyCode && shortTypeTitles[familyCode as TypeFamily]) || 'incident'
   return `About the ${title}`

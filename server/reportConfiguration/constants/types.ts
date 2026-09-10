@@ -441,12 +441,3 @@ export type NomisType = (typeof nomisCodes)[number]
 export function getTypeDetails(code: Type): TypeDetails | null {
   return types[code] ?? null
 }
-
-/**
- * Additional info to display when users select an incident *type* for a report (not *family*)
- */
-export const typeHints: Partial<Record<Type, string>> = Object.fromEntries(
-  Object.entries(types)
-    .filter(([, details]) => details.hint)
-    .map(([typeCode, details]) => [typeCode, details.hint]),
-)

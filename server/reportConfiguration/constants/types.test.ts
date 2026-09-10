@@ -4,15 +4,15 @@ import { aboutTheType } from './typeHints'
 
 describe('Type family', () => {
   it('should share the same code prefix for each type within a family', () => {
-    types.forEach(type => {
-      expect(type.code.startsWith(`${type.familyCode}_`)).toBe(true)
+    Object.entries(types).forEach(([typeCode, typeDetails]) => {
+      expect(typeCode.startsWith(`${typeDetails.familyCode}_`)).toBe(true)
     })
   })
 
   it('should have the same description for each type within a family', () => {
     const typeFamilyDescriptions = Object.fromEntries(typeFamilies.map(({ code, description }) => [code, description]))
-    types.forEach(type => {
-      expect(type.description).toEqual(typeFamilyDescriptions[type.familyCode])
+    Object.entries(types).forEach(([typeCode, typeDetails]) => {
+      expect(typeDetails.description).toEqual(typeFamilyDescriptions[typeCode])
     })
   })
 })
@@ -39,6 +39,8 @@ describe('getTypeDetails()', () => {
   })
 
   it('should return null for non-existant codes', () => {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore as testing function returns a null for an invalid entry
     expect(getTypeDetails('ASSAULT')).toBeNull()
   })
 })

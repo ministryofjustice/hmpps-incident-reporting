@@ -6,7 +6,7 @@ import {
   type PrisonerInvolvementRole,
   type Type,
   prisonerInvolvementRoles,
-  types,
+  types, type TypeDetails,
 } from '../../reportConfiguration/constants'
 import { addQuestionMarkToQuestion, convertToSentenceCase } from '../../utils/utils'
 import {
@@ -145,13 +145,13 @@ digraph {{ config.incidentType }} {
 }
 
 function typeFromNomisCode(nomisCode: NomisType): Type {
-  const dpsType = types.find(type => type.nomisCode === nomisCode)
+  const dpsType = (Object.entries(types) as [Type, TypeDetails][]).find(([, details]) => details.nomisCode === nomisCode)
 
   if (!dpsType) {
     throw new Error(`NomisType with code ${nomisCode} not found`)
   }
 
-  return dpsType.code
+  return dpsType[0]
 }
 
 function prisonerInvolvementRoleFromNomisCode(nomisCode: NomisPrisonerInvolvementRole): PrisonerInvolvementRole {

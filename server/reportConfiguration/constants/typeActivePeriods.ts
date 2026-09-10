@@ -71,7 +71,7 @@ export function isTypeActiveOrUpcoming(code: Type, at: Date = effectiveNow()): b
  */
 export function upcomingActivationDate(code: Type, at: Date = effectiveNow()): string | undefined {
   const period = types[code]
-  if (period?.activeFrom && format.isoDate(at) < period.activeFrom) {
+  if ('activeFrom' in period && period.activeFrom && format.isoDate(at) < period.activeFrom) {
     return period.activeFrom
   }
   return undefined

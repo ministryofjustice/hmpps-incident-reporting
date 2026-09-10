@@ -15,7 +15,7 @@ function on(isoDate: string): Date {
   return new Date(`${isoDate}T12:00:00+01:00`)
 }
 
-describe('typeActivePeriods table', () => {
+describe('typeActivePeriods entries in types object', () => {
   it('only references real incident types', () => {
     Object.keys(types).forEach(code => {
       expect(getTypeDetails(code as Type)).not.toBeNull()
@@ -23,7 +23,7 @@ describe('typeActivePeriods table', () => {
   })
 
   it('uses valid ISO YYYY-MM-DD dates', () => {
-    Object.values(types).forEach(period => {
+    (Object.entries(types) as [Type, TypeDetails][]).forEach(([,period]) => {
       ;[period.activeFrom, period.activeTo].forEach(date => {
         if (date !== undefined) {
           expect(date).toMatch(/^\d{4}-\d{2}-\d{2}$/)
@@ -45,6 +45,8 @@ describe('isTypeActive()', () => {
   })
 
   it('returns false for an unknown type code', () => {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore as testing function returns a null for an invalid entry
     expect(isTypeActive('NOT_A_TYPE')).toBe(false)
   })
 
@@ -102,6 +104,8 @@ describe('isTypeActiveOrUpcoming()', () => {
   })
 
   it('returns false for an unknown type code', () => {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore as testing function returns a null for an invalid entry
     expect(isTypeActiveOrUpcoming('NOT_A_TYPE')).toBe(false)
   })
 
@@ -153,7 +157,7 @@ describe('INCIDENT_TYPE_ACTIVE_DATE override (default "now")', () => {
 
 describe('one active version per family invariant', () => {
   // Evaluate at "now", at every window boundary, and a day either side of each boundary.
-  const boundaries = Object.values(types).flatMap(period =>
+  const boundaries = (Object.entries(types) as [Type, TypeDetails][]).flatMap(([,period]) =>
     [period.activeFrom, period.activeTo].filter((date): date is string => date !== undefined),
   )
   const dayBefore = (date: string): string => {

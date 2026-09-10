@@ -77,7 +77,6 @@ export function upcomingActivationDate(code: Type, at: Date = effectiveNow()): s
   return undefined
 }
 
-
 /**
  * Produces an object with each type family as the key with a corresponding indicator that will be true if all types
  * belonging to that family are inactive.
@@ -110,9 +109,7 @@ export function getTypeFamilyExpiryDates(
   typeFamilyDetails.forEach(({ code: familyCode }) => {
     const expiryDates = (Object.entries(typeDetails) as [Type, TypeDetails][])
       .filter(([, { familyCode: someFamilyCode }]) => someFamilyCode === familyCode)
-      .map(([typeCode]) =>
-        typeDetails[typeCode]?.activeTo ? new Date(typeDetails[typeCode]?.activeTo) : null,
-      )
+      .map(([typeCode]) => (typeDetails[typeCode]?.activeTo ? new Date(typeDetails[typeCode]?.activeTo) : null))
       .filter((date): date is Date => date !== null) // Remove nulls for comparison
 
     const latestDate = expiryDates.length > 0 ? new Date(Math.max(...expiryDates.map(d => d.getTime()))) : null

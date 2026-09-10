@@ -434,6 +434,7 @@ export const typesDescriptions: Record<Type, string> = Object.fromEntries(
  * NOMIS codes for Types of reportable incidents
  * @deprecated
  */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const nomisCodes = Object.values(types).map(type => type.nomisCode)
 export type NomisType = (typeof nomisCodes)[number]
 

@@ -42,7 +42,7 @@ function main() {
   printText('\nNOMIS configuration JSON downloads:')
   nomisUrlSlugs.forEach(urlSlug => {
     if (verbose && urlSlug.includes('<nomisType>')) {
-      Object.entries(types).forEach(([,{ nomisCode }]) => {
+      Object.entries(types).forEach(([, { nomisCode }]) => {
         if (nomisCode) {
           printText(`  - ${baseUrl}/download-report-config/nomis/${urlSlug.replace('<nomisType>', nomisCode)}.json`)
         }
@@ -55,7 +55,7 @@ function main() {
   printText('\nNOMIS configuration CSV downloads:')
   nomisUrlSlugs.forEach(urlSlug => {
     if (verbose && urlSlug.includes('<nomisType>')) {
-      Object.entries(types).forEach(([,{ nomisCode }]) => {
+      Object.entries(types).forEach(([, { nomisCode }]) => {
         if (nomisCode) {
           printText(`  - ${baseUrl}/download-report-config/nomis/${urlSlug.replace('<nomisType>', nomisCode)}.csv`)
         }

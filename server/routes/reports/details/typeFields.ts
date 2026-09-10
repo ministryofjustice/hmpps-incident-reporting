@@ -4,9 +4,13 @@ import { types, isTypeActive, type TypeDetails, type Type } from '../../../repor
 import config from '../../../config'
 
 export function typeFieldItems() {
-  const isActive = ([typeCode]: [Type, TypeDetails]) => isTypeActive(typeCode) || config.incidentTypesOverride.has(typeCode)
+  const isActive = ([typeCode]: [Type, TypeDetails]) =>
+    isTypeActive(typeCode) || config.incidentTypesOverride.has(typeCode)
 
-  const byDescription = ([, { description: description1 }]: [Type, TypeDetails], [, { description: description2 }]: [Type, TypeDetails]) => {
+  const byDescription = (
+    [, { description: description1 }]: [Type, TypeDetails],
+    [, { description: description2 }]: [Type, TypeDetails],
+  ) => {
     if (description1.startsWith('Miscellaneous')) {
       return 1
     }

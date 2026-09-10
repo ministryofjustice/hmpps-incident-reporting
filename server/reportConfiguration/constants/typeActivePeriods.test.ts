@@ -6,9 +6,8 @@ import {
   upcomingActivationDate,
 } from './typeActivePeriods'
 import { types, getTypeDetails, type Type, type TypeDetails } from './types'
-import { type TypeFamilyDetails} from "./typeFamilies";
+import { type TypeFamilyDetails, TypeFamily } from './typeFamilies'
 import config from '../../config'
-import type { TypeFamily } from './typeFamilies'
 
 /** Local London-midnight date helper for fixed test instants. */
 function on(isoDate: string): Date {
@@ -23,7 +22,7 @@ describe('typeActivePeriods entries in types object', () => {
   })
 
   it('uses valid ISO YYYY-MM-DD dates', () => {
-    (Object.entries(types) as [Type, TypeDetails][]).forEach(([,period]) => {
+    ;(Object.entries(types) as [Type, TypeDetails][]).forEach(([, period]) => {
       ;[period.activeFrom, period.activeTo].forEach(date => {
         if (date !== undefined) {
           expect(date).toMatch(/^\d{4}-\d{2}-\d{2}$/)
@@ -157,7 +156,7 @@ describe('INCIDENT_TYPE_ACTIVE_DATE override (default "now")', () => {
 
 describe('one active version per family invariant', () => {
   // Evaluate at "now", at every window boundary, and a day either side of each boundary.
-  const boundaries = (Object.entries(types) as [Type, TypeDetails][]).flatMap(([,period]) =>
+  const boundaries = (Object.entries(types) as [Type, TypeDetails][]).flatMap(([, period]) =>
     [period.activeFrom, period.activeTo].filter((date): date is string => date !== undefined),
   )
   const dayBefore = (date: string): string => {
@@ -174,9 +173,11 @@ describe('one active version per family invariant', () => {
   it.each(families)('family %s never has more than one active type at any sampled date', familyCode => {
     const familyTypes = Object.entries(types).filter(([, details]) => details.familyCode === familyCode)
     sampleDates.forEach(date => {
-      const activeCount = familyTypes.filter(([typeCode,]) => isTypeActive(typeCode as Type, on(date))).length
+      const activeCount = familyTypes.filter(([typeCode]) => isTypeActive(typeCode as Type, on(date))).length
       if (activeCount > 1) {
-        const activeCodes = familyTypes.filter(([typeCode,]) => isTypeActive(typeCode as Type, on(date))).map(([typeCode,]) => typeCode)
+        const activeCodes = familyTypes
+          .filter(([typeCode]) => isTypeActive(typeCode as Type, on(date)))
+          .map(([typeCode]) => typeCode)
         throw new Error(`On ${date}, family ${familyCode} has multiple active types: ${activeCodes.join(', ')}`)
       }
     })
@@ -186,7 +187,7 @@ describe('one active version per family invariant', () => {
 describe('areTypeFamiliesInactive()', () => {
   it('returns the correct values for type families in correct format', () => {
     const testTypes: Record<string, TypeDetails> = {
-      ABSCOND_1: {familyCode: 'ABSCOND', description: 'Abscond', active: true, nomisCode: 'ABSCOND'},
+      ABSCOND_1: { familyCode: 'ABSCOND', description: 'Abscond', active: true, nomisCode: 'ABSCOND' },
       ASSAULT_1: {
         familyCode: 'ASSAULT',
         description: 'Assault',
@@ -219,7 +220,7 @@ describe('areTypeFamiliesInactive()', () => {
         familyCode: 'ASSAULT',
         description: 'Assault',
         active: true,
-        nomisCode: 'ASSAULTS3'
+        nomisCode: 'ASSAULTS3',
       },
       BARRICADE_1: {
         familyCode: 'BARRICADE',
@@ -249,7 +250,7 @@ describe('areTypeFamiliesInactive()', () => {
 describe('getTypeFamilyExpiryDates()', () => {
   it('returns the correct dates for type families in the correct format', () => {
     const testTypes: Record<string, TypeDetails> = {
-      ABSCOND_1: {familyCode: 'ABSCOND', description: 'Abscond', active: true, nomisCode: 'ABSCOND'},
+      ABSCOND_1: { familyCode: 'ABSCOND', description: 'Abscond', active: true, nomisCode: 'ABSCOND' },
       ASSAULT_1: {
         familyCode: 'ASSAULT',
         description: 'Assault',
@@ -282,7 +283,7 @@ describe('getTypeFamilyExpiryDates()', () => {
         familyCode: 'ASSAULT',
         description: 'Assault',
         active: true,
-        nomisCode: 'ASSAULTS3'
+        nomisCode: 'ASSAULTS3',
       },
       BARRICADE_1: {
         familyCode: 'BARRICADE',

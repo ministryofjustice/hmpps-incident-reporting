@@ -11,7 +11,7 @@ describe('Type family', () => {
 
   it('should have the same description for each type within a family', () => {
     const typeFamilyDescriptions = Object.fromEntries(typeFamilies.map(({ code, description }) => [code, description]))
-    Object.entries(types).forEach(([typeCode, typeDetails]) => {
+    Object.entries(types).forEach(([, typeDetails]) => {
       expect(typeDetails.description).toEqual(typeFamilyDescriptions[typeDetails.familyCode])
     })
   })

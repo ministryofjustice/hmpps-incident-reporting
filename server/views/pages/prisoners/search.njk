@@ -168,17 +168,15 @@
           <img src="/prisoner/{{ result.prisonerNumber }}/photo.jpeg" alt="Photo of {{ prisonerName | safe }}" class="app-prisoner-photo" />
         {% endset %}
 
-        {% if result.prisonerNumber in addedPrisoners %}
-          {% set link %}
+        {% set link %}
+          {% if result.prisonerNumber in addedPrisoners %}
             <p>This person has already been added. A person can only have one role.</p>
-          {% endset %}
-        {% else %}
-          {% set link %}
+          {% else %}
             <a href="{{ reportSubUrlPrefix }}/prisoners/add/{{ result.prisonerNumber }}">
               Select {{ prisonerName | safe }}
             </a>
-          {% endset %}
-        {% endif %}
+          {% endif %}
+        {% endset %}
 
         {% set _ = tableRows.push([
           {html: photo},

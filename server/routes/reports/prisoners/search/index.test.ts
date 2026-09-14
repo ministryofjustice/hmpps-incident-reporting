@@ -491,14 +491,16 @@ describe('Searching for a prisoner to add to a report', () => {
     })
 
     it('should display the correct text when a user searches for a prisoner already added to the report', () => {
-      report.prisonersInvolved = [{
-        "prisonerNumber":"A1111AA",
-        "firstName":"ANDREW",
-        "lastName":"ARNOLD",
-        "prisonerRole":"VICTIM",
-        "outcome":null,
-        "comment":""
-      }]
+      report.prisonersInvolved = [
+        {
+          prisonerNumber: 'A1111AA',
+          firstName: 'ANDREW',
+          lastName: 'ARNOLD',
+          prisonerRole: 'VICTIM',
+          outcome: null,
+          comment: '',
+        },
+      ]
 
       return request(app)
         .get(searchPageUrl())

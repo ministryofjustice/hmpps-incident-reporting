@@ -29,22 +29,15 @@ export class PrisonerSearchController extends GetBaseController<Values> {
     const { report } = res.locals
 
     if (!report) {
-      throw missingLocalsError(
-        'PrisonerSearchController#locals()',
-        'res.locals.report'
-      )
+      throw missingLocalsError('PrisonerSearchController#locals()', 'res.locals.report')
     }
 
     let addedPrisoners
-    
     if ('prisonersInvolved' in report) {
       addedPrisoners = report.prisonersInvolved.map((prisoner: { prisonerNumber: string }) => prisoner.prisonerNumber)
     }
 
-    return {
-        ...super.locals(req, res),
-        addedPrisoners
-      }
+    return { ...super.locals(req, res), addedPrisoners }
   }
 
   private customiseFields(req: FormWizard.Request<Values>, res: express.Response, next: express.NextFunction): void {

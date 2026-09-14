@@ -16,6 +16,7 @@ import { pagination } from '../../../../utils/pagination'
 import type { Values } from './fields'
 import { parseDateInput } from '../../../../utils/parseDateTime'
 import { missingLocalsError } from '../../../../errors'
+import { reportHasDetails } from '../../../../data/incidentReportingApiUtils'
 
 export class PrisonerSearchController extends GetBaseController<Values> {
   protected keyField = 'q' as const
@@ -32,10 +33,11 @@ export class PrisonerSearchController extends GetBaseController<Values> {
       throw missingLocalsError('PrisonerSearchController#locals()', 'res.locals.report')
     }
 
-    let addedPrisoners
-    if ('prisonersInvolved' in report) {
-      addedPrisoners = report.prisonersInvolved.map((prisoner: { prisonerNumber: string }) => prisoner.prisonerNumber)
+    if (!reportHasDetails(report)) {
+      throw missingLocalsError('PrisonerSearchController#locals()', 'res.locals.report (with details)')
     }
+
+    const addedPrisoners = report.prisonersInvolved.map(prisoner => prisoner.prisonerNumber)
 
     return { ...super.locals(req, res), addedPrisoners }
   }

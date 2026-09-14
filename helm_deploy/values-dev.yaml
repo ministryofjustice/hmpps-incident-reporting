@@ -8,10 +8,9 @@ generic-service:
     host: incident-reporting-dev.hmpps.service.justice.gov.uk
     modsecurity_audit_enabled: true
 
-  allowlist: null
-
   env:
     ENVIRONMENT: dev
+    LOG_LEVEL: 'debug'
 
     # Preview the 1 August 2026 incident-type state early in dev (Tool loss v2 on, v1 off; Food refusal v2 on, v1 & Close down search off)
     INCIDENT_TYPE_ACTIVE_DATE: "2026-08-01"

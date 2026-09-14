@@ -5,6 +5,7 @@ import { PrisonApi } from '../data/prisonApi'
 import { mockPecsRegions } from '../data/testData/pecsRegions'
 import { mockDataWarden, mockReportingOfficer, mockHqViewer, mockUnauthorisedUser } from '../data/testData/users'
 import { appWithAllRoutes } from './testutils/appSetup'
+import config from '../config'
 
 jest.mock('../data/prisonApi')
 
@@ -41,7 +42,7 @@ describe('Home page', () => {
       user: mockDataWarden,
       expectedText: ['Create a PECS incident report'],
     },
-  ])('should render tiles for $userType', ({ user, expectedText }) => {
+  ])('renders tiles for $userType', ({ user, expectedText }) => {
     return request(appWithAllRoutes({ userSupplier: () => user }))
       .get('/')
       .expect('Content-Type', /html/)
@@ -55,7 +56,20 @@ describe('Home page', () => {
       })
   })
 
-  it('should log user out if they do not have appropriate role', () => {
+  it('shows the feedback banner', () => {
+    const feedbackUrl = 'https://www.example.com/feedback'
+    config.feedbackUrl = feedbackUrl
+
+    return request(appWithAllRoutes({ userSupplier: () => mockHqViewer }))
+      .get('/')
+      .expect('Content-Type', /html/)
+      .expect(res => {
+        expect(res.text).toContain('Give feedback on this service (opens in a new tab)')
+        expect(res.text).toContain(feedbackUrl)
+      })
+  })
+
+  it('logs user out if they do not have appropriate role', () => {
     return request(appWithAllRoutes({ userSupplier: () => mockUnauthorisedUser }))
       .get('/')
       .expect(302)
@@ -70,7 +84,7 @@ describe('prisoner photos', () => {
   const prisonerNumber = 'A1234BC'
   const imageData = Buffer.from('image data')
 
-  it('should return the same data as returned by prison-api', () => {
+  it('returns the same data as returned by prison-api', () => {
     prisonApi.getPhoto.mockResolvedValue(imageData)
 
     return request(app)
@@ -85,7 +99,7 @@ describe('prisoner photos', () => {
       })
   })
 
-  it('should return generic image if prison-api returns 404', () => {
+  it('returns generic image if prison-api returns 404', () => {
     prisonApi.getPhoto.mockResolvedValue(null)
 
     return request(app)

@@ -1,12 +1,16 @@
 import type FormWizard from 'hmpo-form-wizard'
 
-import { types, typeHints, isTypeActive, type TypeDetails, type Type } from '../../../reportConfiguration/constants'
+import { types, isTypeActive, type TypeDetails, type Type } from '../../../reportConfiguration/constants'
 import config from '../../../config'
 
 export function typeFieldItems() {
-  const isActive = (type: TypeDetails) => isTypeActive(type.code) || config.incidentTypesOverride.has(type.code)
+  const isActive = ([typeCode]: [Type, TypeDetails]) =>
+    isTypeActive(typeCode) || config.incidentTypesOverride.has(typeCode)
 
-  const byDescription = ({ description: description1 }: TypeDetails, { description: description2 }: TypeDetails) => {
+  const byDescription = (
+    [, { description: description1 }]: [Type, TypeDetails],
+    [, { description: description2 }]: [Type, TypeDetails],
+  ) => {
     if (description1.startsWith('Miscellaneous')) {
       return 1
     }
@@ -16,13 +20,13 @@ export function typeFieldItems() {
     return description1 < description2 ? -1 : 1
   }
 
-  const toFieldItem = (type: TypeDetails) => ({
-    label: type.description,
-    value: type.code,
-    hint: typeHints[type.code],
+  const toFieldItem = ([code, details]: [Type, TypeDetails]) => ({
+    label: details.description,
+    value: code,
+    hint: details.hint,
   })
 
-  return types.filter(isActive).sort(byDescription).map(toFieldItem)
+  return (Object.entries(types) as [Type, TypeDetails][]).filter(isActive).sort(byDescription).map(toFieldItem)
 }
 
 export const typeFields = {

@@ -7,13 +7,24 @@ import {
   types,
   isTypeActiveOrUpcoming,
   upcomingActivationDate,
+  type Type,
   type TypeDetails,
 } from '../../../reportConfiguration/constants'
 import { getIncidentTypeConfiguration } from '../../../reportConfiguration/types'
 import format from '../../../utils/format'
 
+type SyncNomisTypeDetails = TypeDetails & { code: string }
+
+const syncNomisTypes: SyncNomisTypeDetails[] = Object.entries(types).map(([typeCode, typeDetails]) => ({
+  code: typeCode,
+  familyCode: typeDetails.familyCode,
+  description: typeDetails.description,
+  active: typeDetails.active,
+  nomisCode: typeDetails.nomisCode,
+}))
+
 /** A syncable type decorated with its go-live date, for display, when it is not yet live */
-type SyncableType = TypeDetails & { liveFrom?: string }
+type SyncableType = SyncNomisTypeDetails & { liveFrom?: string }
 
 /**
  * Incident types offered for syncing, in display order: those active now and those due to go live.
@@ -22,23 +33,23 @@ type SyncableType = TypeDetails & { liveFrom?: string }
  * switch-over date — see {@link isTypeActiveOrUpcoming}. All are written to NOMIS with their registry
  * `active` flag (always `true` here), so a pre-synced type is ready to use on its go-live day.
  */
-function syncableTypes(): TypeDetails[] {
-  return types.filter(type => isTypeActiveOrUpcoming(type.code))
+function syncableTypes(): SyncNomisTypeDetails[] {
+  return syncNomisTypes.filter(type => isTypeActiveOrUpcoming(type.code as Type))
 }
 
 /** The go-live date of an upcoming type formatted for display, or undefined if it is already live */
-function liveFromLabel(code: string): string | undefined {
+function liveFromLabel(code: Type): string | undefined {
   const iso = upcomingActivationDate(code)
   return iso ? format.longDate(new Date(`${iso}T12:00:00Z`)) : undefined
 }
 
 /** Syncable types decorated with their go-live date so upcoming versions can be flagged */
 function syncableTypeItems(): SyncableType[] {
-  return syncableTypes().map(type => ({ ...type, liveFrom: liveFromLabel(type.code) }))
+  return syncableTypes().map(type => ({ ...type, liveFrom: liveFromLabel(type.code as Type) }))
 }
 
 /** Look up a syncable type by its DPS code or throw NotFound */
-function findSyncableType(dpsCode: string): TypeDetails {
+function findSyncableType(dpsCode: string): SyncNomisTypeDetails {
   const typeInfo = syncableTypes().find(type => type.code === dpsCode)
   if (!typeInfo) {
     throw new NotFound(`Unknown or non-syncable incident type “${dpsCode}”`)
@@ -73,7 +84,7 @@ async function renderConfirm(req: Request, res: Response): Promise<void> {
 
   res.render('pages/admin/syncNomis/confirm', {
     type: typeInfo,
-    liveFrom: liveFromLabel(typeInfo.code),
+    liveFrom: liveFromLabel(typeInfo.code as Type),
     action: exists ? 'update' : 'create',
     questionCount: request.questions.length,
     prisonerRoleCount: request.prisonerRoles.length,

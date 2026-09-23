@@ -169,9 +169,13 @@
         {% endset %}
 
         {% set link %}
-          <a href="{{ reportSubUrlPrefix }}/prisoners/add/{{ result.prisonerNumber }}">
-            Select {{ prisonerName | safe }}
-          </a>
+          {% if result.prisonerNumber in addedPrisoners %}
+            <p>This person has already been added. A person can only have one role.</p>
+          {% else %}
+            <a href="{{ reportSubUrlPrefix }}/prisoners/add/{{ result.prisonerNumber }}">
+              Select {{ prisonerName | safe }}
+            </a>
+          {% endif %}
         {% endset %}
 
         {% set _ = tableRows.push([

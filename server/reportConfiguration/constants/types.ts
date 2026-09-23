@@ -10,6 +10,12 @@ export type TypeDetails = {
   activeFrom?: string
 }
 
+function makeTypedDetails<const Input extends Record<string, TypeDetails>>(
+  input: Input,
+): { [Key in keyof Input]: TypeDetails } {
+  return input
+}
+
 /**
  * Date-based activation windows for incident types.
  *
@@ -25,7 +31,7 @@ export type TypeDetails = {
  */
 
 /** Types of reportable incidents */
-export const types = {
+export const types = makeTypedDetails({
   ABSCOND_1: { familyCode: 'ABSCOND', description: 'Abscond', active: true, nomisCode: 'ABSCOND' },
   ASSAULT_1: {
     familyCode: 'ASSAULT',
@@ -420,7 +426,7 @@ export const types = {
     nomisCode: 'UNLAW_DET',
     hint: 'A person released from HMPPS custody later than intended.',
   },
-} as const satisfies Record<string, TypeDetails>
+})
 
 /** Codes for types of reportable incidents */
 export type Type = keyof typeof types

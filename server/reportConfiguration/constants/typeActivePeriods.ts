@@ -70,8 +70,8 @@ export function isTypeActiveOrUpcoming(code: Type, at: Date = effectiveNow()): b
  * so callers can label a type as "live from …" without re-deriving the window.
  */
 export function upcomingActivationDate(code: Type, at: Date = effectiveNow()): string | undefined {
-  const period = types[code]
-  if ('activeFrom' in period && period.activeFrom && format.isoDate(at) < period.activeFrom) {
+  const period = getTypeDetails(code)
+  if (period?.activeFrom && format.isoDate(at) < period.activeFrom) {
     return period.activeFrom
   }
   return undefined
@@ -81,8 +81,8 @@ export function upcomingActivationDate(code: Type, at: Date = effectiveNow()): s
  * Produces an object with each type family as the key with a corresponding indicator that will be true if all types
  * belonging to that family are inactive.
  */
-export function areTypeFamiliesInactive(
-  typeDetails: Record<string, TypeDetails>,
+export function getTypeFamiliesInactiveStatuses(
+  typeDetails: Record<Type, TypeDetails>,
   at: Date = effectiveNow(),
 ): Record<TypeFamily, boolean> {
   return Object.entries(typeDetails).reduce(
@@ -101,7 +101,7 @@ export function areTypeFamiliesInactive(
  * the format 'MMM YYYY' of the most recent expiration date within that family.
  */
 export function getTypeFamilyExpiryDates(
-  typeDetails: Record<string, TypeDetails>,
+  typeDetails: Partial<Record<Type, TypeDetails>>,
   typeFamilyDetails: readonly TypeFamilyDetails[],
 ): Record<TypeFamily, string | null> {
   const acc = {} as Record<TypeFamily, string | null>

@@ -5,7 +5,7 @@ import { types } from '../constants'
 
 export function getAllIncidentTypeConfigurations(): IncidentTypeConfiguration[] {
   // eslint-disable-next-line import/no-dynamic-require, global-require, @typescript-eslint/no-require-imports
-  return Object.entries(types).map(([typeCode]) => require(`./${typeCode}`).default)
+  return Object.keys(types).map(typeCode => require(`./${typeCode}`).default)
 }
 
 export function getIncidentTypeConfiguration(type: string): Promise<IncidentTypeConfiguration> {

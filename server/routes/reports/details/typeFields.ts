@@ -4,7 +4,7 @@ import { types, isTypeActive, type TypeDetails, type Type } from '../../../repor
 import config from '../../../config'
 
 export function typeFieldItems() {
-  const isActive = ([typeCode]: [Type, TypeDetails]) =>
+  const isActive = ([typeCode, _]: [Type, TypeDetails]) =>
     isTypeActive(typeCode) || config.incidentTypesOverride.has(typeCode)
 
   const byDescription = (

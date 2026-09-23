@@ -1,4 +1,4 @@
-import { getTypeDetails, type Type } from './types'
+import { getTypeDetails, type Type, types } from './types'
 import { type TypeFamily } from './typeFamilies'
 
 /**
@@ -49,8 +49,8 @@ const shortTypeTitles: Partial<Record<TypeFamily, string>> = {
 
 export function aboutTheType(typeOrFamily: Type | TypeFamily): string {
   let familyCode: string | undefined = typeOrFamily
-  if (/\d$/.test(typeOrFamily)) {
-    // type code
+  // If type and not type family, get the family code
+  if (Object.keys(types).includes(typeOrFamily)) {
     familyCode = getTypeDetails(typeOrFamily as Type)?.familyCode
   }
   const title: string = (familyCode && shortTypeTitles[familyCode as TypeFamily]) || 'incident'

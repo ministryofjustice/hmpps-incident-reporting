@@ -1,5 +1,5 @@
 import {
-  areTypeFamiliesInactive,
+  getTypeFamiliesInactiveStatuses,
   getTypeFamilyExpiryDates,
   isTypeActive,
   isTypeActiveOrUpcoming,
@@ -243,13 +243,13 @@ describe('areTypeFamiliesInactive()', () => {
       BARRICADE: true, // Inactive as of 2026-06-30
       CLOSE_DOWN_SEARCH: false, // Has activeTo date, but still active as of 2026-06-30
     }
-    expect(areTypeFamiliesInactive(testTypes, on('2026-06-30'))).toEqual(expected)
+    expect(getTypeFamiliesInactiveStatuses(testTypes, on('2026-06-30'))).toEqual(expected)
   })
 })
 
 describe('getTypeFamilyExpiryDates()', () => {
   it('returns the correct dates for type families in the correct format', () => {
-    const testTypes: Record<string, TypeDetails> = {
+    const testTypes: Partial<Record<Type, TypeDetails>> = {
       ABSCOND_1: { familyCode: 'ABSCOND', description: 'Abscond', active: true, nomisCode: 'ABSCOND' },
       ASSAULT_1: {
         familyCode: 'ASSAULT',

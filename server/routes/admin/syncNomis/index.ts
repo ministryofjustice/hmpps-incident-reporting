@@ -7,13 +7,27 @@ import {
   types,
   isTypeActiveOrUpcoming,
   upcomingActivationDate,
-  type TypeDetails,
+  type Type,
+  type TypeFamily,
 } from '../../../reportConfiguration/constants'
 import { getIncidentTypeConfiguration } from '../../../reportConfiguration/types'
 import format from '../../../utils/format'
 
+type NomisTypeDetails = {
+  code: Type
+  familyCode: TypeFamily
+  description: string
+  active: boolean
+  nomisCode: string
+}
+
+const syncNomisTypes: NomisTypeDetails[] = Object.entries(types).map(([typeCode, typeDetails]) => ({
+  ...typeDetails,
+  code: typeCode as Type,
+}))
+
 /** A syncable type decorated with its go-live date, for display, when it is not yet live */
-type SyncableType = TypeDetails & { liveFrom?: string }
+type SyncableType = NomisTypeDetails & { liveFrom?: string }
 
 /**
  * Incident types offered for syncing, in display order: those active now and those due to go live.
@@ -22,12 +36,12 @@ type SyncableType = TypeDetails & { liveFrom?: string }
  * switch-over date — see {@link isTypeActiveOrUpcoming}. All are written to NOMIS with their registry
  * `active` flag (always `true` here), so a pre-synced type is ready to use on its go-live day.
  */
-function syncableTypes(): TypeDetails[] {
-  return types.filter(type => isTypeActiveOrUpcoming(type.code))
+function syncableTypes(): NomisTypeDetails[] {
+  return syncNomisTypes.filter(type => isTypeActiveOrUpcoming(type.code))
 }
 
 /** The go-live date of an upcoming type formatted for display, or undefined if it is already live */
-function liveFromLabel(code: string): string | undefined {
+function liveFromLabel(code: Type): string | undefined {
   const iso = upcomingActivationDate(code)
   return iso ? format.longDate(new Date(`${iso}T12:00:00Z`)) : undefined
 }
@@ -38,7 +52,7 @@ function syncableTypeItems(): SyncableType[] {
 }
 
 /** Look up a syncable type by its DPS code or throw NotFound */
-function findSyncableType(dpsCode: string): TypeDetails {
+function findSyncableType(dpsCode: string): NomisTypeDetails {
   const typeInfo = syncableTypes().find(type => type.code === dpsCode)
   if (!typeInfo) {
     throw new NotFound(`Unknown or non-syncable incident type “${dpsCode}”`)

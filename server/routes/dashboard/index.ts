@@ -12,7 +12,7 @@ import {
   typesDescriptions,
   typeFamilies,
   familyExpiryDates,
-  areTypeFamiliesInactive,
+  getTypeFamiliesInactiveStatuses,
 } from '../../reportConfiguration/constants'
 import type { PaginatedBasicReports } from '../../data/incidentReportingApi'
 import { pecsRegions } from '../../data/pecsRegions'
@@ -161,7 +161,7 @@ function allLocationsItems(userCaseloads: CaseLoad[], hasPecsAccess: boolean): G
  * List of type families. Sorted alphabeticaly. Inactive ones at the end and display inactive date
  */
 function typeFamilyItems(): GovukSelectItem[] {
-  const familyInactiveStatus = areTypeFamiliesInactive(types)
+  const familyInactiveStatus = getTypeFamiliesInactiveStatuses(types)
   const activeTypeFamilyItems: GovukSelectItem[] = typeFamilies
     .filter(({ code: someFamilyCode }) => !familyInactiveStatus[someFamilyCode])
     .map(family => ({

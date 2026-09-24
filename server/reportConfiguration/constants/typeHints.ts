@@ -1,26 +1,5 @@
-import { getTypeDetails, type Type } from './types'
+import { getTypeDetails, type Type, types } from './types'
 import { type TypeFamily } from './typeFamilies'
-
-/**
- * Additional info to display when users select an incident *type* for a report (not *family*)
- */
-export const typeHints: Partial<Record<Type, string>> = {
-  ASSAULT_5: 'Includes fights and suspected assaults.',
-  BREACH_OF_SECURITY_1: 'A person who breaches, or who attempts to breach, the secure perimeter of the establishment.',
-  CLOSE_DOWN_SEARCH_1: 'Any finds must be reported using the Find type.',
-  DIRTY_PROTEST_1:
-    'Deliberately defecating or urinating without a toilet or, throwing or smearing urine and/or faeces. An ongoing dirty protest is one incident.',
-  DISORDER_2: 'Includes barricade, concerted indiscipline, hostage, and incident at height.',
-  DRONE_SIGHTING_3: 'Drones must have been seen by staff.',
-  FIND_6: 'Items must be recovered, not just seen.',
-  MISCELLANEOUS_1: 'Includes any other incident type not listed.',
-  RELEASE_IN_ERROR_1: 'A person released from HMPPS custody earlier than intended.',
-  SELF_HARM_1:
-    'Includes suspected and reported self-harm. Do not use to report a noose, unless it’s around the neck or applying pressure.',
-  TOOL_LOSS_1: 'Do not use for key or lock compromises. They are separate incident types.',
-  TOOL_LOSS_2: 'Do not use for key or lock compromises. They are separate incident types.',
-  UNLAWFUL_DETENTION_1: 'A person released from HMPPS custody later than intended.',
-}
 
 /**
  * Short titles displayed when generating titles in the form “About the incident”, eg. “About the assault”.
@@ -70,9 +49,9 @@ const shortTypeTitles: Partial<Record<TypeFamily, string>> = {
 
 export function aboutTheType(typeOrFamily: Type | TypeFamily): string {
   let familyCode: string | undefined = typeOrFamily
-  if (/\d$/.test(typeOrFamily)) {
-    // type code
-    familyCode = getTypeDetails(typeOrFamily)?.familyCode
+  // If type and not type family, get the family code
+  if (Object.keys(types).includes(typeOrFamily)) {
+    familyCode = getTypeDetails(typeOrFamily as Type)?.familyCode
   }
   const title: string = (familyCode && shortTypeTitles[familyCode as TypeFamily]) || 'incident'
   return `About the ${title}`

@@ -9,7 +9,7 @@ import { mockErrorResponse, mockReport } from '../../../data/testData/incidentRe
 import { moorland } from '../../../data/testData/prisonApi'
 import { mockThrownError } from '../../../data/testData/thrownErrors'
 import { mockDataWarden, mockReportingOfficer, mockHqViewer, mockUnauthorisedUser } from '../../../data/testData/users'
-import { types, isTypeActive } from '../../../reportConfiguration/constants'
+import { types, isTypeActive, type Type } from '../../../reportConfiguration/constants'
 import { now } from '../../../testutils/fakeClock'
 
 jest.mock('../../../data/incidentReportingApi')
@@ -121,14 +121,14 @@ describe('Changing incident type', () => {
           expect(res.text).toContain('app-type')
 
           expect(res.text).toContain('Select the incident type')
-          types.forEach(type => {
-            if (type.code === mockedReport.type || !isTypeActive(type.code)) {
-              expect(res.text).not.toContain(type.code)
+          Object.entries(types).forEach(([typeCode, details]) => {
+            if (typeCode === mockedReport.type || !isTypeActive(typeCode as Type)) {
+              expect(res.text).not.toContain(typeCode)
               // TODO: there is overlap with active types
               // expect(res.text).not.toContain(type.description)
             } else {
-              expect(res.text).toContain(type.code)
-              expect(res.text).toContain(escapeHtml(type.description))
+              expect(res.text).toContain(typeCode)
+              expect(res.text).toContain(escapeHtml(details.description))
             }
           })
 

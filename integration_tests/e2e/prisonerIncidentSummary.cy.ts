@@ -68,4 +68,26 @@ describe('Prisoner incident summary', () => {
 
     cy.screenshot('prisoner-incident-summary', { capture: 'fullPage' })
   })
+
+  it('sends page view events to HMPPS Audit', () => {
+    const pageUrl = `/prisoner/${andrew.prisonerNumber}/incident-summary`
+    const pageView = {
+      who: 'user1',
+      service: 'hmpps-incident-reporting',
+      subjectId: andrew.prisonerNumber,
+      subjectType: 'PRISONER_ID',
+      details: JSON.stringify({ pageUrl }),
+    }
+
+    cy.resetBasicStubs({ user: mockReportingOfficer })
+    cy.signIn()
+    cy.task('stubOffenderSearchMockPrisoners')
+    cy.task('stubIncidentReportingApiGetReports', { reports: [] })
+    cy.visit(pageUrl)
+
+    cy.verifyAuditEvents(pageUrl, [
+      { what: 'PAGE_VIEW', ...pageView },
+      { what: 'PAGE_VIEW_ACCESS_ATTEMPT', ...pageView },
+    ])
+  })
 })

@@ -1,6 +1,6 @@
 import { defineConfig } from 'cypress'
 
-import { deleteStub, resetStubs } from './integration_tests/mockApis/wiremock'
+import { deleteStub, getSentAuditEvents, resetStubs } from './integration_tests/mockApis/wiremock'
 import auth from './integration_tests/mockApis/auth'
 import prisonApi from './integration_tests/mockApis/prisonApi'
 import incidentReportingApi from './integration_tests/mockApis/incidentReportingApi'
@@ -30,6 +30,7 @@ export default defineConfig({
       on('task', {
         deleteStub,
         resetStubs,
+        getSentAuditEvents,
         ...incidentReportingApi,
         ...auth,
         ...prisonApi,

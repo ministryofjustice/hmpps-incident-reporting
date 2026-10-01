@@ -1,3 +1,4 @@
+import type { PageViewEventDetails } from '@ministryofjustice/hmpps-audit-client'
 import type FormWizard from 'hmpo-form-wizard'
 
 import type { UserDetails } from '../../services/userService'
@@ -64,6 +65,8 @@ export declare global {
     // NB: FormWizard.Locals will not be available for all routes so should not be merged in
     interface Locals {
       user: Express.User
+      /** Page view being audited to HMPPS Audit (see auditPageView middleware) */
+      auditEvent?: PageViewEventDetails
       systemToken: string
       /** All routes have permissions checker */
       permissions: Permissions

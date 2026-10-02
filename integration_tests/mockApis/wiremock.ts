@@ -64,6 +64,47 @@ export const getMatchingRequests = (body: FindRequestCriteria): Promise<FoundReq
     .send(body)
     .then(data => data.body.requests)
 
+/**
+ * Audit events sent to the stubbed SQS endpoint, oldest first, optionally only those for one page.
+ *
+ * Events are identified by their SQS SendMessage payload rather than by position, so that
+ * unrelated requests cannot shift the results.
+ *
+ * The app sends them fire-and-forget – and the access attempt only once the response has
+ * closed – so this waits for `expectedCount` of them to arrive before returning.
+ */
+export const getSentAuditEvents = async ({
+  pageUrl,
+  expectedCount = 0,
+}: { pageUrl?: string; expectedCount?: number } = {}): Promise<unknown[]> => {
+  const readSentEvents = async (): Promise<unknown[]> => {
+    const requests = await getMatchingRequests({ method: 'POST', urlPath: '/' })
+    return requests
+      .filter(({ body }) => body?.includes('MessageBody'))
+      .map(({ body }) => {
+        const event = JSON.parse(JSON.parse(body).MessageBody)
+        // vary per run, so cannot be asserted on
+        delete event.correlationId
+        delete event.when
+        return event
+      })
+      .filter(event => !pageUrl || JSON.parse(event.details).pageUrl === pageUrl)
+  }
+
+  const waitForEvents = async (attemptsLeft: number): Promise<unknown[]> => {
+    const events = await readSentEvents()
+    if (events.length >= expectedCount || attemptsLeft <= 0) {
+      return events
+    }
+    await new Promise(resolve => {
+      setTimeout(resolve, 50)
+    })
+    return waitForEvents(attemptsLeft - 1)
+  }
+
+  return waitForEvents(100)
+}
+
 export const deleteStub = (stubId: string): SuperAgentRequest => superagent.delete(`${url}/mappings/${stubId}`)
 
 export const resetStubs = (): Promise<Response[]> =>

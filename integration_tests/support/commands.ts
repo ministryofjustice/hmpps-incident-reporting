@@ -13,5 +13,10 @@ Cypress.Commands.add('resetBasicStubs', ({ user = mockReportingOfficer }: { user
   cy.task('stubManageUserMe', { user })
   cy.task('stubFallbackHeaderAndFooter', { user })
   cy.task('stubPrisonApiMockPecsRegions')
+  cy.task('stubAuditSqs')
   return cy.end()
+})
+
+Cypress.Commands.add('verifyAuditEvents', (pageUrl: string, events: object[]) => {
+  return cy.task('getSentAuditEvents', { pageUrl, expectedCount: events.length }).should('deep.equal', events)
 })

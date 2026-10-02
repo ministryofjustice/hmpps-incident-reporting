@@ -4,6 +4,7 @@ import { NotFound } from 'http-errors'
 
 import nunjucksSetup from './utils/nunjucksSetup'
 import errorHandler from './errorHandler'
+import auditPageView from './middleware/auditPageView'
 import authorisationMiddleware from './middleware/authorisationMiddleware'
 
 import { Permissions } from './middleware/permissions'
@@ -40,6 +41,8 @@ export default function createApp(services: Services): express.Application {
   app.use(setUpStaticResources())
   nunjucksSetup(app)
   app.use(setUpAuthentication())
+  // before authorisation, so that refused requests are still audited as access attempts
+  app.get('*any', auditPageView(services.auditService))
   app.use(authorisationMiddleware())
   app.use(setUpCsrf())
   app.use(setUpCurrentUser(services))

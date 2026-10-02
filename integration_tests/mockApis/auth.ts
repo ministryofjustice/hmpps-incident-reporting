@@ -1,4 +1,4 @@
-import type { Response } from 'superagent'
+import type { Response, SuperAgentRequest } from 'superagent'
 
 import createUserToken from '../../server/testutils/createUserToken'
 import tokenVerification from './tokenVerification'
@@ -115,7 +115,15 @@ const token = (roles: string[] = []) =>
     },
   })
 
+/** the audit SQS queue; the client posts SendMessage to the root path */
+const stubAuditSqs = (): SuperAgentRequest =>
+  stubFor({
+    request: { method: 'POST', url: '/' },
+    response: { status: 200, headers: { 'Content-Type': 'text/xml' }, body: '{}' },
+  })
+
 export default {
+  stubAuditSqs,
   getSignInUrl,
   stubAuthPing: ping,
   stubAuthManageDetails: manageDetails,

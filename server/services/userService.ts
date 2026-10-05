@@ -7,6 +7,8 @@ import ManageUsersApiClient from '../data/manageUsersApiClient'
 export interface UserDetails extends User {
   displayName: string
   roles: string[]
+  /** Created by HMPPS Auth and identifies the person across all auth sources */
+  userUuid?: string
 }
 
 export interface AuthToken extends JwtPayload {
@@ -14,6 +16,8 @@ export interface AuthToken extends JwtPayload {
   auth_source?: string
   grant_type?: string
   user_name?: string
+  user_id?: string
+  user_uuid?: string
   authorities?: string[]
   scope?: string[]
 }
@@ -23,7 +27,14 @@ export default class UserService {
 
   async getUser(token: string): Promise<UserDetails> {
     const user = await this.manageUsersApiClient.getUser(token)
-    return { ...user, roles: this.getUserRoles(token), displayName: convertToTitleCase(user.name) }
+    const { user_id: userId, user_uuid: userUuid } = jwtDecode<AuthToken>(token)
+    return {
+      ...user,
+      userId: userId ?? user.userId,
+      userUuid,
+      roles: this.getUserRoles(token),
+      displayName: convertToTitleCase(user.name),
+    }
   }
 
   async getUsers(token: string, usernameList: Array<string>): Promise<Record<string, User>> {

@@ -20,6 +20,7 @@ import setUpWebRequestParsing from './middleware/setUpRequestParsing'
 import setUpWebSecurity from './middleware/setUpWebSecurity'
 import setUpWebSession from './middleware/setUpWebSession'
 import frontendComponents from './middleware/frontendComponents'
+import userTelemetry from './middleware/userTelemetry'
 
 import config from './config'
 import routes from './routes'
@@ -49,6 +50,7 @@ export default function createApp(services: Services): express.Application {
   app.use(setUpPecsRegions(services))
   app.use(setApis(services))
   app.use(frontendComponents(services))
+  app.use(userTelemetry())
   app.use(Permissions.middleware)
 
   app.use(routes(services))

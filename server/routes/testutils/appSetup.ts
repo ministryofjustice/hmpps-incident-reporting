@@ -11,6 +11,7 @@ import type { ApplicationInfo } from '../../applicationInfo'
 import errorHandler from '../../errorHandler'
 import type { Services } from '../../services'
 import { mockReportingOfficer } from '../../data/testData/users'
+import auditPageView from '../../middleware/auditPageView'
 import { Permissions } from '../../middleware/permissions'
 import setApis from '../../middleware/setApis'
 
@@ -45,6 +46,10 @@ function appSetup(services: Services, production: boolean, userSupplier: () => E
 
     next()
   })
+  // as in app.ts: once the user is known, before any routes
+  if (services.auditService) {
+    app.get('*any', auditPageView(services.auditService))
+  }
   app.use(express.json())
   app.use(express.urlencoded({ extended: true }))
   app.use(setApis(services))

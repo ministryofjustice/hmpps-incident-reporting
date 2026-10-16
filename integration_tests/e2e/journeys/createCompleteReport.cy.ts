@@ -66,28 +66,21 @@ for (const { scenario, user, reportType } of scenarios) {
       // start on home page
       const indexPage = Page.verifyOnPage(HomePage)
       if (reportType === 'PECS') {
-        indexPage.clickCreatePecsReportCard()
-      } else {
-        indexPage.clickCreatePrisonReportCard()
+        return indexPage.clickCreatePecsReportCard()
       }
-
-      return cy.end()
+      return indexPage.clickCreatePrisonReportCard()
     }
 
     function selectPecsRegion() {
       const pecsRegionPage = Page.verifyOnPage(PecsRegionPage)
       pecsRegionPage.selectPecsRegion('PECS North')
       pecsRegionPage.submit()
-
-      return cy.end()
     }
 
     function selectType() {
       const typePage = Page.verifyOnPage(TypePage)
       typePage.selectType('ATTEMPTED_ESCAPE_FROM_PRISON_1')
       typePage.submit()
-
-      return cy.end()
     }
 
     function enterDetails() {
@@ -125,8 +118,6 @@ for (const { scenario, user, reportType } of scenarios) {
       stubReport()
       // minimal draft report is saved
       detailsPage.submit()
-
-      return cy.end()
     }
 
     function addPrisoners() {
@@ -198,8 +189,6 @@ for (const { scenario, user, reportType } of scenarios) {
       prisonerInvolvementsPage = Page.verifyOnPage(PrisonerInvolvementsPage, true)
       prisonerInvolvementsPage.selectRadioButton('No')
       prisonerInvolvementsPage.submit()
-
-      return cy.end()
     }
 
     function addStaffMembers() {
@@ -263,8 +252,6 @@ for (const { scenario, user, reportType } of scenarios) {
       staffInvolvementsPage = Page.verifyOnPage(StaffInvolvementsPage, true)
       staffInvolvementsPage.selectRadioButton('No')
       staffInvolvementsPage.submit()
-
-      return cy.end()
     }
 
     function respondToQuestionPage1() {
@@ -289,8 +276,6 @@ for (const { scenario, user, reportType } of scenarios) {
       })
       stubReport()
       questionPage.submit()
-
-      return cy.end()
     }
 
     function respondToQuestionPage2() {
@@ -310,8 +295,6 @@ for (const { scenario, user, reportType } of scenarios) {
       })
       stubReport()
       questionPage.submit()
-
-      return cy.end()
     }
 
     function respondToQuestionPage3() {
@@ -331,8 +314,6 @@ for (const { scenario, user, reportType } of scenarios) {
       })
       stubReport()
       questionPage.submit()
-
-      return cy.end()
     }
 
     function respondToQuestionPage4() {
@@ -352,8 +333,6 @@ for (const { scenario, user, reportType } of scenarios) {
       })
       stubReport()
       questionPage.submit()
-
-      return cy.end()
     }
 
     function respondToQuestionPage5() {
@@ -374,8 +353,6 @@ for (const { scenario, user, reportType } of scenarios) {
       })
       stubReport()
       questionPage.submit()
-
-      return cy.end()
     }
 
     function respondToQuestionPage6() {
@@ -395,8 +372,6 @@ for (const { scenario, user, reportType } of scenarios) {
       })
       stubReport()
       questionPage.submit()
-
-      return cy.end()
     }
 
     function respondToQuestionPage7() {
@@ -416,8 +391,6 @@ for (const { scenario, user, reportType } of scenarios) {
       })
       stubReport()
       questionPage.submit()
-
-      return cy.end()
     }
 
     function respondToQuestionPage8() {
@@ -437,8 +410,6 @@ for (const { scenario, user, reportType } of scenarios) {
       })
       stubReport()
       questionPage.submit()
-
-      return cy.end()
     }
 
     function respondToQuestionPage9() {
@@ -460,8 +431,6 @@ for (const { scenario, user, reportType } of scenarios) {
       })
       stubReport()
       questionPage.submit()
-
-      return cy.end()
     }
 
     function respondToQuestionPage10() {
@@ -485,8 +454,6 @@ for (const { scenario, user, reportType } of scenarios) {
       cy.task('stubPrisonApiMockPrison', reportType === 'PECS' ? pecsNorth : moorland)
       cy.task('stubManageKnownUsers')
       questionPage.submit()
-
-      return cy.end()
     }
 
     function submitReportForReview() {
@@ -520,8 +487,6 @@ for (const { scenario, user, reportType } of scenarios) {
       dashboardPage.checkNotificationBannerContent(
         `Incident report ${reportWithDetails.reportReference} submitted for review`,
       )
-
-      return cy.end()
     }
 
     function closeReport() {
@@ -552,13 +517,11 @@ for (const { scenario, user, reportType } of scenarios) {
 
       const dashboardPage = Page.verifyOnPage(DashboardPage)
       dashboardPage.checkNotificationBannerContent(`Incident report ${reportWithDetails.reportReference} is now closed`)
-
-      return cy.end()
     }
 
     it('should happen in one journey', () => {
       startCreatingReport()
-        .then(reportType === 'PECS' ? selectPecsRegion : () => cy.end())
+        .then(reportType === 'PECS' ? selectPecsRegion : () => cy.wrap(null))
         .then(selectType)
         .then(enterDetails)
         .then(addPrisoners)

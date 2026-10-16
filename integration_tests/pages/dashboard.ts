@@ -84,7 +84,7 @@ export class DashboardPage extends Page {
     this.searchForm.find('a').contains('Clear filters').click()
   }
 
-  showsNoTable() {
+  showsNoTable(): Cypress.Chainable<JQuery<HTMLTableRowElement>> {
     return cy.get<HTMLTableRowElement>('.app-report-table').should('not.exist')
   }
 

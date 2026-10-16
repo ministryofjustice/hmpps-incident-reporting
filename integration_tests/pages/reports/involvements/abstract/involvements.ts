@@ -10,11 +10,11 @@ export abstract class InvolvementsPage extends FormWizardPage {
     this.radioOrCheckboxButton('confirmAdd', text).click()
   }
 
-  showsNoTable() {
+  showsNoTable(): Cypress.Chainable<JQuery<HTMLTableRowElement>> {
     return cy.get<HTMLTableRowElement>('.app-involvement-table').should('not.exist')
   }
 
-  showsNoRadio() {
+  showsNoRadio(): Cypress.Chainable<JQuery<HTMLElement>> {
     return cy.get('#confirmAdd').should('not.exist')
   }
 

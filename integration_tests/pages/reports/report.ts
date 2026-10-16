@@ -53,7 +53,7 @@ export class ReportPage extends Page {
     const getCard = () => cy.get('.govuk-summary-card__title').contains(title).parent().parent()
 
     return {
-      shouldHaveActionLink(text: string, url: string) {
+      shouldHaveActionLink(text: string, url: string): Cypress.Chainable<JQuery<HTMLAnchorElement>> {
         return getCard()
           .find('.govuk-summary-card__actions')
           .find('a')
@@ -61,7 +61,7 @@ export class ReportPage extends Page {
           .and('have.attr', 'href', url)
       },
 
-      shouldNotHaveActionLinks() {
+      shouldNotHaveActionLinks(): Cypress.Chainable<JQuery<HTMLElement>> {
         return getCard().find('.govuk-summary-card__actions').should('not.exist')
       },
 

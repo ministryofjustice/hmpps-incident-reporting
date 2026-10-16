@@ -13,12 +13,8 @@ export class StaffSearchPage extends SearchPage {
     super(pageTitle)
   }
 
-  doesNotLinkToManualEntry(): Cypress.Chainable<void> {
-    return cy
-      .get<HTMLAnchorElement>('a')
-      .contains('manually add the member of staff to the report')
-      .should('not.exist')
-      .end()
+  doesNotLinkToManualEntry() {
+    return cy.get<HTMLAnchorElement>('a').contains('manually add the member of staff to the report').should('not.exist')
   }
 
   linksToManualEntry(): Cypress.Chainable<void> {

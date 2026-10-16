@@ -17,8 +17,8 @@ export class StaffSearchPage extends SearchPage {
     return cy.get<HTMLAnchorElement>('a').contains('manually add the member of staff to the report').should('not.exist')
   }
 
-  linksToManualEntry(): Cypress.Chainable<void> {
-    return cy.get<HTMLAnchorElement>('a').contains('manually add the member of staff to the report').end()
+  linksToManualEntry() {
+    return cy.get<HTMLAnchorElement>('a').contains('manually add the member of staff to the report')
   }
 
   get tableContents(): Cypress.Chainable<

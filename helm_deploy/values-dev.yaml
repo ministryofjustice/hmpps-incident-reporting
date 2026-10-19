@@ -30,5 +30,4 @@ generic-service:
     TOKEN_VERIFICATION_API_URL: "https://token-verification-api-dev.prison.service.justice.gov.uk"
 
 generic-prometheus-alerts:
-  alertSeverity: hmpps-incident-reporting-dev
   businessHoursOnly: true

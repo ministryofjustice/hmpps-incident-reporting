@@ -53,17 +53,16 @@ export class ReportPage extends Page {
     const getCard = () => cy.get('.govuk-summary-card__title').contains(title).parent().parent()
 
     return {
-      shouldHaveActionLink(text: string, url: string): Cypress.Chainable<void> {
+      shouldHaveActionLink(text: string, url: string): Cypress.Chainable<JQuery<HTMLAnchorElement>> {
         return getCard()
           .find('.govuk-summary-card__actions')
           .find('a')
           .should('contain.text', text)
           .and('have.attr', 'href', url)
-          .end()
       },
 
-      shouldNotHaveActionLinks(): Cypress.Chainable<void> {
-        return getCard().find('.govuk-summary-card__actions').should('not.exist').end()
+      shouldNotHaveActionLinks(): Cypress.Chainable<JQuery<HTMLElement>> {
+        return getCard().find('.govuk-summary-card__actions').should('not.exist')
       },
 
       get cardContents(): Cypress.Chainable<{ key: string; value: string; actionLinks: HTMLAnchorElement[] }[]> {
@@ -120,20 +119,14 @@ export class ReportPage extends Page {
     return this.checkSummaryCard(`About the ${incidentName}`)
   }
 
-  clickThroughToQuestionPage(
-    index: number,
-    expectedLabel: string,
-    incidentName: string = 'incident',
-  ): Cypress.Chainable<void> {
-    return this.getQuestions(incidentName)
-      .cardContents.then(rows => {
-        expect(rows.length).is.greaterThan(index)
-        const row = rows[index]
-        const link = row.actionLinks[0]
-        expect(link.textContent).to.contain(expectedLabel)
-        link.click()
-      })
-      .end()
+  clickThroughToQuestionPage(index: number, expectedLabel: string, incidentName: string = 'incident') {
+    return this.getQuestions(incidentName).cardContents.then(rows => {
+      expect(rows.length).is.greaterThan(index)
+      const row = rows[index]
+      const link = row.actionLinks[0]
+      expect(link.textContent).to.contain(expectedLabel)
+      link.click()
+    })
   }
 
   private get userActionsForm(): PageElement<HTMLFormElement> {

@@ -8,8 +8,8 @@ export abstract class SearchPage extends FormWizardPage {
 
   protected saveAndContinueText = 'Search'
 
-  showsNoTable(): Cypress.Chainable<void> {
-    return cy.get<HTMLTableRowElement>('.app-involvement-search-results').should('not.exist').end()
+  showsNoTable(): Cypress.Chainable<JQuery<HTMLTableRowElement>> {
+    return cy.get<HTMLTableRowElement>('.app-involvement-search-results').should('not.exist')
   }
 
   get tableRows(): PageElement<HTMLTableRowElement> {

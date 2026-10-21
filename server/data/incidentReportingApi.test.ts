@@ -484,13 +484,13 @@ describe('Incident reporting API client', () => {
         fakeApiClient
           .intercept(url, urlMethod)
           .matchHeader('authorization', `Bearer ${accessToken}`)
-          .reply((_uri, requestBody) => {
-            const request = requestBody as DatesAsStrings<
+          .reply(async (request: Request) => {
+            const requestBody = (await request.json()) as DatesAsStrings<
               CreateReportRequest | UpdateReportRequest | AddOrUpdateQuestionWithResponsesRequest[]
             >
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore because responseDateExtractor is appropriate for each request but TS cannot tell that
-            const fieldsWithDates = responseDateExtractor(request)
+            const fieldsWithDates = responseDateExtractor(requestBody)
             if (fieldsWithDates.every(field => field?.includes(expectedDateString))) {
               return [mockResponse.status, mockResponse.data]
             }
@@ -683,7 +683,8 @@ describe('Incident reporting API client', () => {
           fakeApiClient
             .patch(url)
             .matchHeader('authorization', `Bearer ${accessToken}`)
-            .reply((_uri, requestBody) => {
+            .reply(async (request: Request) => {
+              const requestBody = await request.json()
               // eslint-disable-next-line @typescript-eslint/ban-ts-comment
               // @ts-ignore because nock cannot know about request data type
               if (nullableFields.some(fieldName => fieldName in requestBody)) {
@@ -698,7 +699,8 @@ describe('Incident reporting API client', () => {
         })
 
         it('should include null fields when they are present in the request', () => {
-          fakeApiClient.patch(url).reply((_uri, requestBody) => {
+          fakeApiClient.patch(url).reply(async (request: Request) => {
+            const requestBody = await request.json()
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore because nock cannot know about request data type
             if (nullableFields.some(fieldName => requestBody[fieldName] !== null)) {
@@ -713,7 +715,8 @@ describe('Incident reporting API client', () => {
         })
 
         it('should include non-null fields when they are present in the request', () => {
-          fakeApiClient.patch(url).reply((_uri, requestBody) => {
+          fakeApiClient.patch(url).reply(async (request: Request) => {
+            const requestBody = await request.json()
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore because nock cannot know about request data type
             if (nullableFields.some(fieldName => typeof requestBody[fieldName] !== 'string')) {

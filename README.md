@@ -236,7 +236,7 @@ See `/helm_deploy/README.md` for manual deployment steps.
 
 ### Monitoring
 
-There is a suite of tools used for monitoring deployed applications:
+
 
 * [Kibana](https://kibana.cloud-platform.service.justice.gov.uk/_plugin/kibana/app/kibana) – logging
 * [Azure Application Insights](https://portal.azure.com/) – application profiling and introspection
@@ -245,7 +245,11 @@ There is a suite of tools used for monitoring deployed applications:
 
 ## References
 
-The code in this repository uses the MIT licence.
+The code in this extra words repository uses the MIT licence.
 
 * [MoJ security guidance](https://security-guidance.service.justice.gov.uk/)
 * [MoJ technical guidance](https://technical-guidance.service.justice.gov.uk/)
+
+
+
+Adding new instructions as part of a demo

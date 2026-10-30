@@ -24,9 +24,9 @@ describe('offenderSearchApi', () => {
       fakeApiClient
         .post('/prisoner-search/prisoner-numbers')
         .matchHeader('authorization', `Bearer ${accessToken}`)
-        .reply(200, (_uri, requestBody) => {
-          const request = requestBody as { prisonerNumbers: string[] }
-          expect(request.prisonerNumbers).toHaveLength(3)
+        .reply(200, async (request: Request) => {
+          const requestBody = (await request.json()) as { prisonerNumbers: string[] }
+          expect(requestBody.prisonerNumbers).toHaveLength(3)
           return [chris, barry, andrew]
         })
 

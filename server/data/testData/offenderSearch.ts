@@ -5,7 +5,7 @@ import type {
   OffenderSearchResultOut,
   OffenderSearchResultTransfer,
 } from '../offenderSearchApi'
-import { leeds, moorland } from './prisonApi'
+import { leeds, moorland } from './prisonRegister'
 
 /** A1111AA in Moorland */
 export const andrew: OffenderSearchResultIn = {

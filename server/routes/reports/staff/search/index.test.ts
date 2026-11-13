@@ -6,7 +6,7 @@ import { convertReportDates } from '../../../../data/incidentReportingApiUtils'
 import ManageUsersApiClient, { type UsersSearchResponse } from '../../../../data/manageUsersApiClient'
 import { mockErrorResponse, mockReport } from '../../../../data/testData/incidentReporting'
 import { mockPrisonUserSearchResult } from '../../../../data/testData/manageUsers'
-import { leeds, moorland } from '../../../../data/testData/prisonApi'
+import { leeds, moorland } from '../../../../data/testData/prisonRegister'
 import { mockThrownError } from '../../../../data/testData/thrownErrors'
 import {
   mockDataWarden,

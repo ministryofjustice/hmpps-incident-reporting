@@ -1,5 +1,5 @@
 import type { ReportWithDetails } from '../../../server/data/incidentReportingApi'
-import { pecsNorth } from '../../../server/data/testData/prisonApi'
+import { pecsNorth } from '../../../server/data/testData/prisonRegister'
 import { mockDataWarden } from '../../../server/data/testData/users'
 import { now } from '../../../server/testutils/fakeClock'
 import Page from '../../pages/page'
@@ -15,7 +15,7 @@ describe('Actioning reopened PECS reports', () => {
   context('a data warden viewing a report with status REOPENED', () => {
     beforeEach(() => {
       cy.resetBasicStubs({ user: mockDataWarden })
-      cy.task('stubPrisonApiMockPrison', pecsNorth)
+      cy.task('stubPrisonRegisterMockAgency', pecsNorth)
       cy.task('stubManageKnownUsers')
       cy.signIn()
     })

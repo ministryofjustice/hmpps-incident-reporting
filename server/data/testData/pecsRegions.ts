@@ -1,5 +1,5 @@
 import { fromAgency, pecsRegions, type PecsRegion } from '../pecsRegions'
-import { pecsNou, pecsNorth, pecsSouth } from './prisonApi'
+import { pecsNou, pecsNorth, pecsSouth } from './prisonRegister'
 
 export const nouRegion: PecsRegion = fromAgency(pecsNou)
 export const pecsNorthRegion: PecsRegion = fromAgency(pecsNorth)

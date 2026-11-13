@@ -1,7 +1,7 @@
 import { roleReadOnly, roleReadWrite, roleApproveReject, rolePecs } from '../constants'
 import type { CaseLoad } from '../frontendComponentsClient'
 import { makeMockCaseload } from './frontendComponents'
-import { leeds, moorland } from './prisonApi'
+import { leeds, moorland } from './prisonRegister'
 
 // mock users here are of type Express.User which are made from a combination of sources including
 // manage-users and frontend micro-components apis and the user token

@@ -1,5 +1,6 @@
 import { mockReport } from '../../../../server/data/testData/incidentReporting'
-import { staffMary, staffBarry, moorland } from '../../../../server/data/testData/prisonApi'
+import { moorland } from '../../../../server/data/testData/prisonRegister'
+import { staffMary, staffBarry } from '../../../../server/data/testData/prisonApi'
 import { now } from '../../../../server/testutils/fakeClock'
 import Page from '../../../pages/page'
 import { StaffInvolvementsPage, StaffSearchPage } from '../../../pages/reports/involvements/staff'
@@ -56,7 +57,7 @@ context('Staff involvements page', () => {
       })
 
       cy.task('stubIncidentReportingApiGetReportById', { report: reportWithDetails })
-      cy.task('stubPrisonApiMockPrison', moorland)
+      cy.task('stubPrisonRegisterMockAgency', moorland)
       cy.task('stubManageKnownUsers')
 
       staffInvolvementsPage.selectRadioButton('No')
@@ -67,7 +68,7 @@ context('Staff involvements page', () => {
 
     it('should return to report if skip is chosen', () => {
       cy.task('stubIncidentReportingApiGetReportById', { report: reportWithDetails })
-      cy.task('stubPrisonApiMockPrison', moorland)
+      cy.task('stubPrisonRegisterMockAgency', moorland)
       cy.task('stubManageKnownUsers')
 
       staffInvolvementsPage.selectRadioButton('Skip for now')
@@ -118,7 +119,7 @@ context('Staff involvements page', () => {
       })
 
       cy.task('stubIncidentReportingApiGetReportById', { report: reportWithDetails })
-      cy.task('stubPrisonApiMockPrison', moorland)
+      cy.task('stubPrisonRegisterMockAgency', moorland)
       cy.task('stubManageKnownUsers')
 
       staffInvolvementsPage.selectRadioButton('No')
@@ -179,7 +180,7 @@ context('Staff involvements page', () => {
 
     it('should return to report if no is chosen', () => {
       cy.task('stubIncidentReportingApiGetReportById', { report: reportWithDetails })
-      cy.task('stubPrisonApiMockPrison', moorland)
+      cy.task('stubPrisonRegisterMockAgency', moorland)
       cy.task('stubManageKnownUsers')
 
       staffInvolvementsPage.selectRadioButton('No')

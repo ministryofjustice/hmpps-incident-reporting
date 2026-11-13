@@ -5,8 +5,6 @@ import type { ReportWithDetails } from '../data/incidentReportingApi'
 import { reportHasDetails } from '../data/incidentReportingApiUtils'
 import { getTypeDetails, type Type } from '../reportConfiguration/constants'
 import { convertToTitleCase } from '../utils/utils'
-import { isPecsRegionCode } from '../data/pecsRegions'
-import { AgencyType } from '../data/constants'
 import { missingLocalsError } from '../errors'
 
 // NB: Report titles are never displayed in this service, but they are saved for downstream services’ compatibility
@@ -36,7 +34,7 @@ export function regenerateTitleForReport(report: ReportWithDetails, locationDesc
 
 /** Updates report title */
 export async function updateReportTitle(res: express.Response): Promise<void> {
-  const { incidentReportingApi, prisonApi } = res.locals.apis
+  const { incidentReportingApi, prisonRegisterApi } = res.locals.apis
   const { report } = res.locals
 
   if (!report) {
@@ -46,11 +44,9 @@ export async function updateReportTitle(res: express.Response): Promise<void> {
     throw missingLocalsError('updateReportTitle()', 'res.locals.report (with details)')
   }
 
-  const isPecsReport = isPecsRegionCode(report.location)
-
-  const locationDescription = await prisonApi
-    .getAgency(report.location, false, isPecsReport ? AgencyType.PECS : AgencyType.INST, isPecsReport)
-    .then(prison => prison?.description || report.location)
+  const locationDescription = await prisonRegisterApi
+    .getAgency(report.location)
+    .then(agency => agency?.description || report.location)
     // fall back to code
     .catch(() => report.location)
 

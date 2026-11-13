@@ -4,26 +4,26 @@ import { appWithAllRoutes } from '../../testutils/appSetup'
 import { mockHandleReportEdit } from '../../testutils/handleReportEdit'
 import { IncidentReportingApi, type ReportWithDetails } from '../../../data/incidentReportingApi'
 import { convertReportDates } from '../../../data/incidentReportingApiUtils'
-import { PrisonApi } from '../../../data/prisonApi'
+import { PrisonRegisterApi } from '../../../data/prisonRegisterApi'
 import { mockErrorResponse, mockReport } from '../../../data/testData/incidentReporting'
-import { moorland } from '../../../data/testData/prisonApi'
+import { moorland } from '../../../data/testData/prisonRegister'
 import { mockThrownError } from '../../../data/testData/thrownErrors'
 import { mockDataWarden, mockReportingOfficer, mockHqViewer, mockUnauthorisedUser } from '../../../data/testData/users'
 import { types, isTypeActive, type Type } from '../../../reportConfiguration/constants'
 import { now } from '../../../testutils/fakeClock'
 
 jest.mock('../../../data/incidentReportingApi')
-jest.mock('../../../data/prisonApi')
+jest.mock('../../../data/prisonRegisterApi')
 jest.mock('../actions/handleReportEdit')
 
 const incidentReportingApi = IncidentReportingApi.prototype as jest.Mocked<IncidentReportingApi>
-const prisonApi = PrisonApi.prototype as jest.Mocked<PrisonApi>
+const prisonRegisterApi = PrisonRegisterApi.prototype as jest.Mocked<PrisonRegisterApi>
 
 let agent: Agent
 
 beforeEach(() => {
   agent = request.agent(appWithAllRoutes())
-  prisonApi.getAgency.mockResolvedValueOnce(moorland)
+  prisonRegisterApi.getAgency.mockResolvedValueOnce(moorland)
 })
 
 afterEach(() => {

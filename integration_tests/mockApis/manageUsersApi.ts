@@ -1,7 +1,7 @@
 import type { Response as SuperAgentResponse, SuperAgentRequest } from 'superagent'
 
 import { stubFor } from './wiremock'
-import type { Staff } from '../../server/data/prisonApi'
+import type { Staff } from '../../server/data/testData/prisonApi'
 import {
   mockUser,
   mockSharedUser,

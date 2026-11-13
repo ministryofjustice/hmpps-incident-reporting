@@ -1,81 +1,6 @@
 import nunjucks from 'nunjucks'
 
-import {
-  type NomisPrisonerInvolvementRole,
-  type NomisType,
-  type PrisonerInvolvementRole,
-  type Type,
-  prisonerInvolvementRoles,
-  types,
-} from '../../reportConfiguration/constants'
-import { addQuestionMarkToQuestion, convertToSentenceCase } from '../../utils/utils'
-import {
-  type IncidentTypeConfiguration as NomisIncidentTypeConfiguration,
-  type QuestionConfiguration as NomisQuestionConfiguration,
-  type AnswerConfiguration as NomisAnswerConfiguration,
-} from '../prisonApi'
-import {
-  type IncidentTypeConfiguration as DpsIncidentTypeConfiguration,
-  type QuestionConfiguration as DpsQuestionConfiguration,
-} from './types'
-
-/**
- * Converts a NOMIS incident type configuration into the new DPS one
- *
- * @returns DpsIncidentTypeConfiguration
- */
-export function fromNomis(nomisConfig: NomisIncidentTypeConfiguration): DpsIncidentTypeConfiguration {
-  const sortByQuestionSequence = (q1: NomisQuestionConfiguration, q2: NomisQuestionConfiguration) =>
-    q1.questionSeq - q2.questionSeq
-  const sortByAnswerSequence = (a1: NomisAnswerConfiguration, a2: NomisAnswerConfiguration) =>
-    a1.answerSeq - a2.answerSeq
-
-  const nomisQuestions = nomisConfig.questions.sort(sortByQuestionSequence)
-  return {
-    incidentType: typeFromNomisCode(nomisConfig.incidentType),
-    active: nomisConfig.active === true,
-    // 1st question is the starting question
-    startingQuestionCode: nomisQuestions[0]?.questionnaireQueId?.toString() ?? null,
-    questions: nomisQuestions.reduce((qs: Record<string, DpsQuestionConfiguration>, q: NomisQuestionConfiguration) => {
-      const nomisAnswers = q.answers.sort(sortByAnswerSequence)
-
-      const questionCode = q.questionnaireQueId?.toString() ?? null
-      // eslint-disable-next-line no-param-reassign
-      qs[questionCode] = {
-        code: questionCode,
-        active: q.questionActiveFlag === true,
-        question: q.questionDesc,
-        label: addQuestionMarkToQuestion(convertToSentenceCase(q.questionDesc)),
-        multipleAnswers: q.multipleAnswerFlag === true,
-        answers: nomisAnswers.map(ans => {
-          const nextQuestionCode = ans.nextQuestionnaireQueId?.toString() ?? null
-          return {
-            code: ans.questionnaireAnsId.toString(),
-            response: ans.answerDesc,
-            active: ans.answerActiveFlag === true,
-            label: convertToSentenceCase(ans.answerDesc),
-            // In NOMIS commentRequiredFlag means a comment input will be shown
-            // In DPS we default to mandatory comments if this option is true
-            commentRequested: ans.commentRequiredFlag === true,
-            commentMandatory: ans.commentRequiredFlag === true,
-            dateMandatory: ans.dateRequiredFlag === true,
-            nextQuestionCode,
-          }
-        }),
-      }
-      return qs
-    }, {}),
-    prisonerRoles: nomisConfig.prisonerRoles.map(nomisPrisonerRoleConfig => {
-      const nomisPrisonerRole = nomisPrisonerRoleConfig.prisonerRole
-      const dpsPrisonerRole = prisonerInvolvementRoleFromNomisCode(nomisPrisonerRole)
-      return {
-        prisonerRole: dpsPrisonerRole,
-        onlyOneAllowed: nomisPrisonerRoleConfig.singleRole === true,
-        active: nomisPrisonerRoleConfig.active === true,
-      }
-    }),
-  }
-}
+import { type IncidentTypeConfiguration as DpsIncidentTypeConfiguration } from './types'
 
 /**
  * Converts a DPS incident type into TypeScript
@@ -142,24 +67,4 @@ digraph {{ config.incidentType }} {
     )
     .trim()
   return `${graphvizString}\n`
-}
-
-function typeFromNomisCode(nomisCode: NomisType): Type {
-  const dpsType = Object.entries(types).find(([_, details]) => details.nomisCode === nomisCode)
-
-  if (!dpsType) {
-    throw new Error(`NomisType with code ${nomisCode} not found`)
-  }
-  // @ts-expect-error - Object.entries() erased the type of the keys
-  return dpsType[0]
-}
-
-function prisonerInvolvementRoleFromNomisCode(nomisCode: NomisPrisonerInvolvementRole): PrisonerInvolvementRole {
-  const dpsType = prisonerInvolvementRoles.find(prisonerInvolvement => prisonerInvolvement.nomisCode === nomisCode)
-
-  if (!dpsType) {
-    throw new Error(`NomisPrisonerInvolvementRole with code ${nomisCode} not found`)
-  }
-
-  return dpsType.code
 }

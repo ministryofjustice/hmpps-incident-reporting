@@ -1,4 +1,4 @@
-import type { Agency, Staff } from '../prisonApi'
+import type { Agency } from '../prisonApi'
 import { AgencyType } from '../constants'
 
 export const brixton: Agency = {
@@ -41,6 +41,15 @@ export const pecsSouth: Agency = {
   description: 'PECS South',
   agencyType: AgencyType.PECS,
   active: true,
+}
+
+/** NOMIS staff member */
+export interface Staff {
+  firstName: string
+  lastName: string
+  username: string
+  active: boolean
+  activeCaseLoadId: string
 }
 
 export const staffBarry: Staff = {

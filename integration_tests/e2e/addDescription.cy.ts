@@ -1,6 +1,6 @@
 import { RelatedObjectUrlSlug } from '../../server/data/constants'
 import { mockReport } from '../../server/data/testData/incidentReporting'
-import { moorland } from '../../server/data/testData/prisonApi'
+import { moorland } from '../../server/data/testData/prisonRegister'
 import { now } from '../../server/testutils/fakeClock'
 import Page from '../pages/page'
 import { DescriptionAddendumPage } from '../pages/reports/descriptionAddendum'
@@ -66,7 +66,7 @@ context('Add to a report’s description after it’s been reviewed', () => {
       response: reportWithDetails.descriptionAddendums, // technically, missing new addendum
     })
     // stub lookups from next page, the report view
-    cy.task('stubPrisonApiMockPrison', moorland)
+    cy.task('stubPrisonRegisterMockAgency', moorland)
 
     descriptionAddendumPage.submit()
 

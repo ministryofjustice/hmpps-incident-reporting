@@ -1,5 +1,5 @@
 import type { ReportWithDetails } from '../../../server/data/incidentReportingApi'
-import { moorland } from '../../../server/data/testData/prisonApi'
+import { moorland } from '../../../server/data/testData/prisonRegister'
 import { mockDataWarden } from '../../../server/data/testData/users'
 import { now } from '../../../server/testutils/fakeClock'
 import Page from '../../pages/page'
@@ -22,7 +22,7 @@ describe('Actioning submitted prison reports', () => {
     context(`a data warden viewing a report with status ${currentStatus}`, () => {
       beforeEach(() => {
         cy.resetBasicStubs({ user: mockDataWarden })
-        cy.task('stubPrisonApiMockPrison', moorland)
+        cy.task('stubPrisonRegisterMockAgency', moorland)
         cy.task('stubManageKnownUsers')
         cy.signIn()
       })

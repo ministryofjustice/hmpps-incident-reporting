@@ -14,7 +14,7 @@ import { convertReportDates } from '../../data/incidentReportingApiUtils'
 import { mockReport } from '../../data/testData/incidentReporting'
 import { makeMockCaseload } from '../../data/testData/frontendComponents'
 import { mockPecsRegions, resetPecsRegions } from '../../data/testData/pecsRegions'
-import { brixton, leeds, moorland } from '../../data/testData/prisonApi'
+import { brixton, leeds, moorland } from '../../data/testData/prisonRegister'
 import { Permissions } from './rulesClass'
 import type { UserAction } from './userActions'
 

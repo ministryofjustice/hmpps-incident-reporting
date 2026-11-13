@@ -1,7 +1,7 @@
 import type { Express } from 'express'
 import request from 'supertest'
 
-import { PrisonApi } from '../../../data/prisonApi'
+import { PrisonRegisterApi } from '../../../data/prisonRegisterApi'
 import { appWithAllRoutes } from '../../testutils/appSetup'
 import { now } from '../../../testutils/fakeClock'
 import UserService from '../../../services/userService'
@@ -21,14 +21,14 @@ import * as reportValidity from '../../../data/reportValidity'
 import { mockErrorResponse, mockReport } from '../../../data/testData/incidentReporting'
 import { mockSharedUser } from '../../../data/testData/manageUsers'
 import { mockPecsRegions } from '../../../data/testData/pecsRegions'
-import { pecsNorth, pecsSouth } from '../../../data/testData/prisonApi'
+import { pecsNorth, pecsSouth } from '../../../data/testData/prisonRegister'
 import { mockThrownError } from '../../../data/testData/thrownErrors'
 import { mockDataWarden, mockReportingOfficer, mockHqViewer, mockUnauthorisedUser } from '../../../data/testData/users'
 import * as correctionRequestPlaceholder from './correctionRequestPlaceholder'
 import { rolePecs } from '../../../data/constants'
 
 jest.mock('../../../data/incidentReportingApi')
-jest.mock('../../../data/prisonApi')
+jest.mock('../../../data/prisonRegisterApi')
 jest.mock('../../../data/reportValidity')
 jest.mock('../../../middleware/correctPecsReportStatus')
 jest.mock('../../../services/userService')
@@ -42,7 +42,7 @@ const incidentReportingRelatedObjects = RelatedObjects.prototype as jest.Mocked<
 // @ts-ignore need to mock a getter method
 incidentReportingApi.correctionRequests = incidentReportingRelatedObjects
 const userService = UserService.prototype as jest.Mocked<UserService>
-const prisonApi = PrisonApi.prototype as jest.Mocked<PrisonApi>
+const prisonRegisterApi = PrisonRegisterApi.prototype as jest.Mocked<PrisonRegisterApi>
 
 const { validateReport } = reportValidity as jest.Mocked<typeof import('../../../data/reportValidity')>
 const { correctPecsReportStatus: mockCorrectPecsReportStatus } = correctPecsReportStatus as jest.Mocked<
@@ -64,7 +64,7 @@ beforeEach(() => {
     [mockSharedUser.username]: mockSharedUser,
   })
 
-  prisonApi.getAgency.mockImplementation(locationCode =>
+  prisonRegisterApi.getAgency.mockImplementation(locationCode =>
     Promise.resolve(
       {
         NORTH: pecsNorth,
@@ -541,15 +541,15 @@ describe('Actioning PECS reports', () => {
                 expect(incidentReportingApi.getReportByReference).not.toHaveBeenCalled()
               }
               if (updatesTitle) {
-                expect(prisonApi.getAgency).toHaveBeenCalledTimes(2)
-                expect(prisonApi.getAgency).toHaveBeenNthCalledWith(1, 'NORTH', false, 'PECS', true) // to display report location
-                expect(prisonApi.getAgency).toHaveBeenNthCalledWith(2, 'NORTH', false, 'PECS', true) // to regenerate title
+                expect(prisonRegisterApi.getAgency).toHaveBeenCalledTimes(2)
+                expect(prisonRegisterApi.getAgency).toHaveBeenNthCalledWith(1, 'NORTH') // to display report location
+                expect(prisonRegisterApi.getAgency).toHaveBeenNthCalledWith(2, 'NORTH') // to regenerate title
                 expect(incidentReportingApi.updateReport).toHaveBeenCalledWith(mockedReport.id, {
                   title: 'Assault: Arnold A1111AA, Benjamin A2222BB (PECS North)',
                 })
               } else {
-                expect(prisonApi.getAgency).toHaveBeenCalledTimes(1)
-                expect(prisonApi.getAgency).toHaveBeenCalledWith('NORTH', false, 'PECS', true) // to display report location
+                expect(prisonRegisterApi.getAgency).toHaveBeenCalledTimes(1)
+                expect(prisonRegisterApi.getAgency).toHaveBeenCalledWith('NORTH') // to display report location
                 if (userAction === 'MARK_DUPLICATE') {
                   expect(incidentReportingApi.updateReport).toHaveBeenCalledWith(mockedReport.id, {
                     duplicatedReportId: mockedOriginalReport.id,

@@ -1,5 +1,5 @@
 import type { ReportWithDetails } from '../../../server/data/incidentReportingApi'
-import { moorland, pecsSouth } from '../../../server/data/testData/prisonApi'
+import { moorland, pecsSouth } from '../../../server/data/testData/prisonRegister'
 import { mockDataWarden, mockReportingOfficer } from '../../../server/data/testData/users'
 import type { Status } from '../../../server/reportConfiguration/constants'
 import { now } from '../../../server/testutils/fakeClock'
@@ -63,7 +63,7 @@ context('Reopen or recall a report', () => {
 
         it(`should be able to recall a ${reportType} report with status ${currentStatus} to ${recalledTo}`, () => {
           cy.resetBasicStubs({ user })
-          cy.task('stubPrisonApiMockPrison', reportType === 'PECS' ? pecsSouth : moorland)
+          cy.task('stubPrisonRegisterMockAgency', reportType === 'PECS' ? pecsSouth : moorland)
           cy.task('stubManageKnownUsers')
           cy.signIn()
 
@@ -110,7 +110,7 @@ context('Reopen or recall a report', () => {
 
       it(`should be able to reopen a report with status ${currentStatus} after being prompted`, () => {
         cy.resetBasicStubs({ user: mockReportingOfficer })
-        cy.task('stubPrisonApiMockPrison', moorland)
+        cy.task('stubPrisonRegisterMockAgency', moorland)
         cy.task('stubManageKnownUsers')
         cy.signIn()
 

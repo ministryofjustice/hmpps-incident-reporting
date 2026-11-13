@@ -3,6 +3,7 @@ import { defineConfig } from 'cypress'
 import { deleteStub, getSentAuditEvents, resetStubs } from './integration_tests/mockApis/wiremock'
 import auth from './integration_tests/mockApis/auth'
 import prisonApi from './integration_tests/mockApis/prisonApi'
+import prisonRegisterApi from './integration_tests/mockApis/prisonRegisterApi'
 import incidentReportingApi from './integration_tests/mockApis/incidentReportingApi'
 import frontendComponents from './integration_tests/mockApis/frontendComponents'
 import manageUsersApi from './integration_tests/mockApis/manageUsersApi'
@@ -34,6 +35,7 @@ export default defineConfig({
         ...incidentReportingApi,
         ...auth,
         ...prisonApi,
+        ...prisonRegisterApi,
         ...manageUsersApi,
         ...offenderSearchApi,
         ...nomisUserRolesApi,

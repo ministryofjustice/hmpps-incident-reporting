@@ -46,6 +46,17 @@ export const roleAdmin = 'INCIDENT_REPORTS__ADMIN' as const
  */
 export const roleCentralAdmin = 'CADM_I' as const
 
+/**
+ * Agency types used by Prison Register.
+ * These differ from NOMIS agency type codes, e.g. a prison is `PRISON` rather than `INST`.
+ */
+export const RegisterAgencyType = {
+  PRISON: 'PRISON',
+  PECS: 'PECS',
+} as const
+export type RegisterAgencyType = (typeof RegisterAgencyType)[keyof typeof RegisterAgencyType]
+
+/** NOMIS agency types */
 export enum AgencyType {
   /** Prison */
   INST = 'INST',

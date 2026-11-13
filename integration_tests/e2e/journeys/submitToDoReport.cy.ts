@@ -1,5 +1,5 @@
 import { type ReportWithDetails } from '../../../server/data/incidentReportingApi'
-import { moorland } from '../../../server/data/testData/prisonApi'
+import { moorland } from '../../../server/data/testData/prisonRegister'
 import { mockReportingOfficer } from '../../../server/data/testData/users'
 import { now } from '../../../server/testutils/fakeClock'
 import Page from '../../pages/page'
@@ -27,7 +27,7 @@ describe('Submitting “to do” reports', () => {
 
       beforeEach(() => {
         cy.resetBasicStubs({ user: mockReportingOfficer })
-        cy.task('stubPrisonApiMockPrison', moorland)
+        cy.task('stubPrisonRegisterMockAgency', moorland)
         cy.task('stubManageKnownUsers')
         cy.signIn()
 

@@ -1,7 +1,7 @@
 import { RelatedObjectUrlSlug } from '../../../../server/data/constants'
 import { mockReport } from '../../../../server/data/testData/incidentReporting'
 import { barry } from '../../../../server/data/testData/offenderSearch'
-import { moorland } from '../../../../server/data/testData/prisonApi'
+import { moorland } from '../../../../server/data/testData/prisonRegister'
 import { now } from '../../../../server/testutils/fakeClock'
 import Page from '../../../pages/page'
 import { EditPrisonerInvolvementPage, PrisonerInvolvementsPage } from '../../../pages/reports/involvements/prisoners'
@@ -36,7 +36,7 @@ context('Edit prisoner involvement page', () => {
 
     cy.signIn()
     cy.task('stubIncidentReportingApiGetReportWithDetailsById', { report: reportWithDetails })
-    cy.task('stubPrisonApiMockPrison', moorland)
+    cy.task('stubPrisonRegisterMockAgency', moorland)
     cy.visit(`/reports/${reportWithDetails.id}/prisoners`)
     Page.verifyOnPage(PrisonerInvolvementsPage).editLink(0).click()
     editPrisonerInvolvementPage = Page.verifyOnPage(EditPrisonerInvolvementPage, 'Barry Benjamin’s')

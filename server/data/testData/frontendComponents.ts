@@ -1,8 +1,8 @@
 import type { Express } from 'express'
 
 import type { AvailableComponent, CaseLoad, Component, ComponentsResponse } from '../frontendComponentsClient'
-import type { Agency } from '../prisonApi'
-import { moorland } from './prisonApi'
+import { AgencyType } from '../constants'
+import { moorland } from './prisonRegister'
 
 const emptyComponent: Component = {
   html: '',
@@ -10,11 +10,12 @@ const emptyComponent: Component = {
   javascript: [],
 }
 
-export function makeMockCaseload(prison: Agency, currentlyActive = true): CaseLoad {
+/** Make a caseload for a test prison */
+export function makeMockCaseload(prison: { agencyId: string; description: string }, currentlyActive = true): CaseLoad {
   return {
     caseLoadId: prison.agencyId,
     description: prison.description,
-    type: prison.agencyType,
+    type: AgencyType.INST,
     caseloadFunction: 'GENERAL',
     currentlyActive,
   }

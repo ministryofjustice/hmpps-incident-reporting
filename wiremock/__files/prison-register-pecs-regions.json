@@ -1,0 +1,20 @@
+[
+  {
+    "agencyId": "NORTH",
+    "description": "PECS North",
+    "agencyType": "PECS",
+    "active": true,
+    "addresses": [],
+    "phones": [],
+    "emails": []
+  },
+  {
+    "agencyId": "SOUTH",
+    "description": "PECS South",
+    "agencyType": "PECS",
+    "active": true,
+    "addresses": [],
+    "phones": [],
+    "emails": []
+  }
+]

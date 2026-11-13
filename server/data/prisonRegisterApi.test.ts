@@ -23,7 +23,7 @@ describe('prisonRegisterApi', () => {
     const { agencyId: prisonId } = moorland
     const { agencyId: pecsRegion } = pecsNorth
 
-    it('should return a prison', async () => {
+    it('returns a prison', async () => {
       fakeApiClient
         .get(`/api/agencies/${prisonId}`)
         .matchHeader('authorization', `Bearer ${systemToken}`)
@@ -33,7 +33,7 @@ describe('prisonRegisterApi', () => {
       expect(response).toEqual(moorland)
     })
 
-    it('should return a PECS region', async () => {
+    it('returns a PECS region', async () => {
       fakeApiClient
         .get(`/api/agencies/${pecsRegion}`)
         .matchHeader('authorization', `Bearer ${systemToken}`)
@@ -43,14 +43,14 @@ describe('prisonRegisterApi', () => {
       expect(response).toEqual(pecsNorth)
     })
 
-    it('should return null if not found', async () => {
+    it('returns null if not found', async () => {
       fakeApiClient.get(`/api/agencies/${prisonId}`).matchHeader('authorization', `Bearer ${systemToken}`).reply(404)
 
       const response = await apiClient.getAgency(prisonId)
       expect(response).toBeNull()
     })
 
-    it('should throw when it receives another error', async () => {
+    it('throws when it receives another error', async () => {
       fakeApiClient
         .get(`/api/agencies/${prisonId}`)
         .matchHeader('authorization', `Bearer ${systemToken}`)
@@ -62,7 +62,7 @@ describe('prisonRegisterApi', () => {
   })
 
   describe('getPecsRegions', () => {
-    it('should list active PECS regions by default', async () => {
+    it('lists active PECS regions by default', async () => {
       fakeApiClient
         .get('/api/agencies/type/PECS')
         .query({ activeOnly: 'true' })
@@ -72,7 +72,7 @@ describe('prisonRegisterApi', () => {
       await expect(apiClient.getPecsRegions()).resolves.toEqual<Agency[]>([pecsNorth, pecsSouth])
     })
 
-    it('should list all PECS regions', async () => {
+    it('lists all PECS regions', async () => {
       fakeApiClient
         .get('/api/agencies/type/PECS')
         .query({ activeOnly: 'false' })

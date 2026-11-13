@@ -77,7 +77,7 @@ Each incident type has a set of specific questions that must be answered.
 - `PATCH /reports/{id}/status`: Change report status (e.g., Submit, Approve).
 
 #### Other Integrated APIs
-- **Prison API**: For caseload and location information.
+- **Prison API**: For location names, prisoner photos and copying incident types into NOMIS.
 - **Offender Search API**: For prisoner details and search.
 - **Manage Users API**: For staff details.
 

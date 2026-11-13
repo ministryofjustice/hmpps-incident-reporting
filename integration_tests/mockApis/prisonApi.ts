@@ -1,8 +1,8 @@
-import type { Response as SuperAgentResponse, SuperAgentRequest } from 'superagent'
+import type { SuperAgentRequest } from 'superagent'
 
 import { stubFor } from './wiremock'
 import type { Agency } from '../../server/data/prisonApi'
-import { leeds, moorland, pecsNorth, pecsSouth, staffBarry, staffMary } from '../../server/data/testData/prisonApi'
+import { leeds, moorland, pecsNorth, pecsSouth } from '../../server/data/testData/prisonApi'
 
 export default {
   /**
@@ -72,26 +72,6 @@ export default {
           '/9j/4AAQSkZJRgABAQEBLAEsAAD/2wCEAAMCAgICAgMCAgIDAwMDBAYEBAQEBAgGBgUGCQgKCgkICQkKDA8MCgsOCwkJDRENDg8QEBEQCgwSExIQEw8QEBABAwMDBAMECAQECBALCQsQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEP/AABEIAAEAAQMBEQACEQEDEQH/xABLAAEAAAAAAAAAAAAAAAAAAAAIEAEAAAAAAAAAAAAAAAAAAAAAAQEBAAAAAAAAAAAAAAAAAAAGCBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8AVqFyt//Z',
       },
     }),
-
-  /**
-   * Stub getting details for all mock staff
-   */
-  stubPrisonApiMockStaff: (): Promise<SuperAgentResponse[]> =>
-    Promise.all(
-      [staffBarry, staffMary].map(staff =>
-        stubFor({
-          request: {
-            method: 'GET',
-            urlPath: `/prisonApi/api/users/${staff.username}`,
-          },
-          response: {
-            status: 200,
-            headers: { 'Content-Type': 'application/json;charset=UTF-8' },
-            jsonBody: staff,
-          },
-        }),
-      ),
-    ),
 
   /**
    * Stub looking up a NOMIS incident-type configuration that does not exist (used to force a "create")

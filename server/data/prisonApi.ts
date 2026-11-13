@@ -5,14 +5,6 @@ import config from '../config'
 import type { NomisPrisonerInvolvementRole, NomisType } from '../reportConfiguration/constants'
 import { errorResponseStatusMatches } from '../utils/utils'
 
-export interface Staff {
-  firstName: string
-  lastName: string
-  username: string
-  active: boolean
-  activeCaseLoadId: string
-}
-
 /** Incident Type Configuration */
 export interface IncidentTypeConfiguration {
   /** Incident type of this configuration */
@@ -139,19 +131,6 @@ export type CreateIncidentTypeConfigurationRequest = UpdateIncidentTypeConfigura
   incidentType: string
 }
 
-export interface ReferenceCode {
-  domain: string
-  code: string
-  description: string
-  listSeq: number
-  systemDataFlag: 'Y' | 'N'
-  activeFlag: 'Y' | 'N'
-  expiredDate?: Date
-  parentDomain?: string
-  parentCode?: string
-  subCodes: ReferenceCode[]
-}
-
 export class PrisonApi extends RestClient {
   constructor(systemToken: string) {
     super('HMPPS Prison API', config.apis.hmppsPrisonApi, logger, {
@@ -171,23 +150,6 @@ export class PrisonApi extends RestClient {
     } catch (error) {
       if (errorResponseStatusMatches(error, 403) || errorResponseStatusMatches(error, 404)) {
         // return null if unauthorised or not found
-        return null
-      }
-      throw error
-    }
-  }
-
-  async getStaffDetails(username: string): Promise<Staff | null> {
-    try {
-      return await this.get<Staff>(
-        {
-          path: `/api/users/${username}`,
-        },
-        asSystem(),
-      )
-    } catch (error) {
-      if (errorResponseStatusMatches(error, 404)) {
-        // return null if not found
         return null
       }
       throw error
@@ -283,47 +245,5 @@ export class PrisonApi extends RestClient {
       },
       asSystem(),
     )
-  }
-
-  /** Load reference data codes for given domain */
-  async getReferenceCodes(domain: string): Promise<ReferenceCode[]> {
-    function parseDates(referenceCode: DatesAsStrings<ReferenceCode>): ReferenceCode {
-      return {
-        ...referenceCode,
-        expiredDate: referenceCode.expiredDate ? new Date(referenceCode.expiredDate) : undefined,
-        subCodes: (referenceCode.subCodes ?? []).map(parseDates),
-      }
-    }
-
-    const codes = await this.get<DatesAsStrings<ReferenceCode[]>>(
-      {
-        path: `/api/reference-domains/domains/${encodeURIComponent(domain)}/codes`,
-      },
-      asSystem(),
-    )
-    return codes.map(parseDates).sort((code1, code2) => (code1.listSeq ?? Infinity) - (code2.listSeq ?? Infinity))
-  }
-
-  /**
-   * List incident types
-   * NB: THIS DOES NOT MATCH THE ACTUAL REPORT TYPES
-   */
-  getIncidentTypes(): Promise<ReferenceCode[]> {
-    return this.getReferenceCodes('IR_TYPE')
-  }
-
-  /** List options for roles of staff involvement */
-  getStaffInvolvementRoles(): Promise<ReferenceCode[]> {
-    return this.getReferenceCodes('IR_STF_PART')
-  }
-
-  /** List options for roles of prisoner involvement */
-  getPrisonerInvolvementRoles(): Promise<ReferenceCode[]> {
-    return this.getReferenceCodes('IR_OFF_PART')
-  }
-
-  /** List options for outcomes of prisoner involvement */
-  getPrisonerInvolvementOutcome(): Promise<ReferenceCode[]> {
-    return this.getReferenceCodes('IR_OUTCOME')
   }
 }

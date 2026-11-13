@@ -22,7 +22,6 @@ generic-service:
     HMPPS_PRISON_API_URL: "https://prison-api-preprod.prison.service.justice.gov.uk"
     PRISON_REGISTER_API_URL: "https://prison-register-preprod.hmpps.service.justice.gov.uk"
     MANAGE_USERS_API_URL: "https://manage-users-api-preprod.hmpps.service.justice.gov.uk"
-    NOMIS_USER_ROLES_API_URL: "https://nomis-user-roles-api-preprod.prison.service.justice.gov.uk"
     OFFENDER_SEARCH_API_URL: "https://prisoner-search-preprod.prison.service.justice.gov.uk"
     TOKEN_VERIFICATION_API_URL: "https://token-verification-api-preprod.prison.service.justice.gov.uk"
 

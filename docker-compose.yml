@@ -185,7 +185,6 @@ services:
       - HMPPS_PRISON_API_URL=http://prison-api:8080
       - PRISON_REGISTER_API_URL=http://prison-register:8080
       - MANAGE_USERS_API_URL=http://manage-users-api:8080
-      - NOMIS_USER_ROLES_API_URL=http://nomis-user-roles-api:8080
       - OFFENDER_SEARCH_API_URL=http://prisoner-search:8080
 
 networks:

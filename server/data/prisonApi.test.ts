@@ -1,8 +1,7 @@
 import nock from 'nock'
 
 import config from '../config'
-import { type IncidentTypeConfiguration, PrisonApi, type ReferenceCode } from './prisonApi'
-import { staffMary } from './testData/prisonApi'
+import { type IncidentTypeConfiguration, PrisonApi } from './prisonApi'
 
 describe('prisonApi', () => {
   const systemToken = 'token'
@@ -66,37 +65,6 @@ describe('prisonApi', () => {
         .reply(500)
 
       await expect(apiClient.getPhoto(prisonerNumber)).rejects.toThrow('Internal Server Error')
-    })
-  })
-
-  describe('getStaffDetails', () => {
-    const { username } = staffMary
-
-    it('should return an object', async () => {
-      fakeApiClient
-        .get(`/api/users/${username}`)
-        .matchHeader('authorization', `Bearer ${systemToken}`)
-        .reply(200, staffMary)
-
-      const response = await apiClient.getStaffDetails(username)
-      expect(response).toEqual(staffMary)
-    })
-
-    it('should return null if not found', async () => {
-      fakeApiClient.get(`/api/users/${username}`).matchHeader('authorization', `Bearer ${systemToken}`).reply(404)
-
-      const response = await apiClient.getStaffDetails(username)
-      expect(response).toBeNull()
-    })
-
-    it('should throw when it receives another error', async () => {
-      fakeApiClient
-        .get(`/api/users/${username}`)
-        .matchHeader('authorization', `Bearer ${systemToken}`)
-        .thrice()
-        .reply(500)
-
-      await expect(apiClient.getStaffDetails(username)).rejects.toThrow('Internal Server Error')
     })
   })
 
@@ -223,94 +191,6 @@ describe('prisonApi', () => {
         expect(answer.answerExpiryDate).toBeInstanceOf(Date)
         expect(prisonerRole.expiryDate).toBeInstanceOf(Date)
       })
-    })
-  })
-
-  describe('getReferenceCodes', () => {
-    it('should convert date fields', async () => {
-      fakeApiClient
-        .get('/api/reference-domains/domains/DOM1/codes')
-        .query(true)
-        .matchHeader('authorization', `Bearer ${systemToken}`)
-        .reply(200, [
-          {
-            domain: 'DOM1',
-            code: 'SAMPL',
-            description: 'Sample',
-            listSeq: 1,
-            activeFlag: 'N',
-            expiredDate: '2022-08-20',
-            systemDataFlag: 'N',
-            subCodes: [
-              {
-                domain: 'DOM1',
-                code: 'SUBSAMP',
-                description: 'Sub-sample',
-                listSeq: 1,
-                activeFlag: 'N',
-                expiredDate: '2022-08-20',
-                systemDataFlag: 'N',
-                subCodes: [],
-              },
-            ],
-          },
-        ] satisfies DatesAsStrings<ReferenceCode[]>)
-
-      const codes = await apiClient.getReferenceCodes('DOM1')
-      expect(codes).toHaveLength(1)
-      const code = codes[0]
-      expect(code.expiredDate).toBeInstanceOf(Date)
-      expect(code.subCodes).toHaveLength(1)
-      const subCode = code.subCodes[0]
-      expect(subCode.expiredDate).toBeInstanceOf(Date)
-    })
-
-    it.each([
-      { method: 'getIncidentTypes' as const, domain: 'IR_TYPE' },
-      { method: 'getStaffInvolvementRoles' as const, domain: 'IR_STF_PART' },
-      { method: 'getPrisonerInvolvementRoles' as const, domain: 'IR_OFF_PART' },
-      { method: 'getPrisonerInvolvementOutcome' as const, domain: 'IR_OUTCOME' },
-    ])('$method should sort codes', async ({ method, domain }) => {
-      fakeApiClient
-        .get(`/api/reference-domains/domains/${domain}/codes`)
-        .query(true)
-        .matchHeader('authorization', `Bearer ${systemToken}`)
-        .reply(200, [
-          {
-            domain,
-            code: 'SAMPL2',
-            description: 'Sample 2',
-            listSeq: 2,
-            activeFlag: 'Y',
-            systemDataFlag: 'N',
-            subCodes: [],
-          },
-          {
-            domain,
-            code: 'SAMPL3',
-            description: 'Sample 3',
-            // @ts-expect-error - invalid test input
-            listSeq: undefined,
-            activeFlag: 'Y',
-            systemDataFlag: 'N',
-            subCodes: [],
-          },
-          {
-            domain,
-            code: 'SAMPL1',
-            description: 'Sample 1',
-            listSeq: 1,
-            activeFlag: 'Y',
-            systemDataFlag: 'N',
-            subCodes: [],
-          },
-        ] satisfies DatesAsStrings<ReferenceCode[]>)
-
-      await expect(apiClient[method].call(apiClient)).resolves.toMatchObject([
-        { code: 'SAMPL1', description: 'Sample 1' },
-        { code: 'SAMPL2', description: 'Sample 2' },
-        { code: 'SAMPL3', description: 'Sample 3' },
-      ])
     })
   })
 })

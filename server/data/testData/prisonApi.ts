@@ -1,4 +1,11 @@
-import type { Staff } from '../prisonApi'
+/** NOMIS staff member */
+export interface Staff {
+  firstName: string
+  lastName: string
+  username: string
+  active: boolean
+  activeCaseLoadId: string
+}
 
 export const staffBarry: Staff = {
   username: 'lev79n',

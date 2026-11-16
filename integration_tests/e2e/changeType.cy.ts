@@ -1,5 +1,5 @@
 import { mockReport } from '../../server/data/testData/incidentReporting'
-import { moorland } from '../../server/data/testData/prisonApi'
+import { moorland } from '../../server/data/testData/prisonRegister'
 import { now } from '../../server/testutils/fakeClock'
 import Page from '../pages/page'
 import { ChangeTypeConfirmationPage, TypePage } from '../pages/reports/type'
@@ -24,7 +24,7 @@ context('Change incident type', () => {
 
     cy.signIn()
     cy.task('stubIncidentReportingApiGetReportWithDetailsById', { report: reportWithDetails })
-    cy.task('stubPrisonApiMockPrison', moorland)
+    cy.task('stubPrisonRegisterMockAgency', moorland)
     cy.visit(`/reports/${reportWithDetails.id}/change-type`)
   })
 
@@ -197,7 +197,7 @@ context('Change incident type', () => {
         title: 'Disorder (Moorland (HMP & YOI))',
       },
     })
-    cy.task('stubPrisonApiMockPrison', moorland)
+    cy.task('stubPrisonRegisterMockAgency', moorland)
     cy.task('stubManageKnownUsers')
 
     typePage.submit()

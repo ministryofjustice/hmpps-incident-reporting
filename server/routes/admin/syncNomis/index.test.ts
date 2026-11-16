@@ -5,7 +5,7 @@ import { PrisonApi, type IncidentTypeConfiguration } from '../../../data/prisonA
 import { appWithAllRoutes } from '../../testutils/appSetup'
 import { mockUser } from '../../../data/testData/users'
 import { makeMockCaseload } from '../../../data/testData/frontendComponents'
-import { moorland } from '../../../data/testData/prisonApi'
+import { moorland } from '../../../data/testData/prisonRegister'
 import { roleReadWrite, roleAdmin } from '../../../data/constants'
 import config from '../../../config'
 

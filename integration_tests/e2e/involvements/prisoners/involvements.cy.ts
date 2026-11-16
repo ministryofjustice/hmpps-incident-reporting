@@ -1,6 +1,6 @@
 import { mockReport } from '../../../../server/data/testData/incidentReporting'
 import { andrew, barry } from '../../../../server/data/testData/offenderSearch'
-import { moorland } from '../../../../server/data/testData/prisonApi'
+import { moorland } from '../../../../server/data/testData/prisonRegister'
 import { now } from '../../../../server/testutils/fakeClock'
 import Page from '../../../pages/page'
 import { PrisonerInvolvementsPage, PrisonerSearchPage } from '../../../pages/reports/involvements/prisoners'
@@ -68,7 +68,7 @@ context('Prisoner involvements page', () => {
       })
 
       cy.task('stubIncidentReportingApiGetReportById', { report: reportWithDetails })
-      cy.task('stubPrisonApiMockPrison', moorland)
+      cy.task('stubPrisonRegisterMockAgency', moorland)
       cy.task('stubManageKnownUsers')
 
       prisonerInvolvementsPage.selectRadioButton('No')
@@ -79,7 +79,7 @@ context('Prisoner involvements page', () => {
 
     it('should return to report if skip is chosen', () => {
       cy.task('stubIncidentReportingApiGetReportById', { report: reportWithDetails })
-      cy.task('stubPrisonApiMockPrison', moorland)
+      cy.task('stubPrisonRegisterMockAgency', moorland)
       cy.task('stubManageKnownUsers')
 
       prisonerInvolvementsPage.selectRadioButton('Skip for now')
@@ -130,7 +130,7 @@ context('Prisoner involvements page', () => {
       })
 
       cy.task('stubIncidentReportingApiGetReportById', { report: reportWithDetails })
-      cy.task('stubPrisonApiMockPrison', moorland)
+      cy.task('stubPrisonRegisterMockAgency', moorland)
       cy.task('stubManageKnownUsers')
 
       prisonerInvolvementsPage.selectRadioButton('No')
@@ -187,7 +187,7 @@ context('Prisoner involvements page', () => {
 
     it('should navigate to the report page when Continue is clicked (implicit No)', () => {
       cy.task('stubIncidentReportingApiGetReportById', { report: reportAbscond })
-      cy.task('stubPrisonApiMockPrison', moorland)
+      cy.task('stubPrisonRegisterMockAgency', moorland)
       cy.task('stubManageKnownUsers')
 
       cy.contains('button', 'Continue').click()
@@ -243,7 +243,7 @@ context('Prisoner involvements page', () => {
 
     it('should return to report if no is chosen', () => {
       cy.task('stubIncidentReportingApiGetReportById', { report: reportWithDetails })
-      cy.task('stubPrisonApiMockPrison', moorland)
+      cy.task('stubPrisonRegisterMockAgency', moorland)
       cy.task('stubManageKnownUsers')
 
       prisonerInvolvementsPage.selectRadioButton('No')

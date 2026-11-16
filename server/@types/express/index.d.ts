@@ -8,6 +8,7 @@ import type { QuestionProgress } from '../../data/incidentTypeConfiguration/ques
 import type { IncidentTypeConfiguration } from '../../data/incidentTypeConfiguration/types'
 import type { OffenderSearchApi, OffenderSearchResult } from '../../data/offenderSearchApi'
 import type { PrisonApi } from '../../data/prisonApi'
+import type { PrisonRegisterApi } from '../../data/prisonRegisterApi'
 import type { Permissions, UserAction, ReportTransitions } from '../../middleware/permissions'
 import type { TypeFamily } from '../../reportConfiguration/constants'
 import { IncidentStatuses } from '../../routes/dashboard'
@@ -75,6 +76,7 @@ export declare global {
         userService: UserService
         incidentReportingApi: IncidentReportingApi
         prisonApi: PrisonApi
+        prisonRegisterApi: PrisonRegisterApi
         offenderSearchApi: OffenderSearchApi
       }
       /** Some routes load a prisoner into locals (via populatePrisoner) */

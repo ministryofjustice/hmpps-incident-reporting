@@ -5,9 +5,7 @@ import type {
   ReportBasic,
   ReportWithDetails,
 } from '../../data/incidentReportingApi'
-import type { PrisonApi } from '../../data/prisonApi'
-import { AgencyType } from '../../data/constants'
-import { isPecsRegionCode } from '../../data/pecsRegions'
+import type { PrisonRegisterApi } from '../../data/prisonRegisterApi'
 import {
   getTypeDetails,
   prisonerInvolvementRolesDescriptions,
@@ -211,12 +209,14 @@ function rowsForReport(
 }
 
 /** Resolve each distinct report location to its establishment / PECS region display name. */
-async function resolveEstablishments(prisonApi: PrisonApi, locations: string[]): Promise<Map<string, string>> {
+async function resolveEstablishments(
+  prisonRegisterApi: PrisonRegisterApi,
+  locations: string[],
+): Promise<Map<string, string>> {
   const distinct = [...new Set(locations)]
   const resolved = await Promise.all(
     distinct.map(async code => {
-      const isPecs = isPecsRegionCode(code)
-      const agency = await prisonApi.getAgency(code, false, isPecs ? AgencyType.PECS : AgencyType.INST, isPecs)
+      const agency = await prisonRegisterApi.getAgency(code)
       return [code, agency?.description || code] as const
     }),
   )
@@ -226,7 +226,7 @@ async function resolveEstablishments(prisonApi: PrisonApi, locations: string[]):
 /** Build the 12-month per-incident list for a single prisoner. */
 export async function getPrisonerIncidentList(
   api: IncidentReportingApi,
-  prisonApi: PrisonApi,
+  prisonRegisterApi: PrisonRegisterApi,
   prisonerNumber: string,
 ): Promise<PrisonerIncidentList> {
   const fromDate = twelveMonthsAgo()
@@ -234,7 +234,7 @@ export async function getPrisonerIncidentList(
   const reports = await Promise.all(basicReports.map(report => api.getReportWithDetailsById(report.id)))
 
   const establishments = await resolveEstablishments(
-    prisonApi,
+    prisonRegisterApi,
     reports.map(report => report.location),
   )
 

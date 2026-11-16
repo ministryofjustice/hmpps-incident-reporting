@@ -1,5 +1,5 @@
 import type { PrisonUser, User, UsersSearchResult } from '../manageUsersApiClient'
-import { moorland } from './prisonApi'
+import { moorland } from './prisonRegister'
 
 export function mockUser(username: string, name: string): User {
   return {

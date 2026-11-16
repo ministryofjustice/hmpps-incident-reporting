@@ -30,9 +30,9 @@ export default function prisonerIncidentSummaryRouter(): Router {
   // Drill-down: a line-by-line list of the prisoner's incidents over the same 12-month window.
   router.get('/incidents', populatePrisoner(), requirePrisonerInCaseload(), async (req, res) => {
     const { prisonerNumber } = req.params
-    const { incidentReportingApi, prisonApi } = res.locals.apis
+    const { incidentReportingApi, prisonRegisterApi } = res.locals.apis
 
-    const prisonerIncidentList = await getPrisonerIncidentList(incidentReportingApi, prisonApi, prisonerNumber)
+    const prisonerIncidentList = await getPrisonerIncidentList(incidentReportingApi, prisonRegisterApi, prisonerNumber)
 
     res.render('pages/prisonerIncidentList', {
       prisoner: res.locals.prisoner,

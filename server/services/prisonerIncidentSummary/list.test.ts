@@ -6,18 +6,18 @@ import {
   type ReportWithDetails,
   type Response,
 } from '../../data/incidentReportingApi'
-import { PrisonApi } from '../../data/prisonApi'
-import { AgencyType } from '../../data/constants'
+import { RegisterAgencyType } from '../../data/constants'
+import { PrisonRegisterApi } from '../../data/prisonRegisterApi'
 import { convertReportDates } from '../../data/incidentReportingApiUtils'
 import { mockReport } from '../../data/testData/incidentReporting'
 import type { PrisonerInvolvementRole, Status, Type } from '../../reportConfiguration/constants'
 import { getPrisonerIncidentList } from './list'
 
 jest.mock('../../data/incidentReportingApi')
-jest.mock('../../data/prisonApi')
+jest.mock('../../data/prisonRegisterApi')
 
 const incidentReportingApi = IncidentReportingApi.prototype as jest.Mocked<IncidentReportingApi>
-const prisonApi = PrisonApi.prototype as jest.Mocked<PrisonApi>
+const prisonRegisterApi = PrisonRegisterApi.prototype as jest.Mocked<PrisonRegisterApi>
 
 afterEach(() => {
   jest.resetAllMocks()
@@ -118,8 +118,13 @@ function mockApis(reports: ReportWithDetails[]): void {
   const byId = new Map(reports.map(r => [r.id, r]))
   incidentReportingApi.getReports.mockResolvedValue(page(reports))
   incidentReportingApi.getReportWithDetailsById.mockImplementation((id: string) => Promise.resolve(byId.get(id)!))
-  prisonApi.getAgency.mockImplementation((agencyId: string) =>
-    Promise.resolve({ agencyId, description: `${agencyId} prison`, agencyType: AgencyType.INST, active: true }),
+  prisonRegisterApi.getAgency.mockImplementation((agencyId: string) =>
+    Promise.resolve({
+      agencyId,
+      description: `${agencyId} prison`,
+      agencyType: RegisterAgencyType.PRISON,
+      active: true,
+    }),
   )
 }
 
@@ -142,7 +147,7 @@ describe('getPrisonerIncidentList', () => {
     })
     mockApis([assault])
 
-    const { rows } = await getPrisonerIncidentList(incidentReportingApi, prisonApi, PRISONER_NUMBER)
+    const { rows } = await getPrisonerIncidentList(incidentReportingApi, prisonRegisterApi, PRISONER_NUMBER)
 
     expect(rows).toHaveLength(1) // only this prisoner, not the unrelated involvement
     expect(rows[0]).toMatchObject({
@@ -174,7 +179,7 @@ describe('getPrisonerIncidentList', () => {
     })
     mockApis([selfHarm])
 
-    const { rows } = await getPrisonerIncidentList(incidentReportingApi, prisonApi, PRISONER_NUMBER)
+    const { rows } = await getPrisonerIncidentList(incidentReportingApi, prisonRegisterApi, PRISONER_NUMBER)
 
     expect(rows[0].extraInformation).toBe('Cutting, Burning')
     expect(rows[0].location).toBe('Ordinary (A-1-2-34)')
@@ -196,7 +201,7 @@ describe('getPrisonerIncidentList', () => {
     })
     mockApis([find])
 
-    const { rows } = await getPrisonerIncidentList(incidentReportingApi, prisonApi, PRISONER_NUMBER)
+    const { rows } = await getPrisonerIncidentList(incidentReportingApi, prisonRegisterApi, PRISONER_NUMBER)
 
     expect(rows[0].subtype).toBe('Multiple types')
     expect(rows[0].role).toBe('In possession')
@@ -213,7 +218,7 @@ describe('getPrisonerIncidentList', () => {
     })
     mockApis([oldAssault])
 
-    const { rows } = await getPrisonerIncidentList(incidentReportingApi, prisonApi, PRISONER_NUMBER)
+    const { rows } = await getPrisonerIncidentList(incidentReportingApi, prisonRegisterApi, PRISONER_NUMBER)
 
     expect(rows[0]).toMatchObject({ reportReference: '6004', role: 'Perpetrator', establishment: 'MDI prison' })
     expect(rows[0].subtype).toBeUndefined()
@@ -229,7 +234,7 @@ describe('getPrisonerIncidentList', () => {
     ]
     mockApis(reports)
 
-    const { rows } = await getPrisonerIncidentList(incidentReportingApi, prisonApi, PRISONER_NUMBER)
+    const { rows } = await getPrisonerIncidentList(incidentReportingApi, prisonRegisterApi, PRISONER_NUMBER)
 
     expect(rows.map(row => row.reportReference)).toEqual(['NEW', 'MID', 'OLD'])
   })
@@ -255,7 +260,7 @@ describe('getPrisonerIncidentList', () => {
     ]
     mockApis(reports)
 
-    const { rows } = await getPrisonerIncidentList(incidentReportingApi, prisonApi, PRISONER_NUMBER)
+    const { rows } = await getPrisonerIncidentList(incidentReportingApi, prisonRegisterApi, PRISONER_NUMBER)
 
     const byReference = Object.fromEntries(rows.map(row => [row.reportReference, row.report]))
     expect(byReference['MDI-REPORT']).toEqual({ status: 'AWAITING_REVIEW', location: 'MDI' })

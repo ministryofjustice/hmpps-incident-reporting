@@ -3,15 +3,7 @@ import { asSystem, RestClient } from '@ministryofjustice/hmpps-rest-client'
 import logger from '../../logger'
 import config from '../config'
 import type { NomisPrisonerInvolvementRole, NomisType } from '../reportConfiguration/constants'
-import { AgencyType } from './constants'
 import { errorResponseStatusMatches } from '../utils/utils'
-
-export type Agency = {
-  agencyId: string
-  description: string
-  agencyType: AgencyType
-  active: boolean
-}
 
 /** Incident Type Configuration */
 export interface IncidentTypeConfiguration {
@@ -144,65 +136,6 @@ export class PrisonApi extends RestClient {
     super('HMPPS Prison API', config.apis.hmppsPrisonApi, logger, {
       getToken: async () => systemToken,
     })
-  }
-
-  /** Look up agency details (can be a prison, a PECS region, etc) */
-  async getAgency(
-    agencyId: string,
-    activeOnly = true,
-    agencyType?: AgencyType,
-    skipFormatLocation?: boolean,
-  ): Promise<Agency | null> {
-    try {
-      return await this.get<Agency>(
-        {
-          path: `/api/agencies/${encodeURIComponent(agencyId)}`,
-          query: { activeOnly: activeOnly.toString(), agencyType, skipFormatLocation },
-        },
-        asSystem(),
-      )
-    } catch (error) {
-      if (errorResponseStatusMatches(error, 404)) {
-        // return null if not found
-        return null
-      }
-      throw error
-    }
-  }
-
-  /** List all prisons */
-  async getPrisons(): Promise<Record<string, Agency>> {
-    const prisons = await this.get<Agency[]>(
-      {
-        path: '/api/agencies/prisons',
-      },
-      asSystem(),
-    )
-
-    // Returns the prisons in an object for easy access
-    return prisons.reduce((prev, prisonInfo) => ({ ...prev, [prisonInfo.agencyId]: prisonInfo }), {})
-  }
-
-  /** List all PECS regions */
-  async getPecsRegions(activeOnly = true): Promise<Record<string, Agency>> {
-    return this.getAgencies(AgencyType.PECS, activeOnly, true)
-  }
-
-  private async getAgencies(
-    agencyType: AgencyType,
-    activeOnly = true,
-    skipFormatLocation = false,
-  ): Promise<Record<string, Agency>> {
-    const agencies = await this.get<Agency[]>(
-      {
-        path: `/api/agencies/type/${encodeURIComponent(agencyType)}`,
-        query: { activeOnly, skipFormatLocation },
-      },
-      asSystem(),
-    )
-
-    // Returns the agencies in an object for easy access
-    return agencies.reduce((prev, agency) => ({ ...prev, [agency.agencyId]: agency }), {})
   }
 
   async getPhoto(prisonerNumber: string): Promise<Buffer | null> {

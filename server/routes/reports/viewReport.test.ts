@@ -1,7 +1,7 @@
 import type { Express } from 'express'
 import request from 'supertest'
 
-import { PrisonApi } from '../../data/prisonApi'
+import { PrisonRegisterApi } from '../../data/prisonRegisterApi'
 import { appWithAllRoutes } from '../testutils/appSetup'
 import { now, dayLater } from '../../testutils/fakeClock'
 import UserService from '../../services/userService'
@@ -14,18 +14,18 @@ import { mockErrorResponse, mockReport } from '../../data/testData/incidentRepor
 import { makeSimpleQuestion } from '../../data/testData/incidentReportingJest'
 import { mockSharedUser, mockSharedUser2 } from '../../data/testData/manageUsers'
 import { mockPecsRegions } from '../../data/testData/pecsRegions'
-import { leeds, moorland } from '../../data/testData/prisonApi'
+import { leeds, moorland } from '../../data/testData/prisonRegister'
 import { mockThrownError } from '../../data/testData/thrownErrors'
 import { mockDataWarden, mockReportingOfficer, mockHqViewer, mockUnauthorisedUser } from '../../data/testData/users'
 import { possiblePecsStatuses } from '../../middleware/correctPecsReportStatus'
 
 jest.mock('../../data/incidentReportingApi')
-jest.mock('../../data/prisonApi')
+jest.mock('../../data/prisonRegisterApi')
 jest.mock('../../data/reportValidity')
 jest.mock('../../services/userService')
 
 const incidentReportingApi = IncidentReportingApi.prototype as jest.Mocked<IncidentReportingApi>
-const prisonApi = PrisonApi.prototype as jest.Mocked<PrisonApi>
+const prisonRegisterApi = PrisonRegisterApi.prototype as jest.Mocked<PrisonRegisterApi>
 const userService = UserService.prototype as jest.Mocked<UserService>
 
 const { validateReport } = reportValidity as jest.Mocked<typeof import('../../data/reportValidity')>
@@ -43,7 +43,7 @@ beforeEach(() => {
     [mockSharedUser.username]: mockSharedUser,
   })
 
-  prisonApi.getAgency.mockImplementation(locationCode =>
+  prisonRegisterApi.getAgency.mockImplementation(locationCode =>
     Promise.resolve(
       {
         LEI: leeds,

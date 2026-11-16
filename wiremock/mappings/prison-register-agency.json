@@ -1,0 +1,22 @@
+{
+  "request": {
+    "method": "GET",
+    "urlPathPattern": "/api/agencies/([A-Z0-9]{2,6})"
+  },
+  "response": {
+    "status": 200,
+    "jsonBody": {
+      "agencyId": "{{request.path.[2]}}",
+      "description": "{{request.path.[2]}}",
+      "agencyType": "PRISON",
+      "active": true,
+      "addresses": [],
+      "phones": [],
+      "emails": []
+    },
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "transformers": ["response-template"]
+  }
+}

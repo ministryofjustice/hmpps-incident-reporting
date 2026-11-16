@@ -1,6 +1,6 @@
 import { mockReport } from '../../server/data/testData/incidentReporting'
 import { andrew, barry } from '../../server/data/testData/offenderSearch'
-import { moorland } from '../../server/data/testData/prisonApi'
+import { moorland } from '../../server/data/testData/prisonRegister'
 import { now, dayLater } from '../../server/testutils/fakeClock'
 import Page from '../pages/page'
 import { ReportPage } from '../pages/reports/report'
@@ -27,7 +27,7 @@ context('View report', () => {
 
       cy.signIn()
       cy.task('stubIncidentReportingApiGetReportWithDetailsById', { report: reportWithDetails })
-      cy.task('stubPrisonApiMockPrison', moorland)
+      cy.task('stubPrisonRegisterMockAgency', moorland)
       cy.task('stubManageKnownUsers')
       cy.visit(`/reports/${reportWithDetails.id}`)
 
@@ -136,7 +136,7 @@ context('View report', () => {
 
       cy.signIn()
       cy.task('stubIncidentReportingApiGetReportWithDetailsById', { report: reportWithDetails })
-      cy.task('stubPrisonApiMockPrison', moorland)
+      cy.task('stubPrisonRegisterMockAgency', moorland)
       cy.task('stubManageKnownUsers')
       cy.visit(`/reports/${reportWithDetails.id}`)
 
@@ -189,7 +189,7 @@ context('View report', () => {
 
       cy.signIn()
       cy.task('stubIncidentReportingApiGetReportWithDetailsById', { report: reportWithDetails })
-      cy.task('stubPrisonApiMockPrison', moorland)
+      cy.task('stubPrisonRegisterMockAgency', moorland)
       cy.task('stubManageKnownUsers')
       cy.visit(`/reports/${reportWithDetails.id}`)
 
@@ -246,7 +246,7 @@ context('View report', () => {
       cy.signIn()
       cy.task('stubIncidentReportingApiGetReportWithDetailsById', { report: reportWithDetails })
       cy.task('stubOffenderSearchByNumber', [andrew, barry])
-      cy.task('stubPrisonApiMockPrison', moorland)
+      cy.task('stubPrisonRegisterMockAgency', moorland)
       cy.task('stubManageKnownUsers')
       cy.visit(`/reports/${reportWithDetails.id}`)
 

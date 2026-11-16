@@ -1,6 +1,6 @@
 import { mockReportingOfficer, mockUser } from '../../server/data/testData/users'
 import { makeMockCaseload } from '../../server/data/testData/frontendComponents'
-import { moorland } from '../../server/data/testData/prisonApi'
+import { moorland } from '../../server/data/testData/prisonRegister'
 import { roleReadWrite, roleAdmin } from '../../server/data/constants'
 import Page from '../pages/page'
 import { SyncNomisCreatePage, SyncNomisResultPage, SyncNomisSelectPage } from '../pages/admin/syncNomis'

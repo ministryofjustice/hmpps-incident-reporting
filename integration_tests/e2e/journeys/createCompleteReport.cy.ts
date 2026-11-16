@@ -4,7 +4,8 @@ import { type Question, type ReportWithDetails } from '../../../server/data/inci
 import type { UsersSearchResult } from '../../../server/data/manageUsersApiClient'
 import { mockReport } from '../../../server/data/testData/incidentReporting'
 import { andrew } from '../../../server/data/testData/offenderSearch'
-import { moorland, pecsNorth, staffMary } from '../../../server/data/testData/prisonApi'
+import { moorland, pecsNorth } from '../../../server/data/testData/prisonRegister'
+import { staffMary } from '../../../server/data/testData/prisonApi'
 import { mockReportingOfficer, mockDataWarden } from '../../../server/data/testData/users'
 import { now } from '../../../server/testutils/fakeClock'
 import { apiQuestionResponse } from '../../support/utils'
@@ -176,7 +177,7 @@ for (const { scenario, user, reportType } of scenarios) {
         },
         response: reportWithDetails.prisonersInvolved,
       })
-      cy.task('stubPrisonApiMockPrison', reportType === 'PECS' ? pecsNorth : moorland)
+      cy.task('stubPrisonRegisterMockAgency', reportType === 'PECS' ? pecsNorth : moorland)
       cy.task('stubIncidentReportingApiUpdateReport', {
         request: {
           title: `Attempted escape from establishment: Arnold A1111AA (${reportType === 'PECS' ? 'PECS North' : 'Moorland (HMP & YOI)'})`,
@@ -451,7 +452,7 @@ for (const { scenario, user, reportType } of scenarios) {
       stubReport()
 
       // end of questions so prepare for report view
-      cy.task('stubPrisonApiMockPrison', reportType === 'PECS' ? pecsNorth : moorland)
+      cy.task('stubPrisonRegisterMockAgency', reportType === 'PECS' ? pecsNorth : moorland)
       cy.task('stubManageKnownUsers')
       questionPage.submit()
     }

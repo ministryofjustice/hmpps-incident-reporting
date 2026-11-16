@@ -2,7 +2,7 @@ import type { Response as SuperAgentResponse } from 'superagent'
 
 import type { GetReportsParams } from '../../server/data/incidentReportingApi'
 import { mockReport } from '../../server/data/testData/incidentReporting'
-import { moorland } from '../../server/data/testData/prisonApi'
+import { moorland } from '../../server/data/testData/prisonRegister'
 import { mockDataWarden, mockReportingOfficer, mockHqViewer } from '../../server/data/testData/users'
 import { now } from '../../server/testutils/fakeClock'
 import Page from '../pages/page'
@@ -361,7 +361,7 @@ userScenarios.forEach(({ userType, user, createReport, dashboardUrl }) => {
             ...reports[0],
           },
         })
-        cy.task('stubPrisonApiMockPrison', moorland)
+        cy.task('stubPrisonRegisterMockAgency', moorland)
         dashboardPage.tableContents.then(rows => {
           expect(rows).to.have.lengthOf(2)
           const [row1] = rows

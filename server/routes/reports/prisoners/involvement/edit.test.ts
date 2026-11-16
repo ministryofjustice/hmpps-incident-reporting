@@ -10,10 +10,10 @@ import {
   type UpdatePrisonerInvolvementRequest,
 } from '../../../../data/incidentReportingApi'
 import { convertReportDates } from '../../../../data/incidentReportingApiUtils'
-import { PrisonApi } from '../../../../data/prisonApi'
+import { PrisonRegisterApi } from '../../../../data/prisonRegisterApi'
 import { mockErrorResponse, mockReport } from '../../../../data/testData/incidentReporting'
 import { andrew, barry } from '../../../../data/testData/offenderSearch'
-import { moorland } from '../../../../data/testData/prisonApi'
+import { moorland } from '../../../../data/testData/prisonRegister'
 import { mockThrownError } from '../../../../data/testData/thrownErrors'
 import {
   mockDataWarden,
@@ -27,7 +27,7 @@ import { now } from '../../../../testutils/fakeClock'
 import type { Values } from './fields'
 
 jest.mock('../../../../data/incidentReportingApi')
-jest.mock('../../../../data/prisonApi')
+jest.mock('../../../../data/prisonRegisterApi')
 jest.mock('../../actions/handleReportEdit')
 
 const incidentReportingApi = IncidentReportingApi.prototype as jest.Mocked<IncidentReportingApi>
@@ -37,7 +37,7 @@ const incidentReportingRelatedObjects = RelatedObjects.prototype as jest.Mocked<
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore need to mock a getter method
 incidentReportingApi.prisonersInvolved = incidentReportingRelatedObjects
-const prisonApi = PrisonApi.prototype as jest.Mocked<PrisonApi>
+const prisonRegisterApi = PrisonRegisterApi.prototype as jest.Mocked<PrisonRegisterApi>
 
 let app: Express
 
@@ -45,7 +45,7 @@ beforeEach(() => {
   app = appWithAllRoutes()
 
   mockHandleReportEdit.withoutSideEffect()
-  prisonApi.getAgency.mockResolvedValueOnce(moorland)
+  prisonRegisterApi.getAgency.mockResolvedValueOnce(moorland)
 })
 
 afterEach(() => {

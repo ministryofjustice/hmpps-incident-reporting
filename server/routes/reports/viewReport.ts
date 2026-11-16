@@ -37,7 +37,6 @@ import type { GovukErrorSummaryItem } from '../../utils/govukFrontend'
 import { correctionRequestActionLabels } from './actions/correctionRequestLabels'
 import { placeholderForCorrectionRequest } from './actions/correctionRequestPlaceholder'
 import { findRequestDuplicate } from './actions/findRequestDuplicate'
-import { AgencyType } from '../../data/constants'
 import config from '../../config'
 import { errorResponseStatusMatches } from '../../utils/utils'
 import { missingLocalsError } from '../../errors'
@@ -60,7 +59,7 @@ export function viewReportRouter(): Router {
     correctPecsReportStatus(),
     populateReportConfiguration(true),
     async (req, res, next) => {
-      const { incidentReportingApi, prisonApi, userService } = res.locals.apis
+      const { incidentReportingApi, prisonRegisterApi, userService } = res.locals.apis
       const { report, permissions, allowedActions, possibleTransitions, reportConfig, reportUrl, questionProgress } =
         res.locals
 
@@ -108,9 +107,7 @@ export function viewReportRouter(): Router {
       }
       const [usersLookup, locationDescription] = await Promise.all([
         userService.getUsers(res.locals.systemToken, usernames),
-        prisonApi
-          .getAgency(report.location, false, isPecsReport ? AgencyType.PECS : AgencyType.INST, isPecsReport)
-          .then(agency => agency?.description || report.location),
+        prisonRegisterApi.getAgency(report.location).then(agency => agency?.description || report.location),
       ])
 
       const questionProgressSteps = Array.from(questionProgress)

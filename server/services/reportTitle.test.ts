@@ -5,7 +5,7 @@ import type express from 'express'
 import { convertReportDates } from '../data/incidentReportingApiUtils'
 import { mockErrorResponse, mockReport } from '../data/testData/incidentReporting'
 import { andrew } from '../data/testData/offenderSearch'
-import { moorland } from '../data/testData/prisonApi'
+import { moorland } from '../data/testData/prisonRegister'
 import { mockThrownError } from '../data/testData/thrownErrors'
 import { fallibleUpdateReportTitle, newReportTitle, regenerateTitleForReport, updateReportTitle } from './reportTitle'
 
@@ -82,7 +82,7 @@ describe('Report titles', () => {
           report,
           apis: {
             incidentReportingApi: { updateReport },
-            prisonApi: { getAgency },
+            prisonRegisterApi: { getAgency },
           },
         },
       } as unknown as express.Response
@@ -107,7 +107,7 @@ describe('Report titles', () => {
       await updateFunction(res)
 
       await setImmediate() // await asynchronous function (ie. fallible one)
-      expect(getAgency).toHaveBeenCalledWith('MDI', false, 'INST', false)
+      expect(getAgency).toHaveBeenCalledWith('MDI')
       expect(updateReport).toHaveBeenCalledWith(report.id, { title: 'Find of illicit items (Moorland (HMP & YOI))' })
     })
 
@@ -121,7 +121,7 @@ describe('Report titles', () => {
         await updateFunction(res)
 
         await setImmediate() // await asynchronous function (ie. fallible one)
-        expect(getAgency).toHaveBeenCalledWith('MDI', false, 'INST', false)
+        expect(getAgency).toHaveBeenCalledWith('MDI')
         expect(updateReport).toHaveBeenCalledWith(report.id, { title: 'Find of illicit items (MDI)' })
       },
     )
@@ -137,7 +137,7 @@ describe('Report titles', () => {
         await updateFunction(res)
 
         await setImmediate() // await asynchronous function (ie. fallible one)
-        expect(getAgency).toHaveBeenCalledWith('MDI', false, 'INST', false)
+        expect(getAgency).toHaveBeenCalledWith('MDI')
         expect(updateReport).toHaveBeenCalledWith(report.id, { title: 'Find of illicit items (MDI)' })
       },
     )
@@ -150,7 +150,7 @@ describe('Report titles', () => {
       const res = mockResponse()
       await expect(updateReportTitle(res)).rejects.toThrow()
 
-      expect(getAgency).toHaveBeenCalledWith('MDI', false, 'INST', false)
+      expect(getAgency).toHaveBeenCalledWith('MDI')
       expect(updateReport).toHaveBeenCalledWith(report.id, { title: 'Find of illicit items (Moorland (HMP & YOI))' })
     })
 
@@ -163,7 +163,7 @@ describe('Report titles', () => {
       fallibleUpdateReportTitle(res) // note no error is thrown
 
       await setImmediate() // await asynchronous function
-      expect(getAgency).toHaveBeenCalledWith('MDI', false, 'INST', false)
+      expect(getAgency).toHaveBeenCalledWith('MDI')
       expect(updateReport).toHaveBeenCalledWith(report.id, { title: 'Find of illicit items (Moorland (HMP & YOI))' })
     })
   })

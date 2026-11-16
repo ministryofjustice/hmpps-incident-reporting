@@ -1,7 +1,7 @@
 import type { NextFunction, Request, Response } from 'express'
 
 import { andrew, ernie } from '../data/testData/offenderSearch'
-import { moorland } from '../data/testData/prisonApi'
+import { moorland } from '../data/testData/prisonRegister'
 import { requirePrisonerInCaseload } from './requirePrisonerInCaseload'
 
 function makeRes(locals: Record<string, unknown>): Response {

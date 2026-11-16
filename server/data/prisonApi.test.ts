@@ -1,9 +1,7 @@
 import nock from 'nock'
 
 import config from '../config'
-import { AgencyType } from './constants'
-import { type Agency, type IncidentTypeConfiguration, PrisonApi } from './prisonApi'
-import { leeds, moorland, pecsNorth, pecsSouth } from './testData/prisonApi'
+import { type IncidentTypeConfiguration, PrisonApi } from './prisonApi'
 
 describe('prisonApi', () => {
   const systemToken = 'token'
@@ -18,84 +16,6 @@ describe('prisonApi', () => {
   afterEach(() => {
     jest.resetAllMocks()
     nock.cleanAll()
-  })
-
-  describe('getAgency', () => {
-    const { agencyId: prisonId } = moorland
-    const { agencyId: pecsRegion } = pecsNorth
-
-    it('should return an object', async () => {
-      fakeApiClient
-        .get(`/api/agencies/${prisonId}`)
-        .query({ activeOnly: 'false', agencyType: 'INST', skipFormatLocation: 'false' })
-        .matchHeader('authorization', `Bearer ${systemToken}`)
-        .reply(200, moorland)
-
-      const response = await apiClient.getAgency(prisonId, false, AgencyType.INST, false)
-      expect(response).toEqual(moorland)
-    })
-
-    it('should return an object for PECS', async () => {
-      fakeApiClient
-        .get(`/api/agencies/${pecsRegion}`)
-        .query({ activeOnly: 'false', agencyType: 'PECS', skipFormatLocation: 'true' })
-        .matchHeader('authorization', `Bearer ${systemToken}`)
-        .reply(200, pecsNorth)
-
-      const response = await apiClient.getAgency(pecsRegion, false, AgencyType.PECS, true)
-      expect(response).toEqual(pecsNorth)
-    })
-
-    it('should return null if not found', async () => {
-      fakeApiClient
-        .get(`/api/agencies/${prisonId}`)
-        .query(true)
-        .matchHeader('authorization', `Bearer ${systemToken}`)
-        .reply(404)
-
-      const response = await apiClient.getAgency(prisonId)
-      expect(response).toBeNull()
-    })
-
-    it('should throw when it receives another error', async () => {
-      fakeApiClient
-        .get(`/api/agencies/${prisonId}`)
-        .query(true)
-        .matchHeader('authorization', `Bearer ${systemToken}`)
-        .thrice()
-        .reply(500)
-
-      await expect(apiClient.getAgency(prisonId)).rejects.toThrow('Internal Server Error')
-    })
-  })
-
-  describe('getPrisons', () => {
-    it('should create a map of prisons from api', async () => {
-      fakeApiClient
-        .get('/api/agencies/prisons')
-        .matchHeader('authorization', `Bearer ${systemToken}`)
-        .reply(200, [moorland, leeds] satisfies Agency[])
-
-      await expect(apiClient.getPrisons()).resolves.toEqual<Record<string, Agency>>({
-        LEI: leeds,
-        MDI: moorland,
-      })
-    })
-  })
-
-  describe('getPecsRegions', () => {
-    it('should create a map of PECS regions from api', async () => {
-      fakeApiClient
-        .get('/api/agencies/type/PECS')
-        .query({ activeOnly: 'true', skipFormatLocation: 'true' })
-        .matchHeader('authorization', `Bearer ${systemToken}`)
-        .reply(200, [pecsNorth, pecsSouth] satisfies Agency[])
-
-      await expect(apiClient.getPecsRegions()).resolves.toEqual<Record<string, Agency>>({
-        NORTH: pecsNorth,
-        SOUTH: pecsSouth,
-      })
-    })
   })
 
   describe('getPhoto', () => {

@@ -9,19 +9,20 @@ import {
   type ReportWithDetails,
 } from '../../data/incidentReportingApi'
 import { OffenderSearchApi } from '../../data/offenderSearchApi'
-import { PrisonApi } from '../../data/prisonApi'
+import { PrisonRegisterApi } from '../../data/prisonRegisterApi'
 import { convertReportDates } from '../../data/incidentReportingApiUtils'
 import { mockReport } from '../../data/testData/incidentReporting'
 import type { Type } from '../../reportConfiguration/constants'
 import { andrew, ernie } from '../../data/testData/offenderSearch'
+import { leeds, moorland } from '../../data/testData/prisonRegister'
 
 jest.mock('../../data/incidentReportingApi')
 jest.mock('../../data/offenderSearchApi')
-jest.mock('../../data/prisonApi')
+jest.mock('../../data/prisonRegisterApi')
 
 const incidentReportingApi = IncidentReportingApi.prototype as jest.Mocked<IncidentReportingApi>
 const offenderSearchApi = OffenderSearchApi.prototype as jest.Mocked<OffenderSearchApi>
-const prisonApi = PrisonApi.prototype as jest.Mocked<PrisonApi>
+const prisonRegisterApi = PrisonRegisterApi.prototype as jest.Mocked<PrisonRegisterApi>
 
 function basicReport(id: string, type: Type): ReportBasic {
   return { id, type } as ReportBasic
@@ -134,7 +135,7 @@ describe('GET /prisoner/:prisonerNumber/incident-summary/incidents', () => {
     offenderSearchApi.getPrisoner.mockResolvedValue(andrew)
     incidentReportingApi.getReports.mockResolvedValue(page([basicReport('1', 'FIRE_1')]))
     incidentReportingApi.getReportWithDetailsById.mockResolvedValue(reportWithDetails('6001', 'FIRE_1'))
-    prisonApi.getAgency.mockResolvedValue({ agencyId: 'MDI', description: 'Moorland (HMP)' } as never)
+    prisonRegisterApi.getAgency.mockResolvedValue(moorland)
 
     return request(app)
       .get(`/prisoner/${andrew.prisonerNumber}/incident-summary/incidents`)
@@ -145,7 +146,7 @@ describe('GET /prisoner/:prisonerNumber/incident-summary/incidents', () => {
         expect(res.text).toContain(`/prisoner/${andrew.prisonerNumber}/incident-summary`)
         expect(res.text).toContain('6001') // report reference
         expect(res.text).toContain('Perpetrator')
-        expect(res.text).toContain('Moorland (HMP)')
+        expect(res.text).toContain('Moorland (HMP &amp; YOI)')
         expect(res.text).toContain('href="/reports/') // viewable report is linked
       })
   })
@@ -155,7 +156,7 @@ describe('GET /prisoner/:prisonerNumber/incident-summary/incidents', () => {
     incidentReportingApi.getReports.mockResolvedValue(page([basicReport('1', 'FIRE_1')]))
     // report at Leeds, outside the reporting officer’s (MDI-only) caseload
     incidentReportingApi.getReportWithDetailsById.mockResolvedValue(reportWithDetails('6002', 'FIRE_1', 'LEI'))
-    prisonApi.getAgency.mockResolvedValue({ agencyId: 'LEI', description: 'Leeds (HMP)' } as never)
+    prisonRegisterApi.getAgency.mockResolvedValue(leeds)
 
     return request(app)
       .get(`/prisoner/${andrew.prisonerNumber}/incident-summary/incidents`)

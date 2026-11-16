@@ -1,6 +1,7 @@
 import type { UsersSearchResult } from '../../../../server/data/manageUsersApiClient'
 import { mockReport } from '../../../../server/data/testData/incidentReporting'
-import { staffMary, staffBarry, moorland } from '../../../../server/data/testData/prisonApi'
+import { moorland } from '../../../../server/data/testData/prisonRegister'
+import { staffMary, staffBarry } from '../../../../server/data/testData/prisonApi'
 import { now } from '../../../../server/testutils/fakeClock'
 import Page from '../../../pages/page'
 import { StaffSearchPage } from '../../../pages/reports/involvements/staff'

@@ -1,4 +1,4 @@
-import type { Agency } from './prisonApi'
+import type { Agency } from './prisonRegisterApi'
 
 export interface PecsRegion {
   code: string
@@ -9,7 +9,7 @@ export interface PecsRegion {
 /**
  * All PECS regions, including inactive historic ones.
  * NOU is excluded as it needs to remain active for NOMIS but not be used.
- * Loaded from prison-api asynchronously by middleware and cached for the lifetime of the application.
+ * Loaded from Prison Register asynchronously by middleware and cached for the lifetime of the application.
  * This should be safe since they will change extremely rarely.
  */
 export const pecsRegions: PecsRegion[] = []
@@ -25,7 +25,7 @@ export function getActivePecsRegions(): PecsRegion[] {
 export function fromAgency(agency: Agency): PecsRegion {
   return {
     code: agency.agencyId,
-    description: agency.description,
+    description: agency.description || agency.agencyId,
     active: agency.agencyId !== 'NOU' ? agency.active : false,
   }
 }

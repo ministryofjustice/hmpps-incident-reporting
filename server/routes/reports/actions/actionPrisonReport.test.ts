@@ -1,7 +1,7 @@
 import type { Express } from 'express'
 import request from 'supertest'
 
-import { PrisonApi } from '../../../data/prisonApi'
+import { PrisonRegisterApi } from '../../../data/prisonRegisterApi'
 import { appWithAllRoutes } from '../../testutils/appSetup'
 import { now } from '../../../testutils/fakeClock'
 import UserService from '../../../services/userService'
@@ -19,13 +19,13 @@ import { convertReportDates } from '../../../data/incidentReportingApiUtils'
 import * as reportValidity from '../../../data/reportValidity'
 import { mockErrorResponse, mockReport } from '../../../data/testData/incidentReporting'
 import { mockSharedUser } from '../../../data/testData/manageUsers'
-import { leeds, moorland } from '../../../data/testData/prisonApi'
+import { leeds, moorland } from '../../../data/testData/prisonRegister'
 import { mockThrownError } from '../../../data/testData/thrownErrors'
 import { mockDataWarden, mockReportingOfficer, mockHqViewer, mockUnauthorisedUser } from '../../../data/testData/users'
 import * as correctionRequestPlaceholder from './correctionRequestPlaceholder'
 
 jest.mock('../../../data/incidentReportingApi')
-jest.mock('../../../data/prisonApi')
+jest.mock('../../../data/prisonRegisterApi')
 jest.mock('../../../data/reportValidity')
 jest.mock('../../../services/userService')
 jest.mock('./correctionRequestPlaceholder')
@@ -38,7 +38,7 @@ const incidentReportingRelatedObjects = RelatedObjects.prototype as jest.Mocked<
 // @ts-ignore need to mock a getter method
 incidentReportingApi.correctionRequests = incidentReportingRelatedObjects
 const userService = UserService.prototype as jest.Mocked<UserService>
-const prisonApi = PrisonApi.prototype as jest.Mocked<PrisonApi>
+const prisonRegisterApi = PrisonRegisterApi.prototype as jest.Mocked<PrisonRegisterApi>
 
 const { validateReport } = reportValidity as jest.Mocked<typeof import('../../../data/reportValidity')>
 const { placeholderForCorrectionRequest } = correctionRequestPlaceholder as jest.Mocked<
@@ -50,7 +50,7 @@ beforeEach(() => {
     [mockSharedUser.username]: mockSharedUser,
   })
 
-  prisonApi.getAgency.mockImplementation(locationCode =>
+  prisonRegisterApi.getAgency.mockImplementation(locationCode =>
     Promise.resolve(
       {
         LEI: leeds,
@@ -1041,15 +1041,15 @@ describe('Actioning prison reports', () => {
                 expect(incidentReportingApi.getReportByReference).not.toHaveBeenCalled()
               }
               if (updatesTitle) {
-                expect(prisonApi.getAgency).toHaveBeenCalledTimes(2)
-                expect(prisonApi.getAgency).toHaveBeenNthCalledWith(1, 'MDI', false, 'INST', false) // to display report location
-                expect(prisonApi.getAgency).toHaveBeenNthCalledWith(2, 'MDI', false, 'INST', false) // to regenerate title
+                expect(prisonRegisterApi.getAgency).toHaveBeenCalledTimes(2)
+                expect(prisonRegisterApi.getAgency).toHaveBeenNthCalledWith(1, 'MDI') // to display report location
+                expect(prisonRegisterApi.getAgency).toHaveBeenNthCalledWith(2, 'MDI') // to regenerate title
                 expect(incidentReportingApi.updateReport).toHaveBeenCalledWith(mockedReport.id, {
                   title: 'Assault: Arnold A1111AA, Benjamin A2222BB (Moorland (HMP & YOI))',
                 })
               } else {
-                expect(prisonApi.getAgency).toHaveBeenCalledTimes(1)
-                expect(prisonApi.getAgency).toHaveBeenCalledWith('MDI', false, 'INST', false) // to display report location
+                expect(prisonRegisterApi.getAgency).toHaveBeenCalledTimes(1)
+                expect(prisonRegisterApi.getAgency).toHaveBeenCalledWith('MDI') // to display report location
                 if (userAction === 'MARK_DUPLICATE') {
                   expect(incidentReportingApi.updateReport).toHaveBeenCalledWith(mockedReport.id, {
                     duplicatedReportId: mockedOriginalReport.id,

@@ -2,6 +2,7 @@ import type { RequestHandler } from 'express'
 
 import { IncidentReportingApi } from '../data/incidentReportingApi'
 import { PrisonApi } from '../data/prisonApi'
+import { PrisonRegisterApi } from '../data/prisonRegisterApi'
 import { OffenderSearchApi } from '../data/offenderSearchApi'
 import type { Services } from '../services'
 
@@ -13,6 +14,7 @@ export default function setApis({ userService }: Services): RequestHandler {
       userService,
       incidentReportingApi: new IncidentReportingApi(systemToken),
       prisonApi: new PrisonApi(systemToken),
+      prisonRegisterApi: new PrisonRegisterApi(systemToken),
       offenderSearchApi: new OffenderSearchApi(systemToken),
     }
 

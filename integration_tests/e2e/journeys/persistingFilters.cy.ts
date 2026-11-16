@@ -3,7 +3,7 @@ import { DashboardPage } from '../../pages/dashboard'
 import Page from '../../pages/page'
 import { mockReport } from '../../../server/data/testData/incidentReporting'
 import { now } from '../../../server/testutils/fakeClock'
-import { moorland } from '../../../server/data/testData/prisonApi'
+import { moorland } from '../../../server/data/testData/prisonRegister'
 import { ReportPage } from '../../pages/reports/report'
 import { HomePage } from '../../pages/home'
 
@@ -96,7 +96,7 @@ userScenarios.forEach(({ userType, user, userActions, dashboardUrl, filterBehavi
               ...reports[0],
             },
           })
-          cy.task('stubPrisonApiMockPrison', moorland)
+          cy.task('stubPrisonRegisterMockAgency', moorland)
           cy.visit(dashboardUrl)
           dashboardPage = Page.verifyOnPage(DashboardPage)
         })

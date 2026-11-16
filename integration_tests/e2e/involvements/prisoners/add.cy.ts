@@ -1,7 +1,7 @@
 import { RelatedObjectUrlSlug } from '../../../../server/data/constants'
 import { mockReport } from '../../../../server/data/testData/incidentReporting'
 import { andrew, barry } from '../../../../server/data/testData/offenderSearch'
-import { moorland } from '../../../../server/data/testData/prisonApi'
+import { moorland } from '../../../../server/data/testData/prisonRegister'
 import { now } from '../../../../server/testutils/fakeClock'
 import Page from '../../../pages/page'
 import { AddPrisonerInvolvementsPage, PrisonerInvolvementsPage } from '../../../pages/reports/involvements/prisoners'
@@ -37,7 +37,7 @@ context('Add prisoner involvement page', () => {
     cy.signIn()
     cy.task('stubIncidentReportingApiGetReportWithDetailsById', { report: reportWithDetails })
     cy.task('stubOffenderSearchMockPrisoners')
-    cy.task('stubPrisonApiMockPrison', moorland)
+    cy.task('stubPrisonRegisterMockAgency', moorland)
     cy.visit(`/reports/${reportWithDetails.id}/prisoners/add/${andrew.prisonerNumber}`)
     addPrisonerInvolvementsPage = Page.verifyOnPage(AddPrisonerInvolvementsPage, 'Andrew Arnold’s')
   })

@@ -131,6 +131,16 @@ services:
     volumes:
       - ./wiremock:/home/wiremock
 
+  prison-register:
+    image: wiremock/wiremock:3x
+    container_name: prison-register
+    networks:
+      - hmpps
+    ports:
+      - "8085:8080"
+    volumes:
+      - ./wiremock:/home/wiremock
+
   redis:
     image: redis:7
     container_name: irs-redis
@@ -157,6 +167,7 @@ services:
       - manage-users-api
       - nomis-user-roles-api
       - prison-api
+      - prison-register
       - prisoner-search
     profiles:
       - include-frontend
@@ -172,6 +183,7 @@ services:
       - HMPPS_AUTH_URL=http://hmpps-auth:8080/auth
       - HMPPS_INCIDENT_REPORTING_API_URL=http://incident-reporting-api:8080
       - HMPPS_PRISON_API_URL=http://prison-api:8080
+      - PRISON_REGISTER_API_URL=http://prison-register:8080
       - MANAGE_USERS_API_URL=http://manage-users-api:8080
       - OFFENDER_SEARCH_API_URL=http://prisoner-search:8080
 

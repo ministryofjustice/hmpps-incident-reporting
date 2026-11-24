@@ -32,6 +32,11 @@
     },
     {
       "matchDatasources": ["docker"],
+      "matchPackageNames": ["postgres"],
+      "allowedVersions": "/^18$/"
+    },
+    {
+      "matchDatasources": ["docker"],
       "matchPackageNames": ["node", "hmpps-node"],
       "matchUpdateTypes": ["major"],
       "enabled": false
